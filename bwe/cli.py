@@ -48,9 +48,12 @@ def export_site(output: str = "dist/site"):
 
 
 @cli.command()
-def intelligence():
+def intelligence(discover: str = typer.Option(None, help="Upstream topic discovery query via OpenAlex")):
     """ARC-58: Run Marketing Intelligence & Citation Telemetry synthesis."""
-    rc = subprocess.call([sys.executable, str(REPO_ROOT / "scripts" / "marketing_intelligence.py")])
+    cmd = [sys.executable, str(REPO_ROOT / "scripts" / "marketing_intelligence.py")]
+    if discover:
+        cmd.extend(["--discover", discover])
+    rc = subprocess.call(cmd)
     raise typer.Exit(code=rc)
 
 

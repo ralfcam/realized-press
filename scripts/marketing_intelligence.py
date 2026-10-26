@@ -13,8 +13,11 @@ and OKF v0.2 Evidence Cards (`evidence-cards/*.md`) to:
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
+import urllib.parse
+import urllib.request
 from collections import Counter
 from pathlib import Path
 
@@ -169,17 +172,111 @@ def analyze_series(series_dir: Path) -> str:
     return "\n".join(lines)
 
 
+def discover_frontier_topics(query: str, limit: int = 5, min_year: int = 2022) -> str:
+    current_year = 2026
+    encoded_q = urllib.parse.quote_plus(query)
+    url = f"https://api.openalex.org/works?search={encoded_q}&filter=publication_year:{min_year}-{current_year},is_retracted:false&sort=cited_by_count:desc&per-page=25"
+    headers = {"User-Agent": "RealizedPressBWE/1.0 (mailto:admin@realizedpress.com)"}
+
+    req = urllib.request.Request(url, headers=headers)
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+    except Exception as e:
+        return f"# Upstream Frontier Topic Radar — Error querying OpenAlex: {e}\n"
+
+    results = data.get("results") or []
+    total_found = data.get("meta", {}).get("count", 0)
+
+    candidates = []
+    topic_counter = Counter()
+    keyword_counter = Counter()
+
+    for w in results:
+        title = w.get("title") or "Untitled"
+        year = w.get("publication_year") or current_year
+        citations = w.get("cited_by_count") or 0
+        doi = w.get("doi") or ""
+        age = max(1, current_year - year)
+        velocity = citations / age
+
+        pt = w.get("primary_topic") or {}
+        if pt.get("display_name"):
+            topic_counter[pt["display_name"]] += 1
+
+        for kw in w.get("keywords") or []:
+            if kw.get("display_name"):
+                keyword_counter[kw["display_name"].lower()] += 1
+
+        candidates.append(
+            {
+                "title": title,
+                "year": year,
+                "citations": citations,
+                "velocity": velocity,
+                "doi": doi,
+                "topic": pt.get("display_name", "General"),
+                "field": (pt.get("field") or {}).get("display_name", "Interdisciplinary"),
+            }
+        )
+
+    candidates.sort(key=lambda x: -x["velocity"])
+    top_candidates = candidates[:limit]
+
+    lines = [
+        f"# Upstream Frontier Topic Radar — Query: *\"{query}\"*",
+        f"- **Literature Scope:** OpenAlex indexed works ({min_year}–{current_year})",
+        f"- **Total Relevant Works Identified:** {total_found:,}",
+        "",
+        "## 1. High-Velocity Frontier Citation Clusters (Candidate Topics)",
+    ]
+    for topic, count in topic_counter.most_common(5):
+        lines.append(f"- **{topic}** ({count} flagship high-velocity papers)")
+
+    lines.extend(
+        [
+            "",
+            "## 2. Emerging Keyword Signals",
+            "- " + ", ".join(f"`{k}` ({cnt})" for k, cnt in keyword_counter.most_common(8)),
+            "",
+            "## 3. Top Candidate Seed Works for OKF v0.2 Evidence Cards",
+            "| Title | Year | Citations | Velocity (cites/yr) | Primary Topic / Field | DOI |",
+            "| :--- | :---: | :---: | :---: | :--- | :--- |",
+        ]
+    )
+    for c in top_candidates:
+        doi_link = f"[{c['doi'].replace('https://doi.org/', '')}]({c['doi']})" if c['doi'] else "N/A"
+        lines.append(f"| {c['title']} | {c['year']} | {c['citations']} | {c['velocity']:.1f}/yr | {c['topic']} ({c['field']}) | {doi_link} |")
+
+    lines.extend(
+        [
+            "",
+            "## 4. Next Actions for Series / Book Scaffolding",
+            f"- Initialize new series manifest: `python scripts/init_series.py --series <slug> --title \"<Title>\"`",
+            "- Author seed OKF v0.2 evidence cards using the verified DOIs above.",
+            "- Verify with `python scripts/five_rule_check.py series/<slug>/book-01-<book-slug> --online-retraction-check`.",
+        ]
+    )
+    return "\n".join(lines)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run BWE Marketing Intelligence & Topic Scorecard.")
     parser.add_argument("--series", default=None, help="Series directory or slug (omit to audit all series)")
+    parser.add_argument("--discover", default=None, help="Upstream search query to discover frontier citation-velocity topics via OpenAlex")
+    parser.add_argument("--limit", type=int, default=5, help="Max candidate seed cards to return for topic discovery")
     args = parser.parse_args()
+
+    if args.discover:
+        print(discover_frontier_topics(args.discover, limit=args.limit))
+        return 0
 
     root = repo_root()
     if args.series:
         target = Path(args.series)
         if not target.is_dir():
             target = root / "series" / args.series
-        series_dirs = [target]
+        series_dirs = [target.resolve()]
     else:
         series_dirs = sorted(p.parent for p in (root / "series").glob("*/series.yaml"))
 

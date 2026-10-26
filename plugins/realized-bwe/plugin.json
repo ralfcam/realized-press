@@ -1,0 +1,11 @@
+{
+  "name": "realized-bwe",
+  "displayName": "Realized Press BWE",
+  "description": "Book Writing Environment (BWE) for multi-series nonfiction: OKF v0.2 Evidence Cards, Five-Rule Gates, DOI Bibliographic Locks, Narrative Rigor Directives, Manuscript Auditor, and Multi-Format Publishing Pipeline.",
+  "version": "1.0.0",
+  "suggestedPrompts": [
+    "Run manuscript audit and five-rule check on series/parenthood-atlas",
+    "Perform a refinement pass on the active book draft using narrative rigor directives",
+    "Synthesize audiobook TTS with zero-drift paragraph timing sidecars"
+  ]
+}

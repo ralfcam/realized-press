@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "academic-bib": {
+      "command": "python",
+      "args": [
+        "scripts/mcp_academic_bib.py"
+      ]
+    }
+  }
+}
