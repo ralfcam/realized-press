@@ -92,6 +92,15 @@ def synthesize_chunk_pcm(text: str, voice: str, model: str, api_key: str, max_re
                 raise RuntimeError("No inlineData audio returned in Gemini response.")
             except urllib.error.HTTPError as e:
                 last_err = e
+                body_msg = ""
+                try:
+                    err_json = json.loads(e.read().decode("utf-8"))
+                    body_msg = (err_json.get("error") or {}).get("message", "")
+                except Exception:
+                    pass
+                if "spending cap" in body_msg.lower():
+                    print(f"\n[ALERT] Monthly spending cap reached on Gemini API: {body_msg}", file=sys.stderr)
+                    raise
                 if e.code in [429, 500, 503] and attempt < max_retries - 1:
                     wait_s = max(3.0, float(2 ** (attempt + 1)))
                     print(f"    [{current_model}] HTTP {e.code}. Backing off {wait_s:.1f}s before retry ({attempt+1}/{max_retries})...")
@@ -292,6 +301,11 @@ def main() -> None:
             )
             if res.returncode == 0:
                 print(f"Wrote web-streamable MP3: {mp3_path}")
+
+        # Update player after each completed chapter
+        render_script = root / "scripts" / "render_audiobook_player.py"
+        if render_script.exists():
+            subprocess.run([sys.executable, str(render_script), str(book_path)], capture_output=True)
 
     # Re-render audio player
     render_script = root / "scripts" / "render_audiobook_player.py"

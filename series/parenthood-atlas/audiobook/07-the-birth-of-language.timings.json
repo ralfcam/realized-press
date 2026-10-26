@@ -1,0 +1,2747 @@
+{
+  "chapter": "07-the-birth-of-language",
+  "total_duration_sec": 1720.176,
+  "sample_rate": 24000,
+  "bytes_per_second": 48000,
+  "chunks": [
+    {
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 3.97,
+      "duration_sec": 3.97,
+      "pcm_bytes": 190560,
+      "block_range": [
+        "b-000",
+        "b-000"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "start_sec": 3.97,
+      "end_sec": 18.07,
+      "duration_sec": 14.1,
+      "pcm_bytes": 676800,
+      "block_range": [
+        "b-001",
+        "b-001"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "start_sec": 18.07,
+      "end_sec": 22.17,
+      "duration_sec": 4.1,
+      "pcm_bytes": 196800,
+      "block_range": [
+        "b-002",
+        "b-002"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "start_sec": 22.17,
+      "end_sec": 24.71,
+      "duration_sec": 2.54,
+      "pcm_bytes": 121920,
+      "block_range": [
+        "b-003",
+        "b-003"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "start_sec": 24.71,
+      "end_sec": 27.77,
+      "duration_sec": 3.06,
+      "pcm_bytes": 146880,
+      "block_range": [
+        "b-004",
+        "b-004"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "start_sec": 27.77,
+      "end_sec": 56.67,
+      "duration_sec": 28.9,
+      "pcm_bytes": 1387200,
+      "block_range": [
+        "b-005",
+        "b-005"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "start_sec": 56.67,
+      "end_sec": 74.69,
+      "duration_sec": 18.02,
+      "pcm_bytes": 864960,
+      "block_range": [
+        "b-006",
+        "b-006"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "start_sec": 74.69,
+      "end_sec": 87.15,
+      "duration_sec": 12.46,
+      "pcm_bytes": 598080,
+      "block_range": [
+        "b-007",
+        "b-007"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "start_sec": 87.15,
+      "end_sec": 94.93,
+      "duration_sec": 7.78,
+      "pcm_bytes": 373440,
+      "block_range": [
+        "b-008",
+        "b-008"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "start_sec": 94.93,
+      "end_sec": 99.35,
+      "duration_sec": 4.42,
+      "pcm_bytes": 212160,
+      "block_range": [
+        "b-009",
+        "b-009"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "start_sec": 99.35,
+      "end_sec": 100.771,
+      "duration_sec": 1.421,
+      "pcm_bytes": 68206,
+      "block_range": [
+        "b-010",
+        "b-010"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "start_sec": 100.771,
+      "end_sec": 112.831,
+      "duration_sec": 12.06,
+      "pcm_bytes": 578880,
+      "block_range": [
+        "b-011",
+        "b-011"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "start_sec": 112.831,
+      "end_sec": 139.491,
+      "duration_sec": 26.66,
+      "pcm_bytes": 1279680,
+      "block_range": [
+        "b-012",
+        "b-012"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "start_sec": 139.491,
+      "end_sec": 164.751,
+      "duration_sec": 25.26,
+      "pcm_bytes": 1212480,
+      "block_range": [
+        "b-013",
+        "b-013"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "start_sec": 164.751,
+      "end_sec": 183.771,
+      "duration_sec": 19.02,
+      "pcm_bytes": 912960,
+      "block_range": [
+        "b-014",
+        "b-014"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "start_sec": 183.771,
+      "end_sec": 187.552,
+      "duration_sec": 3.781,
+      "pcm_bytes": 181486,
+      "block_range": [
+        "b-015",
+        "b-015"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "start_sec": 187.552,
+      "end_sec": 193.332,
+      "duration_sec": 5.78,
+      "pcm_bytes": 277440,
+      "block_range": [
+        "b-016",
+        "b-016"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "start_sec": 193.332,
+      "end_sec": 202.972,
+      "duration_sec": 9.64,
+      "pcm_bytes": 462720,
+      "block_range": [
+        "b-017",
+        "b-017"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "start_sec": 202.972,
+      "end_sec": 211.412,
+      "duration_sec": 8.44,
+      "pcm_bytes": 405120,
+      "block_range": [
+        "b-018",
+        "b-018"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "start_sec": 211.412,
+      "end_sec": 225.892,
+      "duration_sec": 14.48,
+      "pcm_bytes": 695040,
+      "block_range": [
+        "b-019",
+        "b-019"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "start_sec": 225.892,
+      "end_sec": 244.512,
+      "duration_sec": 18.62,
+      "pcm_bytes": 893760,
+      "block_range": [
+        "b-020",
+        "b-020"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "start_sec": 244.512,
+      "end_sec": 247.962,
+      "duration_sec": 3.45,
+      "pcm_bytes": 165600,
+      "block_range": [
+        "b-021",
+        "b-021"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "start_sec": 247.962,
+      "end_sec": 252.102,
+      "duration_sec": 4.14,
+      "pcm_bytes": 198720,
+      "block_range": [
+        "b-022",
+        "b-022"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "start_sec": 252.102,
+      "end_sec": 269.482,
+      "duration_sec": 17.38,
+      "pcm_bytes": 834240,
+      "block_range": [
+        "b-023",
+        "b-023"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "start_sec": 269.482,
+      "end_sec": 293.302,
+      "duration_sec": 23.82,
+      "pcm_bytes": 1143360,
+      "block_range": [
+        "b-024",
+        "b-024"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "start_sec": 293.302,
+      "end_sec": 323.162,
+      "duration_sec": 29.86,
+      "pcm_bytes": 1433280,
+      "block_range": [
+        "b-025",
+        "b-025"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "start_sec": 323.162,
+      "end_sec": 340.262,
+      "duration_sec": 17.1,
+      "pcm_bytes": 820800,
+      "block_range": [
+        "b-026",
+        "b-026"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "start_sec": 340.262,
+      "end_sec": 350.442,
+      "duration_sec": 10.18,
+      "pcm_bytes": 488640,
+      "block_range": [
+        "b-027",
+        "b-027"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "start_sec": 350.442,
+      "end_sec": 353.692,
+      "duration_sec": 3.25,
+      "pcm_bytes": 156000,
+      "block_range": [
+        "b-028",
+        "b-028"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "start_sec": 353.692,
+      "end_sec": 359.512,
+      "duration_sec": 5.82,
+      "pcm_bytes": 279360,
+      "block_range": [
+        "b-029",
+        "b-029"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "start_sec": 359.512,
+      "end_sec": 380.652,
+      "duration_sec": 21.14,
+      "pcm_bytes": 1014720,
+      "block_range": [
+        "b-030",
+        "b-030"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "start_sec": 380.652,
+      "end_sec": 386.192,
+      "duration_sec": 5.54,
+      "pcm_bytes": 265920,
+      "block_range": [
+        "b-031",
+        "b-031"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "start_sec": 386.192,
+      "end_sec": 405.932,
+      "duration_sec": 19.74,
+      "pcm_bytes": 947520,
+      "block_range": [
+        "b-032",
+        "b-032"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "start_sec": 405.932,
+      "end_sec": 422.632,
+      "duration_sec": 16.7,
+      "pcm_bytes": 801600,
+      "block_range": [
+        "b-033",
+        "b-033"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "start_sec": 422.632,
+      "end_sec": 444.092,
+      "duration_sec": 21.46,
+      "pcm_bytes": 1030080,
+      "block_range": [
+        "b-034",
+        "b-034"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "start_sec": 444.092,
+      "end_sec": 459.472,
+      "duration_sec": 15.38,
+      "pcm_bytes": 738240,
+      "block_range": [
+        "b-035",
+        "b-035"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "start_sec": 459.472,
+      "end_sec": 463.212,
+      "duration_sec": 3.74,
+      "pcm_bytes": 179520,
+      "block_range": [
+        "b-036",
+        "b-036"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "start_sec": 463.212,
+      "end_sec": 488.512,
+      "duration_sec": 25.3,
+      "pcm_bytes": 1214400,
+      "block_range": [
+        "b-037",
+        "b-037"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "start_sec": 488.512,
+      "end_sec": 496.852,
+      "duration_sec": 8.34,
+      "pcm_bytes": 400320,
+      "block_range": [
+        "b-038",
+        "b-038"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "start_sec": 496.852,
+      "end_sec": 522.992,
+      "duration_sec": 26.14,
+      "pcm_bytes": 1254720,
+      "block_range": [
+        "b-039",
+        "b-039"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "start_sec": 522.992,
+      "end_sec": 542.852,
+      "duration_sec": 19.86,
+      "pcm_bytes": 953280,
+      "block_range": [
+        "b-040",
+        "b-040"
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "start_sec": 542.852,
+      "end_sec": 545.662,
+      "duration_sec": 2.81,
+      "pcm_bytes": 134880,
+      "block_range": [
+        "b-041",
+        "b-041"
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "start_sec": 545.662,
+      "end_sec": 551.042,
+      "duration_sec": 5.38,
+      "pcm_bytes": 258240,
+      "block_range": [
+        "b-042",
+        "b-042"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "start_sec": 551.042,
+      "end_sec": 561.222,
+      "duration_sec": 10.18,
+      "pcm_bytes": 488640,
+      "block_range": [
+        "b-043",
+        "b-043"
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "start_sec": 561.222,
+      "end_sec": 574.402,
+      "duration_sec": 13.18,
+      "pcm_bytes": 632640,
+      "block_range": [
+        "b-044",
+        "b-044"
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "start_sec": 574.402,
+      "end_sec": 594.622,
+      "duration_sec": 20.22,
+      "pcm_bytes": 970560,
+      "block_range": [
+        "b-045",
+        "b-045"
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "start_sec": 594.622,
+      "end_sec": 610.002,
+      "duration_sec": 15.38,
+      "pcm_bytes": 738240,
+      "block_range": [
+        "b-046",
+        "b-046"
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "start_sec": 610.002,
+      "end_sec": 632.462,
+      "duration_sec": 22.46,
+      "pcm_bytes": 1078080,
+      "block_range": [
+        "b-047",
+        "b-047"
+      ]
+    },
+    {
+      "chunk_id": 49,
+      "start_sec": 632.462,
+      "end_sec": 644.762,
+      "duration_sec": 12.3,
+      "pcm_bytes": 590400,
+      "block_range": [
+        "b-048",
+        "b-048"
+      ]
+    },
+    {
+      "chunk_id": 50,
+      "start_sec": 644.762,
+      "end_sec": 648.539,
+      "duration_sec": 3.777,
+      "pcm_bytes": 181316,
+      "block_range": [
+        "b-049",
+        "b-049"
+      ]
+    },
+    {
+      "chunk_id": 51,
+      "start_sec": 648.539,
+      "end_sec": 654.519,
+      "duration_sec": 5.98,
+      "pcm_bytes": 287040,
+      "block_range": [
+        "b-050",
+        "b-050"
+      ]
+    },
+    {
+      "chunk_id": 52,
+      "start_sec": 654.519,
+      "end_sec": 666.179,
+      "duration_sec": 11.66,
+      "pcm_bytes": 559680,
+      "block_range": [
+        "b-051",
+        "b-051"
+      ]
+    },
+    {
+      "chunk_id": 53,
+      "start_sec": 666.179,
+      "end_sec": 682.199,
+      "duration_sec": 16.02,
+      "pcm_bytes": 768960,
+      "block_range": [
+        "b-052",
+        "b-052"
+      ]
+    },
+    {
+      "chunk_id": 54,
+      "start_sec": 682.199,
+      "end_sec": 702.579,
+      "duration_sec": 20.38,
+      "pcm_bytes": 978240,
+      "block_range": [
+        "b-053",
+        "b-053"
+      ]
+    },
+    {
+      "chunk_id": 55,
+      "start_sec": 702.579,
+      "end_sec": 727.367,
+      "duration_sec": 24.787,
+      "pcm_bytes": 1189796,
+      "block_range": [
+        "b-054",
+        "b-054"
+      ]
+    },
+    {
+      "chunk_id": 56,
+      "start_sec": 727.367,
+      "end_sec": 746.747,
+      "duration_sec": 19.38,
+      "pcm_bytes": 930240,
+      "block_range": [
+        "b-055",
+        "b-055"
+      ]
+    },
+    {
+      "chunk_id": 57,
+      "start_sec": 746.747,
+      "end_sec": 749.448,
+      "duration_sec": 2.701,
+      "pcm_bytes": 129646,
+      "block_range": [
+        "b-056",
+        "b-056"
+      ]
+    },
+    {
+      "chunk_id": 58,
+      "start_sec": 749.448,
+      "end_sec": 755.399,
+      "duration_sec": 5.951,
+      "pcm_bytes": 285646,
+      "block_range": [
+        "b-057",
+        "b-057"
+      ]
+    },
+    {
+      "chunk_id": 59,
+      "start_sec": 755.399,
+      "end_sec": 776.339,
+      "duration_sec": 20.94,
+      "pcm_bytes": 1005120,
+      "block_range": [
+        "b-058",
+        "b-058"
+      ]
+    },
+    {
+      "chunk_id": 60,
+      "start_sec": 776.339,
+      "end_sec": 797.126,
+      "duration_sec": 20.787,
+      "pcm_bytes": 997796,
+      "block_range": [
+        "b-059",
+        "b-059"
+      ]
+    },
+    {
+      "chunk_id": 61,
+      "start_sec": 797.126,
+      "end_sec": 820.066,
+      "duration_sec": 22.94,
+      "pcm_bytes": 1101120,
+      "block_range": [
+        "b-060",
+        "b-060"
+      ]
+    },
+    {
+      "chunk_id": 62,
+      "start_sec": 820.066,
+      "end_sec": 850.257,
+      "duration_sec": 30.191,
+      "pcm_bytes": 1449166,
+      "block_range": [
+        "b-061",
+        "b-061"
+      ]
+    },
+    {
+      "chunk_id": 63,
+      "start_sec": 850.257,
+      "end_sec": 854.198,
+      "duration_sec": 3.941,
+      "pcm_bytes": 189166,
+      "block_range": [
+        "b-062",
+        "b-062"
+      ]
+    },
+    {
+      "chunk_id": 64,
+      "start_sec": 854.198,
+      "end_sec": 866.618,
+      "duration_sec": 12.42,
+      "pcm_bytes": 596160,
+      "block_range": [
+        "b-063",
+        "b-063"
+      ]
+    },
+    {
+      "chunk_id": 65,
+      "start_sec": 866.618,
+      "end_sec": 874.718,
+      "duration_sec": 8.1,
+      "pcm_bytes": 388800,
+      "block_range": [
+        "b-064",
+        "b-064"
+      ]
+    },
+    {
+      "chunk_id": 66,
+      "start_sec": 874.718,
+      "end_sec": 901.698,
+      "duration_sec": 26.98,
+      "pcm_bytes": 1295040,
+      "block_range": [
+        "b-065",
+        "b-065"
+      ]
+    },
+    {
+      "chunk_id": 67,
+      "start_sec": 901.698,
+      "end_sec": 920.478,
+      "duration_sec": 18.78,
+      "pcm_bytes": 901440,
+      "block_range": [
+        "b-066",
+        "b-066"
+      ]
+    },
+    {
+      "chunk_id": 68,
+      "start_sec": 920.478,
+      "end_sec": 937.298,
+      "duration_sec": 16.82,
+      "pcm_bytes": 807360,
+      "block_range": [
+        "b-067",
+        "b-067"
+      ]
+    },
+    {
+      "chunk_id": 69,
+      "start_sec": 937.298,
+      "end_sec": 970.118,
+      "duration_sec": 32.82,
+      "pcm_bytes": 1575360,
+      "block_range": [
+        "b-068",
+        "b-068"
+      ]
+    },
+    {
+      "chunk_id": 70,
+      "start_sec": 970.118,
+      "end_sec": 993.978,
+      "duration_sec": 23.86,
+      "pcm_bytes": 1145280,
+      "block_range": [
+        "b-069",
+        "b-069"
+      ]
+    },
+    {
+      "chunk_id": 71,
+      "start_sec": 993.978,
+      "end_sec": 997.628,
+      "duration_sec": 3.65,
+      "pcm_bytes": 175200,
+      "block_range": [
+        "b-070",
+        "b-070"
+      ]
+    },
+    {
+      "chunk_id": 72,
+      "start_sec": 997.628,
+      "end_sec": 1003.539,
+      "duration_sec": 5.911,
+      "pcm_bytes": 283726,
+      "block_range": [
+        "b-071",
+        "b-071"
+      ]
+    },
+    {
+      "chunk_id": 73,
+      "start_sec": 1003.539,
+      "end_sec": 1007.079,
+      "duration_sec": 3.54,
+      "pcm_bytes": 169920,
+      "block_range": [
+        "b-072",
+        "b-072"
+      ]
+    },
+    {
+      "chunk_id": 74,
+      "start_sec": 1007.079,
+      "end_sec": 1022.419,
+      "duration_sec": 15.34,
+      "pcm_bytes": 736320,
+      "block_range": [
+        "b-073",
+        "b-073"
+      ]
+    },
+    {
+      "chunk_id": 75,
+      "start_sec": 1022.419,
+      "end_sec": 1044.919,
+      "duration_sec": 22.5,
+      "pcm_bytes": 1080000,
+      "block_range": [
+        "b-074",
+        "b-074"
+      ]
+    },
+    {
+      "chunk_id": 76,
+      "start_sec": 1044.919,
+      "end_sec": 1070.099,
+      "duration_sec": 25.18,
+      "pcm_bytes": 1208640,
+      "block_range": [
+        "b-075",
+        "b-075"
+      ]
+    },
+    {
+      "chunk_id": 77,
+      "start_sec": 1070.099,
+      "end_sec": 1100.999,
+      "duration_sec": 30.9,
+      "pcm_bytes": 1483200,
+      "block_range": [
+        "b-076",
+        "b-076"
+      ]
+    },
+    {
+      "chunk_id": 78,
+      "start_sec": 1100.999,
+      "end_sec": 1131.059,
+      "duration_sec": 30.06,
+      "pcm_bytes": 1442880,
+      "block_range": [
+        "b-077",
+        "b-077"
+      ]
+    },
+    {
+      "chunk_id": 79,
+      "start_sec": 1131.059,
+      "end_sec": 1154.959,
+      "duration_sec": 23.9,
+      "pcm_bytes": 1147200,
+      "block_range": [
+        "b-078",
+        "b-078"
+      ]
+    },
+    {
+      "chunk_id": 80,
+      "start_sec": 1154.959,
+      "end_sec": 1161.066,
+      "duration_sec": 6.107,
+      "pcm_bytes": 293156,
+      "block_range": [
+        "b-079",
+        "b-079"
+      ]
+    },
+    {
+      "chunk_id": 81,
+      "start_sec": 1161.066,
+      "end_sec": 1164.607,
+      "duration_sec": 3.541,
+      "pcm_bytes": 169966,
+      "block_range": [
+        "b-080",
+        "b-080"
+      ]
+    },
+    {
+      "chunk_id": 82,
+      "start_sec": 1164.607,
+      "end_sec": 1172.827,
+      "duration_sec": 8.22,
+      "pcm_bytes": 394560,
+      "block_range": [
+        "b-081",
+        "b-081"
+      ]
+    },
+    {
+      "chunk_id": 83,
+      "start_sec": 1172.827,
+      "end_sec": 1193.775,
+      "duration_sec": 20.947,
+      "pcm_bytes": 1005476,
+      "block_range": [
+        "b-082",
+        "b-082"
+      ]
+    },
+    {
+      "chunk_id": 84,
+      "start_sec": 1193.775,
+      "end_sec": 1210.602,
+      "duration_sec": 16.827,
+      "pcm_bytes": 807716,
+      "block_range": [
+        "b-083",
+        "b-083"
+      ]
+    },
+    {
+      "chunk_id": 85,
+      "start_sec": 1210.602,
+      "end_sec": 1238.71,
+      "duration_sec": 28.107,
+      "pcm_bytes": 1349156,
+      "block_range": [
+        "b-084",
+        "b-084"
+      ]
+    },
+    {
+      "chunk_id": 86,
+      "start_sec": 1238.71,
+      "end_sec": 1252.617,
+      "duration_sec": 13.907,
+      "pcm_bytes": 667556,
+      "block_range": [
+        "b-085",
+        "b-085"
+      ]
+    },
+    {
+      "chunk_id": 87,
+      "start_sec": 1252.617,
+      "end_sec": 1255.314,
+      "duration_sec": 2.697,
+      "pcm_bytes": 129476,
+      "block_range": [
+        "b-086",
+        "b-086"
+      ]
+    },
+    {
+      "chunk_id": 88,
+      "start_sec": 1255.314,
+      "end_sec": 1261.142,
+      "duration_sec": 5.827,
+      "pcm_bytes": 279716,
+      "block_range": [
+        "b-087",
+        "b-087"
+      ]
+    },
+    {
+      "chunk_id": 89,
+      "start_sec": 1261.142,
+      "end_sec": 1282.569,
+      "duration_sec": 21.427,
+      "pcm_bytes": 1028516,
+      "block_range": [
+        "b-088",
+        "b-088"
+      ]
+    },
+    {
+      "chunk_id": 90,
+      "start_sec": 1282.569,
+      "end_sec": 1302.717,
+      "duration_sec": 20.147,
+      "pcm_bytes": 967076,
+      "block_range": [
+        "b-089",
+        "b-089"
+      ]
+    },
+    {
+      "chunk_id": 91,
+      "start_sec": 1302.717,
+      "end_sec": 1333.584,
+      "duration_sec": 30.867,
+      "pcm_bytes": 1481636,
+      "block_range": [
+        "b-090",
+        "b-090"
+      ]
+    },
+    {
+      "chunk_id": 92,
+      "start_sec": 1333.584,
+      "end_sec": 1341.172,
+      "duration_sec": 7.587,
+      "pcm_bytes": 364196,
+      "block_range": [
+        "b-091",
+        "b-091"
+      ]
+    },
+    {
+      "chunk_id": 93,
+      "start_sec": 1341.172,
+      "end_sec": 1343.469,
+      "duration_sec": 2.297,
+      "pcm_bytes": 110276,
+      "block_range": [
+        "b-092",
+        "b-092"
+      ]
+    },
+    {
+      "chunk_id": 94,
+      "start_sec": 1343.469,
+      "end_sec": 1347.136,
+      "duration_sec": 3.667,
+      "pcm_bytes": 176036,
+      "block_range": [
+        "b-093",
+        "b-093"
+      ]
+    },
+    {
+      "chunk_id": 95,
+      "start_sec": 1347.136,
+      "end_sec": 1369.764,
+      "duration_sec": 22.627,
+      "pcm_bytes": 1086116,
+      "block_range": [
+        "b-094",
+        "b-094"
+      ]
+    },
+    {
+      "chunk_id": 96,
+      "start_sec": 1369.764,
+      "end_sec": 1390.791,
+      "duration_sec": 21.027,
+      "pcm_bytes": 1009316,
+      "block_range": [
+        "b-095",
+        "b-095"
+      ]
+    },
+    {
+      "chunk_id": 97,
+      "start_sec": 1390.791,
+      "end_sec": 1422.371,
+      "duration_sec": 31.58,
+      "pcm_bytes": 1515840,
+      "block_range": [
+        "b-096",
+        "b-096"
+      ]
+    },
+    {
+      "chunk_id": 98,
+      "start_sec": 1422.371,
+      "end_sec": 1453.031,
+      "duration_sec": 30.66,
+      "pcm_bytes": 1471680,
+      "block_range": [
+        "b-097",
+        "b-097"
+      ]
+    },
+    {
+      "chunk_id": 99,
+      "start_sec": 1453.031,
+      "end_sec": 1456.372,
+      "duration_sec": 3.341,
+      "pcm_bytes": 160366,
+      "block_range": [
+        "b-098",
+        "b-098"
+      ]
+    },
+    {
+      "chunk_id": 100,
+      "start_sec": 1456.372,
+      "end_sec": 1461.2,
+      "duration_sec": 4.827,
+      "pcm_bytes": 231716,
+      "block_range": [
+        "b-099",
+        "b-099"
+      ]
+    },
+    {
+      "chunk_id": 101,
+      "start_sec": 1461.2,
+      "end_sec": 1467.22,
+      "duration_sec": 6.02,
+      "pcm_bytes": 288960,
+      "block_range": [
+        "b-100",
+        "b-100"
+      ]
+    },
+    {
+      "chunk_id": 102,
+      "start_sec": 1467.22,
+      "end_sec": 1475.24,
+      "duration_sec": 8.02,
+      "pcm_bytes": 384960,
+      "block_range": [
+        "b-101",
+        "b-101"
+      ]
+    },
+    {
+      "chunk_id": 103,
+      "start_sec": 1475.24,
+      "end_sec": 1481.787,
+      "duration_sec": 6.547,
+      "pcm_bytes": 314276,
+      "block_range": [
+        "b-102",
+        "b-102"
+      ]
+    },
+    {
+      "chunk_id": 104,
+      "start_sec": 1481.787,
+      "end_sec": 1492.654,
+      "duration_sec": 10.867,
+      "pcm_bytes": 521636,
+      "block_range": [
+        "b-103",
+        "b-103"
+      ]
+    },
+    {
+      "chunk_id": 105,
+      "start_sec": 1492.654,
+      "end_sec": 1498.002,
+      "duration_sec": 5.347,
+      "pcm_bytes": 256676,
+      "block_range": [
+        "b-104",
+        "b-104"
+      ]
+    },
+    {
+      "chunk_id": 106,
+      "start_sec": 1498.002,
+      "end_sec": 1505.589,
+      "duration_sec": 7.587,
+      "pcm_bytes": 364196,
+      "block_range": [
+        "b-105",
+        "b-105"
+      ]
+    },
+    {
+      "chunk_id": 107,
+      "start_sec": 1505.589,
+      "end_sec": 1515.337,
+      "duration_sec": 9.747,
+      "pcm_bytes": 467876,
+      "block_range": [
+        "b-106",
+        "b-106"
+      ]
+    },
+    {
+      "chunk_id": 108,
+      "start_sec": 1515.337,
+      "end_sec": 1521.324,
+      "duration_sec": 5.987,
+      "pcm_bytes": 287396,
+      "block_range": [
+        "b-107",
+        "b-107"
+      ]
+    },
+    {
+      "chunk_id": 109,
+      "start_sec": 1521.324,
+      "end_sec": 1529.875,
+      "duration_sec": 8.551,
+      "pcm_bytes": 410446,
+      "block_range": [
+        "b-108",
+        "b-108"
+      ]
+    },
+    {
+      "chunk_id": 110,
+      "start_sec": 1529.875,
+      "end_sec": 1534.256,
+      "duration_sec": 4.381,
+      "pcm_bytes": 210286,
+      "block_range": [
+        "b-109",
+        "b-109"
+      ]
+    },
+    {
+      "chunk_id": 111,
+      "start_sec": 1534.256,
+      "end_sec": 1573.483,
+      "duration_sec": 39.227,
+      "pcm_bytes": 1882916,
+      "block_range": [
+        "b-110",
+        "b-110"
+      ]
+    },
+    {
+      "chunk_id": 112,
+      "start_sec": 1573.483,
+      "end_sec": 1597.471,
+      "duration_sec": 23.987,
+      "pcm_bytes": 1151396,
+      "block_range": [
+        "b-111",
+        "b-111"
+      ]
+    },
+    {
+      "chunk_id": 113,
+      "start_sec": 1597.471,
+      "end_sec": 1618.218,
+      "duration_sec": 20.747,
+      "pcm_bytes": 995876,
+      "block_range": [
+        "b-112",
+        "b-112"
+      ]
+    },
+    {
+      "chunk_id": 114,
+      "start_sec": 1618.218,
+      "end_sec": 1619.919,
+      "duration_sec": 1.701,
+      "pcm_bytes": 81646,
+      "block_range": [
+        "b-113",
+        "b-113"
+      ]
+    },
+    {
+      "chunk_id": 115,
+      "start_sec": 1619.919,
+      "end_sec": 1627.827,
+      "duration_sec": 7.907,
+      "pcm_bytes": 379556,
+      "block_range": [
+        "b-114",
+        "b-114"
+      ]
+    },
+    {
+      "chunk_id": 116,
+      "start_sec": 1627.827,
+      "end_sec": 1653.094,
+      "duration_sec": 25.267,
+      "pcm_bytes": 1212836,
+      "block_range": [
+        "b-115",
+        "b-115"
+      ]
+    },
+    {
+      "chunk_id": 117,
+      "start_sec": 1653.094,
+      "end_sec": 1680.801,
+      "duration_sec": 27.707,
+      "pcm_bytes": 1329956,
+      "block_range": [
+        "b-116",
+        "b-116"
+      ]
+    },
+    {
+      "chunk_id": 118,
+      "start_sec": 1680.801,
+      "end_sec": 1700.509,
+      "duration_sec": 19.707,
+      "pcm_bytes": 945956,
+      "block_range": [
+        "b-117",
+        "b-117"
+      ]
+    },
+    {
+      "chunk_id": 119,
+      "start_sec": 1700.509,
+      "end_sec": 1720.176,
+      "duration_sec": 19.667,
+      "pcm_bytes": 944036,
+      "block_range": [
+        "b-118",
+        "b-118"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "b-000",
+      "tag": "h1",
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 3.97,
+      "words": 7,
+      "weight": 10,
+      "text": "Chapter 7 — The Birth of Language",
+      "start_ratio": 0.0,
+      "end_ratio": 0.0023
+    },
+    {
+      "id": "b-001",
+      "tag": "p",
+      "chunk_id": 2,
+      "start_sec": 3.97,
+      "end_sec": 18.07,
+      "words": 38,
+      "weight": 38,
+      "text": "A sound that has been practiced for months is used, one day, as if it belonged to a thing. It may be a name. A word for food. A word for an object that has suddenly become important.",
+      "start_ratio": 0.0023,
+      "end_ratio": 0.0105
+    },
+    {
+      "id": "b-002",
+      "tag": "p",
+      "chunk_id": 3,
+      "start_sec": 18.07,
+      "end_sec": 22.17,
+      "words": 9,
+      "weight": 9,
+      "text": "Adults tend to experience this moment as an arrival.",
+      "start_ratio": 0.0105,
+      "end_ratio": 0.0129
+    },
+    {
+      "id": "b-003",
+      "tag": "p",
+      "chunk_id": 4,
+      "start_sec": 22.17,
+      "end_sec": 24.71,
+      "words": 3,
+      "weight": 3,
+      "text": "Language has begun.",
+      "start_ratio": 0.0129,
+      "end_ratio": 0.0144
+    },
+    {
+      "id": "b-004",
+      "tag": "p",
+      "chunk_id": 5,
+      "start_sec": 24.71,
+      "end_sec": 27.77,
+      "words": 5,
+      "weight": 5,
+      "text": "Development tells a different story.",
+      "start_ratio": 0.0144,
+      "end_ratio": 0.0161
+    },
+    {
+      "id": "b-005",
+      "tag": "p",
+      "chunk_id": 6,
+      "start_sec": 27.77,
+      "end_sec": 56.67,
+      "words": 62,
+      "weight": 62,
+      "text": "The first recognizable word is not the beginning of language. It is one of the first highly visible products of a process that has been unfolding since before birth: hearing a voice in the womb, discriminating sounds, finding seams in a speech stream, coordinating attention with another person, pointing, babbling, taking turns. Adults hear a debut. The child has been in rehearsal.",
+      "start_ratio": 0.0161,
+      "end_ratio": 0.0329
+    },
+    {
+      "id": "b-006",
+      "tag": "p",
+      "chunk_id": 7,
+      "start_sec": 56.67,
+      "end_sec": 74.69,
+      "words": 33,
+      "weight": 33,
+      "text": "Late-pregnancy speech exposure reliably shapes newborn auditory preferences for familiar voices and rhythm patterns. Yet demonstrating prenatal acoustic familiarization confers no permanent cognitive advantage and provides no justification for a commercial prenatal curriculum.",
+      "start_ratio": 0.0329,
+      "end_ratio": 0.0434
+    },
+    {
+      "id": "b-007",
+      "tag": "p",
+      "chunk_id": 8,
+      "start_sec": 74.69,
+      "end_sec": 87.15,
+      "words": 34,
+      "weight": 34,
+      "text": "This chapter asks a narrower question than “how do we teach a child to talk?” It asks what kind of learner a language learner is, and what kinds of claims that participation can support.",
+      "start_ratio": 0.0434,
+      "end_ratio": 0.0507
+    },
+    {
+      "id": "b-008",
+      "tag": "p",
+      "chunk_id": 9,
+      "start_sec": 87.15,
+      "end_sec": 94.93,
+      "words": 20,
+      "weight": 20,
+      "text": "Chapter 6 showed that action can become a source of evidence about the world. The next question is more social.",
+      "start_ratio": 0.0507,
+      "end_ratio": 0.0552
+    },
+    {
+      "id": "b-009",
+      "tag": "p",
+      "chunk_id": 10,
+      "start_sec": 94.93,
+      "end_sec": 99.35,
+      "words": 10,
+      "weight": 10,
+      "text": "What happens when those signals start to mean something shared?",
+      "start_ratio": 0.0552,
+      "end_ratio": 0.0578
+    },
+    {
+      "id": "b-010",
+      "tag": "h2",
+      "chunk_id": 11,
+      "start_sec": 99.35,
+      "end_sec": 100.771,
+      "words": 2,
+      "weight": 4,
+      "text": "The puzzle",
+      "start_ratio": 0.0578,
+      "end_ratio": 0.0586
+    },
+    {
+      "id": "b-011",
+      "tag": "p",
+      "chunk_id": 12,
+      "start_sec": 100.771,
+      "end_sec": 112.831,
+      "words": 28,
+      "weight": 28,
+      "text": "A first word looks like a beginning. It is easier to date than a look, a point, or a pause. That visibility is useful. It is also misleading.",
+      "start_ratio": 0.0586,
+      "end_ratio": 0.0656
+    },
+    {
+      "id": "b-012",
+      "tag": "p",
+      "chunk_id": 13,
+      "start_sec": 112.831,
+      "end_sec": 139.491,
+      "words": 66,
+      "weight": 66,
+      "text": "Before a child can name an object, there must be some capacity to hear differences between sounds. Before sounds can be mapped to objects, attention must be coordinated. Before a word can be shared, there must be some understanding that another person can direct attention toward something in the world. Before a child can participate in conversation, there must already be some capacity for taking turns.",
+      "start_ratio": 0.0656,
+      "end_ratio": 0.0811
+    },
+    {
+      "id": "b-013",
+      "tag": "p",
+      "chunk_id": 14,
+      "start_sec": 139.491,
+      "end_sec": 164.751,
+      "words": 53,
+      "weight": 53,
+      "text": "The naive picture is installation: biology delivers a language organ, and words appear on a timetable. The equally naive picture is a deposit: enough speech pours in, and a vocabulary accumulates. What we meet instead is participation. The infant is already part of a linguistic community, long before the community hears a word.",
+      "start_ratio": 0.0811,
+      "end_ratio": 0.0958
+    },
+    {
+      "id": "b-014",
+      "tag": "p",
+      "chunk_id": 15,
+      "start_sec": 164.751,
+      "end_sec": 183.771,
+      "words": 37,
+      "weight": 37,
+      "text": "A cry is not automatically a sentence. A laboratory segmentation result is not automatically a household vocabulary. A recorded word count is not automatically a conversation. Those are not polite disclaimers. They are part of the science.",
+      "start_ratio": 0.0958,
+      "end_ratio": 0.1068
+    },
+    {
+      "id": "b-015",
+      "tag": "h2",
+      "chunk_id": 16,
+      "start_sec": 183.771,
+      "end_sec": 187.552,
+      "words": 6,
+      "weight": 8,
+      "text": "Competing explanations of the opening scene",
+      "start_ratio": 0.1068,
+      "end_ratio": 0.109
+    },
+    {
+      "id": "b-016",
+      "tag": "p",
+      "chunk_id": 17,
+      "start_sec": 187.552,
+      "end_sec": 193.332,
+      "words": 12,
+      "weight": 12,
+      "text": "Before resolving the first word, three explanations need to sit in view:",
+      "start_ratio": 0.109,
+      "end_ratio": 0.1124
+    },
+    {
+      "id": "b-017",
+      "tag": "li",
+      "chunk_id": 18,
+      "start_sec": 193.332,
+      "end_sec": 202.972,
+      "words": 19,
+      "weight": 20,
+      "text": "Installation. Language is a biological program that turns on. The first word is the moment the program becomes audible.",
+      "start_ratio": 0.1124,
+      "end_ratio": 0.118
+    },
+    {
+      "id": "b-018",
+      "tag": "li",
+      "chunk_id": 19,
+      "start_sec": 202.972,
+      "end_sec": 211.412,
+      "words": 17,
+      "weight": 18,
+      "text": "Pour-in. Language is a quantity of input. The first word arrives when enough words have been heard.",
+      "start_ratio": 0.118,
+      "end_ratio": 0.1229
+    },
+    {
+      "id": "b-019",
+      "tag": "li",
+      "chunk_id": 20,
+      "start_sec": 211.412,
+      "end_sec": 225.892,
+      "words": 23,
+      "weight": 24,
+      "text": "Participation. Language emerges as a developing organism takes part in a community that already uses symbols: hearing, attending, gesturing, vocalizing, and being answered.",
+      "start_ratio": 0.1229,
+      "end_ratio": 0.1313
+    },
+    {
+      "id": "b-020",
+      "tag": "p",
+      "chunk_id": 21,
+      "start_sec": 225.892,
+      "end_sec": 244.512,
+      "words": 49,
+      "weight": 49,
+      "text": "The first is too complete for what can be shown. Preparedness is real; a finished organ that waits for a debut is not. The second is the popular metric. The third is the claim the evidence can carry — and even that claim must be graded, piece by piece.",
+      "start_ratio": 0.1313,
+      "end_ratio": 0.1421
+    },
+    {
+      "id": "b-021",
+      "tag": "h2",
+      "chunk_id": 22,
+      "start_sec": 244.512,
+      "end_sec": 247.962,
+      "words": 5,
+      "weight": 7,
+      "text": "Before a word, a signal",
+      "start_ratio": 0.1421,
+      "end_ratio": 0.1441
+    },
+    {
+      "id": "b-022",
+      "tag": "p",
+      "chunk_id": 23,
+      "start_sec": 247.962,
+      "end_sec": 252.102,
+      "words": 7,
+      "weight": 7,
+      "text": "The newborn does not arrive without communication.",
+      "start_ratio": 0.1441,
+      "end_ratio": 0.1466
+    },
+    {
+      "id": "b-023",
+      "tag": "p",
+      "chunk_id": 24,
+      "start_sec": 252.102,
+      "end_sec": 269.482,
+      "words": 38,
+      "weight": 38,
+      "text": "Crying already changes another person’s behavior. A caregiver hears it and approaches. At first this does not require the child to understand crying as a symbolic message. A distress signal can recruit a response without being a word.",
+      "start_ratio": 0.1466,
+      "end_ratio": 0.1567
+    },
+    {
+      "id": "b-024",
+      "tag": "p",
+      "chunk_id": 25,
+      "start_sec": 269.482,
+      "end_sec": 293.302,
+      "words": 50,
+      "weight": 50,
+      "text": "Crying operates as a recruiting, graded distress signal rather than an acoustically encoded vocabulary of distinct infant needs. In ordinary homes, acoustic pitch or duration cannot reliably diagnose whether an infant is hungry, tired, or in pain, serving as an urgent call for adult proximity rather than an early dialect.",
+      "start_ratio": 0.1567,
+      "end_ratio": 0.1705
+    },
+    {
+      "id": "b-025",
+      "tag": "p",
+      "chunk_id": 26,
+      "start_sec": 293.302,
+      "end_sec": 323.162,
+      "words": 57,
+      "weight": 57,
+      "text": "Over the first months, exchanges become more reciprocal. The infant looks; the caregiver looks back. The infant vocalizes; the adult answers. The infant pauses. These episodes have been called proto-conversations because they contain timing, alternation, and repair. They are not adult dialogue. A signal is not necessarily an intention. An interaction is not necessarily a symbolic exchange.",
+      "start_ratio": 0.1705,
+      "end_ratio": 0.1879
+    },
+    {
+      "id": "b-026",
+      "tag": "p",
+      "chunk_id": 27,
+      "start_sec": 323.162,
+      "end_sec": 340.262,
+      "words": 35,
+      "weight": 35,
+      "text": "The still-face literature, in which expected social contingency is withdrawn, is adjacent to Chapter 4 and Chapter 9 (infant-still-face-paradigm.md). It is not a language card. Sensitivity to a missing partner is not yet a grammar.",
+      "start_ratio": 0.1879,
+      "end_ratio": 0.1978
+    },
+    {
+      "id": "b-027",
+      "tag": "p",
+      "chunk_id": 28,
+      "start_sec": 340.262,
+      "end_sec": 350.442,
+      "words": 30,
+      "weight": 30,
+      "text": "The child is no longer only learning what happens in the world. The child is beginning to learn that another mind can be coordinated with their own experience of it.",
+      "start_ratio": 0.1978,
+      "end_ratio": 0.2037
+    },
+    {
+      "id": "b-028",
+      "tag": "h2",
+      "chunk_id": 29,
+      "start_sec": 350.442,
+      "end_sec": 353.692,
+      "words": 5,
+      "weight": 7,
+      "text": "The ear learns the landscape",
+      "start_ratio": 0.2037,
+      "end_ratio": 0.2056
+    },
+    {
+      "id": "b-029",
+      "tag": "p",
+      "chunk_id": 30,
+      "start_sec": 353.692,
+      "end_sec": 359.512,
+      "words": 12,
+      "weight": 12,
+      "text": "Language enters development through the senses before it enters through the mouth.",
+      "start_ratio": 0.2056,
+      "end_ratio": 0.209
+    },
+    {
+      "id": "b-030",
+      "tag": "p",
+      "chunk_id": 31,
+      "start_sec": 359.512,
+      "end_sec": 380.652,
+      "words": 46,
+      "weight": 46,
+      "text": "The auditory system is already working with speech-related information before the child can reproduce speech. Some of the earliest sounds that help organize attention after birth are sounds the infant has already encountered. Continuity across the womb-to-world transition is real. It is not a finished language.",
+      "start_ratio": 0.209,
+      "end_ratio": 0.2213
+    },
+    {
+      "id": "b-031",
+      "tag": "p",
+      "chunk_id": 32,
+      "start_sec": 380.652,
+      "end_sec": 386.192,
+      "words": 11,
+      "weight": 11,
+      "text": "The newborn’s auditory system is not yet committed to one language.",
+      "start_ratio": 0.2213,
+      "end_ratio": 0.2245
+    },
+    {
+      "id": "b-032",
+      "tag": "p",
+      "chunk_id": 33,
+      "start_sec": 386.192,
+      "end_sec": 405.932,
+      "words": 37,
+      "weight": 37,
+      "text": "Early in life, infants can discriminate a broad range of phonetic distinctions. Over the first year, that broad sensitivity becomes increasingly tuned to the languages actually heard. Native-language contrasts remain discriminable. Sensitivity to some less-experienced contrasts declines.",
+      "start_ratio": 0.2245,
+      "end_ratio": 0.236
+    },
+    {
+      "id": "b-033",
+      "tag": "p",
+      "chunk_id": 34,
+      "start_sec": 405.932,
+      "end_sec": 422.632,
+      "words": 37,
+      "weight": 37,
+      "text": "This process is often called perceptual narrowing. The phrase misleads if it suggests simple deterioration. What is happening is better understood as attunement. The infant is becoming more efficient at the patterns that matter in this environment.",
+      "start_ratio": 0.236,
+      "end_ratio": 0.2457
+    },
+    {
+      "id": "b-034",
+      "tag": "p",
+      "chunk_id": 35,
+      "start_sec": 422.632,
+      "end_sec": 444.092,
+      "words": 45,
+      "weight": 45,
+      "text": "Language-specific perceptual attunement reliably occurs across the first year of life in classic laboratory speech-contrast experiments. This tuning represents efficient neural specialization rather than a permanent closing of future language-learning capacity, and exposing an infant to a second language does not violate a biological deadline.",
+      "start_ratio": 0.2457,
+      "end_ratio": 0.2582
+    },
+    {
+      "id": "b-035",
+      "tag": "p",
+      "chunk_id": 36,
+      "start_sec": 444.092,
+      "end_sec": 459.472,
+      "words": 41,
+      "weight": 41,
+      "text": "A child growing up with one language is tuned toward that language. A child exposed to several is adapting to more than one system. The developing ear is not being handed a universal phonetic dictionary and then deleting most of it.",
+      "start_ratio": 0.2582,
+      "end_ratio": 0.2671
+    },
+    {
+      "id": "b-036",
+      "tag": "p",
+      "chunk_id": 37,
+      "start_sec": 459.472,
+      "end_sec": 463.212,
+      "words": 6,
+      "weight": 6,
+      "text": "The same principle operates in segmentation.",
+      "start_ratio": 0.2671,
+      "end_ratio": 0.2693
+    },
+    {
+      "id": "b-037",
+      "tag": "p",
+      "chunk_id": 38,
+      "start_sec": 463.212,
+      "end_sec": 488.512,
+      "words": 51,
+      "weight": 51,
+      "text": "To an adult, fluent speech appears already divided into words. To an infant, speech is initially a continuous stream. One way the developing system finds seams is by tracking statistical regularities. If one syllable reliably predicts another, their transitional probability is high. A sharp drop is information about a possible boundary.",
+      "start_ratio": 0.2693,
+      "end_ratio": 0.284
+    },
+    {
+      "id": "b-038",
+      "tag": "p",
+      "chunk_id": 39,
+      "start_sec": 488.512,
+      "end_sec": 496.852,
+      "words": 15,
+      "weight": 15,
+      "text": "In a classic laboratory demonstration, eight-month-olds extracted such regularities from two minutes of artificial speech.",
+      "start_ratio": 0.284,
+      "end_ratio": 0.2888
+    },
+    {
+      "id": "b-039",
+      "tag": "p",
+      "chunk_id": 40,
+      "start_sec": 496.852,
+      "end_sec": 522.992,
+      "words": 55,
+      "weight": 55,
+      "text": "Infants reliably track transitional probabilities between syllables to segment continuous, artificial speech streams into candidate word boundaries under controlled laboratory conditions. While statistical extraction is a robust discovery, detecting syllable boundaries in an acoustic laboratory is not identical to learning meaningful words in a noisy household, nor does it constitute a complete theory of syntax.",
+      "start_ratio": 0.2888,
+      "end_ratio": 0.304
+    },
+    {
+      "id": "b-040",
+      "tag": "p",
+      "chunk_id": 41,
+      "start_sec": 522.992,
+      "end_sec": 542.852,
+      "words": 45,
+      "weight": 45,
+      "text": "No one has to point at the boundaries and explain them. Detecting a regularity is still not knowing a meaning. Chapter 6’s mobile sits on action–outcome learning. This laboratory stream sits on regularity detection. Neither should be asked to do the work of a conversation.",
+      "start_ratio": 0.304,
+      "end_ratio": 0.3156
+    },
+    {
+      "id": "b-041",
+      "tag": "h2",
+      "chunk_id": 42,
+      "start_sec": 542.852,
+      "end_sec": 545.662,
+      "words": 6,
+      "weight": 8,
+      "text": "Which object is the word for?",
+      "start_ratio": 0.3156,
+      "end_ratio": 0.3172
+    },
+    {
+      "id": "b-042",
+      "tag": "p",
+      "chunk_id": 43,
+      "start_sec": 545.662,
+      "end_sec": 551.042,
+      "words": 13,
+      "weight": 13,
+      "text": "Imagine a child hearing a new word in a room full of objects.",
+      "start_ratio": 0.3172,
+      "end_ratio": 0.3203
+    },
+    {
+      "id": "b-043",
+      "tag": "p",
+      "chunk_id": 44,
+      "start_sec": 551.042,
+      "end_sec": 561.222,
+      "words": 25,
+      "weight": 25,
+      "text": "Which object does the word refer to? The cup? The table? The color? The act of lifting? The sound of the cup hitting the table?",
+      "start_ratio": 0.3203,
+      "end_ratio": 0.3263
+    },
+    {
+      "id": "b-044",
+      "tag": "p",
+      "chunk_id": 45,
+      "start_sec": 561.222,
+      "end_sec": 574.402,
+      "words": 27,
+      "weight": 27,
+      "text": "For an adult who already understands language and social intention, the ambiguity is easy to overlook. For a learner without an established vocabulary, the problem is large.",
+      "start_ratio": 0.3263,
+      "end_ratio": 0.3339
+    },
+    {
+      "id": "b-045",
+      "tag": "p",
+      "chunk_id": 46,
+      "start_sec": 574.402,
+      "end_sec": 594.622,
+      "words": 40,
+      "weight": 40,
+      "text": "One of the solutions is joint attention: not merely looking at the same object, but coordinating attention between people around something. Gaze-following, responding to a point, initiating a show, and sharing a communicative intention are related. They are not interchangeable.",
+      "start_ratio": 0.3339,
+      "end_ratio": 0.3457
+    },
+    {
+      "id": "b-046",
+      "tag": "p",
+      "chunk_id": 47,
+      "start_sec": 594.622,
+      "end_sec": 610.002,
+      "words": 40,
+      "weight": 40,
+      "text": "A sound becomes easier to interpret when the child can infer what the other person is talking about. Language, in this sense, is not only a mapping from sounds to objects. It is a mapping from signals to shared experience.",
+      "start_ratio": 0.3457,
+      "end_ratio": 0.3546
+    },
+    {
+      "id": "b-047",
+      "tag": "p",
+      "chunk_id": 48,
+      "start_sec": 610.002,
+      "end_sec": 632.462,
+      "words": 43,
+      "weight": 43,
+      "text": "Early joint attention is longitudinally associated with subsequent vocabulary growth within a transactional social communicative system. Yet joint attention is not a unilateral instructional lever that manufactures words, and drilling gaze-following as a parental technique has not shown causal acceleration of communicative competence.",
+      "start_ratio": 0.3546,
+      "end_ratio": 0.3677
+    },
+    {
+      "id": "b-048",
+      "tag": "p",
+      "chunk_id": 49,
+      "start_sec": 632.462,
+      "end_sec": 644.762,
+      "words": 28,
+      "weight": 28,
+      "text": "The point is simpler than instruction. A child and caregiver looking at the same thing creates an opportunity for meaning. Missing a demonstration is not a missed mind.",
+      "start_ratio": 0.3677,
+      "end_ratio": 0.3748
+    },
+    {
+      "id": "b-049",
+      "tag": "h2",
+      "chunk_id": 50,
+      "start_sec": 644.762,
+      "end_sec": 648.539,
+      "words": 7,
+      "weight": 9,
+      "text": "The first symbol may be a point",
+      "start_ratio": 0.3748,
+      "end_ratio": 0.377
+    },
+    {
+      "id": "b-050",
+      "tag": "p",
+      "chunk_id": 51,
+      "start_sec": 648.539,
+      "end_sec": 654.519,
+      "words": 14,
+      "weight": 14,
+      "text": "Before children speak in sentences, they can communicate about things that are not themselves.",
+      "start_ratio": 0.377,
+      "end_ratio": 0.3805
+    },
+    {
+      "id": "b-051",
+      "tag": "p",
+      "chunk_id": 52,
+      "start_sec": 654.519,
+      "end_sec": 666.179,
+      "words": 26,
+      "weight": 26,
+      "text": "A child points toward a dog, looks at the dog, looks back toward the parent. The adult follows. Two minds have been coordinated around one thing.",
+      "start_ratio": 0.3805,
+      "end_ratio": 0.3873
+    },
+    {
+      "id": "b-052",
+      "tag": "p",
+      "chunk_id": 53,
+      "start_sec": 666.179,
+      "end_sec": 682.199,
+      "words": 35,
+      "weight": 35,
+      "text": "Pointing is deceptively simple. The infant is no longer limited to acting directly on an object. The infant can alter another person’s attention from a distance. The gesture becomes a tool for directing another mind.",
+      "start_ratio": 0.3873,
+      "end_ratio": 0.3966
+    },
+    {
+      "id": "b-053",
+      "tag": "p",
+      "chunk_id": 54,
+      "start_sec": 682.199,
+      "end_sec": 702.579,
+      "words": 46,
+      "weight": 46,
+      "text": "This is why gesture deserves a place in the story of language that the phrase “pre-language” understates. A pointing child is creating a shared reference. The object exists in the world. The point does not. Its significance comes from the relationship among people, gesture, and referent.",
+      "start_ratio": 0.3966,
+      "end_ratio": 0.4084
+    },
+    {
+      "id": "b-054",
+      "tag": "p",
+      "chunk_id": 55,
+      "start_sec": 702.579,
+      "end_sec": 727.367,
+      "words": 59,
+      "weight": 59,
+      "text": "Gesture often precedes or accompanies early speech and has been associated longitudinally with later vocabulary. Prediction is not causation. A child who gestures early may also be a child with stronger attention, motor control, and social engagement. The gesture may be a scaffold. It may also be a marker. The evidence does not require choosing once and for all.",
+      "start_ratio": 0.4084,
+      "end_ratio": 0.4228
+    },
+    {
+      "id": "b-055",
+      "tag": "p",
+      "chunk_id": 56,
+      "start_sec": 727.367,
+      "end_sec": 746.747,
+      "words": 36,
+      "weight": 36,
+      "text": "Infant pointing functions as an intentional act of shared reference that reliably predicts subsequent expressive vocabulary. However, commercial baby-sign programs marketed to hearing infants have not demonstrated accelerated spoken language growth over naturally emerging communicative gestures.",
+      "start_ratio": 0.4228,
+      "end_ratio": 0.4341
+    },
+    {
+      "id": "b-056",
+      "tag": "h2",
+      "chunk_id": 57,
+      "start_sec": 746.747,
+      "end_sec": 749.448,
+      "words": 5,
+      "weight": 7,
+      "text": "The mouth learns by trying",
+      "start_ratio": 0.4341,
+      "end_ratio": 0.4357
+    },
+    {
+      "id": "b-057",
+      "tag": "p",
+      "chunk_id": 58,
+      "start_sec": 749.448,
+      "end_sec": 755.399,
+      "words": 14,
+      "weight": 14,
+      "text": "Babbling looks like noise only if one ignores what happens before and after it.",
+      "start_ratio": 0.4357,
+      "end_ratio": 0.4391
+    },
+    {
+      "id": "b-058",
+      "tag": "p",
+      "chunk_id": 59,
+      "start_sec": 755.399,
+      "end_sec": 776.339,
+      "words": 38,
+      "weight": 38,
+      "text": "Infants produce increasingly rhythmic consonant–vowel sequences: ba-ba, da-da, ma-ma. These sounds are not yet words. They are controlled exploration of the vocal system. The infant produces a sound, hears the result, changes the movement, repeats a successful pattern.",
+      "start_ratio": 0.4391,
+      "end_ratio": 0.4513
+    },
+    {
+      "id": "b-059",
+      "tag": "p",
+      "chunk_id": 60,
+      "start_sec": 776.339,
+      "end_sec": 797.126,
+      "words": 41,
+      "weight": 41,
+      "text": "The process resembles the exploratory learning in Chapter 6. Action generates information. Information modifies subsequent action. Auditory feedback tells the infant what was produced. Motor feedback tells the infant how. Social feedback tells the infant what other people do with it.",
+      "start_ratio": 0.4513,
+      "end_ratio": 0.4634
+    },
+    {
+      "id": "b-060",
+      "tag": "p",
+      "chunk_id": 61,
+      "start_sec": 797.126,
+      "end_sec": 820.066,
+      "words": 43,
+      "weight": 43,
+      "text": "A caregiver may imitate the sound. The child may repeat it. A turn-taking rhythm emerges. Babbling is simultaneously motor practice, sensory learning, and social participation. It is not a performance test of intelligence. Differences in vocal milestones are not automatically judgments about parenting.",
+      "start_ratio": 0.4634,
+      "end_ratio": 0.4767
+    },
+    {
+      "id": "b-061",
+      "tag": "p",
+      "chunk_id": 62,
+      "start_sec": 820.066,
+      "end_sec": 850.257,
+      "words": 52,
+      "weight": 52,
+      "text": "Research on infants exposed to sign language has identified rhythmic, repetitive manual behaviors sometimes described as manual babbling (Petitto & Marentette 1991). That observation matters because it separates the capacity for language production from the mere maturation of the vocal tract. The system need not be spoken to be real. See infant-babbling-as-exploration.md.",
+      "start_ratio": 0.4767,
+      "end_ratio": 0.4943
+    },
+    {
+      "id": "b-062",
+      "tag": "h2",
+      "chunk_id": 63,
+      "start_sec": 850.257,
+      "end_sec": 854.198,
+      "words": 6,
+      "weight": 8,
+      "text": "When a sound becomes a word",
+      "start_ratio": 0.4943,
+      "end_ratio": 0.4966
+    },
+    {
+      "id": "b-063",
+      "tag": "p",
+      "chunk_id": 64,
+      "start_sec": 854.198,
+      "end_sec": 866.618,
+      "words": 26,
+      "weight": 26,
+      "text": "Eventually one sound becomes different. Not because its acoustic form suddenly becomes perfect, but because the child begins using it with some stability and communicative function.",
+      "start_ratio": 0.4966,
+      "end_ratio": 0.5038
+    },
+    {
+      "id": "b-064",
+      "tag": "p",
+      "chunk_id": 65,
+      "start_sec": 866.618,
+      "end_sec": 874.718,
+      "words": 21,
+      "weight": 21,
+      "text": "A first word is not simply a sound produced at a particular age. It is a form that has acquired meaning.",
+      "start_ratio": 0.5038,
+      "end_ratio": 0.5085
+    },
+    {
+      "id": "b-065",
+      "tag": "p",
+      "chunk_id": 66,
+      "start_sec": 874.718,
+      "end_sec": 901.698,
+      "words": 57,
+      "weight": 57,
+      "text": "Children may hear a new label and rapidly establish an initial hypothesis about what it refers to. This has been called fast mapping. An initial mapping is not complete lexical knowledge. Later encounters refine pronunciation, range of reference, grammatical behavior, and relations to other words. Fast mapping may create a sketch. Repeated experience fills in the map.",
+      "start_ratio": 0.5085,
+      "end_ratio": 0.5242
+    },
+    {
+      "id": "b-066",
+      "tag": "p",
+      "chunk_id": 67,
+      "start_sec": 901.698,
+      "end_sec": 920.478,
+      "words": 50,
+      "weight": 50,
+      "text": "This is why “How quickly did the child learn the word?” is often a badly specified question. Quickly enough to point to the right object in a laboratory? To recognize it tomorrow? To use it in a different sentence? To distinguish it from several related words? These are different achievements.",
+      "start_ratio": 0.5242,
+      "end_ratio": 0.5351
+    },
+    {
+      "id": "b-067",
+      "tag": "p",
+      "chunk_id": 68,
+      "start_sec": 920.478,
+      "end_sec": 937.298,
+      "words": 36,
+      "weight": 36,
+      "text": "Comprehension often arrives before production. A child may understand many words while speaking only a few. Expressive vocabulary is not a complete measure of language. The visible first word is one point on a larger curve.",
+      "start_ratio": 0.5351,
+      "end_ratio": 0.5449
+    },
+    {
+      "id": "b-068",
+      "tag": "p",
+      "chunk_id": 69,
+      "start_sec": 937.298,
+      "end_sec": 970.118,
+      "words": 65,
+      "weight": 65,
+      "text": "During the second year, vocabulary often accelerates. It is tempting to imagine a switch. Accumulated learning is less theatrical. Every established word changes the conditions under which the next can be learned. The phrase “vocabulary explosion” can describe a common acceleration without becoming a requirement. Some children accelerate earlier, some later. Some show strength in comprehension, others in production. Variation is part of the phenomenon.",
+      "start_ratio": 0.5449,
+      "end_ratio": 0.564
+    },
+    {
+      "id": "b-069",
+      "tag": "p",
+      "chunk_id": 70,
+      "start_sec": 970.118,
+      "end_sec": 993.978,
+      "words": 45,
+      "weight": 45,
+      "text": "Grammar develops through productive generalization as children combine morphemes and extend syntactic patterns to novel utterances they have never explicitly heard. While theoretical traditions dispute the underlying cognitive architecture, the evidence firmly establishes productive combination without requiring this chapter to declare one linguistic paradigm victorious.",
+      "start_ratio": 0.564,
+      "end_ratio": 0.5778
+    },
+    {
+      "id": "b-070",
+      "tag": "h2",
+      "chunk_id": 71,
+      "start_sec": 993.978,
+      "end_sec": 997.628,
+      "words": 5,
+      "weight": 7,
+      "text": "Conversation is more than exposure",
+      "start_ratio": 0.5778,
+      "end_ratio": 0.58
+    },
+    {
+      "id": "b-071",
+      "tag": "p",
+      "chunk_id": 72,
+      "start_sec": 997.628,
+      "end_sec": 1003.539,
+      "words": 15,
+      "weight": 15,
+      "text": "A child can hear a great deal of speech without participating in very much conversation.",
+      "start_ratio": 0.58,
+      "end_ratio": 0.5834
+    },
+    {
+      "id": "b-072",
+      "tag": "p",
+      "chunk_id": 73,
+      "start_sec": 1003.539,
+      "end_sec": 1007.079,
+      "words": 5,
+      "weight": 5,
+      "text": "These are not equivalent experiences.",
+      "start_ratio": 0.5834,
+      "end_ratio": 0.5855
+    },
+    {
+      "id": "b-073",
+      "tag": "p",
+      "chunk_id": 74,
+      "start_sec": 1007.079,
+      "end_sec": 1022.419,
+      "words": 30,
+      "weight": 30,
+      "text": "Conversation has a structure. The child does something. The adult responds. The child processes the response. The child acts again. The child’s own behavior becomes part of the linguistic input.",
+      "start_ratio": 0.5855,
+      "end_ratio": 0.5944
+    },
+    {
+      "id": "b-074",
+      "tag": "p",
+      "chunk_id": 75,
+      "start_sec": 1022.419,
+      "end_sec": 1044.919,
+      "words": 51,
+      "weight": 51,
+      "text": "Automated daylong recordings can count adult words and adult–child conversational turns. In a longitudinal LENA sample, turns at 18–24 months accounted for a substantial share of variance in later language and IQ measures after socioeconomic status was controlled; raw adult word counts in the same window were weakened by that control.",
+      "start_ratio": 0.5944,
+      "end_ratio": 0.6074
+    },
+    {
+      "id": "b-075",
+      "tag": "p",
+      "chunk_id": 76,
+      "start_sec": 1044.919,
+      "end_sec": 1070.099,
+      "words": 54,
+      "weight": 54,
+      "text": "Conversational turns between caregivers and children in the second year are a substantially stronger longitudinal predictor of later language and cognitive scores than raw adult word volume. Yet turns represent a reciprocal transaction in non-randomized families rather than a standalone causal lever, and this associative window must not be converted into a deterministic panic.",
+      "start_ratio": 0.6074,
+      "end_ratio": 0.6221
+    },
+    {
+      "id": "b-076",
+      "tag": "p",
+      "chunk_id": 77,
+      "start_sec": 1070.099,
+      "end_sec": 1100.999,
+      "words": 76,
+      "weight": 76,
+      "text": "The original Hart & Risley “30-million-word gap” depended on a small sample and extrapolation. A word count is not a language environment. Two children might hear a similar number of words. One hears them mostly as background. The other spends part of the day in exchanges in which an adult notices what the child is doing, names it, waits, and continues. The difference is not necessarily the number of words. It is the structure of participation.",
+      "start_ratio": 0.6221,
+      "end_ratio": 0.6401
+    },
+    {
+      "id": "b-077",
+      "tag": "p",
+      "chunk_id": 78,
+      "start_sec": 1100.999,
+      "end_sec": 1131.059,
+      "words": 53,
+      "weight": 53,
+      "text": "Even here the book must resist an overly individualized reading. Language environments are shaped by time, work, childcare, housing, stress, education, income, literacy, and support. These conditions affect opportunities for communication without revealing how much a family cares about language. A family with fewer recorded words is not a family with less love.",
+      "start_ratio": 0.6401,
+      "end_ratio": 0.6575
+    },
+    {
+      "id": "b-078",
+      "tag": "p",
+      "chunk_id": 79,
+      "start_sec": 1131.059,
+      "end_sec": 1154.959,
+      "words": 48,
+      "weight": 48,
+      "text": "Parent-implemented language interventions embedded in shared book reading and daily routines produce modest, positive gains in expressive vocabulary under experimental protocols. Yet effects on receptive language are less consistent, and experimental efficacy under a clinical protocol does not justify turning everyday domestic life into a structured training curriculum.",
+      "start_ratio": 0.6575,
+      "end_ratio": 0.6714
+    },
+    {
+      "id": "b-079",
+      "tag": "p",
+      "chunk_id": 80,
+      "start_sec": 1154.959,
+      "end_sec": 1161.066,
+      "words": 12,
+      "weight": 12,
+      "text": "The child is not completing exercises. The child is joining a conversation.",
+      "start_ratio": 0.6714,
+      "end_ratio": 0.675
+    },
+    {
+      "id": "b-080",
+      "tag": "h2",
+      "chunk_id": 81,
+      "start_sec": 1161.066,
+      "end_sec": 1164.607,
+      "words": 6,
+      "weight": 8,
+      "text": "A screen is not a person",
+      "start_ratio": 0.675,
+      "end_ratio": 0.677
+    },
+    {
+      "id": "b-081",
+      "tag": "p",
+      "chunk_id": 82,
+      "start_sec": 1164.607,
+      "end_sec": 1172.827,
+      "words": 18,
+      "weight": 18,
+      "text": "Once exposure and participation have been distinguished, screens enter as a medium question, not as a moral panic.",
+      "start_ratio": 0.677,
+      "end_ratio": 0.6818
+    },
+    {
+      "id": "b-082",
+      "tag": "p",
+      "chunk_id": 83,
+      "start_sec": 1172.827,
+      "end_sec": 1193.775,
+      "words": 41,
+      "weight": 41,
+      "text": "A screen is not simply “language exposure,” any more than a person is simply “audio input.” Is the interaction contingent? Can the child affect what happens next? Is another person responding? Does the activity displace sleep, play, movement, or face-to-face exchange?",
+      "start_ratio": 0.6818,
+      "end_ratio": 0.694
+    },
+    {
+      "id": "b-083",
+      "tag": "p",
+      "chunk_id": 84,
+      "start_sec": 1193.775,
+      "end_sec": 1210.602,
+      "words": 34,
+      "weight": 34,
+      "text": "Infants and young toddlers often learn less effectively from prerecorded material than from contingent social interaction. That is not a claim that a device is intrinsically ruinous, or that every screen experience is equivalent.",
+      "start_ratio": 0.694,
+      "end_ratio": 0.7038
+    },
+    {
+      "id": "b-084",
+      "tag": "p",
+      "chunk_id": 85,
+      "start_sec": 1210.602,
+      "end_sec": 1238.71,
+      "words": 51,
+      "weight": 51,
+      "text": "Observational research links excessive early screen exposure with lower language scores, though these associations attenuate substantially when analyzing program content, caregiver co-viewing, and family socioeconomic background. Prerecorded video lacks the contingent responsiveness that powers early language learning, but screen viewing operates as a heterogeneous medium rather than a uniform developmental toxin.",
+      "start_ratio": 0.7038,
+      "end_ratio": 0.7201
+    },
+    {
+      "id": "b-085",
+      "tag": "p",
+      "chunk_id": 86,
+      "start_sec": 1238.71,
+      "end_sec": 1252.617,
+      "words": 25,
+      "weight": 25,
+      "text": "A child does not experience “thirty minutes of language.” The child experiences a particular activity, with a particular level of contingency, attention, and competing opportunity.",
+      "start_ratio": 0.7201,
+      "end_ratio": 0.7282
+    },
+    {
+      "id": "b-086",
+      "tag": "h2",
+      "chunk_id": 87,
+      "start_sec": 1252.617,
+      "end_sec": 1255.314,
+      "words": 4,
+      "weight": 6,
+      "text": "More than one language",
+      "start_ratio": 0.7282,
+      "end_ratio": 0.7298
+    },
+    {
+      "id": "b-087",
+      "tag": "p",
+      "chunk_id": 88,
+      "start_sec": 1255.314,
+      "end_sec": 1261.142,
+      "words": 9,
+      "weight": 9,
+      "text": "Human language development is not fundamentally a monolingual phenomenon.",
+      "start_ratio": 0.7298,
+      "end_ratio": 0.7331
+    },
+    {
+      "id": "b-088",
+      "tag": "p",
+      "chunk_id": 89,
+      "start_sec": 1261.142,
+      "end_sec": 1282.569,
+      "words": 47,
+      "weight": 47,
+      "text": "Children can grow up with more than one language and learn the structure of multiple systems from the beginning. Vocabulary is distributed across people, activities, and settings. A smaller count in one language is not a global delay. Measuring only the majority language can manufacture a deficit.",
+      "start_ratio": 0.7331,
+      "end_ratio": 0.7456
+    },
+    {
+      "id": "b-089",
+      "tag": "p",
+      "chunk_id": 90,
+      "start_sec": 1282.569,
+      "end_sec": 1302.717,
+      "words": 39,
+      "weight": 39,
+      "text": "Dual-language exposure from infancy does not confuse developing children or cause global language delay. Individual trajectories vary with the quantity and quality of exposure in each language, and code-switching reflects normal communicative competence across settings rather than linguistic confusion.",
+      "start_ratio": 0.7456,
+      "end_ratio": 0.7573
+    },
+    {
+      "id": "b-090",
+      "tag": "p",
+      "chunk_id": 91,
+      "start_sec": 1302.717,
+      "end_sec": 1333.584,
+      "words": 60,
+      "weight": 60,
+      "text": "Code-switching is similarly easy to misunderstand. Moving between languages is not, by itself, evidence of confusion. It can reflect adaptation to the person and the context. There is no contradiction between biological preparedness and environmental specificity. The learning system is flexible enough to organize more than one linguistic environment. The environment determines which languages that flexibility is used to acquire.",
+      "start_ratio": 0.7573,
+      "end_ratio": 0.7753
+    },
+    {
+      "id": "b-091",
+      "tag": "p",
+      "chunk_id": 92,
+      "start_sec": 1333.584,
+      "end_sec": 1341.172,
+      "words": 17,
+      "weight": 17,
+      "text": "Forcing a home language to stop “for English” is not a developmental necessity established by this chapter.",
+      "start_ratio": 0.7753,
+      "end_ratio": 0.7797
+    },
+    {
+      "id": "b-092",
+      "tag": "h2",
+      "chunk_id": 93,
+      "start_sec": 1341.172,
+      "end_sec": 1343.469,
+      "words": 3,
+      "weight": 5,
+      "text": "No single clock",
+      "start_ratio": 0.7797,
+      "end_ratio": 0.781
+    },
+    {
+      "id": "b-093",
+      "tag": "p",
+      "chunk_id": 94,
+      "start_sec": 1343.469,
+      "end_sec": 1347.136,
+      "words": 5,
+      "weight": 5,
+      "text": "Language development is highly variable.",
+      "start_ratio": 0.781,
+      "end_ratio": 0.7831
+    },
+    {
+      "id": "b-094",
+      "tag": "p",
+      "chunk_id": 95,
+      "start_sec": 1347.136,
+      "end_sec": 1369.764,
+      "words": 53,
+      "weight": 53,
+      "text": "First words do not all arrive at the same age. Vocabulary does not increase at the same rate. Children differ in the relation between comprehension and production, in how much they communicate through gesture, and in how they participate in social routines. There is no single developmental clock that every healthy child follows.",
+      "start_ratio": 0.7831,
+      "end_ratio": 0.7963
+    },
+    {
+      "id": "b-095",
+      "tag": "p",
+      "chunk_id": 96,
+      "start_sec": 1369.764,
+      "end_sec": 1390.791,
+      "words": 42,
+      "weight": 42,
+      "text": "This does not mean assessment is meaningless. It means a single number is a poor atlas. Trajectory, context, and the distinction between expressive and receptive language matter more than a debut date. An isolated milestone is not a prediction of fixed intelligence.",
+      "start_ratio": 0.7963,
+      "end_ratio": 0.8085
+    },
+    {
+      "id": "b-096",
+      "tag": "p",
+      "chunk_id": 97,
+      "start_sec": 1390.791,
+      "end_sec": 1422.371,
+      "words": 62,
+      "weight": 62,
+      "text": "The opposite error is equally serious. Normal variation should not become an excuse to ignore persistent concern. When difficulties occur across contexts, persist over time, or appear alongside differences in hearing, comprehension, social communication, or broader development, evaluation can be appropriate. The distinction is not between “everything is fine” and “something is wrong.” It is between variation and evidence of persistent difficulty.",
+      "start_ratio": 0.8085,
+      "end_ratio": 0.8269
+    },
+    {
+      "id": "b-097",
+      "tag": "p",
+      "chunk_id": 98,
+      "start_sec": 1422.371,
+      "end_sec": 1453.031,
+      "words": 58,
+      "weight": 58,
+      "text": "A program can demonstrate efficacy under research conditions without demonstrating effectiveness in ordinary homes. A short-term vocabulary gain is not a lasting effect. An expressive-language improvement does not automatically imply receptive language, cognition, school performance, or adult functioning. Universal intensive language training is not the conclusion of this chapter. Persistent difficulty justifying evaluation is a different, narrower claim.",
+      "start_ratio": 0.8269,
+      "end_ratio": 0.8447
+    },
+    {
+      "id": "b-098",
+      "tag": "h2",
+      "chunk_id": 99,
+      "start_sec": 1453.031,
+      "end_sec": 1456.372,
+      "words": 7,
+      "weight": 9,
+      "text": "What this chapter does not tell us",
+      "start_ratio": 0.8447,
+      "end_ratio": 0.8466
+    },
+    {
+      "id": "b-099",
+      "tag": "p",
+      "chunk_id": 100,
+      "start_sec": 1456.372,
+      "end_sec": 1461.2,
+      "words": 14,
+      "weight": 14,
+      "text": "It does not tell us that the first word is the beginning of language.",
+      "start_ratio": 0.8466,
+      "end_ratio": 0.8494
+    },
+    {
+      "id": "b-100",
+      "tag": "p",
+      "chunk_id": 101,
+      "start_sec": 1461.2,
+      "end_sec": 1467.22,
+      "words": 15,
+      "weight": 15,
+      "text": "It does not tell us that biology installs a finished organ on a debut date.",
+      "start_ratio": 0.8494,
+      "end_ratio": 0.8529
+    },
+    {
+      "id": "b-101",
+      "tag": "p",
+      "chunk_id": 102,
+      "start_sec": 1467.22,
+      "end_sec": 1475.24,
+      "words": 17,
+      "weight": 17,
+      "text": "It does not tell us that more words, more stimulation, or a statistically engineered stream is better.",
+      "start_ratio": 0.8529,
+      "end_ratio": 0.8576
+    },
+    {
+      "id": "b-102",
+      "tag": "p",
+      "chunk_id": 103,
+      "start_sec": 1475.24,
+      "end_sec": 1481.787,
+      "words": 13,
+      "weight": 13,
+      "text": "It does not tell us that a laboratory segmentation result is already meaning.",
+      "start_ratio": 0.8576,
+      "end_ratio": 0.8614
+    },
+    {
+      "id": "b-103",
+      "tag": "p",
+      "chunk_id": 104,
+      "start_sec": 1481.787,
+      "end_sec": 1492.654,
+      "words": 19,
+      "weight": 19,
+      "text": "It does not tell us that conversational turns cause later IQ, or that a word-count dashboard measures parental quality.",
+      "start_ratio": 0.8614,
+      "end_ratio": 0.8677
+    },
+    {
+      "id": "b-104",
+      "tag": "p",
+      "chunk_id": 105,
+      "start_sec": 1492.654,
+      "end_sec": 1498.002,
+      "words": 15,
+      "weight": 15,
+      "text": "It does not tell us that Hart & Risley’s thirty million is a causal metric.",
+      "start_ratio": 0.8677,
+      "end_ratio": 0.8708
+    },
+    {
+      "id": "b-105",
+      "tag": "p",
+      "chunk_id": 106,
+      "start_sec": 1498.002,
+      "end_sec": 1505.589,
+      "words": 19,
+      "weight": 19,
+      "text": "It does not tell us that screens are a single exposure, or that they replace a person by existing.",
+      "start_ratio": 0.8708,
+      "end_ratio": 0.8753
+    },
+    {
+      "id": "b-106",
+      "tag": "p",
+      "chunk_id": 107,
+      "start_sec": 1505.589,
+      "end_sec": 1515.337,
+      "words": 20,
+      "weight": 20,
+      "text": "It does not tell us that two languages confuse a child, or that bilingualism is a cognitive bonus parents manufacture.",
+      "start_ratio": 0.8753,
+      "end_ratio": 0.8809
+    },
+    {
+      "id": "b-107",
+      "tag": "p",
+      "chunk_id": 108,
+      "start_sec": 1515.337,
+      "end_sec": 1521.324,
+      "words": 15,
+      "weight": 15,
+      "text": "It does not tell us that an early or late first word writes a life.",
+      "start_ratio": 0.8809,
+      "end_ratio": 0.8844
+    },
+    {
+      "id": "b-108",
+      "tag": "p",
+      "chunk_id": 109,
+      "start_sec": 1521.324,
+      "end_sec": 1529.875,
+      "words": 15,
+      "weight": 15,
+      "text": "It does not tell us how extrafamilial worlds will reshape opportunity. That is later territory.",
+      "start_ratio": 0.8844,
+      "end_ratio": 0.8894
+    },
+    {
+      "id": "b-109",
+      "tag": "h2",
+      "chunk_id": 110,
+      "start_sec": 1529.875,
+      "end_sec": 1534.256,
+      "words": 3,
+      "weight": 5,
+      "text": "Science, Interpretation, Art",
+      "start_ratio": 0.8894,
+      "end_ratio": 0.8919
+    },
+    {
+      "id": "b-110",
+      "tag": "p",
+      "chunk_id": 111,
+      "start_sec": 1534.256,
+      "end_sec": 1573.483,
+      "words": 60,
+      "weight": 60,
+      "text": "Science here is the High-grade laboratory demonstration of perceptual attunement, statistical segmentation, and dual-language non-confusion; the Moderate evidence for prenatal auditory familiarization, conversational turns as a longitudinal predictor, parent-implemented expressive vocabulary gains, and differentiated bilingual trajectories; and the Low certainty for direct laboratory transfer to natural vocabulary, turn-count causation, screens as a monolithic harm, and adjudicating between formal grammatical frameworks.",
+      "start_ratio": 0.8919,
+      "end_ratio": 0.9147
+    },
+    {
+      "id": "b-111",
+      "tag": "p",
+      "chunk_id": 112,
+      "start_sec": 1573.483,
+      "end_sec": 1597.471,
+      "words": 58,
+      "weight": 58,
+      "text": "Interpretation is the habit of keeping those facts from becoming a story about the kind of speaker the child will be, or the kind of tutor the parent must become. It is also the habit of matching verbs to grades: shows where the grade is High, suggests where it is Moderate, is associated with where it is Low.",
+      "start_ratio": 0.9147,
+      "end_ratio": 0.9287
+    },
+    {
+      "id": "b-112",
+      "tag": "p",
+      "chunk_id": 113,
+      "start_sec": 1597.471,
+      "end_sec": 1618.218,
+      "words": 54,
+      "weight": 54,
+      "text": "Art is the remaining human fact: deciding when to answer a sound, when to wait, when to name what the child is already looking at, and when to protect the exchange from becoming a lesson. Those decisions belong to a relationship. They are not experiments, and they are not a performance to be scored.",
+      "start_ratio": 0.9287,
+      "end_ratio": 0.9407
+    },
+    {
+      "id": "b-113",
+      "tag": "h2",
+      "chunk_id": 114,
+      "start_sec": 1618.218,
+      "end_sec": 1619.919,
+      "words": 1,
+      "weight": 3,
+      "text": "Return",
+      "start_ratio": 0.9407,
+      "end_ratio": 0.9417
+    },
+    {
+      "id": "b-114",
+      "tag": "p",
+      "chunk_id": 115,
+      "start_sec": 1619.919,
+      "end_sec": 1627.827,
+      "words": 22,
+      "weight": 22,
+      "text": "The child who said the word has not become a different child because we now have a map. The map has changed.",
+      "start_ratio": 0.9417,
+      "end_ratio": 0.9463
+    },
+    {
+      "id": "b-115",
+      "tag": "p",
+      "chunk_id": 116,
+      "start_sec": 1627.827,
+      "end_sec": 1653.094,
+      "words": 51,
+      "weight": 51,
+      "text": "The first word is not an origin. It is a threshold. Before it came a cry that recruited another person, an ear that detected structure, a point that directed another mind, a mouth that experimented with sound, a memory that kept a tentative association, a shared look that made reference possible.",
+      "start_ratio": 0.9463,
+      "end_ratio": 0.961
+    },
+    {
+      "id": "b-116",
+      "tag": "p",
+      "chunk_id": 117,
+      "start_sec": 1653.094,
+      "end_sec": 1680.801,
+      "words": 56,
+      "weight": 56,
+      "text": "Then words begin to combine. Patterns become grammar. Conversation becomes more flexible. Language becomes a medium for remembering, imagining, asking, and teaching. The child is no longer merely learning about the world. Through shared attention, vocal exchange, gesture, and emerging symbols, the child is beginning to participate in a symbolic world already inhabited by other people.",
+      "start_ratio": 0.961,
+      "end_ratio": 0.9771
+    },
+    {
+      "id": "b-117",
+      "tag": "p",
+      "chunk_id": 118,
+      "start_sec": 1680.801,
+      "end_sec": 1700.509,
+      "words": 33,
+      "weight": 33,
+      "text": "Chapter 4 described relationship as a regulatory system. Chapter 5 described an active mind. Chapter 6 described learning through action, prediction, and memory. This chapter describes what happens when learning becomes shared meaning.",
+      "start_ratio": 0.9771,
+      "end_ratio": 0.9886
+    },
+    {
+      "id": "b-118",
+      "tag": "p",
+      "chunk_id": 119,
+      "start_sec": 1700.509,
+      "end_sec": 1720.176,
+      "words": 45,
+      "weight": 45,
+      "text": "Before the child can speak, other people have already built a world of meaning. Language is the invitation into it. Once the invitation is accepted, the child is no longer learning only from what happens. The child can begin learning from what someone else knows.",
+      "start_ratio": 0.9886,
+      "end_ratio": 1.0
+    }
+  ]
+}

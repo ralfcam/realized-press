@@ -1,0 +1,1758 @@
+{
+  "chapter": "04-regulatory-relationship",
+  "total_duration_sec": 1138.683,
+  "sample_rate": 24000,
+  "bytes_per_second": 48000,
+  "chunks": [
+    {
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 4.381,
+      "duration_sec": 4.381,
+      "pcm_bytes": 210286,
+      "block_range": [
+        "b-000",
+        "b-000"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "start_sec": 4.381,
+      "end_sec": 9.732,
+      "duration_sec": 5.351,
+      "pcm_bytes": 256846,
+      "block_range": [
+        "b-001",
+        "b-001"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "start_sec": 9.732,
+      "end_sec": 27.443,
+      "duration_sec": 17.711,
+      "pcm_bytes": 850126,
+      "block_range": [
+        "b-002",
+        "b-002"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "start_sec": 27.443,
+      "end_sec": 40.954,
+      "duration_sec": 13.511,
+      "pcm_bytes": 648526,
+      "block_range": [
+        "b-003",
+        "b-003"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "start_sec": 40.954,
+      "end_sec": 45.905,
+      "duration_sec": 4.951,
+      "pcm_bytes": 237646,
+      "block_range": [
+        "b-004",
+        "b-004"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "start_sec": 45.905,
+      "end_sec": 61.056,
+      "duration_sec": 15.151,
+      "pcm_bytes": 727246,
+      "block_range": [
+        "b-005",
+        "b-005"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "start_sec": 61.056,
+      "end_sec": 86.487,
+      "duration_sec": 25.431,
+      "pcm_bytes": 1220686,
+      "block_range": [
+        "b-006",
+        "b-006"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "start_sec": 86.487,
+      "end_sec": 99.638,
+      "duration_sec": 13.151,
+      "pcm_bytes": 631246,
+      "block_range": [
+        "b-007",
+        "b-007"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "start_sec": 99.638,
+      "end_sec": 108.469,
+      "duration_sec": 8.831,
+      "pcm_bytes": 423886,
+      "block_range": [
+        "b-008",
+        "b-008"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "start_sec": 108.469,
+      "end_sec": 114.66,
+      "duration_sec": 6.191,
+      "pcm_bytes": 297166,
+      "block_range": [
+        "b-009",
+        "b-009"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "start_sec": 114.66,
+      "end_sec": 116.081,
+      "duration_sec": 1.421,
+      "pcm_bytes": 68206,
+      "block_range": [
+        "b-010",
+        "b-010"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "start_sec": 116.081,
+      "end_sec": 143.791,
+      "duration_sec": 27.711,
+      "pcm_bytes": 1330126,
+      "block_range": [
+        "b-011",
+        "b-011"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "start_sec": 143.791,
+      "end_sec": 173.782,
+      "duration_sec": 29.991,
+      "pcm_bytes": 1439566,
+      "block_range": [
+        "b-012",
+        "b-012"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "start_sec": 173.782,
+      "end_sec": 186.933,
+      "duration_sec": 13.151,
+      "pcm_bytes": 631246,
+      "block_range": [
+        "b-013",
+        "b-013"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "start_sec": 186.933,
+      "end_sec": 190.714,
+      "duration_sec": 3.781,
+      "pcm_bytes": 181486,
+      "block_range": [
+        "b-014",
+        "b-014"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "start_sec": 190.714,
+      "end_sec": 196.465,
+      "duration_sec": 5.751,
+      "pcm_bytes": 276046,
+      "block_range": [
+        "b-015",
+        "b-015"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "start_sec": 196.465,
+      "end_sec": 202.796,
+      "duration_sec": 6.331,
+      "pcm_bytes": 303886,
+      "block_range": [
+        "b-016",
+        "b-016"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "start_sec": 202.796,
+      "end_sec": 211.847,
+      "duration_sec": 9.051,
+      "pcm_bytes": 434446,
+      "block_range": [
+        "b-017",
+        "b-017"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "start_sec": 211.847,
+      "end_sec": 228.178,
+      "duration_sec": 16.331,
+      "pcm_bytes": 783886,
+      "block_range": [
+        "b-018",
+        "b-018"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "start_sec": 228.178,
+      "end_sec": 242.649,
+      "duration_sec": 14.471,
+      "pcm_bytes": 694606,
+      "block_range": [
+        "b-019",
+        "b-019"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "start_sec": 242.649,
+      "end_sec": 247.27,
+      "duration_sec": 4.621,
+      "pcm_bytes": 221806,
+      "block_range": [
+        "b-020",
+        "b-020"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "start_sec": 247.27,
+      "end_sec": 273.061,
+      "duration_sec": 25.791,
+      "pcm_bytes": 1237966,
+      "block_range": [
+        "b-021",
+        "b-021"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "start_sec": 273.061,
+      "end_sec": 277.892,
+      "duration_sec": 4.831,
+      "pcm_bytes": 231886,
+      "block_range": [
+        "b-022",
+        "b-022"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "start_sec": 277.892,
+      "end_sec": 306.803,
+      "duration_sec": 28.911,
+      "pcm_bytes": 1387726,
+      "block_range": [
+        "b-023",
+        "b-023"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "start_sec": 306.803,
+      "end_sec": 325.554,
+      "duration_sec": 18.751,
+      "pcm_bytes": 900046,
+      "block_range": [
+        "b-024",
+        "b-024"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "start_sec": 325.554,
+      "end_sec": 343.505,
+      "duration_sec": 17.951,
+      "pcm_bytes": 861646,
+      "block_range": [
+        "b-025",
+        "b-025"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "start_sec": 343.505,
+      "end_sec": 373.736,
+      "duration_sec": 30.231,
+      "pcm_bytes": 1451086,
+      "block_range": [
+        "b-026",
+        "b-026"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "start_sec": 373.736,
+      "end_sec": 401.047,
+      "duration_sec": 27.311,
+      "pcm_bytes": 1310926,
+      "block_range": [
+        "b-027",
+        "b-027"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "start_sec": 401.047,
+      "end_sec": 405.828,
+      "duration_sec": 4.781,
+      "pcm_bytes": 229486,
+      "block_range": [
+        "b-028",
+        "b-028"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "start_sec": 405.828,
+      "end_sec": 421.979,
+      "duration_sec": 16.151,
+      "pcm_bytes": 775246,
+      "block_range": [
+        "b-029",
+        "b-029"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "start_sec": 421.979,
+      "end_sec": 440.45,
+      "duration_sec": 18.471,
+      "pcm_bytes": 886606,
+      "block_range": [
+        "b-030",
+        "b-030"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "start_sec": 440.45,
+      "end_sec": 455.321,
+      "duration_sec": 14.871,
+      "pcm_bytes": 713806,
+      "block_range": [
+        "b-031",
+        "b-031"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "start_sec": 455.321,
+      "end_sec": 460.022,
+      "duration_sec": 4.701,
+      "pcm_bytes": 225646,
+      "block_range": [
+        "b-032",
+        "b-032"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "start_sec": 460.022,
+      "end_sec": 481.573,
+      "duration_sec": 21.551,
+      "pcm_bytes": 1034446,
+      "block_range": [
+        "b-033",
+        "b-033"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "start_sec": 481.573,
+      "end_sec": 510.564,
+      "duration_sec": 28.991,
+      "pcm_bytes": 1391566,
+      "block_range": [
+        "b-034",
+        "b-034"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "start_sec": 510.564,
+      "end_sec": 535.674,
+      "duration_sec": 25.111,
+      "pcm_bytes": 1205326,
+      "block_range": [
+        "b-035",
+        "b-035"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "start_sec": 535.674,
+      "end_sec": 579.825,
+      "duration_sec": 44.151,
+      "pcm_bytes": 2119246,
+      "block_range": [
+        "b-036",
+        "b-036"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "start_sec": 579.825,
+      "end_sec": 586.216,
+      "duration_sec": 6.391,
+      "pcm_bytes": 306766,
+      "block_range": [
+        "b-037",
+        "b-037"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "start_sec": 586.216,
+      "end_sec": 603.567,
+      "duration_sec": 17.351,
+      "pcm_bytes": 832846,
+      "block_range": [
+        "b-038",
+        "b-038"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "start_sec": 603.567,
+      "end_sec": 633.158,
+      "duration_sec": 29.591,
+      "pcm_bytes": 1420366,
+      "block_range": [
+        "b-039",
+        "b-039"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "start_sec": 633.158,
+      "end_sec": 636.619,
+      "duration_sec": 3.461,
+      "pcm_bytes": 166126,
+      "block_range": [
+        "b-040",
+        "b-040"
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "start_sec": 636.619,
+      "end_sec": 645.01,
+      "duration_sec": 8.391,
+      "pcm_bytes": 402766,
+      "block_range": [
+        "b-041",
+        "b-041"
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "start_sec": 645.01,
+      "end_sec": 668.001,
+      "duration_sec": 22.991,
+      "pcm_bytes": 1103566,
+      "block_range": [
+        "b-042",
+        "b-042"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "start_sec": 668.001,
+      "end_sec": 693.672,
+      "duration_sec": 25.671,
+      "pcm_bytes": 1232206,
+      "block_range": [
+        "b-043",
+        "b-043"
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "start_sec": 693.672,
+      "end_sec": 707.183,
+      "duration_sec": 13.511,
+      "pcm_bytes": 648526,
+      "block_range": [
+        "b-044",
+        "b-044"
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "start_sec": 707.183,
+      "end_sec": 729.694,
+      "duration_sec": 22.511,
+      "pcm_bytes": 1080526,
+      "block_range": [
+        "b-045",
+        "b-045"
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "start_sec": 729.694,
+      "end_sec": 735.315,
+      "duration_sec": 5.621,
+      "pcm_bytes": 269806,
+      "block_range": [
+        "b-046",
+        "b-046"
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "start_sec": 735.315,
+      "end_sec": 757.746,
+      "duration_sec": 22.431,
+      "pcm_bytes": 1076686,
+      "block_range": [
+        "b-047",
+        "b-047"
+      ]
+    },
+    {
+      "chunk_id": 49,
+      "start_sec": 757.746,
+      "end_sec": 765.297,
+      "duration_sec": 7.551,
+      "pcm_bytes": 362446,
+      "block_range": [
+        "b-048",
+        "b-048"
+      ]
+    },
+    {
+      "chunk_id": 50,
+      "start_sec": 765.297,
+      "end_sec": 768.758,
+      "duration_sec": 3.461,
+      "pcm_bytes": 166126,
+      "block_range": [
+        "b-049",
+        "b-049"
+      ]
+    },
+    {
+      "chunk_id": 51,
+      "start_sec": 768.758,
+      "end_sec": 795.469,
+      "duration_sec": 26.711,
+      "pcm_bytes": 1282126,
+      "block_range": [
+        "b-050",
+        "b-050"
+      ]
+    },
+    {
+      "chunk_id": 52,
+      "start_sec": 795.469,
+      "end_sec": 822.14,
+      "duration_sec": 26.671,
+      "pcm_bytes": 1280206,
+      "block_range": [
+        "b-051",
+        "b-051"
+      ]
+    },
+    {
+      "chunk_id": 53,
+      "start_sec": 822.14,
+      "end_sec": 840.371,
+      "duration_sec": 18.231,
+      "pcm_bytes": 875086,
+      "block_range": [
+        "b-052",
+        "b-052"
+      ]
+    },
+    {
+      "chunk_id": 54,
+      "start_sec": 840.371,
+      "end_sec": 852.562,
+      "duration_sec": 12.191,
+      "pcm_bytes": 585166,
+      "block_range": [
+        "b-053",
+        "b-053"
+      ]
+    },
+    {
+      "chunk_id": 55,
+      "start_sec": 852.562,
+      "end_sec": 873.113,
+      "duration_sec": 20.551,
+      "pcm_bytes": 986446,
+      "block_range": [
+        "b-054",
+        "b-054"
+      ]
+    },
+    {
+      "chunk_id": 56,
+      "start_sec": 873.113,
+      "end_sec": 888.264,
+      "duration_sec": 15.151,
+      "pcm_bytes": 727246,
+      "block_range": [
+        "b-055",
+        "b-055"
+      ]
+    },
+    {
+      "chunk_id": 57,
+      "start_sec": 888.264,
+      "end_sec": 891.005,
+      "duration_sec": 2.741,
+      "pcm_bytes": 131566,
+      "block_range": [
+        "b-056",
+        "b-056"
+      ]
+    },
+    {
+      "chunk_id": 58,
+      "start_sec": 891.005,
+      "end_sec": 944.396,
+      "duration_sec": 53.391,
+      "pcm_bytes": 2562766,
+      "block_range": [
+        "b-057",
+        "b-057"
+      ]
+    },
+    {
+      "chunk_id": 59,
+      "start_sec": 944.396,
+      "end_sec": 947.737,
+      "duration_sec": 3.341,
+      "pcm_bytes": 160366,
+      "block_range": [
+        "b-058",
+        "b-058"
+      ]
+    },
+    {
+      "chunk_id": 60,
+      "start_sec": 947.737,
+      "end_sec": 956.047,
+      "duration_sec": 8.311,
+      "pcm_bytes": 398926,
+      "block_range": [
+        "b-059",
+        "b-059"
+      ]
+    },
+    {
+      "chunk_id": 61,
+      "start_sec": 956.047,
+      "end_sec": 963.678,
+      "duration_sec": 7.631,
+      "pcm_bytes": 366286,
+      "block_range": [
+        "b-060",
+        "b-060"
+      ]
+    },
+    {
+      "chunk_id": 62,
+      "start_sec": 963.678,
+      "end_sec": 969.629,
+      "duration_sec": 5.951,
+      "pcm_bytes": 285646,
+      "block_range": [
+        "b-061",
+        "b-061"
+      ]
+    },
+    {
+      "chunk_id": 63,
+      "start_sec": 969.629,
+      "end_sec": 977.3,
+      "duration_sec": 7.671,
+      "pcm_bytes": 368206,
+      "block_range": [
+        "b-062",
+        "b-062"
+      ]
+    },
+    {
+      "chunk_id": 64,
+      "start_sec": 977.3,
+      "end_sec": 985.291,
+      "duration_sec": 7.991,
+      "pcm_bytes": 383566,
+      "block_range": [
+        "b-063",
+        "b-063"
+      ]
+    },
+    {
+      "chunk_id": 65,
+      "start_sec": 985.291,
+      "end_sec": 995.002,
+      "duration_sec": 9.711,
+      "pcm_bytes": 466126,
+      "block_range": [
+        "b-064",
+        "b-064"
+      ]
+    },
+    {
+      "chunk_id": 66,
+      "start_sec": 995.002,
+      "end_sec": 1000.193,
+      "duration_sec": 5.191,
+      "pcm_bytes": 249166,
+      "block_range": [
+        "b-065",
+        "b-065"
+      ]
+    },
+    {
+      "chunk_id": 67,
+      "start_sec": 1000.193,
+      "end_sec": 1008.744,
+      "duration_sec": 8.551,
+      "pcm_bytes": 410446,
+      "block_range": [
+        "b-066",
+        "b-066"
+      ]
+    },
+    {
+      "chunk_id": 68,
+      "start_sec": 1008.744,
+      "end_sec": 1013.125,
+      "duration_sec": 4.381,
+      "pcm_bytes": 210286,
+      "block_range": [
+        "b-067",
+        "b-067"
+      ]
+    },
+    {
+      "chunk_id": 69,
+      "start_sec": 1013.125,
+      "end_sec": 1037.556,
+      "duration_sec": 24.431,
+      "pcm_bytes": 1172686,
+      "block_range": [
+        "b-068",
+        "b-068"
+      ]
+    },
+    {
+      "chunk_id": 70,
+      "start_sec": 1037.556,
+      "end_sec": 1052.947,
+      "duration_sec": 15.391,
+      "pcm_bytes": 738766,
+      "block_range": [
+        "b-069",
+        "b-069"
+      ]
+    },
+    {
+      "chunk_id": 71,
+      "start_sec": 1052.947,
+      "end_sec": 1072.978,
+      "duration_sec": 20.031,
+      "pcm_bytes": 961486,
+      "block_range": [
+        "b-070",
+        "b-070"
+      ]
+    },
+    {
+      "chunk_id": 72,
+      "start_sec": 1072.978,
+      "end_sec": 1074.679,
+      "duration_sec": 1.701,
+      "pcm_bytes": 81646,
+      "block_range": [
+        "b-071",
+        "b-071"
+      ]
+    },
+    {
+      "chunk_id": 73,
+      "start_sec": 1074.679,
+      "end_sec": 1085.51,
+      "duration_sec": 10.831,
+      "pcm_bytes": 519886,
+      "block_range": [
+        "b-072",
+        "b-072"
+      ]
+    },
+    {
+      "chunk_id": 74,
+      "start_sec": 1085.51,
+      "end_sec": 1102.821,
+      "duration_sec": 17.311,
+      "pcm_bytes": 830926,
+      "block_range": [
+        "b-073",
+        "b-073"
+      ]
+    },
+    {
+      "chunk_id": 75,
+      "start_sec": 1102.821,
+      "end_sec": 1125.692,
+      "duration_sec": 22.871,
+      "pcm_bytes": 1097806,
+      "block_range": [
+        "b-074",
+        "b-074"
+      ]
+    },
+    {
+      "chunk_id": 76,
+      "start_sec": 1125.692,
+      "end_sec": 1138.683,
+      "duration_sec": 12.991,
+      "pcm_bytes": 623566,
+      "block_range": [
+        "b-075",
+        "b-075"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "b-000",
+      "tag": "h1",
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 4.381,
+      "words": 6,
+      "weight": 9,
+      "text": "Chapter 4 — The Regulatory Relationship",
+      "start_ratio": 0.0,
+      "end_ratio": 0.0038
+    },
+    {
+      "id": "b-001",
+      "tag": "p",
+      "chunk_id": 2,
+      "start_sec": 4.381,
+      "end_sec": 9.732,
+      "words": 12,
+      "weight": 12,
+      "text": "A baby cries. An adult picks the baby up. The crying stops.",
+      "start_ratio": 0.0038,
+      "end_ratio": 0.0085
+    },
+    {
+      "id": "b-002",
+      "tag": "p",
+      "chunk_id": 3,
+      "start_sec": 9.732,
+      "end_sec": 27.443,
+      "words": 38,
+      "weight": 38,
+      "text": "Sometimes it does not stop. The adult tries again: a feed, a change of position, a quieter room, another person. The cry continues. The scene is still ordinary. Exhaustion makes it feel like a verdict. It is not.",
+      "start_ratio": 0.0085,
+      "end_ratio": 0.0241
+    },
+    {
+      "id": "b-003",
+      "tag": "p",
+      "chunk_id": 4,
+      "start_sec": 27.443,
+      "end_sec": 40.954,
+      "words": 32,
+      "weight": 32,
+      "text": "The pickup that works is not automatically a lesson. The pickup that fails is not automatically a failure of love or technique. Biology is not a machine with a guaranteed input-output response.",
+      "start_ratio": 0.0241,
+      "end_ratio": 0.036
+    },
+    {
+      "id": "b-004",
+      "tag": "p",
+      "chunk_id": 5,
+      "start_sec": 40.954,
+      "end_sec": 45.905,
+      "words": 10,
+      "weight": 10,
+      "text": "The scene is ordinary. It is also easy to misread.",
+      "start_ratio": 0.036,
+      "end_ratio": 0.0403
+    },
+    {
+      "id": "b-005",
+      "tag": "p",
+      "chunk_id": 6,
+      "start_sec": 45.905,
+      "end_sec": 61.056,
+      "words": 44,
+      "weight": 44,
+      "text": "If the infant were only being trained, the pickup would be a mistake: a reward for noise. If the infant were only being rescued, the same pickup would be a test the adult must pass every time. Neither reading fits what can be shown.",
+      "start_ratio": 0.0403,
+      "end_ratio": 0.0536
+    },
+    {
+      "id": "b-006",
+      "tag": "p",
+      "chunk_id": 7,
+      "start_sec": 61.056,
+      "end_sec": 86.487,
+      "words": 47,
+      "weight": 47,
+      "text": "Co-regulation operates as a bidirectional, context-sensitive process between infant and caregiver, rather than an automated transmission of calm. While physiological coupling—such as cortisol attunement, autonomic coordination, and neural synchrony—can be observed in controlled settings, no single biological measure functions as a valid parenting score or developmental guarantee.",
+      "start_ratio": 0.0536,
+      "end_ratio": 0.076
+    },
+    {
+      "id": "b-007",
+      "tag": "p",
+      "chunk_id": 8,
+      "start_sec": 86.487,
+      "end_sec": 99.638,
+      "words": 34,
+      "weight": 34,
+      "text": "This chapter asks a narrower question than “how do I produce a well-regulated child?” It asks what kind of relationship an infant’s regulation lives in, and what kinds of claims that relationship can support.",
+      "start_ratio": 0.076,
+      "end_ratio": 0.0875
+    },
+    {
+      "id": "b-008",
+      "tag": "p",
+      "chunk_id": 9,
+      "start_sec": 99.638,
+      "end_sec": 108.469,
+      "words": 17,
+      "weight": 17,
+      "text": "Chapter 3 showed birth as a change of regulatory environment. Dependence did not end. It changed location.",
+      "start_ratio": 0.0875,
+      "end_ratio": 0.0953
+    },
+    {
+      "id": "b-009",
+      "tag": "p",
+      "chunk_id": 10,
+      "start_sec": 108.469,
+      "end_sec": 114.66,
+      "words": 12,
+      "weight": 12,
+      "text": "What happens when the placenta’s work is taken up, imperfectly, by people?",
+      "start_ratio": 0.0953,
+      "end_ratio": 0.1007
+    },
+    {
+      "id": "b-010",
+      "tag": "h2",
+      "chunk_id": 11,
+      "start_sec": 114.66,
+      "end_sec": 116.081,
+      "words": 2,
+      "weight": 4,
+      "text": "The puzzle",
+      "start_ratio": 0.1007,
+      "end_ratio": 0.1019
+    },
+    {
+      "id": "b-011",
+      "tag": "p",
+      "chunk_id": 12,
+      "start_sec": 116.081,
+      "end_sec": 143.791,
+      "words": 58,
+      "weight": 58,
+      "text": "Birth has not made the child independent. Someone notices hunger. Someone provides warmth. Someone responds to distress. Someone helps the infant recover from too much arousal. The infant is not passive. Crying recruits attention. A look invites interaction. Sucking organizes feeding. Motor movements change how an adult holds the child. States of alertness determine whether an exchange succeeds.",
+      "start_ratio": 0.1019,
+      "end_ratio": 0.1263
+    },
+    {
+      "id": "b-012",
+      "tag": "p",
+      "chunk_id": 13,
+      "start_sec": 143.791,
+      "end_sec": 173.782,
+      "words": 52,
+      "weight": 52,
+      "text": "The naive picture is control: the parent programs the infant through perfect technique. The equally naive picture is spoiling: responding reinforces crying; waiting teaches independence. What we meet instead is a transaction. The infant’s state changes the adult. The adult’s response changes the infant. Sleep, housing, leave, health, and support change both.",
+      "start_ratio": 0.1263,
+      "end_ratio": 0.1526
+    },
+    {
+      "id": "b-013",
+      "tag": "p",
+      "chunk_id": 14,
+      "start_sec": 173.782,
+      "end_sec": 186.933,
+      "words": 30,
+      "weight": 30,
+      "text": "A cry that stops when held is not automatically a lesson in either direction. A missed cue is not a missed mind. Severe institutional deprivation is not a difficult bedtime.",
+      "start_ratio": 0.1526,
+      "end_ratio": 0.1642
+    },
+    {
+      "id": "b-014",
+      "tag": "h2",
+      "chunk_id": 15,
+      "start_sec": 186.933,
+      "end_sec": 190.714,
+      "words": 6,
+      "weight": 8,
+      "text": "Competing explanations of the opening scene",
+      "start_ratio": 0.1642,
+      "end_ratio": 0.1675
+    },
+    {
+      "id": "b-015",
+      "tag": "p",
+      "chunk_id": 16,
+      "start_sec": 190.714,
+      "end_sec": 196.465,
+      "words": 11,
+      "weight": 11,
+      "text": "Before resolving the pickup, three explanations need to sit in view:",
+      "start_ratio": 0.1675,
+      "end_ratio": 0.1725
+    },
+    {
+      "id": "b-016",
+      "tag": "li",
+      "chunk_id": 17,
+      "start_sec": 196.465,
+      "end_sec": 202.796,
+      "words": 7,
+      "weight": 8,
+      "text": "Spoiling. Responding reinforces crying. Waiting teaches self-soothing.",
+      "start_ratio": 0.1725,
+      "end_ratio": 0.1781
+    },
+    {
+      "id": "b-017",
+      "tag": "li",
+      "chunk_id": 18,
+      "start_sec": 202.796,
+      "end_sec": 211.847,
+      "words": 20,
+      "weight": 21,
+      "text": "Installation of security. Responsive care builds a secure base that later becomes autonomy, as if one ingredient wrote the future.",
+      "start_ratio": 0.1781,
+      "end_ratio": 0.186
+    },
+    {
+      "id": "b-018",
+      "tag": "li",
+      "chunk_id": 19,
+      "start_sec": 211.847,
+      "end_sec": 228.178,
+      "words": 25,
+      "weight": 26,
+      "text": "Transaction. Infant and caregiver organize arousal together, inside an ecology that also includes health, nutrition, safety, and learning. Effects are real, graded, and not destiny.",
+      "start_ratio": 0.186,
+      "end_ratio": 0.2004
+    },
+    {
+      "id": "b-019",
+      "tag": "p",
+      "chunk_id": 20,
+      "start_sec": 228.178,
+      "end_sec": 242.649,
+      "words": 39,
+      "weight": 39,
+      "text": "The first is too thin for what randomized sleep-training follow-up can show, and too complete as a theory of character. The second is the popular pipeline. The third is the claim the evidence can carry — piece by piece.",
+      "start_ratio": 0.2004,
+      "end_ratio": 0.2131
+    },
+    {
+      "id": "b-020",
+      "tag": "h2",
+      "chunk_id": 21,
+      "start_sec": 242.649,
+      "end_sec": 247.27,
+      "words": 8,
+      "weight": 10,
+      "text": "Dependence is the starting condition, not a defect",
+      "start_ratio": 0.2131,
+      "end_ratio": 0.2172
+    },
+    {
+      "id": "b-021",
+      "tag": "p",
+      "chunk_id": 22,
+      "start_sec": 247.27,
+      "end_sec": 273.061,
+      "words": 63,
+      "weight": 63,
+      "text": "Human infants can signal hunger without obtaining food, and experience intense arousal without the machinery to understand or deliberately reduce it. Dependence is not the same thing as emptiness. The infant contributes from the beginning. The useful unit of analysis is neither “the parent” nor “the child” alone. It is the dyad, and even the dyad is incomplete without the environment around it.",
+      "start_ratio": 0.2172,
+      "end_ratio": 0.2398
+    },
+    {
+      "id": "b-022",
+      "tag": "p",
+      "chunk_id": 23,
+      "start_sec": 273.061,
+      "end_sec": 277.892,
+      "words": 8,
+      "weight": 8,
+      "text": "What is regulation, if not a parental performance?",
+      "start_ratio": 0.2398,
+      "end_ratio": 0.244
+    },
+    {
+      "id": "b-023",
+      "tag": "p",
+      "chunk_id": 24,
+      "start_sec": 277.892,
+      "end_sec": 306.803,
+      "words": 70,
+      "weight": 70,
+      "text": "Regulation is the organization of arousal, emotion, attention, behavior, feeding, and sleep. Adults do much of this automatically. Infants can do some of it, but not reliably under high demand. A tired infant may become more distressed because they are tired. A hungry infant may become less able to feed because they are too aroused. The state that creates a need for regulation can reduce the infant’s ability to regulate.",
+      "start_ratio": 0.244,
+      "end_ratio": 0.2694
+    },
+    {
+      "id": "b-024",
+      "tag": "p",
+      "chunk_id": 25,
+      "start_sec": 306.803,
+      "end_sec": 325.554,
+      "words": 42,
+      "weight": 42,
+      "text": "A caregiver may dim the room, change position, offer contact, slow a voice, feed, or remain available while arousal falls. These are forms of environmental regulation. They are not magic. Because the infant is also influencing the adult, the process is reciprocal.",
+      "start_ratio": 0.2694,
+      "end_ratio": 0.2859
+    },
+    {
+      "id": "b-025",
+      "tag": "p",
+      "chunk_id": 26,
+      "start_sec": 325.554,
+      "end_sec": 343.505,
+      "words": 34,
+      "weight": 34,
+      "text": "WHO, UNICEF, and the World Bank treat responsive caregiving as one component of nurturing care, alongside health, nutrition, security, and early learning. That framing matters. It keeps “responsiveness” from becoming a maternal purity test.",
+      "start_ratio": 0.2859,
+      "end_ratio": 0.3017
+    },
+    {
+      "id": "b-026",
+      "tag": "p",
+      "chunk_id": 27,
+      "start_sec": 343.505,
+      "end_sec": 373.736,
+      "words": 67,
+      "weight": 67,
+      "text": "Feldman (2012) models affiliative bonds as time-locked coordination of physiology and interactive behavior. Synchrony is not synonymous with health. Two nervous systems can covary because they are calming one another, because both are responding to the same event, or because distress is contagious. Are parent and child synchronized? is the wrong first question. Synchronized in what system, at what moment, in which direction, and with what consequence?",
+      "start_ratio": 0.3017,
+      "end_ratio": 0.3282
+    },
+    {
+      "id": "b-027",
+      "tag": "p",
+      "chunk_id": 28,
+      "start_sec": 373.736,
+      "end_sec": 401.047,
+      "words": 60,
+      "weight": 60,
+      "text": "Heart-rate variability and related autonomic measures provide short windows into that coupling. They do not establish that every interaction permanently programs the infant’s stress system. They do not establish that calm adults produce calm children. They do not justify turning a biomarker into a parenting score. The evidence is stronger for immediate regulatory influence than for universal long-term biological programming.",
+      "start_ratio": 0.3282,
+      "end_ratio": 0.3522
+    },
+    {
+      "id": "b-028",
+      "tag": "h2",
+      "chunk_id": 29,
+      "start_sec": 401.047,
+      "end_sec": 405.828,
+      "words": 7,
+      "weight": 9,
+      "text": "Feeding as regulation, not a cognition test",
+      "start_ratio": 0.3522,
+      "end_ratio": 0.3564
+    },
+    {
+      "id": "b-029",
+      "tag": "p",
+      "chunk_id": 30,
+      "start_sec": 405.828,
+      "end_sec": 421.979,
+      "words": 33,
+      "weight": 33,
+      "text": "Hunger and satiety are among the first problems the dyad solves together. The infant signals. The adult offers, waits, pauses, or persists. The child experiences a more or less predictable world of food.",
+      "start_ratio": 0.3564,
+      "end_ratio": 0.3706
+    },
+    {
+      "id": "b-030",
+      "tag": "p",
+      "chunk_id": 31,
+      "start_sec": 421.979,
+      "end_sec": 440.45,
+      "words": 33,
+      "weight": 33,
+      "text": "Feeding develops as a reciprocal, cue-based interaction rather than a mechanical transfer of calories. Yet treating responsive feeding as a standardized intervention program has not reliably changed long-term growth trajectories, intelligence, or character.",
+      "start_ratio": 0.3706,
+      "end_ratio": 0.3868
+    },
+    {
+      "id": "b-031",
+      "tag": "p",
+      "chunk_id": 32,
+      "start_sec": 440.45,
+      "end_sec": 455.321,
+      "words": 31,
+      "weight": 31,
+      "text": "Forcing intake, ignoring satiety, or treating every feed as a performance are not licensed as developmental necessities. Ordinary noticing of cues is consistent with the framework. A feeding dashboard is not.",
+      "start_ratio": 0.3868,
+      "end_ratio": 0.3999
+    },
+    {
+      "id": "b-032",
+      "tag": "h2",
+      "chunk_id": 33,
+      "start_sec": 455.321,
+      "end_sec": 460.022,
+      "words": 7,
+      "weight": 9,
+      "text": "Sleep, attachment, and what trials can carry",
+      "start_ratio": 0.3999,
+      "end_ratio": 0.404
+    },
+    {
+      "id": "b-033",
+      "tag": "p",
+      "chunk_id": 34,
+      "start_sec": 460.022,
+      "end_sec": 481.573,
+      "words": 50,
+      "weight": 50,
+      "text": "A six-month-old wakes at night. One adult responds quickly. Another waits. Over weeks the pattern of night waking may diverge. Popular argument treats that divergence as a verdict on character: one household is teaching independence; the other is creating a habit. The scene is real. The verdict is not licensed.",
+      "start_ratio": 0.404,
+      "end_ratio": 0.4229
+    },
+    {
+      "id": "b-034",
+      "tag": "p",
+      "chunk_id": 35,
+      "start_sec": 481.573,
+      "end_sec": 510.564,
+      "words": 70,
+      "weight": 70,
+      "text": "Randomized and follow-up evidence does not find that graduated-extinction or related behavioral sleep interventions harm measured attachment or increase behavioral problems through age 6. Some trials also find that night waking and parental sleep improve under protocol. Those are short-horizon, selected-sample findings. They are not a mandate to train every infant, and they are not a license to treat a family that does not use extinction as a developmental failure.",
+      "start_ratio": 0.4229,
+      "end_ratio": 0.4484
+    },
+    {
+      "id": "b-035",
+      "tag": "p",
+      "chunk_id": 36,
+      "start_sec": 510.564,
+      "end_sec": 535.674,
+      "words": 57,
+      "weight": 57,
+      "text": "Follow-up studies of behavioral sleep interventions report no measured attachment disruption or behavioral harm through age six, though existing randomized trials remain underpowered for rare or late-emerging outcomes. Demonstrating an absence of measured harm in moderate-sized cohorts is reassuring for parents who choose extinction protocols, but it is not an all-encompassing philosophical guarantee or a universal mandate.",
+      "start_ratio": 0.4484,
+      "end_ratio": 0.4704
+    },
+    {
+      "id": "b-036",
+      "tag": "p",
+      "chunk_id": 37,
+      "start_sec": 535.674,
+      "end_sec": 579.825,
+      "words": 97,
+      "weight": 97,
+      "text": "Attachment, similarly, is a relationship-specific organization of proximity, protection, comfort, and exploration. It is not a personality test, a parenting style, or a forecast. The Strange Situation is a twenty-minute procedure in which a child and a caregiver are separated and reunited under a standard script. What it classifies is a pattern of behavior in that situation with that person. A classification is not a kind of child. A child can be secure with one adult and not with another. Meta-analytic associations between security and later social adaptation are modest. They do not justify a developmental prophecy.",
+      "start_ratio": 0.4704,
+      "end_ratio": 0.5092
+    },
+    {
+      "id": "b-037",
+      "tag": "p",
+      "chunk_id": 38,
+      "start_sec": 579.825,
+      "end_sec": 586.216,
+      "words": 10,
+      "weight": 10,
+      "text": "Short sensitivity-focused RCTs move observed sensitivity more than attachment security.",
+      "start_ratio": 0.5092,
+      "end_ratio": 0.5148
+    },
+    {
+      "id": "b-038",
+      "tag": "p",
+      "chunk_id": 39,
+      "start_sec": 586.216,
+      "end_sec": 603.567,
+      "words": 34,
+      "weight": 34,
+      "text": "Brief, targeted interventions focused on parental sensitivity reliably increase observed sensitivity and moderately improve attachment security, following a documented ‘less is more’ pattern. Effects on distal cognitive and behavioral outcomes, however, remain substantially weaker.",
+      "start_ratio": 0.5148,
+      "end_ratio": 0.5301
+    },
+    {
+      "id": "b-039",
+      "tag": "p",
+      "chunk_id": 40,
+      "start_sec": 603.567,
+      "end_sec": 633.158,
+      "words": 64,
+      "weight": 64,
+      "text": "A securely attached child can struggle. An insecurely attached child can thrive. The popular pipeline — responsive parent → co-regulated infant → secure attachment → strong self-regulation → successful adult — is not a finding this chapter can carry. Sensitivity is reliably associated with security, but the association is moderate rather than deterministic. Changing a proximal process is easier than transforming a distant outcome.",
+      "start_ratio": 0.5301,
+      "end_ratio": 0.556
+    },
+    {
+      "id": "b-040",
+      "tag": "h2",
+      "chunk_id": 41,
+      "start_sec": 633.158,
+      "end_sec": 636.619,
+      "words": 6,
+      "weight": 8,
+      "text": "When the environment is severely depriving",
+      "start_ratio": 0.556,
+      "end_ratio": 0.5591
+    },
+    {
+      "id": "b-041",
+      "tag": "p",
+      "chunk_id": 42,
+      "start_sec": 636.619,
+      "end_sec": 645.01,
+      "words": 16,
+      "weight": 16,
+      "text": "If ordinary differences in caregiving produce modest associations, where is the evidence for larger causal effects?",
+      "start_ratio": 0.5591,
+      "end_ratio": 0.5665
+    },
+    {
+      "id": "b-042",
+      "tag": "p",
+      "chunk_id": 43,
+      "start_sec": 645.01,
+      "end_sec": 668.001,
+      "words": 45,
+      "weight": 45,
+      "text": "The Bucharest Early Intervention Project studied children who had already experienced severe institutional deprivation. Children randomly assigned to family-based foster care showed better outcomes on some measures than children who remained in institutional care. Recovery was real and incomplete. Timing, stability, and later care mattered.",
+      "start_ratio": 0.5665,
+      "end_ratio": 0.5866
+    },
+    {
+      "id": "b-043",
+      "tag": "p",
+      "chunk_id": 44,
+      "start_sec": 668.001,
+      "end_sec": 693.672,
+      "words": 45,
+      "weight": 45,
+      "text": "Severe institutional deprivation profoundly compromises cognitive, social, and neural development, and randomized family-based foster placement substantially improves developmental trajectories. Yet generalizing these severe clinical findings to ordinary parenting variations, community daycare, a missed cue, or a difficult bedtime is an empirical and ethical category error.",
+      "start_ratio": 0.5866,
+      "end_ratio": 0.6092
+    },
+    {
+      "id": "b-044",
+      "tag": "p",
+      "chunk_id": 45,
+      "start_sec": 693.672,
+      "end_sec": 707.183,
+      "words": 22,
+      "weight": 22,
+      "text": "Institutional deprivation can combine rotating caregivers, low social stimulation, poor nutrition, health risks, separation, and instability. It is not a difficult bedtime.",
+      "start_ratio": 0.6092,
+      "end_ratio": 0.6211
+    },
+    {
+      "id": "b-045",
+      "tag": "p",
+      "chunk_id": 46,
+      "start_sec": 707.183,
+      "end_sec": 729.694,
+      "words": 51,
+      "weight": 51,
+      "text": "Follow-up in this project has shown improvement on some outcomes and not others. Recovery can be real and still incomplete. That double finding is the point. Early environments can matter greatly. Early environments do not determine everything. Averaging BEIP into a claim about ordinary parental inconsistency would be a category error.",
+      "start_ratio": 0.6211,
+      "end_ratio": 0.6408
+    },
+    {
+      "id": "b-046",
+      "tag": "h2",
+      "chunk_id": 47,
+      "start_sec": 729.694,
+      "end_sec": 735.315,
+      "words": 11,
+      "weight": 13,
+      "text": "Culture, more than one adult, and the conditions around the dyad",
+      "start_ratio": 0.6408,
+      "end_ratio": 0.6458
+    },
+    {
+      "id": "b-047",
+      "tag": "p",
+      "chunk_id": 48,
+      "start_sec": 735.315,
+      "end_sec": 757.746,
+      "words": 48,
+      "weight": 48,
+      "text": "Children can form meaningful relationships with more than one caregiver. Caregiving practices vary across cultures while some relational functions recur: protection, comfort, feeding, repair. The parent is not the whole environment. Housing, work, leave, health services, and support change what a dyad can do on a given night.",
+      "start_ratio": 0.6458,
+      "end_ratio": 0.6655
+    },
+    {
+      "id": "b-048",
+      "tag": "p",
+      "chunk_id": 49,
+      "start_sec": 757.746,
+      "end_sec": 765.297,
+      "words": 17,
+      "weight": 17,
+      "text": "A family with fewer resources is not a family with less love. Nurturing care is an ecology.",
+      "start_ratio": 0.6655,
+      "end_ratio": 0.6721
+    },
+    {
+      "id": "b-049",
+      "tag": "h2",
+      "chunk_id": 50,
+      "start_sec": 765.297,
+      "end_sec": 768.758,
+      "words": 5,
+      "weight": 7,
+      "text": "The myth of continuous accuracy",
+      "start_ratio": 0.6721,
+      "end_ratio": 0.6751
+    },
+    {
+      "id": "b-050",
+      "tag": "p",
+      "chunk_id": 51,
+      "start_sec": 768.758,
+      "end_sec": 795.469,
+      "words": 63,
+      "weight": 63,
+      "text": "Modern caregiving culture often asks for uninterrupted emotional accuracy: notice every signal, respond at once, never miss. That standard is not an empirical finding. Mismatch is ordinary. Repair is part of the process. A child does not need uninterrupted attunement. The evidence does not demand one adult for every need, and it does not show that every period of distress causes developmental damage.",
+      "start_ratio": 0.6751,
+      "end_ratio": 0.6986
+    },
+    {
+      "id": "b-051",
+      "tag": "p",
+      "chunk_id": 52,
+      "start_sec": 795.469,
+      "end_sec": 822.14,
+      "words": 62,
+      "weight": 62,
+      "text": "Temperament belongs here as a warning, not as a diagnosis. Infants differ in how readily they settle, how intensely they protest, and how much stimulation they can use. The same pickup, the same wait, the same feed can land differently. Those differences are not a rounding error. They are also a standing warning against ranking households by how quickly a cry stopped.",
+      "start_ratio": 0.6986,
+      "end_ratio": 0.722
+    },
+    {
+      "id": "b-052",
+      "tag": "p",
+      "chunk_id": 53,
+      "start_sec": 822.14,
+      "end_sec": 840.371,
+      "words": 44,
+      "weight": 44,
+      "text": "Culture changes the meaning of behavior. A practice that looks distant in one community can be protective in another. What recurs is not a single script. It is some form of protection, comfort, feeding, and repair, distributed across the people who are actually there.",
+      "start_ratio": 0.722,
+      "end_ratio": 0.738
+    },
+    {
+      "id": "b-053",
+      "tag": "p",
+      "chunk_id": 54,
+      "start_sec": 840.371,
+      "end_sec": 852.562,
+      "words": 35,
+      "weight": 35,
+      "text": "Children can form more than one attachment. A second adult is not a dilution of the first. The dyad is a convenient unit of study. It is not the whole of the child’s social world.",
+      "start_ratio": 0.738,
+      "end_ratio": 0.7487
+    },
+    {
+      "id": "b-054",
+      "tag": "p",
+      "chunk_id": 55,
+      "start_sec": 852.562,
+      "end_sec": 873.113,
+      "words": 47,
+      "weight": 47,
+      "text": "Interventions that change observable caregiver behavior can improve sensitivity and, in some programs, attachment security. An effect in a trial is not an effect at population scale. A proximal change is not a distal transformation. Efficacy, effectiveness, and what a family can reasonably do remain different claims.",
+      "start_ratio": 0.7487,
+      "end_ratio": 0.7668
+    },
+    {
+      "id": "b-055",
+      "tag": "p",
+      "chunk_id": 56,
+      "start_sec": 873.113,
+      "end_sec": 888.264,
+      "words": 29,
+      "weight": 29,
+      "text": "Autonomy, later, is not isolation. Adults also regulate through other people. What begins as dependence becomes participation. The mature state is interdependence, not a child who never needed anyone.",
+      "start_ratio": 0.7668,
+      "end_ratio": 0.7801
+    },
+    {
+      "id": "b-056",
+      "tag": "h2",
+      "chunk_id": 57,
+      "start_sec": 888.264,
+      "end_sec": 891.005,
+      "words": 5,
+      "weight": 7,
+      "text": "What the evidence can carry",
+      "start_ratio": 0.7801,
+      "end_ratio": 0.7825
+    },
+    {
+      "id": "b-057",
+      "tag": "p",
+      "chunk_id": 58,
+      "start_sec": 891.005,
+      "end_sec": 944.396,
+      "words": 109,
+      "weight": 109,
+      "text": "The regulatory relationship is important because the evidence allows a strong claim without an exaggerated one. Infants have substantial capacities and limited independent regulation. Caregivers can influence physiology, emotion, attention, and behavior, especially over short timescales. Attachment is a relationship-specific organization, not a forecast. Sensitivity is associated with security, moderately. Children can have more than one such relationship. Severe deprivation can cause substantial harm, and family placement can improve some outcomes. Focused interventions can change some proximal processes. None of this removes the wider environment. The most consequential relationship may not be parent and child considered in isolation. It may be the family and the conditions around the family.",
+      "start_ratio": 0.7825,
+      "end_ratio": 0.8294
+    },
+    {
+      "id": "b-058",
+      "tag": "h2",
+      "chunk_id": 59,
+      "start_sec": 944.396,
+      "end_sec": 947.737,
+      "words": 7,
+      "weight": 9,
+      "text": "What this chapter does not tell us",
+      "start_ratio": 0.8294,
+      "end_ratio": 0.8323
+    },
+    {
+      "id": "b-059",
+      "tag": "p",
+      "chunk_id": 60,
+      "start_sec": 947.737,
+      "end_sec": 956.047,
+      "words": 22,
+      "weight": 22,
+      "text": "It does not tell us that responding to a cry spoils a child, or that waiting teaches independence as a character lesson.",
+      "start_ratio": 0.8323,
+      "end_ratio": 0.8396
+    },
+    {
+      "id": "b-060",
+      "tag": "p",
+      "chunk_id": 61,
+      "start_sec": 956.047,
+      "end_sec": 963.678,
+      "words": 17,
+      "weight": 17,
+      "text": "It does not tell us that co-regulation is a purity test, or that synchrony is uniformly beneficial.",
+      "start_ratio": 0.8396,
+      "end_ratio": 0.8463
+    },
+    {
+      "id": "b-061",
+      "tag": "p",
+      "chunk_id": 62,
+      "start_sec": 963.678,
+      "end_sec": 969.629,
+      "words": 13,
+      "weight": 13,
+      "text": "It does not tell us that the Strange Situation is a personality score.",
+      "start_ratio": 0.8463,
+      "end_ratio": 0.8515
+    },
+    {
+      "id": "b-062",
+      "tag": "p",
+      "chunk_id": 63,
+      "start_sec": 969.629,
+      "end_sec": 977.3,
+      "words": 19,
+      "weight": 19,
+      "text": "It does not tell us that sleep training writes a life, or that it is a completed safety guarantee.",
+      "start_ratio": 0.8515,
+      "end_ratio": 0.8583
+    },
+    {
+      "id": "b-063",
+      "tag": "p",
+      "chunk_id": 64,
+      "start_sec": 977.3,
+      "end_sec": 985.291,
+      "words": 18,
+      "weight": 18,
+      "text": "It does not tell us that feeding method is cognition, or that responsive feeding is an IQ program.",
+      "start_ratio": 0.8583,
+      "end_ratio": 0.8653
+    },
+    {
+      "id": "b-064",
+      "tag": "p",
+      "chunk_id": 65,
+      "start_sec": 985.291,
+      "end_sec": 995.002,
+      "words": 17,
+      "weight": 17,
+      "text": "It does not tell us that severe institutional deprivation describes ordinary parenting, daycare, or a missed bedtime.",
+      "start_ratio": 0.8653,
+      "end_ratio": 0.8738
+    },
+    {
+      "id": "b-065",
+      "tag": "p",
+      "chunk_id": 66,
+      "start_sec": 995.002,
+      "end_sec": 1000.193,
+      "words": 12,
+      "weight": 12,
+      "text": "It does not tell us that one adult must meet every need.",
+      "start_ratio": 0.8738,
+      "end_ratio": 0.8784
+    },
+    {
+      "id": "b-066",
+      "tag": "p",
+      "chunk_id": 67,
+      "start_sec": 1000.193,
+      "end_sec": 1008.744,
+      "words": 15,
+      "weight": 15,
+      "text": "It does not tell us how extrafamilial worlds will reshape opportunity. That is later territory.",
+      "start_ratio": 0.8784,
+      "end_ratio": 0.8859
+    },
+    {
+      "id": "b-067",
+      "tag": "h2",
+      "chunk_id": 68,
+      "start_sec": 1008.744,
+      "end_sec": 1013.125,
+      "words": 3,
+      "weight": 5,
+      "text": "Science, Interpretation, Art",
+      "start_ratio": 0.8859,
+      "end_ratio": 0.8897
+    },
+    {
+      "id": "b-068",
+      "tag": "p",
+      "chunk_id": 69,
+      "start_sec": 1013.125,
+      "end_sec": 1037.556,
+      "words": 42,
+      "weight": 42,
+      "text": "Science here is the High-grade fact that severe deprivation is dangerous; the Moderate claims that co-regulation exists, that family placement helped in BEIP, and that sensitivity interventions move sensitivity; and the Low-to-Moderate status of sleep-training harm, single synchrony mechanisms, and distal pipelines.",
+      "start_ratio": 0.8897,
+      "end_ratio": 0.9112
+    },
+    {
+      "id": "b-069",
+      "tag": "p",
+      "chunk_id": 70,
+      "start_sec": 1037.556,
+      "end_sec": 1052.947,
+      "words": 40,
+      "weight": 40,
+      "text": "Interpretation is the habit of keeping those facts from becoming a story about the kind of person the child will be, or the kind of performer the parent must become. It is also the habit of matching verbs to grades.",
+      "start_ratio": 0.9112,
+      "end_ratio": 0.9247
+    },
+    {
+      "id": "b-070",
+      "tag": "p",
+      "chunk_id": 71,
+      "start_sec": 1052.947,
+      "end_sec": 1072.978,
+      "words": 46,
+      "weight": 46,
+      "text": "Art is the remaining human fact: deciding when to pick up, when to wait, when to feed, when to protect sleep, and when to ask for help. Those decisions belong to a relationship. They are not experiments, and they are not a performance to be scored.",
+      "start_ratio": 0.9247,
+      "end_ratio": 0.9423
+    },
+    {
+      "id": "b-071",
+      "tag": "h2",
+      "chunk_id": 72,
+      "start_sec": 1072.978,
+      "end_sec": 1074.679,
+      "words": 1,
+      "weight": 3,
+      "text": "Return",
+      "start_ratio": 0.9423,
+      "end_ratio": 0.9438
+    },
+    {
+      "id": "b-072",
+      "tag": "p",
+      "chunk_id": 73,
+      "start_sec": 1074.679,
+      "end_sec": 1085.51,
+      "words": 24,
+      "weight": 24,
+      "text": "The infant whose cry stopped in someone’s arms has not become a different child because we now have a map. The map has changed.",
+      "start_ratio": 0.9438,
+      "end_ratio": 0.9533
+    },
+    {
+      "id": "b-073",
+      "tag": "p",
+      "chunk_id": 74,
+      "start_sec": 1085.51,
+      "end_sec": 1102.821,
+      "words": 43,
+      "weight": 43,
+      "text": "The second environment is not a classroom. It is a succession of exchanges: a cry that recruits, a feed that may or may not coordinate, a night that may or may not settle, another person who makes some recoveries possible and others not.",
+      "start_ratio": 0.9533,
+      "end_ratio": 0.9685
+    },
+    {
+      "id": "b-074",
+      "tag": "p",
+      "chunk_id": 75,
+      "start_sec": 1102.821,
+      "end_sec": 1125.692,
+      "words": 46,
+      "weight": 46,
+      "text": "Chapter 3 showed a change of regulatory environment. This chapter shows the relationship that takes up that dependence. Dependence is not a defect to be trained out in a week. It is transformed, over years, into participation. The mature state is not isolation. It is interdependence.",
+      "start_ratio": 0.9685,
+      "end_ratio": 0.9886
+    },
+    {
+      "id": "b-075",
+      "tag": "p",
+      "chunk_id": 76,
+      "start_sec": 1125.692,
+      "end_sec": 1138.683,
+      "words": 33,
+      "weight": 33,
+      "text": "The mind that will act, remember, and later use words is already being organized inside this relationship. That is the next territory. It is not a verdict on the pickup that came before.",
+      "start_ratio": 0.9886,
+      "end_ratio": 1.0
+    }
+  ]
+}
