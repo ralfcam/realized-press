@@ -55,10 +55,7 @@ def synthesize_chunk_pcm(text: str, voice: str, model: str, api_key: str, max_re
                 {
                     "parts": [
                         {
-                            "text": (
-                                "Narrate the following nonfiction audiobook passage in a measured, "
-                                "clear, analytic, and engaging documentary tone:\n\n" + text
-                            )
+                            "text": text
                         }
                     ]
                 }
@@ -143,6 +140,7 @@ def main() -> None:
     parser.add_argument("--batch-chunks", action="store_true", help="Group blocks into 3500-char chunks instead of per-paragraph chunks")
     parser.add_argument("--dry-run", action="store_true", help="Estimate duration, blocks & chunk counts without calling API")
     parser.add_argument("--encode-mp3-only", action="store_true", help="Encode existing WAVs in audiobook/ to MP3 without calling Gemini")
+    parser.add_argument("--skip-existing", action="store_true", help="Skip chapters that already have complete WAV and timings JSON")
     args = parser.parse_args()
 
     root = repo_root()
@@ -225,6 +223,13 @@ def main() -> None:
 
     ffmpeg_bin = shutil.which("ffmpeg")
     for f in md_files:
+        wav_path = out_dir / f"{f.stem}.wav"
+        timings_path = out_dir / f"{f.stem}.timings.json"
+        mp3_path = out_dir / f"{f.stem}.mp3"
+        if args.skip_existing and wav_path.exists() and timings_path.exists():
+            if not ffmpeg_bin or mp3_path.exists():
+                print(f"Skipping already-synthesized chapter: {f.name}")
+                continue
         content = f.read_text(encoding="utf-8")
         blocks = extract_semantic_blocks(content)
         chunks = pack_semantic_blocks(blocks, max_chars=args.max_chars, per_paragraph=per_paragraph)
