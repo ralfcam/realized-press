@@ -1,0 +1,28 @@
+Publishing Extraction Verification — Book 02 Forget Gate
+Status: PASS
+Edition: Reader Edition — Working Slice
+Renderer: fpdf2 2.8.9 / pypdf 6.0.0
+PDF: book-02-forget-gate-kdp-6x9.pdf
+SHA-256: 2b3831da2c2dbd51146ffee4fb4ba188d131c89af9c481f9af2445a9692426b4
+Bytes: 294,523
+Pages: 82 (82/82 nonblank)
+
+Chapters:
+- PASS · PDF page 2 · Chapter 1 — Six Years in the Shadow: Hochreiter, Schmidhuber, and the Path to 1997
+- PASS · PDF page 7 · Chapter 2 — The Constant Error Carousel: Why Addition Beats Multiplication
+- PASS · PDF page 12 · Chapter 3 — The Original 1997 Architecture: Cell State, Input Gate, Output Gate
+- PASS · PDF page 17 · Chapter 4 — The Forget Gate: The Missing Piece That Completed the Design
+- PASS · PDF page 23 · Chapter 5 — How the Four Gates Work as Parallel Learned Layers
+- PASS · PDF page 28 · Chapter 6 — LSTM in Practice: Speech, Translation, and the First Real-World Wins
+- PASS · PDF page 33 · Chapter 7 — Peepholes, Bidirectionality, and the Variants That Followed
+- PASS · PDF page 39 · Chapter 8 — Institutional Amnesia: Why Knowledge Dies When People Leave
+- PASS · PDF page 43 · Chapter 9 — The Audit Trail Paradox: Documenting Everything Obscures Everything
+- PASS · PDF page 48 · Chapter 10 — Regulated Industries as Extreme Memory Problems
+- PASS · PDF page 54 · Chapter 11: The Forget Gate as Organizational Design
+- PASS · PDF page 58 · Chapter 12: Change Orders, Versioning, and the Architecture of Accountability
+- PASS · PDF page 61 · Chapter 13: AI Memory Tools as Organizational Infrastructure
+- PASS · PDF page 65 · Chapter 14: Borges' Funes: The Curse of Perfect Memory
+- PASS · PDF page 68 · Chapter 15: The Neuroscience of Adaptive Forgetting: Erasing to Generalize
+- PASS · PDF page 72 · Chapter 16: Identity as a Function of Selective Retention
+- PASS · PDF page 75 · Chapter 17: The Ethics of Machine Memory: Surveillance, Consent, and the Right to Be Forgotten
+- PASS · PDF page 79 · Chapter 18: What the LSTM Taught Us About Minds We Didn't Build

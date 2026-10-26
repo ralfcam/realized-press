@@ -1,0 +1,27 @@
+Publishing Extraction Verification — Book 03 Weight Of Attention
+Status: PASS
+Edition: Reader Edition — Working Slice
+Renderer: fpdf2 2.8.9 / pypdf 6.0.0
+PDF: book-03-weight-of-attention-reader-edition.pdf
+SHA-256: 91e9eb3fadd571d4312d9293e3027e9ee9db75c8799f9ffb2996873953dd55f3
+Bytes: 228,825
+Pages: 49 (49/49 nonblank)
+
+Chapters:
+- PASS · PDF page 2 · Chapter 1: The LSTM's Fatal Constraint
+- PASS · PDF page 5 · Chapter 2: Bahdanau and the First Attention Mechanism
+- PASS · PDF page 8 · Chapter 3: "Attention Is All You Need": The Rupture
+- PASS · PDF page 11 · Chapter 4: How Dot-Product Attention Works: Queries, Keys, and Values
+- PASS · PDF page 14 · Chapter 5: Multi-Head Attention as Parallel Perspectives
+- PASS · PDF page 17 · Chapter 6: Positional Encoding: The Prosthetic of Time
+- PASS · PDF page 20 · Chapter 7: What Transformers Remember and What They Cannot
+- PASS · PDF page 23 · Chapter 8: The Shift from Institutional Memory to Institutional Search
+- PASS · PDF page 25 · Chapter 9: Knowledge Bases, Enterprise Search, and RAG Architectures
+- PASS · PDF page 28 · Chapter 10: When Retrieval Replaces Retention: The Risk of Outsourcing Memory
+- PASS · PDF page 30 · Chapter 11: Attention as Prioritization: What Organizations Weight Reveals What They Value
+- PASS · PDF page 33 · Chapter 12: The Compliance Implication: Auditability of Retrieval versus Retention
+- PASS · PDF page 36 · Chapter 13: Plato's Meno: Is Knowledge Retrieval or Discovery?
+- PASS · PDF page 39 · Chapter 14: The Difference Between Remembering and Looking Up
+- PASS · PDF page 41 · Chapter 15: The Extended Mind: Where Does Memory End?
+- PASS · PDF page 44 · Chapter 16: What Attention Reveals About Relevance as a Constructed Category
+- PASS · PDF page 47 · Chapter 17: Does Understanding Require Memory, or Only Access?

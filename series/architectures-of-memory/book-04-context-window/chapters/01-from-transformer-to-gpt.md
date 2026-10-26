@@ -1,0 +1,25 @@
+# Chapter 1: From Transformer to GPT — What Changes When Scale Arrives
+
+A server rack humming in an air-conditioned cluster in Quincy, Washington does not smell like iron filings or ozone; it smells like warm recirculated air and dry polymer. Inside, thousands of graphics processing units draw kilowatts of power through copper busbars, multiplying 16-bit floating-point numbers across matrix arrays. When Ashish Vaswani and his seven co-authors submitted the Transformer architecture in 2017, their primary objective was computational throughput in machine translation—replacing the serial recurrent step of the LSTM with parallel matrix multiplications that could saturate high-bandwidth hardware. None of them anticipated that by discarding recurrence, they had cleared the runway for a different phenomenon entirely: the emergence of what looks like universal semantic memory, purchased purely through the multiplication of parameters.
+
+The architectural leap from the original encoder-decoder Transformer to the generative pre-trained Transformer (GPT) was conceptually modest. Alec Radford and his collaborators at OpenAI stripped the encoder, retained the decoder stack, masked the future tokens so attention could only look backward, and trained the resulting model on an uncurated sweep of the internet. The goal was simple autoregressive sequence prediction: given a sequence of tokens $x_1, x_2, \dots, x_{t-1}$, maximize the log-likelihood of predicting the true next token $x_t$. In an LSTM or a Jordan network, historical context was funnelled into a single hidden state vector whose magnitude either vanished or exploded over long sequences. In the decoder-only Transformer, every token retained an uncompressed vector representation, and attention heads computed direct pairwise alignments across the entire context window.
+
+### The Landmark Empirical Set-Piece: Then vs. Now
+
+In late 2019, Jared Kaplan and a team of physicists and machine learning researchers at OpenAI set out to answer a question that had haunted connectionism since Frank Rosenblatt’s Mark I Perceptron: does adding capacity to a neural network yield diminishing returns, or does it follow a predictable mathematical trajectory? The historical orthodoxy dating back to the statistical learning theory of Vladimir Vapnik held that increasing model parameters far beyond the number of training samples inevitably provoked catastrophic overfitting, producing brittle models that memorized noise rather than generalizing structure. 
+
+Kaplan’s team constructed models spanning seven orders of magnitude in compute and evaluated cross-entropy loss across parameter scales ranging from $10^3$ to over $10^9$. What they discovered overturned the classical intuition of statistical learning. Cross-entropy loss did not stall; it decayed as a clean, continuous power law:
+
+$$L(N) \approx \left(\frac{N_c}{N}\right)^{\alpha_N}$$
+
+The power-law exponent showed that scaling the parameter count $N$, the dataset size $D$, and the compute budget $C$ reduced next-token prediction loss with mathematical uniformity, while hyperparameter choices like network depth versus width had virtually no measurable impact. Subsequent revisions by Hoffmann and the DeepMind team in 2022 (the Chinchilla scaling laws) corrected Kaplan’s compute-data ratios, proving that earlier models were undertrained, but the foundational principle held firm: scale is not merely an engineering convenience; it is an empirical law of statistical compression.
+
+### The 3-Tier Resolution of Scale
+
+To understand what happens when scale arrives, one must separate the macro statistical behavior of neural networks from their runtime operational reality:
+
+1. **Tier 1 (The Population Signal):** Across massive distributions of text, increasing parameter scale smoothly and continuously drives down cross-entropy loss. The macro trajectory is predictable: larger networks systematically internalize more statistical regularities across human discourse.
+2. **Tier 2 (The Mechanistic Constraint):** At the level of individual inferences, a smaller loss does not prevent sudden failure. An autoregressive Transformer possesses no latent workspace outside its activations; every token is sampled strictly from a probability distribution shaped by static weight matrices and recent context tokens.
+3. **Tier 3 (The Operator's Actionable Judgment):** System architects cannot treat statistical power laws as guarantees of factual correctness. Scale purchases breadth of association and grammatical coherence, but verifiability must be supplied by external structural constraints and deterministic retrieval.
+
+When scale expands, memory ceases to be an explicit data structure like a relational table or an LSTM cell state. It becomes distributed throughout billions of numerical weights—invisible, continuous, and everywhere at once. The server cluster cools its exhaust into the Washington desert night, silent and indifferent, holding petabytes of human text compressed into high-dimensional geometric curves.

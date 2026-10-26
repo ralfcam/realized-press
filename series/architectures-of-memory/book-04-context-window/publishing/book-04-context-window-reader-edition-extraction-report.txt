@@ -1,0 +1,29 @@
+Publishing Extraction Verification — Book 04 Context Window
+Status: PASS
+Edition: Reader Edition — Working Slice
+Renderer: fpdf2 2.8.9 / pypdf 6.0.0
+PDF: book-04-context-window-reader-edition.pdf
+SHA-256: 926b999b7a85d26d718f9c16e0fd1c368b5cfb10702f822c1eb6c9a04b4f6308
+Bytes: 210,271
+Pages: 39 (39/39 nonblank)
+
+Chapters:
+- PASS · PDF page 2 · Chapter 1: From Transformer to GPT — What Changes When Scale Arrives
+- PASS · PDF page 4 · Chapter 2: Parametric Memory — Knowledge Stored in Weights, Not States
+- PASS · PDF page 6 · Chapter 3: In-Context Learning — The Context Window as Working Memory
+- PASS · PDF page 8 · Chapter 4: Hallucination as a Memory Failure — Confident Retrieval of Nothing
+- PASS · PDF page 10 · Chapter 5: Retrieval-Augmented Generation — Patching the Window with External Memory
+- PASS · PDF page 12 · Chapter 6: The Finite Context Problem — What Falls Outside the Window Is Gone
+- PASS · PDF page 14 · Chapter 7: Emerging Architectures — Longer Contexts, Memory-Augmented Models, State Space Models
+- PASS · PDF page 16 · Chapter 8: When an LLM Is the Institutional Memory — Risks and Dependencies
+- PASS · PDF page 18 · Chapter 9: Compliance on Top of a Black Box — Auditability, Explainability, and the Governance Gap
+- PASS · PDF page 20 · Chapter 10: PropTech and FinTech as Case Studies — Where Memory Failures Become Regulatory Failures
+- PASS · PDF page 22 · Chapter 11: The Knowledge Base as the Only Auditable Layer
+- PASS · PDF page 24 · Chapter 12: Designing AI Systems for Regulated Environments — What Architects Get Wrong
+- PASS · PDF page 26 · Chapter 13: The GRC Implication — Governance of Systems That Cannot Explain What They Know
+- PASS · PDF page 28 · Chapter 14: Searle’s Chinese Room, Revisited at Scale
+- PASS · PDF page 30 · Chapter 15: The Difference Between Compression and Comprehension
+- PASS · PDF page 32 · Chapter 16: What It Would Mean for a Model to Truly Know Something
+- PASS · PDF page 34 · Chapter 17: Epistemic Humility at the Frontier — What Researchers Admit They Don’t Understand
+- PASS · PDF page 36 · Chapter 18: The Child and the Model — Developmental Cognition vs. Statistical Learning
+- PASS · PDF page 38 · Coda: The Window Closes

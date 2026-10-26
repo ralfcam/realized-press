@@ -1,0 +1,27 @@
+Publishing Extraction Verification — Book 05 Architecture Of Forgetting
+Status: PASS
+Edition: Reader Edition — Working Slice
+Renderer: fpdf2 2.8.9 / pypdf 6.0.0
+PDF: book-05-architecture-of-forgetting-kdp-6x9.pdf
+SHA-256: 5498dbc0dc53656a130a90d7f583942f1d6a8de688f118773ba5777c81d45dd3
+Bytes: 217,201
+Pages: 52 (52/52 nonblank)
+
+Chapters:
+- PASS · PDF page 2 · Chapter 1: Machine Unlearning — Can a Model Be Made to Forget?
+- PASS · PDF page 5 · Chapter 2: Differential Privacy — Forgetting as a Mathematical Guarantee
+- PASS · PDF page 8 · Chapter 3: Federated Learning — Memory Without Centralization
+- PASS · PDF page 11 · Chapter 4: The Carbon and Compute Cost of Memory at Scale
+- PASS · PDF page 14 · Chapter 5: Model Versioning and the Archaeology of Trained Weights — What Persists Across Fine-Tuning?
+- PASS · PDF page 17 · Chapter 6: GDPR and the Right to Be Forgotten — Legal Memory Architecture
+- PASS · PDF page 20 · Chapter 7: Data Retention Obligations vs. Model Retention — The Compliance Gap No One Has Solved
+- PASS · PDF page 23 · Chapter 8: Surveillance Capitalism as a Memory Business Model
+- PASS · PDF page 26 · Chapter 9: The Asymmetry — What Corporations Remember vs. What Individuals Can Delete
+- PASS · PDF page 29 · Chapter 10: Designing Compliant AI Systems — Memory as a Governance Surface
+- PASS · PDF page 32 · Chapter 11: The RegTech Opportunity — Tools That Make Machine Memory Auditable
+- PASS · PDF page 35 · Chapter 12: Ricoeur on Memory, Forgetting, and Forgiveness
+- PASS · PDF page 38 · Chapter 13: The Neuroscience of Therapeutic Forgetting — Trauma, PTSD, Reconsolidation
+- PASS · PDF page 41 · Chapter 14: Mortality as the Ultimate Forget Gate — What Death Preserves by Ending
+- PASS · PDF page 44 · Chapter 15: The Ethics of AI Systems That Outlive Their Creators
+- PASS · PDF page 47 · Chapter 16: What We Owe to Those Our Systems Remember Without Consent
+- PASS · PDF page 50 · Coda: The Series Closes — Back to the Unread Proof

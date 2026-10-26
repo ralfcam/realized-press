@@ -37,8 +37,8 @@ sources:
   - id: lewis2020arxiv
     resource: https://arxiv.org/abs/2005.11401
     title: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (2020)"
-  - id: abadi2016arxiv
-    resource: https://arxiv.org/abs/1607.00133
+  - id: Abadi_2016
+    resource: http://dx.doi.org/10.1145/2976749.2978318
     title: "Deep Learning with Differential Privacy (2016)"
   - id: Hochreiter_Schmidhuber_1995
     resource: https://scholar.google.com/scholar?q=Hochreiter_Schmidhuber_1995
@@ -55,6 +55,45 @@ sources:
   - id: Borges_1944_Funes
     resource: https://scholar.google.com/scholar?q=Borges_1944_Funes
     title: "Funes el memorioso (1944)"
+  - id: Schmidhuber_2015
+    resource: https://doi.org/10.1016/j.neunet.2014.09.003
+    title: "Deep Learning in Neural Networks: An Overview (2015)"
+  - id: Graves_2006
+    resource: https://doi.org/10.1145/1143844.1143891
+    title: "Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks (2006)"
+  - id: Elman_1990
+    resource: https://doi.org/10.1207/s15516709cog1402_1
+    title: "Finding Structure in Time (1990)"
+  - id: Wegner_1987
+    resource: https://doi.org/10.1007/978-1-4612-4634-3_9
+    title: "Transactive Memory: A Contemporary Analysis of the Group Mind (1987)"
+  - id: Wu_2016_GNMT
+    resource: https://arxiv.org/abs/1609.08144
+    title: "Google's Neural Machine Translation System: Bridging the Gap between Human and Machine Translation (2016)"
+  - id: Weick_1993
+    resource: http://dx.doi.org/10.2307/2393339
+    title: "The Collapse of Sensemaking in Organizations: The Mann Gulch Disaster (1993)"
+  - id: Tsang_2008
+    resource: http://dx.doi.org/10.1177/0018726708095710
+    title: "Organizational unlearning (2008)"
+  - id: Hardt_2013
+    resource: http://dx.doi.org/10.1016/j.tics.2013.01.001
+    title: "Decay happens: the role of active forgetting in memory (2013)"
+  - id: Bourtoule_2021
+    resource: http://dx.doi.org/10.1109/sp40001.2021.00019
+    title: "Machine Unlearning (2021)"
+  - id: Mayer_Schonberger_2009
+    resource: https://doi.org/10.1515/9781400838455
+    title: "Delete: The Virtue of Forgetting in the Digital Age (2009)"
+  - id: Ricoeur_2004
+    resource: https://doi.org/10.7208/chicago/9780226713465.001.0001
+    title: "Memory, History, Forgetting (2004)"
+  - id: Luria_1968
+    resource: https://scholar.google.com/scholar?q=Luria_1968
+    title: "The Mind of a Mnemonist: A Little Book About a Vast Memory (1968)"
+  - id: Lehman_1980
+    resource: http://dx.doi.org/10.1109/proc.1980.11805
+    title: "Programs, life cycles, and laws of software evolution (1980)"
 ---
 
 # Master Source Catalog (`book-02-forget-gate`)
@@ -69,9 +108,22 @@ sources:
 - **`Richards_2017`** (2017): The Persistence and Transience of Memory — <http://dx.doi.org/10.1016/j.neuron.2017.04.037>
 - **`Davis_2017`** (2017): The Biology of Forgetting—A Perspective — <http://dx.doi.org/10.1016/j.neuron.2017.05.039>
 - **`lewis2020arxiv`** (2020): Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks — <https://arxiv.org/abs/2005.11401>
-- **`abadi2016arxiv`** (2016): Deep Learning with Differential Privacy — <https://arxiv.org/abs/1607.00133>
+- **`Abadi_2016`** (2016): Deep Learning with Differential Privacy — <http://dx.doi.org/10.1145/2976749.2978318>
 - **`Hochreiter_Schmidhuber_1995`** (1995): Long Short-Term Memory — <https://scholar.google.com/scholar?q=Hochreiter_Schmidhuber_1995>
 - **`Hochreiter_Schmidhuber_1996`** (1997): LSTM can Solve Hard Long Time Lag Problems — <https://papers.nips.cc/paper_files/paper/1996/file/a4d2f0d23dcc84ce983ff9157f8b7f88-Paper.pdf>
 - **`Greff_2017`** (2017): LSTM: A Search Space Odyssey — <http://dx.doi.org/10.1109/tnnls.2016.2582924>
 - **`Bengio_1994`** (1994): Learning long-term dependencies with gradient descent is difficult — <http://dx.doi.org/10.1109/72.279181>
 - **`Borges_1944_Funes`** (1944): Funes el memorioso — <https://scholar.google.com/scholar?q=Borges_1944_Funes>
+- **`Schmidhuber_2015`** (2015): Deep Learning in Neural Networks: An Overview — <https://doi.org/10.1016/j.neunet.2014.09.003>
+- **`Graves_2006`** (2006): Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks — <https://doi.org/10.1145/1143844.1143891>
+- **`Elman_1990`** (1990): Finding Structure in Time — <https://doi.org/10.1207/s15516709cog1402_1>
+- **`Wegner_1987`** (1987): Transactive Memory: A Contemporary Analysis of the Group Mind — <https://doi.org/10.1007/978-1-4612-4634-3_9>
+- **`Wu_2016_GNMT`** (2016): Google's Neural Machine Translation System: Bridging the Gap between Human and Machine Translation — <https://arxiv.org/abs/1609.08144>
+- **`Weick_1993`** (1993): The Collapse of Sensemaking in Organizations: The Mann Gulch Disaster — <http://dx.doi.org/10.2307/2393339>
+- **`Tsang_2008`** (2008): Organizational unlearning — <http://dx.doi.org/10.1177/0018726708095710>
+- **`Hardt_2013`** (2013): Decay happens: the role of active forgetting in memory — <http://dx.doi.org/10.1016/j.tics.2013.01.001>
+- **`Bourtoule_2021`** (2021): Machine Unlearning — <http://dx.doi.org/10.1109/sp40001.2021.00019>
+- **`Mayer_Schonberger_2009`** (2009): Delete: The Virtue of Forgetting in the Digital Age — <https://doi.org/10.1515/9781400838455>
+- **`Ricoeur_2004`** (2004): Memory, History, Forgetting — <https://doi.org/10.7208/chicago/9780226713465.001.0001>
+- **`Luria_1968`** (1968): The Mind of a Mnemonist: A Little Book About a Vast Memory — <https://scholar.google.com/scholar?q=Luria_1968>
+- **`Lehman_1980`** (1980): Programs, life cycles, and laws of software evolution — <http://dx.doi.org/10.1109/proc.1980.11805>
