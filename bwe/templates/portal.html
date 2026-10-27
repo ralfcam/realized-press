@@ -1,9 +1,12 @@
 <!-- bwe/templates/portal.html -->
 <!DOCTYPE html>
-<html lang="en" class="bg-stone-950 text-stone-100">
+<html lang="en" class="bg-stone-950 text-stone-100 antialiased">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0c0a09">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>{{ chapter_slug }} — Realized Press</title>
   <script src="https://unpkg.com/htmx.org@2.0.4"></script>
   <script defer src="https://unpkg.com/alpinejs@3.14.8/dist/cdn.min.js"></script>
@@ -15,7 +18,7 @@
   {% set active_tab = "reader" %}
   {% include "partials/nav.html" %}
 
-  <div class="max-w-6xl w-full mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 flex-1">
+  <div class="max-w-6xl w-full mx-auto px-4 py-6 sm:py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 flex-1 pb-[calc(4rem+env(safe-area-inset-bottom,0px))]">
     <!-- Main Manuscript Column (8 cols) -->
     <main class="lg:col-span-8 space-y-4" @wheel="pauseAutoScroll()" @touchmove="pauseAutoScroll()">
       <header class="border-b border-stone-800 pb-4 mb-6">
@@ -24,53 +27,56 @@
           <span>•</span>
           <span>Chapter Reader (ARC-55)</span>
         </div>
-        <h1 class="text-3xl font-serif font-bold text-stone-100 capitalize">{{ chapter_slug.replace('-', ' ') }}</h1>
+        <h1 class="text-2xl sm:text-3xl font-serif font-bold text-stone-100 capitalize">{{ chapter_slug.replace('-', ' ') }}</h1>
       </header>
 
-    {% for block in timings %}
-    <div :id="'block-' + '{{ block.id }}'"
-         @click="seekTo({{ block.start }})"
-         :class="activeBlock === '{{ block.id }}' ? 'bg-amber-950/40 border-l-4 border-amber-400 pl-4 transition-all' : 'pl-5'"
-         class="cursor-pointer py-1 rounded">
-      {{ block.html | safe }}
-    </div>
-    {% else %}
-    <article class="prose prose-invert max-w-none text-stone-300">
-      {{ prose | safe }}
-    </article>
-    {% endfor %}
-  </main>
+      {% for block in timings %}
+      <div :id="'block-' + '{{ block.id }}'"
+           @click="seekTo({{ block.start }})"
+           :class="activeBlock === '{{ block.id }}' ? 'bg-amber-950/40 border-l-4 border-amber-400 pl-3.5 pr-2 transition-all shadow-sm' : 'pl-4 pr-2 hover:bg-stone-900/40 active:bg-amber-950/30'"
+           class="cursor-pointer py-1.5 rounded-lg transition touch-manipulation">
+        {{ block.html | safe }}
+      </div>
+      {% else %}
+      <article class="prose prose-invert max-w-none text-stone-300 leading-relaxed">
+        {{ prose | safe }}
+      </article>
+      {% endfor %}
+    </main>
 
-  <!-- Sticky Epistemic Side Drawer: Isolated Footnotes & ARC-53 Feedback (4 cols) -->
-  <aside class="lg:col-span-4 space-y-6">
-    <div class="sticky top-6 space-y-6">
-      <!-- Footnote & OKF Card Target (Never hijacks audio) -->
-      <section id="footnote-drawer" class="p-4 rounded-lg bg-stone-900 border border-stone-800">
-        <p class="text-xs uppercase tracking-wider text-stone-400">Epistemic Apparatus (OKF v0.2)</p>
-        <p class="text-sm text-stone-300 mt-2">
-          Click any footnote reference in the text to inspect primary DOI evidence and study design without interrupting narration.
-        </p>
-      </section>
+    <!-- Epistemic Side Drawer: Isolated Footnotes & Feedback (Desktop Sticky / Mobile Drawer or Stack) -->
+    <aside class="lg:col-span-4 space-y-6">
+      <div class="lg:sticky lg:top-6 space-y-6">
+        <!-- Footnote & OKF Card Target (Never hijacks audio) -->
+        <section id="footnote-drawer" class="p-4 rounded-xl bg-stone-900/90 border border-stone-800 shadow-md">
+          <div class="flex items-center justify-between">
+            <p class="text-xs uppercase tracking-wider text-stone-400 font-medium">Epistemic Apparatus (OKF v0.2)</p>
+            <span class="text-[10px] font-mono text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded border border-amber-800/40">Zero-Drift</span>
+          </div>
+          <p class="text-xs sm:text-sm text-stone-300 mt-2.5 leading-relaxed">
+            Tap any footnote reference in the text to inspect primary DOI evidence and study design without interrupting narration.
+          </p>
+        </section>
 
-      <!-- ARC-53 Reader Feedback Form -->
-      <form hx-post="/hx/feedback" hx-swap="outerHTML" class="p-4 rounded-lg bg-stone-900 border border-stone-800 space-y-3">
-        <input type="hidden" name="series_slug" value="{{ series_slug }}">
-        <input type="hidden" name="chapter_slug" value="{{ chapter_slug }}">
-        <input type="hidden" name="block_id" :value="activeBlock">
-        <label class="block text-xs uppercase tracking-wider text-stone-400">Reader Edition Feedback (ARC-53)</label>
-        <select name="category" class="w-full bg-stone-950 border border-stone-700 rounded p-1.5 text-sm">
-          <option value="epistemic-clarity">Epistemic Boundary (Science / Interpretation / Art)</option>
-          <option value="audio-cadence">Audio Narration / PCM Timing</option>
-          <option value="typo-citation">Citation / Footnote Check</option>
-        </select>
-        <textarea name="comment" required rows="2" placeholder="Note on current paragraph..."
-                  class="w-full bg-stone-950 border border-stone-700 rounded p-2 text-sm"></textarea>
-        <button type="submit" class="w-full py-1.5 bg-amber-600 hover:bg-amber-500 text-stone-950 font-semibold rounded text-sm">
-          Submit Paragraph Note
-        </button>
-      </form>
-    </div>
-  </aside>
+        <!-- ARC-53 Reader Feedback Form -->
+        <form hx-post="/hx/feedback" hx-swap="outerHTML" class="p-4 rounded-xl bg-stone-900/90 border border-stone-800 shadow-md space-y-3.5">
+          <input type="hidden" name="series_slug" value="{{ series_slug }}">
+          <input type="hidden" name="chapter_slug" value="{{ chapter_slug }}">
+          <input type="hidden" name="block_id" :value="activeBlock">
+          <label class="block text-xs uppercase tracking-wider text-stone-400 font-medium">Reader Edition Feedback (ARC-53)</label>
+          <select name="category" class="w-full bg-stone-950 border border-stone-700 rounded-lg p-2.5 sm:p-2 text-base sm:text-sm min-h-[44px] sm:min-h-[38px] touch-manipulation">
+            <option value="epistemic-clarity">Epistemic Boundary (Science / Interpretation / Art)</option>
+            <option value="audio-cadence">Audio Narration / PCM Timing</option>
+            <option value="typo-citation">Citation / Footnote Check</option>
+          </select>
+          <textarea name="comment" required rows="2" placeholder="Note on current paragraph..."
+                    class="w-full bg-stone-950 border border-stone-700 rounded-lg p-3 sm:p-2 text-base sm:text-sm min-h-[72px] touch-manipulation"></textarea>
+          <button type="submit" class="w-full py-2.5 sm:py-2 bg-amber-600 hover:bg-amber-500 active:bg-amber-700 text-stone-950 font-semibold rounded-lg text-sm min-h-[44px] flex items-center justify-center transition touch-manipulation">
+            Submit Paragraph Note
+          </button>
+        </form>
+      </div>
+    </aside>
   </div>
 
   <script>

@@ -1250,15 +1250,69 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       .dock-title {{
         font-size: 0.88rem;
       }}
-      .btn-dock {{
-        width: 40px;
-        height: 40px;
-        font-size: 0.88rem;
+      .dock-main {{
+        gap: 12px;
       }}
-      .btn-dock-play {{
+      .dock-title {{
+        font-size: 0.90rem;
+      }}
+      .btn-dock {{
         width: 44px;
         height: 44px;
-        font-size: 1.15rem;
+        min-width: 44px;
+        min-height: 44px;
+        font-size: 0.92rem;
+        touch-action: manipulation;
+      }}
+      .btn-dock-play {{
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        min-height: 50px;
+        font-size: 1.25rem;
+        touch-action: manipulation;
+      }}
+      .dock-speed {{
+        min-height: 44px;
+        min-width: 46px;
+        padding: 4px 6px;
+        font-size: 0.82rem;
+        touch-action: manipulation;
+      }}
+      .touch-scrubber-area {{
+        padding: 12px 0;
+        touch-action: none;
+      }}
+    }}
+
+    @media (max-width: 520px) {{
+      :root {{
+        --dock-h: 128px;
+      }}
+      body {{
+        padding-bottom: calc(var(--dock-h) + var(--safe-bottom) + 20px);
+      }}
+      .dock-main {{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }}
+      .dock-info {{
+        text-align: center;
+      }}
+      .dock-ctrls {{
+        justify-content: center;
+        gap: 8px;
+      }}
+      .ch-title {{
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }}
+      .chapter-card {{
+        padding: 12px 12px;
       }}
     }}
   </style>
