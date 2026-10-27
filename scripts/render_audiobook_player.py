@@ -105,13 +105,16 @@ def extract_clean_text(md_path: Path, timings_path: Path | None = None) -> str:
                 el["id"] = b["id"]
                 classes = el.get("class", []) or []
                 el["class"] = classes + ["sync-segment"]
+                el["tabindex"] = "0"
+                el["role"] = "button"
+                el["aria-label"] = f"Seek audio to {format_time_sec(b['start_sec'])}"
                 el["data-start-time"] = f"{b['start_sec']:.2f}"
                 el["data-end-time"] = f"{b['end_sec']:.2f}"
                 el["data-start-ratio"] = f"{b['start_ratio']:.4f}"
                 el["data-end-ratio"] = f"{b['end_ratio']:.4f}"
                 el["data-chunk-id"] = str(b.get("chunk_id", 1))
                 el["data-seg-idx"] = str(idx)
-                el["title"] = f"Tap to jump audio to {format_time_sec(b['start_sec'])}"
+                el["title"] = f"Tap or press Enter to jump audio to {format_time_sec(b['start_sec'])}"
             else:
                 el["data-spoken"] = "false"
                 classes = el.get("class", []) or []
@@ -145,10 +148,13 @@ def extract_clean_text(md_path: Path, timings_path: Path | None = None) -> str:
                 end_ratio = round(cum_weight / total_weight, 4)
                 classes = s.get("class", []) or []
                 s["class"] = classes + ["sync-segment"]
+                s["tabindex"] = "0"
+                s["role"] = "button"
+                s["aria-label"] = f"Seek audio to ~{start_ratio*100:.0f}%"
                 s["data-start-ratio"] = str(start_ratio)
                 s["data-end-ratio"] = str(end_ratio)
                 s["data-seg-idx"] = str(idx)
-                s["title"] = f"Tap to jump audio to ~{start_ratio*100:.1f}%"
+                s["title"] = f"Tap or press Enter to jump audio to ~{start_ratio*100:.1f}%"
             else:
                 s["data-spoken"] = "false"
                 classes = s.get("class", []) or []
@@ -653,6 +659,10 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       border-color: var(--gold);
       background: var(--card-hover);
     }}
+    .chapter-card:focus-visible {{
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }}
     .chapter-card.active-track {{
       border-color: var(--gold);
       background: var(--gold-dim);
@@ -932,6 +942,11 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
     .sync-segment:hover {{
       background: rgba(255, 255, 255, 0.04);
     }}
+    .sync-segment:focus-visible {{
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+      background: rgba(210, 153, 34, 0.08);
+    }}
     .sync-segment.active-segment {{
       background: rgba(210, 153, 34, 0.14) !important;
       border-left: 3px solid var(--gold) !important;
@@ -1106,6 +1121,11 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       display: flex;
       align-items: center;
     }}
+    .touch-scrubber-area:focus-visible {{
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }}
     .bar-bg {{
       width: 100%;
       height: 6px;
@@ -1197,6 +1217,16 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       padding: 6px 6px;
       min-height: 38px;
       cursor: pointer;
+    }}
+    .book-nav-item:focus-visible,
+    .series-chip:focus-visible,
+    .btn-dock:focus-visible,
+    .btn-play-sm:focus-visible,
+    .tab-btn:focus-visible,
+    .source-btn:focus-visible,
+    .dock-speed:focus-visible {{
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
     }}
 
     /* Mobile Responsive Breakpoints */
@@ -1450,7 +1480,7 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       <!-- Touch-Friendly Full-Width Progress Scrubber -->
       <div class="dock-progress-row">
         <span id="time-cur">0:00</span>
-        <div class="touch-scrubber-area" id="scrubber-area" onclick="seek(event)">
+        <div class="touch-scrubber-area" id="scrubber-area" onclick="seek(event)" role="slider" tabindex="0" aria-label="Audio playback scrubber" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0:00 of 0:00">
           <div class="bar-bg">
             <div class="bar-fill" id="bar-fill"></div>
           </div>
@@ -1519,6 +1549,8 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       renderMobileChips();
       selectBook(currentBookIdx);
       setupMediaSession();
+      setupScrubberKeyboard();
+      setupReaderKeyboard();
     }}
 
     function renderBookNav() {{
@@ -1527,6 +1559,7 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       catalog.forEach((b, idx) => {{
         const btn = document.createElement('button');
         btn.className = 'book-nav-item' + (idx === currentBookIdx ? ' active' : '');
+        if (idx === currentBookIdx) btn.setAttribute('aria-current', 'page');
         btn.onclick = () => selectBook(idx);
         btn.innerHTML = `
           <span class="book-nav-series">${{b.seriesTitle}}</span>
@@ -1546,6 +1579,7 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       catalog.forEach((b, idx) => {{
         const chip = document.createElement('button');
         chip.className = 'series-chip' + (idx === currentBookIdx ? ' active' : '');
+        if (idx === currentBookIdx) chip.setAttribute('aria-current', 'page');
         chip.onclick = () => selectBook(idx);
         chip.innerHTML = `
           ${{b.hasAudio ? '<span class="dot"></span>' : ''}}
@@ -1591,9 +1625,19 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
         const isPlaying = idx === currentChapterIdx && !audio.paused;
         const card = document.createElement('div');
         card.className = 'chapter-card' + (idx === currentChapterIdx ? ' active-track' : '');
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', `Play Chapter ${{ch.num}}: ${{ch.title}}`);
         card.onclick = () => {{
           loadTrack(idx, isAvailable);
           if (currentView === 'reader') updateReader();
+        }};
+        card.onkeydown = (e) => {{
+          if (e.key === 'Enter' || e.key === ' ') {{
+            e.preventDefault();
+            loadTrack(idx, isAvailable);
+            if (currentView === 'reader') updateReader();
+          }}
         }};
         card.innerHTML = `
           <div class="ch-left">
@@ -1615,7 +1659,7 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
             ${{isAvailable
               ? '<span class="pill pill-live">Audio Ready</span>'
               : '<span class="pill pill-queue">Queued</span>'}}
-            <button class="btn-play-sm" ${{!isAvailable ? 'disabled' : ''}}>
+            <button class="btn-play-sm" ${{!isAvailable ? 'disabled' : ''}} aria-label="${{isPlaying ? 'Pause' : 'Play'}} Chapter ${{ch.num}}">
               ${{isPlaying ? '⏸' : '▶'}}
             </button>
           </div>
@@ -1865,11 +1909,69 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       }}
     }});
 
+    function setupScrubberKeyboard() {{
+      const scrubber = document.getElementById('scrubber-area');
+      if (!scrubber) return;
+      scrubber.addEventListener('keydown', (e) => {{
+        if (!audio.duration) return;
+        let handled = true;
+        switch (e.key) {{
+          case 'ArrowLeft':
+          case 'ArrowDown':
+            skip(-5);
+            break;
+          case 'ArrowRight':
+          case 'ArrowUp':
+            skip(5);
+            break;
+          case 'PageDown':
+            skip(-30);
+            break;
+          case 'PageUp':
+            skip(30);
+            break;
+          case 'Home':
+            audio.currentTime = 0;
+            break;
+          case 'End':
+            audio.currentTime = audio.duration;
+            break;
+          case ' ':
+          case 'Enter':
+            togglePlay();
+            break;
+          default:
+            handled = false;
+        }}
+        if (handled) {{
+          e.preventDefault();
+          e.stopPropagation();
+        }}
+      }});
+    }}
+
+    function setupReaderKeyboard() {{
+      document.addEventListener('keydown', (e) => {{
+        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('input') || e.target.closest('select')) return;
+        const seg = e.target.closest('.sync-segment');
+        if (seg && currentView === 'reader' && (e.key === 'Enter' || e.key === ' ')) {{
+          e.preventDefault();
+          seg.click();
+        }}
+      }});
+    }}
+
     audio.addEventListener('timeupdate', () => {{
       timeCur.innerText = formatTime(audio.currentTime);
       timeTotal.innerText = formatTime(audio.duration);
       if (audio.duration) {{
-        barFill.style.width = `${{(audio.currentTime / audio.duration) * 100}}%`;
+        const pct = (audio.currentTime / audio.duration) * 100;
+        barFill.style.width = `${{pct}}%`;
+        const scrubber = document.getElementById('scrubber-area');
+        if (scrubber) {{
+          scrubber.setAttribute('aria-valuenow', Math.round(pct));
+          scrubber.setAttribute('aria-valuetext', `${{formatTime(audio.currentTime)}} of ${{formatTime(audio.duration)}}`);
+        }}
         if (currentView === 'reader') {{
           updateAudioSyncHighlight(audio.currentTime, audio.duration);
         }}

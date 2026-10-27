@@ -1,4 +1,4 @@
-<!-- bwe/templates/portal.html -->
+<!-- bwe/templates/portal.html: Hardened Mobile-First Serial Reader & Feedback Column -->
 <!DOCTYPE html>
 <html lang="en" class="bg-stone-950 text-stone-100 antialiased">
 <head>
@@ -7,10 +7,58 @@
   <meta name="theme-color" content="#0c0a09">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>{{ chapter_slug }} — Realized Press</title>
+  <title>{{ chapter_slug }} — Realized Press Serial Reader</title>
   <script src="https://unpkg.com/htmx.org@2.0.4"></script>
   <script defer src="https://unpkg.com/alpinejs@3.14.8/dist/cdn.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <style>
+    .sync-segment {
+      cursor: pointer;
+      border-radius: 6px;
+      padding: 6px 12px;
+      margin-left: -12px;
+      margin-right: -12px;
+      border-left: 3px solid transparent;
+      transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+    }
+    .sync-segment:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .sync-segment:focus-visible {
+      outline: 2px solid #f59e0b;
+      outline-offset: 2px;
+      background: rgba(245, 158, 11, 0.08);
+    }
+    .sync-segment.active-segment {
+      background: rgba(245, 158, 11, 0.14) !important;
+      border-left: 3px solid #f59e0b !important;
+      color: #fff !important;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.12);
+    }
+    .non-spoken, [data-spoken="false"] {
+      opacity: 0.85;
+    }
+    .footnote-ref {
+      color: #f59e0b;
+      font-size: 0.8em;
+      vertical-align: super;
+      text-decoration: none;
+      padding: 0 2px;
+      font-weight: 600;
+    }
+    .footnote-ref:hover {
+      text-decoration: underline;
+    }
+    .touch-scrubber-area:focus-visible {
+      outline: 2px solid #f59e0b;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body class="min-h-screen bg-stone-950 text-stone-100 flex flex-col"
       x-data="audioReader({{ timings | tojson }})">
@@ -20,58 +68,77 @@
 
   <div class="max-w-6xl w-full mx-auto px-4 py-6 sm:py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 flex-1 pb-[calc(4rem+env(safe-area-inset-bottom,0px))]">
     <!-- Main Manuscript Column (8 cols) -->
-    <main class="lg:col-span-8 space-y-4" @wheel="pauseAutoScroll()" @touchmove="pauseAutoScroll()">
+    <main role="main" aria-label="Chapter Manuscript" class="lg:col-span-8 space-y-4" @wheel="pauseAutoScroll()" @touchmove="pauseAutoScroll()">
       <header class="border-b border-stone-800 pb-4 mb-6">
         <div class="flex items-center gap-2 text-xs text-amber-400 font-mono mb-1">
           <span>{{ series_slug }}</span>
-          <span>•</span>
+          <span aria-hidden="true">•</span>
           <span>Chapter Reader (ARC-55)</span>
         </div>
-        <h1 class="text-2xl sm:text-3xl font-serif font-bold text-stone-100 capitalize">{{ chapter_slug.replace('-', ' ') }}</h1>
+        <h1 class="text-2xl sm:text-3xl font-serif font-bold text-stone-100 capitalize leading-tight">{{ chapter_slug.replace('-', ' ') }}</h1>
+        <p class="text-xs text-stone-400 mt-1 font-mono">Tap any paragraph or press Enter to navigate synchronized audio narration.</p>
       </header>
 
-      {% for block in timings %}
-      <div :id="'block-' + '{{ block.id }}'"
-           @click="seekTo({{ block.start }})"
-           :class="activeBlock === '{{ block.id }}' ? 'bg-amber-950/40 border-l-4 border-amber-400 pl-3.5 pr-2 transition-all shadow-sm' : 'pl-4 pr-2 hover:bg-stone-900/40 active:bg-amber-950/30'"
-           class="cursor-pointer py-1.5 rounded-lg transition touch-manipulation">
-        {{ block.html | safe }}
+      {% if has_audio %}
+      <!-- Persistent Mini Audio Player Sticky Bar for Reader -->
+      <div class="sticky top-14 z-30 bg-stone-900/95 backdrop-blur border border-stone-800 rounded-xl p-3 shadow-xl mb-6 flex items-center gap-4">
+        <audio id="chapter-audio" src="{{ audio_url }}" preload="metadata"></audio>
+        <button id="btn-reader-play" onclick="toggleReaderAudio()" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-stone-950 font-bold flex items-center justify-center text-lg transition touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none" aria-label="Play or pause narration">
+          ▶
+        </button>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between text-xs text-stone-400 font-mono mb-1">
+            <span id="reader-time-cur">0:00</span>
+            <span id="active-block-label" class="text-amber-400 font-semibold truncate px-2">Block --</span>
+            <span id="reader-time-total">0:00</span>
+          </div>
+          <div class="touch-scrubber-area h-3 flex items-center cursor-pointer" id="reader-scrubber" onclick="seekReaderAudio(event)" role="slider" tabindex="0" aria-label="Audio playback scrubber" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0:00 of 0:00">
+            <div class="w-full h-1.5 bg-stone-800 rounded-full overflow-hidden">
+              <div id="reader-bar-fill" class="h-full bg-gradient-to-r from-amber-500 to-amber-300 rounded-full w-0 transition-all duration-100"></div>
+            </div>
+          </div>
+        </div>
       </div>
-      {% else %}
-      <article class="prose prose-invert max-w-none text-stone-300 leading-relaxed">
-        {{ prose | safe }}
+      {% endif %}
+
+      <article class="prose prose-invert max-w-none text-stone-300 leading-relaxed font-serif" id="reader-content">
+        {{ prose_html | safe }}
       </article>
-      {% endfor %}
     </main>
 
     <!-- Epistemic Side Drawer: Isolated Footnotes & Feedback (Desktop Sticky / Mobile Drawer or Stack) -->
-    <aside class="lg:col-span-4 space-y-6">
+    <aside aria-label="Epistemic Apparatus and Feedback" class="lg:col-span-4 space-y-6">
       <div class="lg:sticky lg:top-6 space-y-6">
         <!-- Footnote & OKF Card Target (Never hijacks audio) -->
         <section id="footnote-drawer" class="p-4 rounded-xl bg-stone-900/90 border border-stone-800 shadow-md">
           <div class="flex items-center justify-between">
-            <p class="text-xs uppercase tracking-wider text-stone-400 font-medium">Epistemic Apparatus (OKF v0.2)</p>
+            <h2 class="text-xs uppercase tracking-wider text-stone-400 font-medium">Epistemic Apparatus (OKF v0.2)</h2>
             <span class="text-[10px] font-mono text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded border border-amber-800/40">Zero-Drift</span>
           </div>
-          <p class="text-xs sm:text-sm text-stone-300 mt-2.5 leading-relaxed">
-            Tap any footnote reference in the text to inspect primary DOI evidence and study design without interrupting narration.
-          </p>
+          <div id="footnote-drawer-content" class="mt-2.5">
+            <p class="text-xs sm:text-sm text-stone-300 leading-relaxed">
+              Tap any footnote reference in the text to inspect primary DOI evidence and study design without interrupting narration.
+            </p>
+          </div>
         </section>
 
         <!-- ARC-53 Reader Feedback Form -->
-        <form hx-post="/hx/feedback" hx-swap="outerHTML" class="p-4 rounded-xl bg-stone-900/90 border border-stone-800 shadow-md space-y-3.5">
+        <form hx-post="/hx/feedback" hx-swap="outerHTML" hx-indicator="#feedback-spinner" class="p-4 rounded-xl bg-stone-900/90 border border-stone-800 shadow-md space-y-3.5">
           <input type="hidden" name="series_slug" value="{{ series_slug }}">
           <input type="hidden" name="chapter_slug" value="{{ chapter_slug }}">
-          <input type="hidden" name="block_id" :value="activeBlock">
-          <label class="block text-xs uppercase tracking-wider text-stone-400 font-medium">Reader Edition Feedback (ARC-53)</label>
-          <select name="category" class="w-full bg-stone-950 border border-stone-700 rounded-lg p-2.5 sm:p-2 text-base sm:text-sm min-h-[44px] sm:min-h-[38px] touch-manipulation">
+          <input type="hidden" name="block_id" id="feedback-block-id" :value="activeBlock">
+          <div class="flex items-center justify-between">
+            <label for="feedback-category" class="block text-xs uppercase tracking-wider text-stone-400 font-medium">Reader Edition Feedback (ARC-53)</label>
+            <span id="feedback-spinner" class="htmx-indicator text-[11px] font-mono text-amber-400">Saving...</span>
+          </div>
+          <select id="feedback-category" name="category" class="w-full bg-stone-950 border border-stone-700 rounded-lg p-2.5 sm:p-2 text-base sm:text-sm min-h-[44px] sm:min-h-[38px] touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
             <option value="epistemic-clarity">Epistemic Boundary (Science / Interpretation / Art)</option>
             <option value="audio-cadence">Audio Narration / PCM Timing</option>
             <option value="typo-citation">Citation / Footnote Check</option>
           </select>
-          <textarea name="comment" required rows="2" placeholder="Note on current paragraph..."
-                    class="w-full bg-stone-950 border border-stone-700 rounded-lg p-3 sm:p-2 text-base sm:text-sm min-h-[72px] touch-manipulation"></textarea>
-          <button type="submit" class="w-full py-2.5 sm:py-2 bg-amber-600 hover:bg-amber-500 active:bg-amber-700 text-stone-950 font-semibold rounded-lg text-sm min-h-[44px] flex items-center justify-center transition touch-manipulation">
+          <textarea id="feedback-comment" name="comment" required rows="2" placeholder="Note on current paragraph..."
+                    class="w-full bg-stone-950 border border-stone-700 rounded-lg p-3 sm:p-2 text-base sm:text-sm min-h-[72px] touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"></textarea>
+          <button type="submit" class="w-full py-2.5 sm:py-2 bg-amber-600 hover:bg-amber-500 active:bg-amber-700 text-stone-950 font-semibold rounded-lg text-sm min-h-[44px] flex items-center justify-center transition touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
             Submit Paragraph Note
           </button>
         </form>
@@ -86,14 +153,211 @@
         activeBlock: null,
         graceUntil: 0,
         pauseAutoScroll() {
-          this.graceUntil = Date.now() + 5000; // 5-second touch/wheel grace timer
-        },
-        seekTo(seconds) {
-          const player = document.getElementById('chapter-audio');
-          if (player) { player.currentTime = seconds; player.play(); }
+          this.graceUntil = Date.now() + 5000;
         }
       }
     }
+
+    const player = document.getElementById('chapter-audio');
+    const playBtn = document.getElementById('btn-reader-play');
+    const timeCur = document.getElementById('reader-time-cur');
+    const timeTotal = document.getElementById('reader-time-total');
+    const barFill = document.getElementById('reader-bar-fill');
+    const blockLabel = document.getElementById('active-block-label');
+    const feedbackBlockInput = document.getElementById('feedback-block-id');
+
+    function formatTime(s) {
+      if (isNaN(s)) return "0:00";
+      const m = Math.floor(s / 60);
+      const rem = Math.floor(s % 60);
+      return `${m}:${rem < 10 ? '0' : ''}${rem}`;
+    }
+
+    function toggleReaderAudio() {
+      if (!player) return;
+      if (player.paused) {
+        player.play();
+      } else {
+        player.pause();
+      }
+    }
+
+    function seekReaderAudio(e) {
+      if (!player || !player.duration) return;
+      const rect = document.getElementById('reader-scrubber').getBoundingClientRect();
+      const pos = (e.clientX - rect.left) / rect.width;
+      player.currentTime = Math.max(0, Math.min(player.duration, pos * player.duration));
+    }
+
+    function handleSegmentSeek(seg) {
+      if (!seg) return;
+      const segId = seg.id || '';
+      if (segId) {
+        if (blockLabel) blockLabel.innerText = segId;
+        if (feedbackBlockInput) feedbackBlockInput.value = segId;
+      }
+      if (player) {
+        if (seg.hasAttribute('data-start-time')) {
+          const startTime = parseFloat(seg.getAttribute('data-start-time'));
+          if (!isNaN(startTime)) {
+            player.currentTime = startTime;
+            if (player.paused) player.play();
+          }
+        } else if (seg.hasAttribute('data-start-ratio') && player.duration) {
+          const startRatio = parseFloat(seg.getAttribute('data-start-ratio'));
+          if (!isNaN(startRatio)) {
+            player.currentTime = startRatio * player.duration;
+            if (player.paused) player.play();
+          }
+        }
+      }
+    }
+
+    if (player) {
+      player.addEventListener('play', () => {
+        if (playBtn) playBtn.innerText = '⏸';
+      });
+      player.addEventListener('pause', () => {
+        if (playBtn) playBtn.innerText = '▶';
+      });
+      player.addEventListener('timeupdate', () => {
+        if (timeCur) timeCur.innerText = formatTime(player.currentTime);
+        if (timeTotal) timeTotal.innerText = formatTime(player.duration);
+        if (player.duration && barFill) {
+          const pct = (player.currentTime / player.duration) * 100;
+          barFill.style.width = `${pct}%`;
+          const scrubber = document.getElementById('reader-scrubber');
+          if (scrubber) {
+            scrubber.setAttribute('aria-valuenow', Math.round(pct));
+            scrubber.setAttribute('aria-valuetext', `${formatTime(player.currentTime)} of ${formatTime(player.duration)}`);
+          }
+        }
+
+        // Highlight active segment
+        const segments = document.querySelectorAll('.sync-segment');
+        if (!segments.length) return;
+        const cur = player.currentTime;
+        const dur = player.duration || 1;
+        const ratio = cur / dur;
+        let active = null;
+
+        segments.forEach(seg => {
+          let isActive = false;
+          if (seg.hasAttribute('data-start-time')) {
+            const start = parseFloat(seg.getAttribute('data-start-time'));
+            const end = parseFloat(seg.getAttribute('data-end-time'));
+            isActive = (cur >= start && cur < end);
+          } else if (seg.hasAttribute('data-start-ratio')) {
+            const sRatio = parseFloat(seg.getAttribute('data-start-ratio'));
+            const eRatio = parseFloat(seg.getAttribute('data-end-ratio'));
+            isActive = (ratio >= sRatio && ratio < eRatio);
+          }
+          if (isActive) {
+            active = seg;
+            seg.classList.add('active-segment');
+          } else {
+            seg.classList.remove('active-segment');
+          }
+        });
+
+        if (active) {
+          if (blockLabel) blockLabel.innerText = active.id;
+          if (feedbackBlockInput) feedbackBlockInput.value = active.id;
+          const alpineRoot = document.querySelector('[x-data]');
+          if (alpineRoot && alpineRoot.__x) {
+            alpineRoot.__x.$data.activeBlock = active.id;
+          }
+        }
+      });
+
+      // Keyboard scrubber controls
+      const scrubber = document.getElementById('reader-scrubber');
+      if (scrubber) {
+        scrubber.addEventListener('keydown', (e) => {
+          if (!player.duration) return;
+          let handled = true;
+          switch (e.key) {
+            case 'ArrowLeft':
+            case 'ArrowDown':
+              player.currentTime = Math.max(0, player.currentTime - 5);
+              break;
+            case 'ArrowRight':
+            case 'ArrowUp':
+              player.currentTime = Math.min(player.duration, player.currentTime + 5);
+              break;
+            case 'Home':
+              player.currentTime = 0;
+              break;
+            case 'End':
+              player.currentTime = player.duration;
+              break;
+            case ' ':
+            case 'Enter':
+              toggleReaderAudio();
+              break;
+            default:
+              handled = false;
+          }
+          if (handled) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        });
+      }
+    }
+
+    // Bidirectional seek: Tap or press Enter on any .sync-segment
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('a') || e.target.closest('button')) return;
+      const seg = e.target.closest('.sync-segment');
+      if (seg) handleSegmentSeek(seg);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.target.closest('a') || e.target.closest('button') || e.target.closest('input') || e.target.closest('select') || e.target.closest('textarea')) return;
+      const seg = e.target.closest('.sync-segment');
+      if (seg && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        handleSegmentSeek(seg);
+      }
+    });
+
+    // Footnote drawer listener via HTMX
+    document.addEventListener('click', (e) => {
+      const fnRef = e.target.closest('a.footnote-ref') || e.target.closest('a[href^="#fn:"]');
+      if (fnRef) {
+        e.preventDefault();
+        e.stopPropagation();
+        const href = fnRef.getAttribute('href') || '';
+        const fnId = href.replace('#fn:', '');
+        const drawer = document.getElementById('footnote-drawer');
+        const content = document.getElementById('footnote-drawer-content');
+        if (drawer && content && fnId) {
+          content.innerHTML = '<span class="text-amber-400 font-mono text-xs">Loading footnote [' + fnId + ']...</span>';
+          htmx.ajax('GET', `/hx/footnote/{{ series_slug }}/{{ chapter_slug }}/${fnId}`, {
+            target: '#footnote-drawer-content',
+            swap: 'innerHTML'
+          });
+          drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+    });
+
+    // KaTeX rendering
+    document.addEventListener('DOMContentLoaded', () => {
+      const content = document.getElementById('reader-content');
+      if (content && window.renderMathInElement) {
+        renderMathInElement(content, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError: false
+        });
+      }
+    });
   </script>
 </body>
 </html>

@@ -1,9 +1,9 @@
 <!-- bwe/templates/partials/nav.html: Unified Mobile-First Header Navigation across /site, /ide, and /read -->
-<header class="border-b border-stone-800 bg-stone-900/95 backdrop-blur-md sticky top-0 z-50 px-3 sm:px-6 pt-[calc(0.5rem+env(safe-area-inset-top,0px))] pb-2 sm:py-2.5 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2.5 sm:gap-4">
+<header role="banner" class="border-b border-stone-800 bg-stone-900/95 backdrop-blur-md sticky top-0 z-50 px-3 sm:px-6 pt-[calc(0.5rem+env(safe-area-inset-top,0px))] pb-2 sm:py-2.5 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2.5 sm:gap-4">
   <!-- Brand & Epistemic Contract -->
   <div class="flex items-center gap-2.5 sm:gap-4 shrink-0">
-    <a href="/site" class="flex items-center gap-2 group text-decoration-none min-h-[44px]">
-      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 via-amber-500 to-amber-700 flex items-center justify-center font-black text-stone-950 text-base shadow-sm shadow-amber-500/20 group-hover:scale-105 transition-transform shrink-0">
+    <a href="/site" class="flex items-center gap-2 group text-decoration-none min-h-[44px] rounded-lg focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none" aria-label="Realized Press Home">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 via-amber-500 to-amber-700 flex items-center justify-center font-black text-stone-950 text-base shadow-sm shadow-amber-500/20 group-hover:scale-105 transition-transform shrink-0" aria-hidden="true">
         R
       </div>
       <div class="flex flex-col">
@@ -12,33 +12,39 @@
       </div>
     </a>
     
-    <span class="hidden xl:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-stone-800/80 border border-stone-700/60 text-[11px] text-stone-300 font-mono">
-      <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+    <span class="hidden xl:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-stone-800/80 border border-stone-700/60 text-[11px] text-stone-300 font-mono" title="Epistemic Three-Lens Method">
+      <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" aria-hidden="true"></span>
       Science → Interpretation → Art
     </span>
   </div>
 
-  <!-- Central Navigation Tabs (Touch-Friendly 44px Hit Target) -->
-  <nav class="order-3 sm:order-2 w-full sm:w-auto flex items-center justify-center gap-1 sm:gap-1.5 bg-stone-950/90 p-1 rounded-xl border border-stone-800/80 text-xs font-mono overflow-x-auto scrollbar-none">
+  <!-- Central Navigation Tabs (Touch-Friendly 44px Hit Target + ARIA Tablist) -->
+  <nav role="tablist" aria-label="Imprint Application Navigation" class="order-3 sm:order-2 w-full sm:w-auto flex items-center justify-center gap-1 sm:gap-1.5 bg-stone-950/90 p-1 rounded-xl border border-stone-800/80 text-xs font-mono overflow-x-auto scrollbar-none">
     <a href="/site"
-       class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 sm:py-1.5 min-h-[40px] sm:min-h-[36px] rounded-lg transition touch-manipulation {% if active_tab == 'site' %}bg-amber-500/15 text-amber-300 border border-amber-500/30 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-200 hover:bg-stone-800/60{% endif %}">
-      <svg class="w-4 h-4 sm:w-3.5 sm:h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+       role="tab"
+       aria-selected="{% if active_tab == 'site' %}true{% else %}false{% endif %}"
+       class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 sm:py-1.5 min-h-[40px] sm:min-h-[36px] rounded-lg transition touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none {% if active_tab == 'site' %}bg-amber-500/15 text-amber-300 border border-amber-500/30 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-200 hover:bg-stone-800/60 border border-transparent{% endif %}">
+      <svg class="w-4 h-4 sm:w-3.5 sm:h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
       </svg>
       <span>Audio</span>
     </a>
 
     <a href="/ide"
-       class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 sm:py-1.5 min-h-[40px] sm:min-h-[36px] rounded-lg transition touch-manipulation {% if active_tab == 'ide' %}bg-amber-500/15 text-amber-300 border border-amber-500/30 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-200 hover:bg-stone-800/60{% endif %}">
-      <svg class="w-4 h-4 sm:w-3.5 sm:h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+       role="tab"
+       aria-selected="{% if active_tab == 'ide' %}true{% else %}false{% endif %}"
+       class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 sm:py-1.5 min-h-[40px] sm:min-h-[36px] rounded-lg transition touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none {% if active_tab == 'ide' %}bg-amber-500/15 text-amber-300 border border-amber-500/30 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-200 hover:bg-stone-800/60 border border-transparent{% endif %}">
+      <svg class="w-4 h-4 sm:w-3.5 sm:h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
       </svg>
       <span>IDE</span>
     </a>
 
     <a href="/read/parenthood-atlas/01-before-the-child-is-born"
-       class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 sm:py-1.5 min-h-[40px] sm:min-h-[36px] rounded-lg transition touch-manipulation {% if active_tab == 'reader' %}bg-amber-500/15 text-amber-300 border border-amber-500/30 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-200 hover:bg-stone-800/60{% endif %}">
-      <svg class="w-4 h-4 sm:w-3.5 sm:h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+       role="tab"
+       aria-selected="{% if active_tab == 'reader' %}true{% else %}false{% endif %}"
+       class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 sm:py-1.5 min-h-[40px] sm:min-h-[36px] rounded-lg transition touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none {% if active_tab == 'reader' %}bg-amber-500/15 text-amber-300 border border-amber-500/30 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-200 hover:bg-stone-800/60 border border-transparent{% endif %}">
+      <svg class="w-4 h-4 sm:w-3.5 sm:h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
       </svg>
       <span>Reader</span>
@@ -47,17 +53,18 @@
 
   <!-- Right Actions: Status Badge & Linear -->
   <div class="order-2 sm:order-3 flex items-center gap-2 text-xs">
-    <span class="hidden md:inline-flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 px-2 py-1 rounded bg-emerald-950/60 border border-emerald-800/60">
-      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+    <span class="hidden md:inline-flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 px-2.5 py-1 rounded-full bg-emerald-950/60 border border-emerald-800/60" role="status" aria-label="Local network server running on port 8080">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true"></span>
       LAN 8080
     </span>
-    <span class="text-[11px] px-2 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30 font-mono">
+    <span class="text-[11px] px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30 font-mono font-medium" title="Commercial candidate version">
       v1.0-rc1
     </span>
     <a href="https://linear.app/realized/team/ARC/projects/all"
        target="_blank"
        rel="noopener noreferrer"
-       class="hidden lg:inline-flex items-center gap-1 text-[11px] font-mono text-stone-400 hover:text-stone-200 px-2.5 py-1.5 rounded bg-stone-800 hover:bg-stone-700 transition min-h-[36px]">
+       class="hidden lg:inline-flex items-center gap-1 text-[11px] font-mono text-stone-400 hover:text-stone-200 px-2.5 py-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 transition min-h-[36px] focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+       aria-label="View Linear ARC Project Tracking (opens in new tab)">
       Linear ARC ↗
     </a>
   </div>

@@ -177,12 +177,30 @@ async def read_chapter(request: Request, series_slug: str, chapter_slug: str):
     if not md_candidates:
         raise HTTPException(status_code=404, detail="Chapter not found")
     md_path = md_candidates[0]
-    raw_md = md_path.read_text(encoding="utf-8")
 
-    # Split prose from ## Notes so footnotes can be fetched via HTMX without page jump
-    prose_part, _, notes_part = raw_md.partition("## Notes")
     timings_path = SERIES_DIR / series_slug / "audiobook" / f"{chapter_slug}.timings.json"
-    timings = json.loads(timings_path.read_text(encoding="utf-8")) if timings_path.exists() else []
+    if not timings_path.exists():
+        sub_timings = list((SERIES_DIR / series_slug).glob(f"**/audiobook/{chapter_slug}.timings.json"))
+        if sub_timings:
+            timings_path = sub_timings[0]
+
+    audio_url = f"/site/{chapter_slug}.mp3"
+    audio_path = find_canonical_audio(chapter_slug)
+    has_audio = audio_path is not None and audio_path.is_file()
+
+    from render_audiobook_player import extract_clean_text
+    prose_html = extract_clean_text(md_path, timings_path if timings_path.exists() else None)
+
+    blocks_list = []
+    if timings_path.exists():
+        try:
+            t_data = json.loads(timings_path.read_text(encoding="utf-8"))
+            if isinstance(t_data, dict):
+                blocks_list = t_data.get("blocks", [])
+            elif isinstance(t_data, list):
+                blocks_list = t_data
+        except Exception:
+            blocks_list = []
 
     return templates.TemplateResponse(
         "portal.html",
@@ -190,8 +208,11 @@ async def read_chapter(request: Request, series_slug: str, chapter_slug: str):
             "request": request,
             "series_slug": series_slug,
             "chapter_slug": chapter_slug,
-            "prose": prose_part,
-            "timings": timings,
+            "prose_html": prose_html,
+            "timings": blocks_list,
+            "has_audio": has_audio,
+            "audio_url": audio_url,
+            "active_tab": "reader",
         },
     )
 
@@ -220,6 +241,29 @@ async def inspect_footnote(request: Request, series_slug: str, chapter_slug: str
     return templates.TemplateResponse(
         "partials/footnote_drawer.html",
         {"request": request, "footnote_id": footnote_id, "note_text": note_text},
+    )
+
+
+@app.get("/hx/telemetry", response_class=HTMLResponse)
+async def view_citation_telemetry(request: Request):
+    """ARC-58: Renders closed-loop citation telemetry events for reader inspection."""
+    with get_db() as conn:
+        rows = conn.execute(
+            "SELECT series_slug, chapter_slug, footnote_id, created_at "
+            "FROM citation_telemetry ORDER BY id DESC LIMIT 25"
+        ).fetchall()
+        telemetry = [
+            {
+                "series_slug": r[0],
+                "chapter_slug": r[1],
+                "footnote_id": r[2],
+                "created_at": r[3],
+            }
+            for r in rows
+        ]
+    return templates.TemplateResponse(
+        "partials/telemetry_table.html",
+        {"request": request, "telemetry": telemetry},
     )
 
 
