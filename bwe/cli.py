@@ -2,6 +2,11 @@
 import subprocess
 import sys
 from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
 import typer
 import uvicorn
 from bwe.schema import export_json_schema, validate_series_yaml
