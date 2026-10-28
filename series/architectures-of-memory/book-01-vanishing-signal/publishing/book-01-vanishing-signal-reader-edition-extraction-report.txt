@@ -1,0 +1,26 @@
+Publishing Extraction Verification — Book 01 Vanishing Signal
+Status: PASS
+Edition: Reader Edition — Working Slice
+Renderer: fpdf2 2.8.9 / pypdf 6.0.0
+PDF: book-01-vanishing-signal-reader-edition.pdf
+SHA-256: b1fc56c3d08eb148d251d513461f4ca60534fc4fa86b983b24d4c247ded456a9
+Bytes: 245,205
+Pages: 48 (48/48 nonblank)
+
+Chapters:
+- PASS · PDF page 2 · Chapter 1 — Rosenblatt's Perceptron and the Dream of Learning Machines
+- PASS · PDF page 5 · Chapter 2 — The First AI Winter: Why Connectionism Failed and What Was Lost
+- PASS · PDF page 8 · Chapter 3 — The Return: Rumelhart, Hinton, and Backpropagation (1986)
+- PASS · PDF page 11 · Chapter 4 — Sequence as the Unsolved Problem: Language, Time, and Order
+- PASS · PDF page 14 · Chapter 5 — How Backpropagation Works: The Chain Rule as Accumulating Debt
+- PASS · PDF page 17 · Chapter 6 — Recurrent Networks and the Illusion of Memory
+- PASS · PDF page 20 · Chapter 7 — Hochreiter’s 1991 Thesis: A Student Proves the Paradigm Is Broken
+- PASS · PDF page 23 · Chapter 8 — The Vanishing Gradient as a Theorem, Not a Bug
+- PASS · PDF page 25 · Chapter 9 — The Reorg as Gradient Vanishing: Knowledge That Cannot Survive Change
+- PASS · PDF page 28 · Chapter 10 — Why Documentation Systems Fail: Too Much Signal, No Gating
+- PASS · PDF page 31 · 11 Regulated Compliance Without Memory
+- PASS · PDF page 34 · Chapter 12 — What Would an Organization Need to Actually Remember?
+- PASS · PDF page 37 · Chapter 13 — Heraclitus and the River: Identity Across Time
+- PASS · PDF page 40 · Chapter 14 — The Ship of Theseus as a Memory Architecture Problem
+- PASS · PDF page 43 · Chapter 15 — Bergson’s Duration: Time as Lived Versus Time as Measured
+- PASS · PDF page 46 · Chapter 16 — The Question the Field Couldn’t Yet Answer

@@ -69,9 +69,103 @@ def chapter_title(path: Path) -> str:
     return path.stem.replace("-", " ").title()
 
 
+def convert_latex_symbols(s: str, target: str = "pdf") -> str:
+    """Normalize common LaTeX mathematics tokens to clean typography/Unicode."""
+    s = re.sub(r"\\text\{([^}]+)\}", r"\1", s)
+    s = re.sub(r"\\mathbf\{([^}]+)\}", r"\1", s)
+    s = re.sub(r"\\mathbb\{([A-Za-z])\}", r"\1", s)
+    s = re.sub(r"\\mathcal\{([A-Za-z])\}", r"\1", s)
+    s = s.replace(r"\approx", "≈")
+    s = s.replace(r"\beta", "β")
+    s = s.replace(r"\alpha", "α")
+    s = s.replace(r"\theta", "θ")
+    s = s.replace(r"\epsilon", "ε")
+    s = s.replace(r"\lambda", "λ")
+    s = s.replace(r"\Delta", "Δ")
+    s = s.replace(r"\sigma", "σ")
+    s = s.replace(r"\cdot", "·")
+    s = s.replace(r"\times", "×")
+    s = s.replace(r"\le", "≤")
+    s = s.replace(r"\ge", "≥")
+    s = s.replace(r"\neq", "≠")
+    s = s.replace(r"\in", " in ")
+    arrow = "->" if target == "pdf" else "→"
+    s = s.replace(r"\to", arrow)
+    s = s.replace(r"\leftarrow", "<-")
+    s = s.replace(r"\rightarrow", arrow)
+    s = s.replace(r"\gg", ">>")
+    s = s.replace(r"\ll", "<<")
+    s = s.replace(r"\pm", "±")
+    s = s.replace(r"\sim", "~")
+    s = s.replace(r"\prod", "∏")
+    s = s.replace(r"\sum", "∑")
+    s = s.replace(r"\partial", "∂")
+    s = s.replace(r"\odot", "⊙")
+    s = s.replace(r"\cos", "cos")
+    s = s.replace(r"\exp", "exp")
+    s = s.replace(r"\arg\min", "arg min")
+    s = s.replace(r"\arg\max", "arg max")
+    s = s.replace(r"\min", "min")
+    s = s.replace(r"\max", "max")
+
+    # Subscripts
+    s = re.sub(r"_4\b", "₄", s)
+    s = re.sub(r"_3\b", "₃", s)
+    s = re.sub(r"_2\b", "₂", s)
+    s = re.sub(r"_1\b", "₁", s)
+    s = re.sub(r"_0\b", "₀", s)
+    s = re.sub(r"_t\b", "ₜ", s)
+    s = re.sub(r"_k\b", "ₖ", s)
+    s = re.sub(r"_i\b", "ᵢ", s)
+    s = re.sub(r"_j\b", "ⱼ", s)
+
+    s = re.sub(r"\\left\(", "(", s)
+    s = re.sub(r"\\right\)", ")", s)
+    s = re.sub(r"\\left\[", "[", s)
+    s = re.sub(r"\\right\]", "]", s)
+    s = s.replace(r"\{", "{").replace(r"\}", "}")
+    return s.strip()
+
+
+def clean_math_text(text: str, target: str = "pdf") -> str:
+    """Disambiguate currency from LaTeX math and translate math expressions."""
+    # 1. Protect literal currency figures ($333, $20, $4,000, \$333)
+    text = re.sub(r"\\\$", "__ESCAPED_DOLLAR__", text)
+    text = re.sub(r"(?<=\s|\()\$(\d+(?:,\d{3})*(?:\.\d+)?)(?=\s|[.,;:\)]|$)", r"__CURRENCY_\1__", text)
+
+    # 2. Block display math ($$...$$ and \[...\])
+    def repl_block(m: re.Match[str]) -> str:
+        inner = m.group(1).strip()
+        inner_conv = convert_latex_symbols(inner, target)
+        if target == "pdf":
+            return f"\n[DISPLAY_MATH]{inner_conv}[/DISPLAY_MATH]\n"
+        elif target == "html":
+            return f'<div class="formula-block"><p><em>{html.escape(inner_conv)}</em></p></div>'
+        else:
+            return f'<div class="formula-block"><p><em>{html.escape(inner_conv)}</em></p></div>'
+
+    text = re.sub(r"\$\$(.*?)\$\$", repl_block, text, flags=re.DOTALL)
+    text = re.sub(r"\\\[(.*?)\\\]", repl_block, text, flags=re.DOTALL)
+
+    # 3. Inline math ($...$ and \(...\))
+    def repl_inline(m: re.Match[str]) -> str:
+        inner = m.group(1).strip()
+        return convert_latex_symbols(inner, target)
+
+    text = re.sub(r"\\\((.*?)\\\)", repl_inline, text)
+    text = re.sub(r"(?<!\$)\$(?!\$)(.*?)(?<!\$)\$(?!\$)", repl_inline, text)
+
+    # 4. Restore protected currency
+    text = text.replace("__ESCAPED_DOLLAR__", "$")
+    text = re.sub(r"__CURRENCY_([0-9.,]+)__", r"$\1", text)
+    return text
+
+
 def clean_pdf_line(text: str) -> str:
+    """Sanitize and format plain text lines for FPDF2 PDF rendering."""
     text = text.replace("\ufeff", "").replace("\u2192", "->").replace("\u2208", " in ").replace("\u209c", "_t")
     text = text.replace("\u1fe5", "r").replace("\u1fd6", "i")
+    text = clean_math_text(text, target="pdf")
     text = re.sub(r"\[\^([^\]]+)\]", r"[\1]", text)
     text = re.sub(r"\*\*([^*]+)\*\*", r"\1", text)
     text = re.sub(r"\*([^*]+)\*", r"\1", text)
@@ -81,13 +175,161 @@ def clean_pdf_line(text: str) -> str:
 
 
 def md_inline_html(text: str) -> str:
+    """Format inline markdown elements into clean semantic HTML preserving existing HTML tags."""
+    text = clean_math_text(text, target="html")
+
+    # Protect existing HTML/EPUB tags from html.escape()
+    protected_tags: list[str] = []
+
+    def protect_tag(m: re.Match[str]) -> str:
+        idx = len(protected_tags)
+        protected_tags.append(m.group(0))
+        return f"__HTML_TAG_{idx}__"
+
+    text = re.sub(r"</?[a-zA-Z][^>]*>", protect_tag, text)
     text = html.escape(text)
     text = re.sub(r"`([^`]+)`", r"<code>\1</code>", text)
     text = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", text)
     text = re.sub(r"\*([^*]+)\*", r"<em>\1</em>", text)
     text = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', text)
-    text = re.sub(r"\[\^([^\]]+)\]", r"<sup>[\1]</sup>", text)
+
+    for idx, tag in enumerate(protected_tags):
+        text = text.replace(f"__HTML_TAG_{idx}__", tag)
+
     return text
+
+
+class ChapterContent:
+    def __init__(
+        self,
+        title: str,
+        body_lines_pdf: list[str],
+        notes_pdf: list[tuple[int, str]],
+        body_lines_html: list[str],
+        notes_html: list[tuple[int, str]],
+        body_lines_epub: list[str],
+        notes_epub: list[tuple[int, str]],
+    ) -> None:
+        self.title = title
+        self.body_lines_pdf = body_lines_pdf
+        self.notes_pdf = notes_pdf
+        self.body_lines_html = body_lines_html
+        self.notes_html = notes_html
+        self.body_lines_epub = body_lines_epub
+        self.notes_epub = notes_epub
+
+
+def parse_chapter_markdown(ch_path: Path, ch_idx: int) -> ChapterContent:
+    """Parse chapter markdown, registering chapter-relative footnotes and stripping internal apparatus."""
+    raw = strip_yaml_frontmatter(ch_path.read_text(encoding="utf-8"))
+    lines = raw.splitlines()
+
+    title = chapter_title(ch_path)
+    body_raw_lines: list[str] = []
+    notes_raw_lines: list[str] = []
+
+    state = "body"
+    for line in lines:
+        s = line.strip()
+        if s.startswith("## Notes"):
+            state = "notes"
+            continue
+        elif s.startswith("## Linked evidence cards") or s.startswith("Promotion note:"):
+            state = "discard"
+            continue
+        elif state == "notes" and s.startswith("## "):
+            state = "discard"
+            continue
+
+        if state == "body":
+            body_raw_lines.append(line)
+        elif state == "notes":
+            notes_raw_lines.append(line)
+
+    # 1. Discover footnote keys in reading order across body
+    body_joined = "\n".join(body_raw_lines)
+    fn_order: list[str] = []
+    fn_map: dict[str, int] = {}
+    for m in re.finditer(r"\[\^([^\]]+)\]", body_joined):
+        k = m.group(1)
+        if k not in fn_map:
+            fn_order.append(k)
+            fn_map[k] = len(fn_order)
+
+    # 2. Extract note definitions
+    note_defs: dict[str, str] = {}
+    current_key: str | None = None
+    current_val: list[str] = []
+    for line in notes_raw_lines:
+        m = re.match(r"^\[\^([^\]]+)\]:\s*(.*)$", line)
+        if m:
+            if current_key:
+                note_defs[current_key] = " ".join(current_val).strip()
+            current_key = m.group(1)
+            current_val = [m.group(2).strip()]
+        elif current_key and line.strip():
+            current_val.append(line.strip())
+    if current_key:
+        note_defs[current_key] = " ".join(current_val).strip()
+
+    # 3. Build target-specific body lines and notes
+    body_lines_pdf: list[str] = []
+    body_lines_html: list[str] = []
+    body_lines_epub: list[str] = []
+
+    for line in body_raw_lines:
+        # PDF line with numbered citations [1], [2]
+        def repl_pdf_fn(m: re.Match[str]) -> str:
+            k = m.group(1)
+            num = fn_map.get(k, 0)
+            return f"[{num}]" if num else f"[{k}]"
+
+        l_pdf = re.sub(r"\[\^([^\]]+)\]", repl_pdf_fn, line)
+        body_lines_pdf.append(l_pdf)
+
+        # HTML line with linked superscript citations
+        def repl_html_fn(m: re.Match[str]) -> str:
+            k = m.group(1)
+            num = fn_map.get(k, 0)
+            if num:
+                return f'<sup class="footnote-ref"><a href="#fn-{ch_idx:02d}-{num}" id="fnref-{ch_idx:02d}-{num}">[{num}]</a></sup>'
+            return f"<sup>[{html.escape(k)}]</sup>"
+
+        l_html = re.sub(r"\[\^([^\]]+)\]", repl_html_fn, line)
+        body_lines_html.append(l_html)
+
+        # EPUB line with noteref semantics
+        def repl_epub_fn(m: re.Match[str]) -> str:
+            k = m.group(1)
+            num = fn_map.get(k, 0)
+            if num:
+                return f'<a epub:type="noteref" class="footnote-ref" href="#fn-{ch_idx:02d}-{num}">[{num}]</a>'
+            return f"[{html.escape(k)}]"
+
+        l_epub = re.sub(r"\[\^([^\]]+)\]", repl_epub_fn, line)
+        body_lines_epub.append(l_epub)
+
+    # Structured notes in sequential 1..N order
+    notes_pdf: list[tuple[int, str]] = []
+    notes_html: list[tuple[int, str]] = []
+    notes_epub: list[tuple[int, str]] = []
+
+    for k in fn_order:
+        num = fn_map[k]
+        text = note_defs.get(k, "")
+        notes_pdf.append((num, text))
+        notes_html.append((num, text))
+        notes_epub.append((num, text))
+
+    return ChapterContent(
+        title=title,
+        body_lines_pdf=body_lines_pdf,
+        notes_pdf=notes_pdf,
+        body_lines_html=body_lines_html,
+        notes_html=notes_html,
+        body_lines_epub=body_lines_epub,
+        notes_epub=notes_epub,
+    )
 
 
 class BookEditionPDF(FPDF):
@@ -180,18 +422,26 @@ def build_book_pdf(
 
     recorded_pages: dict[int, int] = {}
     for idx, ch_path in enumerate(chapters, 1):
-        title = chapter_title(ch_path)
+        parsed = parse_chapter_markdown(ch_path, idx)
+        title = parsed.title
         pdf.current_chapter_header = f"{book_title} — {title}"
         pdf.add_page()
         recorded_pages[idx] = pdf.page_no()
 
-        raw = strip_yaml_frontmatter(ch_path.read_text(encoding="utf-8"))
-        for line in raw.splitlines():
+        for line in parsed.body_lines_pdf:
             s = line.strip()
             if not s:
                 pdf.ln(2.2)
                 continue
-            if s.startswith("# "):
+            if s.startswith("[DISPLAY_MATH]") and s.endswith("[/DISPLAY_MATH]"):
+                m_content = s[len("[DISPLAY_MATH]") : -len("[/DISPLAY_MATH]")].strip()
+                pdf.ln(1.5)
+                pdf.set_font("BookSerif", "I", body_pt - 0.2)
+                pdf.set_text_color(40, 40, 40)
+                pdf.multi_cell(0, line_h + 0.3, m_content, align="C", new_x="LMARGIN", new_y="NEXT")
+                pdf.set_text_color(20, 20, 20)
+                pdf.ln(1.5)
+            elif s.startswith("# "):
                 pdf.set_font("BookSerif", "B", 14 if page_format == "kdp-6x9" else 15)
                 pdf.multi_cell(0, 7.5, clean_pdf_line(s[2:].strip()), new_x="LMARGIN", new_y="NEXT")
                 pdf.ln(2.5)
@@ -215,6 +465,18 @@ def build_book_pdf(
                 pdf.set_font("BookSerif", "", body_pt)
                 pdf.multi_cell(0, line_h, clean_pdf_line(s), new_x="LMARGIN", new_y="NEXT")
 
+        # Render chapter notes if present
+        if parsed.notes_pdf:
+            pdf.ln(2.5)
+            pdf.set_font("BookSerif", "B", 11.2 if page_format == "kdp-6x9" else 12)
+            pdf.multi_cell(0, 6.0, "Notes", new_x="LMARGIN", new_y="NEXT")
+            pdf.ln(1.0)
+            pdf.set_font("BookSerif", "", body_pt - 0.6)
+            for num, note_text in parsed.notes_pdf:
+                note_clean = clean_pdf_line(f"[{num}] {note_text}")
+                pdf.multi_cell(0, line_h - 0.4, note_clean, new_x="LMARGIN", new_y="NEXT")
+                pdf.ln(0.8)
+
     return pdf, recorded_pages
 
 
@@ -222,12 +484,24 @@ def build_reader_html(book_title: str, edition_label: str, chapters: list[Path],
     out: list[str] = [
         "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'>",
         f"<title>{html.escape(book_title)} — {html.escape(edition_label)}</title>",
+        "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css'>",
+        "<script defer src='https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js'></script>",
+        "<script defer src='https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js' onload='renderMathInElement(document.body, {delimiters: [{left: \"$$\", right: \"$$\", display: true}, {left: \"$\", right: \"$\", display: false}, {left: \"\\\\(\", right: \"\\\\)\", display: false}, {left: \"\\\\[\", right: \"\\\\]\", display: true}]});'></script>",
         "<style>",
         "body{font-family:Georgia,serif;max-width:760px;margin:2rem auto;padding:0 1rem;font-size:11.5pt;line-height:1.55;color:#181818}",
         "h1{font-size:19pt;margin-top:2.5rem;border-bottom:1px solid #ddd;padding-bottom:0.3rem}",
         "h2{font-size:14pt;margin-top:1.8rem} h3{font-size:12pt;font-style:italic}",
         "blockquote{border-left:3px solid #bbb;margin:1rem 0;padding:0.2rem 1rem;color:#444;font-style:italic}",
         "nav.toc{background:#f8f8f6;border:1px solid #e2e2dd;padding:1rem 1.5rem;border-radius:4px}",
+        ".formula-block{text-align:center;margin:1.5rem 0;font-style:italic;color:#222}",
+        ".footnotes{border-top:1px solid #e0e0dc;margin-top:2.5rem;padding-top:1rem;font-size:0.9em;color:#444}",
+        ".footnotes ol{padding-left:1.5rem}",
+        ".footnotes li{margin-bottom:0.6rem;line-height:1.45}",
+        ".footnote-ref{font-size:0.75em;vertical-align:super;text-decoration:none;font-weight:600;padding:0 1px}",
+        ".footnote-ref a{text-decoration:none;color:#8b3a1a}",
+        ".footnote-ref a:hover{text-decoration:underline}",
+        ".footnote-backref{text-decoration:none;margin-left:0.4rem;color:#888}",
+        ".footnote-backref:hover{color:#8b3a1a}",
         "</style></head><body>",
         f"<header><h1>{html.escape(book_title)}</h1><p><em>Realized Press · {html.escape(edition_label)} ({date.today().isoformat()})</em></p></header>",
         "<nav class='toc'><h2>Contents</h2><ol>",
@@ -239,13 +513,15 @@ def build_reader_html(book_title: str, edition_label: str, chapters: list[Path],
     out.append("</ol></nav>")
 
     for idx, ch_path in enumerate(chapters, 1):
+        parsed = parse_chapter_markdown(ch_path, idx)
         out.append(f"<section id='chapter-{idx:02d}'>")
-        raw = strip_yaml_frontmatter(ch_path.read_text(encoding="utf-8"))
-        for line in raw.splitlines():
+        for line in parsed.body_lines_html:
             s = line.strip()
             if not s:
                 continue
-            if s.startswith("# "):
+            if s.startswith('<div class="formula-block">') and s.endswith("</div>"):
+                out.append(s)
+            elif s.startswith("# "):
                 out.append(f"<h1>{md_inline_html(s[2:].strip())}</h1>")
             elif s.startswith("## "):
                 out.append(f"<h2>{md_inline_html(s[3:].strip())}</h2>")
@@ -259,6 +535,14 @@ def build_reader_html(book_title: str, edition_label: str, chapters: list[Path],
                 out.append("<hr>")
             else:
                 out.append(f"<p>{md_inline_html(s)}</p>")
+
+        if parsed.notes_html:
+            out.append("<div class='footnotes'><h2>Notes</h2><ol class='footnote-list'>")
+            for num, note_text in parsed.notes_html:
+                backref = f"<a href='#fnref-{idx:02d}-{num}' class='footnote-backref' title='Jump back to text'>↩</a>"
+                out.append(f"<li id='fn-{idx:02d}-{num}'><p>{md_inline_html(note_text)} {backref}</p></li>")
+            out.append("</ol></div>")
+
         out.append("</section>")
 
     out.append("</body></html>")
@@ -284,6 +568,11 @@ def build_kdp_epub(book_title: str, author: str, chapters: list[Path], epub_path
         "h2 { font-size: 1.2em; margin-top: 1.2em; }\n"
         "h3 { font-size: 1.05em; font-style: italic; }\n"
         "blockquote { border-left: 2px solid #888; padding-left: 1em; font-style: italic; margin: 1em 0; }\n"
+        ".formula-block { text-align: center; margin: 1.2em 0; font-style: italic; }\n"
+        ".footnote-ref { font-size: 0.75em; vertical-align: super; text-decoration: none; font-weight: bold; }\n"
+        "section.footnotes { border-top: 1px solid #ccc; margin-top: 2em; padding-top: 1em; font-size: 0.85em; }\n"
+        "section.footnotes ol { padding-left: 1.5em; }\n"
+        "section.footnotes li { margin-bottom: 0.5em; }\n"
     )
 
     manifest_items = [
@@ -297,18 +586,20 @@ def build_kdp_epub(book_title: str, author: str, chapters: list[Path], epub_path
     for idx, ch_path in enumerate(chapters, 1):
         fname = f"chapter-{idx:02d}.xhtml"
         cid = f"ch{idx:02d}"
-        title = chapter_title(ch_path)
+        parsed = parse_chapter_markdown(ch_path, idx)
+        title = parsed.title
         manifest_items.append(f'<item id="{cid}" href="{fname}" media-type="application/xhtml+xml"/>')
         spine_items.append(f'<itemref idref="{cid}"/>')
         nav_links.append(f'<li><a href="{fname}">{html.escape(title)}</a></li>')
 
         body_lines: list[str] = []
-        raw = strip_yaml_frontmatter(ch_path.read_text(encoding="utf-8"))
-        for line in raw.splitlines():
+        for line in parsed.body_lines_epub:
             s = line.strip()
             if not s:
                 continue
-            if s.startswith("# "):
+            if s.startswith('<div class="formula-block">') and s.endswith("</div>"):
+                body_lines.append(s)
+            elif s.startswith("# "):
                 body_lines.append(f"<h1>{md_inline_html(s[2:].strip())}</h1>")
             elif s.startswith("## "):
                 body_lines.append(f"<h2>{md_inline_html(s[3:].strip())}</h2>")
@@ -323,10 +614,16 @@ def build_kdp_epub(book_title: str, author: str, chapters: list[Path], epub_path
             else:
                 body_lines.append(f"<p>{md_inline_html(s)}</p>")
 
+        if parsed.notes_epub:
+            body_lines.append('<section epub:type="footnotes" class="footnotes"><h2>Notes</h2><ol>')
+            for num, note_text in parsed.notes_epub:
+                body_lines.append(f'<li id="fn-{idx:02d}-{num}" epub:type="footnote"><p>{md_inline_html(note_text)}</p></li>')
+            body_lines.append("</ol></section>")
+
         xhtml = (
             '<?xml version="1.0" encoding="UTF-8"?>\n'
             '<!DOCTYPE html>\n'
-            '<html xmlns="http://www.w3.org/1999/xhtml" lang="en">\n'
+            '<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en">\n'
             f"<head><meta charset=\"utf-8\"/><title>{html.escape(title)}</title>"
             '<link rel="stylesheet" type="text/css" href="style.css"/></head>\n'
             "<body>\n" + "\n".join(body_lines) + "\n</body></html>\n"

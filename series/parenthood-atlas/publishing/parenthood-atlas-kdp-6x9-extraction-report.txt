@@ -3,23 +3,23 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: parenthood-atlas-kdp-6x9.pdf
-SHA-256: c25d88c9cb75172a75d2fa5cacde6bd6700da8f73d4f617294379bb39838abb9
-Bytes: 548,313
-Pages: 161 (161/161 nonblank)
+SHA-256: 4ed2931f1d7d4d0a50e8d4ec8c0b30ca3e861cd14db7f1a08caa646fd2661f55
+Bytes: 530,945
+Pages: 151 (151/151 nonblank)
 
 Chapters:
 - PASS · PDF page 2 · Chapter 1 — Before the Child Is Born
 - PASS · PDF page 12 · Chapter 2 — The First Environment
-- PASS · PDF page 24 · Chapter 3 — The Great Transition
-- PASS · PDF page 34 · Chapter 4 — The Regulatory Relationship
-- PASS · PDF page 44 · Chapter 5 — Becoming a Mind
-- PASS · PDF page 54 · Chapter 6 — The Mind in Motion
-- PASS · PDF page 64 · Chapter 7 — The Birth of Language
-- PASS · PDF page 75 · Chapter 8 — The Expanding World
-- PASS · PDF page 85 · Chapter 9 — The Emotional Revolution
-- PASS · PDF page 95 · Chapter 10 — Boundaries, Behavior, and the First Rules
-- PASS · PDF page 105 · Chapter 11 — The Developing Executive
-- PASS · PDF page 115 · Chapter 12 — Play, Imagination, and Meaning
-- PASS · PDF page 126 · Chapter 13 — The Ecology of Development
-- PASS · PDF page 137 · Chapter 14 — What Actually Works?
-- PASS · PDF page 150 · Chapter 15 — Three Years: What Has Been Built?
+- PASS · PDF page 23 · Chapter 3 — The Great Transition
+- PASS · PDF page 33 · Chapter 4 — The Regulatory Relationship
+- PASS · PDF page 43 · Chapter 5 — Becoming a Mind
+- PASS · PDF page 53 · Chapter 6 — The Mind in Motion
+- PASS · PDF page 62 · Chapter 7 — The Birth of Language
+- PASS · PDF page 72 · Chapter 8 — The Expanding World
+- PASS · PDF page 81 · Chapter 9 — The Emotional Revolution
+- PASS · PDF page 90 · Chapter 10 — Boundaries, Behavior, and the First Rules
+- PASS · PDF page 99 · Chapter 11 — The Developing Executive
+- PASS · PDF page 108 · Chapter 12 — Play, Imagination, and Meaning
+- PASS · PDF page 119 · Chapter 13 — The Ecology of Development
+- PASS · PDF page 129 · Chapter 14 — What Actually Works?
+- PASS · PDF page 141 · Chapter 15 — Three Years: What Has Been Built?
