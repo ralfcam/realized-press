@@ -1,188 +1,86 @@
 # Chapter 6 — The Mind in Motion
 
-A ribbon is tied around a three-month-old’s ankle. The other end is tied to a mobile. The infant kicks. The mobile moves. The infant kicks again.
+A ten-month-old sits in a highchair, grasps a metal spoon, holds it out over the edge of the plastic tray, and lets go. The spoon clatters onto the kitchen tile. The infant peers over the rim, watches an adult stoop to retrieve it, takes the spoon back, and immediately drops it again. And again.
 
-The scene is ordinary. It is also strange.
+In another room, a three-month-old lies on his back with a soft ribbon linking his ankle to an overhead mobile. He kicks once; the painted wooden figures sway and chime. Within minutes, his kicking accelerates into a steady, targeted rhythm.
 
-If the infant were only a bundle of reflexes, the second kick should not become more organized because the first one moved the world. If the infant were already a small scientist, the same scene would be taken as proof of hypothesis testing. Neither reading fits what can be shown.
+Both scenes are domestic, ordinary, and remarkably easy to misinterpret. To an exhausted parent at the end of dinner, the repeated dropping of the spoon can look like calculated stubbornness or defiance. To an overeager observer watching the crib, the rhythmic kicking can look like a miniature scientist formulating and testing an explicit hypothesis. Neither reading fits what developmental science can establish.
 
-Under controlled laboratory conditions, young infants learn that a self-generated motor action predicts an immediate sensory consequence.[^ch06-contingency-learning] Yet demonstrating operant contingency is neither proof of an adult-like causal theory nor evidence that commercial sensory stimulation produces lasting cognitive acceleration.
+Under controlled laboratory conditions, high-certainty experimental evidence **shows** that young infants rapidly learn when a self-generated motor action predicts an immediate sensory consequence.[^ch06-contingency-learning] Yet demonstrating operant contingency is neither proof of an adult-like causal theory nor evidence that commercial sensory-stimulation gadgets produce lasting cognitive acceleration.[^ch06-contingency-learning]
 
-This chapter asks a narrower question than “do babies learn?” It asks what kind of learner an acting infant is, and what kinds of claims that activity can support.
+Chapter 5 traced how an infant's mind begins to organize through visual selection, phonetic attunement, statistical pattern detection, and expectations about hidden objects. Now we ask a more dynamic question. An infant does not spend the first two years of life strapped into a theater seat watching the world pass by on a screen. The infant reaches, kicks, grasps, drops, mouths, crawls, stands, and imitates. Our question is not simply "do babies learn?" We ask what kind of learner an acting infant actually is: **what happens to perception, memory, and causal understanding when the developing mind moves its own body — and what claims can those actions legitimately support?**
 
-Chapter 5 asked how a mind begins to take shape. The infant arrived neither as a blank slate nor as a miniature adult, but with organized perceptual biases, learning capacities, memory systems, and expectations that experience could calibrate. That chapter established a mind already capable of selecting information, detecting regularities, and generating predictions. The next question is more dynamic.
+## I. The Recursive Loop: Action as Evidence
 
-**What happens when that mind acts?**
+Cognitive development is often described as the steady accumulation of information, as though experience poured facts into a waiting container. While not entirely wrong, that passive metaphor misses the central engine of early learning: **the infant's own behavior continuously alters the evidence available to be learned.**
 
-## The puzzle
+Whenever an infant acts, the physical and social world answers back. A reach brings a textured rattle to the mouth; a roll onto the stomach changes the visual horizon; a dropped spoon produces a sharp metallic clatter and recruits a caregiver's face. Sometimes the world responds exactly as prior experience predicted; sometimes it does something unexpected. Rather than a one-way pipeline from environment to brain, early learning operates as a recursive loop:
 
-Learning is often described as the acquisition of information. That description is not wrong. It is incomplete.
+$$\text{Environment} \to \text{Attention} \to \text{Action} \to \text{Outcome} \to \text{Prediction Error} \to \text{Memory Update} \to \text{Future Action}$$
 
-An infant does not spend the day receiving a stream of facts. The infant reaches, kicks, grasps, drops, shakes, looks, listens, waits, imitates, repeats, and changes course. The action itself alters the evidence available to the learner. The world answers back. Sometimes it answers as expected. Sometimes it does something different. The difference matters.
+Every arrow in that sequence is bidirectional. A change in posture alters what the eyes can see; a memory of yesterday's movement guides where attention lands today; and a surprising outcome reorganizes what the hands do next.
 
-A useful working model is therefore recursive rather than linear:
+To see why self-generated action is not reducible to mere reflex or passive excitement, return to the ribbon-and-mobile paradigm we encountered in Chapter 5. Suppose we compare two three-month-old infants: for the first infant, the ribbon is attached to the ankle so that kicking directly drives the mobile's motion; for the second infant, the ribbon is detached while an experimenter moves the overhead mobile at the exact same rate. Both infants see the same visual spectacle and experience the same general arousal. Yet only the first infant organizes a targeted, persistent increase in kicking — and only the first infant smiles and coos at the mastery of the contingency.[^ch06-contingency-learning] The infant is not merely excited by motion; the nervous system has detected a functional dependence between *what the body just did* and *what the world just answered*.
 
-**environment → attention → action → outcome → prediction error → memory update → changed future action**
+Does that discovery mean the three-month-old possesses a philosophical concept of personal agency or an explicit theory of mechanics? No. Even contemporary syntheses treat the emergence of conscious, reflective agency in early infancy as an open theoretical question rather than settled metaphysics. What the evidence **shows** with high certainty is more specific and just as illuminating: long before a child can speak or reason verbally about cause and effect, motor behavior becomes organized around action–outcome dependencies.[^ch06-mobile-retention] Furthermore, as Carolyn Rovee-Collier's longitudinal retention studies demonstrated, while the window over which infants retain a learned kick lengthens steadily across the first year, apparent forgetting is frequently a **retrieval failure** rather than an erased memory trace: a brief visual reminder cue — watching the mobile move for two minutes without kicking — can reactivate a seemingly lost motor memory weeks later, provided the surrounding crib context matches the original learning environment.[^ch06-mobile-retention]
 
-The arrows run in both directions. Action changes what can be seen. A new posture changes the visual field. A caregiver changes what counts as salient. Memory changes what is noticed next. A surprising outcome changes what the infant chooses to do. Social partners can redirect attention before the infant has discovered a contingency alone.
+That specificity explains both the power of early action learning and its boundary. When the ten-month-old in the highchair drops a spoon for the seventh time, she does not need to be either an oppositional rebel or a tenure-track physicist. Repetition is how a developing sensorimotor system samples trajectories, tests acoustic invariants, practices voluntary release of the palmar grasp, and enjoys the social contingency of an adult who keeps returning the prop. Action has become a way of gathering evidence about the room.
 
-The naive picture is a deposit: experience pours in, knowledge accumulates. The equally naive picture is instruction: an adult delivers the curriculum of the world. What we meet instead is participation. The infant is already part of the event.
+## II. The Embodied Revolution: Posture, Locomotion, and the Sloping Walkway
 
-A learned kick is not automatically a theory of cause. A repeated drop of a spoon is not automatically an experiment. A laboratory contingency is not automatically everyday competence. Those are not polite disclaimers. They are part of the science.
+If a single kick or reach changes what an infant notices, acquiring a whole new bodily posture reorganizes the infant's world from top to bottom. The body is not a mechanical chassis that merely carries an already-formed brain from room to room; motor development is an **embodied perceptual and social revolution**.
 
-## Competing explanations of the opening scene
+To see how profoundly our scientific understanding of motor development has changed over the past half-century, consider the landmark experimental journey from Eleanor Gibson and Richard Walk's **Visual Cliff** in 1960 to Karen Adolph's **Sloping Walkway** studies in the 1990s and 2000s. In 1960, Gibson and Walk constructed an ingenious apparatus at Cornell University: a large sheet of heavy transparent plexiglass mounted over a patterned checkerboard surface that lay flush against the glass on the "shallow" side but dropped four feet to the floor on the "deep" side, creating the visual illusion of a sheer cliff while remaining completely solid to the touch. When mothers stood on the far side of the deep cliff encouraging their six-to-fourteen-month-old crawling infants to cross, the vast majority of infants peered over the apparent drop-off and refused to crawl across.
 
-Before resolving the kick and the mobile, three explanations need to sit in view:
+For decades, popular psychology and pediatric textbooks codified the visual cliff into a simple maturational orthodoxy. Motor milestones — rolling, sitting, crawling, standing, walking — were treated as the automatic unfolding of a preprogrammed neuromuscular timetable in the cerebral cortex, and the refusal to cross the visual cliff was cited as proof that around seven or eight months of age, an internal module for "fear of heights" or depth avoidance permanently switches on inside the infant brain.
 
-- **Reflex plus arousal.** The infant kicks because infants kick; the moving mobile merely raises excitement, and more kicking follows excitement, not a learned relation.
-- **Action–outcome learning.** The infant’s behavior becomes organized around a detectable dependence between what the body did and what happened next, without requiring an adult-like causal model.
-- **Miniature science.** The infant represents a hypothesis, tests it, and updates a theory of the mobile.
+Beginning in the 1990s, developmental psychologist Karen Adolph and her colleagues subjected that orthodoxy to a brilliant longitudinal test. Instead of testing infants only once in a single posture on a binary cliff, Adolph built an adjustable **sloping walkway** whose incline could be varied continuously from flat (0 degrees) to precipitously steep (36 to 50 degrees), tracking infants week by week from their first days of crawling through their transition to upright walking. What Adolph discovered overturned the "hardwired fear of heights" story completely.[^ch06-embodied-action] In their first weeks of crawling, novices plunged headlong down dangerously steep slopes where they were guaranteed to tumble. Over weeks of everyday crawling practice and thousands of minor slips, crawlers gradually calibrated the exact biomechanical limit of their four-limbed posture, eventually refusing slopes steeper than about 20 degrees with striking precision. Then came the critical test: the very week those seasoned, cautious crawlers stood up on two feet to take their first independent walking steps, Adolph placed them back at the top of the exact same steep slope. Without hesitation, the new walkers stepped straight over the edge of the 36-degree precipice, just as they had as novice crawlers months earlier![^ch06-embodied-action]
 
-The first is too thin for the paradigm. When the mobile’s movement is not produced by the infant’s own kick, later kicking does not organize in the same way. Arousal from a busy toy is not the same fact as a dependence between act and outcome. The third is the popular story. The second is the claim the evidence can carry.
+Even more remarkably, when tested within the same hour on a steep slope, an infant who stepped recklessly over the edge while standing upright would immediately hesitate and refuse the slope if placed back down on hands and knees in a crawling posture. Infants were not learning a global, abstract rule ("steep slopes are dangerous"). They were learning **posture-specific perception–action affordances** — calibrating how visual optic flow, muscle strength, center of mass, and base of support interact within a specific bodily configuration.[^ch06-embodied-action] Because sitting, crawling, cruising, and walking each involve completely different biomechanical parameters and information-gathering rhythms, the infant must re-learn how to judge balance and terrain in each new posture from the ground up.
 
-## A case that looks like stubbornness
+As Karen Adolph and Justine Hoch synthesized, this embodied perception–action coupling cascades across every domain of development.[^ch06-embodied-action] When an infant masters independent sitting around six months, both hands are suddenly liberated from propping up the torso, enabling three-dimensional object rotation, visual-haptic cross-modal inspection, and bimanual manipulation. When an infant transitions from crawling to upright walking, the visual field lifts from the floor to encompass the whole room; hands are freed to carry objects to caregivers across distances; and social exchanges with adults become richer and more frequent. Yet our three-tier causal resolution draws an essential boundary around motor milestones: while embodied action drives daily cognitive discovery, in healthy populations the exact calendar month at which a baby first sits, crawls, or walks **is associated with** wide normal variation and has near-zero predictive value for adult intelligence or academic achievement.[^ch06-embodied-action] Hurrying a baby with commercial walkers or treating early walking as an IQ trophy mistakes the beauty of bodily exploration for a race.
 
-A baby drops a spoon. Then drops it again. And again.
+## III. Where Prediction Fails: Surprise, Sampling, and Causal Steps
 
-To an exhausted caregiver, the repetition can appear absurd, or even oppositional. To a developing organism, repetition can reveal structure. The sound, the trajectory, the adult’s face, the retrieval, the chance to do it once more: each drop changes the evidence.
+As the moving infant manipulates objects across the floor, how do perceptual expectations guide hands-on exploration?
 
-That does not require us to say the child is conducting a formal experiment. Exploration serves several functions at once: sensory enjoyment, motor practice, novelty, familiarity, information. The strongest conclusion is not that infants are miniature scientists. It is that exploration sometimes changes systematically in response to what the infant has recently encountered.
+In Chapter 5, we saw that infants look longer when a physical event violates expectations of solidity or support. For years, critics wondered whether longer looking was merely a passive freeze response rather than active learning. In 2015, Aimee Stahl and Lisa Feigenson tested whether expectation violations actually change how infants act on objects once handed the toys. Eleven-month-old infants watched an experimenter roll a toy car down a ramp: in one condition, the car appeared to pass straight through a solid wall (*solidity violation*) or float in midair past the edge of a platform (*support violation*); in the control condition, the car stopped normally at the wall or rested on the platform. Next, the infant was given the target car alongside a brand-new toy. Infants who had just witnessed a physical violation not only preferred to grasp and explore the offending car over the novel toy, but tailored their manual actions to the specific violation they had seen: infants who saw the car pass through a solid wall **banged** the toy repeatedly against the table to test its solidity, whereas infants who saw the car hover in midair **dropped** it repeatedly to test its gravity and support![^ch06-surprise-sampling]
 
-Repetition is not necessarily redundancy. Repetition can be information. It can also be pleasure, or fatigue, or a bid for the adult who keeps returning the spoon. Those possibilities should remain in view. They are not a reason to refuse the narrower claim: action can become a source of evidence about the world.
+Moderate-certainty experimental evidence thus **suggests** that prediction error — the mismatch between what the nervous system expected and what the world delivered — reorganizes both visual attention and subsequent manual exploration.[^ch06-surprise-sampling] Curiosity, in its foundational sensorimotor sense, begins where prediction fails. At the same time, low-certainty claims that a single surprising event permanently rewrites a child's conceptual knowledge overstate the finding: surprise opens a brief window of heightened perceptual sampling, which still requires repeated physical interaction to consolidate.[^ch06-surprise-sampling]
 
-## Contingency is not yet agency as a philosophy
+Across the first two years of life, these perception–action loops assemble a graded progression toward causal understanding. Rather than treating "causality" as a single lightbulb that switches on at a fixed age, developmental research traces five distinct steps that build upon one another:
 
-What matters in the mobile is not the toy. It is the discovery of contingency. The infant’s own action has become part of the event. The consequence depends on something the infant did.
+1. **Regularity detection:** noticing that event $B$ statistically follows event $A$ in time and space.
+2. **Prediction:** orienting eyes or posture in anticipation of $B$ once $A$ occurs.
+3. **Contingency learning:** discovering that one's own motor act $A$ alters the probability of $B$ (as in the ribbon-and-mobile task).
+4. **Active intervention:** deliberately varying an action — banging, dropping, pushing a button, handing a wind-up toy to an adult — to test whether and how the outcome changes.
+5. **Causal representation:** forming a differentiated expectation of the underlying mechanism linking cause and effect, which toddlers begin to display in the second year when they infer how a hidden switch activates a music box.[^ch06-causal-progression]
 
-That is a small conceptual step and an important developmental one.
+Respecting this five-step sequence prevents two opposite errors: we neither dismiss the three-month-old's kick as mindless twitching, nor pretend that a fourteen-month-old pressing a toy button possesses an articulate verbal explanation of mechanical engineering.[^ch06-causal-progression] Each step scaffolds the next through action.
 
-**Behavior can become a source of evidence about the world.**
+## IV. Learning Through Other Hands: Deferred Imitation and Goal Reading
 
-Contingency is not the same thing as conscious agency. A behavior can become organized around an action–outcome relation long before a child can explain what happened. The 2025 review of this literature still treats “does the infant demonstrate agency?” as an open question, not as a solved metaphysics.
+If infants had to discover how every object in human culture works solely through private trial-and-error dropping and banging, childhood would not be nearly long enough. The learning environment of a human infant is profoundly social before it is ever formally instructional: infants watch what other people do with their hands and tools, and they remember it.
 
-Acquisition and retention of mobile contingencies are robustly demonstrated when test cues closely match original training conditions.[^ch06-mobile-retention] Learning speed and retention intervals increase with age, and brief reminder cues can reactivate an apparently extinguished motor response, demonstrating that apparent forgetting is frequently a retrieval failure rather than an erased memory trace.
+In 1988, Andrew Meltzoff conducted a landmark demonstration of **deferred imitation** that reshaped how developmental science viewed preverbal memory and social learning. Fourteen-month-old toddlers visited a laboratory playroom and watched an adult experimenter interact with a series of novel, custom-built objects — most famously, leaning forward from the waist to press a flat plastic light panel on the table using his **forehead** rather than his hands, causing the panel to illuminate. The toddlers were not allowed to touch the objects during that session. A full week later, the toddlers returned to the laboratory and were handed the objects for the first time. Compared with control infants who had never seen the demonstration (none of whom spontaneously used their heads), two-thirds of the fourteen-month-olds who had watched the experimenter leaned forward and pressed the light panel with their foreheads after the seven-day delay.[^ch06-deferred-imitation]
 
-The memory that supports this learning is specific. Encoding, retention, and retrieval can come apart. A learned relation may fail to appear because the test does not match the original training world. That is a fact about memory, not a verdict on the child’s intelligence.
+High-certainty replications **show** that by the start of the second year, toddlers can encode a novel action solely by watching another person, store that representation across days without motor rehearsal, and retrieve it to guide their own bodies a week later.[^ch06-deferred-imitation] (By contrast, claims of *neonatal* facial imitation in the first days after birth remain methodologically contested after large-scale longitudinal replications failed to find consistent matching beyond general arousal responses — a distinction that underscores why evidence must be graded by developmental period.) Even more tellingly, subsequent experiments by Meltzoff, György Gergely, and colleagues revealed that toddler imitation is **goal-directed and selective**, not blind mimicry: if an adult saw a fourteen-month-old watch an experimenter turn on the light panel with her forehead because her hands were visibly occupied holding a blanket tightly around her shoulders, the toddler subsequently used their *hands* to press the light, whereas if the experimenter's hands were free on the table when she used her forehead, the toddler copied the forehead action.[^ch06-deferred-imitation] Toddlers read actions through the lens of human intentions and physical constraints.
 
-Retention windows themselves change with age and with how practice is spaced. A reminder can bring a forgotten kick back. The reminder does not turn the memory into a general theory of toys. It often remains tied to the original mobile, the original place, the original way of kicking. That specificity is part of why the High grade stops at the paradigm and does not travel, unescorted, into a claim about the child’s future mind.
+What does this powerful social-learning capacity mean for parents? It means that cultural transmission happens effortlessly inside ordinary shared life — watching a parent stir a pot, wipe a spill, or hold a telephone — without turning the home into a formal drilling academy.[^ch06-deferred-imitation]
 
-## Action changes what can be known
+## V. Fragile Control and the Floor as Laboratory
 
-The body is not merely the vehicle through which a pre-existing mind executes decisions. Movement changes the information available to the mind.
+As perception–action loops, causal interventions, and social imitation accumulate across the transition from infancy into the second year, the child's behavior grows visibly more organized. A toddler holds a goal in working memory across a brief delay, pulls a cloth to bring a distant toy within reach, inhibits an old movement to try a new one, and coordinates two hands with two different jobs.
 
-Reaching alters visual access. Grasping turns an object into something that can be manipulated. Crawling opens routes through space. Walking changes them again.
+Moderate-certainty developmental models **suggest** that these repeated sensorimotor and social problem-solving loops form the early building blocks of executive control.[^ch06-fragile-control] Yet during infancy and early toddlerhood, cognitive control remains fragile, state-dependent, and deeply tied to bodily fatigue and task context. Low-certainty attempts to use an infant's persistence on a laboratory puzzle or reach task as a crystal ball for school-age executive function, adult willpower, or life success fail empirically.[^ch06-fragile-control] (As we will see in Chapter 11 when we examine the famous preschool marshmallow test, even at age four, simple delay-of-gratification correlations with later life outcomes are heavily confounded by family background and cognitive environment.) Nor do clinical experiments that adapt mobile-contingency procedures for specific physical-therapy rehabilitation justify strapping typical infants into structured motor-training regimens at home.
 
-Development here emerges from interactions among neural maturation, body structure, posture, motor skill, task demands, environmental conditions, and social context. The classic A-not-B search error is useful as an illustration, not as a diagnosis of a missing concept. Performance on that task reflects memory, perception, posture, motor history, and the way the adult sets the problem, rather than a single cognitive capacity turning on.
+Here the three registers of our contract bring the acting infant into clear focus. The **science** of the mind in motion **shows** with high certainty that young infants learn and retain context-specific motor contingencies and that fourteen-month-olds perform selective deferred imitation across a one-week delay; it **suggests** with moderate certainty that motor development operates through posture-specific perception–action coupling, that violations of physical expectation guide active manual exploration, and that causal expectations differentiate gradually across the first two years; and it establishes that normal variations in motor milestone timing carry near-zero predictive weight for adult intelligence. The **interpretation** of that science refuses to confuse a learned kick with a formal scientific theory, a cautious crawler on a slope with a fixed personality trait, or a dropped spoon with moral defiance. And the **art** of supporting an acting mind is refreshingly simple: clearing a safe patch of rug where a baby can roll and reach, returning the dropped spoon a few times before calmly setting it on the counter when dinner is done, and giving the child time to try before our hands rush in to solve the problem for them.
 
-Embodied perception–action couplings demonstrate that infant motor exploration continuously generates the perceptual inputs that drive cognitive development.[^ch06-embodied-action] Yet achieving motor milestones earlier does not cause superior long-term intellectual ability, and infant motor timing is never a metric of parental competence.
+What this chapter does not tell us is how the child moves from acting directly on objects with hands and feet to acting on other minds through shared spoken and signed symbols. How cries, babbles, points, and conversational turns give birth to words and grammar belongs to Chapter 7.
 
-The infant does not need to be hurried through milestones. A milestone is not a score.
+Look back once more at the three-month-old kicking beneath the swaying mobile, and the ten-month-old peering over the highchair tray after the clatter of the spoon.
 
-## When the world says something unexpected
-
-Infants develop expectations about objects, events, and outcomes. Sometimes those expectations are violated. A solid object appears to behave impossibly. A physical event unfolds in an unexpected way.
-
-The result is a prediction error. Attention often increases. Exploration sometimes changes. The infant investigates.
-
-**Curiosity, in this narrow sense, begins where prediction fails.**
-
-This does not mean every surprising event produces durable learning. It means that a mismatch between expectation and outcome can become an opportunity for updating. Memory is required to have an expectation. Surprise is required to notice a mismatch. Exploration requires something retained from previous experience.
-
-The loop is:
-
-**experience → encoding → expectation → mismatch or confirmation → action → new experience**
-
-Violations of physical expectation systematically reorganize infant looking time and subsequent tactile exploration in tightly controlled tasks.[^ch06-surprise-sampling] A surprise-induced shift in attention demonstrates active perceptual sampling, though it does not guarantee a permanent conceptual revision or substitute for direct physical experience.
-
-## From regularity to cause
-
-The infant’s first discoveries are often statistical. When one event repeatedly follows another, a regularity emerges. A more differentiated question eventually follows: does one event make another happen?
-
-A useful sequence, which should not be collapsed into one word, is:
-
-1. Regularity detection
-2. Prediction
-3. Contingency learning
-4. Intervention
-5. Causal representation
-
-Observation reveals patterns. Intervention changes the evidence. Through action, infants can learn that some outcomes depend on what they do. That is not yet mature causal reasoning. It is a foundation on which later explanation can be built.
-
-A developmental progression unfolds across the first two years from detecting simple sensory regularities toward forming differentiated causal expectations.[^ch06-causal-progression] Yet visual discrimination or manual reaching in laboratory tasks does not indicate that a toddler possesses an articulate, explanatory causal framework.
-
-The mobile sits on step three. It should not be asked to do the work of step five.
-
-## The infant does not learn alone
-
-The learning environment is social before it is instructional.
-
-Infants encounter faces, voices, gestures, emotional expressions, demonstrations, and shared attention long before formal teaching. Social partners influence what becomes salient, what receives attention, what is imitated, and what is remembered.
-
-Imitation is not simple mechanical copying. Infants attend to observed goals, bodily constraints, and situational context, reproducing intentional actions while filtering incidental movements.[^ch06-deferred-imitation] Fourteen-month-old toddlers reliably demonstrate deferred imitation of novel actions even after a one-week delay, establishing imitation as a primary channel of cultural transmission without requiring a contrived parental training curriculum.
-
-Social learning allows information to accumulate across people. It transforms individual discovery into a shared world. It also means that “the environment” is never only objects. It is people who retrieve the spoon, who look where the infant looks, who refuse to turn every drop into a lesson.
-
-What, then, is a learner, if not a vessel and not yet a theorist? A learner is an organism whose future action can be reorganized by what happened after the last one. That definition is modest. It is enough. It does not require us to settle whether the infant “knows that” the kick caused the motion, in the sense a philosopher would want. It requires only that the dependence is detectable in behavior.
-
-Chapter 4’s co-regulation card is adjacent here, not imported as a learning-style verdict. A caregiver who participates in regulation is not thereby a curriculum. A missed demonstration is not a missed mind.
-
-## Problem solving, still fragile
-
-As learning accumulates, behavior can become more coordinated. The child begins to remember across delays, organize simple means–end sequences, coordinate more than one piece of information, and adjust actions based on prior outcomes.
-
-These are early foundations of cognitive control. They remain fragile and context-dependent during infancy. Development is not the sudden appearance of a completed ability. It is increasing coordination among systems that already exist in partial form.
-
-Repeated learning and motor practice gradually build coordinated cognitive control across the transition from infancy to toddlerhood.[^ch06-fragile-control] Yet infant performance on single laboratory tasks remains highly unstable, providing no reliable forecast of lifelong executive function, academic success, or character.
-
-The marshmallow-test literature belongs to a later chapter and already has a card: the original predictor story was mostly confounded. This chapter does not borrow that forecast language in advance.
-
-## The learning architecture around the child
-
-Learning depends upon opportunity.
-
-Objects matter because they afford actions. Space matters because it permits movement. Caregivers matter because they direct attention, respond contingently, and create chances for discovery. Material conditions matter because they determine whether such opportunities are consistently available. A crowded room with no safe floor is a different laboratory from a clear patch of rug. So is a day shaped by exhaustion, illness, or the absence of another adult.
-
-The practical implication is quieter than the market for infant stimulation would like.
-
-Learning does not require a parent to become a full-time educator. It requires a world in which the infant can act, notice consequences, repeat experiences, encounter variation, and share discoveries with others. More toys are not necessarily more information. More novelty is not necessarily more learning.
-
-Children differ. They differ in attention, exploration, persistence, motor skill, temperament, and how readily they take up the same object. The same mobile, the same spoon, the same violation of expectation can land differently. Those differences are not a rounding error. They are part of how learning happens. They are also a standing warning against ranking households by how quickly a child “got” a task.
-
-A second warning belongs here. Contingency-paradigm procedures have been tried as early interventions for feeding, reaching, and related motor problems. That is a clinical research question with mixed, still-thin evidence. It is not a translation of the High-grade laboratory fact into a home program for typical development. Efficacy under a protocol, effectiveness in ordinary services, and what a family can reasonably do are different claims. This chapter keeps them apart.
-
-## What this chapter does not tell us
-
-It does not tell us that more stimulation is better.
-
-It does not tell us that exploration is proof of conscious scientific reasoning.
-
-It does not tell us that a prediction error guarantees durable learning.
-
-It does not tell us that early task performance determines a life.
-
-It does not tell us that learning speed measures parental quality.
-
-It does not tell us how words will be learned. That is Chapter 7.
-
-It does not tell us that a laboratory contingency is an intervention program. Contingency-paradigm procedures have been studied as early supports for selected motor and feeding problems; that literature is mixed and is not a card here. Promising in small targeted tasks is not a license for a home curriculum.
-
-## Science, Interpretation, Art
-
-**Science** here is the High-grade laboratory demonstration that infants learn action–outcome relations; the Moderate evidence that embodiment, surprise-driven exploration, and physical-reasoning tasks reorganize looking and motor action; the High-grade finding of deferred imitation at 14 months after a one-week delay; and the Low certainty for long-distance transfer, milestone timing as an intellectual index, or infant laboratory scores forecasting adult character.
-
-**Interpretation** is the habit of keeping those facts from becoming a story about the kind of person the child will be, or the kind of teacher the parent must become. It is also the habit of matching verbs to grades: *shows* where the grade is High, *suggests* where it is Moderate, *is associated with* where it is Low.
-
-**Art** is the remaining human fact: deciding when to return the spoon, when to wait, when to join, and when to protect. Those decisions belong to a relationship. They are not experiments, and they are not a performance to be scored.
-
-## Return
-
-The infant on the ribbon has not become a different child because we now have a map. The map has changed.
-
-The mind in motion is not a camera. It is not a classroom. It is a succession of acts that change the evidence: a kick that moves a mobile, a drop that returns a sound, a mismatch that draws a look, another person who makes some outcomes possible and others not.
-
-Chapter 5 showed a mind becoming organized. This chapter shows that organized mind becoming a participant. The child does not wait for knowledge to be delivered. The child acts, the world answers, and the answer changes what the child does next.
-
-Words will soon start to do some of that work. That is the next territory. It is not a verdict on the kicks that came before.
+Neither child has changed because we have mapped perception–action affordances, prediction error, or deferred imitation. Our reading of their motion has changed. The moving infant is neither a bundle of mindless reflexes nor a tiny professor running laboratory protocols. She is an embodied participant in a responsive world — kicking, reaching, dropping, tumbling on slopes, and watching what our hands do next, building a mind through the consequences of her own movement.
 
 ## Notes
 
@@ -203,5 +101,3 @@ Words will soon start to do some of that work. That is the next territory. It is
 - `evidence-cards/deferred-imitation.md`
 - Adjacent, not re-extracted: `evidence-cards/infant-caregiver-coregulation.md` (social partners as part of the learning world)
 - Later-chapter boundary: `evidence-cards/self-regulation-delay-of-gratification.md` (do not import as an infant-learning forecast)
-
-Promotion note: this file is a curated, voice-checked expansion. The archival draft `preliminary/drafts-chapters/chapter 6` was not overwritten. Review: `preliminary/drafts-chapters/reviews/ch06-curated-06-the-mind-in-motion--voice-review.md`.

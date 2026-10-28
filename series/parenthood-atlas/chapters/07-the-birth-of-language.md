@@ -1,238 +1,76 @@
 # Chapter 7 — The Birth of Language
 
-A sound that has been practiced for months is used, one day, as if it belonged to a thing. It may be a name. A word for food. A word for an object that has suddenly become important.
+A sound that an infant has practiced in fragments for months is spoken, one ordinary morning, as if it belonged to a specific thing in the room. It may be a family name, a syllable for milk or water, or a breathy approximation of *dog* as a Golden Retriever trots past the window.
 
-Adults tend to experience this moment as an arrival.
+To the adults in the room, that moment feels like a sudden arrival. Language has begun.
 
-Language has begun.
+Developmental science tells a longer, quieter story. The first recognizable spoken word is not the beginning of language; it is merely the first highly audible milestone of a rehearsal that has been underway since before birth. Long before a toddler shapes a consonant with her tongue and lips, she has been tracking the melody of voices through amniotic fluid, tuning her auditory cortex to native phonemes, slicing continuous speech streams into statistical candidates, coordinating her gaze with another person's eyes, lifting an index finger to point, and trading vocal turns across the kitchen table. Adults hear a sudden debut. The child has been in the chorus for a year.
 
-Development tells a different story.
+As we saw in Chapter 2, experimental evidence **suggests** that late-pregnancy speech exposure already shapes newborn preference for familiar vocal cadences, while low-certainty claims of prenatal academic acceleration have zero empirical support.[^ch07-prenatal-auditory] Now, having traced how relationships regulate arousal (Chapter 4), how attention and memory organize perception (Chapter 5), and how bodily action generates evidence (Chapter 6), we arrive at a transformation that is irreducibly social. Our question is not "what trick makes a baby talk faster?" We ask what kind of apprenticeship language acquisition actually is: **how do cries, gestures, and statistical sounds become shared symbolic meaning — and what claims can a child's early language environment legitimately support?**
 
-The first recognizable word is not the beginning of language. It is one of the first highly visible products of a process that has been unfolding since before birth: hearing a voice in the womb, discriminating sounds, finding seams in a speech stream, coordinating attention with another person, pointing, babbling, taking turns. Adults hear a debut. The child has been in rehearsal.
+## I. The Long Rehearsal: From Prenatal Prosody to Shared Reference
 
-Late-pregnancy speech exposure reliably shapes newborn auditory preferences for familiar voices and rhythm patterns.[^ch07-prenatal-auditory] Yet demonstrating prenatal acoustic familiarization confers no permanent cognitive advantage and provides no justification for a commercial prenatal curriculum.
+Because a child's first spoken word can be written down in a baby book with a calendar date beside it, two folk theories continually compete to explain how it got there. The first is *biological installation*: the belief that an internal language organ simply matures on a genetic schedule until words switch on like headlights. The second is *quantitative pouring*: the belief that language is a bucket of vocabulary that fills up in direct proportion to the sheer volume of adult words poured into the room.
 
-This chapter asks a narrower question than “how do we teach a child to talk?” It asks what kind of learner a language learner is, and what kinds of claims that participation can support.
+What empirical research reveals instead is **social participation**. The human infant is biologically prepared for symbol-making, and linguistic input is indispensable, yet neither genes nor audio volume can build a speaker in isolation. Language emerges because a developing organism with powerful perceptual and motor tools participates day after day in a community of people who already share meanings.
 
-Chapter 6 showed that action can become a source of evidence about the world. The next question is more social.
+Every capacity we mapped across the first six chapters converges to make that participation possible. At birth, the neonate's cry recruits adult proximity as a graded signal of autonomic distress rather than an acoustically coded dictionary of specific nouns.[^ch07-infant-crying] Over the first three months, those urgent cries are joined by face-to-face *proto-conversations* — rhythmic exchanges of coos, smiles, and mutual gaze in which infant and caregiver practice the temporal alternation of speaking and listening months before a single word is available. Simultaneously, the infant's auditory system is organizing the soundscape: as we saw in Chapter 5, high-certainty laboratory studies **show** that across the first year of life, infants undergo **perceptual attunement**, sharpening their discrimination of the phonetic contrasts used in their home language(s) while attenuating sensitivity to unexperienced distinctions — an adaptive specialization of neural circuitry rather than a sealed biological deadline.[^ch07-perceptual-attunement] And as Jenny Saffran, Richard Aslin, and Elissa Newport demonstrated, infants listening to continuous speech streams use **statistical segmentation** — tracking the transitional probabilities between syllables — to detect where one candidate word ends and the next begins.[^ch07-statistical-segmentation]
 
-**What happens when those signals start to mean something shared?**
+Yet even after an infant can slice an acoustic stream into syllable packets like *ba-by* or *cup*, a formidable philosophical and cognitive hurdle remains. As the philosopher W. V. O. Quine famously observed, when an adult points toward a table and says a novel word, how does a learner without a dictionary know what the sound refers to? Does it name the whole cup, the curved handle, the ceramic material, the blue glaze, the milk inside, or the act of reaching?
 
-## The puzzle
+Statistical syllable-counting in a soundproof booth cannot solve that puzzle alone.[^ch07-statistical-segmentation] The infant solves it by stepping out of solitary acoustics and into **joint attention**. When a nine-to-twelve-month-old coordinates her gaze between an adult's face and the object the adult is handling or looking at, she narrows the universe of possible referents to the shared focus of their interaction. Moderate-certainty longitudinal syntheses **suggest** that early triadic joint attention predicts subsequent receptive and expressive vocabulary growth because it anchors fleeting sounds to shared human intentions.[^ch07-joint-attention] Crucially, as established in Chapter 5, joint attention is a relational medium rather than a muscular drill: attempting to train isolated gaze-following as a parental technique does not manufacture early fluency, and a missed look during a busy afternoon is never a missed mind.[^ch07-joint-attention] Language is not a mapping of sounds onto dead objects; it is a mapping of signals onto shared experience.
 
-A first word looks like a beginning. It is easier to date than a look, a point, or a pause. That visibility is useful. It is also misleading.
+## II. Pointing, Babbling, and Crossing the Lexical Threshold
 
-Before a child can name an object, there must be some capacity to hear differences between sounds. Before sounds can be mapped to objects, attention must be coordinated. Before a word can be shared, there must be some understanding that another person can direct attention toward something in the world. Before a child can participate in conversation, there must already be some capacity for taking turns.
+Before the vocal tract has mastered the fine articulatory choreography required to pronounce words clearly, the child frequently crosses into symbolic reference through the hand.
 
-The naive picture is installation: biology delivers a language organ, and words appear on a timetable. The equally naive picture is a deposit: enough speech pours in, and a vocabulary accumulates. What we meet instead is participation. The infant is already part of a linguistic community, long before the community hears a word.
+Around the end of the first year, a child sitting in a stroller spots a dog across the street, extends an index finger toward the animal, and then turns to look directly into the parent's eyes to check whether the message has landed. That simple gesture — **declarative pointing** — is a cognitive landmark. Unlike reaching to grab a rattle, pointing does not act mechanically on the physical object; it acts at a distance on *another person's mind*, inviting a partner to share interest in a third thing.
 
-A cry is not automatically a sentence. A laboratory segmentation result is not automatically a household vocabulary. A recorded word count is not automatically a conversation. Those are not polite disclaimers. They are part of the science.
+Moderate-certainty longitudinal studies **suggest** that infant pointing functions as an intentional act of shared reference that reliably predicts subsequent expressive vocabulary growth.[^ch07-infant-pointing] Whether early gesture actively scaffolds word learning (because parents almost always respond to a toddler's point by naming the object aloud) or serves as an early behavioral marker of underlying social-communicative readiness, gesture is already genuine communication. At the same time, low-certainty commercial claims for formal "baby sign language" curricula marketed to parents of typically hearing infants require a clear boundary: controlled reviews find no convincing evidence that commercial sign-training programs accelerate spoken language acquisition beyond the natural pointing, waving, and reaching gestures that emerge in everyday family life.[^ch07-infant-pointing]
 
-## Competing explanations of the opening scene
+While the hands are pointing, the vocal tract is conducting its own sensorimotor exploration through **babbling**. Around six to ten months of age, infants begin producing rhythmic, reduplicated consonant–vowel syllables — *ba-ba-ba*, *da-da-da*, *ma-ma-ma* (*canonical babbling*). Just like the kicking and spoon-dropping of Chapter 6, babbling is an active perception–action feedback loop: the infant generates a vocal motor command, hears the resulting acoustic resonance, feels the proprioceptive closure of the lips or tongue, and adjusts the next syllable. Even more revealingly, when Laura-Ann Petitto and Paula Marentette (1991) studied profoundly deaf infants growing up with parents who communicated in American Sign Language, they discovered **manual babbling**: at the exact same developmental window, sign-exposed infants produced rhythmic, syllabic hand-shape repetitions occupying a restricted signing space in front of the torso, distinct from random motor waving. Babbling is therefore not mere jaw exercise; it is the brain's amodal practice of the rhythmic structure of human language.
 
-Before resolving the first word, three explanations need to sit in view:
+Out of this convergence of statistical ear-tuning, joint attention, pointing, and babbling, a recurrent sound finally stabilizes into a **first word**. Even then, learning a word is rarely an instantaneous, all-or-nothing event. When toddlers hear a novel label in an unambiguous context, they can form a rapid initial hypothesis linking sound and referent — a process researchers call **fast mapping** — yet that first sketch is fragile and incomplete. Full lexical mastery unfolds through slow, extended mapping across dozens of days and contexts as the child narrows overextensions (calling every four-legged animal *dog*) and coordinates receptive comprehension (which typically leads by months) with expressive speech.
 
-- **Installation.** Language is a biological program that turns on. The first word is the moment the program becomes audible.
-- **Pour-in.** Language is a quantity of input. The first word arrives when enough words have been heard.
-- **Participation.** Language emerges as a developing organism takes part in a community that already uses symbols: hearing, attending, gesturing, vocalizing, and being answered.
+As a toddler accumulates fifty to a hundred words across the second year, single words begin joining into two- and three-word combinations (*"more milk"*, *"doggie gone"*), and morphological markers appear. Moderate-certainty developmental evidence **suggests** that young children rapidly achieve **grammatical productivity**, extracting abstract morphological and syntactic patterns and applying them to novel words they have never heard an adult utter — as when a toddler who once said *"held"* suddenly says *"holded"* or *"feets"*, proving she is actively applying a productive rule rather than parroting memorized strings.[^ch07-grammatical-productivity] While formal linguistic theories continue to debate how much of that syntactic machinery rests on domain-specific grammatical constraints versus domain-general statistical and usage-based learning, the empirical reality of the child's creative productivity is beyond dispute.[^ch07-grammatical-productivity]
 
-The first is too complete for what can be shown. Preparedness is real; a finished organ that waits for a debut is not. The second is the popular metric. The third is the claim the evidence can carry — and even that claim must be graded, piece by piece.
+## III. The Architecture of Conversation: Beyond the 30-Million-Word Myth
 
-## Before a word, a signal
+Once we recognize that language grows inside shared social reference, we can examine the most famous — and most frequently misunderstood — controversy in the history of language development: the story of household word counts and the **"30-million-word gap."**
 
-The newborn does not arrive without communication.
+In 1995, educational researchers Betty Hart and Todd Risley published *Meaningful Differences in the Everyday Experience of Young American Children*, a study that shaped public policy, philanthropy, and parenting anxiety for a generation. Seeking to understand why children from low-income households often entered school with smaller measured vocabularies than affluent peers, Hart and Risley spent two and a half years visiting forty-two families in Kansas for one hour each month, recording everything spoken directly to children between seven months and three years of age across thirteen higher-income professional families, twenty-three working-class families, and six families receiving welfare assistance. Observing that professional parents spoke roughly 2,150 words per hour to their children compared with 600 words per hour in the welfare group, Hart and Risley multiplied those hourly rates across fourteen waking hours a day for four years, announcing a famous linear extrapolation: by age four, a child in a professional household had heard **thirty million more words** than a child growing up in poverty.
 
-Crying already changes another person’s behavior. A caregiver hears it and approaches. At first this does not require the child to understand crying as a symbolic message. A distress signal can recruit a response without being a word.
+Within years, the "30-million-word gap" hardened into an inescapable cultural and clinical orthodoxy. Public billboards warned parents to talk nonstop to their infants; municipal programs distributed "word pedometers" to track daily maternal syllable counts; and popular commentary routinely slid into a deficit narrative blaming socioeconomic educational disparities on the supposed linguistic silence of low-income homes.
 
-Crying operates as a recruiting, graded distress signal rather than an acoustically encoded vocabulary of distinct infant needs.[^ch07-infant-crying] In ordinary homes, acoustic pitch or duration cannot reliably diagnose whether an infant is hungry, tired, or in pain, serving as an urgent call for adult proximity rather than an early dialect.
+Over the past decade, methodological audits, cross-cultural replications, and neurodevelopmental studies dismantled the simplistic word-dumping orthodoxy while uncovering the genuine relational mechanism beneath it. First, ethnographers and developmental linguists led by Douglas Sperry, Linda Sperry, and Peggy Miller (2019) pointed out that Hart and Risley's forty-two-family sample was tiny and defined input strictly as one-on-one speech directed by a primary caregiver to the child, ignoring the rich multi-party, extended-kin, and sibling conversations that surround children in many working-class and culturally diverse communities. Second, to measure what actually predicts long-term language growth without relying on one-hour human observer visits, Jill Gilkerson and colleagues (2018) used automated, daylong **LENA** (*Language Environment Analysis*) digital recorders to capture the natural home audio environments of children aged eighteen to twenty-four months and followed those children longitudinally for ten years into early adolescence.[^ch07-conversational-turns] When socioeconomic status was controlled, the sheer volume of adult words spoken in the home was a weak, inconsistent predictor of adolescent outcomes. What strongly and independently predicted verbal comprehension, vocabulary, and cognitive scores ten years later was the frequency of **conversational turns** — back-and-forth vocal exchanges in which the child vocalized and an adult responded (or vice versa) within five seconds.[^ch07-conversational-turns] Simultaneously, neuroimaging work by Rachel Romeo, John Gabrieli, and colleagues (2018) demonstrated that children who experienced more back-and-forth conversational turns — regardless of parental income or total adult word count — exhibited stronger functional activation in Broca's area during language processing and greater structural integrity in the left arcuate fasciculus white-matter tract connecting language regions.
 
-Over the first months, exchanges become more reciprocal. The infant looks; the caregiver looks back. The infant vocalizes; the adult answers. The infant pauses. These episodes have been called proto-conversations because they contain timing, alternation, and repair. They are not adult dialogue. A signal is not necessarily an intention. An interaction is not necessarily a symbolic exchange.
+Even here, our three-tier causal resolution enforces an essential interpretive boundary. While moderate-certainty longitudinal evidence **suggests** that second-year conversational turns are a far more powerful index of the language environment than raw adult word volume, turns in observational cohorts remain a bidirectional transaction between a talkative child and a responsive adult rather than an unconfounded, unilateral causal switch.[^ch07-conversational-turns] When randomized trials test **parent-implemented language interventions** — coaching parents to pause, follow the child's lead, and engage in dialogic book sharing — meta-analyses such as Johanna Heidlage and colleagues' (2020) synthesis **suggest** modest, genuine gains in expressive vocabulary (`g ~ 0.25–0.35`), with smaller and less consistent effects on receptive language or global IQ.[^ch07-parent-interventions] Moreover, a family's capacity for unhurried conversation at six in the evening is shaped by shift work, housing stability, commute times, and financial strain. Conversational turn-taking is an invitation to join a dialogue, never a numeric dashboard for grading a parent's love.
 
-The still-face literature, in which expected social contingency is withdrawn, is adjacent to Chapter 4 and Chapter 9 (`infant-still-face-paradigm.md`). It is not a language card. Sensitivity to a missing partner is not yet a grammar.
+## IV. Screens, Bilingual Minds, and the Ecology of Input
 
-The child is no longer only learning what happens in the world. The child is beginning to learn that another mind can be coordinated with their own experience of it.
+Distinguishing passive acoustic exposure from contingent human participation resolves two of the most practical questions modern parents face: what to make of digital screens, and how to raise children across more than one language.
 
-## The ear learns the landscape
+Consider screens first. If language acquisition were merely a matter of exposing the auditory cortex to well-pronounced words, a high-definition tablet playing educational cartoons should teach a twelve-month-old to talk just as effectively as a parent on the rug. In reality, laboratory experiments consistently document a pronounced **video deficit** in infancy and early toddlerhood: young children learn phonetic contrasts and novel words far less effectively from prerecorded video than from a live person in the room. Why? Because a prerecorded screen cannot see what the toddler is looking at, cannot pause when the toddler points at the corner of the page, and cannot repair a misunderstanding.
 
-Language enters development through the senses before it enters through the mouth.
+When epidemiologists examine household screen use across large observational cohorts — such as the meta-analyses led by Sheri Madigan and colleagues (2020) and M. Jing and colleagues (2023) — high quantities of solo, early background and foreground screen exposure **are associated with** modestly lower childhood language scores, whereas co-viewing with an adult and exposure to age-appropriate educational programming in the preschool years show different, attenuated patterns.[^ch07-screen-time] Low-to-moderate certainty in these observational cohorts reflects substantial confounding: households where screens run continuously often face heavier parental work exhaustion, less respite care, and higher economic stress.[^ch07-screen-time] A screen is not a uniform neurological poison, and a live, contingent video call with a grandparent who smiles and answers the baby's wave operates like a social interaction rather than a passive broadcast. The scientific question is never "did the child look at glass?" It is whether screen use is displacing contingent human conversation, physical play, and sleep.
 
-The auditory system is already working with speech-related information before the child can reproduce speech. Some of the earliest sounds that help organize attention after birth are sounds the infant has already encountered. Continuity across the womb-to-world transition is real. It is not a finished language.
+Now consider a second question where folk intuition frequently misleads families: **dual-language and multilingual development**. In monolingual societies, parents and even well-meaning clinicians sometimes worry that speaking two languages to an infant from birth — say, Spanish and English, or Mandarin and French — will overload the developing brain, cause linguistic confusion, or trigger a global speech delay.
 
-The newborn’s auditory system is not yet committed to one language.
+High-certainty cross-linguistic and neurodevelopmental syntheses — including the landmark consensus report of the National Academies of Sciences, Engineering, and Medicine (2017) — **show** unequivocally that dual-language exposure from infancy does **not** confuse young children or cause language disorders.[^ch07-dual-language] As we saw in Movement I, the infant brain is biologically equipped to track multiple phonetic and statistical systems simultaneously. Because a bilingual toddler distributes her waking hours across two linguistic environments, her vocabulary in *either single language* measured in isolation may temporarily appear slightly smaller than that of a monolingual peer. Yet when clinicians measure **total conceptual vocabulary** across both languages combined, bilingual toddlers match or exceed monolingual milestones on the exact same schedule.[^ch07-dual-language] Furthermore, when a bilingual toddler mixes words from both languages in a single sentence (*code-switching*), she is not displaying cognitive confusion; she is flexibly recruiting her full communicative repertoire to match her interlocutor and topic, just as fluent bilingual adults do. Advising immigrant or bilingual families to abandon their heritage language at home "to help the child learn the majority language" is both scientifically unfounded and relationally destructive, severing the child from the richest emotional and conversational fluency of their parents and grandparents.[^ch07-dual-language] (Conversely, commercial claims that buying bilingual flashcards guarantees superior executive function in every child also overstate a complex, context-dependent literature; the primary gift of two languages is communicative and cultural connection, not an IQ trophy.)
 
-Early in life, infants can discriminate a broad range of phonetic distinctions. Over the first year, that broad sensitivity becomes increasingly tuned to the languages actually heard. Native-language contrasts remain discriminable. Sensitivity to some less-experienced contrasts declines.
+## V. Many Clocks and the Invitation to Meaning
 
-This process is often called **perceptual narrowing**. The phrase misleads if it suggests simple deterioration. What is happening is better understood as attunement. The infant is becoming more efficient at the patterns that matter in this environment.
+Across monolingual and multilingual households alike, the timetable of early language is remarkably wide. One healthy child speaks ten clear words at eleven months; another healthy child understands dozens of spoken requests, points expressively across the room, and babbles with rich conversational inflection, yet speaks her first recognizable word at sixteen or eighteen months.
 
-Language-specific perceptual attunement reliably occurs across the first year of life in classic laboratory speech-contrast experiments.[^ch07-perceptual-attunement] This tuning represents efficient neural specialization rather than a permanent closing of future language-learning capacity, and exposing an infant to a second language does not violate a biological deadline.
+Because expressive production is only the tip of the communicative iceberg, a single word-count milestone at twelve or fifteen months is a poor crystal ball for adult intellect. At the same time, respecting normal developmental variation must never become an excuse to ignore **persistent, multi-context concern**. When a toddler shows minimal responsiveness to sound (raising the possibility of conductive or sensorineural hearing loss), fails to share gaze or point to share interest across settings, loses previously spoken words, or struggles with receptive understanding across the second year, timely audiological and speech-language evaluation is essential. Clinical wisdom lies in distinguishing an isolated late-blooming speaker who is rich in gesture and comprehension from a child experiencing a persistent barrier to shared communication.
 
-A child growing up with one language is tuned toward that language. A child exposed to several is adapting to more than one system. The developing ear is not being handed a universal phonetic dictionary and then deleting most of it.
+Here the three registers of our contract bring the birth of language into clear focus. The **science** of early language **shows** with high certainty that infants tune to native phonemes, extract statistical word boundaries in laboratory streams, and acquire two languages from birth without confusion; it **suggests** with moderate certainty that prenatal speech shapes newborn prosodic preference, that crying is a graded distress signal, that joint attention and declarative pointing predict vocabulary growth, that toddlers productively generalize grammar, and that back-and-forth conversational turns and parent-implemented shared reading support expressive language; and it establishes low certainty for raw word-count determinism, commercial baby-sign products, or treating screens as a monolithic toxin. The **interpretation** of that science refuses to turn the 30-million-word extrapolation or a LENA turn counter into a moral scorecard that shames tired families. And the **art** of welcoming a child into language lives in the unhurried rhythm of everyday life: pausing for five quiet seconds after a toddler points so she has space to vocalize, naming the yellow excavator she is already staring at, reading a favorite board book for the twentieth time, and speaking the language of one's own heart without fear.
 
-The same principle operates in segmentation.
+What this chapter does not tell us is what happens once the speaking, pointing toddler steps beyond the primary caregiver pair into a wider social network of fathers, siblings, grandparents, peers who refuse to share a toy, and early childcare classrooms. How the child's world expands from a dyad into a social configuration belongs to Chapter 8.
 
-To an adult, fluent speech appears already divided into words. To an infant, speech is initially a continuous stream. One way the developing system finds seams is by tracking statistical regularities. If one syllable reliably predicts another, their transitional probability is high. A sharp drop is information about a possible boundary.
+Return once more to the child who has just spoken that first recognizable word for the dog outside the window or the cup on the table.
 
-In a classic laboratory demonstration, eight-month-olds extracted such regularities from two minutes of artificial speech.
-
-Infants reliably track transitional probabilities between syllables to segment continuous, artificial speech streams into candidate word boundaries under controlled laboratory conditions.[^ch07-statistical-segmentation] While statistical extraction is a robust discovery, detecting syllable boundaries in an acoustic laboratory is not identical to learning meaningful words in a noisy household, nor does it constitute a complete theory of syntax.
-
-No one has to point at the boundaries and explain them. Detecting a regularity is still not knowing a meaning. Chapter 6’s mobile sits on action–outcome learning. This laboratory stream sits on regularity detection. Neither should be asked to do the work of a conversation.
-
-## Which object is the word for?
-
-Imagine a child hearing a new word in a room full of objects.
-
-Which object does the word refer to? The cup? The table? The color? The act of lifting? The sound of the cup hitting the table?
-
-For an adult who already understands language and social intention, the ambiguity is easy to overlook. For a learner without an established vocabulary, the problem is large.
-
-One of the solutions is **joint attention**: not merely looking at the same object, but coordinating attention between people around something. Gaze-following, responding to a point, initiating a show, and sharing a communicative intention are related. They are not interchangeable.
-
-A sound becomes easier to interpret when the child can infer what the other person is talking about. Language, in this sense, is not only a mapping from sounds to objects. It is a mapping from **signals to shared experience**.
-
-Early joint attention is longitudinally associated with subsequent vocabulary growth within a transactional social communicative system.[^ch07-joint-attention] Yet joint attention is not a unilateral instructional lever that manufactures words, and drilling gaze-following as a parental technique has not shown causal acceleration of communicative competence.
-
-The point is simpler than instruction. A child and caregiver looking at the same thing creates an opportunity for meaning. Missing a demonstration is not a missed mind.
-
-## The first symbol may be a point
-
-Before children speak in sentences, they can communicate about things that are not themselves.
-
-A child points toward a dog, looks at the dog, looks back toward the parent. The adult follows. Two minds have been coordinated around one thing.
-
-Pointing is deceptively simple. The infant is no longer limited to acting directly on an object. The infant can alter another person’s attention from a distance. The gesture becomes a tool for directing another mind.
-
-This is why gesture deserves a place in the story of language that the phrase “pre-language” understates. A pointing child is creating a shared reference. The object exists in the world. The point does not. Its significance comes from the relationship among people, gesture, and referent.
-
-Gesture often precedes or accompanies early speech and has been associated longitudinally with later vocabulary. Prediction is not causation. A child who gestures early may also be a child with stronger attention, motor control, and social engagement. The gesture may be a scaffold. It may also be a marker. The evidence does not require choosing once and for all.
-
-Infant pointing functions as an intentional act of shared reference that reliably predicts subsequent expressive vocabulary.[^ch07-infant-pointing] However, commercial baby-sign programs marketed to hearing infants have not demonstrated accelerated spoken language growth over naturally emerging communicative gestures.
-
-## The mouth learns by trying
-
-Babbling looks like noise only if one ignores what happens before and after it.
-
-Infants produce increasingly rhythmic consonant–vowel sequences: *ba-ba*, *da-da*, *ma-ma*. These sounds are not yet words. They are controlled exploration of the vocal system. The infant produces a sound, hears the result, changes the movement, repeats a successful pattern.
-
-The process resembles the exploratory learning in Chapter 6. Action generates information. Information modifies subsequent action. Auditory feedback tells the infant what was produced. Motor feedback tells the infant how. Social feedback tells the infant what other people do with it.
-
-A caregiver may imitate the sound. The child may repeat it. A turn-taking rhythm emerges. Babbling is simultaneously motor practice, sensory learning, and social participation. It is not a performance test of intelligence. Differences in vocal milestones are not automatically judgments about parenting.
-
-Research on infants exposed to sign language has identified rhythmic, repetitive manual behaviors sometimes described as manual babbling (Petitto & Marentette 1991). That observation matters because it separates the capacity for language production from the mere maturation of the vocal tract. The system need not be spoken to be real. See `infant-babbling-as-exploration.md`.
-
-## When a sound becomes a word
-
-Eventually one sound becomes different. Not because its acoustic form suddenly becomes perfect, but because the child begins using it with some stability and communicative function.
-
-A first word is not simply a sound produced at a particular age. It is a form that has acquired meaning.
-
-Children may hear a new label and rapidly establish an initial hypothesis about what it refers to. This has been called **fast mapping**. An initial mapping is not complete lexical knowledge. Later encounters refine pronunciation, range of reference, grammatical behavior, and relations to other words. Fast mapping may create a sketch. Repeated experience fills in the map.
-
-This is why “How quickly did the child learn the word?” is often a badly specified question. Quickly enough to point to the right object in a laboratory? To recognize it tomorrow? To use it in a different sentence? To distinguish it from several related words? These are different achievements.
-
-Comprehension often arrives before production. A child may understand many words while speaking only a few. Expressive vocabulary is not a complete measure of language. The visible first word is one point on a larger curve.
-
-During the second year, vocabulary often accelerates. It is tempting to imagine a switch. Accumulated learning is less theatrical. Every established word changes the conditions under which the next can be learned. The phrase “vocabulary explosion” can describe a common acceleration without becoming a requirement. Some children accelerate earlier, some later. Some show strength in comprehension, others in production. Variation is part of the phenomenon.
-
-Grammar develops through productive generalization as children combine morphemes and extend syntactic patterns to novel utterances they have never explicitly heard.[^ch07-grammatical-productivity] While theoretical traditions dispute the underlying cognitive architecture, the evidence firmly establishes productive combination without requiring this chapter to declare one linguistic paradigm victorious.
-
-## Conversation is more than exposure
-
-A child can hear a great deal of speech without participating in very much conversation.
-
-These are not equivalent experiences.
-
-Conversation has a structure. The child does something. The adult responds. The child processes the response. The child acts again. The child’s own behavior becomes part of the linguistic input.
-
-Automated daylong recordings can count adult words and adult–child conversational turns. In a longitudinal LENA sample, turns at 18–24 months accounted for a substantial share of variance in later language and IQ measures after socioeconomic status was controlled; raw adult word counts in the same window were weakened by that control.
-
-Conversational turns between caregivers and children in the second year are a substantially stronger longitudinal predictor of later language and cognitive scores than raw adult word volume.[^ch07-conversational-turns] Yet turns represent a reciprocal transaction in non-randomized families rather than a standalone causal lever, and this associative window must not be converted into a deterministic panic.
-
-The original Hart & Risley “30-million-word gap” depended on a small sample and extrapolation. A word count is not a language environment. Two children might hear a similar number of words. One hears them mostly as background. The other spends part of the day in exchanges in which an adult notices what the child is doing, names it, waits, and continues. The difference is not necessarily the number of words. It is the structure of participation.
-
-Even here the book must resist an overly individualized reading. Language environments are shaped by time, work, childcare, housing, stress, education, income, literacy, and support. These conditions affect opportunities for communication without revealing how much a family cares about language. A family with fewer recorded words is not a family with less love.
-
-Parent-implemented language interventions embedded in shared book reading and daily routines produce modest, positive gains in expressive vocabulary under experimental protocols.[^ch07-parent-interventions] Yet effects on receptive language are less consistent, and experimental efficacy under a clinical protocol does not justify turning everyday domestic life into a structured training curriculum.
-
-The child is not completing exercises. The child is joining a conversation.
-
-## A screen is not a person
-
-Once exposure and participation have been distinguished, screens enter as a medium question, not as a moral panic.
-
-A screen is not simply “language exposure,” any more than a person is simply “audio input.” Is the interaction contingent? Can the child affect what happens next? Is another person responding? Does the activity displace sleep, play, movement, or face-to-face exchange?
-
-Infants and young toddlers often learn less effectively from prerecorded material than from contingent social interaction. That is not a claim that a device is intrinsically ruinous, or that every screen experience is equivalent.
-
-Observational research links excessive early screen exposure with lower language scores, though these associations attenuate substantially when analyzing program content, caregiver co-viewing, and family socioeconomic background.[^ch07-screen-time] Prerecorded video lacks the contingent responsiveness that powers early language learning, but screen viewing operates as a heterogeneous medium rather than a uniform developmental toxin.
-
-A child does not experience “thirty minutes of language.” The child experiences a particular activity, with a particular level of contingency, attention, and competing opportunity.
-
-## More than one language
-
-Human language development is not fundamentally a monolingual phenomenon.
-
-Children can grow up with more than one language and learn the structure of multiple systems from the beginning. Vocabulary is distributed across people, activities, and settings. A smaller count in one language is not a global delay. Measuring only the majority language can manufacture a deficit.
-
-Dual-language exposure from infancy does not confuse developing children or cause global language delay.[^ch07-dual-language] Individual trajectories vary with the quantity and quality of exposure in each language, and code-switching reflects normal communicative competence across settings rather than linguistic confusion.
-
-Code-switching is similarly easy to misunderstand. Moving between languages is not, by itself, evidence of confusion. It can reflect adaptation to the person and the context. There is no contradiction between biological preparedness and environmental specificity. The learning system is flexible enough to organize more than one linguistic environment. The environment determines which languages that flexibility is used to acquire.
-
-Forcing a home language to stop “for English” is not a developmental necessity established by this chapter.
-
-## No single clock
-
-Language development is highly variable.
-
-First words do not all arrive at the same age. Vocabulary does not increase at the same rate. Children differ in the relation between comprehension and production, in how much they communicate through gesture, and in how they participate in social routines. There is no single developmental clock that every healthy child follows.
-
-This does not mean assessment is meaningless. It means a single number is a poor atlas. Trajectory, context, and the distinction between expressive and receptive language matter more than a debut date. An isolated milestone is not a prediction of fixed intelligence.
-
-The opposite error is equally serious. Normal variation should not become an excuse to ignore persistent concern. When difficulties occur across contexts, persist over time, or appear alongside differences in hearing, comprehension, social communication, or broader development, evaluation can be appropriate. The distinction is not between “everything is fine” and “something is wrong.” It is between **variation and evidence of persistent difficulty**.
-
-A program can demonstrate efficacy under research conditions without demonstrating effectiveness in ordinary homes. A short-term vocabulary gain is not a lasting effect. An expressive-language improvement does not automatically imply receptive language, cognition, school performance, or adult functioning. Universal intensive language training is not the conclusion of this chapter. Persistent difficulty justifying evaluation is a different, narrower claim.
-
-## What this chapter does not tell us
-
-It does not tell us that the first word is the beginning of language.
-
-It does not tell us that biology installs a finished organ on a debut date.
-
-It does not tell us that more words, more stimulation, or a statistically engineered stream is better.
-
-It does not tell us that a laboratory segmentation result is already meaning.
-
-It does not tell us that conversational turns cause later IQ, or that a word-count dashboard measures parental quality.
-
-It does not tell us that Hart & Risley’s thirty million is a causal metric.
-
-It does not tell us that screens are a single exposure, or that they replace a person by existing.
-
-It does not tell us that two languages confuse a child, or that bilingualism is a cognitive bonus parents manufacture.
-
-It does not tell us that an early or late first word writes a life.
-
-It does not tell us how extrafamilial worlds will reshape opportunity. That is later territory.
-
-## Science, Interpretation, Art
-
-**Science** here is the High-grade laboratory demonstration of perceptual attunement, statistical segmentation, and dual-language non-confusion; the Moderate evidence for prenatal auditory familiarization, conversational turns as a longitudinal predictor, parent-implemented expressive vocabulary gains, and differentiated bilingual trajectories; and the Low certainty for direct laboratory transfer to natural vocabulary, turn-count causation, screens as a monolithic harm, and adjudicating between formal grammatical frameworks.
-
-**Interpretation** is the habit of keeping those facts from becoming a story about the kind of speaker the child will be, or the kind of tutor the parent must become. It is also the habit of matching verbs to grades: *shows* where the grade is High, *suggests* where it is Moderate, *is associated with* where it is Low.
-
-**Art** is the remaining human fact: deciding when to answer a sound, when to wait, when to name what the child is already looking at, and when to protect the exchange from becoming a lesson. Those decisions belong to a relationship. They are not experiments, and they are not a performance to be scored.
-
-## Return
-
-The child who said the word has not become a different child because we now have a map. The map has changed.
-
-The first word is not an origin. It is a threshold. Before it came a cry that recruited another person, an ear that detected structure, a point that directed another mind, a mouth that experimented with sound, a memory that kept a tentative association, a shared look that made reference possible.
-
-Then words begin to combine. Patterns become grammar. Conversation becomes more flexible. Language becomes a medium for remembering, imagining, asking, and teaching. The child is no longer merely learning about the world. Through shared attention, vocal exchange, gesture, and emerging symbols, the child is beginning to participate in a symbolic world already inhabited by other people.
-
-Chapter 4 described relationship as a regulatory system. Chapter 5 described an active mind. Chapter 6 described learning through action, prediction, and memory. This chapter describes what happens when learning becomes shared meaning.
-
-Before the child can speak, other people have already built a world of meaning. Language is the invitation into it. Once the invitation is accepted, the child is no longer learning only from what happens. The child can begin learning from what someone else knows.
+She has not become a different child because we have mapped transitional probabilities, declarative pointing, or conversational turns. Our map of her arrival has changed. That first word was not bolted onto her mind from the outside, nor did it switch on in a vacuum. Before she could speak a single syllable, other people had already built a warm, responsive world of shared reference around her — looking where she looked, answering her babbles, and waiting for her turn. Language is simply the moment she accepts the invitation into that shared world, and begins learning not only from what her own hands can touch, but from what other minds know.
 
 ## Notes
 
@@ -262,5 +100,3 @@ Before the child can speak, other people have already built a world of meaning. 
 - Reconcile only, not rewritten: `evidence-cards/screen-time-language-development.md` (Madigan 2020 vs Jing 2023 IDs repaired)
 - Adjacent Chapter 3 signal, not a language dictionary: `evidence-cards/infant-crying-as-signal.md`
 - Adjacent Chapter 9, not a language card: `evidence-cards/infant-still-face-paradigm.md`
-
-Promotion note: this file is a curated, voice-checked copy in the Appendix B range. The archival draft `preliminary/drafts-chapters/chapter 7` was not overwritten. Review: `preliminary/drafts-chapters/reviews/ch07-curated-07-the-birth-of-language--voice-review.md`.

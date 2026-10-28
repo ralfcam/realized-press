@@ -1,150 +1,70 @@
 # Chapter 8 — The Expanding World
 
-A toddler looks toward a parent’s face, then toward a drop that might be a step. The parent smiles. The child crosses. Another day the same parent’s face is tight with fear. The child stops.
+A twelve-month-old crawls to the edge of an unfamiliar drop-off that might be a step or might be a fall. She pauses, looks up at her parent's face, reads a warm, encouraging smile, and crosses. On another afternoon, confronting the same uncertain threshold, she looks up and sees her parent's face tighten with fear. Immediately, she backs away.
 
-The scene is ordinary. It is also easy to over-read.
+An hour later, that same child is handed across a doorway to a grandmother, or greeted on a carpeted classroom rug by a familiar childcare educator while her parent heads to a shift. She hesitates for ten seconds against her parent's shoulder, then reaches for the educator's outstretched hand and turns toward a basket of wooden blocks.
 
-If the infant were a sealed dyad, the second adult in the room would not matter. If the infant were already a complete judge of character, the look would already be a verdict on attachment. Neither reading fits what can be shown.
+Both scenes are ordinary, and both are routinely misread. If the infant's social world were a sealed, exclusive two-person capsule, no second adult in the room could ever serve as a trusted guide. Conversely, if social development were a simple numbers game where more faces and more group hours automatically built a more advanced child, any crowded room would suffice. Neither story fits what empirical inquiry demonstrates.
 
-Late in the first year, infants reliably use a familiar adult's emotional expressions to regulate approach or withdrawal behavior in ambiguous situations.[^ch08-social-referencing] Yet how often an infant references a caregiver's face provides no valid index of attachment security or parental quality.
+High-certainty experimental evidence **shows** that late in the first year, infants actively use a familiar adult's facial and vocal emotional expressions to regulate their own approach or withdrawal in ambiguous situations.[^ch08-social-referencing] Yet how frequently an infant checks a caregiver's face in a laboratory room provides no valid scorecard of attachment security or parental worth.[^ch08-social-referencing]
 
-This chapter asks a narrower question than “does the parent still matter?” It asks what kind of social world a late infant and toddler actually enter, and what kinds of claims that expansion can support.
+Chapters 4 through 7 traced a widening developmental circle: co-regulation inside an intimate relationship, an attending and remembering mind, an embodied learner acting on objects, and a speaker stepping into shared symbolic meaning. Once meaning and regulation can be shared, the child's world does not remain a solitary pair. Our question is not "does the primary parent still matter once other people enter?" We ask how the social ecology of late infancy and toddlerhood is actually organized: **what happens when the child's world expands from a dyad into a network of multiple caregivers, fathers, kin, peers, and early childhood institutions — and what claims can that expansion legitimately support?**
 
-Chapters 4 through 7 followed a widening circle: regulation in a relationship, an attending mind, an acting learner, a speaker. The child who arrives here can already look, remember, act, and share meaning. Once meaning can be shared, the world does not stay a pair.
+## I. Reading Another Face: Social Referencing and the Widening Circle
 
-**What happens when the social world becomes a network?**
+Throughout the early months of life, an infant's social exchanges center largely on immediate physiological and emotional regulation within a small set of recurring arms. By the end of the first year, as locomotion (Chapter 6) and triadic joint attention (Chapter 7) converge, the infant encounters a new problem: she can move herself into unfamiliar corners of the room, yet she does not yet know which novel objects, strangers, or surfaces are safe and which are hazardous.
 
-## The puzzle
+To solve that uncertainty, infants begin using other people's emotional expressions as sources of information about the world — a process developmental psychologists call **social referencing**. In the classic 1985 laboratory demonstration by James Sorce, Robert Emde, Joseph Campos, and Marilyn Klinnert, twelve-month-old infants were placed on a modified visual cliff whose optical drop-off was set to an ambiguous depth of thirty centimeters — shallow enough not to trigger automatic avoidance, but deep enough to make crawlers pause and look up at their mothers standing on the far side. When mothers were instructed to pose an expression of joy or interest, roughly three-quarters of the infants crossed the plexiglass drop; when mothers posed a facial expression of fear, not a single infant crossed.[^ch08-social-referencing] As Tedra Walden and Tamra Ogan (1988) demonstrated in longitudinal follow-ups, social referencing is not a binary switch that flips on the first birthday; it develops across the first two years as toddlers refine when to look, whose face to consult, and how to integrate vocal tone with facial expression.[^ch08-social-referencing]
 
-A newborn may spend much of the day inside a small set of recurring interactions. A toddler cannot. Other adults, siblings, grandparents, childcare workers, peers, and the institutions that organize a day enter the picture. The naive picture is replacement: the parent recedes, the village takes over. The equally naive picture is monopoly: only one relationship counts, and every other setting is a threat to it.
+Recognizing what social referencing is — and what it is not — requires our three-tier causal resolution. High-certainty laboratory replications **show** that by twelve months, infants treat familiar adults as emotional informants under uncertainty.[^ch08-social-referencing] Yet in popular parenting advice, a toddler's glance toward a parent is frequently over-interpreted as either a test of secure attachment or, if the child looks often, a symptom of clinical anxiety. In reality, whether a child references an adult's face on a given afternoon depends on motor skill, temperament, how ambiguous the toy actually is, and how recently the child entered the room.[^ch08-social-referencing]
 
-What we meet instead is expansion without substitution. Early relationships remain load-bearing. They are also embedded.
+The exact same interpretive boundary applies to **stranger wariness**, which typically emerges and peaks across the same eight-to-fourteen-month window. When a ten-month-old who smiled indiscriminately at every passing visitor at four months suddenly buries his face in his father's neck as an unfamiliar neighbor leans in, worried adults often read the hesitation as emotional fragility or "bad socialization." Moderate-certainty developmental evidence **suggests** the opposite: selective hesitation around unfamiliar adults reflects a healthy milestone in perceptual discrimination and memory — the infant can now clearly distinguish the familiar faces who belong to his trusted regulatory circle from those who do not.[^ch08-stranger-wariness] Neither a cautious pause at the doorway nor an unreferenced dash toward a slide is a diagnostic verdict on the relationship.
 
-A case makes the same point without a cliff. A child is handed to a grandparent at the door, then later to a familiar educator, then back to a parent at the end of a shift. To an exhausted adult this can look like fragmentation. To a developing organism it can be a set of people who are known, each with a different job. The same sequence can also be chaos: new faces every week, no one who knows how this child falls asleep. Expansion is not one exposure.
+## II. Configurations of Care: Multiple Attachments, Fathers, Kin, and Siblings
 
-A look at a parent’s face is not automatically an attachment classification. A room full of other toddlers is not automatically a social-skills curriculum. A childcare day is not automatically harm or benefit. Those are not polite disclaimers. They are part of the science.
+Once we see that a one-year-old actively distinguishes familiar partners from strangers, we can address the persistent cultural myth of the **exclusive primary monopoly** — the fear that an infant has a fixed quota of attachment, so that forming a deep bond with a second or third adult steals security away from the first.
 
-## Competing explanations of the opening scene
+Empirical attachment research refutes that zero-sum arithmetic. As Ohad Dagan, Abraham Sagi-Schwartz, and colleagues synthesized across integrative studies of attachment networks, human infants regularly form distinct, relationship-specific attachment expectations with multiple familiar caregivers — mothers, fathers, grandparents, and stable professional educators.[^ch08-multiple-attachments] Rather than viewing secondary caregivers as pale copies of a single primary pair or treating caregiver headcount as a linear dose where "more adults automatically equal a healthier child," modern attachment science analyzes the child's social world as a **configuration**.[^ch08-multiple-attachments] What matters is how the network is organized: who is reliably available, for which regulatory or exploratory needs, and with what day-to-day continuity. A small household can offer deep predictability, or it can leave a solo parent exhausted and unsupported; a large extended household can surround a toddler with warm, coordinated arms, or, if marked by chaotic turnover and conflict, leave the child unsure who is in charge.[^ch08-multiple-attachments] Network function always outweighs network size.
 
-Before resolving the look at the cliff, three explanations need to sit in view:
+Within that family configuration, developmental research over the past three decades has substantially revised the scientific portrait of **fathers, extended kin, and siblings**. Fathers are neither biological bystanders nor secondary substitutes for mothers, nor can their developmental contribution be reduced to a stopwatch count of hours in the house. In meta-analyses of early childhood cohorts — including Christine McWayne and colleagues' (2013) synthesis of direct father engagement — warm, responsive paternal involvement in caregiving, shared book reading, and play **suggests** modest positive associations with children's early cognitive readiness and behavioral self-regulation across diverse socioeconomic backgrounds.[^ch08-father-kin-network] In many cultural settings, fathers and kin also engage toddlers in rough-and-tumble physical play that introduces exciting, manageable spikes of arousal followed by collaborative recovery toward calm. Yet our interpretive discipline guards against turning that observation into a rigid gender law: mothers, fathers, grandparents, and same-sex partners can all provide both tender comforting and physically exuberant play, and observational correlations with "father involvement" remain entangled with household income, parental harmony, and child temperament.[^ch08-father-kin-network]
 
-- **Sealed dyad.** Only one caregiver’s signal can organize the child’s world; everyone else is noise or risk.
-- **Network as dose.** More people, more hours, more settings automatically produce a more developed child.
-- **Configuration.** Infants can use social information from familiar people, and they can organize more than one relationship; quality, continuity, and function matter more than headcount.
+Similarly, when an older sibling or cousin enters the room, the toddler meets a social partner who is simultaneously deeply familiar and far less accommodating than an adult — providing a daily domestic bridge between the protective adaptations of parents and the candid friction of the peer world.
 
-The first is too small for what can be shown. The second is the popular metric. The third is the claim the evidence can carry — graded, piece by piece.
+## III. The Unaccommodating Partner: Toddlers Among Peers
 
-## Using another person’s face
+That shift in accommodation becomes unmistakable when a toddler steps into a room with same-age peers.
 
-Toward the end of the first year, many infants look to a familiar adult when a situation is unclear, then regulate what they do next. On the visual cliff, most infants in Sorce and colleagues’ demonstration crossed toward a smiling parent and almost none crossed toward a fearful expression. Walden and Ogan traced referencing as a developing skill across the first two years, not a single switch.
+When a fourteen-month-old points clumsily or utters half a syllable at home, a devoted adult typically leans in, guesses the child's intention, hands over the desired cup, and repairs any misunderstanding. Another eighteen-month-old does none of those things. Another toddler has her own limited working memory, her own fragile impulse control, and her own immediate desire to hold the exact same red plastic truck.
 
-That is social information use. It is not a personality. It is not a score. The laboratory cliff, the posed face, and the ambiguous toy are not a household. Conceptual replication in other ambiguous setups is stronger than a claim that every look at home is the same phenomenon. Performance also depends on motor capacity, the familiarity of the adult, and whether the situation is actually unclear. A child who does not look is not necessarily unattached. A child who looks constantly is not necessarily anxious in a diagnostic sense.
+As Celia Brownell, Geetha Ramani, and Stephanie Zerwas (2006) demonstrated in experimental studies of early cooperative problem-solving across the second and third years, peer interactions introduce unique developmental coordination demands precisely because **another toddler is a less predictable, less skilled, and less accommodating partner than an adult caregiver**.[^ch08-peer-interaction] At twelve to fourteen months, peer interactions consist largely of parallel play, mutual visual inspection, and brief bouts of shared imitation (such as both toddlers banging blocks on a drum). By nineteen to twenty-four months, toddlers begin monitoring a peer's spatial position and vocal cues to coordinate joint actions — pulling two handles of an apparatus together to retrieve a toy — while simultaneously navigating disputes over possession, turn-taking, and accidental bumps.[^ch08-peer-interaction]
 
-Stranger wariness belongs in the same developmental window and is just as easy to misread.[^ch08-stranger-wariness] Selective hesitation around unfamiliar adults reflects normal emerging social discrimination rather than insecure attachment or emotional fragility.
+In popular parenting culture, early peer exposure is frequently marketed as an essential character commodity, persuading parents that enrolling an infant in structured "socialization classes" before age one will manufacture lifelong empathy and leadership. Our three-tier causal resolution separates the developmental mechanism from the commercial exaggeration. While moderate-certainty evidence **suggests** that safe, supervised peer play in the second and third years gives toddlers valuable opportunities to practice perspective-taking, conflict repair, and joint action with equals, low-certainty claims that accumulating more raw hours of early peer contact causally determines later prosocial character have no empirical backing.[^ch08-peer-interaction] Peer interaction is a distinctive relational laboratory, not a vaccine that guarantees popularity.
 
-A missed look is not a missed mind. A child who does not cross a laboratory cliff has not failed a relationship.
+## IV. Inside the Classroom: The NICHD Study and the Science of Childcare
 
-## More than one person can be a base
+When the expanding social network takes institutional form — as a family daycare home, a community nursery, or an early childhood center — scientific questions about multiple caregivers and peers collide with some of the fiercest cultural anxieties of modern family life.
 
-The primary dyad remains an important developmental unit. The mistake is treating it as the only one.
+To see how developmental science moved past ideological slogans to map the real effects of non-parental care, consider the landmark investigation that defined the field: the **NICHD Study of Early Child Care and Youth Development (`SECCYD`)**, launched in 1991. During the 1970s and 1980s, as millions of mothers of infants and toddlers entered the paid workforce, public debate polarized into two warring orthodoxies. On one side, critics invoking early maternal-deprivation theories warned that routine daily separation in infant daycare would erode mother–child attachment security and breed emotional insecurity and aggression. On the other side, advocates argued that group childcare was uniformly beneficial or entirely indistinguishable from home care regardless of conditions.
 
-Infants can organize relationship-specific expectations with more than one caregiver. Those relationships need not be copies of a single “best” pair. A child can experience different people as sources of comfort, play, language, routine, or practical help. Dagan and Sagi-Schwartz treat mother–father networks as configurations, not substitutes and not a count of caregivers. The useful object is how the set is organized: who is available, for what, with what consistency.
+Recognizing that small, single-center studies could never untangle childcare characteristics from the preexisting socioeconomic and psychological differences among the families who chose them, the National Institute of Child Health and Human Development assembled a consortium of leading developmental scientists to track a prospective cohort of 1,364 children and their families across ten diverse U.S. research sites from one month after birth through age fifteen. Observers conducted repeated, direct classroom assessments of caregiver–child interactions alongside home visits, attachment classifications in the Strange Situation, and standardized cognitive and behavioral testing.
 
-Infants develop distinct attachment relationships with multiple familiar caregivers rather than channeling all relational capacity through an exclusive primary bond.[^ch08-multiple-attachments] Yet social network size does not act as a simple numerical dose where more caregivers automatically yield superior psychological outcomes.
+The longitudinal findings of the NICHD study overturned both cultural orthodoxies.[^ch08-childcare-quality] First, early and extensive childcare attendance *by itself* did **not** disrupt infant–mother attachment security; infants in full-time care formed secure attachments to their mothers at rates comparable to infants cared for exclusively at home, with elevated insecurity appearing only when poor-quality childcare coincided with low maternal sensitivity at home. Second, across every developmental stage, **family characteristics — parental sensitivity, home cognitive stimulation, income, and maternal mental health — predicted children's cognitive, language, and social trajectories substantially more strongly than any dimension of childcare attendance.** Third, within childcare settings, the study established a crucial distinction between **structural quality** (regulable features such as adult-to-child ratios, group size, physical safety, and caregiver training) and **process quality** (the lived daily experience inside the room: whether educators respond warmly to distress, talk and read contingently with children, and scaffold play). Moderate-certainty evidence **suggests** that higher process quality consistently predicts modest, positive gains in early language and cognitive development, whereas structural features matter primarily by creating the working conditions under which warm process quality can occur.[^ch08-childcare-quality] Conversely, while the NICHD cohort noted a small statistical correlation between very high weekly hours in non-relative care and slightly higher teacher ratings of assertive or externalizing behavior in early elementary school, those associations were modest (`r ~ 0.10–0.14`), fell well within the normal clinical range, attenuated over time, and remained subject to unmeasured family selection confounding.[^ch08-childcare-quality]
 
-Network size and network function come apart. A large network can hold stable, responsive relationships. It can also hold turnover and conflict. A small household can offer continuity. It can also leave a caregiver isolated. Adding people is not automatically better. A single exclusive caregiver is not shown to be necessary.
+Equally vital is the boundary separating ordinary community childcare from severe relational deprivation. In Chapter 4, we examined the high-certainty findings of the Bucharest Early Intervention Project (`BEIP`), where infants raised in state institutions with rotating shifts and profound social neglect suffered severe neurodevelopmental damage that improved substantially upon randomized placement into family foster care.[^ch08-institutional-deprivation] Invoking institutional orphanage data to frighten working parents about enrolling a toddler in a community childcare center is a profound scientific category error.[^ch08-institutional-deprivation] A child who spends eight hours with a warm educator and returns every evening to the arms of loving parents is experiencing an **expanded relational network**, not institutional abandonment. What threatens early development is not the existence of non-parental care, but chronic, unbuffered unpredictability and underfunded settings where underpaid staff rotate so rapidly that no adult has time to know the child.
 
-Chapter 4’s co-regulation card is adjacent here, not imported as a second attachment theory. Bidirectional regulation in a primary pair is not extrafamilial life.
+## V. The Developmental Niche and the Horizon of Belonging
 
-## Fathers, kin, and siblings are not interchangeable doses
+Why do human infants adapt so naturally to grandparents, fathers, older siblings, and consistent educators? Because across evolutionary and cultural history, the isolated nuclear caregiver locked alone in an apartment all day with an infant has been the exception rather than the rule.
 
-The scientific story of fatherhood has changed. Fathers are no longer best described as secondary versions of mothers, nor is their contribution reducible to hours. Time, warmth, play, responsibility, discipline, material provision, and emotional availability are not interchangeable variables. Some fathers engage children in more physically active play that introduces manageable unpredictability and the need to return toward calm. That pattern is a plausible opportunity for practising regulation. It is not a universal paternal function, and it is not a rule that fathers should play in one particular way.
+As anthropologists and developmental psychologists Charles Super and Sara Harkness formulated in their classic framework, every child grows up inside a culturally structured **developmental niche** composed of three interacting subsystems: the physical and social settings of daily life (who is present in the courtyard or living room), the culturally regulated customs of childcare (whether babies are carried in slings during community work, rocked in cradles, or cared for by sibling networks), and the psychology or "ethnotheories" of the caregivers (what the community believes a one-year-old needs to thrive).[^ch08-developmental-niche] Moderate-certainty cross-cultural evidence **suggests** that healthy attachment, emotional regulation, and language acquisition flourish across widely varying cultural configurations — from multigenerational kin compounds to dual-earner households partnering with neighborhood educators — provided the niche supplies reliable human responsiveness and physical safety.[^ch08-developmental-niche] A household where aunts and grandmothers share daily care is not a compromised version of a nuclear family, and a two-parent household using a trusted daycare center is not an incomplete village.
 
-Fathers, grandparents, and siblings can participate through distinct functions: care, play, material support, reciprocity with a less accommodating partner. “Involvement” is not one exposure. Selection (who can be present, who is measured) and correlated family resources are live threats. Child-to-parent effects — a difficult toddler reducing measured “involvement” — are plausible. Samples often overrepresent Western, relatively stable families.
+Here the three registers of our contract bring the expanding social world into balance. The **science** of this territory **shows** with high certainty that late-first-year infants use familiar adult expressions for social referencing under ambiguity and that only extreme institutional neglect — never ordinary community care — inflicts deprivation injury; it **suggests** with moderate certainty that infants organize multiple simultaneous attachment relationships as a network configuration, that quality father and kin engagement supports early learning, that peer interactions introduce unique non-accommodating coordination demands, and that childcare *process quality* predicts modest language and cognitive benefits while family background remains primary; and it establishes low certainty for caregiver headcount or peer hours acting as a simple linear dose. The **interpretation** of that science refuses to weaponize either stay-at-home parenting or center childcare as a moral verdict, asking instead how public policy can guarantee paid family leave alongside dignified wages and low ratios for early educators. And the **art** of guiding a child into a wider world lives in the small rituals of continuity: lingering five unhurried minutes at the classroom rug during morning drop-off, telling the educator how the toddler slept, welcoming a grandparent's distinct way of singing, and trusting that love does not shrink when it is shared across more than one pair of hands.
 
-Direct father engagement shows modest positive associations with early learning across diverse family backgrounds.[^ch08-father-kin-network] Yet crude quantity of contact is substantially less predictive than interaction quality, and paternal presence operates as part of an interdependent family ecology rather than an isolated causal lever.
+What this chapter does not tell us is what happens *inside* the toddler as this social and motor autonomy collides with frustrated desires, emerging self-awareness, pride, shame, and the sudden eruption of second-year tantrums. That interior upheaval — the emotional revolution of toddlerhood — belongs to Chapter 9.
 
-Fathers are not mothers’ substitutes, and mothers and fathers are not assigned rigidly gendered developmental functions. A missing style of play is not a sentence. Kin presence is not automatically protective. Sibling life is a distinctive arena — familiar, not fully accommodating — not a theory-of-mind machine.
+Look back once more at the twelve-month-old pausing at the edge of the step, glancing up at her parent's face, and then crossing the threshold into the room.
 
-## When the other child is not trying to help
-
-During the second and third years, peers become increasingly consequential. Early peer relations are not yet later-childhood friendship or status. Parallel play, imitation, shared activity, conflict over objects, and the beginnings of preference for particular partners appear gradually.
-
-The crucial difference is reciprocity. A caregiver is usually motivated to understand and adapt; another toddler is not. When a peer ignores a gesture, takes a toy, or misunderstands an intention, the child must adapt to a less accommodating partner. That creates repeated opportunities to practise coordination, repair, assertion, and compromise. It does not manufacture a trait.
-
-Across the second and third years, another toddler is a less motivated, less skilled partner than a caregiver. Reciprocal coordination, conflict over objects, and repair become possible.
-
-Peer interactions present unique developmental coordination demands because other toddlers are less accommodating and less predictable than adult caregivers.[^ch08-peer-interaction] However, accumulated hours of early peer exposure do not causally determine subsequent prosocial character or social competence.
-
-Peer exposure is not a commodity. More is not automatically better. A safe, reciprocal setting can offer demands an adult-only day cannot fully reproduce. A chaotic one imposes different demands. Quality and context remain the better objects.
-
-## Attendance is not experience
-
-Childcare is where expansion becomes an institution. An infant or toddler may move from mostly family-based care into a home, centre, or other group setting in which several adults and children share time, space, routines, and attention. The scientific mistake is to treat “childcare” as though it were one exposure.
-
-Attendance needs to be separated into several dimensions: when care begins, how many hours it occupies, whether it is stable, what type of setting it is, how many children share caregivers, what the adult–child interactions are like, and what the arrangement replaces. The NICHD Study of Early Child Care and Youth Development illustrates why this matters: family characteristics often predicted development more strongly and consistently than childcare characteristics, while higher-quality care was associated with somewhat better cognitive and language functioning in the early years. Average associations are modest.
-
-Quality itself has at least two levels. Structural quality includes group size, ratios, safety, and training. Process quality concerns what happens: whether adults notice and respond, support language, sustain play, manage distress, and provide a psychologically organized environment. Process quality is the more consistent correlate. It is still not a single proven causal mechanism, and families choose among the options that exist given employment, leave, income, geography, and the child’s needs.
-
-Attendance is not a unitary exposure. Process quality — warm, language-rich interaction — is more consistently related to early cognitive and language outcomes than hours alone. Family characteristics often predict more. Hours–externalizing links are small and not a law.
-
-In large-scale observational studies, process quality—warm, cognitively supportive adult–child interaction—consistently predicts modest early language and cognitive gains.[^ch08-childcare-quality] Conversely, center attendance itself is neither an intrinsic harm nor an unmitigated benefit, with family background characteristics remaining substantially stronger predictors of developmental trajectories.
-
-Group care is not deprivation. BEIP effect sizes do not describe ordinary daycare or missed cues.
-
-## Ordinary change is not institutional absence
-
-As the social world expands, continuity becomes a developmental property in its own right. A child can tolerate change. New people enter. Siblings are born. Childcare begins. Housing changes. None of these events is synonymous with developmental damage.
-
-The more important distinction is between ordinary transition and chronic unpredictability. Repeated changes in caregivers or settings can impose a continuing demand to determine whether adults are available. Attention may be pulled toward safety rather than exploration. Yet instability is not one exposure with one outcome. Its effects depend on timing, severity, duration, remaining relationships, and chances for recovery.
-
-Ordinary caregiver change is not institutional deprivation. The Bucharest Early Intervention Project compared children exposed to profound psychosocial deprivation with children who received more responsive foster care. The study provides unusually strong evidence that the absence of stable, responsive relationships can disrupt attachment, cognition, stress regulation, and related outcomes, while placement into family care can improve trajectories. Recovery was not complete for every domain or every child. Plasticity is real. It is not limitless.
-
-The lesson is not that ordinary families resemble institutions. They do not. Extreme deprivation research establishes an upper bound: there are conditions under which relationships are not merely helpful additions but part of the basic infrastructure of typical development.
-
-Severe institutional deprivation profoundly damages developmental systems, and randomized family-based foster placement produces meaningful cognitive and social recovery.[^ch08-institutional-deprivation] Yet generalizing these severe clinical findings to ordinary changes in community childcare or daily family routines is an empirical category error.
-
-Continuity is a property of a life, not a purity test. Children tolerate ordinary transitions. Chronic unpredictability is a different object. Instability is not one exposure with one outcome.
-
-## Culture organizes the expanding world
-
-The same child can inhabit different worlds without being a different species of child. Who sleeps nearby, who feeds, who plays, who is allowed to protest, and which adults count as “ours” are organized by culture as well as by preference.
-
-Physical settings, cultural customs, and caregiver psychology jointly organize the developmental niche of infancy.[^ch08-developmental-niche] Cultural variation in caregiving arrangements reflects diverse, adaptive strategies rather than developmental deficits.
-
-A household that includes kin as ordinary care is not a failed nuclear model. A household that does not is not empty.
-
-## What this chapter does not tell us
-
-It does not tell us that stranger anxiety is insecure attachment.
-
-It does not tell us that group care is deprivation, or that more caregivers are automatically better.
-
-It does not tell us that peer hours manufacture character, or that a look at a parent’s face is a parenting score.
-
-It does not tell us that fathers have an exclusive developmental function, or that a missing father-style of play writes a life.
-
-It does not tell us that NICHD hours–behavior associations are a dosage law.
-
-It does not tell us that BEIP effect sizes describe ordinary missed cues.
-
-It does not tell us how emotion, rules, executive control, play, or material ecology will reorganize the same child. Those are the next territories.
-
-## Science, Interpretation, Art
-
-**Science** here is the High-grade laboratory fact of social referencing under uncertainty; the Moderate claims that multiple attachments occur, that peer contexts create distinctive demands, and that childcare process quality is a better object than hours; and the Low status of network size as a dose, peer hours as character, and referencing as an attachment verdict.
-
-**Interpretation** is the habit of keeping those facts from becoming a story about the kind of family the child must have, or the kind of setting a parent must buy. It is also the habit of matching verbs to grades: *shows* where the grade is High, *suggests* where it is Moderate, *is associated with* where it is Low.
-
-**Art** is the remaining human fact: deciding whom to trust with a Tuesday, when to stay, when to hand the child to someone else, and when to protect a small world that is already enough. Those decisions belong to a life. They are not experiments, and they are not a performance to be scored.
-
-## Return
-
-The child at the drop has not become a different child because we now have a map. The map has changed.
-
-The expanding world is not a replacement of the first relationship. It is that relationship, still load-bearing, now sitting inside other people, other rooms, and other days. A look can organize a step. Another toddler can refuse a toy. A caregiver who is not the parent can still be a person the child knows how to use.
-
-Chapter 4 described relationship as a regulatory system. This chapter describes that system becoming a network. Emotion will soon start to do some of the same work from the inside. That is the next territory. It is not a verdict on the look that came before.
+She has not become a different child because we have mapped social referencing, attachment networks, or the NICHD childcare cohorts. Our map of her crossing has changed. The expanding world does not erase the first regulatory relationship; it builds outward from that foundation. Supported by a familiar smile at the doorway, the toddler discovers that more than one adult can be a safe harbor, that another two-year-old has a mind of his own, and that a larger room can still be a place where she is known.
 
 ## Notes
 
@@ -166,5 +86,3 @@ Chapter 4 described relationship as a regulatory system. This chapter describes 
 - Reconcile only, not rewritten: `evidence-cards/early-childcare-quality.md`
 - Reconcile only, not rewritten: `evidence-cards/severe-institutional-deprivation.md`
 - Adjacent Chapter 4: `evidence-cards/infant-caregiver-coregulation.md`
-
-Promotion note: this file is a curated, voice-checked copy in the Appendix B range. The archival draft `preliminary/drafts-chapters/chapter 8.md` was not overwritten. Review: `preliminary/drafts-chapters/reviews/ch08-curated-08-the-expanding-world--voice-review.md`.
