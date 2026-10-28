@@ -138,9 +138,7 @@ def clean_math_text(text: str, target: str = "pdf") -> str:
         inner = m.group(1).strip()
         inner_conv = convert_latex_symbols(inner, target)
         if target == "pdf":
-            return f"\n[DISPLAY_MATH]{inner_conv}[/DISPLAY_MATH]\n"
-        elif target == "html":
-            return f'<div class="formula-block"><p><em>{html.escape(inner_conv)}</em></p></div>'
+            return inner_conv
         else:
             return f'<div class="formula-block"><p><em>{html.escape(inner_conv)}</em></p></div>'
 
@@ -165,7 +163,9 @@ def clean_pdf_line(text: str) -> str:
     """Sanitize and format plain text lines for FPDF2 PDF rendering."""
     text = text.replace("\ufeff", "").replace("\u2192", "->").replace("\u2208", " in ").replace("\u209c", "_t")
     text = text.replace("\u1fe5", "r").replace("\u1fd6", "i")
+    text = text.replace("[DISPLAY_MATH]", "").replace("[/DISPLAY_MATH]", "")
     text = clean_math_text(text, target="pdf")
+    text = text.replace("[DISPLAY_MATH]", "").replace("[/DISPLAY_MATH]", "")
     text = re.sub(r"\[\^([^\]]+)\]", r"[\1]", text)
     text = re.sub(r"\*\*([^*]+)\*\*", r"\1", text)
     text = re.sub(r"\*([^*]+)\*", r"\1", text)
@@ -229,20 +229,39 @@ def parse_chapter_markdown(ch_path: Path, ch_idx: int) -> ChapterContent:
     notes_raw_lines: list[str] = []
 
     state = "body"
+    in_math_block = False
+    math_buffer: list[str] = []
+
     for line in lines:
         s = line.strip()
-        if s.startswith("## Notes"):
-            state = "notes"
-            continue
-        elif s.startswith("## Linked evidence cards") or s.startswith("Promotion note:"):
-            state = "discard"
-            continue
-        elif state == "notes" and s.startswith("## "):
-            state = "discard"
-            continue
+        if not in_math_block:
+            if s.startswith("## Notes"):
+                state = "notes"
+                continue
+            elif s.startswith("## Linked evidence cards") or s.startswith("Promotion note:"):
+                state = "discard"
+                continue
+            elif state == "notes" and s.startswith("## "):
+                state = "discard"
+                continue
 
         if state == "body":
-            body_raw_lines.append(line)
+            if s.startswith("$$") and s.endswith("$$") and len(s) >= 4:
+                body_raw_lines.append(s)
+            elif s.startswith("$$"):
+                in_math_block = True
+                math_buffer = [s[2:].strip()]
+            elif in_math_block:
+                if s.endswith("$$"):
+                    in_math_block = False
+                    math_buffer.append(s[:-2].strip())
+                    full_math = " ".join(part for part in math_buffer if part)
+                    body_raw_lines.append(f"$${full_math}$$")
+                    math_buffer = []
+                else:
+                    math_buffer.append(s)
+            else:
+                body_raw_lines.append(line)
         elif state == "notes":
             notes_raw_lines.append(line)
 
@@ -433,14 +452,15 @@ def build_book_pdf(
             if not s:
                 pdf.ln(2.2)
                 continue
-            if s.startswith("[DISPLAY_MATH]") and s.endswith("[/DISPLAY_MATH]"):
-                m_content = s[len("[DISPLAY_MATH]") : -len("[/DISPLAY_MATH]")].strip()
-                pdf.ln(1.5)
+            if (s.startswith("$$") and s.endswith("$$") and len(s) >= 4) or (s.startswith("\\[") and s.endswith("\\]") and len(s) >= 4):
+                m_content = s[2:-2].strip()
+                m_conv = clean_pdf_line(convert_latex_symbols(m_content, target="pdf"))
+                pdf.ln(2.0)
                 pdf.set_font("BookSerif", "I", body_pt - 0.2)
-                pdf.set_text_color(40, 40, 40)
-                pdf.multi_cell(0, line_h + 0.3, m_content, align="C", new_x="LMARGIN", new_y="NEXT")
+                pdf.set_text_color(30, 30, 30)
+                pdf.multi_cell(0, line_h + 0.4, m_conv, align="C", new_x="LMARGIN", new_y="NEXT")
                 pdf.set_text_color(20, 20, 20)
-                pdf.ln(1.5)
+                pdf.ln(2.0)
             elif s.startswith("# "):
                 pdf.set_font("BookSerif", "B", 14 if page_format == "kdp-6x9" else 15)
                 pdf.multi_cell(0, 7.5, clean_pdf_line(s[2:].strip()), new_x="LMARGIN", new_y="NEXT")
@@ -519,7 +539,11 @@ def build_reader_html(book_title: str, edition_label: str, chapters: list[Path],
             s = line.strip()
             if not s:
                 continue
-            if s.startswith('<div class="formula-block">') and s.endswith("</div>"):
+            if (s.startswith("$$") and s.endswith("$$") and len(s) >= 4) or (s.startswith("\\[") and s.endswith("\\]") and len(s) >= 4):
+                m_content = s[2:-2].strip()
+                m_conv = convert_latex_symbols(m_content, target="html")
+                out.append(f'<div class="formula-block"><p><em>{html.escape(m_conv)}</em></p></div>')
+            elif s.startswith('<div class="formula-block">') and s.endswith("</div>"):
                 out.append(s)
             elif s.startswith("# "):
                 out.append(f"<h1>{md_inline_html(s[2:].strip())}</h1>")
@@ -597,7 +621,11 @@ def build_kdp_epub(book_title: str, author: str, chapters: list[Path], epub_path
             s = line.strip()
             if not s:
                 continue
-            if s.startswith('<div class="formula-block">') and s.endswith("</div>"):
+            if (s.startswith("$$") and s.endswith("$$") and len(s) >= 4) or (s.startswith("\\[") and s.endswith("\\]") and len(s) >= 4):
+                m_content = s[2:-2].strip()
+                m_conv = convert_latex_symbols(m_content, target="epub")
+                body_lines.append(f'<div class="formula-block"><p><em>{html.escape(m_conv)}</em></p></div>')
+            elif s.startswith('<div class="formula-block">') and s.endswith("</div>"):
                 body_lines.append(s)
             elif s.startswith("# "):
                 body_lines.append(f"<h1>{md_inline_html(s[2:].strip())}</h1>")
