@@ -1,168 +1,78 @@
 # Chapter 5 — Becoming a Mind
 
-A newborn cannot tell us what it sees.
+A four-month-old infant lies awake on a blanket in the afternoon quiet.
 
-It cannot name a memory, report a surprise, or explain why it has turned toward one sound rather than another. The room still treats the infant as a presence. Something is being organized that will later be called a mind. The organization is not visible as a thought. It is visible as a look, a suck, a kick, a turn of the head.
+She cannot tell us what she sees. She cannot name a memory, report a flash of surprise, or explain why she has just turned her head toward the window rather than the door. Yet nobody in the room mistakes her for an inanimate object. Something is actively organizing inside that quiet watchfulness — something that will later be called a mind. At four months, however, that organization is never visible as a spoken thought. It is visible only as a trace in behavior: the duration of a gaze, the cadence of a suck, the vigor of a kick, the sudden widening of eyes before she turns to meet an adult's face.
 
-The scene is ordinary. It is also easy to over-read.
+The scene is ordinary, and it is extraordinarily easy to over-read.
 
-If the infant were empty, those traces would be noise waiting for the world to write on. If the infant were already a small adult, the same traces would be taken as proof of physics, mathematics, or morality. Neither reading fits what can be shown.
+If the infant were an empty vessel, those behavioral traces would be random sensorimotor noise waiting for language and schooling to install intelligence from the outside. Conversely, if the infant were already a miniature philosopher trapped in an uncoordinated body, every lingering look would be hailed as proof of innate physics, arithmetic, or moral judgment. Neither story fits what experimental science can actually establish.
 
-Looking-time paradigms reliably index perceptual discrimination and shifts in infant attention under controlled laboratory conditions.[^ch05-looking-time] Yet treating a sustained gaze as a transparent window into a rich concept, conceptual theory, or adult-like belief overinterprets what visual behavior can demonstrate.
+High-certainty methodological syntheses **show** that looking-time paradigms reliably index perceptual discrimination and shifts in infant visual attention under tightly controlled laboratory conditions.[^ch05-looking-time] Yet treating a two-second difference in visual fixation as a transparent window into adult-like beliefs, rich conceptual theories, or lifelong intellectual standing stretches the measurement far beyond what visual behavior can carry.[^ch05-looking-time]
 
-This chapter asks a narrower question than “what does a baby know?” It asks what kind of learner an infant is, and what kinds of claims those traces can support.
+Chapter 4 showed how human relationships take up the work of regulating an infant's arousal. Now we ask what happens during the calm alert windows that co-regulation makes possible. Our question is more precise than "what does a baby know?" We ask what kind of learner an infant actually is: **what is being assembled when a baby looks, selects, detects patterns, remembers actions, and shares attention with another person — and where must our inferences stop?**
 
-Chapter 4 showed a relationship that takes up dependence. The next question is more interior, and still social.
+## I. What Is in a Look: Measurement and the Infant Learner
 
-**What is being organized when an infant looks, selects, remembers, and shares a look with someone else?**
+For generations, theories of cognitive development swung like a pendulum between two extremes. Empiricists following John Locke and William James pictured the newborn's inner world as a "blooming, buzzing confusion" — an unstructured slate onto which experience gradually wrote order. In reaction, late-twentieth-century nativists pictured the infant as preloaded with modular theories of objects, numbers, and social agents, waiting only for motor maturity to express them.
 
-## The puzzle
+Modern developmental science has moved past that stalemate toward a more interesting reality: **the infant does not arrive knowing the world, but arrives richly equipped to learn one.** From the earliest weeks of postnatal life, organized perceptual biases, attentional filters, statistical pattern detectors, and memory systems are already operating. Experience does not pour knowledge into a vacuum; it calibrates, sharpens, prunes, and coordinates capacities that are maturing on overlapping biological schedules.
 
-For much of psychology’s history, explanations of the infant mind swung between two poles. At one extreme was the blank slate: an unfinished organism waiting for the environment to write the important parts. At the other was the miniature adult: early preferences taken as fully formed concepts.
+Studying those capacities before a child can speak required a methodological revolution. Beginning in the 1960s and 1970s, developmental psychologists realized they could use behaviours the infant already controlled — especially eye movements — as experimental instruments. If an infant looks longer at a patterned checkerboard than a blank gray square, the visual system can discriminate the two (*preferential looking*). If an infant views the same geometric shape repeatedly until looking time declines, and then perks up and looks longer when a new shape appears, the infant has encoded the first stimulus in memory and detected the change (*habituation and dishabituation*). And if an infant stares longer at a stage display that violates normal physical continuity than at an expected one, the infant's perceptual predictions have been breached (*violation of expectation*).
 
-The infant is not empty. Organized perceptual systems, learning biases, attentional tendencies, and memory mechanisms are already at work. Experience then calibrates, expands, coordinates, and sometimes limits those capacities. Different systems mature at different speeds.
+While these paradigms opened the preverbal mind to empirical inquiry, they also created the field's standing interpretive hazard. As Richard Aslin framed the problem in his classic methodological analysis — *what's in a look?* — every inference from an infant's gaze rests on a **linking hypothesis** connecting an observable eye fixation to an unseen neural or cognitive process.[^ch05-looking-time] A baby may look away from a display because she has mastered its structure, or because she is fatigued, over-aroused, or momentarily distracted by hunger. A baby may look longer at an unexpected display because she possesses an abstract concept of physical impossibility, or because low-level perceptual novelty — more motion, a new edge contrast, or a transient familiarity preference — captured her visual orienting system. As large-scale multi-laboratory collaborations such as the **ManyBabies Consortium** have demonstrated, core looking-time phenomena replicate robustly across laboratories, yet strong theoretical claims require converging evidence from multiple independent methods — eye tracking, pupillometry, neurophysiology, and motor action — rather than a single surprised gaze.[^ch05-looking-time] In the science of the infant mind, understanding how the instrument works is inseparable from understanding the child.
 
-The central fact is therefore not that the infant already knows the world. It is that the infant is equipped to learn one.
+## II. Tuning the Senses and Gating Attention
 
-A behavior is not the mental state itself. That sentence sounds obvious. It is the standing problem of this science.
+Before an infant can remember an event or build a model of an object, the nervous system must detect signals and select which fraction of the room to process.
 
-## Competing explanations of the opening scene
+Even at birth, sensation is structured rather than chaotic: neonates track high-contrast edges, biological motion, and the prosodic rhythms of speech. Across the first twelve months, however, perceptual systems undergo a remarkable process of experience-dependent specialization known as **perceptual narrowing** or **perceptual attunement**. In classic cross-linguistic experiments by Janet Werker and Richard Tees (1984) and Patricia Kuhl and colleagues (1992), six-to-eight-month-old infants growing up in English-speaking homes readily discriminated non-native consonantal contrasts from Hindi or Salish that their own English-speaking parents could not hear at all. By ten to twelve months of age, that broad universal sensitivity had narrowed: infants became faster and more precise at detecting phonetic distinctions within their native language(s) while losing sensitivity to unexperienced foreign contrasts.[^ch05-perceptual-narrowing]
 
-Before resolving the look, three explanations need to sit in view:
+High-certainty laboratory evidence **shows** that first-year perceptual attunement is a real, reproducible reorganization of sensory cortex across speech, face perception, and musical rhythm.[^ch05-perceptual-narrowing] Yet popular translations routinely distort this finding into a panicked narrative of "closing critical windows," urging parents to buy foreign-language audio tracks before the first birthday lest their child lose the capacity for bilingualism. Our three-tier causal resolution corrects that distortion. Biologically, perceptual narrowing is not brain damage or cognitive decay; it is an adaptive efficiency gain. A nervous system that spent metabolic energy maintaining equal sensitivity to every phoneme and facial geometry on earth would be slow at decoding the specific voices and faces in its own home. More importantly, attunement is not a welded steel door: infants raised in bilingual households seamlessly maintain sensitivity to both languages, and children and adults remain capable of acquiring new languages across the lifespan through rich social interaction.[^ch05-perceptual-narrowing]
 
-- **Empty.** The infant absorbs whatever arrives. Traces are noise until language arrives.
-- **Preloaded.** The infant already possesses adult-like concepts; looking time merely reveals them.
-- **Interaction.** The infant begins with organized capacities and constraints. Experience calibrates them. A look is a measurement with a linking hypothesis, not a completed theory.
+What enters this tuning perceptual system is governed moment by moment by **attention**. Because any living room contains vastly more visual and acoustic detail than an immature cortex can process simultaneously, attention acts as the gatekeeper of learning. As John Colombo synthesized across neurodevelopmental studies, infant visual attention is not a single unitary trait; it comprises dissociable neural functions — brainstem arousal and alertness, subcortical-parietal spatial orienting, prolonged object examination vs. rapid visual scanning, and emerging prefrontal endogenous control — each maturing on its own postnatal timetable.[^ch05-attention-gatekeeper]
 
-The first is too empty. The second is too complete. The third is the claim the evidence can carry — piece by piece, and only as far as the measure goes.
+During the first two to three months, infants often exhibit "obligatory looking," struggling to disengage their gaze from a high-contrast contour even when they begin to fuss. By four to six months, maturation of frontal eye fields and parietal orienting networks allows faster disengagement and flexible shifting across the room, and individual infants who process visual features with shorter fixation durations in mid-infancy tend to show slightly more efficient information processing in laboratory follow-ups. Yet moderate-certainty models of attentional components offer **low-certainty** support for using infant looking duration as an early IQ test or a moral verdict on "focus."[^ch05-attention-gatekeeper] Attention in infancy sits directly astride the bodily regulation of Chapter 4: a hungry, cold, or sleep-deprived infant cannot sustain endogenous visual exploration, and bombarding a baby with flashing electronic toys often induces physiological defensive withdrawal rather than deeper learning.
 
-## Before we ask what a baby knows
+## III. Extracting Structure and Remembering Action
 
-Developmental scientists learned to treat behavior other than speech as evidence. A baby who looks longer at one display than another may be discriminating. A baby who stops looking after repetition may have encoded enough regularity for the stimulus to become familiar. A baby who resumes looking when something changes may have noticed the difference.
+Once a regulated infant selects a stream of sights and sounds, what does the brain do with that input? Two foundational discoveries reveal how rapidly young infants extract statistical structure and encode action contingencies.
 
-These methods transformed the field. They also created its recurring danger.
+Consider first the puzzle of spoken language. When adults speak naturally, they do not pause between words; acoustic waveforms flow in a continuous, unbroken stream, yet infants somehow segment distinct words before they know what those words mean. In 1996, Jenny Saffran, Richard Aslin, and Elissa Newport tested whether eight-month-old infants could solve this segmentation problem using pure statistical regularities alone. They exposed infants to a two-minute, monotone, continuous synthetic speech stream composed of four three-syllable nonsense words repeated in random order (*bidakupadotigolabubidaku...*), without pitch stress, pauses, or visual cues. The only clue to word boundaries was the **transitional probability** between syllables: within a word (such as *bi-da-ku*), the probability that *da* followed *bi* was 1.0, whereas across a word boundary (such as *ku* followed by *pa*), the probability dropped to 0.33. After just two minutes of listening, infants reliably discriminated intact "words" from "part-words" spanning a boundary.[^ch05-statistical-segmentation]
 
-**What precisely does the behavior demonstrate, what alternative explanations remain, and does another method tell us the same thing?**
+High-certainty laboratory replications **show** that human infants are extraordinarily nimble statistical learners across auditory tones, visual shapes, and motor sequences.[^ch05-statistical-segmentation] At the same time, recognizing what statistical segmentation does *not* explain is essential. Tracking transitional probabilities in a quiet booth does not by itself deliver referential meaning, social intent, or grammatical syntax in a noisy kitchen, nor does it mean that infants are consciously calculating mathematical probabilities.[^ch05-statistical-segmentation] Statistical sensitivity is one unconscious computational mechanism through which neural circuits tune themselves to what usually comes next.
 
-Aslin’s question — *what’s in a look?* — is the right first question. The linking hypothesis that joins looking time to an underlying process is part of the claim, not a footnote. Converging measures (eye tracking, physiology, action, transfer, replication) narrow the range of interpretations. A single surprise look does not.
+Prediction, in turn, requires memory — and the history of infant memory research dismantled the old myth that babies live in an eternal present without retention. In 1969, Carolyn Rovee-Collier (then publishing as Carolyn Rovee with David Rovee) introduced the **mobile conjugate reinforcement paradigm**: tying a soft satin ribbon between a three-month-old infant's ankle and an overhead crib mobile. Within minutes, infants discovered the contingency: kicking made the mobile sway and chime, and their kick rate doubled or tripled above baseline. When tested days or even weeks later with the ribbon detached, infants kicked vigorously at the sight of the mobile, proving they had encoded, stored, and retrieved the specific action–outcome relationship.[^ch05-contingency-learning]
 
-Habituation can indicate learning. It can also be fatigue, arousal, salience, or perceptual change. Preferential looking can reveal discrimination without telling us what is represented. A violation-of-expectation response may indicate that an event was unexpected. It does not automatically demonstrate a rich conceptual theory of why the event was impossible.
+Across decades of systematic variations, Rovee-Collier's paradigm **showed** with high certainty that early procedural and recognition memory is robust, gradual in its developmental lengthening, and exquisitely **context-dependent**: if experimenters changed the patterned cloth lining the crib at the time of the delayed test, young infants failed to kick, demonstrating that early memory retrieval is tightly bound to the exact sensory cues present during encoding.[^ch05-contingency-learning] Furthermore, a brief reminder cue (watching the mobile move passively for a moment) could reactivate a seemingly forgotten trace weeks later. What these elegant experiments never licensed, however, was the commercial "super-baby" industry that cited them: demonstrating that a three-month-old remembers kicking a mobile does not imply adult-like causal reasoning, nor does strapping educational gadgets to a crib accelerate lifelong intelligence.[^ch05-contingency-learning]
 
-The strongest inference comes when methods converge. The more elaborate the claim, the more independent forms of evidence it requires. This is why the science of the infant mind is as much a science of measurement as it is a science of development.
+## IV. A World That Disappears: Looking, Searching, and the Embodied Object
 
-## The infant who notices
+As perception, attention, statistical prediction, and memory weave together across the first year, the infant confronts a deeper structural problem: what happens to things when they go out of sight?
 
-The first stage of learning is not remembering. It is detecting.
+The scientific clash over **object permanence** — and its resolution — offers one of the clearest lessons in this atlas on how measurement methods shape developmental truth. For half a century, the towering authority on the question was Swiss epistemologist Jean Piaget. In *The Construction of Reality in the Child* (1954), Piaget observed his own infants and laboratory cohorts in manual search tasks: if an experimenter hid a captivating rattle beneath a cloth handkerchief while a five- or six-month-old watched, the infant immediately stopped reaching, acting as though the rattle had ceased to exist. Only around eight to nine months did infants systematically lift the cloth to retrieve the hidden toy. Even more strikingly, Piaget documented the **A-not-B error**: after an eight-to-ten-month-old infant repeatedly retrieved a toy hidden under cloth *A*, the infant watched the experimenter hide the toy in plain sight under a second cloth *B* — and yet reached straight back to cloth *A*. Piaget concluded that an objective concept of enduring physical objects is constructed slowly across the first eighteen months through hands-on sensorimotor action.
 
-Newborn vision is limited compared with adult vision, yet infants are sensitive to contrast, motion, and structured visual patterns. Hearing is active. Infants are sensitive to speech rhythm and to distinctions adults in a given language community may no longer notice.
+In 1987, developmental psychologist Renée Baillargeon challenged Piaget's timeline with a landmark experiment known as the **rotating drawbridge study**. Suspecting that six-month-old infants failed Piaget's cloth task not because they lacked object permanence, but because they could not yet coordinate a two-step motor plan (lifting a cloth in order to grasp a toy), Baillargeon replaced manual reaching with visual violation-of-expectation. Infants aged three and a half to four and a half months were first habituated to a cardboard screen rotating back and forth through a 180-degree arc like a drawbridge on a table. Next, a solid painted box was placed behind the screen. In the *possible event*, the rotating screen stopped at 112 degrees when it hit the hidden box; in the *impossible event*, the box was surreptitiously lowered through a trapdoor so the screen rotated the full 180 degrees, appearing to pass straight through the space occupied by the solid box. Infants looked significantly longer at the 180-degree event, suggesting they expected the hidden box to continue existing and to block the screen.[^ch05-object-permanence]
 
-These abilities are not complete representations of people, objects, or language. They are starting conditions.
+Baillargeon's drawbridge experiment ignited a fierce three-decade debate. High-profile nativist accounts proclaimed that Piaget was wrong and that three-month-olds possess rich, preloaded "core knowledge" of solid mechanics. In response, perceptual and dynamic-systems researchers led by Esther Thelen, Linda Smith, Gregor Schöner, and Marshall Haith pointed out that looking longer at a 180-degree rotation does not equal a mature, actionable representation of an object. Crucially, when Thelen and Smith investigated Piaget's *A-not-B* reaching error using dynamic systems interventions, they discovered that they could make ten-month-old infants succeed on location *B* simply by standing the infant upright between hiding and reaching, or by changing the visual weight of the arm covers![^ch05-object-permanence] The reaching error was not a philosophical flaw in the infant's concept of existence; it was the soft-assembled outcome of visual input, short-term spatial working memory, postural stability, and the stubborn motor habit of the previous reach.
 
-Sensation is not perception. Perceptual discrimination is not object representation. Object representation is not meaning. A detectable difference is not necessarily an understood difference.
+The modern consensus thus dissolves the old war between Piaget and Baillargeon. Moderate-certainty evidence **suggests** that young infants register visual expectations about occlusion and solidity months before they can execute coordinated manual searches, while low-certainty claims that a four-month-old's gaze proves an adult-like physics theory fail to respect the gap between perceptual sensitivity and action control.[^ch05-object-permanence] Object knowledge is not a single binary switch that flips on a specific birthday; it is an embodied competence built layer by layer across eyes, memory, posture, and hands.
 
-First-year perceptual attunement reliably sharpens sensitivity to native phonemic contrasts while attenuating responsiveness to unexperienced distinctions in classic laboratory settings.[^ch05-perceptual-narrowing] This process represents adaptive neural calibration rather than permanent cognitive loss, and it operates without imposing a sealed developmental deadline or presenting an obstacle to bilingual development.
+## V. Shared Reference and the Everyday Curriculum
 
-A nervous system that remained equally sensitive to every possible distinction would be expensive to operate. Specialization allows efficiency for the patterns actually encountered. Timing must not be turned into destiny. Sensitive periods are windows in which particular forms of experience and maturation interact strongly. They are not universal deadlines after which learning becomes impossible.
+Crucially, the infant never assembles this world of enduring objects in solitary confinement. From the beginning, the most salient objects in the room are other people — and across the second half of the first year, the dyadic face-to-face intimacy of Chapter 4 opens outward into a **triadic** world of **joint attention**.
 
-## Attention: the gatekeeper
+Around nine to twelve months of age, an infant no longer looks only at the caregiver *or* at a toy; she coordinates her gaze between the caregiver's eyes and the external object, checking the adult's emotional expression, following a pointed finger across the room, or holding up a block simply to share delight in it. As Peter Mundy and Lisa Newell demonstrated in neurodevelopmental syntheses, joint attention comprises two partially dissociable neural systems: *responding to joint attention* (following another person's gaze and point, supported by posterior parietal and temporal orienting networks) and *initiating joint attention* (spontaneously pointing or showing to direct another's attention, engaging anterior frontal and social-motivational circuits).[^ch05-joint-attention]
 
-The world contains more information than an infant can process at once. Something has to be selected. Attention is that selection.
+Moderate-certainty longitudinal cohorts **suggest** that individual differences in joint attention during late infancy meaningfully predict subsequent receptive and expressive vocabulary growth, serving as a vital social bridge into Chapter 7's territory of language.[^ch05-joint-attention] Yet here again, interpretive discipline protects daily family life from mechanical distortion. Joint attention predicts communication because it reflects shared human engagement around meaningful objects, not because gaze-following is a muscular reflex to be drilled with flashcards. Low-certainty attempts to force or train isolated gaze-shifting in ordinary households do not manufacture higher intelligence, and a tired ten-month-old who ignores a pointed finger on a Tuesday afternoon is displaying ordinary attentional fluctuation, not a neurodevelopmental deficit.[^ch05-joint-attention]
 
-Infant visual attention comprises dissociable neurodevelopmental functions—alertness, spatial orienting, feature processing, and endogenous control—that mature along distinct postnatal timetables.[^ch05-attention-gatekeeper] Attention is not a unified moral trait, a personality verdict, or a deterministic forecast of future intelligence.
+Stepping back across the first year of cognitive life, we can see how the three registers of our contract hold together. The **science** of the emerging mind **shows** with high certainty that preverbal looking-time paradigms measure perceptual discrimination, that first-year auditory cortex narrows around native speech sounds, that infants extract statistical probabilities from syllable streams, and that three-month-olds retain context-specific motor contingencies; it **suggests** with moderate certainty that visual attention matures across distinct components, that visual expectations of occluded objects precede manual search, and that triadic joint attention scaffolds early communication. The **interpretation** of that science insists on Richard Aslin's discipline — honoring the linking hypothesis, respecting the open replication work of the ManyBabies era, and refusing to collapse a brief laboratory fixation into either a miniature adult philosophy or a deterministic IQ score. And the **art** of meeting an infant's mind lies in recognizing that everyday life is already a sufficient curriculum: playing peekaboo behind a dish towel, naming the dog on the sidewalk when the baby looks up, leaving quiet unscheduled space on the floor, and noticing when a glazed look means the baby needs sleep rather than stimulation.
 
-A tired infant may look inattentive. A hungry infant may disengage. A distressed infant may struggle to sustain attention. A highly stimulating environment may produce more movement and less useful processing rather than better learning.
+What this chapter does not tell us is how the infant's mind transforms when she stops merely looking from a blanket or a lap and begins to reach, sit upright, crawl, and walk across the room on her own. How self-generated movement reorganizes spatial perception, depth avoidance, object exploration, and social exchanges belongs to Chapter 6.
 
-**What is attention, if not a personality?**
+Return once more to the four-month-old lying on the blanket in the afternoon light.
 
-It is a family of processes sitting between physiology and learning. Chapter 4’s co-regulation is not a different subject. A regulated infant has different opportunities for attention from a distressed one. The body helps determine what the mind can process. Information that is never effectively selected cannot easily become part of later learning.
-
-## Finding patterns, and what that does not explain
-
-Once information is selected, the infant can search for regularities.
-
-Spoken language does not arrive with spaces between words. In a classic experiment, infants listened to continuous streams of speech-like syllables. The only reliable clues were statistical: syllables occurring within a hidden word were more likely to follow one another than syllables spanning a word boundary. After brief exposure, infants distinguished higher-probability sequences from lower-probability combinations.
-
-Infants reliably track transitional probabilities between syllables to extract word-like units from continuous speech streams in controlled laboratory experiments.[^ch05-statistical-segmentation] While statistical extraction is a robust discovery, it does not by itself explain vocabulary acquisition in noisy homes or serve as a complete theory of syntax.
-
-Statistical learning can detect structure. It does not by itself explain goals, social meaning, causal understanding, or language as a symbolic system. Associative learning, contingency learning, imitation, observational learning, and socially guided learning overlap. There is no need to make one mechanism the winner.
-
-To say that an infant forms predictions is not to say that the infant possesses adult-like beliefs. It means that the nervous system becomes sensitive to regularities and uses previous information to shape its response to new input. The infant is not consciously writing equations. The infant is learning what usually comes next.
-
-## Remembering what happened
-
-Prediction requires history. Infant memory is one of the stronger arguments against the empty newborn. Memory is not a single system. Recognition, procedural learning, working memory, conditioned responses, and forms of recall develop on different schedules.
-
-The mobile-conjugate-reinforcement paradigm remains the clearest laboratory demonstration. A ribbon links an infant’s ankle to a mobile. Kicking moves the mobile. Later kicking above baseline indexes retention of that action–outcome relation.
-
-Young infants rapidly acquire and, under matching sensory cues, retain contingency relationships between their own motor actions and environmental movements.[^ch05-contingency-learning] Demonstrating operant conditioning, however, does not reveal adult causal reasoning, confer long-term cognitive advantage, or justify an intensive home enrichment curriculum.
-
-Three questions that are often collapsed should stay separate. Was something encoded? Was it retained? Could it be retrieved under the conditions of the test? A changed room, a changed cue, or a different motor demand can matter. Failure to retrieve is not proof that no representation existed. Early memory and later autobiographical memory are not the same system. The infant can remember before the child can tell a story about remembering.
-
-## Building a world that can disappear
-
-The infant must eventually learn not only that patterns recur, but that the world has structure. Objects appear and disappear. Piaget placed enormous weight on action: the child had to coordinate perception, memory, and movement to search. Later looking-time experiments appeared to demonstrate object knowledge at much younger ages.
-
-The disagreement is useful if it is not turned into a score-settling.
-
-Young infants display looking-time sensitivity to displays involving occlusion and physical solidity well before they reliably search for hidden objects with their hands.[^ch05-object-permanence] Longer looking at an unexpected event indicates perceptual discrimination and expectation violation, but it does not prove a fully consolidated, abstract object concept.
-
-Different tasks measure different layers of competence. An infant might expect an object to persist but lack the motor control to search. An infant might represent where an object should be while still being pulled toward a previously reinforced reaching location. An apparent cognitive error may emerge from the interaction of memory, attention, motor history, posture, and task demands.
-
-The mind is embodied. A baby’s cognition does not float above the body. It is built through the body’s encounters with the world. Chapter 6 takes action as its subject. This chapter only needs the boundary: looking and reaching are not the same claim.
-
-Peekaboo is the household version of the same puzzle. A face disappears. The infant waits, or protests, or laughs when it returns. The game can be a case without becoming evidence. It does not tell us that the infant has solved object permanence. It shows that disappearance and return are already social events, not only geometric ones.
-
-Dynamic-systems work made a related point about the A-not-B error. Behavior can be softly assembled from interacting systems rather than produced by a single internal controller. Neural maturation, muscle strength, posture, memory, and the history of a reach all participate in what finally appears. A reaching error is not automatically a conceptual hole.
-
-## Other minds become part of the environment
-
-The infant is never learning from objects alone. Faces, voices, gaze, affect, and contingent responses help organize what is selected and how events are interpreted.
-
-Joint attention—the coordinated engagement between an infant, a caregiver, and an external object—is a foundational construct in early social communication.[^ch05-joint-attention] Yet attempting to drill gaze-following in ordinary households does not accelerate language or intelligence, and an occasional unshared gaze is never evidence of an absent mind.
-
-Responding to joint attention and initiating it are not the same skill. They develop on overlapping schedules. Associations with later communication are informative. They do not establish that increasing one isolated behavior will produce language gains. Conversational turns as a later predictor belong to Chapter 7. Hart & Risley is not this chapter.
-
-The caregiver does not install a mind. Contingent interaction can support learning. Effects belong to relational and institutional systems, not to parental technique alone. A family with fewer resources is not a family with a less constructed child.
-
-The first curriculum is everyday life. Talk, gesture, gaze, safe exploration, and rest are the repeated conditions under which selection and memory have something to work on. That is not a mandate that every moment be educational. Expensive enrichment products do not follow. Simple play can provide opportunities for prediction and action without becoming a program.
-
-Infant research has an active replication discussion. Small samples, flexible analysis, and task sensitivity can inflate certainty. Looking-time overinterpretation is a named risk in this field, not a rumor about it. Controversy is part of the science. It is not a reason to dismiss infant cognition wholesale, and it is not a reason to treat every classic display as settled knowledge.
-
-## What this chapter does not tell us
-
-It does not tell us that the infant is empty, or that the infant is a miniature adult.
-
-It does not tell us that a look is a belief, a theory, or a moral judgment.
-
-It does not tell us that attention is a character trait, or that more stimulation produces a better mind.
-
-It does not tell us that statistical learning is a complete theory of language.
-
-It does not tell us that a kick that moves a mobile is hypothesis testing.
-
-It does not tell us that object permanence is a single staircase acquired once.
-
-It does not tell us that joint attention is a language guarantee, or a purity test.
-
-It does not tell us that an early laboratory difference is a diagnosis or a future.
-
-It does not tell us how action will reorganize what can be learned. That is Chapter 6.
-
-## Science, Interpretation, Art
-
-**Science** here is the High-grade laboratory facts about looking-time as a method, first-year phonetic attunement, statistical segmentation under control, and contingency learning; the Moderate claims about attention functions, occlusion-looking, and joint attention as a construct; and the Low status of rich interpretation, sealed deadlines, isolated training, and individual destiny.
-
-**Interpretation** is the habit of keeping those facts from becoming a story about the kind of mind the child already is, or the kind of curriculum the adult must deliver. It is also the habit of matching verbs to grades: *shows* where the grade is High, *suggests* where it is Moderate, *is associated with* where it is Low.
-
-**Art** is the remaining human fact: deciding when to look with the infant, when to wait, when a tired look is a body and not a mind, and when to ask for help. Those decisions belong to a relationship. They are not experiments, and they are not a performance to be scored.
-
-## Return
-
-The infant who looked, and could not say what it saw, has not become a different child because we now have a map. The map has changed.
-
-A mind is not poured in. It is not installed. It is assembled: selection, regularity, memory, prediction, action, and other people, on overlapping schedules, under conditions that include rest as well as play.
-
-Chapter 4 showed the relationship that takes up dependence. This chapter shows that the same relationship is already a learning environment. The next territory is what happens when that mind acts. It is not a verdict on the look that came before.
+She has still not spoken a word. She has not become a different infant because we have traced phonetic narrowing, transitional probabilities, or the rotating drawbridge. What has changed is how we read her silence. Her mind is neither an empty notebook waiting for school nor a pre-written computer executing innate equations. It is an active, embodied, socially tethered workshop — selecting edges, tuning to familiar voices, remembering the kick that made the mobile dance, and looking up to see if the person beside her is looking too.
 
 ## Notes
 
@@ -183,5 +93,3 @@ Chapter 4 showed the relationship that takes up dependence. This chapter shows t
 - Reconcile only, not rewritten: `evidence-cards/infant-perceptual-narrowing.md` (`stable` for the laboratory attunement claim)
 - Reconcile only, not rewritten: `evidence-cards/infant-statistical-speech-segmentation.md`
 - Reconcile only, not rewritten: `evidence-cards/infant-contingency-learning.md` (`stable` for the laboratory claim)
-
-Promotion note: this file is a curated, voice-checked copy in the Appendix B range. The archival draft `preliminary/drafts-chapters/chapter 5` was not overwritten. Review: `preliminary/drafts-chapters/reviews/ch05-curated-05-becoming-a-mind--voice-review.md`. Deferred imitation and core-knowledge-as-theory remain held.
