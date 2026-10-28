@@ -20,10 +20,10 @@ All research, evidence card authoring, verification, and drafting tasks MUST fol
 
 ## 3. Narrative & Literary Rigor Directives
 All drafted and edited chapters must adhere strictly to the six core directives:
-- **Directive I (Concentric Movement Architecture):** 4 to 5 thematic movements per chapter anchored by a unifying conceptual narrative, concrete sensory opening/closing scenes, and causal handoffs between sections.
-- **Directive II (3-Tier Causal Resolution):** Replace repetitive defensive disclaimers with positive explanatory insights:
+- **Directive I (Concentric Movement Architecture):** 4 to 5 thematic movements per chapter (`## I. ...` through `## V. ...`) anchored by a unifying conceptual narrative, concrete sensory opening/closing scenes, and causal handoffs between sections. Never expose outline scaffolding (`## The puzzle`, `## Competing explanations`, `## Return`) as literal subheadings.
+- **Directive II (Organic Integration of Reader's Contract & 3-Tier Causal Resolution):** Never isolate "The Reader's Contract", "Science, Interpretation, Art", or "What this chapter does not tell us" as standalone segments, meta-tables, or end-of-chapter bullet lists. Weave epistemic boundaries and the three lenses organically along the narrative prose using the 3-Tier Causal Resolution:
   - *Tier 1:* Population average trajectory (public health/policy signal).
-  - *Tier 2:* Individual trajectory (conditional biological/system mechanisms).
+  - *Tier 2:* Individual trajectory (conditional biological/system mechanisms & GI confounding attenuation).
   - *Tier 3:* Actionable operator/parental control and judgment.
 - **Directive III ("Then vs. Now" Landmark Set-Pieces):** One 300–500 word narrative set-piece examining a foundational experiment across 4 beats: The Original Quest, The Historical Orthodoxy, The Replication & Revision, and The Modern Consensus.
 - **Directive IV (Progressive Lens Escalation):** Deduplicate recurrent empirical anchors across chapters: first appearance covers study design and biological mechanism; second appearance shifts to ecological/structural constraints; subsequent appearances focus strictly on scalability, attenuation, or persistence.

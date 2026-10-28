@@ -197,20 +197,15 @@ Translate `CONTRIBUTING.md` certainty grades into prose strength:
 
 Never use deterministic language ("X causes Y forever," "X ruins Y") unless the evidence grade is High and the effect is demonstrated to persist.
 
-## Appendix B. Chapter Outline Template
+## Appendix B. Deep-Structure Compositional Checklist (Organic Integration Rule)
 
-Use this one-page checklist when drafting a chapter:
+Use this checklist as the **invisible deep structure** of each chapter. **Never expose these beats as literal section headings** (`## The puzzle`, `## Competing explanations`, `## What this chapter does not tell us`, `## Science, Interpretation, Art`, `## The Reader's Contract`, or `## Return`). Instead, structure each chapter into **4 to 5 concentric thematic movements** (`## I. ...` through `## V. ...`) and weave these elements organically into the narrative flow:
 
-- [ ] **Phenomenon** (1–2 paragraphs): Something familiar, observed, human.
-- [ ] **Puzzle** (1 paragraph): Why does this occur? What's contradictory?
-- [ ] **Case** (1 short vignette): A real developmental situation.
-- [ ] **Question** (1 sentence): The conceptual problem, articulated clearly.
-- [ ] **Competing Explanations** (2–4 bullets): Multiple interpretations before conclusions.
-- [ ] **Mechanism** (1–2 paragraphs): Biological/psychological/social/cultural machinery.
-- [ ] **Evidence** (1–2 paragraphs): Hierarchy, calibration, certainty grade.
-- [ ] **Boundary** (1 paragraph): What evidence does not establish; uncertainty.
-- [ ] **System** (1 paragraph): Reconnect to larger developmental processes.
-- [ ] **Return** (1 paragraph): Return to the child; reader's understanding has changed.
+- [ ] **Phenomenon & Puzzle** (integrated into the opening scene and Movement I): Begin with a concrete human observation that reveals an apparent contradiction, articulating the core scientific question in prose.
+- [ ] **Competing Explanations** (dissolved into Movement I): Consider alternative interpretations within the narrative flow rather than a standalone bullet list.
+- [ ] **Mechanism & Landmark Set-Piece** (Movements II–IV): Unpack biological, psychological, social, and cultural machinery, including one 300–500 word "Then vs. Now" landmark experiment set-piece across four beats (*Quest, Orthodoxy, Revision, Modern Consensus*).
+- [ ] **The Reader's Contract & Epistemic Boundaries** (integrated continuously along Movements I–V): Distinguish **Science**, **Interpretation**, and **Art**—as well as *what the evidence refuses to license*—directly at the moments where each study or mechanism is examined, using the **3-Tier Causal Resolution** (Population Signal $\to$ Individual Mechanism $\to$ Actionable Parental Judgment) rather than an appendixed disclaimer segment.
+- [ ] **System & Return** (integrated into Movement V): Reconnect the phenomenon to the wider developmental ecology and return organically to the opening child/scene with transformed understanding.
 
 Target word count: 2,500–4,000 words per chapter (adjust per domain).
 

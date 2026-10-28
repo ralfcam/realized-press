@@ -44,6 +44,19 @@ FORBIDDEN_PHRASES_PATTERNS: dict[str, re.Pattern[str]] = {
 INLINE_FN_RE = re.compile(r"(?<!^)\[\^([^\]]+)\](?!:)")
 DEF_FN_RE = re.compile(r"^\[\^([^\]]+)\]:", re.MULTILINE)
 HEADING_RE = re.compile(r"^(##+)\s+(.+)$", re.MULTILINE)
+EXPOSED_SCAFFOLDING_HEADING_RE = re.compile(
+    r"^(?:[IVX]+\.\s+|\d+\.\s+)?("
+    r"the reader['\u2019]s contract\b|"
+    r"what this chapter does not tell us\b|"
+    r"what the evidence does not say\b|"
+    r"what this chapter must not infer\b|"
+    r"science,\s*interpretation,\s*art\b|"
+    r"the puzzle\b|"
+    r"competing explanations\b|"
+    r"return$"
+    r")",
+    re.IGNORECASE,
+)
 
 
 def find_series_file(root: Path, book_path: Path, filename: str) -> Path | None:
@@ -161,6 +174,7 @@ def audit_book(book_path: Path, use_gemini: bool = False) -> tuple[str, bool]:
     metaphor_collisions: list[str] = []
     fn_issues: list[str] = []
     forbidden_hits: list[str] = []
+    scaffolding_hits: list[str] = []
     citation_needed_total = 0
 
     for ch in chapters:
@@ -185,8 +199,12 @@ def audit_book(book_path: Path, use_gemini: bool = False) -> tuple[str, bool]:
 
         sections = split_sections(body_before_notes)
         for sec_title, sec_body in sections:
-            if sec_title.lower().startswith(("notes", "sources", "further reading")):
+            if sec_title.lower().startswith(("notes", "sources", "further reading", "linked evidence cards")):
                 continue
+            if EXPOSED_SCAFFOLDING_HEADING_RE.search(sec_title):
+                scaffolding_hits.append(
+                    f"- `{ch.name}`: exposed scaffolding heading `## {sec_title}` (must be dissolved into organic narrative movements)"
+                )
             matched = [name for name, pat in METAPHOR_PATTERNS.items() if pat.search(sec_body)]
             if len(matched) > 1:
                 metaphor_collisions.append(
@@ -278,6 +296,12 @@ def audit_book(book_path: Path, use_gemini: bool = False) -> tuple[str, bool]:
         lines.extend(forbidden_hits)
     else:
         lines.append("- **Pass:** Zero forbidden phrases or raw redirect URLs detected in unquoted chapter prose.")
+
+    lines.extend(["", "## 4b. Organic Narrative Integration Check (Directives I & II — No Exposed Scaffolding Headings)"])
+    if scaffolding_hits:
+        lines.extend(scaffolding_hits)
+    else:
+        lines.append("- **Pass:** Zero exposed scaffolding or standalone epistemic segments detected across chapters.")
 
     lines.extend(["", "## 5. OKF v0.2 Five-Rule Evidence Card Gate (`evidence-cards/`)"])
     if ec_failures:

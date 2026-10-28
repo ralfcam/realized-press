@@ -30,6 +30,19 @@ ARXIV_RE = re.compile(r"\barXiv:(\d{4}\.\d{4,5})\b", re.IGNORECASE)
 INLINE_FN_RE = re.compile(r"(?<!^)\[\^([^\]]+)\](?!:)")
 DEF_FN_RE = re.compile(r"^\[\^([^\]]+)\]:", re.MULTILINE)
 HEADING_RE = re.compile(r"^(##+)\s+(.+)$", re.MULTILINE)
+EXPOSED_SCAFFOLDING_HEADING_RE = re.compile(
+    r"^(?:[IVX]+\.\s+|\d+\.\s+)?("
+    r"the reader['\u2019]s contract\b|"
+    r"what this chapter does not tell us\b|"
+    r"what the evidence does not say\b|"
+    r"what this chapter must not infer\b|"
+    r"science,\s*interpretation,\s*art\b|"
+    r"the puzzle\b|"
+    r"competing explanations\b|"
+    r"return$"
+    r")",
+    re.IGNORECASE,
+)
 
 METAPHOR_PATTERNS: dict[str, re.Pattern[str]] = {
     "gradient-as-debt": re.compile(r"\b(gradient as debt|accumulating debt|chain rule as debt|compounding debt)\b", re.IGNORECASE),
@@ -207,8 +220,13 @@ def _check_chapter_gates(path: Path, text: str) -> list[str]:
     matches = list(HEADING_RE.finditer(body_before_notes))
     for idx, m in enumerate(matches):
         sec_title = m.group(2).strip()
-        if sec_title.lower().startswith(("notes", "sources", "further reading")):
+        if sec_title.lower().startswith(("notes", "sources", "further reading", "linked evidence cards")):
             continue
+        if EXPOSED_SCAFFOLDING_HEADING_RE.search(sec_title):
+            notices.append(
+                f"Organic Integration Gate (Directives I & II): `{path.name}` exposes outline scaffolding heading "
+                f"`## {sec_title}` — dissolve into concentric thematic narrative prose."
+            )
         start = m.end()
         end = matches[idx + 1].start() if idx + 1 < len(matches) else len(body_before_notes)
         sec_body = body_before_notes[start:end]
