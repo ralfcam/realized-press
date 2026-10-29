@@ -1,8 +1,8 @@
 ---
 type: Evidence Card
 title: "In-Context Few-Shot Learning via Foundation Scale (Brown et al. 2020)"
-description: "Scaling autoregressive language models to 175B parameters enables in-context learning without gradient updates, allowing models to execute novel tasks conditioned purely on context window demonstrations."
-tags: [in-context-learning, few-shot, gpt-3, emergent-capabilities]
+description: "Scaling autoregressive language models to 175B parameters enables in-context learning without gradient updates, highlighting the fundamental divide of in-context learning vs parametric memory where models execute novel tasks conditioned purely on context window demonstrations."
+tags: [in-context-learning, few-shot, gpt-3, emergent-capabilities, parametric-memory, in-context-learning-vs-parametric-memory]
 status: stable
 confidence: high
 generated: { by: agent:antigravity, at: 2026-10-23T15:30:00Z }
@@ -23,7 +23,7 @@ sources:
 
 ## What We Know
 
-Scaling Transformer language models to hundreds of billions of parameters allows them to perform diverse natural language and reasoning tasks conditioned purely on prompt demonstrations provided inside the context window, without any parameter fine-tuning or gradient adjustments.
+Scaling Transformer language models to hundreds of billions of parameters allows them to perform diverse natural language and reasoning tasks conditioned purely on prompt demonstrations provided inside the context window, without any parameter fine-tuning or gradient adjustments. In the architectural paradigm of in-context learning vs parametric memory, the context window functions as a fast, dynamic inference workspace, contrasting sharply with static knowledge encoded in frozen neural network weights.
 
 ## How Confident We Are
 

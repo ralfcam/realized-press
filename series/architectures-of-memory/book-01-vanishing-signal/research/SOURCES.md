@@ -70,6 +70,9 @@ sources:
   - id: Hochreiter_1997
     resource: http://dx.doi.org/10.1162/neco.1997.9.8.1735
     title: "Long Short-Term Memory (1997)"
+  - id: Bergson_1896
+    resource: https://doi.org/10.1037/10006-000
+    title: "Mati{\e (1896)"
 ---
 
 # Master Source Catalog (`book-01-vanishing-signal`)
@@ -95,3 +98,4 @@ sources:
 - **`Stein_1995`** (1995): Actualizing Organizational Memory with Information Systems — <http://dx.doi.org/10.1287/isre.6.2.85>
 - **`Holtzblatt_2010`** (2010): Factors impeding Wiki use in the enterprise: a case study — <http://dx.doi.org/10.1145/1753846.1754208>
 - **`Hochreiter_1997`** (1997): Long Short-Term Memory — <http://dx.doi.org/10.1162/neco.1997.9.8.1735>
+- **`Bergson_1896`** (1896): Mati{\e — <https://doi.org/10.1037/10006-000>

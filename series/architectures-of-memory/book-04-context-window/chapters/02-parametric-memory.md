@@ -1,4 +1,4 @@
-# Chapter 2: Parametric Memory — Knowledge Stored in Weights, Not States
+# Chapter 2: In-Context Learning vs Parametric Memory — Knowledge Stored in Weights, Not States
 
 In an old courthouse archive in lower Manhattan, deed records from 1892 sit in acid-free folders on heavy steel shelves. If an auditor wants to verify the ownership of a parcel at the corner of Mercer and Prince, they walk to aisle four, pull box 312, and read the ink strokes laid down by a clerk’s steel pen. The memory of the property transfer is discrete, local, and spatially addressable. If a fire consumes folder 312, that specific legal transaction is extinguished, while the surrounding titles remain completely intact. 
 
@@ -20,4 +20,15 @@ The tension between parametric storage and factual verification requires a clear
 2. **Tier 2 (The Mechanistic Entanglement):** Mechanistically, knowledge in weights cannot be isolated or edited without risk of collateral drift. Unlike relational databases that enforce strict primary keys and foreign key constraints, neural weights superimpose thousands of concepts across the same shared mathematical dimensions.
 3. **Tier 3 (The Operator's Actionable Judgment):** In production systems where facts carry legal or economic consequences, operators must never rely on parametric memory for volatile or proprietary data. Knowledge requiring verification must be decoupled from the model's weights and maintained in external, auditable storage layers.
 
+### In-Context Learning vs Parametric Memory: Ephemeral Workspace vs Frozen Weights
+
+To understand parametric memory is to confront its runtime counterpoint: in-context learning. In modern neural architectures, the central design trade-off is in context learning vs parametric memory. While parametric memory embeds relational knowledge directly into billions of static floating-point connection weights during pre-training, in-context learning operates purely inside the activation space of the context window. Demonstrations and runtime facts provided in the prompt condition the model's attention heads without updating a single gradient or altering a single weight. The context window acts as temporary RAM—a high-speed scratchpad for in-context reasoning—whereas parametric weights serve as the read-only ROM. The moment the forward pass terminates and the context buffer resets, all in-context learning dissolves, demonstrating that parametric memory provides persistence while in-context learning provides transient computational flexibility.
+
+In production systems engineering, evaluating in-context learning vs parametric memory determines the core architecture: tasks demanding volatile, personalized, or rapidly evolving knowledge rely on in-context learning within long context windows, whereas tasks requiring universal linguistic grammar leverage parametric memory frozen in weights. Choosing between in-context learning vs parametric memory is thus the foundational decision between runtime working memory and permanent neural storage.
+
 When the New York courthouse locks its iron doors at five in the afternoon, the deed books rest motionless in the darkness, each letter fixed on its assigned page. A deep neural network resting on an idling server contains no pages and no ink. Its knowledge is a landscape of high-dimensional valleys, frozen until the next forward pass sets electrical numbers tumbling down its slopes.
+
+
+### The Operational Divide: In-Context Learning vs Parametric Memory
+
+When architects design production LLM pipelines, comparing in-context learning vs parametric memory highlights an essential trade-off: in-context learning provides dynamic, zero-gradient task adaptation inside the prompt, whereas parametric memory delivers high-throughput static retrieval from pre-trained weights.

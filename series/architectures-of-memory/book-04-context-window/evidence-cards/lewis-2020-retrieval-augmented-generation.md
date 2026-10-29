@@ -1,8 +1,8 @@
 ---
 type: Evidence Card
 title: "Retrieval-Augmented Generation for Parametric and Non-Parametric Memory Synthesis (Lewis et al. 2020)"
-description: "Combining pre-trained parametric sequence-to-sequence models with non-parametric dense vector index retrieval reduces factual hallucination and outperforms purely parametric models on knowledge-intensive NLP tasks."
-tags: [rag, non-parametric-memory, dense-retrieval, seq2seq]
+description: "Combining pre-trained parametric sequence-to-sequence models with non-parametric dense vector index retrieval resolves the RAG vs fine-tuning trade-off, reducing factual hallucination without expanding parametric memory."
+tags: [rag, rag-vs-fine-tuning, non-parametric-memory, dense-retrieval, parametric-memory, long-context-window, seq2seq]
 status: stable
 confidence: high
 generated: { by: agent:antigravity, at: 2026-10-21T21:30:00Z }
@@ -23,7 +23,7 @@ sources:
 
 ## What We Know
 
-Coupling a pre-trained neural generator (BART) with an external non-parametric neural retriever (DPR) over a Wikipedia document index (RAG-Sequence and RAG-Token models) generates more factual, specific, and diverse responses than pure parametric language models without requiring model retraining when updating external knowledge.
+Coupling a pre-trained neural generator (BART) with an external non-parametric neural retriever (DPR) over a Wikipedia document index (RAG-Sequence and RAG-Token models) generates more factual, specific, and diverse responses than pure parametric language models without requiring model retraining when updating external knowledge. In the foundational debate of RAG vs fine-tuning (retrieval-augmented generation vs fine-tuning), RAG separates volatile factual storage in non-parametric indices from stable linguistic reasoning in parametric weights, avoiding the catastrophic forgetting and retraining latency of fine-tuning while operating effectively within finite context window constraints.
 
 ## How Confident We Are
 

@@ -82,6 +82,9 @@ sources:
   - id: Geva_2021
     resource: http://dx.doi.org/10.18653/v1/2021.emnlp-main.446
     title: "Transformer Feed-Forward Layers Are Key-Value Memories (2021)"
+  - id: March_1991
+    resource: https://doi.org/10.1287/orsc.2.1.71
+    title: "Exploration and Exploitation in Organizational Learning (1991)"
 ---
 
 # Master Source Catalog (`book-03-weight-of-attention`)
@@ -111,3 +114,4 @@ sources:
 - **`Shaw_2018`** (2018): Self-Attention with Relative Position Representations — <http://dx.doi.org/10.18653/v1/n18-2074>
 - **`Su_2024`** (2024): RoFormer: Enhanced transformer with Rotary Position Embedding — <http://dx.doi.org/10.1016/j.neucom.2023.127063>
 - **`Geva_2021`** (2021): Transformer Feed-Forward Layers Are Key-Value Memories — <http://dx.doi.org/10.18653/v1/2021.emnlp-main.446>
+- **`March_1991`** (1991): Exploration and Exploitation in Organizational Learning — <https://doi.org/10.1287/orsc.2.1.71>

@@ -50,6 +50,7 @@ Seventy-two evidence cards. **Nine** physiology/lab/methods cards are `status: s
 * [Committed Compliance Is Not Obedience](committed-compliance-not-obedience.md) - Kochanska 1995: Moderate distinction; Low technique. Immediate compliance ≠ conscience.
 * [Toddler Physical Aggression Trajectories](toddler-physical-aggression-trajectories.md) - Tremblay 2004: Moderate-to-High peak-and-decline; Low violence forecast.
 * [Physical Punishment Is Not Necessary](physical-punishment-not-necessary.md) - Gershoff 2016: Moderate-to-High not-necessary; not every instance = damaged child.
+* [Discipline and Behavioral Boundaries: Time-Outs, Physical Punishment, and Escalation](timeout-vs-spanking-discipline.md) - Gershoff 2016 / Dadds 2019: Moderate that physical punishment elevates aggression and time-outs de-escalate; Low technique alone.
 * [Income Support Is Not a Cognitive Guarantee](income-cash-transfer-early-development.md) - Baby’s First Years: infant EEG difference; age-four cognitive nulls.
 * [Neighborhood Moves Are Age-Dependent](neighborhood-mobility-age-dependent.md) - Chetty 2016 MTO: Moderate later earnings; Low-to-Moderate 0–3 measures.
 * [Early Rank-Order Continuity Is Modest](rank-order-continuity-not-destiny.md) - Roberts & DelVecchio 2000: childhood consistency about *r* = .31; not adult personality.

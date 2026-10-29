@@ -1,8 +1,8 @@
 ---
 type: Evidence Card
 title: "Adaptive Forgetting as Generalization in Biological Memory (Richards & Frankland 2017)"
-description: "Neurobiological evidence demonstrates that memory transience is an active, regulated computational process that optimizes decision-making by eliminating outdated details and preventing overfitting to past environments."
-tags: [neuroscience, adaptive-forgetting, generalization, transience-of-memory]
+description: "Neurobiological evidence demonstrates that memory transience is an active, regulated computational process that optimizes decision-making by eliminating outdated details and preventing overfitting to past environments, resolving the Borges Funes the Memorious memory curse."
+tags: [neuroscience, adaptive-forgetting, generalization, transience-of-memory, borges-funes, memory-curse]
 status: stable
 confidence: high
 generated: { by: agent:antigravity, at: 2026-10-21T13:45:00Z }
@@ -26,7 +26,7 @@ sources:
 
 ## What We Know
 
-Memory research historically framed forgetting as a failure of mnemonic storage or retrieval. Richards and Frankland (2017), synthesizing cellular, circuit, and computational neuroscience, established that memory transience is an active, highly regulated neurobiological process. Brains expend significant metabolic energy to erase, remodel, and suppress engrams (via adult hippocampal neurogenesis, rac1-dependent actin reorganization, and active AMPA receptor endocytosis) in order to prevent overfitting to past environmental details, facilitate behavioral flexibility, and promote statistical generalization in dynamic environments.
+Memory research historically framed forgetting as a failure of mnemonic storage or retrieval. Richards and Frankland (2017), synthesizing cellular, circuit, and computational neuroscience, established that memory transience is an active, highly regulated neurobiological process. Brains expend significant metabolic energy to erase, remodel, and suppress engrams (via adult hippocampal neurogenesis, rac1-dependent actin reorganization, and active AMPA receptor endocytosis) in order to prevent overfitting to past environmental details, facilitate behavioral flexibility, and promote statistical generalization in dynamic environments. This provides the empirical neurobiological foundation for why total retention is pathological, directly formalizing Jorge Luis Borges's literary parable in *Funes the Memorious*: without regulated forgetting, cognitive architectures succumb to the Borges Funes the Memorious memory curse—an inability to abstract, categorize, or think beyond overwhelming episodic minutiae.
 
 ## How Confident We Are
 

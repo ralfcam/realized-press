@@ -409,6 +409,9 @@ sources:
   - id: schum-2002-toilet
     resource: https://doi.org/10.1542/peds.109.3.e48
     title: "Schum et al. (2002), Pediatrics, sequential acquisition of toilet-training skills"
+  - id: dadds-2019-discipline
+    resource: https://doi.org/10.1111/jcpp.13088
+    title: "Dadds & Tully (2019), Journal of Child Psychology and Psychiatry, What is it to be a good parent? The role of discipline, warm parenting, and children's conduct problems"
 ---
 
 # Master Source Catalog
@@ -570,6 +573,7 @@ These four live IDs will not acquire a Crossref journal DOI. They already have a
 | `oshea-2017-frenotomy` | O'Shea et al. (2017), Cochrane Database of Systematic Reviews, frenotomy for tongue-tie in newborn infants | [https://doi.org/10.1002/14651858.CD012538](https://doi.org/10.1002/14651858.CD012538) | [neonatal-frenotomy-tongue-tie](evidence-cards/neonatal-frenotomy-tongue-tie.md) |
 | `blum-2003-toilet` | Blum, Taubman & Nemeth (2003), Pediatrics, relationship between age at initiation of toilet training and duration | [https://doi.org/10.1542/peds.111.4.810](https://doi.org/10.1542/peds.111.4.810) | [toilet-learning-readiness](evidence-cards/toilet-learning-readiness.md) |
 | `schum-2002-toilet` | Schum et al. (2002), Pediatrics, sequential acquisition of toilet-training skills | [https://doi.org/10.1542/peds.109.3.e48](https://doi.org/10.1542/peds.109.3.e48) | [toilet-learning-readiness](evidence-cards/toilet-learning-readiness.md) |
+| `dadds-2019-discipline` | Dadds & Tully (2019), Journal of Child Psychology and Psychiatry, time-out and positive parenting evidence review | [https://doi.org/10.1111/jcpp.13088](https://doi.org/10.1111/jcpp.13088) | [timeout-vs-spanking-discipline](evidence-cards/timeout-vs-spanking-discipline.md) |
 
 ## Unresolved Citations
 

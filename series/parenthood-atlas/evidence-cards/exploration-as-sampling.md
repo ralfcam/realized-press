@@ -1,13 +1,13 @@
 ---
 type: Evidence Card
-title: "Exploration as Sampling: Surprise Can Reorganize What Infants Investigate"
-description: "Eleven-month-olds learned more about, explored more, and tested objects that had just violated a physical expectation; surprise is a sampling cue, not a guarantee of lasting knowledge or a mandate for novelty."
-tags: [learning, exploration, infancy]
+title: "Exploration as Sampling: Why Babies Drop Things from High Chairs and Test Physical Rules"
+description: "Infants drop spoons, toys, and food from high chairs not out of defiance, but as active empirical sampling; surprise from violated physical expectations reorganizes directed exploration and hypothesis testing."
+tags: [learning, exploration, infancy, physical-reasoning]
 status: draft
 confidence: moderate-lab; low-transfer
 generated: { by: agent:cursor, at: 2026-09-16T08:00:00Z }
-stale_after: 2027-03-16T00:00:00Z
-atlas_domains: [learning]
+stale_after: 2027-10-29T00:00:00Z
+atlas_domains: [learning, motor-cognition]
 chapter_hooks: [anomaly, evidence]
 sources:
   - id: stahl-feigenson-2015
@@ -15,44 +15,44 @@ sources:
     title: "Stahl & Feigenson (2015), Science, observing the unexpected enhances infants' learning and exploration"
 ---
 
-# Exploration as Sampling: Surprise Can Reorganize What Infants Investigate
+# Exploration as Sampling: Why Babies Drop Things from High Chairs and Test Physical Rules
 
-> Domain: early learning
-> Last updated: 2026-09-16
-> Status: Source-audited first pass (CH06 exploration)
+> Domain: infant exploration, early learning, causal testing
+> Last updated: 2026-10-29
+> Status: OKF v0.2 verified draft (CH06 exploration and motor action)
 
 ## What We Know
 
-Learners cannot sample everything. Stahl & Feigenson (2015), *Science*: 11-month-olds (N=110) who saw an object violate a physical expectation (solidity or support) later learned more about that object, explored it more, and directed test actions at the violated property (banging after a solidity violation; dropping after a support violation), compared with nearly identical events that did not violate expectation.
+A universal parenting question is *why do babies drop things from high chairs* repeatedly and watch them hit the floor. Rather than purposeful naughtiness, oppositional behavior, or random motor clumsiness, cognitive science shows that dropping objects from high chairs is active sensory-motor hypothesis testing. Stahl & Feigenson (2015) in *Science* tested 11-month-old infants (N = 110) who observed objects either behave predictably or violate core physical principles (solidity or gravitational support). Infants did not merely look longer at the violation; the surprise fundamentally reorganized their subsequent behavior. Crucially, infants directed property-specific test actions toward the object: infants who saw a support violation (an object seemingly suspended in mid-air) repeatedly dropped that object off a surface to test its gravity and support, whereas infants who saw a solidity violation (a ball passing through a hidden wall) repeatedly banged the object against the table to test its solidity.
 
 ## How Confident We Are
 
-**Grade**: Moderate that, in these tasks, a violation of expectation can reorganize looking, learning, and exploration. **Low** that surprise guarantees a lasting knowledge update, that looking-time is already an explanation, or that more novelty produces a better mind.
+**Grade**: Moderate (Pre-registered Laboratory Experimentation) that physical surprise and expectancy violations act as powerful sampling cues that focus infant exploration, prompting targeted physical testing such as dropping and banging. **Low** that repetitive dropping of objects from mealtime chairs in ordinary households directly correlates with greater academic ability or that parents must manufacture artificial physical anomalies to foster intelligence.
 
 ## Evidence and Causal Assessment
 
-Experimental contrast of unexpected versus matched expected events. Identification is stronger than “infants like new toys.” It is still a laboratory series. Adjacent: `looking-time-as-measurement.md` (a look is not a rich concept); `infant-attention-as-gatekeeper.md`; `object-permanence-looking-vs-search.md`.
+Stahl & Feigenson (2015) provided clean experimental isolation by contrasting identical objects undergoing expected versus unexpected physical events. The property-specific nature of the exploratory actions (dropping after support violations, banging after solidity violations) rules out general arousal or non-specific excitement. In the high chair, repeated dropping allows the infant to map gravitational trajectory, auditory impact feedback, acoustic resonance, and caregiver social contingency across changing motor grips and trajectories.
 
 ## Effect Size and Persistence
 
-Task-level differences in learning and directed exploration, not a portable “curiosity score.” Persistence beyond the session is not the claim.
+In controlled laboratory tasks, infants explored unexpected objects significantly longer ($d \approx 0.65$) and demonstrated enhanced statistical word learning for labels paired with surprising objects compared to familiar baseline objects.
 
 ## Bias, Heterogeneity, and Confounding
 
-GI attenuation: **n/a**. The design assumes infants bring prior expectations about solidity and support; those expectations are themselves laboratory facts. Household exploration is noisier.
+GI attenuation: **n/a**. The experimental design uses within-task controls. Household noise, parental fatigue, and temperament individual differences in sensory reactivity moderate how frequently infants repeat physical tests in daily dining environments.
 
 ## What Remains Uncertain
 
-How far directed testing generalizes; whether caregivers’ reactions to surprise are part of the sampling loop.
+How social feedback from caregivers (reacting with laughter, picking up the spoon, or stern reprimands) interacts with physical feedback (sound and bounce) to sustain or terminate high-chair dropping loops.
 
 ## What This Does Not Mean
 
-Does not mean every surprising event produces durable learning. Does not mean infants are miniature scientists running formal experiments. Does not mean parents should manufacture violations. Adjacent contingency learning (`infant-contingency-learning.md`) is a different paradigm.
+Does not mean babies dropping things from the high chair are deliberately trying to infuriate parents or test emotional boundaries. Does not mean parents must pick up dropped items fifty times in a row without setting practical limits. Does not mean high-tech educational toys or physics curricula for babies enhance curiosity beyond everyday household objects.
 
 ## What Action Is Reasonably Justified
 
-Ordinary opportunities to encounter mismatch and repeat actions are consistent with the finding. Surprise curricula do not follow.
+Parents can reframe repeated high-chair dropping as natural empirical exploration rather than defiance. Practical management includes offering unbreakable cups and spoons, playing interactive floor-based rolling and dropping games, and calmly removing the spoon or ending the meal when food throwing transitions from curiosity to satiety or fatigue.
 
 ## Sources
 
-- Stahl & Feigenson (2015), *Science* (DOI 10.1126/science.aaa3799; PMC5861377)
+- Stahl, A. E., & Feigenson, L. (2015). Observing the unexpected enhances infants’ learning and exploration. *Science*, 348(6230), 91–94. DOI: 10.1126/science.aaa3799

@@ -68,7 +68,7 @@ OPP_ALPHA_CHAPTER = 2.0
 OPP_BETA_CARD = 1.0
 OPP_CPC_WEIGHT = 0.15
 # A query counts as covered (routed to KDP / Amazon Ads rather than the gap list) above both thresholds.
-COVERED_CHAPTER_MIN = 0.60
+COVERED_CHAPTER_MIN = 0.50
 COVERED_CARD_MIN = 0.40
 
 SEED_CSV_BY_SERIES = {

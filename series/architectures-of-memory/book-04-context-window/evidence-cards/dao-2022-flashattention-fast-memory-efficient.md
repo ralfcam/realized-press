@@ -1,8 +1,8 @@
 ---
 type: Evidence Card
 title: "IO-Aware Tiling and Exact Memory-Efficient Attention (Dao et al. 2022)"
-description: "FlashAttention computes exact self-attention with O(N) memory complexity and 2–4× wall-clock speedup by leveraging GPU SRAM tiling and avoiding materialized intermediate attention matrices in High Bandwidth Memory."
-tags: [flashattention, memory-efficient, gpu-tiling, exact-attention]
+description: "FlashAttention computes exact self-attention with O(N) memory complexity and 2–4× wall-clock speedup by leveraging GPU SRAM tiling, overcoming the KV cache memory bottleneck and unlocking the long context window for foundation models."
+tags: [flashattention, memory-efficient, gpu-tiling, exact-attention, kv-cache-bottleneck, long-context-window, attention-scaling]
 status: stable
 confidence: high
 generated: { by: agent:antigravity, at: 2026-10-21T21:30:00Z }
@@ -23,7 +23,7 @@ sources:
 
 ## What We Know
 
-By restructuring scaled dot-product attention to operate on tiled blocks loaded into fast GPU on-chip SRAM and computing softmax normalization incrementally without writing the $N \times N$ attention matrix to High Bandwidth Memory (HBM), FlashAttention achieves 2–4× wall-clock training speedups and reduces memory footprint from $O(N^2)$ to $O(N)$ without numerical approximation.
+By restructuring scaled dot-product attention to operate on tiled blocks loaded into fast GPU on-chip SRAM and computing softmax normalization incrementally without writing the $N \times N$ attention matrix to High Bandwidth Memory (HBM), FlashAttention achieves 2–4× wall-clock training speedups and reduces memory footprint from $O(N^2)$ to $O(N)$ without numerical approximation. This IO-aware architecture directly relieves the KV cache memory bottleneck during autoregressive decoding and enables scaling to long context windows previously blocked by memory IO transfer latency.
 
 ## How Confident We Are
 

@@ -1,12 +1,12 @@
-# Chapter 8 — The Vanishing Gradient as a Theorem, Not a Bug
+# Chapter 8 — The Vanishing Gradient Problem in Neural Networks: A Theorem, Not a Bug
 
-*Sources: research note `research/notes/ch08-vanishing-gradient-theorem.md`; Y. Bengio, P. Frasconi, and P. Simard, ICNN 1993; Y. Bengio, P. Simard, and P. Frasconi (1994); S. Hochreiter (1991 thesis); T. Mikolov *et al.*, Interspeech 2010; R. Pascanu, T. Mikolov, Y. Bengio, ICML 2013; L. Johnston *et al.*, *Neural Networks* 2025; research/fact-checks/ch08.md (ARC-28).*
+*Sources: research note `research/notes/ch08-vanishing-gradient-theorem`; Y. Bengio, P. Frasconi, and P. Simard, ICNN 1993; Y. Bengio, P. Simard, and P. Frasconi (1994); S. Hochreiter (1991 thesis); T. Mikolov *et al.*, Interspeech 2010; R. Pascanu, T. Mikolov, Y. Bengio, ICML 2013; L. Johnston *et al.*, *Neural Networks* 2025; fact-check ARC-28.*
 
 ---
 
 ## Read the title as a claim
 
-In 1994 **Yoshua Bengio**, **Patrice Simard**, and **Paolo Frasconi** published “Learning Long-Term Dependencies with Gradient Descent Is Difficult” in the *IEEE Transactions on Neural Networks*. The title is an argument, not a mood. The paper shows that standard gradient-based training of recurrent systems—viewed through the unrolled graph that backpropagation walks—faces a structural obstacle that worsens as the span of the dependency to be learned grows. The point is not that engineers are careless; it is that **partial derivatives compose** along long unrolled paths in a way that can **shrink** (or, in other regimes, **blow up**) the signal that early time steps need for credit assignment.
+In the engineering literature, the vanishing gradient problem in neural networks is often misdiagnosed as an implementation quirk or a matter of poor hyperparameter tuning. In 1994 **Yoshua Bengio**, **Patrice Simard**, and **Paolo Frasconi** published “Learning Long-Term Dependencies with Gradient Descent Is Difficult” in the *IEEE Transactions on Neural Networks*. The title is an argument, not a mood. The paper shows that the vanishing gradient problem in recurrent neural networks and deep sequence models—viewed through the unrolled computational graph that backpropagation walks—is a rigorous mathematical theorem: standard gradient-based training faces a structural obstacle that compounds exponentially as the temporal span of dependencies grows. The point is not that engineers are careless; it is that **partial derivatives compose** along long unrolled paths in a way that causes the vanishing gradient problem in neural networks to systematically extinguish the credit assignment signals that early time steps require.
 
 A conference sketch appeared the year before at **ICNN 1993** (authors listed as Bengio, Frasconi, and Simard). The 1994 journal version is the standard reference for the full formal development and the latch experiment everyone teaches. Cite 1993 for the first public framing; cite 1994 for the journal proof.[^bengio1993_1994]
 
@@ -19,6 +19,8 @@ A conference sketch appeared the year before at **ICNN 1993** (authors listed as
 ## Technical lens — Products, radii, and an asymmetric pair of repairs
 
 Unroll a recurrent map for *T* steps and you have a feedforward network *T* layers deep, reusing the same weights. The sensitivity of a late loss to an early hidden state is a **product** of local Jacobians along the chain—the same multiplicative shape **Sepp Hochreiter** analyzed in his **1991** Munich *Diplomarbeit* (Chapter 7) and that **Bengio**, **Simard**, and **Frasconi** make the workhorse of their **1994** *Transactions* paper: a single journal volume a broad English-speaking audience could actually find in a university library.
+
+The vanishing gradient problem in neural networks arises directly from this multiplicative composition: when the largest eigenvalue (spectral radius) of the recurrent weight matrices is less than unity, repeated multiplication across *T* steps drives the gradient exponentially toward zero. In deep neural networks and recurrent neural networks, this means that error signals from step 100 cannot exert any meaningful gradient pull on parameters at step 1. The vanishing gradient problem in neural networks is therefore an inevitable mathematical consequence of backpropagating sensitivities across long sequence graphs, explaining why early architectures could not bridge temporal gaps longer than ten time steps.
 
 **Exploding** gradients are *loud*—the loss may diverge, weights may scream; **vanishing** ones are *quiet*—the loss curve can look well behaved while the model learns a *shorter* horizon than the one you *thought* you specified.
 

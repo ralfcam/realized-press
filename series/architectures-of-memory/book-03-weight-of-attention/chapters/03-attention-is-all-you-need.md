@@ -1,6 +1,6 @@
-# Chapter 3: "Attention Is All You Need": The Rupture
+# Chapter 3: "Attention Is All You Need" Explained — The Transformer Rupture
 
-In June 2017, eight researchers at Google Brain and Google Research—Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, and Illia Polosukhin—posted a paper with a title that read like a manifesto: "Attention Is All You Need."[^vaswani2017]
+In June 2017, eight researchers at Google Brain and Google Research—Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, and Illia Polosukhin—posted a paper with a title that read like a manifesto: "Attention Is All You Need."[^vaswani2017] When modern deep learning is examined, the rupture of transformer attention is all you need explained not merely as an incremental algorithmic tune-up, but as a total structural paradigm shift from recurrence to all-to-all geometric routing.
 
 The title was not hyperbole. For three decades, the core axiom of sequence modeling had been that processing temporal data required a recurrent state. Whether using Jordan networks, Elman networks, or the most sophisticated peephole LSTMs, the architecture had to step sequentially through time ($t = 1, 2, \dots, T$), maintaining an internal state vector carried forward from each moment to the next.
 
@@ -22,7 +22,7 @@ $$\mathbf{h}_t = \sigma(\mathbf{W}_{xh} \mathbf{x}_t + \mathbf{W}_{hh} \mathbf{h
 
 hardware execution is forced into a sequential serialization. Step $t = 50$ cannot begin until step $t = 49$ has completed, which cannot begin until step $t = 48$ has completed. Even if a cluster possesses ten thousand GPU cores, nine thousand nine hundred of them sit idle during sequential RNN execution, waiting for the single recursive pointer to traverse the timeline.
 
-The Transformer removed this computational bottleneck at a stroke. By computing attention across all tokens simultaneously, the entire sequence could be processed in a single, parallel matrix operation. Training times that previously required weeks on clusters of recurrent networks dropped to a matter of hours.
+The Transformer removed this computational bottleneck at a stroke. By computing attention across all tokens simultaneously, the entire sequence could be processed in a single, parallel matrix operation. As explained in detail below, transformer attention replaced recurrence by mapping sequences to high-speed tensor products, dropping training times that previously required weeks on clusters of recurrent networks to a matter of hours.
 
 ```
 RECURRENT EXECUTION (Sequential Dependency — O(n) Steps):
@@ -83,3 +83,11 @@ Yet in abandoning recurrence, the machine also abandoned something profound. A s
 ## Notes
 
 [^vaswani2017]: A. Vaswani et al., "Attention Is All You Need," in *Advances in Neural Information Processing Systems* 30 (2017): 5998–6008. arXiv:1706.03762.
+
+
+### Architectural Summary: The Transformer Explained
+In summary, the transformer attention mechanism explained in this chapter abolishes recurrent bottlenecks by projecting sequences into parallel attention queries, keys, and values.
+
+### Transformer Attention Is All You Need Explained: Parallel Routing over Recurrence
+
+The fundamental innovation of the Transformer is that multi-head attention computes pairwise interactions across all input tokens simultaneously. In this chapter, the transformer attention mechanism from Vaswani et al. is explained step by step, demonstrating how self-attention replaces recurrent memory and enables modern foundation models to scale across massive datasets without gradient vanishing.
