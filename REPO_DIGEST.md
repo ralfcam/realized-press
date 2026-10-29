@@ -33,7 +33,9 @@ This repository unites nonfiction book series under a single **Book Writing Envi
   - [`scripts/render_evidence_briefs.py`](scripts/render_evidence_briefs.py) — Compiles deterministic **Public Evidence Briefs** (standalone 2-page PDFs + responsive HTML + Compendium PDF) for all `stable` OKF v0.2 cards (`make briefs`).
   - [`scripts/generate_audiobook_tts.py`](scripts/generate_audiobook_tts.py) — Synthesizes chapter audio via Gemini 2.5 Flash TTS.
   - [`scripts/init_series.py`](scripts/init_series.py) — Scaffolds new series (`series/<slug>/series.yaml`) and book volumes in one command.
-  - [`scripts/marketing_intelligence.py`](scripts/marketing_intelligence.py) — Marketing Intelligence & Topic Scorecard engine (`make market-intel`).
+  - [`scripts/marketing_intelligence.py`](scripts/marketing_intelligence.py) — Marketing Intelligence, Demand Telemetry & KDP 7-Box Knapsack Optimizer (`make market-intel`, `make market-intel-kdp`).
+  - [`scripts/gads_client.py`](scripts/gads_client.py) — Google Ads API (`KeywordPlanIdeaService`) client & native Keyword Planner UI CSV export parser.
+  - [`tests/`](tests/) — Pytest automated test suite (`tests/test_gads_client.py`, `tests/test_keyword_pipeline.py`) (`make test`).
 
 ---
 

@@ -21,7 +21,7 @@ PrefixArg = $(if $(strip $(PREFIX)),--prefix $(strip $(PREFIX)),)
 ChapterArg = $(if $(strip $(CHAPTER)),--chapter $(strip $(CHAPTER)),)
 NewBookArg = $(if $(strip $(NEW_BOOK)),--book $(strip $(NEW_BOOK)),)
 
-.PHONY: merge merge-audiobook merge-both audit audit-gemini audit-all audit-layout five-rule five-rule-online five-rule-all pdf kdp epub briefs sync-sources audiobook-dry-run audiobook-tts new-series market-intel
+.PHONY: merge merge-audiobook merge-both audit audit-gemini audit-all audit-layout five-rule five-rule-online five-rule-all pdf kdp epub briefs sync-sources audiobook-dry-run audiobook-tts new-series market-intel market-intel-kdp test
 
 merge:
 	$(PYTHON) scripts/merge_book_chapters.py $(BOOK) $(PrefixArg)
@@ -99,6 +99,12 @@ new-series:
 
 market-intel:
 	$(PYTHON) scripts/marketing_intelligence.py $(if $(strip $(SERIES)),--series $(strip $(SERIES)),)
+
+market-intel-kdp:
+	$(PYTHON) scripts/marketing_intelligence.py --optimize-kdp-boxes $(if $(strip $(SERIES)),--series $(strip $(SERIES)),)
+
+test:
+	$(PYTHON) -m pytest tests/
 
 # Stage 3: BWE Productization (P-ARC-18)
 .PHONY: bwe-serve bwe-schema bwe-audit bwe-intelligence bwe-export-site

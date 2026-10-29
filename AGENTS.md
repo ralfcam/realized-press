@@ -84,3 +84,5 @@ All research, evidence-card authoring, verification, and drafting tasks MUST fol
 - **Amazon KDP Print Interior (6"×9") + Kindle EPUB 3 Compiler:** `python scripts/render_publishing_pdfs.py <book-dir> --format kdp-6x9 --epub` (`make kdp BOOK=...`).
 - **Audiobook TTS Generator:** `python scripts/generate_audiobook_tts.py <book-dir> --dry-run` (`make audiobook-dry-run BOOK=...` / `make audiobook-tts BOOK=...`).
 - **New Series / Volume Scaffolder:** `python scripts/init_series.py --series <slug> --title "<Title>" [--book <book-slug>]` (`make new-series SERIES=... TITLE="..."`).
+- **Marketing Intelligence & KDP Demand Telemetry:** `python scripts/marketing_intelligence.py [--keywords seed] [--optimize-kdp-boxes] [--fetch-live] [--import-gkp-export <file>]` (`make market-intel` / `make market-intel-kdp`).
+- **Deterministic Test Suite:** `pytest tests/` (`make test`).

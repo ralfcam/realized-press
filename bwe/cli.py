@@ -55,10 +55,14 @@ def export_site(output: str = "dist/site"):
 @cli.command()
 def intelligence(
     discover: str = typer.Option(None, help="Upstream topic discovery query via OpenAlex"),
-    keywords: str = typer.Option(None, help="Google Keyword Planner CSV path (or 'seed' for data/gkp_parenting_0_3_seed.csv)"),
+    keywords: str = typer.Option(None, help="Google Keyword Planner CSV path (or 'seed' for data/gkp_*_seed.csv)"),
     series: str = typer.Option(None, help="Target series slug (e.g. parenthood-atlas)"),
+    fetch_live: bool = typer.Option(False, "--fetch-live", help="Stage 1 autocomplete discovery -> Stage 2 Google Ads empirical enrichment"),
+    expand_ideas: bool = typer.Option(False, "--expand-ideas", help="Run Google Ads GenerateKeywordIdeas on chapter topic clusters"),
+    import_gkp_export: str = typer.Option(None, "--import-gkp-export", help="Path to Google Ads UI CSV export (UTF-16LE / UTF-8)"),
+    optimize_kdp_boxes: bool = typer.Option(False, "--optimize-kdp-boxes", help="Pack covered demand into 7 KDP backend keyword boxes (<= 49 UTF-8 bytes)"),
 ):
-    """ARC-58 / ARC-72: Run Marketing Intelligence, Keyword Gap Radar & Citation Telemetry synthesis."""
+    """ARC-58 / ARC-72 / ARC-73: Run Marketing Intelligence, Keyword Demand Telemetry & KDP Optimizer."""
     cmd = [sys.executable, str(REPO_ROOT / "scripts" / "marketing_intelligence.py")]
     if discover:
         cmd.extend(["--discover", discover])
@@ -66,6 +70,14 @@ def intelligence(
         cmd.extend(["--keywords", keywords])
     if series:
         cmd.extend(["--series", series])
+    if fetch_live:
+        cmd.append("--fetch-live")
+    if expand_ideas:
+        cmd.append("--expand-ideas")
+    if import_gkp_export:
+        cmd.extend(["--import-gkp-export", import_gkp_export])
+    if optimize_kdp_boxes:
+        cmd.append("--optimize-kdp-boxes")
     rc = subprocess.call(cmd)
     raise typer.Exit(code=rc)
 
