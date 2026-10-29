@@ -61,6 +61,7 @@ def intelligence(
     expand_ideas: bool = typer.Option(False, "--expand-ideas", help="Run Google Ads GenerateKeywordIdeas on chapter topic clusters"),
     import_gkp_export: str = typer.Option(None, "--import-gkp-export", help="Path to Google Ads UI CSV export (UTF-16LE / UTF-8)"),
     optimize_kdp_boxes: bool = typer.Option(False, "--optimize-kdp-boxes", help="Pack covered demand into 7 KDP backend keyword boxes (<= 49 UTF-8 bytes)"),
+    export_amazon_ads: str = typer.Option(None, "--export-amazon-ads", help="Path to export Amazon Advertising (Sponsored Products) bulk upload CSV"),
 ):
     """ARC-58 / ARC-72 / ARC-73: Run Marketing Intelligence, Keyword Demand Telemetry & KDP Optimizer."""
     cmd = [sys.executable, str(REPO_ROOT / "scripts" / "marketing_intelligence.py")]
@@ -78,6 +79,8 @@ def intelligence(
         cmd.extend(["--import-gkp-export", import_gkp_export])
     if optimize_kdp_boxes:
         cmd.append("--optimize-kdp-boxes")
+    if export_amazon_ads:
+        cmd.extend(["--export-amazon-ads", export_amazon_ads])
     rc = subprocess.call(cmd)
     raise typer.Exit(code=rc)
 

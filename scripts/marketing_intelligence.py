@@ -785,6 +785,46 @@ def optimize_kdp_boxes_report(series_slug: str, signals: list[KeywordSignal]) ->
     return "\n".join(lines) + "\n"
 
 
+def export_amazon_ads_csv(
+    signals: Iterable[KeywordSignal],
+    series_slug: str,
+    output_path: Path,
+    campaign_name: Optional[str] = None,
+    ad_group_name: str = "Covered Demand",
+    default_bid: float = 0.45,
+) -> int:
+    """Export an Amazon Advertising (Sponsored Products) bulk upload CSV from covered demand."""
+    manifest_p = ROOT / "series" / series_slug / "series.yaml"
+    meta = yaml.safe_load(manifest_p.read_text(encoding="utf-8")) if manifest_p.is_file() else {}
+    title = meta.get("title") or series_slug.replace("-", " ").title()
+    camp_id = campaign_name or f"BWE - {title} Search Demand"
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    rows: list[list[str]] = [
+        ["Product", "Entity", "Operation", "Campaign ID", "Ad Group ID", "Keyword Text", "Match Type", "Bid", "State"],
+        ["Sponsored Products", "Campaign", "Create", camp_id, "", "", "", "", "enabled"],
+        ["Sponsored Products", "Ad Group", "Create", camp_id, ad_group_name, "", "", "", "enabled"],
+    ]
+
+    covered = [s for s in signals if s.coverage >= KDP_MIN_COVERAGE]
+    count = 0
+    for sig in covered:
+        if sig.cpc_high_usd > 0:
+            bid = round(max(0.35, min(1.75, (sig.cpc_low_usd + sig.cpc_high_usd) / 2.0 if sig.cpc_low_usd > 0 else 0.75 * sig.cpc_high_usd)), 2)
+        else:
+            bid = default_bid
+        phrase_bid = round(max(0.30, bid * 0.85), 2)
+
+        rows.append(["Sponsored Products", "Keyword", "Create", camp_id, ad_group_name, sig.query, "EXACT", f"{bid:.2f}", "enabled"])
+        rows.append(["Sponsored Products", "Keyword", "Create", camp_id, ad_group_name, sig.query, "PHRASE", f"{phrase_bid:.2f}", "enabled"])
+        count += 2
+
+    with output_path.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerows(rows)
+    return count
+
+
 def extract_bib_years(series_dir: Path) -> list[int]:
     years: list[int] = []
     for bib in sorted(series_dir.rglob("sources.bib")):
@@ -1117,6 +1157,10 @@ def run_keyword_mode(args: argparse.Namespace) -> int:
         print(render_radar_report(signals, candidates, csv_arg, slug, notes))
         if args.optimize_kdp_boxes:
             print(optimize_kdp_boxes_report(slug, signals))
+        if args.export_amazon_ads:
+            out_p = Path(args.export_amazon_ads).resolve()
+            n_rows = export_amazon_ads_csv(signals, slug, out_p)
+            print(f"\n[PASS] Exported {n_rows} Amazon Ads Sponsored Products keyword row(s) to `{out_p}`")
     return 0
 
 
@@ -1134,6 +1178,7 @@ def main() -> int:
     parser.add_argument("--persist-discoveries", action="store_true", help="Append Ads-verified discoveries to the seed CSV (default: DB cache only)")
     parser.add_argument("--import-gkp-export", default=None, metavar="CSV", help="Import a Keyword Planner web-UI export (UTF-16 CSV; no Developer Token needed); requires --series")
     parser.add_argument("--optimize-kdp-boxes", action="store_true", help="Propose 7 backend keyword boxes (<=49 UTF-8 bytes each) from covered demand")
+    parser.add_argument("--export-amazon-ads", default=None, metavar="PATH", help="Export an Amazon Advertising (Sponsored Products) bulk upload CSV from covered demand")
     parser.add_argument("--refresh", action="store_true", help="Ignore the Google Ads cache TTL and refetch")
     parser.add_argument("--cache-ttl-days", type=int, default=bwedb.DEFAULT_CACHE_TTL_DAYS, help="Google Ads cache TTL in days (default 30)")
     parser.add_argument("--gads-customer-id", default=None, help="Google Ads customer id (default: GOOGLE_ADS_CUSTOMER_ID)")
@@ -1146,7 +1191,7 @@ def main() -> int:
         print(discover_frontier_topics(args.discover, limit=args.limit))
         return 0
 
-    if any([args.keywords, args.fetch_live, args.expand_ideas, args.import_gkp_export, args.optimize_kdp_boxes]):
+    if any([args.keywords, args.fetch_live, args.expand_ideas, args.import_gkp_export, args.optimize_kdp_boxes, args.export_amazon_ads]):
         return run_keyword_mode(args)
 
     root = repo_root()

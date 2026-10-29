@@ -162,14 +162,44 @@ def test_bwe_db_bm25_coverage_in_memory():
     assert cov_unrelated.chapter_score == 0.0
     assert cov_unrelated.card_score == 0.0
 
-    # Search for peanut allergy query
-    cov = bwedb.bm25_coverage(conn, "series-test", ["peanut", "allergen", "introduction"])
-    assert cov.chapter_score > 0.5
-    assert cov.card_score > 0.4
-    assert cov.chapter == "04-allergens"
-    assert cov.card == "card-leap-peanut"
 
-    # Search for unrelated query
-    cov_unrelated = bwedb.bm25_coverage(conn, "series-test", ["quantum", "teleportation"])
-    assert cov_unrelated.chapter_score == 0.0
-    assert cov_unrelated.card_score == 0.0
+def test_export_amazon_ads_csv(tmp_path):
+    from scripts.marketing_intelligence import export_amazon_ads_csv
+    signals = [
+        KeywordSignal(
+            query="when to introduce peanut butter baby",
+            monthly_volume=74000,
+            yoy_trend_pct=28.5,
+            competition_index=0.42,
+            target_chapter="04",
+            paa_hook="",
+            chapter_score=0.85,
+            card_score=0.80,
+            cpc_low_usd=0.45,
+            cpc_high_usd=1.85,
+        ),
+        KeywordSignal(
+            query="safe sleep seven room sharing vs own room SIDS",
+            monthly_volume=60500,
+            yoy_trend_pct=22.0,
+            competition_index=0.35,
+            target_chapter="04",
+            paa_hook="",
+            chapter_score=0.90,
+            card_score=0.85,
+            cpc_low_usd=0.0,
+            cpc_high_usd=0.0,
+        ),
+    ]
+    out_csv = tmp_path / "amazon_ads_test.csv"
+    count = export_amazon_ads_csv(signals, "parenthood-atlas", out_csv)
+    assert count == 4  # 2 keywords * (EXACT + PHRASE)
+    assert out_csv.is_file()
+
+    lines = out_csv.read_text(encoding="utf-8").splitlines()
+    assert lines[0].startswith("Product,Entity,Operation")
+    assert "Campaign" in lines[1]
+    assert "Ad Group" in lines[2]
+    # Check that EXACT and PHRASE are generated
+    assert any("EXACT" in line for line in lines[3:])
+    assert any("PHRASE" in line for line in lines[3:])

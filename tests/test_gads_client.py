@@ -128,3 +128,18 @@ def test_google_ads_client_unconfigured():
     assert not client.is_configured
     assert client.fetch_historical_metrics(["test keyword"]) == {}
     assert client.generate_keyword_ideas(["test keyword"]) == []
+
+
+def test_google_ads_client_login_customer_id():
+    client = GoogleAdsKeywordClient(customer_id="123-456-7890", login_customer_id="987-654-3210")
+    assert client.customer_id == "1234567890"
+    assert client.login_customer_id == "9876543210"
+
+
+def test_check_environment_diagnostics():
+    from scripts.gads_client import check_environment
+    report = check_environment()
+    assert "sdk_installed" in report
+    assert "is_available" in report
+    assert "customer_id" in report
+    assert report["is_available"] is False

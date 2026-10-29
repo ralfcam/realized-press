@@ -353,6 +353,7 @@ class GoogleAdsKeywordClient:
     def __init__(
         self,
         customer_id: Optional[str] = None,
+        login_customer_id: Optional[str] = None,
         geo_target_id: Optional[str] = None,
         language_id: Optional[str] = None,
         client: Any = None,
@@ -360,13 +361,20 @@ class GoogleAdsKeywordClient:
         config_path: Optional[Path] = None,
     ) -> None:
         self.customer_id = re.sub(r"\D", "", customer_id or os.getenv("GOOGLE_ADS_CUSTOMER_ID", ""))
+        self.login_customer_id = re.sub(r"\D", "", login_customer_id or os.getenv("GOOGLE_ADS_LOGIN_CUSTOMER_ID", ""))
         self.geo_target_id = geo_target_id or os.getenv("GOOGLE_ADS_GEO_TARGET_ID", "2840")  # 2840 = United States
         self.language_id = language_id or os.getenv("GOOGLE_ADS_LANGUAGE_ID", "1000")        # 1000 = English
         self._sleep = sleep_fn
-        self._client = client if client is not None else self._init_sdk_client(config_path)
+        self._config_path = config_path
+        self._client = client if client is not None else self._init_sdk_client(config_path, self.login_customer_id)
+        if self._client is not None and self.login_customer_id:
+            try:
+                self._client.login_customer_id = self.login_customer_id
+            except Exception:
+                pass
 
     @staticmethod
-    def _init_sdk_client(config_path: Optional[Path] = None) -> Any:
+    def _init_sdk_client(config_path: Optional[Path] = None, login_customer_id: Optional[str] = None) -> Any:
         try:
             from google.ads.googleads.client import GoogleAdsClient
         except ImportError:
@@ -381,9 +389,15 @@ class GoogleAdsKeywordClient:
         try:
             for path in candidates:
                 if path.is_file():
-                    return GoogleAdsClient.load_from_storage(str(path))
+                    c = GoogleAdsClient.load_from_storage(str(path))
+                    if login_customer_id and hasattr(c, "login_customer_id"):
+                        c.login_customer_id = login_customer_id
+                    return c
             if os.getenv("GOOGLE_ADS_DEVELOPER_TOKEN"):
-                return GoogleAdsClient.load_from_env()
+                c = GoogleAdsClient.load_from_env()
+                if login_customer_id and hasattr(c, "login_customer_id"):
+                    c.login_customer_id = login_customer_id
+                return c
         except Exception as exc:  # noqa: BLE001 - bad creds must degrade to the fallback tiers
             print(f"[WARN] Google Ads client init skipped ({type(exc).__name__}); using fallback tier.")
         return None
@@ -513,3 +527,105 @@ class GoogleAdsKeywordClient:
                 print(f"[WARN] Google Ads API transient error ({type(exc).__name__}); retry {attempt}/{max_attempts - 1} in {delay:.1f}s")
                 self._sleep(delay)
         raise AssertionError("unreachable")  # pragma: no cover
+
+
+# ---------------------------------------------------------------------------
+# Diagnostics & CLI
+# ---------------------------------------------------------------------------
+
+def check_environment(
+    config_path: Optional[Path] = None,
+    customer_id: Optional[str] = None,
+    login_customer_id: Optional[str] = None,
+) -> Dict[str, Any]:
+    """Inspect environment, SDK presence, and configuration files for Google Ads."""
+    sdk_installed = False
+    try:
+        import google.ads.googleads.client  # noqa: F401
+        sdk_installed = True
+    except ImportError:
+        pass
+
+    resolved_config = None
+    candidates = []
+    if config_path is not None:
+        candidates.append(Path(config_path))
+    if os.getenv("GOOGLE_ADS_CONFIGURATION_FILE_PATH"):
+        candidates.append(Path(os.environ["GOOGLE_ADS_CONFIGURATION_FILE_PATH"]))
+    candidates += [Path("google-ads.yaml"), Path(__file__).resolve().parent.parent / "google-ads.yaml"]
+
+    for p in candidates:
+        if p.is_file():
+            resolved_config = p
+            break
+
+    client = GoogleAdsKeywordClient(
+        customer_id=customer_id,
+        login_customer_id=login_customer_id,
+        config_path=config_path,
+    )
+    return {
+        "sdk_installed": sdk_installed,
+        "config_file": str(resolved_config) if resolved_config else None,
+        "customer_id": client.customer_id or None,
+        "login_customer_id": client.login_customer_id or None,
+        "is_available": client.is_available,
+    }
+
+
+def main() -> int:
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Google Ads API Keyword Planner CLI & Diagnostic Tool (BWE v0.6.0)")
+    parser.add_argument("--check", action="store_true", help="Run diagnostic health check on SDK and credentials")
+    parser.add_argument("--query", nargs="+", help="Enrich specific keywords via Google Ads API")
+    parser.add_argument("--ideas", nargs="+", help="Generate keyword ideas from seed phrases")
+    parser.add_argument("--customer-id", help="Operating customer ID (10 digits without dashes)")
+    parser.add_argument("--login-customer-id", help="Manager customer ID (MCC, 10 digits without dashes)")
+    parser.add_argument("--config", type=Path, help="Path to google-ads.yaml")
+    args = parser.parse_args()
+
+    if args.check or (not args.query and not args.ideas):
+        report = check_environment(
+            config_path=args.config,
+            customer_id=args.customer_id,
+            login_customer_id=args.login_customer_id,
+        )
+        print("=== Google Ads API Diagnostic Health Check ===")
+        print(f"SDK Installed:         {'PASS' if report['sdk_installed'] else 'FAIL (run: pip install google-ads>=25.1.0)'}")
+        print(f"Config File:           {report['config_file'] or 'None found (copy from google-ads.yaml.example)'}")
+        print(f"Customer ID:           {report['customer_id'] or 'Not configured (set GOOGLE_ADS_CUSTOMER_ID)'}")
+        print(f"Login Customer ID:     {report['login_customer_id'] or 'None (optional MCC id)'}")
+        print(f"Client Ready:          {'PASS (API operational)' if report['is_available'] else 'DISABLED (fallback tiers will be used)'}")
+        if not report["is_available"]:
+            print("\nTo enable live Google Ads API demand telemetry:")
+            print("  1. Copy google-ads.yaml.example to google-ads.yaml")
+            print("  2. Fill in developer_token, client_id, client_secret, refresh_token, and customer_id")
+            print("  3. Run: python scripts/gads_client.py --check")
+        return 0 if report["is_available"] else 1
+
+    client = GoogleAdsKeywordClient(
+        customer_id=args.customer_id,
+        login_customer_id=args.login_customer_id,
+        config_path=args.config,
+    )
+    if not client.is_available:
+        print("[ERROR] Google Ads client is not configured. Run with --check to diagnose.")
+        return 1
+
+    if args.query:
+        metrics = client.fetch_historical_metrics(args.query)
+        print(f"Fetched {len(metrics)} metric(s):")
+        for q, m in metrics.items():
+            print(f"  - {q}: {m.monthly_volume}/mo (YoY {m.yoy_trend_pct:+g}%, Comp: {m.competition_index}, CPC: ${m.cpc_low_usd:.2f}-${m.cpc_high_usd:.2f})")
+
+    if args.ideas:
+        ideas = client.generate_keyword_ideas(args.ideas)
+        print(f"Generated {len(ideas)} idea(s):")
+        for m in ideas:
+            print(f"  - {m.query}: {m.monthly_volume}/mo (YoY {m.yoy_trend_pct:+g}%, Comp: {m.competition_index})")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
