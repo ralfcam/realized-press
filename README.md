@@ -15,22 +15,24 @@ See **[VISION.md](VISION.md)** for the full product, monetization, and BWE softw
 
 | Series | Directory & Manifest | Three-Lens Method | Description & Current Release Slice |
 | :--- | :--- | :--- | :--- |
-| **Series 1: *Architectures of Memory*** | [`series/architectures-of-memory/`](series/architectures-of-memory/) ([`series.yaml`](series/architectures-of-memory/series.yaml)) | **Technical $\to$ Organizational $\to$ Philosophical** | Five-book investigation of memory, persistence, and forgetting in AI, institutions, and philosophy. **Book 1 (*The Vanishing Signal*)**: 16 chapters complete (~42,100 words), fact-checked, BibTeX-locked, KDP & Reader Edition ready. **Books 2–5**: Outlined, `sources.bib` & OKF `evidence-cards/` seeded. |
-| **Series 2: *Parenthood: The Atlas*** | [`series/parenthood-atlas/`](series/parenthood-atlas/) ([`series.yaml`](series/parenthood-atlas/series.yaml)) | **Science $\to$ Interpretation $\to$ Art** | Developmental science field guide from preconception through age 3. **`v0.3` Release Slice**: 15 curated chapters (~27,200 words), 68 OKF v0.2 `evidence-cards/`, 114 verified sources, KDP & Reader Edition 0.1 ready. |
+| **Series 1: *Architectures of Memory*** | [`series/architectures-of-memory/`](series/architectures-of-memory/) ([`series.yaml`](series/architectures-of-memory/series.yaml)) | **Technical $\to$ Organizational $\to$ Philosophical** | Landmark five-book series exploring memory, persistence, and forgetting across artificial neural networks, institutional governance, and philosophy of mind. **Books 1–5 Complete**: Book 1 (*The Vanishing Signal*), Book 2 (*The Forget Gate*), Book 3 (*The Weight of Attention*), Book 4 (*The Context Window*), and Book 5 (*The Architecture of Forgetting*) — 85 chapters (~220k words), 76 OKF v0.2 cards, 127 locked BibTeX sources, KDP 6"×9" Print and Reader Edition ready. |
+| **Series 2: *Parenthood: The Atlas*** | [`series/parenthood-atlas/`](series/parenthood-atlas/) ([`series.yaml`](series/parenthood-atlas/series.yaml)) | **Science $\to$ Interpretation $\to$ Art** | Developmental science field guide from conception through age 3. **`v1.0-rc3` Bestseller Release Slice**: 15 curated chapters + Quick-Finder front matter (54,406 words), 76 OKF v0.2 `evidence-cards/`, 134 verified BibTeX DOIs, zero retractions. Calibrated to Flesch-Kincaid Grade 8.0–10.0 with 100% clinical jargon isolated to chapter-local `## Notes` and HTMX side-drawer. KDP 6"×9" Print PDF (145p) & Reader Edition A4 PDF (96p) + EPUB 3 ready. |
 
 ---
 
-## 2. The Book Writing Environment (BWE) Harness
+## 2. The Book Writing Environment (BWE) Harness (`BWE v0.6.1`)
 
 | SDLC / IDE Equivalent | Realized Press BWE Component | Purpose |
 | :--- | :--- | :--- |
-| **Product & Monetization Vision** | **[VISION.md](VISION.md)** | 4-pillar strategy: KDP initial launch + owned Patreon-style marketing site, BWE software architecture, multi-series extensibility, and marketing intelligence. |
-| **Product Discovery & Market Telemetry** | **[scripts/marketing_intelligence.py](scripts/marketing_intelligence.py)** | Evaluates target personas, high-intent topic clusters, comp-title review gaps, KDP 7-slot keywords, bibliographic velocity, and top OKF lead magnets (`make market-intel`). |
+| **Product & Monetization Vision** | **[VISION.md](VISION.md)** | 4-pillar strategy: KDP initial launch channel + owned Patreon-style marketing site, BWE software architecture, multi-series extensibility, and marketing intelligence. |
+| **Demand Engine & Live Telemetry** | **[scripts/marketing_intelligence.py](scripts/marketing_intelligence.py)** & **[scripts/gads_client.py](scripts/gads_client.py)** | Two-stage demand funnel: Stage 1 autocomplete phrasing discovery + Stage 2 Google Ads API (`KeywordPlanIdeaService`) historical volume/trend/CPC enrichment, negative token domain filtering, and Amazon Ads campaign export (`make market-intel`, `make market-intel-ads`). |
+| **Turnkey API OAuth2 Bootstrap** | **[scripts/gads_auth_setup.py](scripts/gads_auth_setup.py)** | Interactive desktop OAuth2 token generation and `google-ads.yaml` configuration with MCC customer ID routing. |
 | **Type System & Unit Tests** | **[SPEC.md](SPEC.md) & [CONTRIBUTING.md](CONTRIBUTING.md)** | Universal **OKF v0.2** specification for atomic `evidence-cards/*.md` (9 required sections, compound certainty grading, confounding attenuation, and `## What This Does Not Mean`). |
-| **Language Grammar & Style Guide** | **[COMPOSITION.md](COMPOSITION.md) & [style/](style/)** | Three-Lens epistemic crosswalk, anomaly-driven chapter openings, grade-calibrated verb grammar (*shows* / *suggests* / *is associated with*), and [`style/forbidden-phrases.md`](style/forbidden-phrases.md). |
-| **Dependency Lockfile & CVE Scanner** | **[scripts/mcp_academic_bib.py](scripts/mcp_academic_bib.py) & [scripts/five_rule_check.py](scripts/five_rule_check.py)** | Verifies DOIs/arXiv IDs against Crossref (`updates_or_errata`) and OpenAlex (`is_retracted`), locks `sources.bib` $\leftrightarrow$ `SOURCES.md`, and enforces the 5-rule promotion gate. |
-| **Static Analyzer & IDE Linter** | **[scripts/audit_manuscript.py](scripts/audit_manuscript.py) & `.claude/hooks/post_edit_guard.py`** | Cross-chapter continuity, metaphor collision, footnote integrity, forbidden-phrase, and OKF evidence-card auditor. |
+| **Language Grammar & Readability** | **[COMPOSITION.md](COMPOSITION.md) & [style/](style/)** | Three-Lens crosswalk, anomaly chapter grammar, grade-calibrated verbs (*shows* / *suggests* / *is associated with*), split-register jargon isolation (`style/jargon-to-notes.yml`), and [`style/forbidden-phrases.md`](style/forbidden-phrases.md). |
+| **Dependency Lockfile & CVE Scanner** | **[scripts/mcp_academic_bib.py](scripts/mcp_academic_bib.py) & [scripts/five_rule_check.py](scripts/five_rule_check.py)** | Verifies DOIs/arXiv IDs against Crossref and OpenAlex (`is_retracted`), locks `sources.bib` $\leftrightarrow$ `SOURCES.md`, and enforces the 5-rule promotion gate. |
+| **Static Analyzer & Continuity Linter** | **[scripts/audit_manuscript.py](scripts/audit_manuscript.py) & `.agents/hooks/post_edit_guard.py`** | Real-time `PostToolUse` guard checking continuity, footnote integrity, Flesch-Kincaid grade, forbidden phrases, harness anti-leakage, and KDP 7-box 50-byte limits. |
 | **Multi-Target Release Compiler** | **[scripts/render_publishing_pdfs.py](scripts/render_publishing_pdfs.py) & [scripts/generate_audiobook_tts.py](scripts/generate_audiobook_tts.py)** | Compiles deterministic **Reader Edition (A4 PDF + HTML)**, **Amazon KDP 6"×9" Print Interior PDF** (`--format kdp-6x9`), **Kindle EPUB 3** (`--epub`), and **Gemini 2.5 Flash TTS Audiobooks**. |
+| **Epistemic IDE & Reader Portal** | **[bwe/server.py](bwe/server.py) & `bwe.cli`** | 3-pane Epistemic IDE and reader portal with real-time HTMX side-drawer, audio sync, and interactive card inspection (`make serve`). |
 | **Project Generator (`create-app`)** | **[scripts/init_series.py](scripts/init_series.py)** | Scaffolds new book series (`series/<slug>/series.yaml`) and book volumes with OKF v0.2 directories and seed files. |
 
 ---
@@ -38,10 +40,19 @@ See **[VISION.md](VISION.md)** for the full product, monetization, and BWE softw
 ## 3. Quick Commands (`Makefile`)
 
 ```bash
-# Audit both flagship manuscripts (Book 1 of Architectures of Memory + Parenthood: The Atlas)
+# Run deterministic test suite (14+ unit tests across schema, knapsack, and telemetry)
+make test
+
+# Audit flagship manuscripts for style, continuity, footnotes, and Flesch-Kincaid grade
+make audit BOOK=series/parenthood-atlas
 make audit-all
 
-# Run OKF v0.2 Five-Rule check across all 74 evidence cards in both series
+# Run layout budget and page overflow auditor
+make audit-layout BOOK=series/parenthood-atlas
+
+# Run OKF v0.2 Five-Rule check across evidence cards (with live retraction sentinel)
+make five-rule BOOK=series/parenthood-atlas
+make five-rule-online BOOK=series/parenthood-atlas
 make five-rule-all
 
 # Render Reader Edition (A4 PDF + standalone HTML) for Patreon / review
@@ -52,13 +63,29 @@ make pdf BOOK=series/parenthood-atlas
 make kdp BOOK=series/architectures-of-memory/book-01-vanishing-signal
 make kdp BOOK=series/parenthood-atlas
 
+# Run Demand & Editorial Telemetry Radar (Stage 1 + Stage 2 demand scoring)
+make market-intel SERIES=parenthood-atlas
+make market-intel SERIES=architectures-of-memory
+
+# Pack high-intent demand words into 7 KDP backend keyword boxes (<= 49 UTF-8 bytes each)
+make market-intel-kdp SERIES=parenthood-atlas
+
+# Export Amazon Ads Sponsored Products bulk upload CSV from covered demand
+make market-intel-ads SERIES=parenthood-atlas
+
 # Merge chapters into full Markdown and TTS-ready audiobook transcript
-make merge BOOK=series/architectures-of-memory/book-01-vanishing-signal
+make merge BOOK=series/parenthood-atlas
 make merge-audiobook BOOK=series/parenthood-atlas
 
-# Estimate Gemini TTS audiobook duration
-make audiobook-dry-run BOOK=series/architectures-of-memory/book-01-vanishing-signal
+# Estimate Gemini TTS audiobook duration or synthesize speech
 make audiobook-dry-run BOOK=series/parenthood-atlas
+make audiobook-tts BOOK=series/parenthood-atlas
+
+# Launch 3-Pane Epistemic IDE & Serial Reader Portal locally on port 8080
+make serve
+
+# Validate series manifests against JSON Schema
+make bwe-schema
 
 # Scaffold a brand-new series or book volume in the BWE
 make new-series SERIES=systems-of-trust TITLE="Systems of Trust" LENSES="Mechanism,Institution,Ethics" NEW_BOOK=book-01-the-verification-gap

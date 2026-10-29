@@ -90,7 +90,45 @@ BOX_STOPWORDS = {
     "versus", "how", "what", "when", "why", "which", "who", "is", "are", "was", "be", "do", "does",
     "did", "can", "my", "your", "you", "it", "its", "as", "not", "no", "about", "this", "that",
     "doesnt", "dont", "isnt", "your", "i", "we",
+    # Conversational verbs, numbers and generic framing nouns (ARC-74)
+    "work", "works", "get", "gets", "own", "day", "three", "seven", "study", "method", "signs",
+    "introduce", "book", "books",
 }
+KDP_STOP_WORDS = BOX_STOPWORDS
+
+SERIES_DOMAIN_ANCHORS: dict[str, set[str]] = {
+    "parenthood-atlas": {
+        "baby", "babies", "infant", "infants", "toddler", "toddlers", "child", "children",
+        "prenatal", "pregnancy", "pregnant", "womb", "birth", "newborn", "sleep",
+        "breastfeeding", "formula", "feeding", "weaning", "tantrum", "potty", "daycare",
+        "parent", "parenting", "mother", "father",
+    },
+    "architectures-of-memory": {
+        "memory", "neural", "network", "networks", "gradient", "backprop", "transformer",
+        "attention", "lstm", "rnn", "context", "weights", "unlearning", "privacy",
+        "model", "models", "retrieval", "rag", "loss", "forgetting", "identity",
+    },
+}
+
+NEGATIVE_TOKENS: set[str] = {
+    "office", "adult", "desktop", "commercial", "industrial", "enterprise software",
+    "gaming", "headset",
+}
+
+
+def is_domain_relevant(query: str, series_slug: str, bm25_score: float = 0.0) -> bool:
+    """Filter out queries with negative off-topic tokens or lacking series domain anchors."""
+    q_lower = query.lower()
+    for neg in NEGATIVE_TOKENS:
+        if re.search(rf"\b{re.escape(neg)}\b", q_lower):
+            return False
+    if bm25_score >= 0.25:
+        return True
+    anchors = SERIES_DOMAIN_ANCHORS.get(series_slug, set())
+    if not anchors:
+        return True
+    tokens = set(re.findall(r"[a-z0-9]+", q_lower))
+    return bool(tokens & anchors)
 
 
 @dataclass
@@ -347,6 +385,7 @@ def _http_json(url: str, timeout: float = 6.0):
 def fetch_autocomplete_candidates(
     seed_rows: list[dict[str, str]],
     existing: set[str],
+    series_slug: str = "parenthood-atlas",
     per_seed: int = 2,
     spacing_s: float = 0.25,
     fetch: Callable[[str], object] = _http_json,
@@ -381,6 +420,8 @@ def fetch_autocomplete_candidates(
         for cand in fetched:
             q = normalize_query(cand)
             if taken >= per_seed or len(q) < 8 or q in seen:
+                continue
+            if not is_domain_relevant(q, series_slug):
                 continue
             if origin_core and len(origin_core & set(_extract_core_tokens(q))) / len(origin_core) < 0.6:
                 continue
@@ -461,6 +502,8 @@ def expand_ideas(
         if bwedb.get_keyword_signal(conn, series_slug, m.query) is not None:
             continue
         cov = bwedb.bm25_coverage(conn, series_slug, _extract_core_tokens(m.query)[:8])
+        if not is_domain_relevant(m.query, series_slug, bm25_score=cov.combined):
+            continue
         if cov.combined < min_relevance:
             continue
         _store_gads_metric(conn, series_slug, m, stamp, target_chapter=chapter_label(cov.chapter), paa_hook="")
@@ -1093,7 +1136,7 @@ def run_live_stages(slug: str, csv_path: Path, args: argparse.Namespace, writeba
         existing = {normalize_query(r["query"]) for r in rows}
         existing |= {r["query"] for r in conn.execute("SELECT query FROM keyword_signals WHERE series_slug = ?;", (slug,))}
         if args.fetch_live:
-            cands = fetch_autocomplete_candidates(rows, existing)
+            cands = fetch_autocomplete_candidates(rows, existing, series_slug=slug)
             for c in cands:
                 bwedb.upsert_keyword_signal(
                     conn, slug, c["query"], source_tier=TIER_AUTOCOMPLETE, monthly_volume=0,

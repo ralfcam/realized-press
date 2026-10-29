@@ -21,7 +21,7 @@ PrefixArg = $(if $(strip $(PREFIX)),--prefix $(strip $(PREFIX)),)
 ChapterArg = $(if $(strip $(CHAPTER)),--chapter $(strip $(CHAPTER)),)
 NewBookArg = $(if $(strip $(NEW_BOOK)),--book $(strip $(NEW_BOOK)),)
 
-.PHONY: merge merge-audiobook merge-both audit audit-gemini audit-all audit-layout five-rule five-rule-online five-rule-all pdf kdp epub briefs sync-sources audiobook-dry-run audiobook-tts new-series market-intel market-intel-kdp test
+.PHONY: merge merge-audiobook merge-both audit audit-gemini audit-all audit-layout five-rule five-rule-online five-rule-all pdf kdp epub briefs sync-sources audiobook-dry-run audiobook-tts new-series market-intel market-intel-kdp market-intel-ads test
 
 merge:
 	$(PYTHON) scripts/merge_book_chapters.py $(BOOK) $(PrefixArg)
@@ -102,6 +102,9 @@ market-intel:
 
 market-intel-kdp:
 	$(PYTHON) scripts/marketing_intelligence.py --optimize-kdp-boxes $(if $(strip $(SERIES)),--series $(strip $(SERIES)),)
+
+market-intel-ads:
+	$(PYTHON) scripts/marketing_intelligence.py --export-amazon-ads dist/kdp_ads_campaign.csv $(if $(strip $(SERIES)),--series $(strip $(SERIES)),)
 
 test:
 	$(PYTHON) -m pytest tests/

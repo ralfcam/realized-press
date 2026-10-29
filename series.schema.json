@@ -281,7 +281,7 @@
           "type": "array"
         },
         "backend_keywords": {
-          "description": "7 KDP 50-char search boxes",
+          "description": "7 KDP backend search boxes, each at most 50 UTF-8 bytes",
           "items": {
             "type": "string"
           },

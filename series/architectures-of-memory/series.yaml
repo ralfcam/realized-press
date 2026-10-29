@@ -53,13 +53,13 @@ monetization:
       - "BUS041000" # Business & Economics / Knowledge Capital
       - "PHI015000" # Philosophy / Mind & Body
     backend_keywords:
-      - "artificial intelligence memory neural networks"
-      - "deep learning history transformer attention llm"
-      - "organizational memory knowledge management reorg"
-      - "philosophy of mind identity forgetting bergson"
-      - "machine unlearning differential privacy ai ethics"
-      - "retrieval augmented generation context window rag"
-      - "vanishing gradient lstm hochreiter schmidhuber"
+      - "lstm forget gate explained multi head attention"
+      - "lost middle llm context window retrieval fine all"
+      - "mechanism visual explanation unlearning models ai"
+      - "augmented generation tuning transformer need gru"
+      - "hallucination failure recurrent neural network"
+      - "differential privacy deep difference gdpr right"
+      - "forgotten large language carbon compute cost time"
   owned_marketing_site:
     blueprint: "patreon-serial-membership-model"
     role: "internally-developed-marketing-and-serial-portal"

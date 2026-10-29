@@ -614,13 +614,15 @@ def main() -> int:
         return 1
 
     if args.query:
-        metrics = client.fetch_historical_metrics(args.query)
+        queries = [item.strip() for q in args.query for item in q.split(",") if item.strip()]
+        metrics = client.fetch_historical_metrics(queries)
         print(f"Fetched {len(metrics)} metric(s):")
         for q, m in metrics.items():
             print(f"  - {q}: {m.monthly_volume}/mo (YoY {m.yoy_trend_pct:+g}%, Comp: {m.competition_index}, CPC: ${m.cpc_low_usd:.2f}-${m.cpc_high_usd:.2f})")
 
     if args.ideas:
-        ideas = client.generate_keyword_ideas(args.ideas)
+        seeds = [item.strip() for s in args.ideas for item in s.split(",") if item.strip()]
+        ideas = client.generate_keyword_ideas(seeds)
         print(f"Generated {len(ideas)} idea(s):")
         for m in ideas:
             print(f"  - {m.query}: {m.monthly_volume}/mo (YoY {m.yoy_trend_pct:+g}%, Comp: {m.competition_index})")

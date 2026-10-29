@@ -203,3 +203,47 @@ def test_export_amazon_ads_csv(tmp_path):
     # Check that EXACT and PHRASE are generated
     assert any("EXACT" in line for line in lines[3:])
     assert any("PHRASE" in line for line in lines[3:])
+
+
+def test_is_domain_relevant():
+    from scripts.marketing_intelligence import is_domain_relevant
+
+    # Negative tokens should be rejected immediately regardless of anchors or score
+    assert not is_domain_relevant("white noise machine for office", "parenthood-atlas")
+    assert not is_domain_relevant("adult sleep apnea machine", "parenthood-atlas")
+    assert not is_domain_relevant("gaming headset for toddler", "parenthood-atlas")
+    assert not is_domain_relevant("enterprise software memory management", "architectures-of-memory")
+
+    # Domain anchors for parenthood-atlas
+    assert is_domain_relevant("when to introduce peanut butter baby", "parenthood-atlas")
+    assert is_domain_relevant("why do toddlers hit and bite", "parenthood-atlas")
+    assert is_domain_relevant("newborn safe sleep room sharing", "parenthood-atlas")
+    assert is_domain_relevant("potty training 3 day method", "parenthood-atlas")
+
+    # Domain anchors for architectures-of-memory
+    assert is_domain_relevant("lstm forget gate mechanism", "architectures-of-memory")
+    assert is_domain_relevant("transformer multi head attention", "architectures-of-memory")
+    assert is_domain_relevant("machine unlearning differential privacy", "architectures-of-memory")
+
+    # Unrelated queries lacking domain anchors should be rejected when BM25 is low
+    assert not is_domain_relevant("best vacuum cleaner reviews", "parenthood-atlas", bm25_score=0.1)
+    assert not is_domain_relevant("how to bake sourdough bread", "architectures-of-memory", bm25_score=0.0)
+
+    # High BM25 score overrides lack of domain anchors (if no negative tokens)
+    assert is_domain_relevant("funes the memorious borges", "architectures-of-memory", bm25_score=0.65)
+
+
+def test_hardened_box_stopwords():
+    from scripts.marketing_intelligence import BOX_STOPWORDS, KDP_STOP_WORDS
+
+    # Ensure alias
+    assert BOX_STOPWORDS is KDP_STOP_WORDS
+
+    # Hardened conversational verbs, numbers, and generic nouns
+    expected_stopwords = {
+        "work", "works", "get", "gets", "own", "day", "three", "seven",
+        "study", "method", "signs", "introduce", "book", "books",
+    }
+    for word in expected_stopwords:
+        assert word in BOX_STOPWORDS, f"Expected '{word}' to be in BOX_STOPWORDS"
+
