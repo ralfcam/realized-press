@@ -236,6 +236,33 @@ def _check_chapter_gates(path: Path, text: str) -> list[str]:
                 f"Metaphor Gate: `{path.name}` section '{sec_title}' mixes multiple controlling metaphors "
                 f"({', '.join(matched)}). Series bible allows at most 1 controlling metaphor per section."
             )
+
+    # ARC-71 / ARC-72: Anti-Leakage & Bestseller Readability Gate
+    try:
+        from audit_manuscript import ANTI_LEAKAGE_PATTERNS, compute_readability_metrics, load_jargon_dictionary
+
+        for leak_label, leak_pat in ANTI_LEAKAGE_PATTERNS.items():
+            m = leak_pat.search(body_before_notes)
+            if m:
+                notices.append(
+                    f"Anti-Leakage Gate (`ARC-71`): `{path.name}` leaks `{m.group(0)}` ({leak_label}) in body prose."
+                )
+        jargon_dict = load_jargon_dictionary(ROOT)
+        found_jargon = [t for t in jargon_dict if t.lower() in body_before_notes.lower()]
+        if found_jargon:
+            notices.append(
+                f"Jargon-to-Notes Gate (`style/jargon-to-notes.yml`): `{path.name}` contains clinical terms in body prose "
+                f"({', '.join(found_jargon[:5])}) — relocate to `## Notes`."
+            )
+        rm = compute_readability_metrics(body_before_notes)
+        if float(rm["fk_grade"]) > 10.5:
+            notices.append(
+                f"Bestseller Readability Gate (`ARC-71`): `{path.name}` Flesch-Kincaid Grade is {rm['fk_grade']} "
+                f"(target <= 10.5, avg sentence {rm['avg_sentence_words']}w)."
+            )
+    except Exception:
+        pass
+
     return notices
 
 

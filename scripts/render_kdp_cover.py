@@ -127,7 +127,7 @@ def render_kdp_cover(
     pdf.multi_cell(
         fw - 30,
         5.5,
-        "15 Curated Chapters   |   72 Evidence Cards\nSystematically Calibrated Developmental Science",
+        "15 Curated Chapters   |   76 Evidence Cards\nSystematically Calibrated Developmental Science",
         align="C",
     )
 
@@ -195,7 +195,7 @@ def render_kdp_cover(
     features = [
         "- 15 curated developmental chapters from preconception through age three.",
         "- Calibrated claim verbs strictly matching underlying evidence certainty grades.",
-        "- Systematic genetically informed (GI) confounding audits across all 72 cards.",
+        "- Systematic genetically informed (GI) confounding audits across all 76 cards.",
         "- Governed by Open Knowledge Format (OKF v0.2) and verified DOIs.",
     ]
     pdf.set_text_color(203, 213, 225)

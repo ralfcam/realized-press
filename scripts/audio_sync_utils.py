@@ -33,11 +33,27 @@ HEADING_PAUSE_WORDS = {
 
 
 def clean_spoken_text(text: str) -> str:
-    """Clean markdown formatting remnants for natural vocal cadence."""
-    t = re.sub(r"\*\*([^*]+)\*\*", r"\1", text)
+    """Clean markdown formatting remnants, HTML tags, and mathematical symbols for natural vocal cadence."""
+    # Strip HTML tags (e.g. <aside>, </aside>, <div>) so raw tags are never vocalized
+    t = re.sub(r"</?[a-zA-Z][^>]*>", " ", text)
+    # Strip markdown bold, italics, inline code, and footnotes
+    t = re.sub(r"\*\*([^*]+)\*\*", r"\1", t)
     t = re.sub(r"\*([^*]+)\*", r"\1", t)
     t = re.sub(r"`([^`]+)`", r"\1", t)
     t = re.sub(r"\[\^[^^\]]+\]", "", t)
+
+    # Normalize mathematical symbols and causal arrows for natural spoken narration
+    t = t.replace("→", " leads to ").replace("->", " leads to ")
+    t = t.replace("←", " from ").replace("<-", " from ")
+    t = t.replace("≈", " approximately ")
+    t = t.replace("≤", " less than or equal to ")
+    t = t.replace("≥", " greater than or equal to ")
+    t = t.replace("≠", " not equal to ")
+    t = t.replace("×", " times ")
+    t = t.replace(r"\approx", " approximately ")
+    t = t.replace(r"\to", " leads to ")
+    t = t.replace(r"\rightarrow", " leads to ")
+
     t = re.sub(r"\s+", " ", t).strip()
     return t
 

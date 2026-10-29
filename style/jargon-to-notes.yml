@@ -1,0 +1,42 @@
+# style/jargon-to-notes.yml
+# Split-Register Bestseller Architecture (ARC-71 / ARC-72)
+# Clinical and methodological terms that must reside in chapter-local `## Notes` (and the HTMX side-drawer)
+# rather than in main body prose above `## Notes`.
+
+max_flesch_kincaid_grade: 10.5
+target_flesch_kincaid_range: [8.5, 10.0]
+max_avg_sentence_words: 19.0
+max_single_sentence_words: 35
+
+relocate_to_notes:
+  syncytiotrophoblast: "outer layer of the placenta"
+  morphogenetic: "early body-building / structural"
+  morphogenesis: "how organs fold and take shape"
+  spermatogonial: "sperm-producing stem (cells)"
+  gametogenesis: "how eggs and sperm are formed"
+  organogenesis: "the weeks when organs first form"
+  gastrulation: "early folding of embryonic tissues"
+  frontostriatal: "the brain's physical braking system"
+  equifinality: "one good road among many / multiple paths to the same outcome"
+  equifinal: "one of several good roads"
+  heterotypic continuity: "the same childhood trait wearing different clothes at different ages"
+  evocative confounding: "how a child's own temperament draws out different reactions from adults"
+  decentered: "aimed at someone else (such as feeding a doll)"
+  epiphenomenal: "a side effect rather than the main driver"
+  assortative mating: "how partners with similar traits tend to pair up"
+  teratologic: "capable of harming fetal growth"
+  teratogenic: "capable of harming fetal development"
+  vasoconstrictor: "chemical that narrows blood vessels"
+  hydroxysteroid dehydrogenase: "specialized barrier enzyme in the placenta"
+  "11β-hsd2": "placental shield enzyme (keep exact symbol 11β-HSD2 in ## Notes)"
+  "11\\beta": "placental shield enzyme (keep exact symbol 11β-HSD2 in ## Notes)"
+  inter-burst: "pauses between bursts of sucking"
+  operant control: "active control (e.g., sucking faster or slower to choose a sound)"
+  arborization: "branching of nerve cells"
+  synaptogenesis: "forming new connections between brain cells"
+
+anti_leakage_patterns:
+  inline_md_filename: "\\b[a-z0-9-]+\\.md\\b"
+  backticked_footnote: "`\\[\\^[^\\]]+\\]`"
+  harness_meta_escalation: "\\bProgressive Lens Escalation\\b"
+  harness_meta_three_tier: "\\b(three-tier causal resolution|At the \\*\\*(first|second|third) tier)\\b"

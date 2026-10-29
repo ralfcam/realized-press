@@ -4,25 +4,25 @@
 
 Each chapter should still follow the 10-step rhythm in `COMPOSITION.md` Appendix B (phenomenon → puzzle → case → question → competing explanations → mechanism → evidence → boundary → system → return).
 
-## Working table of contents (15 chapters)
+## Working table of contents (15 chapters — Paired with High-Intent Search Subtitles, `ARC-71`)
 
-| No. | Title | Draft | Research | Canonical seed / notes |
+| No. | Literary Title | Bestseller Search-Intent Subtitle | Canonical Chapter File | High-Search Content Gaps / Notes |
 |---|---|---|---|---|
-| 1 | Before the Child Is Born | `preliminary/drafts-chapters/chapter 1` (archival) | `Chapter 1 Research Dossier.docx` | **Promoted curated copy:** `chapters/01-before-the-child-is-born.md`. Leftover Ch. 2 seed sketch removed. |
-| 2 | The First Environment | `preliminary/drafts-chapters/chapter 2` (archival) | Ch. 2 dossier cluster | **Promoted curated copy:** `chapters/02-first-environment.md`. |
-| 3 | The Great Transition | `preliminary/drafts-chapters/chapter 3` (archival) | Ch. 3 plan + continuum synthesis | **Promoted curated copy:** `chapters/03-the-great-transition.md`. Five draft cards. Mode of delivery held. |
-| 4 | The Regulatory Relationship | `preliminary/drafts-chapters/chapter 4` (archival) | Ch. 4 dossier | **Promoted curated copy:** `chapters/04-regulatory-relationship.md` (replaces prior seed sketch). Feeding-as-regulation card added; sleep/attachment not rewritten. |
-| 5 | Becoming a Mind | `preliminary/drafts-chapters/chapter 5` (archival) | Ch. 5 plan + dossier | **Promoted curated copy:** `chapters/05-becoming-a-mind.md`. Looking-time now `stable` for *narrow* method; narrowing/statistical/contingency now `stable` for *narrow* lab claims. |
-| 6 | The Mind in Motion | `preliminary/drafts-chapters/chapter 6` (archival) | Ch. 6 dossier | **Curated expansion:** `chapters/06-the-mind-in-motion.md`. Linked cards: contingency, embodiment, exploration, physical reasoning, deferred imitation. |
-| 7 | The Birth of Language | `preliminary/drafts-chapters/chapter 7` (archival) | Ch. 7 plan + synthesis | **Promoted curated copy:** `chapters/07-the-birth-of-language.md`. Linked cards: perceptual narrowing, statistical segmentation, conversational turns, dual language, pointing, babbling, parent-implemented language. Screens ID-repaired, not re-theorized. |
-| 8 | The Expanding World | `preliminary/drafts-chapters/chapter 8.md` | Ch. 8 plan + synthesis | **Promoted curated copy:** `chapters/08-the-expanding-world.md`. Four draft cards; childcare/BEIP reconciled. |
-| 9 | The Emotional Revolution | `preliminary/drafts-chapters/Chapter 9.md` | Ch. 9 plan | **Promoted curated copy:** `chapters/09-the-emotional-revolution.md`. Three draft cards; co-regulation/delay reconciled. |
-| 10 | Boundaries, Behavior, and the First Rules | `preliminary/drafts-chapters/Chapter 10.md` | Ch. 10 dossier | **Promoted curated copy:** `chapters/10-boundaries-behavior.md`. Three draft cards plus Warneken helping remainder; EF/delay reconciled. Seed Ch. 8 “Morality and Rules” is absorbed here. |
-| 11 | The Developing Executive | `preliminary/drafts-chapters/chapter 11` | Ch. 11 dossier | **Promoted curated copy:** `chapters/11-the-developing-executive.md`. Two draft cards; Watts delay reconciled. |
-| 12 | Play, Imagination, and Meaning | `preliminary/drafts-chapters/chapter 12` | Ch. 12 plan | **Promoted curated copy:** `chapters/12-play-imagination.md`. Two draft cards plus outdoor/risky-play remainder; exploration/embodiment/peers reconciled. |
-| 13 | The Ecology of Development | `preliminary/drafts-chapters/chapter 13` | Ch. 13 plans | **Promoted curated copy:** `chapters/13-the-ecology-of-development.md`. Two draft cards (income/cash, MTO) plus leave and food-insecurity remainders. |
-| 14 | What Actually Works? | `preliminary/drafts-chapters/chapter 14` (archival) | Ch. 14 architecture + interventions review | **Curated copy:** `chapters/14-what-actually-works.md` (artifacts stripped; trimmed to Appendix B range after Part II cards). |
-| 15 | Three Years: What Has Been Built? | `preliminary/drafts-chapters/chapter 15` | Ch. 15 dossier | **Promoted curated copy:** `chapters/15-three-years.md`. Three draft waypoint cards. Filename was previously `chapter 16`. |
+| 1 | Before the Child Is Born | **Fertility, Parental Age, Folate, and What Pregnancy Stress Actually Does** | `chapters/01-before-the-child-is-born.md` | Split-register Grade 9 rewrite complete (`ARC-71`). |
+| 2 | The First Environment | **Inside the Womb: Fetal Brain Growth, Nutrition, Alcohol, and Everyday Exposures** | `chapters/02-first-environment.md` | Ch. 2 dossier cluster. |
+| 3 | The Great Transition | **Birth, C-Sections, Skin-to-Skin, Crying, and Early Feeding** | `chapters/03-the-great-transition.md` | **Content Gap 3:** Add Kramer `PROBIT` cluster-RCT ($N=17,046$) & neonatal tongue-tie (`frenotomy`). |
+| 4 | The Regulatory Relationship | **Sleep Training, Night Waking, Responsive Feeding, and How Attachment Works** | `chapters/04-regulatory-relationship.md` | **Content Gaps 1 & 2:** Add `LEAP` (2015) peanut allergy RCT + `BLISS` BLW RCT, and Supine Safe Sleep ("Back to Sleep") vs. room-sharing duration (`INSIGHT`). |
+| 5 | Becoming a Mind | **How Babies See, Remember, Focus, and Learn Before They Can Talk** | `chapters/05-becoming-a-mind.md` | Looking-time, attention, object permanence, joint attention. |
+| 6 | The Mind in Motion | **Rolling, Crawling, Walking, and Why Babies Drop Things on Purpose** | `chapters/06-the-mind-in-motion.md` | Contingency, embodiment, exploration, physical reasoning, deferred imitation. |
+| 7 | The Birth of Language | **First Words, Late Talkers, Baby Sign, Screen Time, and Raising Bilingual Kids** | `chapters/07-the-birth-of-language.md` | Perceptual narrowing, statistical segmentation, conversational turns, dual language, screens. |
+| 8 | The Expanding World | **Daycare vs. Stay-at-Home, Fathers, Grandparents, and Toddler Socializing** | `chapters/08-the-expanding-world.md` | NICHD SECCYD process vs. structural quality, multi-caregiver networks. |
+| 9 | The Emotional Revolution | **Toddler Tantrums, Shyness, Big Feelings, and Why "Calm Down" Doesn't Work** | `chapters/09-the-emotional-revolution.md` | Kagan behavioral inhibition, Rothbart temperament, co-regulation. |
+| 10 | Boundaries, Behavior, and the First Rules | **Hitting, Biting, Saying "No," Time-Outs, and Why Spanking Backfires** | `chapters/10-boundaries-behavior.md` | **Content Gap 4:** Add Potty Training / Toilet Learning physiological readiness (22–30 mo) vs. "3-day bootcamps". |
+| 11 | The Developing Executive | **Impulse Control, Waiting, the Marshmallow Test, and the Myth of Brain-Training Toys** | `chapters/11-the-developing-executive.md` | Mischel Marshmallow Test vs. Watts (2018) & Kidd (2013) rational trust. |
+| 12 | Play, Imagination, and Meaning | **Independent Play, Pretending, Montessori/Guided Play, and Choosing Toys** | `chapters/12-play-imagination.md` | Split-register Grade 9 rewrite complete (`ARC-71`). Lillard (2013) equifinality audit. |
+| 13 | The Ecology of Development | **Parental Leave, Work Schedules, Childcare Costs, and How Neighborhoods Shape Kids** | `chapters/13-the-ecology-of-development.md` | *Baby's First Years* cash transfer RCT & *Moving to Opportunity* (`MTO`). |
+| 14 | What Actually Works? | **Which Early Interventions Last, Which Fade Out, and Where Parents Should Spend Their Energy** | `chapters/14-what-actually-works.md` | Perry Preschool, Abecedarian, `VIPP-SD`, `TN-VPK` voltage drop, heterogeneous returns. |
+| 15 | Three Years: What Has Been Built? | **Why Age Three Is a Waypoint, Not a Verdict on Who Your Child Will Become** | `chapters/15-three-years.md` | Roberts & DelVecchio ($r \approx .31$), Dunedin self-control, Masten "Ordinary Magic". |
 
 ## Why not the 8-chapter seed
 

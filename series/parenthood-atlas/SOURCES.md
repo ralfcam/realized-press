@@ -388,6 +388,27 @@ sources:
   - id: byers-heinlein-2010-bilingual
     resource: https://doi.org/10.1177/0956797609360758
     title: "Byers-Heinlein, Burns & Werker (2010), Psychological Science, roots of bilingualism in newborns"
+  - id: dutoit-2015-leap
+    resource: https://doi.org/10.1056/NEJMoa1414850
+    title: "Du Toit et al. (2015), NEJM, randomized trial of peanut consumption in infants at risk for peanut allergy (LEAP)"
+  - id: fangupo-2016-bliss
+    resource: https://doi.org/10.1542/peds.2016-0772
+    title: "Fangupo et al. (2016), Pediatrics, baby-led approach to eating solids and risk of choking (BLISS RCT)"
+  - id: paul-2017-insight
+    resource: https://doi.org/10.1542/peds.2017-0122
+    title: "Paul et al. (2017), Pediatrics, mother-infant room-sharing and sleep outcomes in the INSIGHT study"
+  - id: moon-2022-sids
+    resource: https://doi.org/10.1542/peds.2022-057990
+    title: "Moon, Carlin & Hand (2022), Pediatrics, sleep-related infant deaths: updated 2022 AAP recommendations"
+  - id: oshea-2017-frenotomy
+    resource: https://doi.org/10.1002/14651858.CD012538
+    title: "O'Shea et al. (2017), Cochrane Database of Systematic Reviews, frenotomy for tongue-tie in newborn infants"
+  - id: blum-2003-toilet
+    resource: https://doi.org/10.1542/peds.111.4.810
+    title: "Blum, Taubman & Nemeth (2003), Pediatrics, relationship between age at initiation of toilet training and duration"
+  - id: schum-2002-toilet
+    resource: https://doi.org/10.1542/peds.109.3.e48
+    title: "Schum et al. (2002), Pediatrics, sequential acquisition of toilet-training skills"
 ---
 
 # Master Source Catalog
@@ -542,6 +563,13 @@ These four live IDs will not acquire a Crossref journal DOI. They already have a
 | `barr-1996-deferred` | Barr, Dowden & Hayne (1996), Infant Behavior and Development, deferred imitation across 6- to 24-month-olds | [https://doi.org/10.1016/s0163-6383(96)90015-6](https://doi.org/10.1016/s0163-6383(96)90015-6) | [deferred-imitation](evidence-cards/deferred-imitation.md) |
 | `jonsson-2017-mutations` | Jónsson et al. (2017), Nature, parental influence on de novo mutations in 1,548 trios | [https://doi.org/10.1038/nature24018](https://doi.org/10.1038/nature24018) | [paternal-age-de-novo-mutations](evidence-cards/paternal-age-de-novo-mutations.md) |
 | `byers-heinlein-2010-bilingual` | Byers-Heinlein, Burns & Werker (2010), Psychological Science, roots of bilingualism in newborns | [https://doi.org/10.1177/0956797609360758](https://doi.org/10.1177/0956797609360758) | [dual-language-does-not-confuse](evidence-cards/dual-language-does-not-confuse.md) |
+| `dutoit-2015-leap` | Du Toit et al. (2015), NEJM, randomized trial of peanut consumption in infants at risk for peanut allergy (LEAP) | [https://doi.org/10.1056/NEJMoa1414850](https://doi.org/10.1056/NEJMoa1414850) | [early-allergen-introduction-blw](evidence-cards/early-allergen-introduction-blw.md) |
+| `fangupo-2016-bliss` | Fangupo et al. (2016), Pediatrics, baby-led approach to eating solids and risk of choking (BLISS RCT) | [https://doi.org/10.1542/peds.2016-0772](https://doi.org/10.1542/peds.2016-0772) | [early-allergen-introduction-blw](evidence-cards/early-allergen-introduction-blw.md) |
+| `paul-2017-insight` | Paul et al. (2017), Pediatrics, mother-infant room-sharing and sleep outcomes in the INSIGHT study | [https://doi.org/10.1542/peds.2017-0122](https://doi.org/10.1542/peds.2017-0122) | [safe-sleep-supine-room-sharing](evidence-cards/safe-sleep-supine-room-sharing.md) |
+| `moon-2022-sids` | Moon, Carlin & Hand (2022), Pediatrics, sleep-related infant deaths: updated 2022 AAP recommendations | [https://doi.org/10.1542/peds.2022-057990](https://doi.org/10.1542/peds.2022-057990) | [safe-sleep-supine-room-sharing](evidence-cards/safe-sleep-supine-room-sharing.md) |
+| `oshea-2017-frenotomy` | O'Shea et al. (2017), Cochrane Database of Systematic Reviews, frenotomy for tongue-tie in newborn infants | [https://doi.org/10.1002/14651858.CD012538](https://doi.org/10.1002/14651858.CD012538) | [neonatal-frenotomy-tongue-tie](evidence-cards/neonatal-frenotomy-tongue-tie.md) |
+| `blum-2003-toilet` | Blum, Taubman & Nemeth (2003), Pediatrics, relationship between age at initiation of toilet training and duration | [https://doi.org/10.1542/peds.111.4.810](https://doi.org/10.1542/peds.111.4.810) | [toilet-learning-readiness](evidence-cards/toilet-learning-readiness.md) |
+| `schum-2002-toilet` | Schum et al. (2002), Pediatrics, sequential acquisition of toilet-training skills | [https://doi.org/10.1542/peds.109.3.e48](https://doi.org/10.1542/peds.109.3.e48) | [toilet-learning-readiness](evidence-cards/toilet-learning-readiness.md) |
 
 ## Unresolved Citations
 

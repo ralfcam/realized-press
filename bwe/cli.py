@@ -53,11 +53,19 @@ def export_site(output: str = "dist/site"):
 
 
 @cli.command()
-def intelligence(discover: str = typer.Option(None, help="Upstream topic discovery query via OpenAlex")):
-    """ARC-58: Run Marketing Intelligence & Citation Telemetry synthesis."""
+def intelligence(
+    discover: str = typer.Option(None, help="Upstream topic discovery query via OpenAlex"),
+    keywords: str = typer.Option(None, help="Google Keyword Planner CSV path (or 'seed' for data/gkp_parenting_0_3_seed.csv)"),
+    series: str = typer.Option(None, help="Target series slug (e.g. parenthood-atlas)"),
+):
+    """ARC-58 / ARC-72: Run Marketing Intelligence, Keyword Gap Radar & Citation Telemetry synthesis."""
     cmd = [sys.executable, str(REPO_ROOT / "scripts" / "marketing_intelligence.py")]
     if discover:
         cmd.extend(["--discover", discover])
+    if keywords:
+        cmd.extend(["--keywords", keywords])
+    if series:
+        cmd.extend(["--series", series])
     rc = subprocess.call(cmd)
     raise typer.Exit(code=rc)
 

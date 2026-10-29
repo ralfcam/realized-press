@@ -411,6 +411,7 @@ def build_book_pdf(
     fonts: dict[str, Path],
     page_format: str = "a4",
     toc_pages: dict[int, int] | None = None,
+    front_matter_path: Path | None = None,
 ) -> tuple[BookEditionPDF, dict[int, int]]:
     pdf = BookEditionPDF(
         book_title=book_title,
@@ -433,6 +434,12 @@ def build_book_pdf(
     pdf.cell(0, 7, "Contents", new_x="LMARGIN", new_y="NEXT")
     pdf.ln(2)
     pdf.set_font("BookSerif", "", 9.2 if page_format == "kdp-6x9" else 10)
+
+    if front_matter_path and front_matter_path.is_file():
+        fm_pg = toc_pages.get(0, 0) if toc_pages else 0
+        fm_pg_str = f"p. {fm_pg}" if fm_pg else "..."
+        pdf.multi_cell(0, 5.0, f"How to Use This Atlas: 2:00 AM Quick-Finder  ({fm_pg_str})", new_x="LMARGIN", new_y="NEXT")
+
     for idx, ch_path in enumerate(chapters, 1):
         pg = toc_pages.get(idx, 0) if toc_pages else 0
         pg_str = f"p. {pg}" if pg else "..."
@@ -440,6 +447,39 @@ def build_book_pdf(
         pdf.multi_cell(0, 5.0, f"{idx:02d}. {title}  ({pg_str})", new_x="LMARGIN", new_y="NEXT")
 
     recorded_pages: dict[int, int] = {}
+
+    if front_matter_path and front_matter_path.is_file():
+        pdf.current_chapter_header = f"{book_title} — How to Use This Atlas"
+        pdf.add_page()
+        recorded_pages[0] = pdf.page_no()
+        raw_fm = strip_yaml_frontmatter(front_matter_path.read_text(encoding="utf-8"))
+        for line in raw_fm.splitlines():
+            s = line.strip()
+            if not s:
+                pdf.ln(2.2)
+                continue
+            if s.startswith("# "):
+                pdf.set_font("BookSerif", "B", 14 if page_format == "kdp-6x9" else 15)
+                pdf.multi_cell(0, 7.5, clean_pdf_line(s[2:].strip()), new_x="LMARGIN", new_y="NEXT")
+                pdf.ln(1.5)
+            elif s.startswith("### "):
+                pdf.ln(1.8)
+                pdf.set_font("BookSerif", "B", 11 if page_format == "kdp-6x9" else 12)
+                pdf.multi_cell(0, 6.0, clean_pdf_line(s[4:].strip()), new_x="LMARGIN", new_y="NEXT")
+                pdf.ln(1.0)
+            elif s.startswith("**Q:"):
+                pdf.ln(1.2)
+                pdf.set_font("BookSerif", "B", body_pt)
+                pdf.multi_cell(0, line_h, clean_pdf_line(s), new_x="LMARGIN", new_y="NEXT")
+            elif s.startswith("*Chapter") or s.startswith("*A Quick-Finder"):
+                pdf.set_font("BookSerif", "I", body_pt - 0.2)
+                pdf.multi_cell(0, line_h, clean_pdf_line(s), new_x="LMARGIN", new_y="NEXT")
+            elif s == "---":
+                pdf.ln(2.5)
+            else:
+                pdf.set_font("BookSerif", "", body_pt)
+                pdf.multi_cell(0, line_h, clean_pdf_line(s), new_x="LMARGIN", new_y="NEXT")
+
     for idx, ch_path in enumerate(chapters, 1):
         parsed = parse_chapter_markdown(ch_path, idx)
         title = parsed.title
@@ -447,11 +487,37 @@ def build_book_pdf(
         pdf.add_page()
         recorded_pages[idx] = pdf.page_no()
 
+        in_takeaway = False
         for line in parsed.body_lines_pdf:
             s = line.strip()
             if not s:
                 pdf.ln(2.2)
                 continue
+            if s.startswith("<aside class=\"chapter-takeaway\">"):
+                in_takeaway = True
+                pdf.ln(2.5)
+                continue
+            elif s == "</aside>":
+                in_takeaway = False
+                pdf.ln(2.5)
+                continue
+
+            if in_takeaway:
+                if s.startswith("### "):
+                    pdf.set_font("BookSerif", "B", 10.2 if page_format == "kdp-6x9" else 10.8)
+                    pdf.set_text_color(120, 80, 20)
+                    pdf.multi_cell(0, 5.2, clean_pdf_line(s[4:].strip()), new_x="LMARGIN", new_y="NEXT")
+                    pdf.set_text_color(20, 20, 20)
+                    pdf.ln(1.0)
+                elif s.startswith("- "):
+                    pdf.set_font("BookSerif", "", body_pt - 0.2)
+                    b_txt = clean_pdf_line(s[2:].strip())
+                    ind = 3.5 if page_format == "kdp-6x9" else 5.0
+                    pdf.set_x(pdf.l_margin + ind)
+                    pdf.multi_cell(pdf.w - pdf.l_margin - pdf.r_margin - ind, line_h - 0.2, f"•  {b_txt}", new_x="LMARGIN", new_y="NEXT")
+                    pdf.ln(0.8)
+                continue
+
             if (s.startswith("$$") and s.endswith("$$") and len(s) >= 4) or (s.startswith("\\[") and s.endswith("\\]") and len(s) >= 4):
                 m_content = s[2:-2].strip()
                 m_conv = clean_pdf_line(convert_latex_symbols(m_content, target="pdf"))
@@ -500,7 +566,13 @@ def build_book_pdf(
     return pdf, recorded_pages
 
 
-def build_reader_html(book_title: str, edition_label: str, chapters: list[Path], chapter_pages: dict[int, int]) -> str:
+def build_reader_html(
+    book_title: str,
+    edition_label: str,
+    chapters: list[Path],
+    chapter_pages: dict[int, int],
+    front_matter_path: Path | None = None,
+) -> str:
     out: list[str] = [
         "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'>",
         f"<title>{html.escape(book_title)} — {html.escape(edition_label)}</title>",
@@ -513,6 +585,10 @@ def build_reader_html(book_title: str, edition_label: str, chapters: list[Path],
         "h2{font-size:14pt;margin-top:1.8rem} h3{font-size:12pt;font-style:italic}",
         "blockquote{border-left:3px solid #bbb;margin:1rem 0;padding:0.2rem 1rem;color:#444;font-style:italic}",
         "nav.toc{background:#f8f8f6;border:1px solid #e2e2dd;padding:1rem 1.5rem;border-radius:4px}",
+        "aside.chapter-takeaway{background:#fdfbf7;border:1px solid #e5dccb;border-left:4px solid #b38636;border-radius:4px;padding:1.1rem 1.4rem;margin:2.2rem 0}",
+        "aside.chapter-takeaway h3{margin-top:0;color:#7a4f12;font-size:1.05rem;font-style:normal;font-weight:700}",
+        "aside.chapter-takeaway ul{margin:0.5rem 0 0;padding-left:1.2rem}",
+        "aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}",
         ".formula-block{text-align:center;margin:1.5rem 0;font-style:italic;color:#222}",
         ".footnotes{border-top:1px solid #e0e0dc;margin-top:2.5rem;padding-top:1rem;font-size:0.9em;color:#444}",
         ".footnotes ol{padding-left:1.5rem}",
@@ -526,11 +602,36 @@ def build_reader_html(book_title: str, edition_label: str, chapters: list[Path],
         f"<header><h1>{html.escape(book_title)}</h1><p><em>Realized Press · {html.escape(edition_label)} ({date.today().isoformat()})</em></p></header>",
         "<nav class='toc'><h2>Contents</h2><ol>",
     ]
+    if front_matter_path and front_matter_path.is_file():
+        fm_pg = chapter_pages.get(0, 2)
+        out.append(f"<li><a href='#front-matter'>How to Use This Atlas: 2:00 AM Quick-Finder</a> <small>(PDF p. {fm_pg})</small></li>")
+
     for idx, ch_path in enumerate(chapters, 1):
         t = chapter_title(ch_path)
         pg = chapter_pages.get(idx, 0)
         out.append(f"<li><a href='#chapter-{idx:02d}'>{html.escape(t)}</a> <small>(PDF p. {pg})</small></li>")
     out.append("</ol></nav>")
+
+    if front_matter_path and front_matter_path.is_file():
+        out.append("<section id='front-matter'>")
+        raw_fm = strip_yaml_frontmatter(front_matter_path.read_text(encoding="utf-8"))
+        for line in raw_fm.splitlines():
+            s = line.strip()
+            if not s:
+                continue
+            if s.startswith("# "):
+                out.append(f"<h1>{md_inline_html(s[2:].strip())}</h1>")
+            elif s.startswith("### "):
+                out.append(f"<h3>{md_inline_html(s[4:].strip())}</h3>")
+            elif s.startswith(">"):
+                out.append(f"<blockquote>{md_inline_html(s.lstrip('> ').strip())}</blockquote>")
+            elif s.startswith("- "):
+                out.append(f"<ul><li>{md_inline_html(s[2:].strip())}</li></ul>")
+            elif s == "---":
+                out.append("<hr>")
+            else:
+                out.append(f"<p>{md_inline_html(s)}</p>")
+        out.append("</section>")
 
     for idx, ch_path in enumerate(chapters, 1):
         parsed = parse_chapter_markdown(ch_path, idx)
@@ -538,6 +639,12 @@ def build_reader_html(book_title: str, edition_label: str, chapters: list[Path],
         for line in parsed.body_lines_html:
             s = line.strip()
             if not s:
+                continue
+            if s.startswith('<aside class="chapter-takeaway">'):
+                out.append('<aside class="chapter-takeaway">')
+                continue
+            elif s == "</aside>":
+                out.append('</aside>')
                 continue
             if (s.startswith("$$") and s.endswith("$$") and len(s) >= 4) or (s.startswith("\\[") and s.endswith("\\]") and len(s) >= 4):
                 m_content = s[2:-2].strip()
@@ -573,7 +680,13 @@ def build_reader_html(book_title: str, edition_label: str, chapters: list[Path],
     return "\n".join(out)
 
 
-def build_kdp_epub(book_title: str, author: str, chapters: list[Path], epub_path: Path) -> None:
+def build_kdp_epub(
+    book_title: str,
+    author: str,
+    chapters: list[Path],
+    epub_path: Path,
+    front_matter_path: Path | None = None,
+) -> None:
     """Compile a valid, KDP-ready EPUB 3 archive using Python's built-in zipfile module."""
     book_uuid = str(uuid.uuid5(uuid.NAMESPACE_DNS, f"realized-press.{epub_path.stem}"))
     today = date.today().isoformat()
@@ -592,6 +705,10 @@ def build_kdp_epub(book_title: str, author: str, chapters: list[Path], epub_path
         "h2 { font-size: 1.2em; margin-top: 1.2em; }\n"
         "h3 { font-size: 1.05em; font-style: italic; }\n"
         "blockquote { border-left: 2px solid #888; padding-left: 1em; font-style: italic; margin: 1em 0; }\n"
+        "aside.chapter-takeaway { background-color: #fbf9f5; border: 1px solid #e5dccb; border-left: 4px solid #b38636; padding: 1em; margin: 1.5em 0; }\n"
+        "aside.chapter-takeaway h3 { margin-top: 0; color: #7a4f12; font-size: 1.05em; font-style: normal; font-weight: bold; }\n"
+        "aside.chapter-takeaway ul { margin: 0.5em 0 0; padding-left: 1.2em; }\n"
+        "aside.chapter-takeaway li { margin-bottom: 0.5em; }\n"
         ".formula-block { text-align: center; margin: 1.2em 0; font-style: italic; }\n"
         ".footnote-ref { font-size: 0.75em; vertical-align: super; text-decoration: none; font-weight: bold; }\n"
         "section.footnotes { border-top: 1px solid #ccc; margin-top: 2em; padding-top: 1em; font-size: 0.85em; }\n"
@@ -607,6 +724,42 @@ def build_kdp_epub(book_title: str, author: str, chapters: list[Path], epub_path
     nav_links = []
     chapter_xhtmls: list[tuple[str, str]] = []
 
+    if front_matter_path and front_matter_path.is_file():
+        manifest_items.append('<item id="front-matter" href="front-matter.xhtml" media-type="application/xhtml+xml"/>')
+        spine_items.append('<itemref idref="front-matter"/>')
+        nav_links.append('<li><a href="front-matter.xhtml">How to Use This Atlas: 2:00 AM Quick-Finder</a></li>')
+
+        fm_body_lines: list[str] = []
+        raw_fm = strip_yaml_frontmatter(front_matter_path.read_text(encoding="utf-8"))
+        for line in raw_fm.splitlines():
+            s = line.strip()
+            if not s:
+                continue
+            if s.startswith("# "):
+                fm_body_lines.append(f"<h1>{md_inline_html(s[2:].strip())}</h1>")
+            elif s.startswith("### "):
+                fm_body_lines.append(f"<h3>{md_inline_html(s[4:].strip())}</h3>")
+            elif s.startswith(">"):
+                fm_body_lines.append(f"<blockquote><p>{md_inline_html(s.lstrip('> ').strip())}</p></blockquote>")
+            elif s.startswith("- "):
+                fm_body_lines.append(f"<ul><li>{md_inline_html(s[2:].strip())}</li></ul>")
+            elif s == "---":
+                fm_body_lines.append("<hr/>")
+            else:
+                fm_body_lines.append(f"<p>{md_inline_html(s)}</p>")
+
+        fm_xhtml = (
+            '<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<!DOCTYPE html>\n'
+            '<html xmlns="http://www.w3.org/1999/xhtml" lang="en">\n'
+            '<head><meta charset="utf-8"/><title>How to Use This Atlas: 2:00 AM Quick-Finder</title>'
+            '<link rel="stylesheet" type="text/css" href="style.css"/></head>\n'
+            '<body>\n<section id="front-matter">\n'
+            + "\n".join(fm_body_lines)
+            + '\n</section>\n</body></html>\n'
+        )
+        chapter_xhtmls.append(("front-matter.xhtml", fm_xhtml))
+
     for idx, ch_path in enumerate(chapters, 1):
         fname = f"chapter-{idx:02d}.xhtml"
         cid = f"ch{idx:02d}"
@@ -620,6 +773,12 @@ def build_kdp_epub(book_title: str, author: str, chapters: list[Path], epub_path
         for line in parsed.body_lines_epub:
             s = line.strip()
             if not s:
+                continue
+            if s.startswith('<aside class="chapter-takeaway">'):
+                body_lines.append('<aside class="chapter-takeaway" epub:type="sidebar">')
+                continue
+            elif s == "</aside>":
+                body_lines.append('</aside>')
                 continue
             if (s.startswith("$$") and s.endswith("$$") and len(s) >= 4) or (s.startswith("\\[") and s.endswith("\\]") and len(s) >= 4):
                 m_content = s[2:-2].strip()
@@ -724,6 +883,9 @@ def verify_and_report(
         raise RuntimeError(f"Verification failed: blank_pages={blank_pages}, html_missing={html_missing}")
 
     digest = hashlib.sha256(pdf_path.read_bytes()).hexdigest()
+    fm_line = ""
+    if 0 in chapter_pages:
+        fm_line = f"- PASS · PDF page {chapter_pages[0]} · How to Use This Atlas: 2:00 AM Quick-Finder\n"
     ch_lines = "\n".join(
         f"- PASS · PDF page {chapter_pages[idx]} · {chapter_title(p)}"
         for idx, p in enumerate(chapters, 1)
@@ -737,7 +899,7 @@ def verify_and_report(
         f"SHA-256: {digest}\n"
         f"Bytes: {pdf_path.stat().st_size:,}\n"
         f"Pages: {total_pages} ({total_pages - len(blank_pages)}/{total_pages} nonblank)\n\n"
-        f"Chapters:\n{ch_lines}\n"
+        f"Chapters:\n{fm_line}{ch_lines}\n"
     )
 
 
@@ -784,15 +946,27 @@ def main() -> int:
     fonts = resolve_serif_fonts()
     book_title = slug.replace("-", " ").title()
 
-    pass1_pdf, pass1_pages = build_book_pdf(book_title, args.edition, chapters, fonts, page_format=args.format)
+    front_matter_path = book_path / "front-matter.md"
+    if not front_matter_path.is_file():
+        front_matter_path = None
+
+    pass1_pdf, pass1_pages = build_book_pdf(
+        book_title, args.edition, chapters, fonts, page_format=args.format, front_matter_path=front_matter_path
+    )
     final_pdf, final_pages = build_book_pdf(
-        book_title, args.edition, chapters, fonts, page_format=args.format, toc_pages=pass1_pages
+        book_title,
+        args.edition,
+        chapters,
+        fonts,
+        page_format=args.format,
+        toc_pages=pass1_pages,
+        front_matter_path=front_matter_path,
     )
     final_pdf.output(str(pdf_path))
 
     if html_path:
         html_path.write_text(
-            build_reader_html(book_title, args.edition, chapters, final_pages),
+            build_reader_html(book_title, args.edition, chapters, final_pages, front_matter_path=front_matter_path),
             encoding="utf-8",
         )
     report = verify_and_report(book_title, args.edition, pdf_path, html_path, chapters, final_pages)
@@ -805,7 +979,7 @@ def main() -> int:
 
     if args.epub:
         epub_path = pub_dir / f"{slug}-kdp.epub"
-        build_kdp_epub(book_title, args.author, chapters, epub_path)
+        build_kdp_epub(book_title, args.author, chapters, epub_path, front_matter_path=front_matter_path)
         print(f"[epub] Wrote {epub_path.relative_to(root)} ({epub_path.stat().st_size:,} bytes)")
 
     return 0

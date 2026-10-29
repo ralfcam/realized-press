@@ -11,6 +11,7 @@
 *.mp3
 **/audiobook/*.wav
 **/audiobook/*.mp3
+**/audiobook/stale_*/
 # Build and distribution exports
 dist/
 

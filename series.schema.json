@@ -105,6 +105,9 @@
           "default": null,
           "title": "Total Footnotes"
         },
+        "readability_targets": {
+          "$ref": "#/$defs/ReadabilityTargets"
+        },
         "movements": {
           "items": {
             "$ref": "#/$defs/MovementSpec"
@@ -137,6 +140,19 @@
         "title": {
           "title": "Title",
           "type": "string"
+        },
+        "subtitle": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "High-intent search subtitle paired with literary title (ARC-71)",
+          "title": "Subtitle"
         },
         "audio_blocks": {
           "anyOf": [
@@ -249,6 +265,44 @@
       "title": "KDPPrintSpec",
       "type": "object"
     },
+    "KdpMarketingMetadata": {
+      "description": "ARC-72: Search-Intent & Amazon KDP Metadata Specification.",
+      "properties": {
+        "primary_subtitle": {
+          "title": "Primary Subtitle",
+          "type": "string"
+        },
+        "bisac_categories": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 3,
+          "title": "Bisac Categories",
+          "type": "array"
+        },
+        "backend_keywords": {
+          "description": "7 KDP 50-char search boxes",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 7,
+          "title": "Backend Keywords",
+          "type": "array"
+        },
+        "target_search_clusters": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Target Search Clusters",
+          "type": "array"
+        }
+      },
+      "required": [
+        "primary_subtitle"
+      ],
+      "title": "KdpMarketingMetadata",
+      "type": "object"
+    },
     "MovementSpec": {
       "properties": {
         "id": {
@@ -304,16 +358,53 @@
           "type": "boolean"
         },
         "scaffolding_policy": {
-          "default": "Purged harness prose; calibrated verbs in text; all OKF metadata isolated in chapter-local ## Notes.",
+          "default": "Purged harness prose; calibrated verbs in text; all OKF metadata and clinical jargon isolated in chapter-local ## Notes.",
           "title": "Scaffolding Policy",
           "type": "string"
         }
       },
       "title": "OKFSpec",
       "type": "object"
+    },
+    "ReadabilityTargets": {
+      "description": "ARC-71 / ARC-72: Split-Register Bestseller Readability Targets (body prose above ## Notes).",
+      "properties": {
+        "max_flesch_kincaid_grade": {
+          "default": 10.5,
+          "maximum": 12.0,
+          "title": "Max Flesch Kincaid Grade",
+          "type": "number"
+        },
+        "target_flesch_kincaid_grade": {
+          "default": 9.5,
+          "maximum": 11.0,
+          "title": "Target Flesch Kincaid Grade",
+          "type": "number"
+        },
+        "max_avg_sentence_words": {
+          "default": 19.0,
+          "maximum": 22.0,
+          "title": "Max Avg Sentence Words",
+          "type": "number"
+        },
+        "max_single_sentence_words": {
+          "default": 35,
+          "maximum": 50,
+          "title": "Max Single Sentence Words",
+          "type": "integer"
+        },
+        "max_jargon_density_pct": {
+          "default": 1.5,
+          "description": "Max % of 4+ syllable clinical terms in body prose",
+          "title": "Max Jargon Density Pct",
+          "type": "number"
+        }
+      },
+      "title": "ReadabilityTargets",
+      "type": "object"
     }
   },
-  "description": "ARC-57: Unified declarative series.yaml schema for all Realized Press series.",
+  "description": "ARC-57 / ARC-72: Unified declarative series.yaml schema for all Realized Press series.",
   "properties": {
     "slug": {
       "pattern": "^[a-z0-9-]+$",
@@ -382,6 +473,20 @@
     },
     "audio_spec": {
       "$ref": "#/$defs/AudioSpec"
+    },
+    "readability_targets": {
+      "$ref": "#/$defs/ReadabilityTargets"
+    },
+    "kdp_marketing": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/KdpMarketingMetadata"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
     },
     "kdp_print_spec": {
       "anyOf": [

@@ -71,3 +71,22 @@ These guidelines codify the high-leverage narrative, structural, and epistemic p
   2. Utilize the BWE dual-representation block architecture where applicable:
      * **`display_html`:** Preserves exact typography and footnote superscripts (`[^slug]`) for visual reader editions.
      * **`spoken_text`:** Normalizes symbols into natural spoken English (*"eleven-beta H-S-D-two"*, *"a sixty-nine percent relative risk reduction"*) while preserving exact block IDs and zero-drift PCM duration synchronization.
+
+---
+
+## Directive VII: The "Split-Register" Bestseller Architecture & Anti-Leakage Gate (`ARC-71` / `ARC-72`)
+
+* **The Principle:** Trade bestsellers in science and parenting (*Cribsheet*, *Why We Sleep*, *The Gardener and the Carpenter*) never dumb down the *causal logic* of an experiment, but they ruthlessly simplify the *nouns* and *sentence length*. Because BWE isolates technical apparatus into chapter-local `## Notes` and the HTMX side-drawer, 100% of clinical jargon belongs in `## Notes` while body prose is optimized for effortless readability.
+* **The Harness Rule:**
+  1. **Main Body Prose (`Flesch-Kincaid Grade 8.5–10.0`, Max `10.5`; Avg. Sentence Length `15–19 words`, Max Sentence `35 words`):** Write for an intelligent, exhausted reader or audiobook listener. Use everyday nouns, active verbs, and concrete physical metaphors.
+  2. **`## Notes` & HTMX Drawer (Clinical & Methodological Precision):** Keep exact enzyme names (`11β-HSD2`), anatomical structures (`syncytiotrophoblast`, `frontostriatal`), statistical metrics (`RR 0.31, 95% CI 0.17–0.58`), and OKF v0.2 `Grade:` labels inside `## Notes`. Enforced via `style/jargon-to-notes.yml` in `scripts/audit_manuscript.py` (Section 6).
+  3. **Anti-Leakage Gate:** Zero inline `(*.md)` filenames, zero backtick-wrapped ``(`[^...]`)`` footnote tags, and zero internal harness meta-phrases (`"Progressive Lens Escalation"`, `"three-tier causal resolution"`, `"At the first tier"`, `"At the second tier"`, `"At the third tier"`) in body prose.
+
+---
+
+## Directive VIII: Data-Driven Editorial Strategy (Search-Intent Subtitles & Keyword Gap Radar)
+
+* **The Principle:** Every chapter's title/subtitle, opening hooks, and OKF evidence card coverage must intercept the exact high-intent phrases tens of thousands of readers search for each month (Google Keyword Planner + Google Trends).
+* **The Harness Rule:**
+  1. Pair every literary chapter title with a scannable **high-intent search subtitle** (`ChapterSpec.subtitle` in `series.yaml` and chapter H1/H2 headers).
+  2. Run `python scripts/marketing_intelligence.py --keywords <gkp_csv>` (`bwe intelligence --keywords`) to audit search volume and YoY trend velocity against the SQLite FTS5 index (`evidence_cards_fts`) and surface missing high-demand content gaps and "People Also Ask" question hooks.

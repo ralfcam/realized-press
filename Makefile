@@ -21,7 +21,7 @@ PrefixArg = $(if $(strip $(PREFIX)),--prefix $(strip $(PREFIX)),)
 ChapterArg = $(if $(strip $(CHAPTER)),--chapter $(strip $(CHAPTER)),)
 NewBookArg = $(if $(strip $(NEW_BOOK)),--book $(strip $(NEW_BOOK)),)
 
-.PHONY: merge merge-audiobook merge-both audit audit-gemini audit-all five-rule five-rule-online five-rule-all pdf kdp epub briefs sync-sources audiobook-dry-run audiobook-tts new-series market-intel
+.PHONY: merge merge-audiobook merge-both audit audit-gemini audit-all audit-layout five-rule five-rule-online five-rule-all pdf kdp epub briefs sync-sources audiobook-dry-run audiobook-tts new-series market-intel
 
 merge:
 	$(PYTHON) scripts/merge_book_chapters.py $(BOOK) $(PrefixArg)
@@ -40,6 +40,9 @@ audit-gemini:
 audit-all:
 	$(PYTHON) scripts/audit_manuscript.py series/architectures-of-memory/book-01-vanishing-signal --strict
 	$(PYTHON) scripts/audit_manuscript.py series/parenthood-atlas --strict
+
+audit-layout:
+	$(PYTHON) scripts/audit_pdf_layout.py $(BOOK)
 
 five-rule:
 	$(PYTHON) scripts/five_rule_check.py $(BOOK) --summary-only

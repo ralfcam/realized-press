@@ -5,7 +5,7 @@ slug: parenthood-atlas
 title: "Parenthood: The Atlas"
 subtitle: "What Science Knows, What It Doesn't, and Where Art Begins from Conception to Age Three"
 linear_project_id: P-ARC-17
-version: v1.0-rc1
+version: v1.0-rc3
 
 epistemic_contract: "Science -> Interpretation -> Art"
 governing_principle: "Continuity without determination: reject both Genesis at visibility and Destiny already written."
@@ -15,14 +15,21 @@ lenses:
   - ecological
   - philosophical
 
+readability_targets:
+  max_flesch_kincaid_grade: 10.5
+  target_flesch_kincaid_grade: 9.5
+  max_avg_sentence_words: 19.0
+  max_single_sentence_words: 35
+  max_jargon_density_pct: 1.5
+
 okf_spec:
   version: "0.2"
   total_cards: 72
-  stable_cards: 9
+  stable_cards: 12
   locked_dois: 127
   retractions: 0
   genetically_informed_triangulation: true
-  scaffolding_policy: "Purged harness prose; calibrated verbs in text; all OKF metadata isolated in chapter-local ## Notes."
+  scaffolding_policy: "Purged harness prose; calibrated verbs in text; all OKF metadata and clinical jargon isolated in chapter-local ## Notes."
 
 audio_spec:
   sample_rate_bytes_per_sec: 48000
@@ -113,47 +120,62 @@ books:
     chapters:
       - slug: 01-before-the-child-is-born
         title: "Before the Child Is Born"
+        subtitle: "Fertility, Parental Age, Folate, and What Pregnancy Stress Actually Does"
         audio_blocks: 55
         footnotes_migrated: true
       - slug: 02-first-environment
         title: "The First Environment"
+        subtitle: "Inside the Womb: Fetal Brain Growth, Nutrition, Alcohol, and Everyday Exposures"
         footnotes_migrated: true
       - slug: 03-the-great-transition
         title: "The Great Transition"
+        subtitle: "Birth, C-Sections, Skin-to-Skin, Crying, and Early Feeding"
         footnotes_migrated: true
       - slug: 04-regulatory-relationship
         title: "The Regulatory Relationship"
+        subtitle: "Sleep Training, Night Waking, Responsive Feeding, and How Attachment Works"
         footnotes_migrated: true
       - slug: 05-becoming-a-mind
         title: "Becoming a Mind"
+        subtitle: "How Babies See, Remember, Focus, and Learn Before They Can Talk"
         footnotes_migrated: true
       - slug: 06-the-mind-in-motion
         title: "The Mind in Motion"
+        subtitle: "Rolling, Crawling, Walking, and Why Babies Drop Things on Purpose"
         footnotes_migrated: true
       - slug: 07-the-birth-of-language
         title: "The Birth of Language"
+        subtitle: "First Words, Late Talkers, Baby Sign, Screen Time, and Raising Bilingual Kids"
         footnotes_migrated: true
       - slug: 08-the-expanding-world
         title: "The Expanding World"
+        subtitle: "Daycare vs. Stay-at-Home, Fathers, Grandparents, and Toddler Socializing"
         footnotes_migrated: true
       - slug: 09-the-emotional-revolution
         title: "The Emotional Revolution"
+        subtitle: "Toddler Tantrums, Shyness, Big Feelings, and Why 'Calm Down' Doesn't Work"
         footnotes_migrated: true
       - slug: 10-boundaries-behavior
-        title: "Boundaries and Behavior"
+        title: "Boundaries, Behavior, and the First Rules"
+        subtitle: "Hitting, Biting, Saying 'No,' Time-Outs, and Why Spanking Backfires"
         footnotes_migrated: true
       - slug: 11-the-developing-executive
         title: "The Developing Executive"
+        subtitle: "Impulse Control, Waiting, the Marshmallow Test, and the Myth of Brain-Training Toys"
         footnotes_migrated: true
       - slug: 12-play-imagination
-        title: "Play and Imagination"
+        title: "Play, Imagination, and Meaning"
+        subtitle: "Independent Play, Pretending, Montessori/Guided Play, and Choosing Toys"
         footnotes_migrated: true
       - slug: 13-the-ecology-of-development
         title: "The Ecology of Development"
+        subtitle: "Parental Leave, Work Schedules, Childcare Costs, and How Neighborhoods Shape Kids"
         footnotes_migrated: true
       - slug: 14-what-actually-works
-        title: "What Actually Works"
+        title: "What Actually Works?"
+        subtitle: "Which Early Interventions Last, Which Fade Out, and Where Parents Should Spend Their Energy"
         footnotes_migrated: true
       - slug: 15-three-years
-        title: "Three Years: What Has Been Built"
+        title: "Three Years: What Has Been Built?"
+        subtitle: "Why Age Three Is a Waypoint, Not a Verdict on Who Your Child Will Become"
         footnotes_migrated: true

@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-"""Manuscript, Continuity & OKF Hygiene Auditor for Multi-Series Monorepo.
+"""Manuscript, Continuity, OKF Hygiene & Bestseller Readability Auditor for Multi-Series Monorepo.
 
 Performs:
 1. Metaphor collision analysis per chapter section (max 1 controlling metaphor/section)
 2. Footnote integrity & cross-chapter label collision detection
 3. Character continuity & first-mention tracking (against characters.md)
 4. Forbidden-phrase & redirect-URL epistemic hygiene check (against style/forbidden-phrases.md)
+4b. Organic Narrative Integration check (no exposed scaffolding headings)
 5. OKF v0.2 Evidence Cards summary (via scripts/five_rule_check.py)
-6. Residual fact-check & [citation needed] debt summary
-7. Optional long-context Gemini holistic review (--gemini, requires GEMINI_API_KEY)
+6. Bestseller Readability, Jargon-to-Notes & Anti-Leakage Audit (ARC-71 / ARC-72, style/jargon-to-notes.yml)
+7. Character continuity map & Residual fact-check / [citation needed] debt summary
+8. Optional long-context Gemini holistic review (--gemini, requires GEMINI_API_KEY)
 """
 from __future__ import annotations
 
@@ -20,6 +22,8 @@ import sys
 import urllib.request
 from collections import defaultdict
 from pathlib import Path
+
+import yaml
 
 from five_rule_check import check_card, resolve_card_targets
 from merge_book_chapters import iter_chapter_files, repo_root, resolve_book_path
@@ -57,6 +61,92 @@ EXPOSED_SCAFFOLDING_HEADING_RE = re.compile(
     r")",
     re.IGNORECASE,
 )
+
+ANTI_LEAKAGE_PATTERNS: dict[str, re.Pattern[str]] = {
+    "inline-md-filename": re.compile(r"\b[a-z0-9-]+\.md\b", re.IGNORECASE),
+    "backticked-footnote": re.compile(r"`\[\^[^\]]+\]`"),
+    "harness-meta-escalation": re.compile(r"\bProgressive Lens Escalation\b", re.IGNORECASE),
+    "harness-meta-three-tier": re.compile(
+        r"\b(three-tier causal resolution|At the \*\*(?:first|second|third) tier)\b", re.IGNORECASE
+    ),
+}
+
+ABBREV_RE = re.compile(r"\b(vs|et al|e\.g|i\.e|Dr|Mr|Mrs|Ms|St|U\.S|U\.K|No|Fig|Ch)\.", re.IGNORECASE)
+
+
+def count_syllables(word: str) -> int:
+    """Estimate English syllables for Flesch-Kincaid Grade Level calculation."""
+    w = re.sub(r"[^a-z]", "", word.lower())
+    if not w:
+        return 0
+    if len(w) <= 3:
+        return 1
+    w = re.sub(r"(?:[^laeiouy]es|ed|[^laeiouy]e)$", "", w)
+    w = re.sub(r"^y", "", w)
+    vowels = re.findall(r"[aeiouy]{1,2}", w)
+    return max(1, len(vowels))
+
+
+def compute_readability_metrics(body_before_notes: str) -> dict[str, float | int]:
+    """Compute Flesch-Kincaid Grade, avg sentence length, and >35-word sentence count on body prose."""
+    # Remove headings, inline footnotes, markdown emphasis, and math tokens
+    lines = [
+        line.strip()
+        for line in body_before_notes.splitlines()
+        if line.strip() and not line.lstrip().startswith("#")
+    ]
+    clean = " ".join(lines)
+    clean = INLINE_FN_RE.sub("", clean)
+    clean = re.sub(r"<[^>]+>", " ", clean)
+    clean = re.sub(r"\$[^$]+\$", " formula ", clean)
+    clean = re.sub(r"[*_`~]", "", clean)
+    clean_no_abbrev = ABBREV_RE.sub(r"\1", clean)
+
+    raw_sentences = [s.strip() for s in re.split(r"[.!?]+(?:\s+|$)", clean_no_abbrev) if s.strip()]
+    sentence_word_counts: list[int] = []
+    all_words: list[str] = []
+
+    for sent in raw_sentences:
+        w_list = re.findall(r"[A-Za-z0-9']+", sent)
+        if w_list:
+            sentence_word_counts.append(len(w_list))
+            all_words.extend(w_list)
+
+    total_words = len(all_words)
+    total_sentences = max(1, len(sentence_word_counts))
+    total_syllables = sum(count_syllables(w) for w in all_words)
+
+    if total_words == 0:
+        return {
+            "fk_grade": 0.0,
+            "avg_sentence_words": 0.0,
+            "max_sentence_words": 0,
+            "long_sentences_over_35": 0,
+        }
+
+    avg_sent = total_words / total_sentences
+    avg_syl = total_syllables / total_words
+    fk_grade = 0.39 * avg_sent + 11.8 * avg_syl - 15.59
+    long_over_35 = sum(1 for c in sentence_word_counts if c > 35)
+    max_sent = max(sentence_word_counts) if sentence_word_counts else 0
+
+    return {
+        "fk_grade": round(fk_grade, 1),
+        "avg_sentence_words": round(avg_sent, 1),
+        "max_sentence_words": max_sent,
+        "long_sentences_over_35": long_over_35,
+    }
+
+
+def load_jargon_dictionary(root: Path) -> dict[str, str]:
+    jargon_file = root / "style" / "jargon-to-notes.yml"
+    if not jargon_file.is_file():
+        return {}
+    try:
+        data = yaml.safe_load(jargon_file.read_text(encoding="utf-8")) or {}
+        return {str(k): str(v) for k, v in (data.get("relocate_to_notes") or {}).items()}
+    except Exception:
+        return {}
 
 
 def find_series_file(root: Path, book_path: Path, filename: str) -> Path | None:
@@ -159,7 +249,7 @@ def run_gemini_review(root: Path, book_path: Path, chapters: list[Path]) -> str:
         return f"_Gemini API call failed: {exc}_"
 
 
-def audit_book(book_path: Path, use_gemini: bool = False) -> tuple[str, bool]:
+def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: bool = False) -> tuple[str, bool]:
     root = repo_root()
     chapters_dir = book_path / "chapters"
     chapters = iter_chapter_files(chapters_dir)
@@ -167,14 +257,19 @@ def audit_book(book_path: Path, use_gemini: bool = False) -> tuple[str, bool]:
         return f"# Audit Report: `{book_path.name}`\n\nNo chapters found in `{chapters_dir}`.\n", True
 
     characters = load_characters(root, book_path)
+    jargon_dict = load_jargon_dictionary(root)
     char_mentions: dict[str, list[str]] = defaultdict(list)
     fn_defs_across_book: dict[str, list[str]] = defaultdict(list)
 
     chapter_rows: list[str] = []
+    readability_rows: list[str] = []
     metaphor_collisions: list[str] = []
     fn_issues: list[str] = []
     forbidden_hits: list[str] = []
     scaffolding_hits: list[str] = []
+    leak_hits: list[str] = []
+    jargon_hits: list[str] = []
+    readability_flags: list[str] = []
     citation_needed_total = 0
 
     for ch in chapters:
@@ -216,6 +311,36 @@ def audit_book(book_path: Path, use_gemini: bool = False) -> tuple[str, bool]:
             m = pat.search(unquoted_body)
             if m:
                 forbidden_hits.append(f"- `{ch.name}`: forbidden pattern `{label}` (`{m.group(0)}`)")
+
+        # Anti-leakage checks on body prose above ## Notes
+        for leak_label, leak_pat in ANTI_LEAKAGE_PATTERNS.items():
+            for m in leak_pat.finditer(body_before_notes):
+                leak_hits.append(f"- `{ch.name}`: anti-leakage violation `{leak_label}` (`{m.group(0)}`)")
+
+        # Jargon-to-notes check on body prose above ## Notes
+        ch_jargon_found: list[str] = []
+        body_lower = body_before_notes.lower()
+        for term, plain_replacement in jargon_dict.items():
+            if term.lower() in body_lower:
+                ch_jargon_found.append(term)
+                jargon_hits.append(
+                    f"- `{ch.name}`: clinical term `{term}` in body prose → relocate to `## Notes` (use plain English: *{plain_replacement}*)"
+                )
+
+        # Readability metrics on body prose above ## Notes
+        rm = compute_readability_metrics(body_before_notes)
+        fk = float(rm["fk_grade"])
+        avg_s = float(rm["avg_sentence_words"])
+        long_35 = int(rm["long_sentences_over_35"])
+        status_badge = "PASS (Bestseller)" if (fk <= 10.5 and avg_s <= 19.0 and not ch_jargon_found) else "NEEDS SIMPLIFICATION"
+        if fk > 10.5 or avg_s > 19.0:
+            readability_flags.append(
+                f"- `{ch.name}`: FK Grade `{fk}` (target ≤ 10.5), Avg Sentence `{avg_s}w` (target ≤ 19.0w), >35w sentences: `{long_35}`"
+            )
+
+        readability_rows.append(
+            f"| `{ch.name}` | {fk:.1f} | {avg_s:.1f}w | {long_35} | {len(ch_jargon_found)} | {status_badge} |"
+        )
 
         for full_name, surname in characters:
             if re.search(rf"\b{re.escape(surname)}\b", body_before_notes):
@@ -309,11 +434,33 @@ def audit_book(book_path: Path, use_gemini: bool = False) -> tuple[str, bool]:
     else:
         lines.append(f"- **Pass:** All {len(ec_cards)} OKF v0.2 evidence card(s) pass mechanical Rules 1, 4, and 5.")
 
+    lines.extend(
+        [
+            "",
+            "## 6. Readability, Jargon-to-Notes & Anti-Leakage Audit (`ARC-71` / `ARC-72` — Body Prose Above `## Notes`)",
+            "| Chapter | FK Grade (≤10.5) | Avg Sent (≤19w) | Sent >35w | Jargon Hits | Bestseller Gate |",
+            "| :--- | ---: | ---: | ---: | ---: | :--- |",
+            *readability_rows,
+            "",
+            "### 6a. Anti-Leakage Gate (No Inline `.md` Filenames, Backticked Footnotes, or Harness Meta-Phrases)",
+        ]
+    )
+    if leak_hits:
+        lines.extend(leak_hits)
+    else:
+        lines.append("- **Pass:** Zero `.md` filename leaks, backticked footnotes, or internal harness phrases in body prose.")
+
+    lines.extend(["", "### 6b. Clinical Jargon Relocation Queue (`style/jargon-to-notes.yml`)"])
+    if jargon_hits:
+        lines.extend(jargon_hits)
+    else:
+        lines.append("- **Pass:** Zero clinical jargon violations in body prose (100% isolated in `## Notes`).")
+
     if char_mentions:
         lines.extend(
             [
                 "",
-                "## 6. Character Continuity Map (`characters.md`)",
+                "## 7. Character Continuity Map (`characters.md`)",
                 "| Character | First Mention | Chapters Appearing |",
                 "| :--- | :--- | :--- |",
             ]
@@ -323,32 +470,38 @@ def audit_book(book_path: Path, use_gemini: bool = False) -> tuple[str, bool]:
             if chs:
                 lines.append(f"| {full_name} | Ch.{chs[0]} | {', '.join(f'Ch.{c}' for c in chs)} |")
 
-    lines.extend(["", "## 7. Residual Fact-Check Action Items (`research/fact-checks/*.md`)"])
+    lines.extend(["", "## 8. Residual Fact-Check Action Items (`research/fact-checks/*.md`)"])
     if open_fc_items:
         lines.extend(open_fc_items)
     else:
         lines.append("- **Pass:** No unchecked items in `research/fact-checks/`.")
 
     if use_gemini:
-        lines.extend(["", "## 8. Long-Context Gemini 2.5 Pro Editorial Review", ""])
+        lines.extend(["", "## 9. Long-Context Gemini 2.5 Pro Editorial Review", ""])
         lines.append(run_gemini_review(root, book_path, chapters))
 
     strict_ok = (
         not metaphor_collisions
         and not fn_issues
         and not forbidden_hits
+        and not scaffolding_hits
+        and not leak_hits
         and not ec_failures
         and citation_needed_total == 0
     )
+    if bestseller_strict:
+        strict_ok = strict_ok and not jargon_hits and not readability_flags
+
     return "\n".join(lines) + "\n", strict_ok
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Audit a book manuscript for continuity, metaphors, OKF cards, and citations.")
+    parser = argparse.ArgumentParser(description="Audit a book manuscript for continuity, metaphors, OKF cards, readability, and citations.")
     parser.add_argument("book", type=Path, help="Book or series directory (e.g. series/architectures-of-memory/book-01-vanishing-signal or series/parenthood-atlas)")
     parser.add_argument("--output", type=Path, default=None, help="Optional file path to write markdown report")
     parser.add_argument("--gemini", action="store_true", help="Run long-context Gemini 2.5 Pro holistic review")
-    parser.add_argument("--strict", action="store_true", help="Exit with code 1 if any audit gate fails")
+    parser.add_argument("--strict", action="store_true", help="Exit with code 1 if any core audit or anti-leakage gate fails")
+    parser.add_argument("--bestseller-strict", action="store_true", help="Also fail if any chapter exceeds FK Grade 10.5 or contains body jargon")
     args = parser.parse_args()
 
     root = repo_root()
@@ -357,7 +510,7 @@ def main() -> None:
         print(f"error: directory not found: {book_path}", file=sys.stderr)
         sys.exit(1)
 
-    report, strict_ok = audit_book(book_path, use_gemini=args.gemini)
+    report, strict_ok = audit_book(book_path, use_gemini=args.gemini, bestseller_strict=args.bestseller_strict)
     if args.output:
         out_path = args.output.resolve() if args.output.is_absolute() else (root / args.output).resolve()
         out_path.write_text(report, encoding="utf-8")
@@ -365,7 +518,7 @@ def main() -> None:
     else:
         sys.stdout.buffer.write(report.encode("utf-8"))
 
-    if args.strict and not strict_ok:
+    if (args.strict or args.bestseller_strict) and not strict_ok:
         sys.exit(1)
 
 

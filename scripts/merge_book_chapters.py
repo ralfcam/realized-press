@@ -143,6 +143,13 @@ def main() -> None:
     preamble = preamble_audiobook(book_rel) if args.audiobook else preamble_full(book_rel)
     parts: list[str] = [preamble.rstrip("\n") + "\n\n"]
 
+    front_matter_file = book_path / "front-matter.md"
+    if front_matter_file.is_file():
+        fm_raw = front_matter_file.read_text(encoding="utf-8")
+        fm_body = transform_audiobook(fm_raw) if args.audiobook else strip_yaml_frontmatter(fm_raw).rstrip()
+        parts.append(fm_body)
+        parts.append(sep)
+
     for i, f in enumerate(md_files):
         raw = f.read_text(encoding="utf-8")
         body = transform_audiobook(raw) if args.audiobook else strip_yaml_frontmatter(raw).rstrip()
