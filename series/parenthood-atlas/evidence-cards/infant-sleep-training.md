@@ -1,8 +1,8 @@
 ---
 type: Evidence Card
-title: "Infant Sleep Training (Cry It Out / Extinction Methods)"
-description: "RCT and cohort evidence finds no measured attachment or behavioral harm from extinction-based sleep training through age 6."
-tags: [sleep, attachment, intervention]
+title: "Infant Sleep Training: Graduated Extinction & The Ferber Method"
+description: "RCT and cohort evidence finds no measured attachment or behavioral harm from behavioral sleep training, graduated extinction (the Ferber method), and cry-it-out through age 6."
+tags: [sleep, sleep-training, ferber-method, extinction, attachment, intervention]
 status: draft
 confidence: low-to-moderate
 generated: { by: human:jose-campos, at: 2026-09-14T16:11:00Z }
@@ -35,7 +35,7 @@ sources:
 
 ## What We Know
 
-Randomized and longitudinal evidence does not find that graduated-extinction or related behavioral sleep training harms measured infant–parent attachment or increases behavioral/emotional problems through at least age 6, though most trials are underpowered for rare or long-latency harms.
+Randomized and longitudinal evidence does not find that graduated extinction (the Ferber method), cry it out, or related behavioral infant sleep training harms measured infant–parent attachment or increases behavioral/emotional problems through at least age 6, though most trials are underpowered for rare or long-latency harms.
 
 ## How Confident We Are
 

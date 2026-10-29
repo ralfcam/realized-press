@@ -97,6 +97,7 @@ Look back one more time at the nurse pressing five drops of blood onto a paper c
 - Adjacent: `evidence-cards/responsive-caregiving-attachment-interventions.md` (sensitivity RCTs; not rewritten)
 - Adjacent: `evidence-cards/early-childcare-quality.md` (process vs structural quality; not rewritten)
 - Adjacent Chapter 4: `severe-institutional-deprivation.md` (BEIP is not ordinary care)
+- Adjacent Chapter 4: `evidence-cards/infant-sleep-training.md` (behavioral sleep interventions, graduated extinction & Ferber method)
 - Adjacent Part II: `infant-still-face-paradigm.md`, `infant-caregiver-coregulation.md` (process, not efficacy)
 - Adjacent Part II: `pretend-play-educational-claims.md` (play is not a unique intelligence engine)
 - Adjacent Part II: `executive-function-unity-diversity.md`, `self-regulation-delay-of-gratification.md` (control is not a training commodity)

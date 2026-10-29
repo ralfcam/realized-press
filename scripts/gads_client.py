@@ -192,7 +192,8 @@ def parse_native_gkp_csv_export(source: "Path | str | bytes") -> GkpExport:
     header_idx = next(
         (
             i for i, line in enumerate(lines[:15])
-            if "avg. monthly searches" in line.lower() and re.search(r"(^|[\t,\"])\s*keyword\b", line.lower())
+            if ("avg. monthly searches" in line.lower() or "avgmonthlysearches" in line.lower())
+            and re.search(r"(^|[\t,\"])\s*keyword\b", line.lower())
         ),
         None,
     )
@@ -207,13 +208,13 @@ def parse_native_gkp_csv_export(source: "Path | str | bytes") -> GkpExport:
         return next((header.index(n) for n in names if n in header), None)
 
     c_kw = col("keyword")
-    c_vol = col("avg. monthly searches")
+    c_vol = col("avg. monthly searches", "avgmonthlysearches")
     c_3m = col("three month change")
     c_yoy = col("yoy change")
     c_label = col("competition")
-    c_idx = col("competition (indexed value)")
-    c_low = col("top of page bid (low range)")
-    c_high = col("top of page bid (high range)")
+    c_idx = col("competition (indexed value)", "competitionindex")
+    c_low = col("top of page bid (low range)", "lowtopofpagebid")
+    c_high = col("top of page bid (high range)", "hightopofpagebid")
     c_cur = col("currency")
     month_cols = []
     for i, name in enumerate(header):
