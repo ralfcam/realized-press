@@ -201,6 +201,34 @@ def _init_db_conn(conn: sqlite3.Connection, repo_root: Path) -> None:
         reindex_chapters(conn, repo_root)
 
 
+def _extract_card_title(text: str, default: str) -> str:
+    parts: list[str] = []
+    fm_title = re.search(r'^title:\s*"?([^"\n]+)"?', text, re.MULTILINE)
+    if fm_title:
+        parts.append(fm_title.group(1).strip())
+    fm_tags = re.search(r"^tags:\s*\[([^\]]+)\]", text, re.MULTILINE)
+    if fm_tags:
+        parts.append(fm_tags.group(1).replace(",", " ").replace("-", " ").strip())
+    h1 = next((line.lstrip("# ").strip() for line in text.splitlines() if line.startswith("# ")), "")
+    if h1 and h1 not in parts:
+        parts.append(h1)
+    if not parts:
+        fallback = next((line.lstrip("# ").strip() for line in text.splitlines() if line.startswith("#")), default)
+        parts.append(fallback)
+    return " — ".join(parts)
+
+
+def _extract_chapter_title(text: str, default: str) -> str:
+    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+    parts: list[str] = []
+    for ln in lines[:4]:
+        if ln.startswith("#"):
+            parts.append(ln.lstrip("# ").strip())
+        elif ln.startswith("*") and ln.endswith("*") and len(ln) > 2:
+            parts.append(ln.strip("* ").strip())
+    return " — ".join(parts) if parts else default
+
+
 def reindex_evidence_cards(conn: sqlite3.Connection, repo_root: Path) -> None:
     conn.execute("DELETE FROM evidence_cards_fts;")
     series_dir = repo_root / "series"
@@ -213,7 +241,7 @@ def reindex_evidence_cards(conn: sqlite3.Connection, repo_root: Path) -> None:
         series_slug = rel_parts[0]
         book_slug = rel_parts[1] if len(rel_parts) > 3 else "root"
         text = card_path.read_text(encoding="utf-8", errors="replace")
-        title = next((line.lstrip("# ").strip() for line in text.splitlines() if line.startswith("#")), card_path.stem)
+        title = _extract_card_title(text, card_path.stem)
         conn.execute(
             "INSERT INTO evidence_cards_fts (series_slug, book_slug, card_slug, title, body) VALUES (?, ?, ?, ?, ?)",
             (series_slug, book_slug, card_path.stem, title, text),
@@ -232,7 +260,7 @@ def reindex_chapters(conn: sqlite3.Connection, repo_root: Path) -> None:
         series_slug = rel_parts[0]
         book_slug = rel_parts[1] if len(rel_parts) > 3 else "root"
         text = ch_path.read_text(encoding="utf-8", errors="replace")
-        title = next((line.lstrip("# ").strip() for line in text.splitlines() if line.startswith("#")), ch_path.stem)
+        title = _extract_chapter_title(text, ch_path.stem)
         conn.execute(
             "INSERT INTO chapters_fts (series_slug, book_slug, chapter_slug, title, body) VALUES (?, ?, ?, ?, ?)",
             (series_slug, book_slug, ch_path.stem, title, text),
@@ -337,20 +365,43 @@ def _best_document(
     saturation: float,
 ) -> tuple[Optional[sqlite3.Row], float, float]:
     """Return (best row, raw BM25 magnitude, normalised coverage 0..1) for one FTS5 table."""
-    row = conn.execute(
+    rows = conn.execute(
         f"""
         SELECT rowid AS rid, {label_sql}, bm25({table}, {_BM25_WEIGHTS}) AS s
-        FROM {table} WHERE series_slug = ? AND {table} MATCH ? ORDER BY s LIMIT 1;
+        FROM {table} WHERE series_slug = ? AND {table} MATCH ? ORDER BY s;
         """,
         (series_slug, match),
-    ).fetchone()
-    if row is None:
+    ).fetchall()
+    if not rows:
         return None, 0.0, 0.0
-    raw = -float(row["s"])
-    # A single rare term can score high under BM25 alone; scaling by sqrt(term fraction) keeps a
-    # one-of-four-terms match from reading as "covered" without punishing a 2-of-3 match too hard.
-    fraction = _term_fraction(conn, table, int(row["rid"]), terms)
-    return row, raw, _normalize_bm25(raw, saturation) * math.sqrt(fraction)
+    best: Optional[tuple[float, int, int, float, sqlite3.Row]] = None
+    for row in rows:
+        rid = int(row["rid"])
+        hits = 0
+        title_hits = 0
+        for term in terms:
+            if conn.execute(
+                f"SELECT 1 FROM {table} WHERE rowid = ? AND {table} MATCH ?;",
+                (rid, f'{{title body}} : "{term}"'),
+            ).fetchone():
+                hits += 1
+            if conn.execute(
+                f"SELECT 1 FROM {table} WHERE rowid = ? AND {table} MATCH ?;",
+                (rid, f'{{title}} : "{term}"'),
+            ).fetchone():
+                title_hits += 1
+        fraction = hits / len(terms)
+        # SQLite FTS5 clamps IDF to 1e-6 when a term appears in >=50% of the table across series
+        # (e.g. "training", "memory", "model"); adding a per-hit floor preserves multi-term and
+        # title/subtitle relevance before scaling by sqrt(term fraction).
+        raw = max(0.0, -float(row["s"])) + 1.5 * hits + 2.0 * title_hits
+        score = _normalize_bm25(raw, saturation) * math.sqrt(fraction)
+        cand = (score, hits, title_hits, raw, row)
+        if best is None or cand[:4] > best[:4]:
+            best = cand
+    assert best is not None
+    score, _hits, _title_hits, raw, winner = best
+    return winner, raw, score
 
 
 def bm25_coverage(

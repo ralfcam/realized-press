@@ -1,8 +1,8 @@
 ---
 type: Evidence Card
-title: "Preschool / Early Childhood Education (Perry, Abecedarian)"
-description: "Two small, high-fidelity 1960s-70s RCTs (Perry, Abecedarian) show large, persistent adult gains; generalization to modern at-scale programs is uncertain."
-tags: [early-learning, preschool, rct, institutional-dependence]
+title: "Preschool & Early Interventions: Perry, Abecedarian, and Fade-Out at Scale"
+description: "Two small, high-fidelity 1960s-70s RCTs (Perry, Abecedarian) show large, persistent adult gains; modern at-scale preschool interventions often show cognitive fade-out."
+tags: [early-learning, preschool, early-interventions, fade-out, rct, institutional-dependence]
 status: draft
 confidence: moderate-historical; low-generalization
 generated: { by: human:jose-campos, at: 2026-09-14T16:11:00Z }

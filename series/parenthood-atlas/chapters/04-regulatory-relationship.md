@@ -104,6 +104,6 @@ The baby resting against that shoulder has not changed because we have traced he
 - `evidence-cards/responsive-feeding-as-regulation.md` (CH04-C04)
 - `evidence-cards/early-allergen-introduction-blw.md` (CH04-C05; LEAP peanut RCT & BLISS baby-led weaning RCT)
 - `evidence-cards/safe-sleep-supine-room-sharing.md` (CH04-C06; AAP supine sleep & INSIGHT room-sharing cohort)
-- Reconcile only, not rewritten: `evidence-cards/infant-sleep-training.md`
+- Reconcile only, not rewritten: `evidence-cards/infant-sleep-training.md` (graduated extinction, the Ferber method, Weissbluth extinction, cry it out / CIO, bedtime fading, chair method, Moms on Call, Babywise / Bucknam & Ezzo, Suzy Giordano, daytime naps, pacifier soothing)
 - Reconcile only, not rewritten: `evidence-cards/responsive-caregiving-attachment-interventions.md`
 - Adjacent Chapter 3: `evidence-cards/infant-crying-as-signal.md`, `evidence-cards/suck-swallow-breathe-coordination.md`

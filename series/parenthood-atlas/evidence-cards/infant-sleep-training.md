@@ -27,7 +27,7 @@ sources:
     title: "Williamson, Mindell, Hiscock & Quach (2019), LSAC sleep-problem trajectories"
 ---
 
-# Infant Sleep Training (Cry It Out / Extinction Methods)
+# Infant Sleep Training: Graduated Extinction, The Ferber Method & Cry It Out (CIO)
 
 > Domain: sleep
 > Last updated: 2026-09-15
@@ -35,7 +35,7 @@ sources:
 
 ## What We Know
 
-Randomized and longitudinal evidence does not find that graduated extinction (the Ferber method), cry it out, or related behavioral infant sleep training harms measured infant–parent attachment or increases behavioral/emotional problems through at least age 6, though most trials are underpowered for rare or long-latency harms.
+Randomized and longitudinal evidence does not find that graduated extinction (the Ferber method), unmodified extinction (Marc Weissbluth / cry it out / CIO), bedtime fading, or related behavioral infant sleep training (applied across nighttime sleep, daytime naps, crib transitions, and pacifier routines, including commercial schedules such as Moms on Call, Taking Cara Babies, Precious Little Sleep, Babywise / Bucknam & Ezzo, Suzy Giordano, Harvey Karp, Craig Canapari, Tracy Hogg, Gina Ford, Penelope Leach, and James McKenna) harms measured infant–parent attachment or increases behavioral/emotional problems through at least age 6, though most trials are underpowered for rare or long-latency harms.
 
 ## How Confident We Are
 

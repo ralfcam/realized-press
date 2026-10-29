@@ -90,9 +90,19 @@ BOX_STOPWORDS = {
     "versus", "how", "what", "when", "why", "which", "who", "is", "are", "was", "be", "do", "does",
     "did", "can", "my", "your", "you", "it", "its", "as", "not", "no", "about", "this", "that",
     "doesnt", "dont", "isnt", "your", "i", "we",
-    # Conversational verbs, numbers and generic framing nouns (ARC-74)
+    # Conversational verbs, numbers, age/time qualifiers and generic framing nouns (ARC-74)
     "work", "works", "get", "gets", "own", "day", "three", "seven", "study", "method", "signs",
-    "introduce", "book", "books",
+    "introduce", "book", "books", "old", "new", "born", "month", "months", "week", "weeks",
+    "year", "years", "time", "times", "age", "ages", "one", "two", "four", "five", "six", "eight",
+    "nine", "ten", "eleven", "twelve", "hour", "hours", "minute", "minutes", "start", "best",
+    "way", "ways", "tips", "guide", "schedule", "plan", "step", "steps", "test", "tests",
+    "after", "before", "without", "during", "through", "into", "over", "under", "same",
+    "different", "other", "more", "most", "less", "least", "very", "too", "also", "just",
+    "only", "even", "still", "already", "always", "never", "often", "sometimes", "really",
+    "actually", "debunked", "myth", "effects", "effect", "causes", "cause", "help", "helps",
+    "need", "needs", "necessary", "better", "worse", "good", "bad", "right", "wrong", "early",
+    "late", "long", "short", "high", "low", "full", "part", "first", "last", "next", "every",
+    "each", "many", "much", "some", "any", "all", "both", "half", "middle",
 }
 KDP_STOP_WORDS = BOX_STOPWORDS
 
@@ -112,7 +122,9 @@ SERIES_DOMAIN_ANCHORS: dict[str, set[str]] = {
 
 NEGATIVE_TOKENS: set[str] = {
     "office", "adult", "desktop", "commercial", "industrial", "enterprise software",
-    "gaming", "headset",
+    "gaming", "headset", "near me", "reddit", "vtech", "sleep trainee", "the sleep train",
+    "sleep tr", "sleep trainer", "sleep specialist training", "sleep therapist training",
+    "pampers", "kaedah",
 }
 
 
@@ -183,7 +195,8 @@ def repo_root() -> Path:
 
 
 def _extract_core_tokens(query: str) -> list[str]:
-    cleaned = re.sub(r"'s\b", "", query.lower()).replace("'", "")
+    cleaned = re.sub(r"\bnew\s+born\b", "newborn", query.lower())
+    cleaned = re.sub(r"'s\b", "", cleaned).replace("'", "")
     tokens = [t for t in re.findall(r"[a-z0-9]+", cleaned) if len(t) >= 3]
     core = [t for t in tokens if t not in STOPWORDS]
     return core or tokens[:2]
@@ -555,13 +568,16 @@ def import_gkp_export(
     export = parse_native_gkp_csv_export(export_path)
     bwedb.init_db(ROOT)
     stamp = bwedb.now_iso()
-    updated = added = 0
+    updated = added = filtered = 0
     comments, rows = read_seed_csv(csv_path) if csv_path.is_file() else ([], [])
     by_query = {normalize_query(r["query"]): r for r in rows}
     with bwedb.get_db() as conn:
         for m in export.metrics:
             q = normalize_query(m.query)
             cov = bwedb.bm25_coverage(conn, series_slug, _extract_core_tokens(q)[:8])
+            if not is_domain_relevant(q, series_slug, bm25_score=cov.combined):
+                filtered += 1
+                continue
             row = by_query.get(q)
             if row is None:
                 row = {"query": q, "target_chapter": chapter_label(cov.chapter), "paa_question_hook": ""}
@@ -586,7 +602,7 @@ def import_gkp_export(
         write_seed_csv(csv_path, comments, rows)
     lines = [
         f"[marketing-intel:import] {export_path.name}: {len(export.metrics)} keyword row(s) parsed "
-        f"({updated} updated, {added} new), {export.skipped_rows} skipped (no volume) -> "
+        f"({updated} updated, {added} new, {filtered} filtered off-topic), {export.skipped_rows} skipped (no volume) -> "
         f"{csv_path.name if not dry_run else '(dry run: nothing written)'} [tier={TIER_GKP_EXPORT}]",
     ]
     lines += [f"[WARN] {w}" for w in export.warnings]

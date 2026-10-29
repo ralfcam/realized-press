@@ -83,13 +83,13 @@ monetization:
       - "PSY004000"
       - "SCI049000"
     backend_keywords:
-      - "sleep training baby time cry out cortisol toddler"
-      - "safe ferber peanut butter room sharing sids potty"
-      - "old tantrums calm down screen speech delay turns"
-      - "home readiness led weaning purees choking iq tie"
-      - "hitting biting spanking daycare stay mom toys new"
-      - "month white noise attachment tongue surgery play"
-      - "pregnancy stress hurt infant hear womb music test"
+      - "sleep training baby safe cry out cortisol toddler"
+      - "ferber room peanut butter potty readiness led mom"
+      - "home sharing sids screen speech delay turns calm"
+      - "tantrums down hitting biting spanking tongue tie"
+      - "infant daycare stay white noise weaning purees iq"
+      - "choking attachment montessori toys pretend play"
+      - "pregnancy stress hurt hear womb music voice skin"
   owned_marketing_site:
     blueprint: "patreon-serial-membership-model"
     role: "internally-developed-marketing-and-serial-portal"
@@ -133,7 +133,7 @@ books:
         footnotes_migrated: true
       - slug: 04-regulatory-relationship
         title: "The Regulatory Relationship"
-        subtitle: "Sleep Training, Night Waking, Responsive Feeding, and How Attachment Works"
+        subtitle: "Sleep Training, The Ferber Method, Night Waking, Responsive Feeding, and How Attachment Works"
         footnotes_migrated: true
       - slug: 05-becoming-a-mind
         title: "Becoming a Mind"

@@ -143,3 +143,28 @@ def test_check_environment_diagnostics():
     assert "is_available" in report
     assert "customer_id" in report
     assert report["is_available"] is False
+
+
+def test_parse_native_gkp_csv_export_camelcase():
+    # Simulates camelCase automated GKP export (e.g. Apify dataset export)
+    content = (
+        '"avgMonthlySearches","competition","competitionIndex","highTopOfPageBid","keyword","lowTopOfPageBid"\n'
+        '"33100","LOW","28","1.025134","sleep training baby","0.020794"\n'
+        '"40500","LOW","12","0.416129","ferber method","0.015984"\n'
+        '"0","UNSPECIFIED",,,"nct sleep training",\n'
+    )
+    export = parse_native_gkp_csv_export(content)
+    assert len(export.metrics) == 2
+    assert export.skipped_rows == 1
+
+    r0 = export.metrics[0]
+    assert r0.query == "sleep training baby"
+    assert r0.monthly_volume == 33100
+    assert r0.competition_index == 0.28
+    assert r0.cpc_low_usd == 0.02
+    assert r0.cpc_high_usd == 1.03
+
+    r1 = export.metrics[1]
+    assert r1.query == "ferber method"
+    assert r1.monthly_volume == 40500
+    assert r1.competition_index == 0.12

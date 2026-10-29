@@ -213,6 +213,10 @@ def test_is_domain_relevant():
     assert not is_domain_relevant("adult sleep apnea machine", "parenthood-atlas")
     assert not is_domain_relevant("gaming headset for toddler", "parenthood-atlas")
     assert not is_domain_relevant("enterprise software memory management", "architectures-of-memory")
+    assert not is_domain_relevant("sleep trainer near me", "parenthood-atlas")
+    assert not is_domain_relevant("ferber method reddit", "parenthood-atlas")
+    assert not is_domain_relevant("sleep tr", "parenthood-atlas")
+    assert not is_domain_relevant("vtech sleep trainer", "parenthood-atlas")
 
     # Domain anchors for parenthood-atlas
     assert is_domain_relevant("when to introduce peanut butter baby", "parenthood-atlas")
@@ -239,11 +243,40 @@ def test_hardened_box_stopwords():
     # Ensure alias
     assert BOX_STOPWORDS is KDP_STOP_WORDS
 
-    # Hardened conversational verbs, numbers, and generic nouns
+    # Hardened conversational verbs, numbers, age qualifiers, and generic nouns
     expected_stopwords = {
         "work", "works", "get", "gets", "own", "day", "three", "seven",
         "study", "method", "signs", "introduce", "book", "books",
+        "old", "new", "born", "month", "months", "week", "weeks",
+        "year", "years", "time", "test",
     }
     for word in expected_stopwords:
         assert word in BOX_STOPWORDS, f"Expected '{word}' to be in BOX_STOPWORDS"
+
+
+def test_bm25_subtitle_and_ferber_sleep_coverage():
+    from scripts.marketing_intelligence import _extract_core_tokens
+    conn = sqlite3.connect(":memory:")
+    conn.row_factory = sqlite3.Row
+    bwedb.init_db(Path("."), conn=conn)
+
+    # Verify "ferber method" and "sleep training baby" link to Chapter 4 and infant-sleep-training above coverage thresholds
+    cov_ferber = bwedb.bm25_coverage(conn, "parenthood-atlas", _extract_core_tokens("ferber method"))
+    assert cov_ferber.chapter == "04-regulatory-relationship"
+    assert cov_ferber.card == "infant-sleep-training"
+    assert cov_ferber.chapter_score >= 0.50
+    assert cov_ferber.card_score >= 0.40
+
+    cov_sleep = bwedb.bm25_coverage(conn, "parenthood-atlas", _extract_core_tokens("sleep training baby"))
+    assert cov_sleep.chapter == "04-regulatory-relationship"
+    assert cov_sleep.card == "infant-sleep-training"
+    assert cov_sleep.chapter_score >= 0.50
+    assert cov_sleep.card_score >= 0.40
+
+    # Verify Chapter 14 links to infant-sleep-training for "ferber method guide"
+    cov_ch14 = bwedb.bm25_coverage(conn, "parenthood-atlas", _extract_core_tokens("ferber method guide"))
+    assert cov_ch14.chapter == "14-what-actually-works"
+    assert cov_ch14.card == "infant-sleep-training"
+    assert cov_ch14.chapter_score >= 0.50
+    assert cov_ch14.card_score >= 0.40
 
