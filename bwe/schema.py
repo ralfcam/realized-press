@@ -6,7 +6,10 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, List, Optional
 import yaml
-from pydantic import BaseModel, Field, model_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
+
+KDP_BACKEND_BOX_COUNT = 7
+KDP_BACKEND_BOX_MAX_BYTES = 50
 
 
 class EpistemicLens(str, Enum):
@@ -38,9 +41,22 @@ class KdpMarketingMetadata(BaseModel):
     primary_subtitle: str
     bisac_categories: List[str] = Field(default_factory=list, max_length=3)
     backend_keywords: List[str] = Field(
-        default_factory=list, max_length=7, description="7 KDP 50-char search boxes"
+        default_factory=list,
+        max_length=KDP_BACKEND_BOX_COUNT,
+        description="7 KDP backend search boxes, each at most 50 UTF-8 bytes",
     )
     target_search_clusters: List[str] = Field(default_factory=list)
+
+    @field_validator("backend_keywords")
+    @classmethod
+    def _boxes_fit_kdp_limit(cls, boxes: List[str]) -> List[str]:
+        """Each box is capped at 50 bytes (stricter than 50 characters for non-ASCII text)."""
+        too_long = [b for b in boxes if len(b.encode("utf-8")) > KDP_BACKEND_BOX_MAX_BYTES]
+        if too_long:
+            raise ValueError(
+                f"KDP backend keyword box(es) exceed {KDP_BACKEND_BOX_MAX_BYTES} UTF-8 bytes: {too_long}"
+            )
+        return boxes
 
 
 class MovementSpec(BaseModel):

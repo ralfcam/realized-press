@@ -1,0 +1,17 @@
+# Google Ads API client configuration template (Realized Press BWE v0.6.0)
+# Copy this file to google-ads.yaml (ignored by git) and populate with your credentials.
+# Docs: https://developers.google.com/google-ads/api/docs/first-call/overview
+
+developer_token: "INSERT_DEVELOPER_TOKEN_HERE"
+client_id: "INSERT_OAUTH2_CLIENT_ID_HERE"
+client_secret: "INSERT_OAUTH2_CLIENT_SECRET_HERE"
+refresh_token: "INSERT_OAUTH2_REFRESH_TOKEN_HERE"
+
+# Optional: 10-digit manager account ID (without dashes) if accessing via MCC hierarchy
+# login_customer_id: "1234567890"
+
+# Target operating customer ID (10-digit string or integer without dashes)
+customer_id: "1234567890"
+
+# Use proto-plus messages for pythonic dict and attribute access
+use_proto_plus: true

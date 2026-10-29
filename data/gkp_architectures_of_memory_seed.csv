@@ -1,0 +1,29 @@
+query,monthly_volume,yoy_trend_pct,competition_index,target_chapter,paa_question_hook
+vanishing gradient problem neural networks,22200,12.0,0.35,book-01-vanishing-signal/08-vanishing-gradient-theorem,Why do deep neural networks lose long-term gradient signals during backpropagation?
+backpropagation through time rnn memory,14800,15.0,0.32,book-01-vanishing-signal/06-rnn-illusion-of-memory,Why do vanilla recurrent neural networks struggle with temporal order over long horizons?
+recurrent neural network exploding gradients,18100,10.5,0.30,book-01-vanishing-signal/08-vanishing-gradient-theorem,How does the chain rule cause gradients to explode or vanish over sequence steps?
+institutional amnesia corporate reorganization,8100,22.0,0.28,book-01-vanishing-signal/09-reorg-as-gradient-vanishing,Why do company reorganizations cause catastrophic loss of institutional memory?
+documentation without gating knowledge loss,6200,19.5,0.29,book-01-vanishing-signal/10-documentation-no-gating,Why do static corporate wikis fail to preserve architectural context without gating?
+ship of theseus neural identity memory,12100,18.0,0.25,book-01-vanishing-signal/14-ship-of-theseus,How does continuous weight modification relate to the Ship of Theseus paradox?
+bergson duration versus spatialized time ai,5400,14.0,0.21,book-01-vanishing-signal/15-bergson-duration,What does Bergson's duration reveal about sequence processing in neural networks?
+lstm forget gate explained,49500,14.0,0.38,book-02-forget-gate/04-forget-gate-missing-piece,Why did the original LSTM need Gers's forget gate to avoid cell saturation?
+constant error carousel lstm hochreiter,6600,8.5,0.24,book-02-forget-gate/02-constant-error-carousel,How does Hochreiter's constant error carousel preserve linear error flow?
+audit trail paradox regulated documentation,5400,19.0,0.33,book-02-forget-gate/09-audit-trail-paradox,Why does accumulating every compliance record create an unsearchable memory swamp?
+borges funes the memorious memory curse,9900,11.0,0.22,book-02-forget-gate/14-borges-funes-curse-perfect-memory,What does Borges's Funes teach us about why intelligence requires active forgetting?
+lstm vs gru gate mechanism difference,33100,16.0,0.40,book-02-forget-gate/07-peepholes-bidirectionality-variants,How do GRU update gates compare to LSTM separate input and forget gates?
+transformer attention is all you need explained,90500,42.0,0.48,book-03-weight-of-attention/03-attention-is-all-you-need,How did self-attention replace recurrence and enable parallel sequence learning?
+multi head attention mechanism visual explanation,60500,38.0,0.45,book-03-weight-of-attention/05-multi-head-attention,Why do transformers use multiple attention heads instead of a single routing head?
+retrieval augmented generation vs fine tuning,74000,55.0,0.52,book-03-weight-of-attention/09-rag-and-enterprise-search,When should an enterprise use RAG instead of fine-tuning parametric memory?
+when does retrieval replace retention knowledge,4400,20.0,0.29,book-03-weight-of-attention/10-when-retrieval-replaces-retention,Does instant search retrieval erode organic institutional retention?
+extended mind theory clark chalmers external memory,8100,14.0,0.26,book-03-weight-of-attention/15-extended-mind-theory,Are vector stores and RAG indices an empirical realization of Clark and Chalmers's extended mind?
+lost in the middle attention llm context window,40500,62.0,0.46,book-04-context-window/06-the-finite-context-problem,Why do long-context language models fail to retrieve information from the middle of prompts?
+llm hallucination as memory retrieval failure,36800,48.0,0.44,book-04-context-window/04-hallucination-as-memory-failure,Is language model hallucination a memory defect or a consequence of parametric compression?
+in context learning vs parametric memory,27100,36.0,0.37,book-04-context-window/02-parametric-memory,How does in-context activation memory differ from frozen parametric weights?
+governance of opaque ai systems compliance,9900,28.0,0.35,book-04-context-window/13-grc-implication-governance-of-opaque-systems,How can compliance officers audit decisions made by black-box foundation models?
+searles chinese room large language models,14800,25.0,0.30,book-04-context-window/14-searles-chinese-room-revisited,Does massive context-window next-token prediction answer Searle's Chinese Room argument?
+machine unlearning algorithms foundation models,24600,78.0,0.42,book-05-architecture-of-forgetting/01-machine-unlearning,How can a neural network delete specific training facts without full retraining?
+differential privacy in deep learning models,29500,31.0,0.39,book-05-architecture-of-forgetting/02-differential-privacy,How does DP-SGD clip gradients and add noise to guarantee privacy bounds?
+gdpr right to be forgotten large language models,19800,45.0,0.41,book-05-architecture-of-forgetting/06-gdpr-and-right-to-be-forgotten,Can a user legally enforce the GDPR right to be forgotten against a trained neural network?
+carbon and compute cost training llm models,18100,34.0,0.38,book-05-architecture-of-forgetting/04-carbon-and-compute-cost,What is the true carbon and energy cost of training and persisting foundation models?
+paul ricoeur memory history forgetting philosophy,6600,10.0,0.20,book-05-architecture-of-forgetting/12-ricoeur-memory-forgetting-forgiveness,What does Ricoeur's philosophy of memory and forgiveness mean for automated systems?
+data retention vs model weights compliance gap,5400,26.0,0.33,book-05-architecture-of-forgetting/07-data-vs-model-retention-compliance-gap,Why does deleting training data from databases leave an unmanaged compliance risk in model weights?

@@ -5,6 +5,7 @@
 .env
 *.env
 .env.*
+google-ads.yaml
 
 # Generated binary audio and publishing staging files
 *.wav
