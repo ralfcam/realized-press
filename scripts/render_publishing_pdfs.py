@@ -412,6 +412,7 @@ def build_book_pdf(
     page_format: str = "a4",
     toc_pages: dict[int, int] | None = None,
     front_matter_path: Path | None = None,
+    language: str = "en",
 ) -> tuple[BookEditionPDF, dict[int, int]]:
     pdf = BookEditionPDF(
         book_title=book_title,
@@ -422,6 +423,14 @@ def build_book_pdf(
     body_pt = 9.5 if page_format == "kdp-6x9" else 10.0
     line_h = 4.9 if page_format == "kdp-6x9" else 5.4
 
+    contents_title = "Contenido" if language == "es" else "Contents"
+    notes_title = "Notas" if language == "es" else "Notes"
+    fm_toc_title = (
+        "Cómo usar este atlas: Guía rápida de consulta (2:00 AM)"
+        if language == "es"
+        else "How to Use This Atlas: 2:00 AM Quick-Finder"
+    )
+
     # Title & Contents Page
     pdf.add_page()
     pdf.set_font("BookSerif", "B", 18 if page_format == "kdp-6x9" else 20)
@@ -431,14 +440,14 @@ def build_book_pdf(
     pdf.multi_cell(0, 6, f"Realized Press · {edition_label} ({date.today().isoformat()})")
     pdf.ln(5)
     pdf.set_font("BookSerif", "B", 12 if page_format == "kdp-6x9" else 13)
-    pdf.cell(0, 7, "Contents", new_x="LMARGIN", new_y="NEXT")
+    pdf.cell(0, 7, contents_title, new_x="LMARGIN", new_y="NEXT")
     pdf.ln(2)
     pdf.set_font("BookSerif", "", 9.2 if page_format == "kdp-6x9" else 10)
 
     if front_matter_path and front_matter_path.is_file():
         fm_pg = toc_pages.get(0, 0) if toc_pages else 0
         fm_pg_str = f"p. {fm_pg}" if fm_pg else "..."
-        pdf.multi_cell(0, 5.0, f"How to Use This Atlas: 2:00 AM Quick-Finder  ({fm_pg_str})", new_x="LMARGIN", new_y="NEXT")
+        pdf.multi_cell(0, 5.0, f"{fm_toc_title}  ({fm_pg_str})", new_x="LMARGIN", new_y="NEXT")
 
     for idx, ch_path in enumerate(chapters, 1):
         pg = toc_pages.get(idx, 0) if toc_pages else 0
@@ -449,7 +458,8 @@ def build_book_pdf(
     recorded_pages: dict[int, int] = {}
 
     if front_matter_path and front_matter_path.is_file():
-        pdf.current_chapter_header = f"{book_title} — How to Use This Atlas"
+        running_fm = f"{book_title} — Cómo usar este atlas" if language == "es" else f"{book_title} — How to Use This Atlas"
+        pdf.current_chapter_header = running_fm
         pdf.add_page()
         recorded_pages[0] = pdf.page_no()
         raw_fm = strip_yaml_frontmatter(front_matter_path.read_text(encoding="utf-8"))
@@ -467,11 +477,16 @@ def build_book_pdf(
                 pdf.set_font("BookSerif", "B", 11 if page_format == "kdp-6x9" else 12)
                 pdf.multi_cell(0, 6.0, clean_pdf_line(s[4:].strip()), new_x="LMARGIN", new_y="NEXT")
                 pdf.ln(1.0)
-            elif s.startswith("**Q:"):
+            elif s.startswith("**Q:") or s.startswith("**P:"):
                 pdf.ln(1.2)
                 pdf.set_font("BookSerif", "B", body_pt)
                 pdf.multi_cell(0, line_h, clean_pdf_line(s), new_x="LMARGIN", new_y="NEXT")
-            elif s.startswith("*Chapter") or s.startswith("*A Quick-Finder"):
+            elif (
+                s.startswith("*Chapter")
+                or s.startswith("*Capítulo")
+                or s.startswith("*A Quick-Finder")
+                or s.startswith("*Guía de consulta")
+            ):
                 pdf.set_font("BookSerif", "I", body_pt - 0.2)
                 pdf.multi_cell(0, line_h, clean_pdf_line(s), new_x="LMARGIN", new_y="NEXT")
             elif s == "---":
@@ -555,7 +570,7 @@ def build_book_pdf(
         if parsed.notes_pdf:
             pdf.ln(2.5)
             pdf.set_font("BookSerif", "B", 11.2 if page_format == "kdp-6x9" else 12)
-            pdf.multi_cell(0, 6.0, "Notes", new_x="LMARGIN", new_y="NEXT")
+            pdf.multi_cell(0, 6.0, notes_title, new_x="LMARGIN", new_y="NEXT")
             pdf.ln(1.0)
             pdf.set_font("BookSerif", "", body_pt - 0.6)
             for num, note_text in parsed.notes_pdf:
@@ -572,7 +587,16 @@ def build_reader_html(
     chapters: list[Path],
     chapter_pages: dict[int, int],
     front_matter_path: Path | None = None,
+    language: str = "en",
 ) -> str:
+    contents_title = "Contenido" if language == "es" else "Contents"
+    notes_title = "Notas" if language == "es" else "Notes"
+    fm_toc_title = (
+        "Cómo usar este atlas: Guía rápida de consulta (2:00 AM)"
+        if language == "es"
+        else "How to Use This Atlas: 2:00 AM Quick-Finder"
+    )
+
     out: list[str] = [
         "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'>",
         f"<title>{html.escape(book_title)} — {html.escape(edition_label)}</title>",
@@ -600,11 +624,11 @@ def build_reader_html(
         ".footnote-backref:hover{color:#8b3a1a}",
         "</style></head><body>",
         f"<header><h1>{html.escape(book_title)}</h1><p><em>Realized Press · {html.escape(edition_label)} ({date.today().isoformat()})</em></p></header>",
-        "<nav class='toc'><h2>Contents</h2><ol>",
+        f"<nav class='toc'><h2>{contents_title}</h2><ol>",
     ]
     if front_matter_path and front_matter_path.is_file():
         fm_pg = chapter_pages.get(0, 2)
-        out.append(f"<li><a href='#front-matter'>How to Use This Atlas: 2:00 AM Quick-Finder</a> <small>(PDF p. {fm_pg})</small></li>")
+        out.append(f"<li><a href='#front-matter'>{fm_toc_title}</a> <small>(PDF p. {fm_pg})</small></li>")
 
     for idx, ch_path in enumerate(chapters, 1):
         t = chapter_title(ch_path)
@@ -668,7 +692,7 @@ def build_reader_html(
                 out.append(f"<p>{md_inline_html(s)}</p>")
 
         if parsed.notes_html:
-            out.append("<div class='footnotes'><h2>Notes</h2><ol class='footnote-list'>")
+            out.append(f"<div class='footnotes'><h2>{notes_title}</h2><ol class='footnote-list'>")
             for num, note_text in parsed.notes_html:
                 backref = f"<a href='#fnref-{idx:02d}-{num}' class='footnote-backref' title='Jump back to text'>↩</a>"
                 out.append(f"<li id='fn-{idx:02d}-{num}'><p>{md_inline_html(note_text)} {backref}</p></li>")
@@ -686,10 +710,19 @@ def build_kdp_epub(
     chapters: list[Path],
     epub_path: Path,
     front_matter_path: Path | None = None,
+    language: str = "en",
 ) -> None:
     """Compile a valid, KDP-ready EPUB 3 archive using Python's built-in zipfile module."""
     book_uuid = str(uuid.uuid5(uuid.NAMESPACE_DNS, f"realized-press.{epub_path.stem}"))
     today = date.today().isoformat()
+
+    contents_title = "Contenido" if language == "es" else "Contents"
+    notes_title = "Notas" if language == "es" else "Notes"
+    fm_toc_title = (
+        "Cómo usar este atlas: Guía rápida de consulta (2:00 AM)"
+        if language == "es"
+        else "How to Use This Atlas: 2:00 AM Quick-Finder"
+    )
 
     container_xml = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -727,7 +760,7 @@ def build_kdp_epub(
     if front_matter_path and front_matter_path.is_file():
         manifest_items.append('<item id="front-matter" href="front-matter.xhtml" media-type="application/xhtml+xml"/>')
         spine_items.append('<itemref idref="front-matter"/>')
-        nav_links.append('<li><a href="front-matter.xhtml">How to Use This Atlas: 2:00 AM Quick-Finder</a></li>')
+        nav_links.append(f'<li><a href="front-matter.xhtml">{fm_toc_title}</a></li>')
 
         fm_body_lines: list[str] = []
         raw_fm = strip_yaml_frontmatter(front_matter_path.read_text(encoding="utf-8"))
@@ -750,9 +783,8 @@ def build_kdp_epub(
 
         fm_xhtml = (
             '<?xml version="1.0" encoding="UTF-8"?>\n'
-            '<!DOCTYPE html>\n'
-            '<html xmlns="http://www.w3.org/1999/xhtml" lang="en">\n'
-            '<head><meta charset="utf-8"/><title>How to Use This Atlas: 2:00 AM Quick-Finder</title>'
+            f'<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" lang="{language}">\n'
+            f'<head><meta charset="utf-8"/><title>{html.escape(fm_toc_title)}</title>'
             '<link rel="stylesheet" type="text/css" href="style.css"/></head>\n'
             '<body>\n<section id="front-matter">\n'
             + "\n".join(fm_body_lines)
@@ -802,15 +834,14 @@ def build_kdp_epub(
                 body_lines.append(f"<p>{md_inline_html(s)}</p>")
 
         if parsed.notes_epub:
-            body_lines.append('<section epub:type="footnotes" class="footnotes"><h2>Notes</h2><ol>')
+            body_lines.append(f'<section epub:type="footnotes" class="footnotes"><h2>{notes_title}</h2><ol>')
             for num, note_text in parsed.notes_epub:
                 body_lines.append(f'<li id="fn-{idx:02d}-{num}" epub:type="footnote"><p>{md_inline_html(note_text)}</p></li>')
             body_lines.append("</ol></section>")
 
         xhtml = (
             '<?xml version="1.0" encoding="UTF-8"?>\n'
-            '<!DOCTYPE html>\n'
-            '<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en">\n'
+            f'<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="{language}">\n'
             f"<head><meta charset=\"utf-8\"/><title>{html.escape(title)}</title>"
             '<link rel="stylesheet" type="text/css" href="style.css"/></head>\n'
             "<body>\n" + "\n".join(body_lines) + "\n</body></html>\n"
@@ -819,14 +850,13 @@ def build_kdp_epub(
 
     nav_xhtml = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<!DOCTYPE html>\n'
-        '<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en">\n'
+        f'<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="{language}">\n'
         f"<head><meta charset=\"utf-8\"/><title>{html.escape(book_title)}</title>"
         '<link rel="stylesheet" type="text/css" href="style.css"/></head>\n'
         "<body>\n"
         f"<h1>{html.escape(book_title)}</h1>\n"
         f"<p><em>{html.escape(author)} · Realized Press ({today})</em></p>\n"
-        '<nav epub:type="toc" id="toc"><h2>Contents</h2><ol>\n'
+        f'<nav epub:type="toc" id="toc"><h2>{contents_title}</h2><ol>\n'
         + "\n".join(nav_links)
         + "\n</ol></nav></body></html>\n"
     )
@@ -839,7 +869,7 @@ def build_kdp_epub(
         f"    <dc:title>{html.escape(book_title)}</dc:title>\n"
         f"    <dc:creator>{html.escape(author)}</dc:creator>\n"
         "    <dc:publisher>Realized Press</dc:publisher>\n"
-        "    <dc:language>en</dc:language>\n"
+        f"    <dc:language>{language}</dc:language>\n"
         f'    <meta property="dcterms:modified">{today}T00:00:00Z</meta>\n'
         "  </metadata>\n"
         "  <manifest>\n    "
@@ -937,21 +967,45 @@ def main() -> int:
     )
     pub_dir.mkdir(parents=True, exist_ok=True)
 
-    slug = book_path.name
+    base_slug = book_path.parent.parent.name if book_path.parent.name == "i18n" else book_path.name
     suffix = "kdp-6x9" if args.format == "kdp-6x9" else "reader-edition"
-    pdf_path = pub_dir / f"{slug}-{suffix}.pdf"
-    html_path = pub_dir / f"{slug}-reader-edition.html" if args.format == "a4" else None
-    report_path = pub_dir / f"{slug}-{suffix}-extraction-report.txt"
+    pdf_path = pub_dir / f"{base_slug}-{suffix}.pdf"
+    html_path = pub_dir / f"{base_slug}-reader-edition.html" if args.format == "a4" else None
+    report_path = pub_dir / f"{base_slug}-{suffix}-extraction-report.txt"
 
     fonts = resolve_serif_fonts()
-    book_title = slug.replace("-", " ").title()
+    book_title = base_slug.replace("-", " ").title()
+
+    manifest_file = (
+        book_path / "series.yaml"
+        if (book_path / "series.yaml").is_file()
+        else (book_path.parent / "series.yaml" if (book_path.parent / "series.yaml").is_file() else None)
+    )
+    language = "en"
+    if manifest_file and manifest_file.is_file():
+        try:
+            import yaml
+            manifest = yaml.safe_load(manifest_file.read_text(encoding="utf-8")) or {}
+            book_title = manifest.get("title", book_title)
+            rt = manifest.get("readability_targets") or {}
+            language = rt.get("language") or manifest.get("locale") or ("es" if "es" in book_path.parts else "en")
+        except Exception:
+            pass
+    elif "es" in book_path.parts:
+        language = "es"
 
     front_matter_path = book_path / "front-matter.md"
     if not front_matter_path.is_file():
         front_matter_path = None
 
     pass1_pdf, pass1_pages = build_book_pdf(
-        book_title, args.edition, chapters, fonts, page_format=args.format, front_matter_path=front_matter_path
+        book_title,
+        args.edition,
+        chapters,
+        fonts,
+        page_format=args.format,
+        front_matter_path=front_matter_path,
+        language=language,
     )
     final_pdf, final_pages = build_book_pdf(
         book_title,
@@ -961,12 +1015,20 @@ def main() -> int:
         page_format=args.format,
         toc_pages=pass1_pages,
         front_matter_path=front_matter_path,
+        language=language,
     )
     final_pdf.output(str(pdf_path))
 
     if html_path:
         html_path.write_text(
-            build_reader_html(book_title, args.edition, chapters, final_pages, front_matter_path=front_matter_path),
+            build_reader_html(
+                book_title,
+                args.edition,
+                chapters,
+                final_pages,
+                front_matter_path=front_matter_path,
+                language=language,
+            ),
             encoding="utf-8",
         )
     report = verify_and_report(book_title, args.edition, pdf_path, html_path, chapters, final_pages)
@@ -978,8 +1040,15 @@ def main() -> int:
     print(f"[verify] Wrote {report_path.relative_to(root)}")
 
     if args.epub:
-        epub_path = pub_dir / f"{slug}-kdp.epub"
-        build_kdp_epub(book_title, args.author, chapters, epub_path, front_matter_path=front_matter_path)
+        epub_path = pub_dir / f"{base_slug}-kdp.epub"
+        build_kdp_epub(
+            book_title,
+            args.author,
+            chapters,
+            epub_path,
+            front_matter_path=front_matter_path,
+            language=language,
+        )
         print(f"[epub] Wrote {epub_path.relative_to(root)} ({epub_path.stat().st_size:,} bytes)")
 
     return 0

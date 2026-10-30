@@ -1,0 +1,44 @@
+# series/parenthood-atlas/i18n/es/style/jargon-to-notes.yml
+# Arquitectura de registro dividido (ARC-71 / ARC-72), versión en español (ARC-76).
+# Términos clínicos y metodológicos que deben vivir en `## Notes` de cada capítulo (y en el cajón lateral HTMX),
+# nunca en la prosa principal sobre `## Notes`. La coincidencia es por subcadena sin distinguir mayúsculas,
+# de modo que "morfogenético" también atrapa "morfogenéticos".
+
+max_avg_sentence_words: 22.0
+max_single_sentence_words: 40
+
+relocate_to_notes:
+  sincitiotrofoblasto: "capa externa de la placenta"
+  morfogenético: "de formación temprana del cuerpo / estructural"
+  morfogenética: "de formación temprana del cuerpo / estructural"
+  morfogénesis: "cómo los órganos se pliegan y toman forma"
+  espermatogonial: "(células madre) que producen espermatozoides"
+  gametogénesis: "cómo se forman los óvulos y los espermatozoides"
+  organogénesis: "las semanas en que se forman los órganos"
+  gastrulación: "plegamiento temprano de los tejidos del embrión"
+  frontoestriatal: "el sistema físico de frenado del cerebro"
+  equifinalidad: "un buen camino entre muchos / varios caminos hacia el mismo resultado"
+  equifinal: "uno de varios buenos caminos"
+  continuidad heterotípica: "el mismo rasgo de la infancia con otro ropaje a distintas edades"
+  confusión evocativa: "cómo el temperamento de un niño provoca reacciones distintas en los adultos"
+  epifenomenal: "un efecto secundario y no el motor principal"
+  epifenómeno: "un efecto secundario y no el motor principal"
+  apareamiento selectivo: "cómo las parejas con rasgos parecidos tienden a formarse"
+  apareamiento asortativo: "cómo las parejas con rasgos parecidos tienden a formarse"
+  teratológico: "capaz de dañar el crecimiento fetal"
+  teratogénico: "capaz de dañar el desarrollo fetal"
+  teratógeno: "sustancia capaz de dañar el desarrollo fetal"
+  vasoconstrictor: "sustancia que estrecha los vasos sanguíneos"
+  hidroxiesteroide: "enzima barrera especializada de la placenta"
+  "11β-hsd2": "enzima escudo de la placenta (conserva el símbolo exacto 11β-HSD2 en ## Notes)"
+  "11\\beta": "enzima escudo de la placenta (conserva el símbolo exacto 11β-HSD2 en ## Notes)"
+  inter-ráfaga: "pausas entre ráfagas de succión"
+  control operante: "control activo (p. ej., succionar más rápido o más lento para elegir un sonido)"
+  arborización: "ramificación de las células nerviosas"
+  sinaptogénesis: "formación de nuevas conexiones entre células cerebrales"
+
+anti_leakage_patterns:
+  inline_md_filename: "\\b[a-z0-9-]+\\.md\\b"
+  backticked_footnote: "`\\[\\^[^\\]]+\\]`"
+  harness_meta_escalation: "\\bescalada progresiva de lentes\\b"
+  harness_meta_three_tier: "\\b(resolución causal de tres niveles|en el (primer|segundo|tercer) nivel)\\b"

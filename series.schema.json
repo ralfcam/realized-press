@@ -367,8 +367,14 @@
       "type": "object"
     },
     "ReadabilityTargets": {
-      "description": "ARC-71 / ARC-72: Split-Register Bestseller Readability Targets (body prose above ## Notes).",
+      "description": "ARC-71 / ARC-72 / ARC-76: Split-Register Bestseller Readability Targets (body prose above ## Notes).",
       "properties": {
+        "language": {
+          "default": "en",
+          "description": "Target language ('en', 'es', 'fr')",
+          "title": "Language",
+          "type": "string"
+        },
         "max_flesch_kincaid_grade": {
           "default": 10.5,
           "maximum": 12.0,
@@ -383,7 +389,7 @@
         },
         "max_avg_sentence_words": {
           "default": 19.0,
-          "maximum": 22.0,
+          "maximum": 25.0,
           "title": "Max Avg Sentence Words",
           "type": "number"
         },
@@ -398,18 +404,68 @@
           "description": "Max % of 4+ syllable clinical terms in body prose",
           "title": "Max Jargon Density Pct",
           "type": "number"
+        },
+        "szigriszt_min": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 45.0,
+          "description": "Flesch-Szigriszt min score for Spanish (INFLESZ popular science range)",
+          "title": "Szigriszt Min"
+        },
+        "kandel_min": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 60.0,
+          "description": "Flesch-Kandel min score for French",
+          "title": "Kandel Min"
         }
       },
       "title": "ReadabilityTargets",
       "type": "object"
     }
   },
-  "description": "ARC-57 / ARC-72: Unified declarative series.yaml schema for all Realized Press series.",
+  "description": "ARC-57 / ARC-72 / ARC-76: Unified declarative series.yaml schema for all Realized Press series.",
   "properties": {
     "slug": {
       "pattern": "^[a-z0-9-]+$",
       "title": "Slug",
       "type": "string"
+    },
+    "translation_of": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Translation Of"
+    },
+    "locale": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Locale"
     },
     "title": {
       "title": "Title",
@@ -498,6 +554,19 @@
         }
       ],
       "default": null
+    },
+    "publishing_copy": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Publishing Copy"
     },
     "books": {
       "items": {

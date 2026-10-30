@@ -247,19 +247,27 @@ def _check_chapter_gates(path: Path, text: str) -> list[str]:
                 notices.append(
                     f"Anti-Leakage Gate (`ARC-71`): `{path.name}` leaks `{m.group(0)}` ({leak_label}) in body prose."
                 )
-        jargon_dict = load_jargon_dictionary(ROOT)
+        lang = "es" if ("i18n" in path.parts and "es" in path.parts) else "en"
+        jargon_dict = load_jargon_dictionary(ROOT, path.parent.parent)
         found_jargon = [t for t in jargon_dict if t.lower() in body_before_notes.lower()]
         if found_jargon:
             notices.append(
                 f"Jargon-to-Notes Gate (`style/jargon-to-notes.yml`): `{path.name}` contains clinical terms in body prose "
                 f"({', '.join(found_jargon[:5])}) — relocate to `## Notes`."
             )
-        rm = compute_readability_metrics(body_before_notes)
-        if float(rm["fk_grade"]) > 10.5:
-            notices.append(
-                f"Bestseller Readability Gate (`ARC-71`): `{path.name}` Flesch-Kincaid Grade is {rm['fk_grade']} "
-                f"(target <= 10.5, avg sentence {rm['avg_sentence_words']}w)."
-            )
+        rm = compute_readability_metrics(body_before_notes, language=lang)
+        if lang == "es":
+            if float(rm["szigriszt"]) < 45.0:
+                notices.append(
+                    f"Bestseller Readability Gate (`ARC-76`): `{path.name}` Flesch-Szigriszt is {rm['szigriszt']} "
+                    f"(target >= 45.0, avg sentence {rm['avg_sentence_words']}w)."
+                )
+        else:
+            if float(rm["fk_grade"]) > 10.5:
+                notices.append(
+                    f"Bestseller Readability Gate (`ARC-71`): `{path.name}` Flesch-Kincaid Grade is {rm['fk_grade']} "
+                    f"(target <= 10.5, avg sentence {rm['avg_sentence_words']}w)."
+                )
     except Exception:
         pass
 

@@ -38,10 +38,27 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
     pub_dir = book_dir / "publishing"
     reader_pub_dir = book_dir / "preliminary" / "publishing" if (book_dir / "preliminary" / "publishing").is_dir() else pub_dir
 
-    kdp_pdf = pub_dir / f"{book_dir.name}-kdp-6x9.pdf"
-    reader_pdf = reader_pub_dir / f"{book_dir.name}-reader-edition.pdf"
-    cover_pdf = pub_dir / f"{book_dir.name}-kdp-cover.pdf"
-    report_file = pub_dir / f"{book_dir.name}-kdp-6x9-extraction-report.txt"
+    base_name = book_dir.parent.parent.name if book_dir.parent.name == "i18n" else book_dir.name
+    kdp_pdf = (
+        pub_dir / f"{base_name}-kdp-6x9.pdf"
+        if (pub_dir / f"{base_name}-kdp-6x9.pdf").is_file()
+        else pub_dir / f"{book_dir.name}-kdp-6x9.pdf"
+    )
+    reader_pdf = (
+        reader_pub_dir / f"{base_name}-reader-edition.pdf"
+        if (reader_pub_dir / f"{base_name}-reader-edition.pdf").is_file()
+        else reader_pub_dir / f"{book_dir.name}-reader-edition.pdf"
+    )
+    cover_pdf = (
+        pub_dir / f"{base_name}-kdp-cover.pdf"
+        if (pub_dir / f"{base_name}-kdp-cover.pdf").is_file()
+        else pub_dir / f"{book_dir.name}-kdp-cover.pdf"
+    )
+    report_file = (
+        pub_dir / f"{base_name}-kdp-6x9-extraction-report.txt"
+        if (pub_dir / f"{base_name}-kdp-6x9-extraction-report.txt").is_file()
+        else pub_dir / f"{book_dir.name}-kdp-6x9-extraction-report.txt"
+    )
 
     log.append(f"# PDF Visual Layout & Physical Print Audit — `{book_dir.name}`")
     log.append(f"- **Audited Path:** `{book_dir}`")
@@ -65,11 +82,12 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
     else:
         log.append("- [PASS] Zero blank pages in interior PDF.")
 
-    if kdp_pages > 160:
-        log.append(f"- [FAIL] Page count {kdp_pages} exceeds paperback target (max 160).")
+    max_kdp_pages = 180 if book_dir.parent.name == "i18n" else 160
+    if kdp_pages > max_kdp_pages:
+        log.append(f"- [FAIL] Page count {kdp_pages} exceeds paperback target (max {max_kdp_pages}).")
         success = False
     else:
-        log.append(f"- [PASS] Page count {kdp_pages} within optimal commercial bounds (<= 160).")
+        log.append(f"- [PASS] Page count {kdp_pages} within optimal commercial bounds (<= {max_kdp_pages}).")
 
     # 2. Audit Reader Edition A4 PDF
     if reader_pdf.is_file():

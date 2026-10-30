@@ -1,0 +1,15 @@
+Publishing Extraction Verification — El atlas de la crianza
+Status: PASS
+Edition: Reader Edition — Working Slice
+Renderer: fpdf2 2.8.9 / pypdf 6.0.0
+PDF: parenthood-atlas-kdp-6x9.pdf
+SHA-256: 0679f0846599ecc58918bf666de991b03f1365e4059c11e93321352a7429c9ac
+Bytes: 228,254
+Pages: 50 (50/50 nonblank)
+
+Chapters:
+- PASS · PDF page 2 · How to Use This Atlas: 2:00 AM Quick-Finder
+- PASS · PDF page 7 · Capítulo 1 — Antes de que nazca el niño
+- PASS · PDF page 17 · Capítulo 2 — El primer entorno
+- PASS · PDF page 28 · Capítulo 3 — La gran transición
+- PASS · PDF page 39 · Capítulo 4 — La relación reguladora

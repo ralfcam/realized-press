@@ -24,14 +24,21 @@ class EpistemicLens(str, Enum):
 
 
 class ReadabilityTargets(BaseModel):
-    """ARC-71 / ARC-72: Split-Register Bestseller Readability Targets (body prose above ## Notes)."""
+    """ARC-71 / ARC-72 / ARC-76: Split-Register Bestseller Readability Targets (body prose above ## Notes)."""
 
+    language: str = Field(default="en", description="Target language ('en', 'es', 'fr')")
     max_flesch_kincaid_grade: float = Field(default=10.5, le=12.0)
     target_flesch_kincaid_grade: float = Field(default=9.5, le=11.0)
-    max_avg_sentence_words: float = Field(default=19.0, le=22.0)
+    max_avg_sentence_words: float = Field(default=19.0, le=25.0)
     max_single_sentence_words: int = Field(default=35, le=50)
     max_jargon_density_pct: float = Field(
         default=1.5, description="Max % of 4+ syllable clinical terms in body prose"
+    )
+    szigriszt_min: Optional[float] = Field(
+        default=45.0, description="Flesch-Szigriszt min score for Spanish (INFLESZ popular science range)"
+    )
+    kandel_min: Optional[float] = Field(
+        default=60.0, description="Flesch-Kandel min score for French"
     )
 
 
@@ -130,9 +137,11 @@ class BookSpec(BaseModel):
 
 
 class SeriesManifest(BaseModel):
-    """ARC-57 / ARC-72: Unified declarative series.yaml schema for all Realized Press series."""
+    """ARC-57 / ARC-72 / ARC-76: Unified declarative series.yaml schema for all Realized Press series."""
 
     slug: str = Field(..., pattern=r"^[a-z0-9-]+$")
+    translation_of: Optional[str] = None
+    locale: Optional[str] = None
     title: str
     subtitle: Optional[str] = None
     linear_project_id: Optional[str] = None
@@ -145,6 +154,7 @@ class SeriesManifest(BaseModel):
     readability_targets: ReadabilityTargets = Field(default_factory=ReadabilityTargets)
     kdp_marketing: Optional[KdpMarketingMetadata] = None
     kdp_print_spec: Optional[KDPPrintSpec] = None
+    publishing_copy: Optional[dict] = None
     books: List[BookSpec] = Field(..., min_length=1)
 
     @model_validator(mode="before")

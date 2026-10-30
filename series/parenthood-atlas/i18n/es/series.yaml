@@ -1,0 +1,195 @@
+# series/parenthood-atlas/i18n/es/series.yaml
+# Spanish (neutral international Spanish, tuteo) localization of Parenthood: The Atlas.
+# Canonical evidence layer (evidence-cards/, sources.bib, SOURCES.md) is SHARED with ../../ (parent series).
+# Conforms to ARC-57 (series.schema.json). Linear: ARC-76.
+
+slug: parenthood-atlas-es
+translation_of: parenthood-atlas
+locale: es
+title: "El atlas de la crianza"
+subtitle: "Lo que demuestra la ciencia, lo que aún ignora y dónde comienza el arte, desde la concepción hasta los tres años"
+linear_project_id: P-ARC-17
+version: v1.0-rc3-es-pilot
+
+epistemic_contract: "Science -> Interpretation -> Art"
+governing_principle: "Continuidad sin determinación: rechazar tanto el Génesis en el momento en que algo se vuelve visible como el Destino ya escrito."
+
+lenses:
+  - biological
+  - ecological
+  - philosophical
+
+# Romance-language readability (ARC-76). Flesch-Kincaid is English-only; Spanish uses Flesch-Szigriszt (INFLESZ scale).
+readability_targets:
+  language: es
+  max_avg_sentence_words: 20.0
+  max_single_sentence_words: 40
+  max_jargon_density_pct: 1.5
+  szigriszt_min: 45.0
+
+okf_spec:
+  version: "0.2"
+  total_cards: 77
+  stable_cards: 12
+  locked_dois: 127
+  retractions: 0
+  genetically_informed_triangulation: true
+  scaffolding_policy: "Prosa limpia de andamiaje; verbos calibrados al grado de certeza; metadatos OKF y jerga clínica aislados en ## Notes de cada capítulo (claves estructurales Grade: y Evidence Card: se conservan en inglés)."
+
+audio_spec:
+  sample_rate_bytes_per_sec: 48000
+  pcm_cache_dir: ".cache/tts_pcm"
+  auto_scroll_grace_timer_ms: 5000
+  tts_model_chain:
+    - gemini-2.5-pro-preview-tts
+    - gemini-3.8-flash-tts
+    - gemini-3.1-flash-tts-preview
+    - gemini-2.5-flash-preview-tts
+
+# Spine width is NEVER hardcoded here: scripts/render_kdp_cover.py reads the compiled interior page count N
+# from publishing/parenthood-atlas-kdp-6x9.pdf and computes spine = N x 0.002252" (white stock).
+kdp_print_spec:
+  trim_size: "6x9"
+  interior_pdf: "publishing/parenthood-atlas-kdp-6x9.pdf"
+  cover_pdf: "publishing/parenthood-atlas-kdp-cover.pdf"
+
+# Localized cover / store copy consumed by scripts/render_kdp_cover.py when this directory is the target.
+publishing_copy:
+  series_header: "REALIZED PRESS  |  VOLUMEN I"
+  badge: "15 capítulos  |  77 fichas de evidencia\nCiencia del desarrollo calibrada con rigor"
+  category_line: "NO FICCIÓN  /  CIENCIA DEL DESARROLLO  /  CRIANZA"
+  back_title: "Un atlas de historia natural de los primeros 1.000 días"
+  features_header: "ATRIBUTOS EPISTÉMICOS CLAVE:"
+  features:
+    - "- 15 capítulos de desarrollo, desde la preconcepción hasta los tres años."
+    - "- Verbos de afirmación calibrados al grado de certeza de la evidencia."
+    - "- Auditorías de confusión genética (GI) en las 77 fichas de evidencia."
+    - "- Regido por Open Knowledge Format (OKF v0.2) y DOI verificados."
+  colophon: "Edición en español (piloto)"
+  blurb:
+    - "El atlas de la crianza es un mapa longitudinal de la evidencia sobre el desarrollo infantil, desde aproximadamente un año antes de la concepción hasta los tres años. Separa tres planos que no deben fundirse: lo que la ciencia puede observar, lo que la interpretación sugiere y lo que el arte relacional del cuidado exige."
+    - "En lugar de manuales prescriptivos o alarmas basadas en un solo estudio, esta obra traza un mapa de historia natural a lo largo de quince hitos del desarrollo. Cada afirmación está calibrada al grado de certeza empírica verificado bajo el Open Knowledge Format."
+    - "Desde el filtro placentario del cortisol materno hasta la aparición de los turnos de conversación, desde la fisiología de la transición neonatal hasta la frágil mecánica de la autorregulación del niño pequeño, El atlas ofrece a madres, padres y profesionales una base sin relleno, anclada en la evidencia."
+
+marketing_intelligence:
+  target_personas:
+    - "Madres y padres primerizos o gestantes (0–36 meses) cansados de dogmas contradictorios y de afirmaciones de divulgación sin graduar"
+    - "Pediatras, psicólogos del desarrollo, educadores de primera infancia y terapeutas familiares que buscan una referencia con grados de causalidad"
+    - "Lectores de Emily Oster (*Cribsheet*) y Alison Gopnik (*El jardinero y el carpintero*) que quieren auditorías explícitas de confusión genética y de replicación"
+  high_intent_topic_clusters:
+    - "Entrenamiento del sueño infantil, método Ferber, cortisol y apego"
+    - "Introducción de alérgenos (cacahuate), alimentación complementaria y baby-led weaning"
+    - "Pantallas, turnos de conversación y desarrollo del lenguaje"
+    - "Guardería, cuidado no materno, rabietas y corregulación diádica"
+  comp_title_gaps:
+    - "Los libros de crianza ideológicos presentan estudios correlacionales como prescripciones deterministas y generan culpa innecesaria."
+    - "Las guías de crianza basadas en datos rara vez separan las estimaciones con diseño genéticamente informado (hermanos, gemelos, adopción) de las correlaciones observacionales sin ajustar."
+    - "Los manuales académicos carecen de una síntesis humana de Ciencia, Interpretación y Arte del juicio parental."
+  telemetry_signals:
+    - "Demanda de búsqueda en español (España, México, EE. UU. hispano) tras importar un export de Google Keyword Planner en español"
+    - "Retroalimentación de lectores de la Edición de lectura (piloto) en los capítulos 01–04"
+
+monetization:
+  kdp:
+    role: "regional-edition-es"
+    marketplaces: ["amazon.es", "amazon.com.mx", "amazon.com"]
+    trim_size: "6x9"
+    inside_gutter_mm: 20.0
+    outside_margin_mm: 15.0
+    top_bottom_margin_mm: 18.0
+    formats: ["paperback-pdf", "kindle-epub", "audiobook-wav"]
+    bisac_categories:
+      - "FAM034000"
+      - "PSY004000"
+      - "SCI049000"
+    # Curated seed boxes (ASCII-folded, <= 49 UTF-8 bytes, no repeated stems, title/subtitle words excluded).
+    # NOT yet demand-optimized: re-run `marketing_intelligence.py --series parenthood-atlas-es --optimize-kdp-boxes`
+    # after importing a Spanish Keyword Planner export.
+    backend_keywords:
+      - "metodo ferber dormir bebe llanto cortisol apego"
+      - "colecho muerte subita lactante cuna habitacion"
+      - "cacahuate alergias alimentacion complementaria blw"
+      - "rabietas berrinches disciplina nalgadas limites"
+      - "pantallas retraso habla bilinguismo lenguaje"
+      - "lactancia formula inteligencia guarderia embarazo"
+      - "estres gestacion acido folico edad paterna"
+
+books:
+  - id: book-01-parenthood-atlas
+    path: "."
+    title: "El atlas de la crianza (de la concepción a los tres años)"
+    status: drafting
+    target_words: 50000
+    min_okf_cards: 72
+    movements:
+      - id: movement-1
+        title: "Movimiento I: El contrato del lector: tres categorías que no deben fundirse"
+      - id: movement-2
+        title: "Movimiento II: El sustrato preconcepcional: gametos, edad y epigenética"
+      - id: movement-3
+        title: "Movimiento III: Morfogénesis y la disciplina del momento oportuno"
+      - id: movement-4
+        title: "Movimiento IV: La ecología mediada: amortiguadores placentarios y triangulación del estrés"
+      - id: movement-5
+        title: "Movimiento V: El cuidador que también se desarrolla y el regreso"
+    chapters:
+      - slug: 01-before-the-child-is-born
+        title: "Antes de que el niño nazca"
+        subtitle: "Fertilidad, edad de los padres, ácido fólico y lo que el estrés del embarazo realmente hace"
+        footnotes_migrated: true
+      - slug: 02-first-environment
+        title: "El primer entorno"
+        subtitle: "Dentro del útero: crecimiento del cerebro fetal, nutrición, alcohol y exposiciones cotidianas"
+        footnotes_migrated: true
+      - slug: 03-the-great-transition
+        title: "La gran transición"
+        subtitle: "Parto, cesáreas, piel con piel, llanto y primera alimentación"
+        footnotes_migrated: true
+      - slug: 04-regulatory-relationship
+        title: "La relación que regula"
+        subtitle: "Entrenamiento del sueño, método Ferber, despertares nocturnos, alimentación responsiva y cómo funciona el apego"
+        footnotes_migrated: true
+      - slug: 05-becoming-a-mind
+        title: "Convertirse en una mente"
+        subtitle: "Cómo ven, recuerdan, se concentran y aprenden los bebés antes de poder hablar"
+        footnotes_migrated: true
+      - slug: 06-the-mind-in-motion
+        title: "La mente en movimiento"
+        subtitle: "Rodar, gatear, caminar y por qué los bebés tiran las cosas a propósito"
+        footnotes_migrated: true
+      - slug: 07-the-birth-of-language
+        title: "El nacimiento del lenguaje"
+        subtitle: "Primeras palabras, hablantes tardíos, señas para bebés, pantallas y crianza bilingüe"
+        footnotes_migrated: true
+      - slug: 08-the-expanding-world
+        title: "El mundo se ensancha"
+        subtitle: "Guardería frente a cuidado en casa, padres, abuelos y socialización de los más pequeños"
+        footnotes_migrated: true
+      - slug: 09-the-emotional-revolution
+        title: "La revolución emocional"
+        subtitle: "Rabietas, timidez, grandes emociones y por qué decir «cálmate» no funciona"
+        footnotes_migrated: true
+      - slug: 10-boundaries-behavior
+        title: "Límites, conducta y primeras reglas"
+        subtitle: "Golpear, morder, decir «no», tiempos fuera y por qué pegar sale mal"
+        footnotes_migrated: true
+      - slug: 11-the-developing-executive
+        title: "El ejecutivo en desarrollo"
+        subtitle: "Control de impulsos, esperar, la prueba del malvavisco y el mito de los juguetes que entrenan el cerebro"
+        footnotes_migrated: true
+      - slug: 12-play-imagination
+        title: "Juego, imaginación y sentido"
+        subtitle: "Juego independiente, juego simbólico, Montessori y juego guiado, y cómo elegir juguetes"
+        footnotes_migrated: true
+      - slug: 13-the-ecology-of-development
+        title: "La ecología del desarrollo"
+        subtitle: "Permisos parentales, horarios de trabajo, costo del cuidado infantil y cómo los barrios moldean a los niños"
+        footnotes_migrated: true
+      - slug: 14-what-actually-works
+        title: "¿Qué funciona de verdad?"
+        subtitle: "Qué intervenciones tempranas perduran, cuáles se desvanecen y en qué conviene invertir energía"
+        footnotes_migrated: true
+      - slug: 15-three-years
+        title: "Tres años: ¿qué se ha construido?"
+        subtitle: "Por qué los tres años son un punto de paso y no un veredicto sobre quién llegará a ser tu hijo"
+        footnotes_migrated: true

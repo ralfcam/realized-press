@@ -1,0 +1,81 @@
+# series/parenthood-atlas/i18n/es/style/lexicon.yaml
+# Single source of truth for recurring translated terms and fixed UI strings (ARC-76).
+# Translation subagents MUST NOT improvise these. Register: neutral international Spanish, tuteo ("tú"),
+# no voseo, no "vosotros", avoid peninsular-only verbs (coger) and LatAm-only slang.
+
+register:
+  address: "tuteo (tú / tu / puedes)"
+  generic_parent_noun: "padres"          # also: madre y padre, progenitores, personas cuidadoras
+  generic_child_noun: "niño"             # also: bebé, hijo, pequeño; never forced "niños/as" doublets
+  decimal_separator: ","                 # 4,5 meses; thousands separator: thin space or "." only for >= 10 000
+  quotes: "«…»"                          # angular quotes for dialogue and scare quotes
+  dash: "—"                              # em dash for incisos and dialogue, as in the English source
+
+# Calibrated claim verbs (Grade-to-Verb protocol). Bold, as in the English source (**shows** etc.).
+calibrated_verbs:
+  high:
+    en: "shows"
+    es: ["**demuestra**", "**confirma**"]      # plural: **demuestran** / **confirman**
+  moderate:
+    en: "suggests"
+    es: ["**sugiere**", "**indica**"]          # plural: **sugieren** / **indican**
+  low:
+    en: "is associated with"
+    es: ["**se asocia con**", "**se vincula con**"]   # plural: **se asocian con** / **se vinculan con**
+
+# Fixed chapter apparatus (never translate these inconsistently).
+chapter_apparatus:
+  chapter_word: "Capítulo"                # "# Capítulo 4 — La relación que regula"
+  takeaway_title: "Conclusiones del capítulo {n}: lo que demuestra la evidencia frente a lo que puedes soltar"
+  takeaway_labels:
+    evidence_shows: "Lo que demuestra la evidencia"
+    let_go_of: "Lo que puedes soltar"
+    core_rule: "La regla fundamental"
+  notes_heading: "Notes"                  # STRUCTURAL: keep literal "## Notes" (parsers, hooks, TTS strip). Rendered as "Notas".
+  linked_cards_heading: "Linked evidence cards"   # STRUCTURAL: keep literal.
+  note_keys_kept_in_english: ["Grade:", "Evidence Card:", "Evidence Cards:"]   # parsers depend on them
+  regional_note_prefix: "Contexto regional (España):"   # lead-in of localized guideline footnotes
+  regional_footnote_key_pattern: "ch\\d\\d-es-[a-z0-9-]+"  # extra keys allowed beyond the English set
+
+front_matter:
+  h1: "Cómo usar este atlas"
+  h2: "*Un buscador rápido para las preguntas de las 2:00 a. m.*"
+  quickfinder_heading: "### El buscador rápido de las 2:00 a. m."
+  question_prefix: "**P:"                 # replaces **Q:
+  chapter_ref: "*Capítulo {n} (Movimiento {m})*"
+
+# Domain glossary. First use may add the English term in parentheses ONLY inside ## Notes, never in body prose.
+terms:
+  graduated_extinction:      { en: "graduated extinction",   es: "extinción gradual (método Ferber)" }
+  cry_it_out:                { en: "cry it out",             es: "dejar llorar (extinción sin modificar)" }
+  bedtime_fading:            { en: "bedtime fading",         es: "retraso gradual de la hora de dormir" }
+  sleep_training:            { en: "sleep training",         es: "entrenamiento del sueño" }
+  night_waking:              { en: "night waking",           es: "despertares nocturnos" }
+  co_regulation:             { en: "co-regulation",          es: "corregulación entre el bebé y quien lo cuida" }
+  responsive_feeding:        { en: "responsive feeding",     es: "alimentación responsiva (atenta a las señales del bebé)" }
+  still_face_paradigm:       { en: "Still-Face paradigm",    es: "paradigma del rostro inmóvil (Tronick)" }
+  attachment:                { en: "attachment",             es: "apego" }
+  spoiling:                  { en: "spoiling",               es: "malcriar" }
+  conversational_turns:      { en: "conversational turns",   es: "turnos de conversación" }
+  baby_led_weaning:          { en: "baby-led weaning",       es: "alimentación complementaria dirigida por el bebé (BLW)" }
+  skin_to_skin:              { en: "skin-to-skin",           es: "piel con piel" }
+  safe_sleep:                { en: "safe sleep",             es: "sueño seguro" }
+  room_sharing:              { en: "room-sharing",           es: "compartir habitación (sin compartir cama)" }
+  bed_sharing:               { en: "bed-sharing / co-sleeping", es: "colecho (compartir cama)" }
+  sids:                      { en: "SIDS",                   es: "síndrome de muerte súbita del lactante (SMSL)" }
+  folic_acid:                { en: "folic acid / folate",    es: "ácido fólico (folato)" }
+  neural_tube_defect:        { en: "neural tube defect",     es: "defecto del tubo neural" }
+  placenta_shield:           { en: "placental shield",       es: "escudo placentario" }
+  paternal_age:              { en: "paternal age",           es: "edad paterna" }
+  epigenetics:               { en: "epigenetics",            es: "epigenética" }
+  sibling_comparison:        { en: "sibling comparison",     es: "comparación entre hermanos" }
+  genetically_informed:      { en: "genetically informed (GI)", es: "con diseño genéticamente informado (GI)" }
+  confounding:               { en: "confounding",            es: "factores de confusión" }
+  randomized_trial:          { en: "randomized trial",       es: "ensayo aleatorizado" }
+  cohort_study:              { en: "cohort study",           es: "estudio de cohorte" }
+  executive_function:        { en: "executive function",     es: "función ejecutiva" }
+  delay_of_gratification:    { en: "delay of gratification", es: "capacidad de esperar una recompensa" }
+  guided_play:               { en: "guided play",            es: "juego guiado" }
+  prematurity:               { en: "prematurity",            es: "prematuridad" }
+  institutional_deprivation: { en: "institutional deprivation", es: "privación institucional" }
+  then_vs_now:               { en: "Then vs. Now",           es: "Entonces y ahora" }

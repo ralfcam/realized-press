@@ -45,6 +45,16 @@ FORBIDDEN_PHRASES_PATTERNS: dict[str, re.Pattern[str]] = {
     "raw-grounding-redirect": re.compile(r"vertexaisearch\.cloud\.google\.com/grounding-api-redirect/", re.IGNORECASE),
 }
 
+SPANISH_FORBIDDEN_PATTERNS: dict[str, re.Pattern[str]] = {
+    "instructional-debes": re.compile(r"\b(debes|tienes que|hay que)\b", re.IGNORECASE),
+    "uncalibrated-ciencia-dice": re.compile(r"\b(la ciencia dice|los estudios demuestran que|está científicamente probado)\b", re.IGNORECASE),
+    "alarmist-determinismo": re.compile(r"\b(daña de forma irreversible|arruina|destruye|destino del desarrollo|destino parental)\b", re.IGNORECASE),
+    "manufacturing-nino-perfecto": re.compile(r"\b(niño perfecto|hijo perfecto|niño ideal|crianza óptima|optimizar el desarrollo|optimizar a tu hijo)\b", re.IGNORECASE),
+    "neuro-sensationalism": re.compile(r"\b(prueba cerebral de que|pruebas basadas en el cerebro|diseñado evolutivamente para)\b", re.IGNORECASE),
+    "cliche-transicion": re.compile(r"\b(profundizar en|adentrarnos en|sumergirnos en|tapiz|cambia las reglas del juego|cambio de juego|papel crucial|papel clave|testimonio de)\b", re.IGNORECASE),
+    "raw-grounding-redirect": re.compile(r"vertexaisearch\.cloud\.google\.com/grounding-api-redirect/", re.IGNORECASE),
+}
+
 INLINE_FN_RE = re.compile(r"(?<!^)\[\^([^\]]+)\](?!:)")
 DEF_FN_RE = re.compile(r"^\[\^([^\]]+)\]:", re.MULTILINE)
 HEADING_RE = re.compile(r"^(##+)\s+(.+)$", re.MULTILINE)
@@ -87,8 +97,26 @@ def count_syllables(word: str) -> int:
     return max(1, len(vowels))
 
 
-def compute_readability_metrics(body_before_notes: str) -> dict[str, float | int]:
-    """Compute Flesch-Kincaid Grade, avg sentence length, and >35-word sentence count on body prose."""
+def count_syllables_es(word: str) -> int:
+    """Count syllables in Spanish according to phonotactic rules (diphthongs, triphthongs, hiatus)."""
+    w = word.lower().strip()
+    w = re.sub(r"[^a-záéíóúüñ]", "", w)
+    if not w:
+        return 0
+    if w.endswith("y"):
+        w = w[:-1] + "i"
+    # Replace triphthongs with single vowel placeholder (weak + strong + weak)
+    w = re.sub(r"[iuü][aeoáéó][iuü]", "V", w, flags=re.I)
+    # Replace diphthongs with single vowel placeholder (tonic weak í/ú do NOT form diphthongs)
+    w = re.sub(r"[iuü][aeoáéó]", "V", w, flags=re.I)
+    w = re.sub(r"[aeoáéó][iuü]", "V", w, flags=re.I)
+    w = re.sub(r"[iuü][iuü]", "V", w, flags=re.I)  # iu, ui
+    vowels = re.findall(r"[aeiouáéíóúüV]", w, flags=re.I)
+    return max(1, len(vowels))
+
+
+def compute_readability_metrics(body_before_notes: str, language: str = "en") -> dict[str, float | int]:
+    """Compute Flesch-Kincaid / Flesch-Szigriszt, avg sentence length, and long-sentence count on body prose."""
     # Remove headings, inline footnotes, markdown emphasis, and math tokens
     lines = [
         line.strip()
@@ -106,47 +134,74 @@ def compute_readability_metrics(body_before_notes: str) -> dict[str, float | int
     sentence_word_counts: list[int] = []
     all_words: list[str] = []
 
+    word_regex = r"[A-Za-z0-9áéíóúüñÁÉÍÓÚÜÑ']+" if language == "es" else r"[A-Za-z0-9']+"
     for sent in raw_sentences:
-        w_list = re.findall(r"[A-Za-z0-9']+", sent)
+        w_list = re.findall(word_regex, sent)
         if w_list:
             sentence_word_counts.append(len(w_list))
             all_words.extend(w_list)
 
     total_words = len(all_words)
     total_sentences = max(1, len(sentence_word_counts))
-    total_syllables = sum(count_syllables(w) for w in all_words)
+    total_syllables = sum(
+        count_syllables_es(w) if language == "es" else count_syllables(w)
+        for w in all_words
+    )
 
     if total_words == 0:
         return {
             "fk_grade": 0.0,
+            "szigriszt": 0.0,
             "avg_sentence_words": 0.0,
             "max_sentence_words": 0,
             "long_sentences_over_35": 0,
         }
 
     avg_sent = total_words / total_sentences
-    avg_syl = total_syllables / total_words
-    fk_grade = 0.39 * avg_sent + 11.8 * avg_syl - 15.59
-    long_over_35 = sum(1 for c in sentence_word_counts if c > 35)
-    max_sent = max(sentence_word_counts) if sentence_word_counts else 0
 
-    return {
-        "fk_grade": round(fk_grade, 1),
-        "avg_sentence_words": round(avg_sent, 1),
-        "max_sentence_words": max_sent,
-        "long_sentences_over_35": long_over_35,
-    }
+    if language == "es":
+        # Flesch-Szigriszt (INFLESZ scale): 206.835 - 62.3 * (syllables / words) - (words / sentences)
+        szigriszt = 206.835 - (62.3 * (total_syllables / total_words)) - avg_sent
+        long_over = sum(1 for c in sentence_word_counts if c > 40)
+        max_sent = max(sentence_word_counts) if sentence_word_counts else 0
+        return {
+            "fk_grade": 0.0,
+            "szigriszt": round(szigriszt, 1),
+            "avg_sentence_words": round(avg_sent, 1),
+            "max_sentence_words": max_sent,
+            "long_sentences_over_35": long_over,
+        }
+    else:
+        avg_syl = total_syllables / total_words
+        fk_grade = 0.39 * avg_sent + 11.8 * avg_syl - 15.59
+        long_over_35 = sum(1 for c in sentence_word_counts if c > 35)
+        max_sent = max(sentence_word_counts) if sentence_word_counts else 0
+        return {
+            "fk_grade": round(fk_grade, 1),
+            "szigriszt": 0.0,
+            "avg_sentence_words": round(avg_sent, 1),
+            "max_sentence_words": max_sent,
+            "long_sentences_over_35": long_over_35,
+        }
 
 
-def load_jargon_dictionary(root: Path) -> dict[str, str]:
-    jargon_file = root / "style" / "jargon-to-notes.yml"
-    if not jargon_file.is_file():
-        return {}
-    try:
-        data = yaml.safe_load(jargon_file.read_text(encoding="utf-8")) or {}
-        return {str(k): str(v) for k, v in (data.get("relocate_to_notes") or {}).items()}
-    except Exception:
-        return {}
+def load_jargon_dictionary(root: Path, book_path: Path | None = None) -> dict[str, str]:
+    candidates = []
+    if book_path:
+        candidates.extend([
+            book_path / "style" / "jargon-to-notes.yml",
+            book_path.parent / "style" / "jargon-to-notes.yml",
+            book_path.parent.parent / "style" / "jargon-to-notes.yml",
+        ])
+    candidates.append(root / "style" / "jargon-to-notes.yml")
+    for jf in candidates:
+        if jf.is_file():
+            try:
+                data = yaml.safe_load(jf.read_text(encoding="utf-8")) or {}
+                return {str(k): str(v) for k, v in (data.get("relocate_to_notes") or {}).items()}
+            except Exception:
+                continue
+    return {}
 
 
 def find_series_file(root: Path, book_path: Path, filename: str) -> Path | None:
@@ -256,8 +311,43 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
     if not chapters:
         return f"# Audit Report: `{book_path.name}`\n\nNo chapters found in `{chapters_dir}`.\n", True
 
+    manifest_file = (
+        book_path / "series.yaml"
+        if (book_path / "series.yaml").is_file()
+        else (
+            book_path.parent / "series.yaml"
+            if (book_path.parent / "series.yaml").is_file()
+            else (book_path.parent.parent / "series.yaml")
+        )
+    )
+    language = "en"
+    szigriszt_min = 45.0
+    max_avg_sentence_words = 19.0
+    max_fk_grade = 10.5
+    if manifest_file.is_file():
+        try:
+            manifest_data = yaml.safe_load(manifest_file.read_text(encoding="utf-8")) or {}
+            rt = manifest_data.get("readability_targets") or {}
+            language = rt.get("language") or manifest_data.get("locale") or ("es" if "es" in book_path.parts else "en")
+            szigriszt_min = float(rt.get("szigriszt_min", 65.0))
+            max_avg_sentence_words = float(rt.get("max_avg_sentence_words", 22.0 if language == "es" else 19.0))
+            max_fk_grade = float(rt.get("max_flesch_kincaid_grade", 10.5))
+        except Exception:
+            pass
+    elif "es" in book_path.parts:
+        language = "es"
+        max_avg_sentence_words = 22.0
+
+    forbidden_patterns = SPANISH_FORBIDDEN_PATTERNS if language == "es" else FORBIDDEN_PHRASES_PATTERNS
+    anti_leakage_patterns = dict(ANTI_LEAKAGE_PATTERNS)
+    if language == "es":
+        anti_leakage_patterns["harness-meta-tres-niveles"] = re.compile(
+            r"\b(resolución causal en tres niveles|en el \*\*(?:primer|segundo|tercer) nivel)\b",
+            re.IGNORECASE,
+        )
+
     characters = load_characters(root, book_path)
-    jargon_dict = load_jargon_dictionary(root)
+    jargon_dict = load_jargon_dictionary(root, book_path)
     char_mentions: dict[str, list[str]] = defaultdict(list)
     fn_defs_across_book: dict[str, list[str]] = defaultdict(list)
 
@@ -307,13 +397,13 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
                 )
 
         unquoted_body = strip_quoted_spans(body_before_notes)
-        for label, pat in FORBIDDEN_PHRASES_PATTERNS.items():
+        for label, pat in forbidden_patterns.items():
             m = pat.search(unquoted_body)
             if m:
                 forbidden_hits.append(f"- `{ch.name}`: forbidden pattern `{label}` (`{m.group(0)}`)")
 
         # Anti-leakage checks on body prose above ## Notes
-        for leak_label, leak_pat in ANTI_LEAKAGE_PATTERNS.items():
+        for leak_label, leak_pat in anti_leakage_patterns.items():
             for m in leak_pat.finditer(body_before_notes):
                 leak_hits.append(f"- `{ch.name}`: anti-leakage violation `{leak_label}` (`{m.group(0)}`)")
 
@@ -324,23 +414,35 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
             if term.lower() in body_lower:
                 ch_jargon_found.append(term)
                 jargon_hits.append(
-                    f"- `{ch.name}`: clinical term `{term}` in body prose → relocate to `## Notes` (use plain English: *{plain_replacement}*)"
+                    f"- `{ch.name}`: clinical term `{term}` in body prose → relocate to `## Notes` (use plain alternative: *{plain_replacement}*)"
                 )
 
         # Readability metrics on body prose above ## Notes
-        rm = compute_readability_metrics(body_before_notes)
-        fk = float(rm["fk_grade"])
-        avg_s = float(rm["avg_sentence_words"])
-        long_35 = int(rm["long_sentences_over_35"])
-        status_badge = "PASS (Bestseller)" if (fk <= 10.5 and avg_s <= 19.0 and not ch_jargon_found) else "NEEDS SIMPLIFICATION"
-        if fk > 10.5 or avg_s > 19.0:
-            readability_flags.append(
-                f"- `{ch.name}`: FK Grade `{fk}` (target ≤ 10.5), Avg Sentence `{avg_s}w` (target ≤ 19.0w), >35w sentences: `{long_35}`"
+        rm = compute_readability_metrics(body_before_notes, language=language)
+        if language == "es":
+            szig = float(rm["szigriszt"])
+            avg_s = float(rm["avg_sentence_words"])
+            long_40 = int(rm["long_sentences_over_35"])
+            status_badge = "PASS (Bestseller)" if (szig >= szigriszt_min and avg_s <= max_avg_sentence_words and not ch_jargon_found) else "NEEDS SIMPLIFICATION"
+            if szig < szigriszt_min or avg_s > max_avg_sentence_words:
+                readability_flags.append(
+                    f"- `{ch.name}`: Szigriszt `{szig}` (target ≥ {szigriszt_min}), Avg Sentence `{avg_s}w` (target ≤ {max_avg_sentence_words}w), >40w sentences: `{long_40}`"
+                )
+            readability_rows.append(
+                f"| `{ch.name}` | {szig:.1f} | {avg_s:.1f}w | {long_40} | {len(ch_jargon_found)} | {status_badge} |"
             )
-
-        readability_rows.append(
-            f"| `{ch.name}` | {fk:.1f} | {avg_s:.1f}w | {long_35} | {len(ch_jargon_found)} | {status_badge} |"
-        )
+        else:
+            fk = float(rm["fk_grade"])
+            avg_s = float(rm["avg_sentence_words"])
+            long_35 = int(rm["long_sentences_over_35"])
+            status_badge = "PASS (Bestseller)" if (fk <= max_fk_grade and avg_s <= max_avg_sentence_words and not ch_jargon_found) else "NEEDS SIMPLIFICATION"
+            if fk > max_fk_grade or avg_s > max_avg_sentence_words:
+                readability_flags.append(
+                    f"- `{ch.name}`: FK Grade `{fk}` (target ≤ {max_fk_grade}), Avg Sentence `{avg_s}w` (target ≤ {max_avg_sentence_words}w), >35w sentences: `{long_35}`"
+                )
+            readability_rows.append(
+                f"| `{ch.name}` | {fk:.1f} | {avg_s:.1f}w | {long_35} | {len(ch_jargon_found)} | {status_badge} |"
+            )
 
         for full_name, surname in characters:
             if re.search(rf"\b{re.escape(surname)}\b", body_before_notes):
@@ -358,13 +460,18 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
                 if re.search(r"^\s*-\s*\[ \]", line):
                     open_fc_items.append(f"- `{fc.name}:{i}`: {line.strip()}")
 
-    bib_path = (
-        book_path / "research" / "sources.bib"
-        if (book_path / "research" / "sources.bib").is_file()
-        else book_path / "sources.bib"
-    )
+    bib_path = None
+    for cand in (
+        book_path / "research" / "sources.bib",
+        book_path / "sources.bib",
+        book_path.parent / "sources.bib",
+        book_path.parent.parent / "sources.bib",
+    ):
+        if cand.is_file():
+            bib_path = cand
+            break
     bib_entries = 0
-    if bib_path.is_file():
+    if bib_path and bib_path.is_file():
         bib_entries = len(re.findall(r"^@\w+\s*\{", bib_path.read_text(encoding="utf-8"), re.MULTILINE))
 
     ec_cards = resolve_card_targets([str(book_path)])
@@ -434,11 +541,17 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
     else:
         lines.append(f"- **Pass:** All {len(ec_cards)} OKF v0.2 evidence card(s) pass mechanical Rules 1, 4, and 5.")
 
+    readability_header = (
+        f"| Chapter | Szigriszt (≥{szigriszt_min:.1f}) | Avg Sent (≤{max_avg_sentence_words:.1f}w) | Sent >40w | Jargon Hits | Bestseller Gate |"
+        if language == "es"
+        else f"| Chapter | FK Grade (≤{max_fk_grade:.1f}) | Avg Sent (≤{max_avg_sentence_words:.1f}w) | Sent >35w | Jargon Hits | Bestseller Gate |"
+    )
+
     lines.extend(
         [
             "",
-            "## 6. Readability, Jargon-to-Notes & Anti-Leakage Audit (`ARC-71` / `ARC-72` — Body Prose Above `## Notes`)",
-            "| Chapter | FK Grade (≤10.5) | Avg Sent (≤19w) | Sent >35w | Jargon Hits | Bestseller Gate |",
+            f"## 6. Readability, Jargon-to-Notes & Anti-Leakage Audit (`ARC-71` / `ARC-72` / `ARC-76` — Body Prose Above `## Notes`)",
+            readability_header,
             "| :--- | ---: | ---: | ---: | ---: | :--- |",
             *readability_rows,
             "",

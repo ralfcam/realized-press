@@ -134,7 +134,8 @@ def main() -> None:
     except ValueError:
         book_rel = book_path.name
 
-    prefix = args.prefix or book_path.name
+    base_name = book_path.parent.parent.name if book_path.parent.name == "i18n" else book_path.name
+    prefix = args.prefix or base_name
     suffix = "audiobook" if args.audiobook else "full"
     out_name = f"{prefix}-{suffix}.md"
     out_path = book_path / out_name

@@ -285,7 +285,13 @@ def resolve_card_targets(targets: list[str]) -> list[Path]:
             if alt.exists():
                 p = alt
         if p.is_dir():
-            ec_dir = p / "evidence-cards" if (p / "evidence-cards").is_dir() else p
+            ec_dir = None
+            for cand in [p / "evidence-cards", p.parent / "evidence-cards", p.parent.parent / "evidence-cards"]:
+                if cand.is_dir():
+                    ec_dir = cand
+                    break
+            if ec_dir is None:
+                ec_dir = p
             for md in sorted(ec_dir.glob("*.md")):
                 if md.name in ("_TEMPLATE.md", "index.md", "README.md"):
                     continue

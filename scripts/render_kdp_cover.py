@@ -67,10 +67,25 @@ def render_kdp_cover(
     dims: dict[str, float],
     output_pdf: Path,
     fonts: dict[str, Path] | None = None,
+    publishing_copy: dict | None = None,
 ) -> None:
     pdf = FPDF(unit="mm", format=(dims["width_mm"], dims["height_mm"]))
     pdf.set_auto_page_break(False)
     pdf.add_page()
+
+    copy = publishing_copy or {}
+    series_hdr = copy.get("series_header", "REALIZED PRESS  |  VOLUME I")
+    badge_txt = copy.get("badge", "15 Curated Chapters   |   77 Evidence Cards\nSystematically Calibrated Developmental Science")
+    category_txt = copy.get("category_line", "NONFICTION  /  DEVELOPMENTAL SCIENCE  /  PARENTING")
+    back_title_txt = copy.get("back_title", "A Natural-History Atlas of the First 1,000 Days")
+    feat_hdr = copy.get("features_header", "KEY EPISTEMIC ATTRIBUTES:")
+    features = copy.get("features", [
+        "- 15 curated developmental chapters from preconception through age three.",
+        "- Calibrated claim verbs strictly matching underlying evidence certainty grades.",
+        "- Systematic genetically informed (GI) confounding audits across all 77 cards.",
+        "- Governed by Open Knowledge Format (OKF v0.2) and verified DOIs.",
+    ])
+    colophon_txt = copy.get("colophon", "Monorepo Book Writing Environment (BWE)")
 
     # Font setup
     font_family = "Serif"
@@ -101,7 +116,7 @@ def render_kdp_cover(
     pdf.set_xy(fx + 15, by + 22)
     pdf.set_text_color(201, 158, 92)
     pdf.set_font(font_family, "B", 10)
-    pdf.cell(fw - 30, 6, "REALIZED PRESS  |  VOLUME I", align="C", new_x="LMARGIN", new_y="NEXT")
+    pdf.cell(fw - 30, 6, series_hdr, align="C", new_x="LMARGIN", new_y="NEXT")
 
     # Title
     pdf.set_xy(fx + 15, by + 45)
@@ -127,7 +142,7 @@ def render_kdp_cover(
     pdf.multi_cell(
         fw - 30,
         5.5,
-        "15 Curated Chapters   |   76 Evidence Cards\nSystematically Calibrated Developmental Science",
+        badge_txt,
         align="C",
     )
 
@@ -168,13 +183,13 @@ def render_kdp_cover(
     pdf.set_xy(bx + 15, by + 20)
     pdf.set_text_color(201, 158, 92)
     pdf.set_font(font_family, "B", 8.5)
-    pdf.cell(bw - 30, 5, "NONFICTION  /  DEVELOPMENTAL SCIENCE  /  PARENTING", align="L")
+    pdf.cell(bw - 30, 5, category_txt, align="L")
 
     # Title on back
     pdf.set_xy(bx + 15, by + 30)
     pdf.set_text_color(255, 255, 255)
     pdf.set_font(font_family, "B", 13)
-    pdf.cell(bw - 30, 7, "A Natural-History Atlas of the First 1,000 Days", align="L")
+    pdf.cell(bw - 30, 7, back_title_txt, align="L")
 
     # Blurb Paragraphs
     pdf.set_text_color(226, 232, 240)
@@ -189,15 +204,9 @@ def render_kdp_cover(
     pdf.set_xy(bx + 15, curr_by + 2)
     pdf.set_text_color(201, 158, 92)
     pdf.set_font(font_family, "B", 8.5)
-    pdf.cell(bw - 30, 5, "KEY EPISTEMIC ATTRIBUTES:", align="L")
+    pdf.cell(bw - 30, 5, feat_hdr, align="L")
 
     curr_by = pdf.get_y() + 6
-    features = [
-        "- 15 curated developmental chapters from preconception through age three.",
-        "- Calibrated claim verbs strictly matching underlying evidence certainty grades.",
-        "- Systematic genetically informed (GI) confounding audits across all 76 cards.",
-        "- Governed by Open Knowledge Format (OKF v0.2) and verified DOIs.",
-    ]
     pdf.set_text_color(203, 213, 225)
     pdf.set_font(font_family, "", 8)
     for feat in features:
@@ -231,7 +240,7 @@ def render_kdp_cover(
     pdf.set_font(font_family, "I", 7.5)
     pdf.cell(bw - barcode_w - 35, 4, "https://github.com/ralfcam/realized-press", align="L", new_x="LMARGIN", new_y="NEXT")
     pdf.set_xy(bx + 15, barcode_y + 15)
-    pdf.cell(bw - barcode_w - 35, 4, "Monorepo Book Writing Environment (BWE)", align="L")
+    pdf.cell(bw - barcode_w - 35, 4, colophon_txt, align="L")
 
     output_pdf.parent.mkdir(parents=True, exist_ok=True)
     pdf.output(str(output_pdf))
@@ -246,7 +255,13 @@ def main(argv: list[str] | None = None) -> int:
 
     book_dir = Path(args.book).resolve()
     pub_dir = book_dir / "publishing"
-    interior_pdf = pub_dir / f"{book_dir.name}-kdp-6x9.pdf"
+
+    base_name = book_dir.parent.parent.name if book_dir.parent.name == "i18n" else book_dir.name
+    interior_pdf = (
+        pub_dir / f"{base_name}-kdp-6x9.pdf"
+        if (pub_dir / f"{base_name}-kdp-6x9.pdf").is_file()
+        else pub_dir / f"{book_dir.name}-kdp-6x9.pdf"
+    )
 
     page_count = args.pages
     if page_count is None:
@@ -255,27 +270,53 @@ def main(argv: list[str] | None = None) -> int:
             page_count = len(reader.pages)
             print(f"[kdp-cover] Detected {page_count} pages from {interior_pdf.name}")
         else:
-            page_count = 137
+            page_count = 145
             print(f"[kdp-cover] Interior PDF not found, defaulting to {page_count} pages")
 
     dims = calculate_dimensions(page_count, args.paper)
-    output_pdf = pub_dir / f"{book_dir.name}-kdp-cover.pdf"
+    output_pdf = (
+        pub_dir / f"{base_name}-kdp-cover.pdf"
+        if base_name != book_dir.name
+        else pub_dir / f"{book_dir.name}-kdp-cover.pdf"
+    )
     fonts = resolve_serif_fonts()
 
+    title = "Parenthood: The Atlas"
+    subtitle = "A Longitudinal Evidence Map of Developmental Science from Preconception Through Age Three"
+    author = "Jose Campos"
     blurb = [
         "Parenthood: The Atlas is a longitudinal evidence atlas of developmental science from roughly one year before conception through age three. It distinguishes three non-collapsible domains: what science can observe, what interpretation suggests, and what the relational art of caregiving demands.",
         "Rather than prescriptive parenting manuals or single-study alarmism, this work presents a systematic natural-history map across fifteen curated developmental milestones. Every claim is calibrated to verified empirical certainty grades under the Open Knowledge Format.",
         "From the placental filtration of maternal cortisol to the emergence of communicative turns, from neonatal transition physiology to the fragile mechanics of toddler self-regulation, The Atlas offers parents and practitioners an unpadded, evidence-anchored foundation.",
     ]
+    publishing_copy = None
+
+    manifest_file = (
+        book_dir / "series.yaml"
+        if (book_dir / "series.yaml").is_file()
+        else (book_dir.parent / "series.yaml" if (book_dir.parent / "series.yaml").is_file() else None)
+    )
+    if manifest_file and manifest_file.is_file():
+        try:
+            import yaml
+            manifest = yaml.safe_load(manifest_file.read_text(encoding="utf-8")) or {}
+            title = manifest.get("title", title)
+            subtitle = manifest.get("subtitle", subtitle)
+            publishing_copy = manifest.get("publishing_copy")
+            if publishing_copy and "blurb" in publishing_copy:
+                blurb = publishing_copy["blurb"]
+        except Exception:
+            pass
 
     render_kdp_cover(
-        title="Parenthood: The Atlas",
-        subtitle="A Longitudinal Evidence Map of Developmental Science from Preconception Through Age Three",
-        author="Jose Campos",
+        title=title,
+        subtitle=subtitle,
+        author=author,
         blurb_paragraphs=blurb,
         dims=dims,
         output_pdf=output_pdf,
         fonts=fonts,
+        publishing_copy=publishing_copy,
     )
 
     print(f"[kdp-cover:PASS] Wrote {output_pdf.relative_to(ROOT)} ({output_pdf.stat().st_size:,} bytes)")
