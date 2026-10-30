@@ -106,13 +106,13 @@ monetization:
     # NOT yet demand-optimized: re-run `marketing_intelligence.py --series parenthood-atlas-es --optimize-kdp-boxes`
     # after importing a Spanish Keyword Planner export.
     backend_keywords:
-      - "metodo ferber dormir bebe llanto cortisol apego"
-      - "colecho muerte subita lactante cuna habitacion"
-      - "cacahuate alergias alimentacion complementaria blw"
-      - "rabietas berrinches disciplina nalgadas limites"
-      - "pantallas retraso habla bilinguismo lenguaje"
-      - "lactancia formula inteligencia guarderia embarazo"
-      - "estres gestacion acido folico edad paterna"
+      - "ferber sueno llanto dejar panal control baby led"
+      - "colecho seguro muerte esfinteres senales subita"
+      - "rabietas berrinches calmar pegan muerden limites"
+      - "pantallas retraso habla disciplina nalgadas dos"
+      - "introduccion cacahuate alergias weaning blw juego"
+      - "turnos conversacionales atragantamiento papillas"
+      - "alimentacion complementaria simbolico ficcion"
 
 books:
   - id: book-01-parenthood-atlas

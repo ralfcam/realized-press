@@ -1,0 +1,22 @@
+# Realized Press BWE — Seed Demand Telemetry (El atlas de la crianza, ARC-78)
+query,monthly_volume,yoy_trend_pct,competition_index,target_chapter,paa_question_hook,cpc_low_usd,cpc_high_usd,volume_range_high,source_tier,fetched_at
+metodo ferber sueno bebe llanto,40500,12.0,0.25,04,¿Cómo aplicar el método Ferber sin dañar el apego del bebé?,0.05,0.45,,seed,2026-10-30T20:00:00Z
+colecho seguro muerte subita lactante,33100,15.0,0.22,04,¿Es seguro el colecho o aumenta el riesgo de muerte súbita?,0.04,0.38,,seed,2026-10-30T20:00:00Z
+introduccion de cacahuate alergias alimentacion complementaria,27100,28.0,0.30,04,¿Cuándo introducir el cacahuate para prevenir alergias alimentarias?,0.08,0.65,,seed,2026-10-30T20:00:00Z
+baby led weaning blw atragantamiento papillas,22200,24.0,0.32,04,¿Provoca el baby-led weaning más atragantamiento que las papillas?,0.06,0.50,,seed,2026-10-30T20:00:00Z
+rabietas berrinches como calmar a un nino de dos anos,33100,18.0,0.28,09,¿Por qué calmarse no funciona durante una rabieta?,0.05,0.40,,seed,2026-10-30T20:00:00Z
+pantallas retraso en el habla turnos conversacionales,27100,35.0,0.34,07,¿Provocan las pantallas retraso del habla en bebés?,0.10,0.75,,seed,2026-10-30T20:00:00Z
+lactancia materna vs formula inteligencia hermanos,18100,10.0,0.20,03,¿Aumenta la lactancia materna el coeficiente intelectual del niño?,0.04,0.35,,seed,2026-10-30T20:00:00Z
+cortar frenillo lingual bebe cirugia necesaria,14800,40.0,0.42,03,¿Es realmente necesaria la frenotomía en recién nacidos?,0.15,1.20,,seed,2026-10-30T20:00:00Z
+dejar el panal control de esfinteres senales,40500,20.0,0.35,10,¿Cuáles son las señales reales de madurez para dejar el pañal?,0.08,0.60,,seed,2026-10-30T20:00:00Z
+ninos que pegan muerden limites disciplina sin nalgadas,33100,22.0,0.30,10,¿Por qué pegan y muerden los niños pequeños aunque conozcan la norma?,0.06,0.55,,seed,2026-10-30T20:00:00Z
+permanencia del objeto cuando la adquiere el bebe,18100,14.0,0.18,05,¿Cuándo comprenden los bebés que un objeto sigue existiendo?,0.03,0.30,,seed,2026-10-30T20:00:00Z
+juego simbolico ficcion juguetes montessori,22200,26.0,0.38,12,¿Hacen los juguetes Montessori o el juego simbólico más inteligentes a los niños?,0.12,0.90,,seed,2026-10-30T20:00:00Z
+permiso de paternidad y maternidad desarrollo infantil,12100,18.0,0.24,13,¿Cómo influyen los permisos parentales pagados en el desarrollo infantil?,0.05,0.42,,seed,2026-10-30T20:00:00Z
+guarderia o quedarse en casa apego cortisol,18100,16.0,0.26,08,¿Perjudica la escuela infantil o guardería el apego del bebé?,0.05,0.48,,seed,2026-10-30T20:00:00Z
+estres en el embarazo afecta al bebe placenta,14800,20.0,0.22,01,¿Daña el estrés laboral cotidiano durante la gestación al feto?,0.04,0.38,,seed,2026-10-30T20:00:00Z
+acido folico antes del embarazo tubo neural,18100,15.0,0.25,01,¿Por qué es necesario el ácido fólico antes de saber que estás embarazada?,0.06,0.50,,seed,2026-10-30T20:00:00Z
+edad paterna avanzada riesgos mutaciones autismo,9900,12.0,0.20,01,¿Cuánto influye la edad del padre en la salud genética del bebé?,0.04,0.35,,seed,2026-10-30T20:00:00Z
+ruido blanco bebes seguro o peligroso dormir,14800,30.0,0.28,04,¿Es seguro el ruido blanco para el sueño del recién nacido?,0.08,0.60,,seed,2026-10-30T20:00:00Z
+experimento del malvavisco fuerza de voluntad autocontrol,12100,10.0,0.18,11,¿Qué demostró realmente la réplica del test del malvavisco?,0.03,0.25,,seed,2026-10-30T20:00:00Z
+personalidad fija a los tres anos neurodesarrollo,14800,14.0,0.22,15,¿Queda sellada la personalidad o el cerebro a los tres años?,0.04,0.35,,seed,2026-10-30T20:00:00Z

@@ -74,6 +74,8 @@ COVERED_CARD_MIN = 0.40
 
 SEED_CSV_BY_SERIES = {
     "parenthood-atlas": "gkp_parenting_0_3_seed.csv",
+    "parenthood-atlas/i18n/es": "gkp_parenting_es_seed.csv",
+    "parenthood-atlas-es": "gkp_parenting_es_seed.csv",
     "architectures-of-memory": "gkp_architectures_of_memory_seed.csv",
 }
 CSV_FIELDS = [
@@ -121,27 +123,177 @@ SERIES_DOMAIN_ANCHORS: dict[str, set[str]] = {
     },
 }
 
+ALLOWED_SHORT_TOKENS: set[str] = {
+    "iq", "kv", "ai", "ml", "uk", "us", "eu", "dme", "blw", "has", "aep", "oms",
+}
+
 NEGATIVE_TOKENS: set[str] = {
     "office", "adult", "desktop", "commercial", "industrial", "enterprise software",
-    "gaming", "headset", "near me", "reddit", "vtech", "sleep trainee", "the sleep train",
-    "sleep tr", "sleep trainer", "sleep specialist training", "sleep therapist training",
-    "pampers", "kaedah",
+    "gaming", "headset", "reddit", "vtech", "pampers", "kaedah",
+    # Local-service, hiring, coaching & agency intent (ARC-78)
+    "near me", "in home", "night nurse", "hire", "consultant", "consultants",
+    "trainer", "trainers", "training near me", "coaching", "coach", "agency", "agencies",
+    "service", "services", "specialist training", "therapist training", "sleep trainee", "the sleep train",
+    "sleep tr",
+}
+
+KDP_STOP_WORDS_ES: set[str] = {
+    "de", "la", "el", "en", "y", "a", "los", "del", "las", "por", "un", "para", "con", "no", "una",
+    "su", "al", "lo", "como", "mas", "pero", "sus", "le", "ya", "o", "este", "si", "porque", "esta",
+    "entre", "cuando", "muy", "sin", "sobre", "tambien", "mes", "meses", "ano", "anos", "bebe",
+    "bebes", "nino", "ninos", "metodo", "guia", "consejos", "libro", "libros", "primer", "primera",
+    "primeros", "primeras", "hacer", "hace", "cual", "donde", "quien",
+}
+
+KDP_STOP_WORDS_FR: set[str] = {
+    "de", "la", "le", "les", "des", "en", "un", "une", "du", "au", "aux", "par", "pour", "dans",
+    "sur", "avec", "sans", "sous", "entre", "chez", "mais", "ou", "et", "donc", "or", "ni", "car",
+    "comment", "pourquoi", "quand", "que", "qui", "ce", "cette", "ces", "son", "sa", "ses", "leur",
+    "leurs", "mois", "an", "ans", "annee", "annees", "bebe", "bebes", "enfant", "enfants", "methode",
+    "guide", "livre", "livres", "premier", "premiere", "premiers", "premieres", "faire", "fait",
+}
+
+SERIES_DOMAIN_ANCHORS_ES: set[str] = {
+    "bebe", "bebes", "lactante", "lactantes", "recien", "nacido", "nacidos", "nino", "ninos",
+    "embarazo", "embarazada", "parto", "cesarea", "lactancia", "sueno", "dormir", "colecho", "blw",
+    "rabietas", "berrinches", "apego", "crianza", "pantallas", "bilingue", "padres", "madre", "padre",
+    "guarderia", "escuela", "infantil",
+}
+
+SERIES_DOMAIN_ANCHORS_FR: set[str] = {
+    "bebe", "bebes", "nourrisson", "nourrissons", "nouveau", "ne", "enfant", "enfants",
+    "grossesse", "enceinte", "accouchement", "cesarienne", "allaitement", "sommeil", "dormir",
+    "cododo", "dme", "coleres", "attachement", "parentalite", "ecrans", "bilingue", "parents",
+    "mere", "pere", "creche", "maternelle",
 }
 
 
-def is_domain_relevant(query: str, series_slug: str, bm25_score: float = 0.0) -> bool:
-    """Filter out queries with negative off-topic tokens or lacking series domain anchors."""
-    q_lower = query.lower()
+def detect_series_language(series_slug: str, root: Path = ROOT) -> str:
+    """Detect language ('en', 'es', 'fr') from series.yaml or slug path."""
+    if "/i18n/" in series_slug:
+        return series_slug.split("/i18n/")[-1].split("/")[0]
+    manifest_p = root / "series" / series_slug / "series.yaml"
+    if manifest_p.is_file():
+        try:
+            data = yaml.safe_load(manifest_p.read_text(encoding="utf-8")) or {}
+            rt = data.get("readability_targets") or {}
+            if "language" in rt:
+                return rt["language"]
+            if "locale" in data:
+                return data["locale"]
+        except Exception:
+            pass
+    return "en"
+
+
+def get_box_stopwords(lang: str = "en") -> set[str]:
+    if lang == "es":
+        return BOX_STOPWORDS | KDP_STOP_WORDS_ES
+    if lang == "fr":
+        return BOX_STOPWORDS | KDP_STOP_WORDS_FR
+    return BOX_STOPWORDS
+
+
+def get_domain_anchors(series_slug: str, lang: str = "en") -> set[str]:
+    if lang == "es":
+        return SERIES_DOMAIN_ANCHORS_ES
+    if lang == "fr":
+        return SERIES_DOMAIN_ANCHORS_FR
+    base_slug = series_slug.split("/i18n/")[0]
+    return SERIES_DOMAIN_ANCHORS.get(base_slug, set())
+
+
+def is_domain_relevant(query: str, series_slug: str, bm25_score: float = 0.0, lang: str = "en") -> bool:
+    """Filter out queries with negative off-topic tokens, truncated fragments, or lacking series domain anchors."""
+    q_lower = query.lower().strip()
     for neg in NEGATIVE_TOKENS:
         if re.search(rf"\b{re.escape(neg)}\b", q_lower):
             return False
+
+    # ARC-78: Reject truncated trailing tokens (< 3 chars unless whitelisted or numeric)
+    words = q_lower.split()
+    if words:
+        last = words[-1]
+        all_stops = STOPWORDS | get_box_stopwords(lang)
+        if len(last) < 3 and not last.isdigit() and last not in ALLOWED_SHORT_TOKENS and last not in all_stops:
+            return False
+
     if bm25_score >= 0.25:
         return True
-    anchors = SERIES_DOMAIN_ANCHORS.get(series_slug, set())
+    anchors = get_domain_anchors(series_slug, lang=lang)
     if not anchors:
         return True
     tokens = set(re.findall(r"[a-z0-9]+", q_lower))
     return bool(tokens & anchors)
+
+
+NUMBER_WORDS: dict[str, str] = {
+    # English
+    "one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6",
+    "seven": "7", "eight": "8", "nine": "9", "ten": "10", "eleven": "11", "twelve": "12",
+    "eighteen": "18", "twenty four": "24", "twenty-four": "24",
+    # Spanish
+    "uno": "1", "dos": "2", "tres": "3", "cuatro": "4", "cinco": "5", "seis": "6",
+    "siete": "7", "ocho": "8", "nueve": "9", "diez": "10", "once": "11", "doce": "12",
+    "dieciocho": "18", "veinticuatro": "24",
+    # French
+    "un": "1", "deux": "2", "trois": "3", "quatre": "4", "cinq": "5", "six": "6",
+    "sept": "7", "huit": "8", "neuf": "9", "dix": "10", "onze": "11", "douze": "12",
+    "dix-huit": "18", "vingt-quatre": "24",
+}
+
+COMPOUND_SPLITS: dict[str, str] = {
+    r"\bnew\s+born\b": "newborn",
+    r"\bco\s+sleeping\b": "cosleeping",
+    r"\btime\s+out\b": "timeout",
+    r"\bbed\s+time\b": "bedtime",
+    r"\brecien\s+nacido\b": "reciennacido",
+    r"\bnouveau\s+ne\b": "nouveaune",
+}
+
+
+def query_cluster_signature(query: str, lang: str = "en") -> str:
+    """Compute a sorted, stop-word-stripped stem signature to identify query permutations (ARC-78)."""
+    norm = unicodedata.normalize("NFD", query.lower())
+    cleaned = "".join(c for c in norm if unicodedata.category(c) != "Mn")
+    cleaned = re.sub(r"'s\b", "", cleaned).replace("'", " ")
+
+    for pat, rep in COMPOUND_SPLITS.items():
+        cleaned = re.sub(pat, rep, cleaned)
+
+    for word, digit in NUMBER_WORDS.items():
+        cleaned = re.sub(rf"\b{re.escape(word)}\b", digit, cleaned)
+
+    stop_words = STOPWORDS | get_box_stopwords(lang)
+    raw_tokens = re.findall(r"[a-z0-9]+", cleaned)
+    filtered = [t for t in raw_tokens if t not in stop_words or t.isdigit()]
+    if not filtered:
+        filtered = raw_tokens
+
+    stems = sorted(dict.fromkeys(_stem_key(t) for t in filtered))
+    return " ".join(stems)
+
+
+def canonicalize_query_cluster(
+    cluster: list[tuple[str, int, float, float]], lang: str = "en"
+) -> tuple[str, list[str]]:
+    """Given a list of (query, volume, cpc_high, competition), choose the primary canonical representative.
+
+    Picks highest search volume, preferring queries with digits over numeral words and natural word order.
+    Returns (primary_query, sorted_variant_queries).
+    """
+    if not cluster:
+        return "", []
+    # Sort key: volume desc, has digits (1/0), length asc, query asc
+    def sort_key(item: tuple[str, int, float, float]):
+        q, vol, cpc, comp = item
+        has_digit = 1 if any(c.isdigit() for c in q) else 0
+        return (-vol, -has_digit, len(q.split()), q)
+
+    sorted_cluster = sorted(cluster, key=sort_key)
+    canonical = sorted_cluster[0][0]
+    variants = sorted(dict.fromkeys(item[0] for item in sorted_cluster if item[0] != canonical))
+    return canonical, variants
 
 
 @dataclass
@@ -222,7 +374,10 @@ def _fmt_chapter(label: str) -> str:
 # ---------------------------------------------------------------------------
 
 def seed_csv_path(series_slug: str, root: Path = ROOT) -> Path:
-    name = SEED_CSV_BY_SERIES.get(series_slug, f"gkp_{series_slug.replace('-', '_')}_seed.csv")
+    name = SEED_CSV_BY_SERIES.get(series_slug)
+    if not name:
+        clean_slug = series_slug.replace("/", "_").replace("-", "_")
+        name = f"gkp_{clean_slug}_seed.csv"
     return root / "data" / name
 
 
@@ -404,27 +559,33 @@ def fetch_autocomplete_candidates(
     spacing_s: float = 0.25,
     fetch: Callable[[str], object] = _http_json,
     sleep: Callable[[float], None] = time.sleep,
+    lang: Optional[str] = None,
 ) -> list[dict[str, str]]:
     """Stage 1: surface how readers phrase questions via Google Suggest and Amazon stripbooks.
 
     Returns candidates with their originating seed's chapter and PAA hook. No volume is implied.
     A candidate must keep >=60% of its origin query's core tokens to limit topical drift.
+    Routes queries dynamically by language (ARC-78).
     """
     seen = set(existing)
     found: list[dict[str, str]] = []
+    effective_lang = lang or detect_series_language(series_slug, ROOT)
+    hl_gl = {"en": "hl=en&gl=us", "es": "hl=es&gl=es", "fr": "hl=fr&gl=fr"}.get(effective_lang, "hl=en&gl=us")
+    mid = {"en": "ATVPDKIKX0DER", "es": "A1RKKUPIHCS9HS", "fr": "A13V1IB3VIYZZH"}.get(effective_lang, "ATVPDKIKX0DER")
+
     for row in seed_rows:
         origin = row["query"]
         prefix = " ".join(origin.split()[:4])
         origin_core = set(_extract_core_tokens(origin))
         fetched: list[str] = []
         try:
-            data = fetch(f"https://suggestqueries.google.com/complete/search?client=firefox&q={urllib.parse.quote_plus(prefix)}")
+            data = fetch(f"https://suggestqueries.google.com/complete/search?client=firefox&{hl_gl}&q={urllib.parse.quote_plus(prefix)}")
             if isinstance(data, list) and len(data) >= 2 and isinstance(data[1], list):
                 fetched += [s for s in data[1] if isinstance(s, str)]
         except Exception:  # noqa: BLE001 - network is best-effort
             pass
         try:
-            data = fetch(f"https://completion.amazon.com/api/2017/suggestions?prefix={urllib.parse.quote_plus(prefix)}&mid=ATVPDKIKX0DER&alias=stripbooks")
+            data = fetch(f"https://completion.amazon.com/api/2017/suggestions?prefix={urllib.parse.quote_plus(prefix)}&mid={mid}&alias=stripbooks")
             if isinstance(data, dict):
                 fetched += [s.get("value", "") for s in data.get("suggestions", []) if isinstance(s, dict)]
         except Exception:  # noqa: BLE001
@@ -435,7 +596,7 @@ def fetch_autocomplete_candidates(
             q = normalize_query(cand)
             if taken >= per_seed or len(q) < 8 or q in seen:
                 continue
-            if not is_domain_relevant(q, series_slug):
+            if not is_domain_relevant(q, series_slug, lang=effective_lang):
                 continue
             if origin_core and len(origin_core & set(_extract_core_tokens(q))) / len(origin_core) < 0.6:
                 continue
@@ -565,20 +726,39 @@ def sync_seed_csv(conn, series_slug: str, csv_path: Path, persist_discoveries: b
 def import_gkp_export(
     export_path: Path, series_slug: str, csv_path: Path, dry_run: bool = False
 ) -> str:
-    """Tier 2: ingest a Keyword Planner web-UI export into the DB and the series seed CSV."""
+    """Tier 2: ingest a Keyword Planner web-UI export into the DB and the series seed CSV.
+
+    Applies local-service filtering, truncated fragment rejection, and canonical intent
+    deduplication across lexical/numeral-word permutations (ARC-78).
+    """
     export = parse_native_gkp_csv_export(export_path)
     bwedb.init_db(ROOT)
     stamp = bwedb.now_iso()
-    updated = added = filtered = 0
+    lang = detect_series_language(series_slug, ROOT)
+    updated = added = filtered = deduped = 0
     comments, rows = read_seed_csv(csv_path) if csv_path.is_file() else ([], [])
     by_query = {normalize_query(r["query"]): r for r in rows}
+
+    # Step 1: Filter domain relevancy & group into canonical clusters
+    cluster_buckets: dict[str, list[EnrichedKeywordMetric]] = {}
+    for m in export.metrics:
+        q = normalize_query(m.query)
+        if not is_domain_relevant(q, series_slug, lang=lang):
+            filtered += 1
+            continue
+        sig = query_cluster_signature(q, lang=lang)
+        cluster_buckets.setdefault(sig, []).append(m)
+
     with bwedb.get_db() as conn:
-        for m in export.metrics:
-            q = normalize_query(m.query)
+        for _sig, m_list in cluster_buckets.items():
+            cluster_tuples = [(m.query, m.monthly_volume, m.cpc_high_usd, m.competition_index) for m in m_list]
+            canonical_q, variants = canonicalize_query_cluster(cluster_tuples, lang=lang)
+            if variants:
+                deduped += len(variants)
+            canonical_m = next(m for m in m_list if normalize_query(m.query) == normalize_query(canonical_q))
+            q = normalize_query(canonical_m.query)
+
             cov = bwedb.bm25_coverage(conn, series_slug, _extract_core_tokens(q)[:8])
-            if not is_domain_relevant(q, series_slug, bm25_score=cov.combined):
-                filtered += 1
-                continue
             row = by_query.get(q)
             if row is None:
                 row = {"query": q, "target_chapter": chapter_label(cov.chapter), "paa_question_hook": ""}
@@ -588,22 +768,24 @@ def import_gkp_export(
             else:
                 updated += 1
             row.update({
-                "monthly_volume": str(m.monthly_volume), "yoy_trend_pct": f"{m.yoy_trend_pct:g}",
-                "competition_index": f"{m.competition_index:g}", "cpc_low_usd": f"{m.cpc_low_usd:g}",
-                "cpc_high_usd": f"{m.cpc_high_usd:g}",
-                "volume_range_high": "" if m.volume_range_high is None else str(m.volume_range_high),
+                "monthly_volume": str(canonical_m.monthly_volume), "yoy_trend_pct": f"{canonical_m.yoy_trend_pct:g}",
+                "competition_index": f"{canonical_m.competition_index:g}", "cpc_low_usd": f"{canonical_m.cpc_low_usd:g}",
+                "cpc_high_usd": f"{canonical_m.cpc_high_usd:g}",
+                "volume_range_high": "" if canonical_m.volume_range_high is None else str(canonical_m.volume_range_high),
                 "source_tier": TIER_GKP_EXPORT, "fetched_at": stamp,
             })
             if not dry_run:
                 _store_gads_metric(
-                    conn, series_slug, m, stamp,
+                    conn, series_slug, canonical_m, stamp,
                     target_chapter=row.get("target_chapter") or "", paa_hook=row.get("paa_question_hook") or "",
+                    cluster_variants_json=json.dumps(variants),
                 )
     if not dry_run:
         write_seed_csv(csv_path, comments, rows)
     lines = [
         f"[marketing-intel:import] {export_path.name}: {len(export.metrics)} keyword row(s) parsed "
-        f"({updated} updated, {added} new, {filtered} filtered off-topic), {export.skipped_rows} skipped (no volume) -> "
+        f"({updated} updated, {added} new, {filtered} filtered noise/off-topic, {deduped} duplicate permutations merged), "
+        f"{export.skipped_rows} skipped (no volume) -> "
         f"{csv_path.name if not dry_run else '(dry run: nothing written)'} [tier={TIER_GKP_EXPORT}]",
     ]
     lines += [f"[WARN] {w}" for w in export.warnings]
@@ -735,65 +917,141 @@ def _box_tokens(text: str) -> list[str]:
 def pack_kdp_boxes(
     signals: Iterable[KeywordSignal], excluded_text: str,
     boxes: int = KDP_BOX_COUNT, max_bytes: int = KDP_PACK_BYTES,
+    lang: str = "en",
 ) -> tuple[list[str], float, float]:
-    """Greedy knapsack of search words into KDP backend boxes.
+    """Greedy knapsack of search phrases and words into KDP backend boxes (ARC-78).
 
-    Each word is weighted by sum(volume x coverage) over the queries containing it, so the book only
-    spends box space on demand it genuinely answers (coverage < 0.25 is ignored). Words already in
-    the title/subtitle, stop words, and singular/plural duplicates (across all boxes) are skipped.
-    Phrase fragments from one query are kept together where they fit. Returns
-    (boxes, weight_captured, weight_total).
+    Extracts top-weighted 2-word and 3-word collocations from covered queries (coverage >= 0.25)
+    first, packing intact phrases greedily into boxes (<= 49 UTF-8 bytes) before filling residual
+    headroom with high-value singletons. Excludes title/subtitle stems and stop words for `lang`.
+    Returns (boxes, weight_captured, weight_total).
     """
+    stop_words = get_box_stopwords(lang)
     used = {_stem_key(t) for t in _box_tokens(excluded_text)}
-    phrases: dict[tuple[str, ...], float] = {}
-    weight: Counter = Counter()
+
+    collocation_weights: Counter = Counter()
+    unigram_weights: Counter = Counter()
+    unigram_words: dict[str, str] = {}
+
     for sig in signals:
         w = sig.monthly_volume * sig.coverage if sig.coverage >= KDP_MIN_COVERAGE else 0.0
         if w <= 0:
             continue
-        toks = [t for t in dict.fromkeys(_box_tokens(sig.query)) if t not in BOX_STOPWORDS and _stem_key(t) not in used]
+        toks = [t for t in _box_tokens(sig.query) if t not in stop_words and _stem_key(t) not in used]
         if not toks:
             continue
-        phrases[tuple(toks)] = phrases.get(tuple(toks), 0.0) + w
+
         for t in toks:
-            weight[_stem_key(t)] += w
-    total = float(sum(weight.values()))
+            sk = _stem_key(t)
+            unigram_weights[sk] += w
+            if sk not in unigram_words or len(t) < len(unigram_words[sk]):
+                unigram_words[sk] = t
+
+        n = len(toks)
+        for i in range(n - 1):
+            phrase2 = (toks[i], toks[i + 1])
+            if _stem_key(phrase2[0]) != _stem_key(phrase2[1]):
+                collocation_weights[phrase2] += w
+        for i in range(n - 2):
+            phrase3 = (toks[i], toks[i + 1], toks[i + 2])
+            stems3 = {_stem_key(t) for t in phrase3}
+            if len(stems3) == 3:
+                collocation_weights[phrase3] += w * 1.15
+
+    total = float(sum(unigram_weights.values()))
+    sorted_collocations = sorted(collocation_weights.items(), key=lambda x: (-x[1], len(x[0])))
 
     packed: list[str] = []
     for _ in range(boxes):
-        chosen: list[str] = []
-        size = 0
-        while True:
-            best: Optional[tuple[float, float, str, list[str], int]] = None
-            for phrase in phrases:
-                fresh = [t for t in phrase if _stem_key(t) not in used and t not in chosen]
-                take: list[str] = []
-                s = size
-                for t in fresh:
-                    cost = len(t.encode("utf-8")) + (1 if (chosen or take) else 0)
-                    if s + cost <= max_bytes:
-                        take.append(t)
-                        s += cost
-                if not take:
-                    continue
-                gain = sum(weight[_stem_key(t)] for t in take)
-                cand = (gain / (s - size), gain, " ".join(phrase), take, s)
-                if best is None or cand[:3] > best[:3]:
-                    best = cand
-            if best is None:
-                break
-            chosen += best[3]
-            size = best[4]
-            used |= {_stem_key(t) for t in best[3]}
-        if chosen:
-            packed.append(" ".join(chosen))
-    captured = float(sum(weight[k] for k in {_stem_key(t) for box in packed for t in box.split()}))
+        chosen_words: list[str] = []
+        box_used_stems: set[str] = set()
+
+        def current_bytes() -> int:
+            if not chosen_words:
+                return 0
+            return len(" ".join(chosen_words).encode("utf-8"))
+
+        # Phase 1: Pack intact 2-word and 3-word collocations
+        for phrase, _w in sorted_collocations:
+            phrase_stems = {_stem_key(t) for t in phrase}
+            if phrase_stems & used or phrase_stems & box_used_stems:
+                continue
+            phrase_str = " ".join(phrase)
+            added_bytes = len(phrase_str.encode("utf-8")) + (1 if chosen_words else 0)
+            if current_bytes() + added_bytes <= max_bytes:
+                chosen_words.extend(phrase)
+                box_used_stems.update(phrase_stems)
+
+        # Phase 2: Pack residual high-value singletons into remaining headroom
+        sorted_unigrams = sorted(unigram_weights.items(), key=lambda x: -x[1])
+        for stem, _w in sorted_unigrams:
+            if stem in used or stem in box_used_stems:
+                continue
+            word = unigram_words[stem]
+            added_bytes = len(word.encode("utf-8")) + (1 if chosen_words else 0)
+            if current_bytes() + added_bytes <= max_bytes:
+                chosen_words.append(word)
+                box_used_stems.add(stem)
+
+        if chosen_words:
+            box_text = " ".join(chosen_words)
+            while len(box_text.encode("utf-8")) > max_bytes and chosen_words:
+                removed = chosen_words.pop()
+                box_used_stems.discard(_stem_key(removed))
+                box_text = " ".join(chosen_words)
+            if box_text:
+                packed.append(box_text)
+                used.update(box_used_stems)
+
+    captured = float(sum(unigram_weights[k] for k in {_stem_key(t) for box in packed for t in box.split()}))
     return packed, captured, total
 
 
-def optimize_kdp_boxes_report(series_slug: str, signals: list[KeywordSignal]) -> str:
+def audit_quick_finder_coverage(
+    series_dir: Path, signals: list[KeywordSignal], min_volume: int = 5000
+) -> str:
+    """Audit whether top covered search queries are mapped into the front-matter 2:00 AM Quick-Finder table (ARC-78)."""
+    fm_path = series_dir / "front-matter.md"
+    if not fm_path.is_file():
+        return ""
+
+    text = fm_path.read_text(encoding="utf-8", errors="replace")
+    corpus = text.lower()
+
+    covered_top = sorted(
+        (s for s in signals if s.coverage >= COVERED_CHAPTER_MIN),
+        key=lambda s: -s.monthly_volume,
+    )[:15]
+
+    lines = [
+        "",
+        "## Front-Matter 2:00 AM Quick-Finder Coverage Audit",
+        "| Monthly Vol | Query | Target Chapter | Quick-Finder Status | Recommendation |",
+        "| ---: | :--- | :--- | :--- | :--- |",
+    ]
+
+    unmapped_count = 0
+    for sig in covered_top:
+        core = _extract_core_tokens(sig.query)
+        hits = sum(1 for t in core if t in corpus)
+        mapped = (hits / len(core) >= 0.5) if core else False
+        status = "**MAPPED**" if mapped else "<span style='color:orange'>UNMAPPED</span>"
+        rec = "Covered in Quick-Finder" if mapped else "Add Q&A row to `front-matter.md`"
+        if not mapped:
+            unmapped_count += 1
+            if sig.monthly_volume >= min_volume:
+                rec = f"**HIGH-INTENT GAP**: Add Q&A row for Ch {_fmt_chapter(chapter_label(sig.matched_chapter))}"
+        lines.append(f"| {sig.monthly_volume:,} | `{sig.query}` | {_fmt_chapter(chapter_label(sig.matched_chapter))} | {status} | {rec} |")
+
+    lines.append(f"\n- **Quick-Finder Sync:** {len(covered_top) - unmapped_count} of top {len(covered_top)} covered queries mapped in `front-matter.md` ({unmapped_count} unmapped).")
+    return "\n".join(lines) + "\n"
+
+
+def optimize_kdp_boxes_report(
+    series_slug: str, signals: list[KeywordSignal], write_yaml: bool = False, lang: Optional[str] = None
+) -> str:
     from pydantic import ValidationError
-    from bwe.schema import KdpMarketingMetadata
+    from bwe.schema import KdpMarketingMetadata, validate_series_yaml
 
     series_dir = ROOT / "series" / series_slug
     data = yaml.safe_load((series_dir / "series.yaml").read_text(encoding="utf-8")) or {}
@@ -802,11 +1060,13 @@ def optimize_kdp_boxes_report(series_slug: str, signals: list[KeywordSignal]) ->
     excluded = f"{title} {subtitle}"
     ex_stems = {_stem_key(t) for t in _box_tokens(excluded)}
 
-    proposed, captured, total = pack_kdp_boxes(signals, excluded)
+    effective_lang = lang or detect_series_language(series_slug, ROOT)
+    proposed, captured, total = pack_kdp_boxes(signals, excluded, lang=effective_lang)
     lines = [
         f"# KDP 7-Box Backend Keyword Optimizer: *{title}* (`{series_slug}`)",
+        f"- **Language:** `{effective_lang}`",
         f"- **Excluded (already indexed from title/subtitle):** {', '.join(sorted(dict.fromkeys(_box_tokens(excluded)))) or 'none'}",
-        f"- **Method:** greedy knapsack over sum(volume x BM25 coverage) per word; <= {KDP_PACK_BYTES} UTF-8 bytes per box (KDP limit {KDP_BOX_BYTES}); no repeated words across boxes.",
+        f"- **Method:** greedy knapsack over 2-word & 3-word intact collocations + residual singletons; <= {KDP_PACK_BYTES} UTF-8 bytes per box (KDP limit {KDP_BOX_BYTES}); no repeated word stems across boxes.",
         f"- **Demand weight captured by proposed boxes:** {(captured / total * 100 if total else 0):.0f}% of covered-demand weight",
     ]
     if not any(s.verified for s in signals):
@@ -843,8 +1103,32 @@ def optimize_kdp_boxes_report(series_slug: str, signals: list[KeywordSignal]) ->
         lines.append(f"\n- **Schema validation:** FAIL: {exc.errors()[0]['msg']}")
     if len(proposed) < KDP_BOX_COUNT:
         lines.append(f"- **Note:** only {len(proposed)} of {KDP_BOX_COUNT} boxes could be filled from covered demand; keep curated phrases for the remainder.")
-    lines += ["", "```yaml", "backend_keywords:"] + [f'  - "{b}"' for b in proposed] + ["```",
-              "", "*Proposal only: `series.yaml` is not modified (PyYAML would drop its comments). Paste after review.*"]
+    lines += ["", "```yaml", "backend_keywords:"] + [f'  - "{b}"' for b in proposed] + ["```"]
+
+    if write_yaml and proposed:
+        yaml_path = series_dir / "series.yaml"
+        if yaml_path.is_file():
+            text = yaml_path.read_text(encoding="utf-8")
+            pattern = r"(backend_keywords:\s*\n)(?:\s*-\s*[^\n]+\n)+"
+            replacement = r"\g<1>" + "".join(f'      - "{box}"\n' for box in proposed)
+            new_text, count = re.subn(pattern, replacement, text)
+            if count > 0:
+                yaml_path.write_text(new_text, encoding="utf-8")
+                try:
+                    validate_series_yaml(yaml_path)
+                    lines.append(f"\n- **In-Place Write (`--write-series-yaml`):** SUCCESS: updated {len(proposed)} boxes in `{yaml_path.name}` and validated schema.")
+                except Exception as exc:
+                    lines.append(f"\n- **In-Place Write (`--write-series-yaml`):** WARNING: written but validation failed: {exc}")
+            else:
+                lines.append("\n- **In-Place Write (`--write-series-yaml`):** WARNING: `backend_keywords:` pattern not found in `series.yaml`.")
+    else:
+        lines += ["", "*Proposal only: `series.yaml` is not modified. Pass `--write-series-yaml` to update in-place.*"]
+
+    # Append Quick-Finder Coverage Audit
+    qf_report = audit_quick_finder_coverage(series_dir, signals)
+    if qf_report:
+        lines.append(qf_report)
+
     return "\n".join(lines) + "\n"
 
 
@@ -1139,11 +1423,26 @@ def discover_frontier_topics(query: str, limit: int = 5, min_year: int = 2022) -
 
 def _resolve_series(arg: Optional[str], need_seed: bool = True) -> list[str]:
     if arg:
+        clean_arg = arg.strip("/\\").replace("\\", "/")
+        if clean_arg.startswith("series/"):
+            clean_arg = clean_arg[len("series/"):]
+        if (ROOT / "series" / clean_arg / "series.yaml").is_file():
+            return [clean_arg]
+        # Check by slug name
         slug = Path(arg).name
-        if not (ROOT / "series" / slug / "series.yaml").is_file():
-            raise SystemExit(f"error: unknown series '{arg}' (no series/{slug}/series.yaml)")
-        return [slug]
-    slugs = sorted(p.parent.name for p in (ROOT / "series").glob("*/series.yaml"))
+        if (ROOT / "series" / slug / "series.yaml").is_file():
+            return [slug]
+        # Check alias
+        if clean_arg == "parenthood-atlas-es" and (ROOT / "series" / "parenthood-atlas" / "i18n" / "es" / "series.yaml").is_file():
+            return ["parenthood-atlas/i18n/es"]
+        raise SystemExit(f"error: unknown series '{arg}' (no series/{clean_arg}/series.yaml)")
+    slugs = []
+    for p in (ROOT / "series").glob("**/series.yaml"):
+        if "preliminary" in p.parts:
+            continue
+        rel = p.parent.relative_to(ROOT / "series").as_posix()
+        slugs.append(rel)
+    slugs = sorted(set(slugs))
     return [s for s in slugs if seed_csv_path(s).is_file()] if need_seed else slugs
 
 
@@ -1152,11 +1451,15 @@ def run_live_stages(slug: str, csv_path: Path, args: argparse.Namespace, writeba
     notes: list[str] = []
     bwedb.init_db(ROOT)
     _, rows = read_seed_csv(csv_path)
+    lang = getattr(args, "lang", None) or detect_series_language(slug, ROOT)
+    lang_id = {"en": "1000", "es": "1003", "fr": "1002"}.get(lang, "1000")
+    geo_id = {"en": "2840", "es": "2724", "fr": "2250"}.get(lang, "2840")
+
     with bwedb.get_db() as conn:
         existing = {normalize_query(r["query"]) for r in rows}
         existing |= {r["query"] for r in conn.execute("SELECT query FROM keyword_signals WHERE series_slug = ?;", (slug,))}
         if args.fetch_live:
-            cands = fetch_autocomplete_candidates(rows, existing, series_slug=slug)
+            cands = fetch_autocomplete_candidates(rows, existing, series_slug=slug, lang=lang)
             for c in cands:
                 bwedb.upsert_keyword_signal(
                     conn, slug, c["query"], source_tier=TIER_AUTOCOMPLETE, monthly_volume=0,
@@ -1164,7 +1467,11 @@ def run_live_stages(slug: str, csv_path: Path, args: argparse.Namespace, writeba
                 )
             notes.append(f"Stage 1 (autocomplete): {len(cands)} new candidate phrasing(s); no volume implied.")
 
-        client = GoogleAdsKeywordClient(customer_id=args.gads_customer_id)
+        client = GoogleAdsKeywordClient(
+            customer_id=args.gads_customer_id,
+            language_id=lang_id,
+            geo_target_id=geo_id,
+        )
         if not client.is_available:
             notes.append(
                 "Stage 2 (Google Ads) skipped: no credentials (needs the `google-ads` SDK, google-ads.yaml or "
@@ -1219,7 +1526,7 @@ def run_keyword_mode(args: argparse.Namespace) -> int:
         signals, candidates = collect_signals(csv_arg, slug)
         print(render_radar_report(signals, candidates, csv_arg, slug, notes))
         if args.optimize_kdp_boxes:
-            print(optimize_kdp_boxes_report(slug, signals))
+            print(optimize_kdp_boxes_report(slug, signals, write_yaml=args.write_series_yaml, lang=args.lang))
         if args.export_amazon_ads:
             out_p = Path(args.export_amazon_ads).resolve()
             n_rows = export_amazon_ads_csv(signals, slug, out_p)
@@ -1241,6 +1548,8 @@ def main() -> int:
     parser.add_argument("--persist-discoveries", action="store_true", help="Append Ads-verified discoveries to the seed CSV (default: DB cache only)")
     parser.add_argument("--import-gkp-export", default=None, metavar="CSV", help="Import a Keyword Planner web-UI export (UTF-16 CSV; no Developer Token needed); requires --series")
     parser.add_argument("--optimize-kdp-boxes", action="store_true", help="Propose 7 backend keyword boxes (<=49 UTF-8 bytes each) from covered demand")
+    parser.add_argument("--write-series-yaml", action="store_true", help="Write proposed KDP 7 boxes directly into series.yaml in-place (ARC-78)")
+    parser.add_argument("--lang", default=None, help="Explicit language override ('en', 'es', 'fr') (ARC-78)")
     parser.add_argument("--export-amazon-ads", default=None, metavar="PATH", help="Export an Amazon Advertising (Sponsored Products) bulk upload CSV from covered demand")
     parser.add_argument("--refresh", action="store_true", help="Ignore the Google Ads cache TTL and refetch")
     parser.add_argument("--cache-ttl-days", type=int, default=bwedb.DEFAULT_CACHE_TTL_DAYS, help="Google Ads cache TTL in days (default 30)")

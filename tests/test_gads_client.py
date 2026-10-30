@@ -168,3 +168,47 @@ def test_parse_native_gkp_csv_export_camelcase():
     assert r1.query == "ferber method"
     assert r1.monthly_volume == 40500
     assert r1.competition_index == 0.12
+
+
+def test_parse_apify_camelcase_nan_and_noise_filtering():
+    # Simulates third-party Apify dataset with NaN values and empty bids
+    content = (
+        '"avgMonthlySearches","competition","competitionIndex","highTopOfPageBid","keyword","lowTopOfPageBid"\n'
+        '"10","LOW","0",,"breastfeeding vs formula iq",\n'
+        '"33100","LOW","28","NaN","sleep training baby","NaN"\n'
+        '"NaN","UNSPECIFIED","NaN","NaN","broken volume row","NaN"\n'
+    )
+    export = parse_native_gkp_csv_export(content)
+    assert len(export.metrics) == 2
+    assert export.skipped_rows == 1
+
+    r0 = export.metrics[0]
+    assert r0.query == "breastfeeding vs formula iq"
+    assert r0.monthly_volume == 10
+    assert r0.cpc_high_usd == 0.0
+
+    r1 = export.metrics[1]
+    assert r1.query == "sleep training baby"
+    assert r1.monthly_volume == 33100
+    assert r1.cpc_high_usd == 0.0
+
+
+def test_local_service_and_truncated_token_filtering():
+    from scripts.marketing_intelligence import is_domain_relevant
+
+    # Rejection of local services & hiring intent (ARC-78)
+    assert not is_domain_relevant("sleep trainer near me", "parenthood-atlas")
+    assert not is_domain_relevant("in home sleep training", "parenthood-atlas")
+    assert not is_domain_relevant("night nurse sleep training", "parenthood-atlas")
+    assert not is_domain_relevant("professional sleep consultant", "parenthood-atlas")
+    assert not is_domain_relevant("hire a sleep coach", "parenthood-atlas")
+    assert not is_domain_relevant("sleep training agency services", "parenthood-atlas")
+
+    # Rejection of truncated trailing autocomplete tokens (<3 chars)
+    assert not is_domain_relevant("sleep tr", "parenthood-atlas")
+    assert not is_domain_relevant("baby sleep tr", "parenthood-atlas")
+
+    # Whitelisted acronyms (<3 chars) allowed
+    assert is_domain_relevant("breastfeeding vs formula iq", "parenthood-atlas")
+    assert is_domain_relevant("baby led weaning blw choking", "parenthood-atlas")
+

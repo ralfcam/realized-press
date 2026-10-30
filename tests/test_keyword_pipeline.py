@@ -280,3 +280,142 @@ def test_bm25_subtitle_and_ferber_sleep_coverage():
     assert cov_ch14.chapter_score >= 0.50
     assert cov_ch14.card_score >= 0.40
 
+
+def test_i18n_fts5_partitioning_and_stemming():
+    conn = sqlite3.connect(":memory:")
+    conn.row_factory = sqlite3.Row
+    bwedb.init_db(Path("."), conn=conn)
+
+    # 1. Verify partitioned slugs: exactly 15 English chapters and 15 Spanish chapters
+    en_rows = conn.execute("SELECT COUNT(*) AS c FROM chapters_fts WHERE series_slug = 'parenthood-atlas'").fetchone()
+    es_rows = conn.execute("SELECT COUNT(*) AS c FROM chapters_fts WHERE series_slug = 'parenthood-atlas/i18n/es'").fetchone()
+    assert en_rows["c"] == 15
+    assert es_rows["c"] == 15
+
+    # 2. Verify diacritic-folding & Porter stemming in Spanish FTS5
+    # Query without accents ("sueno bebe") matches accented chapter prose ("sueño", "bebé")
+    cov = bwedb.bm25_coverage(conn, "parenthood-atlas/i18n/es", ["sueno", "bebe", "llanto"])
+    assert cov.chapter == "04-regulatory-relationship"
+    assert cov.chapter_score >= 0.50
+
+
+def test_cross_lingual_card_lookup_via_lexicon():
+    conn = sqlite3.connect(":memory:")
+    conn.row_factory = sqlite3.Row
+    bwedb.init_db(Path("."), conn=conn)
+
+    # In i18n/es, there are no local evidence cards.
+    # Searching for Spanish terms "sueno bebe ferber" maps via style/lexicon.yaml to English card "infant-sleep-training"
+    cov = bwedb.bm25_coverage(conn, "parenthood-atlas/i18n/es", ["sueno", "bebe", "ferber"])
+    assert cov.chapter == "04-regulatory-relationship"
+    assert cov.card == "infant-sleep-training"
+    assert cov.card_score >= 0.40
+    assert cov.combined >= 0.70
+
+
+def test_canonicalize_query_cluster_deduplication():
+    from scripts.marketing_intelligence import (
+        query_cluster_signature,
+        canonicalize_query_cluster,
+    )
+
+    # 1. Number words vs numerals produce identical cluster signatures
+    sig_digit = query_cluster_signature("sleep training 4 month old")
+    sig_word = query_cluster_signature("sleep training four month old")
+    assert sig_digit == sig_word
+
+    # 2. Method and stop words produce identical signatures
+    sig_ferber1 = query_cluster_signature("ferber sleep training")
+    sig_ferber2 = query_cluster_signature("ferber method sleep training")
+    assert sig_ferber1 == sig_ferber2
+
+    # 3. Canonical representative prefers digits and highest volume
+    cluster = [
+        ("sleep training four month old", 8100, 0.95, 0.33),
+        ("sleep training 4 month old", 8100, 0.95, 0.33),
+    ]
+    canonical, variants = canonicalize_query_cluster(cluster)
+    assert canonical == "sleep training 4 month old"
+    assert "sleep training four month old" in variants
+
+
+def test_kdp_packing_intact_collocations_and_multilingual():
+    from scripts.marketing_intelligence import pack_kdp_boxes, KeywordSignal
+
+    # Test English packing preserves 2-word & 3-word intact collocations
+    signals = [
+        KeywordSignal(
+            query="ferber method sleep training baby safe sleep",
+            monthly_volume=40500,
+            yoy_trend_pct=12.0,
+            competition_index=0.25,
+            target_chapter="04",
+            paa_hook="",
+            chapter_score=0.90,
+            card_score=0.85,
+        ),
+        KeywordSignal(
+            query="peanut butter allergen introduction baby led weaning",
+            monthly_volume=74000,
+            yoy_trend_pct=28.0,
+            competition_index=0.42,
+            target_chapter="04",
+            paa_hook="",
+            chapter_score=0.88,
+            card_score=0.82,
+        ),
+    ]
+
+    boxes, captured, total = pack_kdp_boxes(signals, excluded_text="Parenthood The Atlas", lang="en")
+    assert len(boxes) <= 7
+    for b in boxes:
+        assert len(b.encode("utf-8")) <= 49
+
+    # Check intact collocations are preserved in box
+    all_text = " ".join(boxes)
+    assert ("ferber method" in all_text) or ("sleep training" in all_text)
+
+    # Test Spanish stop words are stripped
+    signals_es = [
+        KeywordSignal(
+            query="introduccion de cacahuate y alergias en la alimentacion complementaria",
+            monthly_volume=27100,
+            yoy_trend_pct=28.0,
+            competition_index=0.30,
+            target_chapter="04",
+            paa_hook="",
+            chapter_score=0.85,
+            card_score=0.80,
+        ),
+    ]
+    boxes_es, _, _ = pack_kdp_boxes(signals_es, excluded_text="El atlas de la crianza", lang="es")
+    for b in boxes_es:
+        assert len(b.encode("utf-8")) <= 49
+        words = b.split()
+        assert "de" not in words
+        assert "la" not in words
+        assert "en" not in words
+        assert "y" not in words
+
+
+def test_audit_quick_finder_coverage():
+    from scripts.marketing_intelligence import audit_quick_finder_coverage, KeywordSignal
+
+    signals = [
+        KeywordSignal(
+            query="when to introduce peanut butter baby",
+            monthly_volume=74000,
+            yoy_trend_pct=28.5,
+            competition_index=0.42,
+            target_chapter="04",
+            paa_hook="",
+            chapter_score=0.95,
+            card_score=0.90,
+        ),
+    ]
+
+    report = audit_quick_finder_coverage(Path("series/parenthood-atlas"), signals)
+    assert "Front-Matter 2:00 AM Quick-Finder Coverage Audit" in report
+    assert "MAPPED" in report
+
+

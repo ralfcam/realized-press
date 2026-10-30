@@ -61,9 +61,12 @@ def intelligence(
     expand_ideas: bool = typer.Option(False, "--expand-ideas", help="Run Google Ads GenerateKeywordIdeas on chapter topic clusters"),
     import_gkp_export: str = typer.Option(None, "--import-gkp-export", help="Path to Google Ads UI CSV export (UTF-16LE / UTF-8)"),
     optimize_kdp_boxes: bool = typer.Option(False, "--optimize-kdp-boxes", help="Pack covered demand into 7 KDP backend keyword boxes (<= 49 UTF-8 bytes)"),
+    write_series_yaml: bool = typer.Option(False, "--write-series-yaml", help="Write proposed KDP 7 boxes directly into series.yaml in-place (ARC-78)"),
+    lang: str = typer.Option(None, "--lang", help="Explicit language override ('en', 'es', 'fr') (ARC-78)"),
     export_amazon_ads: str = typer.Option(None, "--export-amazon-ads", help="Path to export Amazon Advertising (Sponsored Products) bulk upload CSV"),
+    dry_run: bool = typer.Option(False, "--dry-run", help="Do not write the seed CSV or series.yaml"),
 ):
-    """ARC-58 / ARC-72 / ARC-73: Run Marketing Intelligence, Keyword Demand Telemetry & KDP Optimizer."""
+    """ARC-58 / ARC-72 / ARC-73 / ARC-78: Run Marketing Intelligence, Keyword Demand Telemetry & KDP Optimizer."""
     cmd = [sys.executable, str(REPO_ROOT / "scripts" / "marketing_intelligence.py")]
     if discover:
         cmd.extend(["--discover", discover])
@@ -79,8 +82,14 @@ def intelligence(
         cmd.extend(["--import-gkp-export", import_gkp_export])
     if optimize_kdp_boxes:
         cmd.append("--optimize-kdp-boxes")
+    if write_series_yaml:
+        cmd.append("--write-series-yaml")
+    if lang:
+        cmd.extend(["--lang", lang])
     if export_amazon_ads:
         cmd.extend(["--export-amazon-ads", export_amazon_ads])
+    if dry_run:
+        cmd.append("--dry-run")
     rc = subprocess.call(cmd)
     raise typer.Exit(code=rc)
 

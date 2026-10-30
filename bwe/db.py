@@ -5,6 +5,7 @@ from __future__ import annotations
 import math
 import re
 import sqlite3
+import unicodedata
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -13,7 +14,9 @@ from typing import Any, Iterable, Mapping, Optional
 DB_PATH = Path(".cache/bwe_state.db")
 
 # Bump when a derived table (FTS5) or the keyword cache changes shape; init_db migrates in place.
-SCHEMA_VERSION = 2
+# v2: FTS5 porter tokenization & (series_slug, query) primary key.
+# v3 (ARC-78): FTS5 'porter unicode61 remove_diacritics 2', cluster_variants_json & i18n partitioning.
+SCHEMA_VERSION = 3
 
 # Source tiers for keyword_signals.source_tier, best evidence first.
 TIER_GADS_API = "gads_api"
@@ -72,6 +75,7 @@ _KEYWORD_SIGNALS_DDL = """
         cpc_low_usd REAL NOT NULL DEFAULT 0.0,
         cpc_high_usd REAL NOT NULL DEFAULT 0.0,
         monthly_histogram_json TEXT NOT NULL DEFAULT '[]',
+        cluster_variants_json TEXT NOT NULL DEFAULT '[]',
         source_tier TEXT NOT NULL DEFAULT 'seed',
         target_chapter TEXT,
         paa_hook TEXT,
@@ -90,8 +94,8 @@ _KEYWORD_SIGNALS_DDL = """
 KEYWORD_COLUMNS = frozenset(
     {
         "monthly_volume", "volume_range_high", "yoy_trend_pct", "competition_index", "cpc_low_usd",
-        "cpc_high_usd", "monthly_histogram_json", "source_tier", "target_chapter", "paa_hook",
-        "matched_chapter", "matched_card", "bm25_chapter_score", "bm25_card_score",
+        "cpc_high_usd", "monthly_histogram_json", "cluster_variants_json", "source_tier", "target_chapter",
+        "paa_hook", "matched_chapter", "matched_card", "bm25_chapter_score", "bm25_card_score",
         "bm25_coverage_score", "opportunity_score", "fetched_at", "scored_at",
     }
 )
@@ -102,12 +106,11 @@ def _table_columns(conn: sqlite3.Connection, table: str) -> set[str]:
 
 
 def _migrate(conn: sqlite3.Connection) -> bool:
-    """Bring a pre-v0.6.0 database to SCHEMA_VERSION. Returns True when a migration ran.
+    """Bring a pre-v0.7.0 database to SCHEMA_VERSION. Returns True when a migration ran.
 
     * FTS5 tables are derived from the Markdown tree, so they are dropped and rebuilt (adopting the
-      porter tokenizer so "tantrums" matches "tantrum").
-    * keyword_signals (autoincrement id, no uniqueness) is rebuilt keyed on (series_slug, query);
-      legacy rows are carried over as source_tier='seed'.
+      'porter unicode61 remove_diacritics 2' tokenizer and i18n slug partitioning).
+    * keyword_signals is updated to include cluster_variants_json if missing.
     """
     version = conn.execute("PRAGMA user_version;").fetchone()[0]
     if version >= SCHEMA_VERSION:
@@ -141,6 +144,8 @@ def _migrate(conn: sqlite3.Connection) -> bool:
             """
         )
         conn.execute("DROP TABLE keyword_signals_legacy;")
+    elif legacy_cols and "cluster_variants_json" not in legacy_cols:
+        conn.execute("ALTER TABLE keyword_signals ADD COLUMN cluster_variants_json TEXT NOT NULL DEFAULT '[]';")
 
     conn.execute(f"PRAGMA user_version = {SCHEMA_VERSION};")
     return True
@@ -157,18 +162,18 @@ def init_db(repo_root: Optional[Path] = None, conn: Optional[sqlite3.Connection]
 
 def _init_db_conn(conn: sqlite3.Connection, repo_root: Path) -> None:
     _migrate(conn)
-    # 1. FTS5 Virtual Table for OKF v0.2 Evidence Cards
+    # 1. FTS5 Virtual Table for OKF v0.2 Evidence Cards (ARC-78: porter + unicode61 + remove_diacritics 2)
     conn.execute("""
         CREATE VIRTUAL TABLE IF NOT EXISTS evidence_cards_fts USING fts5(
             series_slug, book_slug, card_slug, title, body,
-            tokenize = 'porter unicode61'
+            tokenize = 'porter unicode61 remove_diacritics 2'
         );
     """)
-    # 1b. ARC-72: FTS5 Virtual Table for Chapter Prose & Search Subtitles
+    # 1b. ARC-72 / ARC-78: FTS5 Virtual Table for Chapter Prose & Search Subtitles
     conn.execute("""
         CREATE VIRTUAL TABLE IF NOT EXISTS chapters_fts USING fts5(
             series_slug, book_slug, chapter_slug, title, body,
-            tokenize = 'porter unicode61'
+            tokenize = 'porter unicode61 remove_diacritics 2'
         );
     """)
     # 2. ARC-53: Structured Reader Feedback (replaces manual CSV triage)
@@ -199,6 +204,7 @@ def _init_db_conn(conn: sqlite3.Connection, repo_root: Path) -> None:
     if (repo_root / "series").is_dir():
         reindex_evidence_cards(conn, repo_root)
         reindex_chapters(conn, repo_root)
+    conn.commit()
 
 
 def _extract_card_title(text: str, default: str) -> str:
@@ -229,6 +235,36 @@ def _extract_chapter_title(text: str, default: str) -> str:
     return " — ".join(parts) if parts else default
 
 
+def resolve_series_and_book_slug(rel_parts: tuple[str, ...]) -> tuple[str, str]:
+    """Derive (series_slug, book_slug) from paths relative to series_dir.
+
+    Root single-book:
+        ('parenthood-atlas', 'chapters', '01.md') -> ('parenthood-atlas', 'root')
+    Multi-book series:
+        ('architectures-of-memory', 'book-01-vanishing-signal', 'chapters', '01.md')
+        -> ('architectures-of-memory', 'book-01-vanishing-signal')
+    Nested i18n series:
+        ('parenthood-atlas', 'i18n', 'es', 'chapters', '01.md') -> ('parenthood-atlas/i18n/es', 'root')
+        ('architectures-of-memory', 'i18n', 'es', 'book-01', 'chapters', '01.md')
+        -> ('architectures-of-memory/i18n/es', 'book-01')
+    """
+    if "i18n" in rel_parts:
+        idx = rel_parts.index("i18n")
+        parent_slug = "/".join(rel_parts[:idx])
+        lang = rel_parts[idx + 1]
+        series_slug = f"{parent_slug}/i18n/{lang}"
+        tail = rel_parts[idx + 2:]
+        if len(tail) > 2 and tail[0].startswith("book-"):
+            book_slug = tail[0]
+        else:
+            book_slug = "root"
+        return series_slug, book_slug
+
+    series_slug = rel_parts[0]
+    book_slug = rel_parts[1] if len(rel_parts) > 3 and rel_parts[1].startswith("book-") else "root"
+    return series_slug, book_slug
+
+
 def reindex_evidence_cards(conn: sqlite3.Connection, repo_root: Path) -> None:
     conn.execute("DELETE FROM evidence_cards_fts;")
     series_dir = repo_root / "series"
@@ -238,8 +274,7 @@ def reindex_evidence_cards(conn: sqlite3.Connection, repo_root: Path) -> None:
         if "preliminary" in card_path.parts:
             continue
         rel_parts = card_path.relative_to(series_dir).parts
-        series_slug = rel_parts[0]
-        book_slug = rel_parts[1] if len(rel_parts) > 3 else "root"
+        series_slug, book_slug = resolve_series_and_book_slug(rel_parts)
         text = card_path.read_text(encoding="utf-8", errors="replace")
         title = _extract_card_title(text, card_path.stem)
         conn.execute(
@@ -257,8 +292,7 @@ def reindex_chapters(conn: sqlite3.Connection, repo_root: Path) -> None:
         if "preliminary" in ch_path.parts:
             continue
         rel_parts = ch_path.relative_to(series_dir).parts
-        series_slug = rel_parts[0]
-        book_slug = rel_parts[1] if len(rel_parts) > 3 else "root"
+        series_slug, book_slug = resolve_series_and_book_slug(rel_parts)
         text = ch_path.read_text(encoding="utf-8", errors="replace")
         title = _extract_chapter_title(text, ch_path.stem)
         conn.execute(
@@ -322,6 +356,41 @@ def now_iso(now: Optional[datetime] = None) -> str:
 # Continuous BM25 manuscript coverage
 # ---------------------------------------------------------------------------
 
+_LEXICON_CACHE: dict[Path, dict[str, list[str]]] = {}
+
+
+def _load_lexicon_term_mapping(lexicon_path: Path) -> dict[str, list[str]]:
+    """Map localized words from style/lexicon.yaml terms to English words."""
+    if lexicon_path in _LEXICON_CACHE:
+        return _LEXICON_CACHE[lexicon_path]
+    mapping: dict[str, list[str]] = {}
+    if not lexicon_path.is_file():
+        _LEXICON_CACHE[lexicon_path] = mapping
+        return mapping
+    try:
+        import yaml
+        data = yaml.safe_load(lexicon_path.read_text(encoding="utf-8")) or {}
+        terms = data.get("terms") or {}
+        for _term_key, term_val in terms.items():
+            if isinstance(term_val, dict):
+                en_phrase = term_val.get("en", "")
+                en_words = [w.lower() for w in re.findall(r"[a-z0-9]+", en_phrase) if len(w) > 2]
+                for lang_key, loc_phrase in term_val.items():
+                    if lang_key == "en" or not isinstance(loc_phrase, str):
+                        continue
+                    norm = unicodedata.normalize("NFD", loc_phrase.lower())
+                    loc_clean = "".join(c for c in norm if unicodedata.category(c) != "Mn")
+                    for w in re.findall(r"[a-z0-9]+", loc_clean):
+                        if len(w) > 2:
+                            mapping.setdefault(w, []).extend(en_words)
+    except Exception:
+        pass
+    for k in mapping:
+        mapping[k] = list(dict.fromkeys(mapping[k]))
+    _LEXICON_CACHE[lexicon_path] = mapping
+    return mapping
+
+
 @dataclass(frozen=True)
 class CoverageResult:
     chapter_score: float          # 0..1, saturating transform of the best chapter BM25
@@ -330,10 +399,13 @@ class CoverageResult:
     card: Optional[str]
     raw_chapter_bm25: float       # positive magnitude of -bm25()
     raw_card_bm25: float
+    is_i18n_without_cards: bool = False
 
     @property
     def combined(self) -> float:
         """Single 0..1 relevance weight: chapter prose dominates, the card corroborates."""
+        if self.is_i18n_without_cards and self.card_score == 0.0:
+            return self.chapter_score
         return min(1.0, 0.65 * self.chapter_score + 0.35 * self.card_score)
 
 
@@ -409,6 +481,7 @@ def bm25_coverage(
     series_slug: str,
     tokens: Iterable[str],
     saturation: float = BM25_SATURATION,
+    repo_root: Optional[Path] = None,
 ) -> CoverageResult:
     """Score how well a series' chapters and OKF cards answer a query, continuously.
 
@@ -416,6 +489,10 @@ def bm25_coverage(
     "peanut" above common ones), restricted to title/body, with titles weighted 3x. The best
     chapter and best card per series are kept, and each score is scaled by the share of query
     terms the winning document really contains.
+
+    For nested i18n series (e.g. 'parenthood-atlas/i18n/es') that share the parent's evidence
+    cards, localized query tokens are translated to English via style/lexicon.yaml before
+    querying the parent's evidence_cards_fts index.
     """
     terms = [t for t in dict.fromkeys(tokens) if re.fullmatch(r"[a-z0-9]+", t)]
     match = _fts_or_query(terms)
@@ -425,9 +502,37 @@ def bm25_coverage(
     ch, raw_ch, score_ch = _best_document(
         conn, "chapters_fts", "book_slug, chapter_slug", series_slug, match, terms, saturation
     )
-    card, raw_card, score_card = _best_document(
-        conn, "evidence_cards_fts", "card_slug", series_slug, match, terms, saturation
-    )
+
+    is_i18n_without_cards = False
+    if "/i18n/" in series_slug:
+        has_local_cards = conn.execute(
+            "SELECT 1 FROM evidence_cards_fts WHERE series_slug = ? LIMIT 1;",
+            (series_slug,),
+        ).fetchone()
+        if not has_local_cards:
+            is_i18n_without_cards = True
+            parent_slug, _, lang = series_slug.partition("/i18n/")
+            root = repo_root or Path(__file__).resolve().parent.parent
+            lexicon_path = root / "series" / parent_slug / "i18n" / lang / "style" / "lexicon.yaml"
+            mapping = _load_lexicon_term_mapping(lexicon_path)
+            card_terms = list(terms)
+            for t in terms:
+                norm_t = "".join(c for c in unicodedata.normalize("NFD", t) if unicodedata.category(c) != "Mn")
+                en_w = mapping.get(t, []) or mapping.get(norm_t, [])
+                card_terms.extend(en_w)
+            card_terms = [t for t in dict.fromkeys(card_terms) if re.fullmatch(r"[a-z0-9]+", t)]
+            card_match = _fts_or_query(card_terms)
+            card, raw_card, score_card = _best_document(
+                conn, "evidence_cards_fts", "card_slug", parent_slug, card_match, card_terms, saturation
+            )
+        else:
+            card, raw_card, score_card = _best_document(
+                conn, "evidence_cards_fts", "card_slug", series_slug, match, terms, saturation
+            )
+    else:
+        card, raw_card, score_card = _best_document(
+            conn, "evidence_cards_fts", "card_slug", series_slug, match, terms, saturation
+        )
 
     chapter = None
     if ch:
@@ -439,4 +544,5 @@ def bm25_coverage(
         card=card["card_slug"] if card else None,
         raw_chapter_bm25=round(raw_ch, 4),
         raw_card_bm25=round(raw_card, 4),
+        is_i18n_without_cards=is_i18n_without_cards,
     )

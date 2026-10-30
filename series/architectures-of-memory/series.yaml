@@ -53,13 +53,13 @@ monetization:
       - "BUS041000" # Business & Economics / Knowledge Capital
       - "PHI015000" # Philosophy / Mind & Body
     backend_keywords:
-      - "lstm forget gate explained multi head attention"
-      - "lost middle llm context window retrieval fine all"
-      - "mechanism visual explanation unlearning models ai"
-      - "augmented generation tuning transformer need gru"
-      - "hallucination failure recurrent neural network"
-      - "differential privacy deep difference gdpr right"
-      - "forgotten large language carbon compute cost time"
+      - "transformer attention explained generation fine"
+      - "retrieval augmented mechanism visual explanation"
+      - "multi head lstm forget gate llm context window ai"
+      - "large language models differential privacy deep"
+      - "unlearning algorithms foundation gradient problem"
+      - "neural networks carbon compute cost chinese room"
+      - "gdpr forgotten backpropagation rnn ship theseus"
   owned_marketing_site:
     blueprint: "patreon-serial-membership-model"
     role: "internally-developed-marketing-and-serial-portal"

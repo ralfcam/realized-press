@@ -119,7 +119,7 @@ def parse_volume_value(text: Optional[str]) -> Tuple[int, Optional[int]]:
     if text is None:
         return 0, None
     value = str(text).strip()
-    if not value or value in {"-", "\u2013", "\u2014", "--"}:
+    if not value or value.lower() in {"-", "\u2013", "\u2014", "--", "nan", "none", "null"}:
         return 0, None
     value = re.sub(r"(?<=\d)\s+(?=\d)", "", value)
     m = _RANGE_RE.match(value)
@@ -136,6 +136,9 @@ def parse_percent(text: Optional[str]) -> Optional[float]:
     """``"-12%"`` -> -12.0; blank or non-numeric (e.g. an infinity glyph) -> None."""
     if text is None:
         return None
+    val_str = str(text).strip().lower()
+    if val_str in {"nan", "none", "null", "", "-", "--"}:
+        return None
     cleaned = str(text).strip().replace(",", "").replace("+", "").rstrip("%").strip()
     if not cleaned:
         return None
@@ -146,6 +149,11 @@ def parse_percent(text: Optional[str]) -> Optional[float]:
 
 
 def parse_money(text: Optional[str]) -> float:
+    if text is None:
+        return 0.0
+    val_str = str(text).strip().lower()
+    if val_str in {"nan", "none", "null", "", "-", "--"}:
+        return 0.0
     cleaned = re.sub(r"[^\d.\-]", "", str(text or "").replace(",", ""))
     try:
         return round(float(cleaned), 2) if cleaned not in {"", "-", "."} else 0.0
@@ -202,7 +210,7 @@ def parse_native_gkp_csv_export(source: "Path | str | bytes") -> GkpExport:
 
     delimiter = "\t" if "\t" in lines[header_idx] else ","
     rows = list(csv.reader(io.StringIO("\n".join(lines[header_idx:])), delimiter=delimiter))
-    header = [c.strip().lower() for c in rows[0]]
+    header = [c.strip().lower().lstrip("\ufeff") for c in rows[0]]
 
     def col(*names: str) -> Optional[int]:
         return next((header.index(n) for n in names if n in header), None)
