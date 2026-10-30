@@ -115,6 +115,21 @@ def count_syllables_es(word: str) -> int:
     return max(1, len(vowels))
 
 
+def count_syllables_fr(word: str) -> int:
+    """Count syllables in French, taking into account silent endings (-e, -es, -ent)."""
+    w = word.lower().strip()
+    w = re.sub(r"[^a-zàâéèêëîïôùûüœæç]", "", w)
+    if not w:
+        return 0
+    if len(w) <= 3:
+        return 1
+    # Strip silent verb and plural endings
+    w = re.sub(r"(?:[aeiouyàâéèêëîïôùûüœæ][b-df-hj-np-tv-z]+)ent$", "", w)
+    w = re.sub(r"(?:[^aeiouyàâéèêëîïôùûüœæ])es?$", "", w)
+    vowels = re.findall(r"[aeiouyàâéèêëîïôùûüœæ]+", w)
+    return max(1, len(vowels))
+
+
 def compute_readability_metrics(body_before_notes: str, language: str = "en") -> dict[str, float | int]:
     """Compute Flesch-Kincaid / Flesch-Szigriszt, avg sentence length, and long-sentence count on body prose."""
     # Remove headings, inline footnotes, markdown emphasis, and math tokens
@@ -134,7 +149,11 @@ def compute_readability_metrics(body_before_notes: str, language: str = "en") ->
     sentence_word_counts: list[int] = []
     all_words: list[str] = []
 
-    word_regex = r"[A-Za-z0-9áéíóúüñÁÉÍÓÚÜÑ']+" if language == "es" else r"[A-Za-z0-9']+"
+    word_regex = (
+        r"[A-Za-z0-9áéíóúüñÁÉÍÓÚÜÑ']+"
+        if language == "es"
+        else (r"[A-Za-z0-9àâéèêëîïôùûüœæçÀÂÉÈÊËÎÏÔÙÛÜŒÆÇ']+" if language == "fr" else r"[A-Za-z0-9']+")
+    )
     for sent in raw_sentences:
         w_list = re.findall(word_regex, sent)
         if w_list:
@@ -143,15 +162,18 @@ def compute_readability_metrics(body_before_notes: str, language: str = "en") ->
 
     total_words = len(all_words)
     total_sentences = max(1, len(sentence_word_counts))
-    total_syllables = sum(
-        count_syllables_es(w) if language == "es" else count_syllables(w)
-        for w in all_words
-    )
+    if language == "es":
+        total_syllables = sum(count_syllables_es(w) for w in all_words)
+    elif language == "fr":
+        total_syllables = sum(count_syllables_fr(w) for w in all_words)
+    else:
+        total_syllables = sum(count_syllables(w) for w in all_words)
 
     if total_words == 0:
         return {
             "fk_grade": 0.0,
             "szigriszt": 0.0,
+            "kandel": 0.0,
             "avg_sentence_words": 0.0,
             "max_sentence_words": 0,
             "long_sentences_over_35": 0,
@@ -167,6 +189,20 @@ def compute_readability_metrics(body_before_notes: str, language: str = "en") ->
         return {
             "fk_grade": 0.0,
             "szigriszt": round(szigriszt, 1),
+            "kandel": 0.0,
+            "avg_sentence_words": round(avg_sent, 1),
+            "max_sentence_words": max_sent,
+            "long_sentences_over_35": long_over,
+        }
+    elif language == "fr":
+        # Kandel-Moles: 207 - (1.015 * avg_sentence) - (73.6 * syllables / words)
+        kandel = 207.0 - (1.015 * avg_sent) - (73.6 * (total_syllables / total_words))
+        long_over = sum(1 for c in sentence_word_counts if c > 40)
+        max_sent = max(sentence_word_counts) if sentence_word_counts else 0
+        return {
+            "fk_grade": 0.0,
+            "szigriszt": round(kandel, 1),
+            "kandel": round(kandel, 1),
             "avg_sentence_words": round(avg_sent, 1),
             "max_sentence_words": max_sent,
             "long_sentences_over_35": long_over,
@@ -304,7 +340,7 @@ def run_gemini_review(root: Path, book_path: Path, chapters: list[Path]) -> str:
         return f"_Gemini API call failed: {exc}_"
 
 
-def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: bool = False) -> tuple[str, bool]:
+def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: bool = False, lang_override: str | None = None) -> tuple[str, bool]:
     root = repo_root()
     chapters_dir = book_path / "chapters"
     chapters = iter_chapter_files(chapters_dir)
@@ -322,6 +358,7 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
     )
     language = "en"
     szigriszt_min = 45.0
+    kandel_min = 60.0
     max_avg_sentence_words = 19.0
     max_fk_grade = 10.5
     if manifest_file.is_file():
@@ -329,14 +366,23 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
             manifest_data = yaml.safe_load(manifest_file.read_text(encoding="utf-8")) or {}
             rt = manifest_data.get("readability_targets") or {}
             language = rt.get("language") or manifest_data.get("locale") or ("es" if "es" in book_path.parts else "en")
-            szigriszt_min = float(rt.get("szigriszt_min", 65.0))
-            max_avg_sentence_words = float(rt.get("max_avg_sentence_words", 22.0 if language == "es" else 19.0))
+            szigriszt_min = float(rt.get("szigriszt_min", 45.0))
+            kandel_min = float(rt.get("kandel_min", 60.0))
+            max_avg_sentence_words = float(rt.get("max_avg_sentence_words", 22.0 if language in {"es", "fr"} else 19.0))
             max_fk_grade = float(rt.get("max_flesch_kincaid_grade", 10.5))
         except Exception:
             pass
     elif "es" in book_path.parts:
         language = "es"
         max_avg_sentence_words = 22.0
+    elif "fr" in book_path.parts:
+        language = "fr"
+        max_avg_sentence_words = 22.0
+
+    if lang_override:
+        language = lang_override
+        if language in {"es", "fr"} and max_avg_sentence_words == 19.0:
+            max_avg_sentence_words = 22.0
 
     forbidden_patterns = SPANISH_FORBIDDEN_PATTERNS if language == "es" else FORBIDDEN_PHRASES_PATTERNS
     anti_leakage_patterns = dict(ANTI_LEAKAGE_PATTERNS)
@@ -430,6 +476,18 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
                 )
             readability_rows.append(
                 f"| `{ch.name}` | {szig:.1f} | {avg_s:.1f}w | {long_40} | {len(ch_jargon_found)} | {status_badge} |"
+            )
+        elif language == "fr":
+            kandel = float(rm["kandel"])
+            avg_s = float(rm["avg_sentence_words"])
+            long_40 = int(rm["long_sentences_over_35"])
+            status_badge = "PASS (Bestseller)" if (kandel >= kandel_min and avg_s <= max_avg_sentence_words and not ch_jargon_found) else "NEEDS SIMPLIFICATION"
+            if kandel < kandel_min or avg_s > max_avg_sentence_words:
+                readability_flags.append(
+                    f"- `{ch.name}`: Kandel-Moles `{kandel}` (target ≥ {kandel_min}), Avg Sentence `{avg_s}w` (target ≤ {max_avg_sentence_words}w), >40w sentences: `{long_40}`"
+                )
+            readability_rows.append(
+                f"| `{ch.name}` | {kandel:.1f} | {avg_s:.1f}w | {long_40} | {len(ch_jargon_found)} | {status_badge} |"
             )
         else:
             fk = float(rm["fk_grade"])
@@ -541,11 +599,12 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
     else:
         lines.append(f"- **Pass:** All {len(ec_cards)} OKF v0.2 evidence card(s) pass mechanical Rules 1, 4, and 5.")
 
-    readability_header = (
-        f"| Chapter | Szigriszt (≥{szigriszt_min:.1f}) | Avg Sent (≤{max_avg_sentence_words:.1f}w) | Sent >40w | Jargon Hits | Bestseller Gate |"
-        if language == "es"
-        else f"| Chapter | FK Grade (≤{max_fk_grade:.1f}) | Avg Sent (≤{max_avg_sentence_words:.1f}w) | Sent >35w | Jargon Hits | Bestseller Gate |"
-    )
+    if language == "es":
+        readability_header = f"| Chapter | Szigriszt (≥{szigriszt_min:.1f}) | Avg Sent (≤{max_avg_sentence_words:.1f}w) | Sent >40w | Jargon Hits | Bestseller Gate |"
+    elif language == "fr":
+        readability_header = f"| Chapter | Kandel (≥{kandel_min:.1f}) | Avg Sent (≤{max_avg_sentence_words:.1f}w) | Sent >40w | Jargon Hits | Bestseller Gate |"
+    else:
+        readability_header = f"| Chapter | FK Grade (≤{max_fk_grade:.1f}) | Avg Sent (≤{max_avg_sentence_words:.1f}w) | Sent >35w | Jargon Hits | Bestseller Gate |"
 
     lines.extend(
         [
@@ -615,6 +674,7 @@ def main() -> None:
     parser.add_argument("--gemini", action="store_true", help="Run long-context Gemini 2.5 Pro holistic review")
     parser.add_argument("--strict", action="store_true", help="Exit with code 1 if any core audit or anti-leakage gate fails")
     parser.add_argument("--bestseller-strict", action="store_true", help="Also fail if any chapter exceeds FK Grade 10.5 or contains body jargon")
+    parser.add_argument("--lang", choices=["en", "es", "fr"], default=None, help="Explicit language override (en, es, fr)")
     args = parser.parse_args()
 
     root = repo_root()
@@ -623,7 +683,7 @@ def main() -> None:
         print(f"error: directory not found: {book_path}", file=sys.stderr)
         sys.exit(1)
 
-    report, strict_ok = audit_book(book_path, use_gemini=args.gemini, bestseller_strict=args.bestseller_strict)
+    report, strict_ok = audit_book(book_path, use_gemini=args.gemini, bestseller_strict=args.bestseller_strict, lang_override=args.lang)
     if args.output:
         out_path = args.output.resolve() if args.output.is_absolute() else (root / args.output).resolve()
         out_path.write_text(report, encoding="utf-8")

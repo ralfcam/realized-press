@@ -82,10 +82,10 @@ Miremos una última vez al adulto de pie en el dormitorio en penumbra, sostenien
 El bebé que descansa sobre ese hombro no ha cambiado por haber analizado la sincronía del pulso, la Situación Extraña, los ensayos sobre alergias o el estudio de Bucarest. Lo que ha cambiado es nuestra mirada sobre la noche. Ese suspiro no es un blindaje definitivo contra días difíciles futuros, y los veinte minutos de llanto previo no abrieron una herida de por vida. Es un tramo más de una alianza prolongada. Paso a paso, la dependencia absoluta del recién nacido es acogida por el cuidado humano, para transformarse no en un aislamiento autosuficiente, sino en una conexión afectiva para toda la vida.
 
 <aside class="chapter-takeaway">
-### Conclusiones del Capítulo 4: Lo que demuestra la evidencia frente a qué prescindir
+### Conclusiones del Capítulo 4: Lo que demuestra la evidencia frente a lo que puedes soltar
 
-- **Lo que la evidencia demuestra:** Dormir boca arriba sobre una superficie firme y despejada reduce a la mitad el riesgo de SMSL. Introducir alimentos con cacahuete en textura suave entre los 4 y 11 meses previene alrededor del 80 por ciento de las alergias al cacahuete en bebés con riesgo elevado. Los métodos conductuales de sueño ayudan a descansar sin perjudicar el apego seguro.
-- **De qué puedes prescindir:** No necesitas mantener al bebé en tu habitación más allá de los seis meses para prevenir el SMSL, ni adquirir máquinas de ruido blanco a volumen elevado. La alimentación autorregulada por el bebé (BLW) adaptada conlleva un riesgo de atragantamiento idéntico al de las papillas si se evitan alimentos duros o redondeados.
+- **Lo que demuestra la evidencia:** Dormir boca arriba sobre una superficie firme y despejada reduce a la mitad el riesgo de SMSL. Introducir alimentos con cacahuete en textura suave entre los 4 y 11 meses previene alrededor del 80 por ciento de las alergias al cacahuete en bebés con riesgo elevado. Los métodos conductuales de sueño ayudan a descansar sin perjudicar el apego seguro.
+- **Lo que puedes soltar:** No necesitas mantener al bebé en tu habitación más allá de los seis meses para prevenir el SMSL, ni adquirir máquinas de ruido blanco a volumen elevado. La alimentación autorregulada por el bebé (BLW) adaptada conlleva un riesgo de atragantamiento idéntico al de las papillas si se evitan alimentos duros o redondeados.
 - **La regla fundamental:** El sueño seguro y la introducción oportuna de alérgenos protegen la salud física, mientras que las rutinas de consuelo y descanso nocturno pueden adaptarse a la realidad de cada familia.
 </aside>
 

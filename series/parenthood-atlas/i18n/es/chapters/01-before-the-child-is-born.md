@@ -84,10 +84,10 @@ El pequeño parpadeo de luz continúa allí. Late al mismo compás rápido y reg
 El hijo aún no ha nacido. Su historia ya ha comenzado.
 
 <aside class="chapter-takeaway">
-### Conclusiones del Capítulo 1: Lo que demuestra la evidencia frente a qué prescindir
+### Conclusiones del Capítulo 1: Lo que demuestra la evidencia frente a lo que puedes soltar
 
-- **Lo que la evidencia demuestra:** Tomar un suplemento diario de 400 μg de ácido fólico antes de la concepción y durante el primer mes previene aproximadamente el 70 por ciento de los defectos del tubo neural. La edad paterna superior a los 45 años conlleva un ligero incremento de variaciones genéticas nuevas, pero la inmensa mayoría de los bebés nacen completamente sanos.
-- **De qué puedes prescindir:** El estrés laboral cotidiano o las preocupaciones emocionales no envenenan al feto. La placenta actúa como un escudo químico, neutralizando la mayor parte del cortisol activo antes de que alcance la sangre del bebé.
+- **Lo que demuestra la evidencia:** Tomar un suplemento diario de 400 μg de ácido fólico antes de la concepción y durante el primer mes previene aproximadamente el 70 por ciento de los defectos del tubo neural. La edad paterna superior a los 45 años conlleva un ligero incremento de variaciones genéticas nuevas, pero la inmensa mayoría de los bebés nacen completamente sanos.
+- **Lo que puedes soltar:** El estrés laboral cotidiano o las preocupaciones emocionales no envenenan al feto. La placenta actúa como un escudo químico, neutralizando la mayor parte del cortisol activo antes de que alcance la sangre del bebé.
 - **La regla fundamental:** El cuidado preconcepcional consiste en facilitar a la biología unos pocos componentes esenciales en momentos muy específicos, no en superar un examen de selectividad para ser madre o padre.
 </aside>
 

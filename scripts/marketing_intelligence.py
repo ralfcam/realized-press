@@ -28,6 +28,7 @@ import math
 import re
 import sys
 import time
+import unicodedata
 import urllib.parse
 import urllib.request
 from collections import Counter
@@ -724,7 +725,10 @@ def _stem_key(token: str) -> str:
 
 
 def _box_tokens(text: str) -> list[str]:
-    cleaned = re.sub(r"'s\b", "", text.lower()).replace("'", "")
+    # Normalize diacritics (e.g. método -> metodo, sueño -> sueno, bébé -> bebe)
+    normalized = unicodedata.normalize("NFD", text.lower())
+    stripped = "".join(c for c in normalized if unicodedata.category(c) != "Mn")
+    cleaned = re.sub(r"'s\b", "", stripped).replace("'", "")
     return [t for t in re.findall(r"[a-z0-9]+", cleaned) if len(t) > 1 and not t.isdigit()]
 
 

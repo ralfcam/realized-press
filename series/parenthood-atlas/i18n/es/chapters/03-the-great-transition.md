@@ -74,10 +74,10 @@ Volvamos una última vez a la sala de partos, donde el recién nacido acaba de t
 El niño en esas manos no ha cambiado por haber cartografiado cómo se cierran las válvulas del corazón, cómo se activa la grasa parda o cómo se coordinan la succión y la respiración. Lo que ha cambiado es nuestra forma de comprender ese instante. El nacimiento no es la creación de una persona de la nada ni un examen frágil donde una cesárea, un biberón de fórmula o una hora sin piel con piel rompan el porvenir de un hijo. Es un extraordinario traspaso biológico. La placenta concluye su cometido, y el bebé humano, capaz y todavía inacabado, pasa al cuidado atento e imperfecto de otras personas.
 
 <aside class="chapter-takeaway">
-### Conclusiones del Capítulo 3: Lo que demuestra la evidencia frente a qué prescindir
+### Conclusiones del Capítulo 3: Lo que demuestra la evidencia frente a lo que puedes soltar
 
-- **Lo que la evidencia demuestra:** El paso a la respiración aérea y a la circulación adulta reabsorbe el líquido pulmonar en pocos minutos. La lactancia materna aporta una protección inmunitaria real frente a infecciones digestivas durante el primer año, pero las diferencias a largo plazo en el cociente intelectual casi desaparecen al comparar hermanos criados en el mismo hogar.
-- **De qué puedes prescindir:** Una cesárea imprevista o perderse el contacto piel con piel inmediato no daña el vínculo de apego; el apego se construye a través de miles de interacciones cotidianas durante meses, no en una única hora dorada. El corte quirúrgico del frenillo lingual leve rara vez altera el éxito de la alimentación y sufre un sobrediagnóstico considerable.
+- **Lo que demuestra la evidencia:** El paso a la respiración aérea y a la circulación adulta reabsorbe el líquido pulmonar en pocos minutos. La lactancia materna aporta una protección inmunitaria real frente a infecciones digestivas durante el primer año, pero las diferencias a largo plazo en el cociente intelectual casi desaparecen al comparar hermanos criados en el mismo hogar.
+- **Lo que puedes soltar:** Una cesárea imprevista o perderse el contacto piel con piel inmediato no daña el vínculo de apego; el apego se construye a través de miles de interacciones cotidianas durante meses, no en una única hora dorada. El corte quirúrgico del frenillo lingual leve rara vez altera el éxito de la alimentación y sufre un sobrediagnóstico considerable.
 - **La regla fundamental:** La transición del nacimiento es un cruce biológico resistente; el vínculo afectivo se forja mediante cuidados atentos y continuos, no por el tipo de parto ni por el método de lactancia.
 </aside>
 

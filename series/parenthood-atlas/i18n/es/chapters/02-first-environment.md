@@ -78,10 +78,10 @@ La bebé no ha cambiado por haber examinado la placenta o las capas del cerebro 
 El nacimiento ha cambiado su entorno por completo. Pero no la ha hecho partir de cero. Ahora alguien en la habitación debe alzarla, abrigarla, alimentarla y atender su llanto. Ese nuevo entorno no es una nota que califica el embarazo anterior. Es el inicio de una vida compartida al aire libre.
 
 <aside class="chapter-takeaway">
-### Conclusiones del Capítulo 2: Lo que demuestra la evidencia frente a qué prescindir
+### Conclusiones del Capítulo 2: Lo que demuestra la evidencia frente a lo que puedes soltar
 
-- **Lo que la evidencia demuestra:** El feto oye y retiene sonidos en el tercer trimestre, reconociendo la cadencia del habla materna horas después de nacer. El consumo elevado de alcohol es un tóxico demostrado para el desarrollo fetal sin umbral de seguridad.
-- **De qué puedes prescindir:** No necesitas poner música clásica en el abdomen ni comprar aparatos de sonido prenatal; la conversación diaria y los ruidos habituales del hogar aportan todo el estímulo que el cerebro precisa.
+- **Lo que demuestra la evidencia:** El feto oye y retiene sonidos en el tercer trimestre, reconociendo la cadencia del habla materna horas después de nacer. El consumo elevado de alcohol es un tóxico demostrado para el desarrollo fetal sin umbral de seguridad.
+- **Lo que puedes soltar:** No necesitas poner música clásica en el abdomen ni comprar aparatos de sonido prenatal; la conversación diaria y los ruidos habituales del hogar aportan todo el estímulo que el cerebro precisa.
 - **La regla fundamental:** El útero es un entorno sensorial activo resguardado por filtros biológicos, no una clase de estimulación temprana que requiera aceleración comercial.
 </aside>
 

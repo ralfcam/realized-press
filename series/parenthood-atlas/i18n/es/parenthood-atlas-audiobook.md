@@ -171,10 +171,10 @@ El pequeño parpadeo de luz continúa allí. Late al mismo compás rápido y reg
 El hijo aún no ha nacido. Su historia ya ha comenzado.
 
 <aside class="chapter-takeaway">
-### Conclusiones del Capítulo 1: Lo que demuestra la evidencia frente a qué prescindir
+### Conclusiones del Capítulo 1: Lo que demuestra la evidencia frente a lo que puedes soltar
 
-- **Lo que la evidencia demuestra:** Tomar un suplemento diario de 400 μg de ácido fólico antes de la concepción y durante el primer mes previene aproximadamente el 70 por ciento de los defectos del tubo neural. La edad paterna superior a los 45 años conlleva un ligero incremento de variaciones genéticas nuevas, pero la inmensa mayoría de los bebés nacen completamente sanos.
-- **De qué puedes prescindir:** El estrés laboral cotidiano o las preocupaciones emocionales no envenenan al feto. La placenta actúa como un escudo químico, neutralizando la mayor parte del cortisol activo antes de que alcance la sangre del bebé.
+- **Lo que demuestra la evidencia:** Tomar un suplemento diario de 400 μg de ácido fólico antes de la concepción y durante el primer mes previene aproximadamente el 70 por ciento de los defectos del tubo neural. La edad paterna superior a los 45 años conlleva un ligero incremento de variaciones genéticas nuevas, pero la inmensa mayoría de los bebés nacen completamente sanos.
+- **Lo que puedes soltar:** El estrés laboral cotidiano o las preocupaciones emocionales no envenenan al feto. La placenta actúa como un escudo químico, neutralizando la mayor parte del cortisol activo antes de que alcance la sangre del bebé.
 - **La regla fundamental:** El cuidado preconcepcional consiste en facilitar a la biología unos pocos componentes esenciales en momentos muy específicos, no en superar un examen de selectividad para ser madre o padre.
 </aside>
 
@@ -260,10 +260,10 @@ La bebé no ha cambiado por haber examinado la placenta o las capas del cerebro 
 El nacimiento ha cambiado su entorno por completo. Pero no la ha hecho partir de cero. Ahora alguien en la habitación debe alzarla, abrigarla, alimentarla y atender su llanto. Ese nuevo entorno no es una nota que califica el embarazo anterior. Es el inicio de una vida compartida al aire libre.
 
 <aside class="chapter-takeaway">
-### Conclusiones del Capítulo 2: Lo que demuestra la evidencia frente a qué prescindir
+### Conclusiones del Capítulo 2: Lo que demuestra la evidencia frente a lo que puedes soltar
 
-- **Lo que la evidencia demuestra:** El feto oye y retiene sonidos en el tercer trimestre, reconociendo la cadencia del habla materna horas después de nacer. El consumo elevado de alcohol es un tóxico demostrado para el desarrollo fetal sin umbral de seguridad.
-- **De qué puedes prescindir:** No necesitas poner música clásica en el abdomen ni comprar aparatos de sonido prenatal; la conversación diaria y los ruidos habituales del hogar aportan todo el estímulo que el cerebro precisa.
+- **Lo que demuestra la evidencia:** El feto oye y retiene sonidos en el tercer trimestre, reconociendo la cadencia del habla materna horas después de nacer. El consumo elevado de alcohol es un tóxico demostrado para el desarrollo fetal sin umbral de seguridad.
+- **Lo que puedes soltar:** No necesitas poner música clásica en el abdomen ni comprar aparatos de sonido prenatal; la conversación diaria y los ruidos habituales del hogar aportan todo el estímulo que el cerebro precisa.
 - **La regla fundamental:** El útero es un entorno sensorial activo resguardado por filtros biológicos, no una clase de estimulación temprana que requiera aceleración comercial.
 </aside>
 
@@ -345,10 +345,10 @@ Volvamos una última vez a la sala de partos, donde el recién nacido acaba de t
 El niño en esas manos no ha cambiado por haber cartografiado cómo se cierran las válvulas del corazón, cómo se activa la grasa parda o cómo se coordinan la succión y la respiración. Lo que ha cambiado es nuestra forma de comprender ese instante. El nacimiento no es la creación de una persona de la nada ni un examen frágil donde una cesárea, un biberón de fórmula o una hora sin piel con piel rompan el porvenir de un hijo. Es un extraordinario traspaso biológico. La placenta concluye su cometido, y el bebé humano, capaz y todavía inacabado, pasa al cuidado atento e imperfecto de otras personas.
 
 <aside class="chapter-takeaway">
-### Conclusiones del Capítulo 3: Lo que demuestra la evidencia frente a qué prescindir
+### Conclusiones del Capítulo 3: Lo que demuestra la evidencia frente a lo que puedes soltar
 
-- **Lo que la evidencia demuestra:** El paso a la respiración aérea y a la circulación adulta reabsorbe el líquido pulmonar en pocos minutos. La lactancia materna aporta una protección inmunitaria real frente a infecciones digestivas durante el primer año, pero las diferencias a largo plazo en el cociente intelectual casi desaparecen al comparar hermanos criados en el mismo hogar.
-- **De qué puedes prescindir:** Una cesárea imprevista o perderse el contacto piel con piel inmediato no daña el vínculo de apego; el apego se construye a través de miles de interacciones cotidianas durante meses, no en una única hora dorada. El corte quirúrgico del frenillo lingual leve rara vez altera el éxito de la alimentación y sufre un sobrediagnóstico considerable.
+- **Lo que demuestra la evidencia:** El paso a la respiración aérea y a la circulación adulta reabsorbe el líquido pulmonar en pocos minutos. La lactancia materna aporta una protección inmunitaria real frente a infecciones digestivas durante el primer año, pero las diferencias a largo plazo en el cociente intelectual casi desaparecen al comparar hermanos criados en el mismo hogar.
+- **Lo que puedes soltar:** Una cesárea imprevista o perderse el contacto piel con piel inmediato no daña el vínculo de apego; el apego se construye a través de miles de interacciones cotidianas durante meses, no en una única hora dorada. El corte quirúrgico del frenillo lingual leve rara vez altera el éxito de la alimentación y sufre un sobrediagnóstico considerable.
 - **La regla fundamental:** La transición del nacimiento es un cruce biológico resistente; el vínculo afectivo se forja mediante cuidados atentos y continuos, no por el tipo de parto ni por el método de lactancia.
 </aside>
 
@@ -438,9 +438,9 @@ Miremos una última vez al adulto de pie en el dormitorio en penumbra, sostenien
 El bebé que descansa sobre ese hombro no ha cambiado por haber analizado la sincronía del pulso, la Situación Extraña, los ensayos sobre alergias o el estudio de Bucarest. Lo que ha cambiado es nuestra mirada sobre la noche. Ese suspiro no es un blindaje definitivo contra días difíciles futuros, y los veinte minutos de llanto previo no abrieron una herida de por vida. Es un tramo más de una alianza prolongada. Paso a paso, la dependencia absoluta del recién nacido es acogida por el cuidado humano, para transformarse no en un aislamiento autosuficiente, sino en una conexión afectiva para toda la vida.
 
 <aside class="chapter-takeaway">
-### Conclusiones del Capítulo 4: Lo que demuestra la evidencia frente a qué prescindir
+### Conclusiones del Capítulo 4: Lo que demuestra la evidencia frente a lo que puedes soltar
 
-- **Lo que la evidencia demuestra:** Dormir boca arriba sobre una superficie firme y despejada reduce a la mitad el riesgo de SMSL. Introducir alimentos con cacahuete en textura suave entre los 4 y 11 meses previene alrededor del 80 por ciento de las alergias al cacahuete en bebés con riesgo elevado. Los métodos conductuales de sueño ayudan a descansar sin perjudicar el apego seguro.
-- **De qué puedes prescindir:** No necesitas mantener al bebé en tu habitación más allá de los seis meses para prevenir el SMSL, ni adquirir máquinas de ruido blanco a volumen elevado. La alimentación autorregulada por el bebé (BLW) adaptada conlleva un riesgo de atragantamiento idéntico al de las papillas si se evitan alimentos duros o redondeados.
+- **Lo que demuestra la evidencia:** Dormir boca arriba sobre una superficie firme y despejada reduce a la mitad el riesgo de SMSL. Introducir alimentos con cacahuete en textura suave entre los 4 y 11 meses previene alrededor del 80 por ciento de las alergias al cacahuete en bebés con riesgo elevado. Los métodos conductuales de sueño ayudan a descansar sin perjudicar el apego seguro.
+- **Lo que puedes soltar:** No necesitas mantener al bebé en tu habitación más allá de los seis meses para prevenir el SMSL, ni adquirir máquinas de ruido blanco a volumen elevado. La alimentación autorregulada por el bebé (BLW) adaptada conlleva un riesgo de atragantamiento idéntico al de las papillas si se evitan alimentos duros o redondeados.
 - **La regla fundamental:** El sueño seguro y la introducción oportuna de alérgenos protegen la salud física, mientras que las rutinas de consuelo y descanso nocturno pueden adaptarse a la realidad de cada familia.
 </aside>
