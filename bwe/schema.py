@@ -35,7 +35,7 @@ class ReadabilityTargets(BaseModel):
         default=1.5, description="Max % of 4+ syllable clinical terms in body prose"
     )
     szigriszt_min: Optional[float] = Field(
-        default=45.0, description="Flesch-Szigriszt min score for Spanish (INFLESZ popular science range)"
+        default=50.0, description="Flesch-Szigriszt min score for Spanish (INFLESZ popular science range, 55-70 target)"
     )
     kandel_min: Optional[float] = Field(
         default=60.0, description="Flesch-Kandel min score for French"

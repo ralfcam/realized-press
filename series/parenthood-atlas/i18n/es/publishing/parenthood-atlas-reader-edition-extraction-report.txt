@@ -3,9 +3,9 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: parenthood-atlas-reader-edition.pdf
-SHA-256: b594bd62ecc0486c035b4ab4490b355d4e7cf5880cd24cd46284864f5b737b0a
-Bytes: 209,250
-Pages: 33 (33/33 nonblank)
+SHA-256: 6f5964d3b131f344c5faab1d515081cd0ef830a57234fc4a77c14aeec840daa5
+Bytes: 507,303
+Pages: 103 (103/103 nonblank)
 
 Chapters:
 - PASS · PDF page 2 · How to Use This Atlas: 2:00 AM Quick-Finder
@@ -13,3 +13,14 @@ Chapters:
 - PASS · PDF page 12 · Capítulo 2 — El primer entorno
 - PASS · PDF page 19 · Capítulo 3 — La gran transición
 - PASS · PDF page 26 · Capítulo 4 — La relación reguladora
+- PASS · PDF page 34 · Capítulo 5 — El nacimiento de una mente
+- PASS · PDF page 41 · Capítulo 6 — La mente en movimiento
+- PASS · PDF page 47 · Capítulo 7 — El nacimiento del lenguaje
+- PASS · PDF page 54 · Capítulo 8 — El mundo que se expande
+- PASS · PDF page 60 · Capítulo 9 — La revolución emocional
+- PASS · PDF page 66 · Capítulo 10 — Límites, conducta y las primeras normas
+- PASS · PDF page 72 · Capítulo 11 — El ejecutivo en desarrollo
+- PASS · PDF page 78 · Capítulo 12 — Juego, imaginación y significado
+- PASS · PDF page 84 · Capítulo 13 — La ecología del desarrollo
+- PASS · PDF page 90 · Capítulo 14 — ¿Qué funciona de verdad?
+- PASS · PDF page 97 · Capítulo 15 — Tres años: ¿qué se ha construido?

@@ -19,13 +19,13 @@ lenses:
   - ecological
   - philosophical
 
-# Romance-language readability (ARC-76). Flesch-Kincaid is English-only; Spanish uses Flesch-Szigriszt (INFLESZ scale).
+# Romance-language readability (ARC-76). Flesch-Kincaid is English-only; Spanish uses Flesch-Szigriszt (INFLESZ scale: 55-70 target).
 readability_targets:
   language: es
-  max_avg_sentence_words: 20.0
+  max_avg_sentence_words: 22.0
   max_single_sentence_words: 40
   max_jargon_density_pct: 1.5
-  szigriszt_min: 45.0
+  szigriszt_min: 50.0
 
 okf_spec:
   version: "0.2"

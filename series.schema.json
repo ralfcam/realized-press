@@ -414,8 +414,8 @@
               "type": "null"
             }
           ],
-          "default": 45.0,
-          "description": "Flesch-Szigriszt min score for Spanish (INFLESZ popular science range)",
+          "default": 50.0,
+          "description": "Flesch-Szigriszt min score for Spanish (INFLESZ popular science range, 55-70 target)",
           "title": "Szigriszt Min"
         },
         "kandel_min": {

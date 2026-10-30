@@ -79,3 +79,27 @@ terms:
   prematurity:               { en: "prematurity",            es: "prematuridad" }
   institutional_deprivation: { en: "institutional deprivation", es: "privación institucional" }
   then_vs_now:               { en: "Then vs. Now",           es: "Entonces y ahora" }
+
+  # Chapters 05-15 Domain Terms
+  object_permanence:         { en: "object permanence",      es: "permanencia del objeto" }
+  violation_of_expectation:  { en: "violation of expectation", es: "sorpresa ante lo imposible (violación de expectativas)" }
+  affordances:               { en: "affordances",            es: "posibilidades de acción del entorno" }
+  visual_cliff:              { en: "visual cliff",           es: "abismo visual (Gibson y Walk)" }
+  infant_directed_speech:    { en: "infant-directed speech (parentese)", es: "habla dirigida al bebé (maternés)" }
+  joint_attention:           { en: "joint attention",        es: "atención conjunta" }
+  alloparenting:             { en: "alloparenting",          es: "crianza compartida (aloparentalidad)" }
+  parallel_play:             { en: "parallel play",          es: "juego en paralelo" }
+  behavioral_inhibition:     { en: "behavioral inhibition",  es: "timidez temperamental (inhibición conductual)" }
+  goodness_of_fit:           { en: "goodness of fit",        es: "ajuste entre temperamento y entorno" }
+  committed_compliance:      { en: "committed compliance",   es: "obediencia interiorizada (cumplimiento comprometido)" }
+  situational_compliance:    { en: "situational compliance", es: "obediencia por vigilancia (cumplimiento situacional)" }
+  coercive_cycle:            { en: "coercive cycle",         es: "espiral de escalada (ciclo coercitivo)" }
+  time_out:                  { en: "time-out",               es: "pausa de calma (tiempo fuera)" }
+  inhibitory_control:        { en: "inhibitory control",     es: "freno del impulso (control inhibitorio)" }
+  working_memory:            { en: "working memory",         es: "memoria de trabajo" }
+  cognitive_flexibility:     { en: "cognitive flexibility",  es: "flexibilidad mental" }
+  symbolic_pretend_play:     { en: "symbolic pretend play",  es: "juego simbólico de ficción" }
+  fadeout:                   { en: "fadeout",                es: "desvanecimiento del efecto" }
+  sleeper_effects:           { en: "sleeper effects",        es: "beneficios duraderos (efectos latentes)" }
+  voltage_drop:              { en: "voltage drop",           es: "pérdida de potencia al escalar" }
+  continuity:                { en: "statistical continuity", es: "continuidad estadística" }

@@ -98,20 +98,29 @@ def count_syllables(word: str) -> int:
 
 
 def count_syllables_es(word: str) -> int:
-    """Count syllables in Spanish according to phonotactic rules (diphthongs, triphthongs, hiatus)."""
+    """Count syllables in Spanish according to phonotactic rules (diphthongs, triphthongs, hiatus, silent qu/gu)."""
     w = word.lower().strip()
     w = re.sub(r"[^a-záéíóúüñ]", "", w)
     if not w:
         return 0
+    # Word-final 'y' acts as vowel 'i' (e.g. 'hay', 'muy', 'ley')
     if w.endswith("y"):
         w = w[:-1] + "i"
-    # Replace triphthongs with single vowel placeholder (weak + strong + weak)
-    w = re.sub(r"[iuü][aeoáéó][iuü]", "V", w, flags=re.I)
-    # Replace diphthongs with single vowel placeholder (tonic weak í/ú do NOT form diphthongs)
-    w = re.sub(r"[iuü][aeoáéó]", "V", w, flags=re.I)
-    w = re.sub(r"[aeoáéó][iuü]", "V", w, flags=re.I)
-    w = re.sub(r"[iuü][iuü]", "V", w, flags=re.I)  # iu, ui
-    vowels = re.findall(r"[aeiouáéíóúüV]", w, flags=re.I)
+    # In 'qu' and 'gu' before e/i (without diaeresis), 'u' is silent digraph consonant
+    w = re.sub(r"qu(?=[eiéí])", "k", w)
+    w = re.sub(r"gu(?=[eiéí])", "g", w)
+    # Silent 'h' between vowels does not prevent diphthongs (e.g. 'prohibir', 'ahijado')
+    w = re.sub(r"(?<=[aeoáéóiuü])h(?=[aeoáéóiuü])", "", w)
+    # Triphthongs: weak unstressed + strong (optionally tonic) + weak unstressed
+    w = re.sub(r"[iuü][aeoáéó][iuü]", "@", w)
+    # Diphthongs: weak unstressed + strong (optionally tonic)
+    w = re.sub(r"[iuü][aeoáéó]", "@", w)
+    # Diphthongs: strong (optionally tonic) + weak unstressed
+    w = re.sub(r"[aeoáéó][iuü]", "@", w)
+    # Diphthongs: two distinct weak unstressed vowels (iu, ui)
+    w = re.sub(r"[iuü][iuü]", "@", w)
+    # Accented weak vowels (í, ú) do NOT merge (hiatus). Use non-letter '@' without re.I to prevent 'v' match.
+    vowels = re.findall(r"[aeiouáéíóúü@]", w)
     return max(1, len(vowels))
 
 

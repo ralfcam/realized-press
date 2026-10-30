@@ -24,6 +24,12 @@ def audit_epub(epub_path: Path) -> tuple[bool, list[str]]:
     errors: list[str] = []
     checks_passed: list[str] = []
 
+    if epub_path.is_dir():
+        epubs = list((epub_path / "publishing").glob("*.epub")) or list(epub_path.glob("*.epub"))
+        if not epubs:
+            return False, [f"No .epub files found in directory: {epub_path}"]
+        epub_path = epubs[0]
+
     if not epub_path.is_file():
         return False, [f"File not found: {epub_path}"]
 
