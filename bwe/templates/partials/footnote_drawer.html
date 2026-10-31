@@ -2,19 +2,19 @@
 <div class="space-y-3 animate-fade-in" role="region" aria-live="polite" aria-label="Footnote details for {{ footnote_id }}">
   <div class="flex items-center justify-between border-b border-stone-800 pb-2 gap-2">
     <div class="flex items-center gap-2">
-      <span class="text-xs font-mono text-amber-400 font-semibold px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20">[^{{ footnote_id }}]</span>
-      <span class="text-[10px] sm:text-[11px] uppercase tracking-wider px-2 py-0.5 rounded bg-stone-800 text-stone-300 font-mono">
+      <span class="text-xs font-mono text-amber-400 font-semibold px-2 py-1 rounded bg-amber-500/10 border border-amber-500/20">[^{{ footnote_id }}]</span>
+      <span class="text-[10px] sm:text-[11px] uppercase tracking-wider px-2 py-1 rounded bg-stone-800 text-stone-300 font-mono">
         OKF Epistemic Note
       </span>
     </div>
     <button type="button"
-            onclick="const c = document.getElementById('footnote-drawer-content') || document.getElementById('footnote-drawer'); if(c) { c.innerHTML = '<p class=\'text-xs text-stone-400\'>Tap any footnote reference in the text to inspect primary DOI evidence and study design without interrupting narration.</p>'; }"
-            class="text-stone-400 hover:text-stone-200 p-1.5 rounded-lg hover:bg-stone-800 min-h-[36px] min-w-[36px] flex items-center justify-center text-sm font-bold focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none transition active:scale-95"
-            aria-label="Dismiss footnote details">
+            onclick="const c = document.getElementById('footnote-drawer-content') || document.getElementById('footnote-drawer'); if(c) { c.innerHTML = '<p class=\'text-xs text-stone-400 font-serif leading-relaxed\'>Tap or hover any footnote reference in the manuscript to inspect primary DOI evidence, methodology, and study design without interrupting narration.</p>'; }"
+            class="text-stone-400 hover:text-stone-100 p-2 rounded-lg hover:bg-stone-800 min-h-[44px] min-w-[44px] flex items-center justify-center text-sm font-bold focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none transition active:scale-95 touch-manipulation"
+            aria-label="Close footnote drawer">
       ✕
     </button>
   </div>
-  <div class="text-xs sm:text-sm text-stone-200 leading-relaxed space-y-2 break-words">
+  <div class="text-xs sm:text-sm text-stone-200 leading-relaxed space-y-2 break-words font-serif">
     {{ note_text | safe }}
   </div>
 </div>

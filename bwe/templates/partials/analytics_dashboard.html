@@ -10,7 +10,7 @@
       <div class="mt-1 flex items-baseline gap-1.5">
         <span class="text-2xl font-bold font-mono text-stone-100">{{ "{:,}".format(data.total_clusters) }}</span>
       </div>
-      <span class="text-[10px] font-mono text-stone-500 mt-1 block">Deduplicated &amp; Normalized</span>
+      <span class="text-[10px] font-mono text-stone-400 mt-1 block">Deduplicated &amp; Normalized</span>
     </div>
 
     <!-- Monthly Demand Reach -->
@@ -20,7 +20,7 @@
         <span class="text-2xl font-bold font-mono text-amber-300">{{ "{:,}".format(data.combined_volume) }}</span>
         <span class="text-[10px] font-mono text-stone-400">/mo</span>
       </div>
-      <span class="text-[10px] font-mono text-stone-500 mt-1 block">Mean {{ "{:,.0f}".format(data.series_stats.volume.mean) }}/cl</span>
+      <span class="text-[10px] font-mono text-stone-400 mt-1 block">Mean {{ "{:,.0f}".format(data.series_stats.volume.mean) }}/cl</span>
     </div>
 
     <!-- GKP Verified Share -->
@@ -30,7 +30,7 @@
         <span class="text-2xl font-bold font-mono text-emerald-400">{{ data.verified_clusters_pct }}%</span>
         <span class="text-[10px] font-mono text-stone-400">clusters</span>
       </div>
-      <span class="text-[10px] font-mono text-stone-500 mt-1 block">{{ data.verified_clusters }} verified rows</span>
+      <span class="text-[10px] font-mono text-stone-400 mt-1 block">{{ data.verified_clusters }} verified rows</span>
     </div>
 
     <!-- Covered Demand -->
@@ -39,7 +39,7 @@
       <div class="mt-1 flex items-baseline gap-1.5">
         <span class="text-2xl font-bold font-mono text-sky-400">{{ data.coverage_rate_pct }}%</span>
       </div>
-      <span class="text-[10px] font-mono text-stone-500 mt-1 block">{{ data.covered_clusters }} / {{ data.total_clusters }} covered</span>
+      <span class="text-[10px] font-mono text-stone-400 mt-1 block">{{ data.covered_clusters }} / {{ data.total_clusters }} covered</span>
     </div>
 
     <!-- CPC High Ceiling -->
@@ -49,7 +49,7 @@
         <span class="text-2xl font-bold font-mono text-violet-400">${{ "{:.2f}".format(data.series_stats.cpc.max) }}</span>
         <span class="text-[10px] font-mono text-stone-400">ceiling</span>
       </div>
-      <span class="text-[10px] font-mono text-stone-500 mt-1 block">Mean ${{ "{:.2f}".format(data.series_stats.cpc.mean) }}</span>
+      <span class="text-[10px] font-mono text-stone-400 mt-1 block">Mean ${{ "{:.2f}".format(data.series_stats.cpc.mean) }}</span>
     </div>
 
     <!-- Market Readiness -->
@@ -59,7 +59,7 @@
         <span class="text-2xl font-bold font-mono text-emerald-300">{{ data.market_readiness }}</span>
         <span class="text-[10px] font-mono text-stone-400">KDP</span>
       </div>
-      <span class="text-[10px] font-mono text-stone-500 mt-1 block">{{ data.kdp_captured_pct }}% Demand Cap</span>
+      <span class="text-[10px] font-mono text-stone-400 mt-1 block">{{ data.kdp_captured_pct }}% Demand Cap</span>
     </div>
 
     <!-- Bibliographic Velocity -->
@@ -69,7 +69,7 @@
         <span class="text-2xl font-bold font-mono text-indigo-400">{{ data.bib_post_2015_pct }}%</span>
         <span class="text-[10px] font-mono text-stone-400">≥15</span>
       </div>
-      <span class="text-[10px] font-mono text-stone-500 mt-1 block">{{ data.bib_count }} Locked DOIs</span>
+      <span class="text-[10px] font-mono text-stone-400 mt-1 block">{{ data.bib_count }} Locked DOIs</span>
     </div>
 
   </div>
@@ -89,9 +89,9 @@
             Hover over nodes for cluster volume, coverage score, CPC bid, and tier.
           </p>
         </div>
-        <div class="flex items-center gap-1.5">
-          <a href="/dist/analytics/{{ deck_dir }}/demand_quadrant.png" target="_blank" class="px-2 py-1 rounded bg-stone-800 hover:bg-stone-700 text-[10px] font-mono text-stone-300 transition">PNG ↗</a>
-          <a href="/dist/analytics/{{ deck_dir }}/demand_quadrant.svg" target="_blank" class="px-2 py-1 rounded bg-amber-500/10 hover:bg-amber-500/20 text-[10px] font-mono text-amber-300 border border-amber-500/30 transition">SVG ↗</a>
+        <div class="flex items-center gap-2">
+          <a href="/dist/analytics/{{ deck_dir }}/demand_quadrant.png" target="_blank" class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-3 rounded-lg border border-stone-800 bg-stone-900 hover:bg-stone-800 text-xs font-mono text-stone-300 hover:text-amber-400 transition focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none" aria-label="Download Demand Quadrant PNG">PNG ↗</a>
+          <a href="/dist/analytics/{{ deck_dir }}/demand_quadrant.svg" target="_blank" class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-3 rounded-lg border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/20 text-xs font-mono text-amber-300 transition focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none" aria-label="Download Demand Quadrant SVG">SVG ↗</a>
         </div>
       </div>
       <div class="w-full overflow-hidden rounded-lg">
@@ -111,9 +111,9 @@
             Verified GKP volume vs. curated seed volume with max commercial CPC intent overlay.
           </p>
         </div>
-        <div class="flex items-center gap-1.5">
-          <a href="/dist/analytics/{{ deck_dir }}/chapter_volume_cpc.png" target="_blank" class="px-2 py-1 rounded bg-stone-800 hover:bg-stone-700 text-[10px] font-mono text-stone-300 transition">PNG ↗</a>
-          <a href="/dist/analytics/{{ deck_dir }}/chapter_volume_cpc.svg" target="_blank" class="px-2 py-1 rounded bg-amber-500/10 hover:bg-amber-500/20 text-[10px] font-mono text-amber-300 border border-amber-500/30 transition">SVG ↗</a>
+        <div class="flex items-center gap-2">
+          <a href="/dist/analytics/{{ deck_dir }}/chapter_volume_cpc.png" target="_blank" class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-3 rounded-lg border border-stone-800 bg-stone-900 hover:bg-stone-800 text-xs font-mono text-stone-300 hover:text-amber-400 transition focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none" aria-label="Download Chapter Volume and CPC PNG">PNG ↗</a>
+          <a href="/dist/analytics/{{ deck_dir }}/chapter_volume_cpc.svg" target="_blank" class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-3 rounded-lg border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/20 text-xs font-mono text-amber-300 transition focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none" aria-label="Download Chapter Volume and CPC SVG">SVG ↗</a>
         </div>
       </div>
       <div class="w-full overflow-hidden rounded-lg">
@@ -139,15 +139,15 @@
       <!-- Action Row: Write to series.yaml & Download Amazon Ads CSV -->
       <div class="flex items-center gap-2.5 shrink-0">
         <a href="/hx/analytics/export-ads?series={{ series_slug }}"
-           class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-xs font-mono text-emerald-300 border border-emerald-500/30 transition">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+           class="min-h-[44px] px-4 inline-flex items-center gap-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-xs font-mono text-emerald-300 border border-emerald-500/30 transition focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:outline-none">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
           <span>Amazon Ads CSV</span>
         </a>
 
         <button hx-post="/hx/analytics/write-kdp-yaml?series={{ series_slug }}"
                 hx-target="#kdp-write-status"
-                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-xs font-mono text-amber-300 border border-amber-500/40 transition">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path></svg>
+                class="min-h-[44px] px-4 inline-flex items-center gap-2 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-xs font-mono text-amber-300 border border-amber-500/40 transition focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path></svg>
           <span>Write series.yaml</span>
         </button>
       </div>
@@ -161,22 +161,23 @@
         <div>
           <div class="flex items-center justify-between text-[11px] font-mono">
             <span class="font-bold text-amber-400">Slot {{ box.box_index }}</span>
-            <span class="{% if box.bytes > 49 %}text-red-400 font-bold{% else %}text-emerald-400{% endif %}">
+            <span class="{% if box.bytes > 49 %}text-rose-400 font-bold{% else %}text-emerald-400{% endif %}">
               {{ box.bytes }} / 50 B ({{ box.utilization_pct }}%)
             </span>
           </div>
           <div class="w-full bg-stone-800 rounded-full h-1.5 mt-1.5 overflow-hidden">
-            <div class="h-1.5 rounded-full {% if box.bytes > 49 %}bg-red-500{% elif box.bytes >= 47 %}bg-emerald-400{% else %}bg-amber-400{% endif %}" style="width: {{ box.utilization_pct }}%"></div>
+            <div class="h-1.5 rounded-full {% if box.bytes > 49 %}bg-rose-500{% elif box.bytes >= 47 %}bg-emerald-400{% else %}bg-amber-400{% endif %}" style="width: {{ box.utilization_pct }}%"></div>
           </div>
           <p class="text-xs font-mono text-stone-200 mt-2 break-words leading-relaxed select-all">
             {{ box.text }}
           </p>
         </div>
-        <div class="pt-2 border-t border-stone-800/60 flex items-center justify-between">
-          <span class="text-[10px] font-mono text-stone-500">UTF-8 Collocations</span>
+        <div class="pt-2 border-t border-stone-800/60 flex items-center justify-between gap-2">
+          <span class="text-[10px] font-mono text-stone-400">UTF-8 Collocations</span>
           <button type="button"
                   onclick="navigator.clipboard.writeText('{{ box.text }}'); this.innerText='Copied!'; setTimeout(() => this.innerText='Copy', 1200)"
-                  class="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 transition">
+                  class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-3 rounded-lg border border-stone-800 bg-stone-900 hover:bg-stone-800 text-xs font-mono text-stone-300 hover:text-amber-400 transition focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+                  aria-label="Copy Slot {{ box.box_index }} keyword collocation">
             Copy
           </button>
         </div>
@@ -202,15 +203,18 @@
       </div>
 
       <!-- Controls -->
-      <div class="flex flex-wrap items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2.5">
         <!-- Live search input -->
         <input type="text"
                x-model="search"
                placeholder="Filter queries..."
-               class="px-2.5 py-1.5 bg-stone-950 border border-stone-800 rounded-lg text-xs font-mono text-stone-200 focus:outline-none focus:border-amber-500/60 w-36 sm:w-44">
+               aria-label="Filter search demand queries"
+               class="min-h-[44px] px-3 bg-stone-950 border border-stone-800 rounded-lg text-xs font-mono text-stone-200 focus:outline-none focus:border-amber-500/60 w-36 sm:w-48">
 
         <!-- Chapter Filter -->
-        <select x-model="selectedChapter" class="px-2.5 py-1.5 bg-stone-950 border border-stone-800 rounded-lg text-xs font-mono text-stone-300 focus:outline-none">
+        <select x-model="selectedChapter"
+                aria-label="Filter by chapter"
+                class="min-h-[44px] px-3 bg-stone-950 border border-stone-800 rounded-lg text-xs font-mono text-stone-300 focus:outline-none focus:border-amber-500/60">
           <option value="all">All Chapters</option>
           {% for b in data.breakdown %}
           <option value="{{ b.key }}">{{ b.label }}</option>
@@ -218,7 +222,9 @@
         </select>
 
         <!-- Tier Filter -->
-        <select x-model="selectedTier" class="px-2.5 py-1.5 bg-stone-950 border border-stone-800 rounded-lg text-xs font-mono text-stone-300 focus:outline-none">
+        <select x-model="selectedTier"
+                aria-label="Filter by source tier"
+                class="min-h-[44px] px-3 bg-stone-950 border border-stone-800 rounded-lg text-xs font-mono text-stone-300 focus:outline-none focus:border-amber-500/60">
           <option value="all">All Tiers</option>
           <option value="gkp_csv_export">Verified GKP</option>
           <option value="seed">Curated Seed</option>

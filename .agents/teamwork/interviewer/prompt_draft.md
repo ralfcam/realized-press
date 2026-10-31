@@ -26,6 +26,10 @@ Ensure responsive presentation across mobile, tablet, and desktop viewports with
 ### R4. Scope of Backend Adjustments
 Modifications to templates and front-end assets in `bwe/templates/` may be accompanied by updates to backend FastAPI route handlers or template context in `bwe/` if necessary to support enhanced UI states or data bindings.
 
+## Verification Resources
+- Automated test suite using FastAPI `TestClient` (running `pytest`) verifying HTTP 200 responses and rendered elements across `/site`, `/ide`, `/read/{series}/{chapter}`, and `/analytics`.
+- Static code inspection checking template markup and Tailwind utility classes for 44px touch targets (`min-h-[44px]`, `min-w-[44px]`) and WCAG 2.1 AA color contrast pairings.
+
 ## Acceptance Criteria
 
 ### Visual Design and Layout Consistency
@@ -33,10 +37,10 @@ Modifications to templates and front-end assets in `bwe/templates/` may be accom
 - [ ] Interactive components (drawers, 3-lens toggle, audiobook player, scatter plot, sparklines, gauges, tabs) render without visual distortion or unexpected layout shift during HTMX transitions.
 
 ### Accessibility and Usability
-- [ ] Interactive touch targets on navigation and control elements meet or exceed 44px.
-- [ ] Text and foreground UI elements achieve WCAG 2.1 AA color contrast ratios against their respective backgrounds.
+- [ ] Static code audit of template markup and Tailwind utility classes confirms interactive touch targets on navigation and control elements meet or exceed 44px.
+- [ ] Static code audit confirms text and foreground UI elements achieve WCAG 2.1 AA color contrast ratios against their respective backgrounds.
 - [ ] All views render responsively and cleanly across mobile, tablet, and desktop viewport dimensions.
 
 ### Integration and Verification
-- [ ] Dev server endpoints at `http://localhost:8080` (`/site`, `/ide`, `/read/{series}/{chapter}`, `/analytics`) return valid HTTP 200 responses with the updated templates and styling rendered.
+- [ ] Automated tests run via `pytest` using FastAPI `TestClient` pass and confirm endpoints (`/site`, `/ide`, `/read/{series}/{chapter}`, `/analytics`) return valid HTTP 200 responses with the updated templates and styling rendered.
 - [ ] If backend routes or context in `bwe/` are modified, existing server functionality and data bindings remain intact and operational.

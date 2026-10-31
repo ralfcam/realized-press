@@ -1,17 +1,13 @@
-<!-- bwe/templates/analytics.html: BWE Marketing Intelligence Visual Analytics Studio (ARC-80) -->
-<!DOCTYPE html>
-<html lang="en" class="bg-stone-950 text-stone-100 antialiased">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0c0a09">
-  <title>Editorial Analytics &amp; Visual Telemetry Studio — Realized Press BWE</title>
-  <script src="https://unpkg.com/htmx.org@2.0.4"></script>
-  <script defer src="https://unpkg.com/alpinejs@3.14.8/dist/cdn.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
+{% extends "base.html" %}
+
+{% block title %}Editorial Analytics &amp; Visual Telemetry Studio — Realized Press BWE{% endblock %}
+
+{% block meta_description %}Multi-series quantitative studio synthesizing verified Google Ads / GKP search volume, Gini inequality, BM25 chapter coverage quadrants, commercial intent CPC ceilings, and primary bibliographic velocity.{% endblock %}
+
+{% block head %}
   <style>
     .deck-container {
-      background-color: #ffffff;
+      background-color: #1c1917;
       border-radius: 0.75rem;
       padding: 1rem;
       box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
@@ -23,80 +19,89 @@
       margin: 0 auto;
     }
   </style>
-</head>
-<body class="min-h-screen flex flex-col bg-stone-950">
+{% endblock %}
 
-  {% set active_tab = "analytics" %}
-  {% include "partials/nav.html" %}
-
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-    
-    <!-- Studio Header Section -->
-    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-800 pb-6">
-      <div>
-        <div class="flex items-center gap-2">
-          <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
-            BWE v0.8.0
-          </span>
-          <span class="text-xs font-mono text-stone-400">Marketing Intelligence Visual Analytics Studio</span>
-        </div>
-        <h1 class="text-2xl sm:text-3xl font-serif font-bold text-stone-100 mt-2">
-          Series Editorial Analytics &amp; Visual Telemetry
-        </h1>
-        <p class="text-sm text-stone-400 mt-1 max-w-3xl">
-          Multi-series quantitative studio synthesizing verified Google Ads / GKP search volume, Gini inequality, BM25 chapter coverage quadrants, commercial intent CPC ceilings, and primary bibliographic velocity.
-        </p>
+{% block content %}
+<div class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 flex-1">
+  
+  <!-- Studio Header Section -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-800 pb-6">
+    <div>
+      <div class="flex items-center gap-2">
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
+          BWE v0.8.0
+        </span>
+        <span class="text-xs font-mono text-stone-400">Marketing Intelligence Visual Analytics Studio</span>
       </div>
-
-      <!-- Action buttons -->
-      <div class="flex items-center gap-3 shrink-0">
-        <a href="/ide" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-stone-900 border border-stone-800 text-xs font-mono text-stone-300 hover:text-stone-100 hover:bg-stone-800 transition">
-          Epistemic IDE ↗
-        </a>
-        <a href="https://linear.app/realized/issue/ARC-80" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs font-mono text-amber-300 hover:bg-amber-500/20 transition">
-          Linear ARC-80 ↗
-        </a>
-      </div>
+      <h1 class="text-2xl sm:text-3xl font-serif font-bold text-stone-100 mt-2">
+        Series Editorial Analytics &amp; Visual Telemetry
+      </h1>
+      <p class="text-sm text-stone-400 mt-1 max-w-3xl">
+        Multi-series quantitative studio synthesizing verified Google Ads / GKP search volume, Gini inequality, BM25 chapter coverage quadrants, commercial intent CPC ceilings, and primary bibliographic velocity.
+      </p>
     </div>
 
-    <!-- Series Switcher Tabs -->
-    <div class="flex items-center gap-2 border-b border-stone-800 pb-2 overflow-x-auto">
-      <button hx-get="/hx/analytics/dashboard?series=parenthood-atlas"
-              hx-target="#analytics-content"
-              hx-push-url="/analytics?series=parenthood-atlas"
-              class="px-4 py-2.5 rounded-lg text-xs font-mono transition flex items-center gap-2 {% if series_slug == 'parenthood-atlas' %}bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-200 hover:bg-stone-900 border border-transparent{% endif %}">
-        <span class="w-2 h-2 rounded-full {% if series_slug == 'parenthood-atlas' %}bg-amber-400{% else %}bg-stone-600{% endif %}"></span>
-        <span>Parenthood: The Atlas (English)</span>
-      </button>
-
-      <button hx-get="/hx/analytics/dashboard?series=parenthood-atlas/i18n/es&lang=es"
-              hx-target="#analytics-content"
-              hx-push-url="/analytics?series=parenthood-atlas/i18n/es"
-              class="px-4 py-2.5 rounded-lg text-xs font-mono transition flex items-center gap-2 {% if series_slug == 'parenthood-atlas/i18n/es' %}bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-200 hover:bg-stone-900 border border-transparent{% endif %}">
-        <span class="w-2 h-2 rounded-full {% if series_slug == 'parenthood-atlas/i18n/es' %}bg-amber-400{% else %}bg-stone-600{% endif %}"></span>
-        <span>Parenthood: The Atlas (Spanish)</span>
-      </button>
-
-      <button hx-get="/hx/analytics/dashboard?series=architectures-of-memory"
-              hx-target="#analytics-content"
-              hx-push-url="/analytics?series=architectures-of-memory"
-              class="px-4 py-2.5 rounded-lg text-xs font-mono transition flex items-center gap-2 {% if series_slug == 'architectures-of-memory' %}bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-200 hover:bg-stone-900 border border-transparent{% endif %}">
-        <span class="w-2 h-2 rounded-full {% if series_slug == 'architectures-of-memory' %}bg-amber-400{% else %}bg-stone-600{% endif %}"></span>
-        <span>Architectures of Memory (5 Volumes)</span>
-      </button>
+    <!-- Action buttons -->
+    <div class="flex items-center gap-3 shrink-0">
+      <a href="/ide"
+         class="min-h-[44px] px-3.5 inline-flex items-center gap-2 rounded-lg bg-stone-900 border border-stone-800 text-xs font-mono text-stone-300 hover:text-stone-100 hover:bg-stone-800 transition focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+         aria-label="Navigate to Epistemic IDE">
+        <span>Epistemic IDE</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+      <a href="https://linear.app/realized/issue/ARC-80"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="min-h-[44px] px-3.5 inline-flex items-center gap-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs font-mono text-amber-300 hover:bg-amber-500/20 transition focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+         aria-label="View Linear ARC-80 Issue in new tab">
+        <span>Linear ARC-80</span>
+        <span aria-hidden="true">↗</span>
+      </a>
     </div>
+  </div>
 
-    <!-- Main Content Swappable Container -->
-    <div id="analytics-content">
-      {% include "partials/analytics_dashboard.html" %}
-    </div>
+  <!-- Series Switcher Tabs -->
+  <div class="flex items-center gap-2 border-b border-stone-800 pb-2 overflow-x-auto" role="tablist" aria-label="Analytics Series Switcher">
+    <button hx-get="/hx/analytics/dashboard?series=parenthood-atlas"
+            hx-target="#analytics-content"
+            hx-push-url="/analytics?series=parenthood-atlas"
+            role="tab"
+            aria-selected="{% if series_slug == 'parenthood-atlas' %}true{% else %}false{% endif %}"
+            class="min-h-[44px] px-4 py-2.5 rounded-lg text-xs font-mono font-medium transition flex items-center gap-2 touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none {% if series_slug == 'parenthood-atlas' %}bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-200 hover:bg-stone-900 border border-transparent{% endif %}">
+      <span class="w-2 h-2 rounded-full {% if series_slug == 'parenthood-atlas' %}bg-amber-400{% else %}bg-stone-600{% endif %}" aria-hidden="true"></span>
+      <span>Parenthood: The Atlas (English)</span>
+    </button>
 
-  </main>
+    <button hx-get="/hx/analytics/dashboard?series=parenthood-atlas/i18n/es&lang=es"
+            hx-target="#analytics-content"
+            hx-push-url="/analytics?series=parenthood-atlas/i18n/es"
+            role="tab"
+            aria-selected="{% if series_slug == 'parenthood-atlas/i18n/es' %}true{% else %}false{% endif %}"
+            class="min-h-[44px] px-4 py-2.5 rounded-lg text-xs font-mono font-medium transition flex items-center gap-2 touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none {% if series_slug == 'parenthood-atlas/i18n/es' %}bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-200 hover:bg-stone-900 border border-transparent{% endif %}">
+      <span class="w-2 h-2 rounded-full {% if series_slug == 'parenthood-atlas/i18n/es' %}bg-amber-400{% else %}bg-stone-600{% endif %}" aria-hidden="true"></span>
+      <span>Parenthood: The Atlas (Spanish)</span>
+    </button>
 
-  <!-- Footer -->
-  <footer class="border-t border-stone-800 py-6 text-center text-xs font-mono text-stone-500">
-    Realized Press BWE v0.8.0 &bull; Open Knowledge Format v0.2 &bull; Linear ARC-80
-  </footer>
+    <button hx-get="/hx/analytics/dashboard?series=architectures-of-memory"
+            hx-target="#analytics-content"
+            hx-push-url="/analytics?series=architectures-of-memory"
+            role="tab"
+            aria-selected="{% if series_slug == 'architectures-of-memory' %}true{% else %}false{% endif %}"
+            class="min-h-[44px] px-4 py-2.5 rounded-lg text-xs font-mono font-medium transition flex items-center gap-2 touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none {% if series_slug == 'architectures-of-memory' %}bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-200 hover:bg-stone-900 border border-transparent{% endif %}">
+      <span class="w-2 h-2 rounded-full {% if series_slug == 'architectures-of-memory' %}bg-amber-400{% else %}bg-stone-600{% endif %}" aria-hidden="true"></span>
+      <span>Architectures of Memory (5 Volumes)</span>
+    </button>
+  </div>
 
-</body>
-</html>
+  <!-- Main Content Swappable Container (min-h-[600px] prevents CLS during HTMX series switches) -->
+  <div id="analytics-content" class="min-h-[600px]">
+    {% include "partials/analytics_dashboard.html" %}
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="border-t border-stone-800 py-6 text-center text-xs font-mono text-stone-400 mt-auto">
+  Realized Press BWE v0.8.0 &bull; Open Knowledge Format v0.2 &bull; Linear ARC-80
+</footer>
+{% endblock %}

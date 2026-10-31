@@ -1,1474 +1,720 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#070a0e">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Realized Press — Imprint Audiobook Portal & Marketing Hub</title>
-  <meta name="description" content="Official Audiobook Web Player, Serial Preprints, and Public Evidence Briefs from Realized Press imprint.">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-  <script src="https://unpkg.com/htmx.org@2.0.4"></script>
-  <script defer src="https://unpkg.com/alpinejs@3.14.8/dist/cdn.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root {
-      --bg: #0c0a09;
-      --card-bg: #1c1917;
-      --card-hover: #292524;
-      --border: #292524;
-      --border-light: #44403c;
-      --gold: #f59e0b;
-      --gold-light: #fbbf24;
-      --gold-dim: rgba(245, 158, 11, 0.12);
-      --gold-glow: rgba(245, 158, 11, 0.25);
-      --text: #f5f5f4;
-      --text-muted: #a8a29e;
-      --accent: #38bdf8;
-      --success: #34d399;
-      --sidebar-w: 320px;
-      --dock-h: 104px;
-      --safe-bottom: env(safe-area-inset-bottom, 0px);
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      padding-bottom: calc(var(--dock-h) + var(--safe-bottom) + 24px);
-    }
+{% extends "base.html" %}
 
-    /* Top Navigation */
-    .navbar {
-      background: rgba(7, 10, 14, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 200;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #fff;
-    }
-    .brand-mark {
-      width: 32px;
-      height: 32px;
-      background: linear-gradient(135deg, var(--gold), #9e6a03);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: #000;
-      box-shadow: 0 2px 8px rgba(210, 153, 34, 0.3);
-      flex-shrink: 0;
-    }
-    .brand-text h1 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      line-height: 1.2;
-    }
-    .brand-text p {
-      font-size: 0.68rem;
-      color: var(--gold);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-weight: 700;
-      line-height: 1.1;
-    }
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .nav-badge {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--gold);
-      background: var(--gold-dim);
-      border: 1px solid rgba(210, 153, 34, 0.3);
-      padding: 4px 10px;
-      border-radius: 999px;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .nav-link-btn {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 500;
-      padding: 6px 10px;
-      border-radius: 6px;
-      display: inline-flex;
-      align-items: center;
-      transition: all 0.15s;
-    }
-    .nav-link-btn:hover {
-      color: #fff;
-      background: var(--card-bg);
-    }
+{% block title %}Realized Press — Imprint Showcase & Master Audiobook Hub{% endblock %}
+{% block meta_description %}Official Audiobook Web Player, Serial Preprints, and Public Evidence Briefs from Realized Press imprint.{% endblock %}
 
-    /* Mobile Series Horizontal Selector Bar */
-    .mobile-series-bar {
-      display: none;
-      background: #0b0f14;
-      border-bottom: 1px solid var(--border);
-      padding: 8px 14px;
-      overflow-x: auto;
-      white-space: nowrap;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-      gap: 8px;
-    }
-    .mobile-series-bar::-webkit-scrollbar {
-      display: none;
-    }
-    .series-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: all 0.15s;
-    }
-    .series-chip.active {
-      background: var(--gold-dim);
-      border-color: var(--gold);
-      color: #fff;
-    }
-    .series-chip .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
+{% block head %}
+<style>
+  .sync-segment {
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    border-radius: 4px;
+    padding: 1px 2px;
+  }
+  .sync-segment:hover {
+    background-color: rgba(251, 191, 36, 0.1);
+    color: #fbbf24;
+  }
+  .sync-segment.active-segment {
+    background-color: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+  }
+  .eq-bars {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 12px;
+    margin-left: 6px;
+  }
+  .eq-bar {
+    width: 2px;
+    background-color: #fbbf24;
+    border-radius: 1px;
+    animation: eq-bounce 0.8s ease-in-out infinite alternate;
+  }
+  .eq-bar:nth-child(2) { animation-delay: 0.2s; height: 10px; }
+  .eq-bar:nth-child(3) { animation-delay: 0.4s; height: 6px; }
+  @keyframes eq-bounce {
+    0% { height: 3px; }
+    100% { height: 12px; }
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+{% endblock %}
 
-    /* Main Responsive Layout */
-    .main-layout {
-      display: flex;
-      flex: 1;
-      max-width: 1440px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    /* Sidebar Catalog (Desktop) */
-    .catalog-sidebar {
-      width: var(--sidebar-w);
-      border-right: 1px solid var(--border);
-      background: #090c10;
-      padding: 24px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      flex-shrink: 0;
-    }
-    .section-label {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-weight: 700;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-      padding-left: 8px;
-    }
-    .book-list {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .book-nav-item {
-      background: transparent;
-      border: 1px solid transparent;
-      border-radius: 8px;
-      padding: 10px 12px;
-      text-align: left;
-      cursor: pointer;
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      transition: all 0.15s;
-    }
-    .book-nav-item:hover {
-      background: var(--card-bg);
-      border-color: var(--border);
-    }
-    .book-nav-item.active {
-      background: var(--gold-dim);
-      border-color: var(--gold);
-    }
-    .book-nav-series {
-      font-size: 0.7rem;
-      color: var(--gold);
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-    .book-nav-title {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: #fff;
-    }
-    .book-nav-meta {
-      font-size: 0.74rem;
-      color: var(--text-muted);
-      display: flex;
-      gap: 8px;
-    }
-
-    /* Content Area */
-    .content-area {
-      flex: 1;
-      padding: 28px 32px;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    /* Book Hero Banner */
-    .book-hero {
-      background: linear-gradient(180deg, var(--card-bg) 0%, #0d121a 100%);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 22px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 20px;
-    }
-    .hero-meta {
-      flex: 1;
-      min-width: 0;
-    }
-    .hero-badge {
-      display: inline-block;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 700;
-      color: var(--gold);
-      background: var(--gold-dim);
-      padding: 3px 10px;
-      border-radius: 999px;
-      margin-bottom: 8px;
-      border: 1px solid rgba(210, 153, 34, 0.25);
-    }
-    .hero-title {
-      font-size: 1.65rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 6px;
-      line-height: 1.25;
-    }
-    .hero-subtitle {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      max-width: 720px;
-      margin-bottom: 14px;
-      line-height: 1.5;
-    }
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      align-items: center;
-    }
-    .hero-controls {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-    .source-selector {
-      display: inline-flex;
-      background: #070a0e;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 3px;
-    }
-    .source-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 0.78rem;
-      cursor: pointer;
-      font-weight: 600;
-      min-height: 34px;
-      transition: all 0.15s;
-    }
-    .source-btn.active {
-      background: var(--gold);
-      color: #000;
-    }
-
-    /* View Switcher: Audio Playlist vs Reader */
-    .view-tabs {
-      display: flex;
-      gap: 8px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 6px;
-    }
-    .tab-btn {
-      background: transparent;
-      border: 1px solid transparent;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 10px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.15s;
-    }
-    .tab-btn:hover {
-      color: #fff;
-    }
-    .tab-btn.active {
-      color: var(--gold);
-      background: var(--gold-dim);
-      border-color: rgba(210, 153, 34, 0.3);
-    }
-
-    /* Chapter Playlist */
-    .playlist {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .chapter-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      cursor: pointer;
-      min-height: 64px;
-      transition: all 0.15s ease;
-    }
-    .chapter-card:hover {
-      border-color: var(--gold);
-      background: var(--card-hover);
-    }
-    .chapter-card:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 2px;
-    }
-    .chapter-card.active-track {
-      border-color: var(--gold);
-      background: var(--gold-dim);
-      box-shadow: 0 0 16px rgba(210, 153, 34, 0.15);
-    }
-    .ch-left {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex: 1;
-      min-width: 0;
-    }
-    .ch-num {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--gold);
-      width: 28px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-    .ch-title {
-      font-size: 0.96rem;
-      font-weight: 600;
-      color: #fff;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-bottom: 2px;
-    }
-    .ch-meta {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-      display: flex;
-      gap: 8px;
-    }
-    .ch-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-    .pill {
-      font-size: 0.72rem;
-      padding: 3px 8px;
-      border-radius: 6px;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    .pill-live {
-      background: rgba(63, 185, 80, 0.15);
-      color: var(--success);
-      border: 1px solid rgba(63, 185, 80, 0.3);
-    }
-    .pill-queue {
-      background: rgba(139, 148, 158, 0.12);
-      color: var(--text-muted);
-      border: 1px solid var(--border);
-    }
-    .btn-play-sm {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--gold);
-      color: #000;
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.15rem;
-      font-weight: 800;
-      cursor: pointer;
-      flex-shrink: 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-      transition: transform 0.15s ease, background 0.15s ease;
-    }
-    .btn-play-sm:hover {
-      transform: scale(1.08);
-      background: var(--gold-light);
-    }
-    .btn-play-sm:disabled {
-      background: #1c222c;
-      color: #485363;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-    }
-
-    /* Audio Equalizer Animation for Active Playing Track */
-    .eq-bars {
-      display: inline-flex;
-      align-items: flex-end;
-      gap: 2px;
-      height: 14px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
-    .eq-bar {
-      width: 3px;
-      background: var(--gold);
-      border-radius: 1px;
-      animation: eqBounce 1s ease-in-out infinite alternate;
-    }
-    .eq-bar:nth-child(1) { height: 8px; animation-delay: 0.1s; }
-    .eq-bar:nth-child(2) { height: 14px; animation-delay: 0.3s; }
-    .eq-bar:nth-child(3) { height: 6px; animation-delay: 0.5s; }
-    @keyframes eqBounce {
-      0% { height: 4px; }
-      100% { height: 14px; }
-    }
-
-    /* Synchronized Reader Pane */
-    .reader-pane {
-      display: none;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 36px 42px;
-      max-width: 820px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      line-height: 1.85;
-      color: #d1d7e0;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
-    }
-    .reader-pane.active {
-      display: block;
-    }
-    .reader-header {
-      margin-bottom: 24px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border);
-    }
-    .reader-pane h1 {
-      font-size: 1.85rem;
-      color: #fff;
-      line-height: 1.3;
-      margin: 28px 0 16px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
-    }
-    .reader-pane h1:first-child {
-      margin-top: 0;
-    }
-    .reader-pane h2 {
-      font-size: 1.5rem;
-      color: #fff;
-      line-height: 1.35;
-      margin: 32px 0 14px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    .reader-pane h3 {
-      font-size: 1.3rem;
-      color: #fff;
-      margin: 26px 0 10px;
-    }
-    .reader-pane h4, .reader-pane h5 {
-      font-size: 1.12rem;
-      color: var(--gold);
-      margin: 20px 0 8px;
-    }
-    .reader-pane p {
-      margin-bottom: 20px;
-      letter-spacing: -0.003em;
-    }
-    .reader-pane strong {
-      color: #fff;
-      font-weight: 700;
-    }
-    .reader-pane em {
-      color: #e6edf3;
-      font-style: italic;
-    }
-    .reader-pane blockquote {
-      border-left: 3px solid var(--gold);
-      background: rgba(210, 153, 34, 0.07);
-      padding: 14px 20px;
-      margin: 22px 0;
-      border-radius: 0 8px 8px 0;
-      font-style: italic;
-      color: #e6edf3;
-    }
-    .reader-pane blockquote p:last-child {
-      margin-bottom: 0;
-    }
-    .reader-pane ul, .reader-pane ol {
-      padding-left: 28px;
-      margin: 16px 0 22px;
-    }
-    .reader-pane li {
-      margin-bottom: 8px;
-      padding-left: 4px;
-    }
-    .reader-pane hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 36px 0;
-    }
-    .reader-pane table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 24px 0;
-      font-size: 0.95rem;
-      display: block;
-      overflow-x: auto;
-    }
-    .reader-pane th, .reader-pane td {
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-      text-align: left;
-    }
-    .reader-pane th {
-      background: rgba(255, 255, 255, 0.05);
-      color: #fff;
-      font-weight: 700;
-    }
-    .reader-pane code {
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--gold-light);
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.88em;
-    }
-    .reader-pane pre {
-      background: #06090e;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px;
-      overflow-x: auto;
-      margin: 20px 0;
-    }
-    .reader-pane pre code {
-      background: transparent;
-      padding: 0;
-      color: #e6edf3;
-    }
-    .reader-pane a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .reader-pane a:hover {
-      text-decoration: underline;
-    }
-    .reader-pane .footnote {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-    .reader-pane .footnote-ref {
-      font-size: 0.78rem;
-      color: var(--gold);
-      vertical-align: super;
-      text-decoration: none;
-      padding: 0 2px;
-      font-weight: 600;
-    }
-    .reader-pane .footnote-backref {
-      color: var(--gold);
-      text-decoration: none;
-      margin-left: 4px;
-    }
-
-    /* Synchronized Read-Along Highlighting */
-    .sync-segment {
-      cursor: pointer;
-      border-radius: 6px;
-      padding: 6px 12px;
-      margin-left: -12px;
-      margin-right: -12px;
-      border-left: 3px solid transparent;
-      transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-      position: relative;
-    }
-    .sync-segment:hover {
-      background: rgba(255, 255, 255, 0.04);
-    }
-    .sync-segment:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 2px;
-      background: rgba(210, 153, 34, 0.08);
-    }
-    .sync-segment.active-segment {
-      background: rgba(210, 153, 34, 0.14) !important;
-      border-left: 3px solid var(--gold) !important;
-      color: #fff !important;
-      box-shadow: 0 0 20px rgba(210, 153, 34, 0.12);
-    }
-    .reader-pane h1.sync-segment,
-    .reader-pane h2.sync-segment,
-    .reader-pane h3.sync-segment {
-      padding-top: 8px;
-      padding-bottom: 8px;
-      margin-top: 20px;
-    }
-    .reader-pane li.sync-segment {
-      padding: 4px 10px;
-      margin-left: -10px;
-      border-radius: 4px;
-      border-left: 3px solid transparent;
-      transition: background 0.2s ease, border-color 0.2s ease;
-    }
-    .reader-pane li.sync-segment.active-segment {
-      background: rgba(210, 153, 34, 0.14) !important;
-      border-left: 3px solid var(--gold) !important;
-      color: #fff !important;
-    }
-    .reader-pane tr.sync-segment {
-      cursor: pointer;
-      transition: background 0.2s ease, border-color 0.2s ease;
-    }
-    .reader-pane tr.sync-segment:hover {
-      background: rgba(255, 255, 255, 0.05);
-    }
-    .reader-pane tr.sync-segment.active-segment {
-      background: rgba(210, 153, 34, 0.18) !important;
-      color: #fff !important;
-    }
-    .reader-pane tr.sync-segment.active-segment td:first-child {
-      border-left: 3px solid var(--gold) !important;
-    }
-    .reader-pane table.sync-segment {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      transition: all 0.25s ease;
-    }
-    .reader-pane table.sync-segment.active-segment {
-      border: 2px solid var(--gold) !important;
-      background: rgba(210, 153, 34, 0.05);
-      box-shadow: 0 0 24px rgba(210, 153, 34, 0.2);
-    }
-    .non-spoken,
-    [data-spoken="false"] {
-      opacity: 0.85;
-    }
-    .sync-indicator {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.74rem;
-      font-weight: 600;
-      color: var(--gold);
-      background: var(--gold-dim);
-      border: 1px solid rgba(210, 153, 34, 0.3);
-      padding: 4px 10px;
-      border-radius: 999px;
-      cursor: pointer;
-      user-select: none;
-      transition: all 0.15s;
-    }
-    .sync-indicator:hover {
-      background: rgba(210, 153, 34, 0.22);
-    }
-    .sync-indicator.disabled {
-      color: var(--text-muted);
-      border-color: var(--border);
-      background: transparent;
-    }
-
-    /* Marketing & Patreon Tier Blueprint */
-    .patreon-blueprint {
-      background: #090e15;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 22px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .patreon-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .patreon-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #fff;
-    }
-    .tier-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-    }
-    .tier-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .tier-card h4 {
-      color: var(--gold);
-      font-size: 0.95rem;
-    }
-    .tier-card p {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-    .tier-links {
-      margin-top: auto;
-      padding-top: 8px;
-      font-size: 0.82rem;
-    }
-    .tier-links a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .tier-links a:hover {
-      text-decoration: underline;
-    }
-
-    /* Persistent Mobile-First Bottom Player Dock */
-    .player-dock {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(7, 10, 14, 0.97);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-top: 1px solid var(--border);
-      padding: 10px 18px calc(10px + var(--safe-bottom));
-      box-shadow: 0 -8px 30px rgba(0,0,0,0.8);
-      z-index: 1000;
-    }
-    .dock-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    /* Touch-friendly Progress Track */
-    .dock-progress-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.74rem;
-      color: var(--text-muted);
-      font-variant-numeric: tabular-nums;
-    }
-    .touch-scrubber-area {
-      flex: 1;
-      padding: 8px 0;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-    }
-    .touch-scrubber-area:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 4px;
-      border-radius: 4px;
-    }
-    .bar-bg {
-      width: 100%;
-      height: 6px;
-      background: #1e2633;
-      border-radius: 3px;
-      position: relative;
-      overflow: hidden;
-    }
-    .bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #d29922, #f1e05a);
-      border-radius: 3px;
-      width: 0%;
-      transition: width 0.1s linear;
-    }
-
-    .dock-main {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-    }
-    .dock-info {
-      flex: 1;
-      min-width: 0;
-    }
-    .dock-title {
-      font-size: 0.94rem;
-      font-weight: 700;
-      color: #fff;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      line-height: 1.3;
-    }
-    .dock-sub {
-      font-size: 0.72rem;
-      color: var(--gold);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      line-height: 1.2;
-    }
-    .dock-ctrls {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-    .btn-dock {
-      background: transparent;
-      border: none;
-      color: var(--text);
-      font-size: 0.95rem;
-      cursor: pointer;
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      transition: all 0.15s;
-    }
-    .btn-dock:hover {
-      color: var(--gold);
-      background: rgba(255,255,255,0.05);
-    }
-    .btn-dock-play {
-      background: var(--gold);
-      color: #000;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      font-size: 1.25rem;
-      font-weight: 800;
-      box-shadow: 0 2px 10px rgba(210, 153, 34, 0.4);
-    }
-    .btn-dock-play:hover {
-      background: var(--gold-light);
-      transform: scale(1.05);
-    }
-    .dock-speed {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-size: 0.76rem;
-      font-weight: 600;
-      border-radius: 6px;
-      padding: 6px 6px;
-      min-height: 38px;
-      cursor: pointer;
-    }
-    .book-nav-item:focus-visible,
-    .series-chip:focus-visible,
-    .btn-dock:focus-visible,
-    .btn-play-sm:focus-visible,
-    .tab-btn:focus-visible,
-    .source-btn:focus-visible,
-    .dock-speed:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 2px;
-    }
-
-    /* Mobile Responsive Breakpoints */
-    @media (max-width: 860px) {
-      .main-layout {
-        flex-direction: column;
-      }
-      .catalog-sidebar {
-        display: none; /* Replaced by top mobile chip bar */
-      }
-      .mobile-series-bar {
-        display: flex;
-      }
-      .content-area {
-        padding: 16px;
-        gap: 18px;
-      }
-      .book-hero {
-        flex-direction: column;
-        padding: 18px;
-        gap: 16px;
-      }
-      .hero-controls {
-        align-items: stretch;
-        width: 100%;
-      }
-      .source-selector {
-        width: 100%;
-        display: flex;
-      }
-      .source-btn {
-        flex: 1;
-        text-align: center;
-      }
-      .hero-title {
-        font-size: 1.45rem;
-      }
-      .reader-pane {
-        padding: 20px 16px;
-        font-size: 1.05rem;
-      }
-      .nav-link-btn {
-        display: none;
-      }
-      .ch-title {
-        font-size: 0.92rem;
-      }
-      .dock-main {
-        gap: 12px;
-      }
-      .dock-title {
-        font-size: 0.90rem;
-      }
-      .btn-dock {
-        width: 44px;
-        height: 44px;
-        min-width: 44px;
-        min-height: 44px;
-        font-size: 0.92rem;
-        touch-action: manipulation;
-      }
-      .btn-dock-play {
-        width: 50px;
-        height: 50px;
-        min-width: 50px;
-        min-height: 50px;
-        font-size: 1.25rem;
-        touch-action: manipulation;
-      }
-      .dock-speed {
-        min-height: 44px;
-        min-width: 46px;
-        padding: 4px 6px;
-        font-size: 0.82rem;
-        touch-action: manipulation;
-      }
-      .touch-scrubber-area {
-        padding: 12px 0;
-        touch-action: none;
-      }
-    }
-
-    @media (max-width: 520px) {
-      :root {
-        --dock-h: 128px;
-      }
-      body {
-        padding-bottom: calc(var(--dock-h) + var(--safe-bottom) + 20px);
-      }
-      .dock-main {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-      }
-      .dock-info {
-        text-align: center;
-      }
-      .dock-ctrls {
-        justify-content: center;
-        gap: 8px;
-      }
-      .ch-title {
-        white-space: normal;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-      .chapter-card {
-        padding: 12px 12px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Top Imprint Bar (Aligned Navigation) -->
-  {% set active_tab = "site" %}
-{% include "partials/nav.html" %}
-
+{% block content %}
+<div class="flex-1 flex flex-col pb-36 sm:pb-32">
   <!-- Mobile Top Series Selector Chips -->
-  <div class="mobile-series-bar" id="mobile-series-bar">
+  <div class="lg:hidden flex items-center gap-2 overflow-x-auto px-4 py-3 bg-stone-900 border-b border-stone-800 scrollbar-none" id="mobile-series-bar">
     <!-- Populated by JS -->
   </div>
 
-  <div class="main-layout">
+  <div class="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-6 items-start">
     <!-- Desktop Sidebar: Multi-Series Catalog -->
-    <aside class="catalog-sidebar">
-      <div>
-        <div class="section-label">Select Series & Volume</div>
-        <div class="book-list" id="book-nav-list">
-          <!-- Populated by JS -->
-        </div>
+    <aside id="catalog-list" class="hidden lg:flex flex-col bg-stone-900/60 rounded-2xl border border-stone-800 p-4 space-y-4 sticky top-20 max-h-[calc(100vh-120px)] overflow-y-auto">
+      <div class="space-y-1">
+        <div class="text-xs font-mono uppercase tracking-wider text-amber-400 font-bold px-2">Catalog &amp; Volumes</div>
+        <p class="text-xs font-serif text-stone-400 px-2 leading-relaxed">Select a series and book volume to inspect preprints and listen to narration.</p>
       </div>
 
-      <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); font-size: 0.74rem; color: var(--text-muted); line-height: 1.5;">
-        <p><strong style="color: var(--gold);">Epistemic Contract:</strong> OKF v0.2 atomic evidence cards, 3-lens calibration, 0% padding guarantee.</p>
+      <div class="book-list space-y-2" id="book-nav-list">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="mt-auto pt-4 border-t border-stone-800 text-xs font-mono text-stone-400 space-y-1">
+        <p><strong class="text-amber-400 font-semibold">Epistemic Contract:</strong> OKF v0.2 atomic evidence cards, 3-lens calibration, 0% padding guarantee.</p>
       </div>
     </aside>
 
     <!-- Main Content Area -->
-    <main class="content-area">
+    <main class="space-y-8 min-w-0">
       <!-- Book Hero Section -->
-      <section class="book-hero">
-        <div class="hero-meta">
-          <div class="hero-badge" id="hero-badge">Series Title</div>
-          <h2 class="hero-title" id="hero-title">Book Title</h2>
-          <p class="hero-subtitle" id="hero-subtitle">Subtitle</p>
-          <div class="hero-tags" id="hero-tags">
-            <span id="hero-stat-chapters">0 chapters</span>
-            <span>•</span>
-            <span id="hero-stat-words">0 words</span>
-            <span>•</span>
-            <span id="hero-stat-audio">Audio available</span>
+      <section class="bg-gradient-to-br from-stone-900 via-stone-900 to-stone-950 rounded-2xl border border-stone-800 p-6 sm:p-8 relative overflow-hidden shadow-xl">
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+          <div class="space-y-3 max-w-3xl">
+            <span id="hero-badge" class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-medium bg-amber-500/10 text-amber-400 border border-amber-500/30">
+              Series Title
+            </span>
+            <h1 id="hero-title" class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-stone-100 tracking-tight leading-tight">
+              Book Title
+            </h1>
+            <p id="hero-subtitle" class="font-serif text-sm sm:text-base text-stone-300 leading-relaxed">
+              Subtitle
+            </p>
+            <div class="flex flex-wrap items-center gap-2 pt-2 text-xs font-mono text-stone-400" id="hero-tags">
+              <span id="hero-stat-chapters" class="px-2.5 py-1 rounded bg-stone-950 border border-stone-800">0 chapters</span>
+              <span class="text-stone-400">•</span>
+              <span id="hero-stat-words" class="px-2.5 py-1 rounded bg-stone-950 border border-stone-800">0 words</span>
+              <span class="text-stone-400">•</span>
+              <span id="hero-stat-audio" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-950/40 text-emerald-400 border border-emerald-500/30">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                Audio Narration Active
+              </span>
+            </div>
           </div>
-        </div>
-        <div class="hero-controls">
-          <div class="source-selector">
-            <button class="source-btn active" id="btn-src-online" onclick="setSource('online')">Cloud Stream</button>
-            <button class="source-btn" id="btn-src-local" onclick="setSource('local')">Local Audio</button>
+
+          <!-- Hero Source Selector Controls -->
+          <div class="shrink-0 flex sm:flex-col items-center sm:items-end gap-2 bg-stone-950/60 p-2 sm:p-3 rounded-xl border border-stone-800/80">
+            <span class="text-[11px] font-mono text-stone-400 uppercase tracking-wider block mb-1">Audio Source</span>
+            <div class="flex items-center gap-1.5">
+              <button type="button" id="btn-src-online" onclick="setSource('online')" aria-label="Use cloud stream audio source" class="source-btn min-h-[44px] min-w-[44px] px-3 py-2 rounded-lg font-mono text-xs font-semibold border transition inline-flex items-center justify-center bg-amber-500/20 text-amber-400 border-amber-500/50">
+                Cloud Stream
+              </button>
+              <button type="button" id="btn-src-local" onclick="setSource('local')" aria-label="Use local audio source" class="source-btn min-h-[44px] min-w-[44px] px-3 py-2 rounded-lg font-mono text-xs font-semibold border transition inline-flex items-center justify-center bg-stone-900 text-stone-400 border-stone-800 hover:text-stone-200">
+                Local Audio
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- View Selector (Playlist vs Reader Mode) -->
-      <div class="view-tabs">
-        <button class="tab-btn active" id="tab-playlist" onclick="switchView('playlist')">
+      <div class="flex items-center gap-2 border-b border-stone-800 pb-3">
+        <button type="button" id="tab-playlist" onclick="switchView('playlist')" aria-label="Show chapter playlist view" class="tab-btn min-h-[44px] min-w-[44px] px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-medium border transition inline-flex items-center gap-2 bg-stone-800 text-amber-400 border-amber-500/50 shadow-sm">
           <span>🎧</span>
           <span>Chapter Playlist</span>
         </button>
-        <button class="tab-btn" id="tab-reader" onclick="switchView('reader')">
+        <button type="button" id="tab-reader" onclick="switchView('reader')" aria-label="Show synchronized reader view" class="tab-btn min-h-[44px] min-w-[44px] px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-medium border transition inline-flex items-center gap-2 bg-stone-900 text-stone-400 border-stone-800 hover:text-stone-200">
           <span>📖</span>
           <span>Synchronized Reader</span>
         </button>
       </div>
 
       <!-- Playlist View -->
-      <section class="playlist" id="playlist-view">
+      <section id="playlist-view" class="space-y-3">
         <!-- Rendered by JS -->
       </section>
 
       <!-- Reader View -->
-      <section class="reader-pane" id="reader-view">
-        <div class="reader-header" id="reader-header">
+      <section id="reader-view" class="hidden space-y-4">
+        <div id="reader-header" class="p-4 rounded-xl bg-stone-900 border border-stone-800">
           <!-- Rendered by JS -->
         </div>
-        <div id="reader-content">
+        <div id="reader-content" class="p-6 sm:p-8 rounded-2xl bg-stone-900/60 border border-stone-800 font-serif text-stone-300 leading-relaxed space-y-4 prose prose-invert max-w-none">
           Select a chapter to read alongside the audio narration.
         </div>
       </section>
 
-      <!-- Marketing & Serial-Membership Foundation -->
-      <section class="patreon-blueprint">
-        <div class="patreon-header">
-          <h3 class="patreon-title">Reader Community & Serialization Blueprint</h3>
-          <span style="font-size: 0.74rem; color: var(--gold); font-weight: 700; text-transform: uppercase;">Owned Marketing Site</span>
+      <!-- Public Evidence Briefs Showcase Grid -->
+      <section id="evidence-briefs-section" class="pt-6 border-t border-stone-800 space-y-5">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-wider text-amber-400 font-bold block">Open Knowledge Format (OKF v0.2)</span>
+            <h2 class="font-serif text-xl sm:text-2xl font-bold text-stone-100">Public Evidence Briefs</h2>
+          </div>
+          <span class="text-xs font-mono text-stone-400">
+            {% if evidence_briefs %}{{ evidence_briefs|length }}{% else %}0{% endif %} Verified Briefs Available
+          </span>
         </div>
-        <div class="tier-cards">
-          <div class="tier-card">
-            <h4>1. Public Evidence Briefs</h4>
-            <p>Freely available 2-page synthesis briefs distilled from stable OKF v0.2 cards for top-of-funnel organic search.</p>
-            <div class="tier-links">
-              <a href="https://github.com/ralfcam/realized-press/releases/download/v1.0-rc1/parenthood-atlas-evidence-briefs-compendium.pdf" target="_blank">Download Compendium PDF →</a>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {% if evidence_briefs %}
+            {% for brief in evidence_briefs %}
+              <div class="p-5 rounded-xl bg-stone-900/70 border border-stone-800 hover:border-stone-700 transition flex flex-col justify-between gap-4">
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-mono font-medium
+                      {% if 'high' in brief.grade|lower %}bg-emerald-950/80 text-emerald-400 border border-emerald-500/40
+                      {% elif 'mod' in brief.grade|lower %}bg-amber-950/80 text-amber-400 border border-amber-500/40
+                      {% else %}bg-rose-950/80 text-rose-400 border border-rose-500/40{% endif %}">
+                      <span class="w-1.5 h-1.5 rounded-full {% if 'high' in brief.grade|lower %}bg-emerald-400{% elif 'mod' in brief.grade|lower %}bg-amber-400{% else %}bg-rose-400{% endif %}"></span>
+                      {{ brief.grade|capitalize }}
+                    </span>
+                    <span class="text-[11px] font-mono text-stone-400 uppercase tracking-wider">{{ brief.series_slug }}</span>
+                  </div>
+                  <h3 class="font-serif font-bold text-base text-stone-100 line-clamp-2">{{ brief.title }}</h3>
+                  <p class="font-serif text-xs text-stone-300 line-clamp-3 leading-relaxed">{{ brief.snippet }}</p>
+                </div>
+                <div class="pt-3 border-t border-stone-800/80 flex items-center justify-between gap-2">
+                  <button type="button"
+                          hx-get="/hx/brief/{{ brief.series_slug }}/{{ brief.card_slug }}"
+                          hx-target="#brief-drawer"
+                          hx-swap="innerHTML"
+                          aria-label="Inspect evidence brief for {{ brief.title }}"
+                          class="min-h-[44px] min-w-[44px] inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 text-xs font-mono font-semibold border border-amber-500/30 hover:border-amber-500/50 transition">
+                    <span>Inspect Brief</span>
+                    <span>→</span>
+                  </button>
+                  <span class="text-[11px] font-mono text-stone-400 truncate">card: {{ brief.card_slug }}</span>
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <div class="p-6 rounded-xl bg-stone-900 border border-stone-800 text-center font-serif text-stone-400 text-sm col-span-2">
+              No evidence briefs currently indexed in this view.
+            </div>
+          {% endif %}
+        </div>
+      </section>
+
+      <!-- Marketing & Serialization Blueprint (Reader Community) -->
+      <section class="pt-6 border-t border-stone-800 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h2 class="font-serif text-xl sm:text-2xl font-bold text-stone-100">Reader Community &amp; Serialization Blueprint</h2>
+            <p class="font-serif text-xs text-stone-400 mt-1">Direct-to-reader monetization and unpadded peer review editions.</p>
+          </div>
+          <span class="text-xs font-mono text-amber-400 uppercase tracking-wider font-semibold">Owned Marketing Site</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="p-5 rounded-xl bg-stone-900/60 border border-stone-800 flex flex-col justify-between gap-4">
+            <div class="space-y-2">
+              <span class="text-xs font-mono text-amber-400 uppercase tracking-wider font-bold block">Tier 1</span>
+              <h3 class="font-serif font-bold text-base text-stone-100">Public Evidence Briefs</h3>
+              <p class="font-serif text-xs text-stone-300 leading-relaxed">
+                Freely available 2-page synthesis briefs distilled from stable OKF v0.2 cards for top-of-funnel organic search.
+              </p>
+            </div>
+            <div class="pt-2">
+              <a href="https://github.com/ralfcam/realized-press/releases/download/v1.0-rc1/parenthood-atlas-evidence-briefs-compendium.pdf"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Download Compendium PDF"
+                 class="min-h-[44px] min-w-[44px] inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 text-xs font-mono transition border border-stone-700/60">
+                <span>Download Compendium PDF</span>
+                <span>→</span>
+              </a>
             </div>
           </div>
-          <div class="tier-card">
-            <h4>2. Core Serial Chapters & Audio</h4>
-            <p>Early access chapter preprints, audio drops (Gemini Flash TTS), and developmental fact-check dossiers.</p>
-            <div class="tier-links">
-              <a href="https://github.com/ralfcam/realized-press/releases/download/v1.0-rc1/01-before-the-child-is-born.mp3" target="_blank">Stream Ch 1 MP3 →</a>
+
+          <div class="p-5 rounded-xl bg-stone-900/60 border border-stone-800 flex flex-col justify-between gap-4">
+            <div class="space-y-2">
+              <span class="text-xs font-mono text-amber-400 uppercase tracking-wider font-bold block">Tier 2</span>
+              <h3 class="font-serif font-bold text-base text-stone-100">Core Serial Chapters &amp; Audio</h3>
+              <p class="font-serif text-xs text-stone-300 leading-relaxed">
+                Early access chapter preprints, audio drops (Gemini Flash TTS), and developmental fact-check dossiers.
+              </p>
+            </div>
+            <div class="pt-2">
+              <a href="https://github.com/ralfcam/realized-press/releases/download/v1.0-rc1/01-before-the-child-is-born.mp3"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Stream Chapter 1 MP3 audio file"
+                 class="min-h-[44px] min-w-[44px] inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 text-xs font-mono transition border border-stone-700/60">
+                <span>Stream Ch 1 MP3</span>
+                <span>→</span>
+              </a>
             </div>
           </div>
-          <div class="tier-card">
-            <h4>3. Insider Reader Edition</h4>
-            <p>Complete unpadded review editions (PDF + EPUB 3) and direct feedback loop into Amazon KDP release locks.</p>
-            <div class="tier-links">
-              <a href="https://github.com/ralfcam/realized-press/releases/download/v1.0-rc1/parenthood-atlas-reader-edition.pdf" target="_blank">Reader Edition PDF →</a>
+
+          <div class="p-5 rounded-xl bg-stone-900/60 border border-stone-800 flex flex-col justify-between gap-4">
+            <div class="space-y-2">
+              <span class="text-xs font-mono text-amber-400 uppercase tracking-wider font-bold block">Tier 3</span>
+              <h3 class="font-serif font-bold text-base text-stone-100">Insider Reader Edition</h3>
+              <p class="font-serif text-xs text-stone-300 leading-relaxed">
+                Complete unpadded review editions (PDF + EPUB 3) and direct feedback loop into Amazon KDP release locks.
+              </p>
+            </div>
+            <div class="pt-2">
+              <a href="https://github.com/ralfcam/realized-press/releases/download/v1.0-rc1/parenthood-atlas-reader-edition.pdf"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Download Reader Edition PDF"
+                 class="min-h-[44px] min-w-[44px] inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 text-xs font-mono transition border border-stone-700/60">
+                <span>Reader Edition PDF</span>
+                <span>→</span>
+              </a>
             </div>
           </div>
         </div>
       </section>
     </main>
   </div>
+</div>
 
-  <!-- Persistent Bottom Player Dock -->
-  <footer class="player-dock">
-    <div class="dock-inner">
-      <!-- Touch-Friendly Full-Width Progress Scrubber -->
-      <div class="dock-progress-row">
-        <span id="time-cur">0:00</span>
-        <div class="touch-scrubber-area" id="scrubber-area" onclick="seek(event)" role="slider" tabindex="0" aria-label="Audio playback scrubber" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0:00 of 0:00">
-          <div class="bar-bg">
-            <div class="bar-fill" id="bar-fill"></div>
-          </div>
+<!-- Public Evidence Brief Slide-Over Drawer Container -->
+<div id="brief-drawer" data-brief-drawer="true" class="relative z-50"></div>
+
+<!-- HTMX Footnote Drawer Modal for Site Reader -->
+<aside id="site-footnote-drawer" class="hidden fixed bottom-28 right-6 max-w-md w-full z-50 bg-stone-900 border border-amber-500/40 rounded-xl shadow-2xl p-4 text-xs font-mono">
+  <div class="flex items-center justify-between pb-2 border-b border-stone-800 mb-2">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+      <span class="text-amber-400 font-semibold uppercase tracking-wider">OKF v0.2 Footnote Evidence</span>
+    </div>
+    <button type="button"
+            onclick="document.getElementById('site-footnote-drawer').classList.add('hidden')"
+            aria-label="Close footnote drawer"
+            class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-stone-400 hover:text-stone-100 font-bold px-2 py-0.5 rounded hover:bg-stone-800 transition">
+      ✕
+    </button>
+  </div>
+  <div id="site-footnote-content" class="text-stone-300 leading-relaxed max-h-64 overflow-y-auto pr-1">
+    Loading footnote evidence...
+  </div>
+</aside>
+
+<!-- Persistent Master Bottom Player Dock -->
+<footer id="master-audio-player" class="player-dock fixed bottom-0 left-0 right-0 z-40 bg-stone-900/95 border-t border-stone-800 backdrop-blur-md px-4 py-3 shadow-2xl">
+  <div class="max-w-7xl mx-auto space-y-2">
+    <!-- Touch-Friendly Full-Width Progress Scrubber -->
+    <div class="flex items-center gap-3">
+      <span id="time-cur" class="text-xs font-mono text-stone-400 w-12 text-right shrink-0">0:00</span>
+      <div class="touch-scrubber-area min-h-[44px] min-w-[44px] flex-1 flex items-center cursor-pointer px-1"
+           id="scrubber-area"
+           onclick="seek(event)"
+           role="slider"
+           tabindex="0"
+           aria-label="Audio playback scrubber"
+           aria-valuemin="0"
+           aria-valuemax="100"
+           aria-valuenow="0"
+           aria-valuetext="0:00 of 0:00">
+        <div class="w-full h-2 bg-stone-800 rounded-full overflow-hidden relative">
+          <div class="h-full bg-gradient-to-r from-amber-500 to-amber-400 w-0 rounded-full transition-all duration-75" id="bar-fill"></div>
         </div>
-        <span id="time-total">0:00</span>
+      </div>
+      <span id="time-total" class="text-xs font-mono text-stone-400 w-12 text-left shrink-0">0:00</span>
+    </div>
+
+    <!-- Main Dock Controls & Track Metadata -->
+    <div class="flex items-center justify-between gap-4">
+      <div class="min-w-0 flex-1">
+        <div class="font-serif font-bold text-sm sm:text-base text-stone-100 truncate" id="dock-title">
+          Select a track to play
+        </div>
+        <div class="text-xs font-mono text-stone-400 truncate" id="dock-sub">
+          Gemini 2.5 Flash TTS Narration
+        </div>
       </div>
 
-      <div class="dock-main">
-        <div class="dock-info">
-          <div class="dock-title" id="dock-title">Select a track to play</div>
-          <div class="dock-sub" id="dock-sub">Gemini 2.5 Flash TTS Narration</div>
-        </div>
-        <div class="dock-ctrls">
-          <button class="btn-dock" onclick="skip(-15)" title="Rewind 15 seconds" aria-label="Rewind 15 seconds">↺ 15s</button>
-          <button class="btn-dock btn-dock-play" id="btn-dock-play" onclick="togglePlay()" aria-label="Play or pause">▶</button>
-          <button class="btn-dock" onclick="skip(15)" title="Forward 15 seconds" aria-label="Forward 15 seconds">15s ↻</button>
-          <select class="dock-speed" id="dock-speed" onchange="setSpeed(this.value)" aria-label="Playback speed">
-            <option value="0.75">0.75x</option>
-            <option value="1.0" selected>1.0x</option>
-            <option value="1.25">1.25x</option>
-            <option value="1.5">1.5x</option>
-            <option value="1.75">1.75x</option>
-            <option value="2.0">2.0x</option>
-          </select>
-        </div>
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <button type="button"
+                onclick="skip(-15)"
+                title="Rewind 15 seconds"
+                aria-label="Rewind 15 seconds"
+                class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-stone-100 text-xs font-mono border border-stone-700/60 transition">
+          ↺ 15s
+        </button>
+
+        <button type="button"
+                id="btn-dock-play"
+                onclick="togglePlay()"
+                aria-label="Play or pause"
+                class="min-h-[44px] min-w-[44px] w-12 h-12 inline-flex items-center justify-center rounded-full bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold text-lg shadow-lg shadow-amber-500/20 transition">
+          ▶
+        </button>
+
+        <button type="button"
+                onclick="skip(15)"
+                title="Forward 15 seconds"
+                aria-label="Forward 15 seconds"
+                class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-stone-100 text-xs font-mono border border-stone-700/60 transition">
+          15s ↻
+        </button>
+
+        <select id="dock-speed"
+                onchange="setSpeed(this.value)"
+                aria-label="Playback speed"
+                class="min-h-[44px] min-w-[44px] px-2.5 py-2 rounded-lg bg-stone-800 text-stone-300 border border-stone-700 text-xs font-mono cursor-pointer hover:border-stone-600 transition">
+          <option value="0.75">0.75x</option>
+          <option value="1.0" selected>1.0x</option>
+          <option value="1.25">1.25x</option>
+          <option value="1.5">1.5x</option>
+          <option value="1.75">1.75x</option>
+          <option value="2.0">2.0x</option>
+        </select>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <audio id="audio" preload="metadata"></audio>
+<audio id="audio" preload="metadata"></audio>
+{% endblock %}
 
-  <script>
-    const catalog = {{ catalog_json | safe }};
-let currentBookIdx = 0;
-    let currentChapterIdx = 0;
-    let streamMode = 'online';
-    let currentView = 'playlist';
+{% block scripts %}
+<script>
+  const catalog = {{ catalog_json | safe }};
+  let currentBookIdx = 0;
+  let currentChapterIdx = 0;
+  let streamMode = 'online';
+  let currentView = 'playlist';
 
-    const audio = document.getElementById('audio');
-    const dockTitle = document.getElementById('dock-title');
-    const dockSub = document.getElementById('dock-sub');
-    const dockPlay = document.getElementById('btn-dock-play');
-    const timeCur = document.getElementById('time-cur');
-    const timeTotal = document.getElementById('time-total');
-    const barFill = document.getElementById('bar-fill');
+  const audio = document.getElementById('audio');
+  const dockTitle = document.getElementById('dock-title');
+  const dockSub = document.getElementById('dock-sub');
+  const dockPlay = document.getElementById('btn-dock-play');
+  const timeCur = document.getElementById('time-cur');
+  const timeTotal = document.getElementById('time-total');
+  const barFill = document.getElementById('bar-fill');
 
-    function init() {
-      const isLocalHost = ['localhost', '127.0.0.1'].includes(window.location.hostname) ||
-                          window.location.hostname.startsWith('192.168.') ||
-                          window.location.hostname.startsWith('10.') ||
-                          window.location.protocol === 'file:';
-      if (isLocalHost) {
-        streamMode = 'local';
-        const btnLocal = document.getElementById('btn-src-local');
-        const btnOnline = document.getElementById('btn-src-online');
-        if (btnLocal && btnOnline) {
-          btnLocal.classList.add('active');
-          btnOnline.classList.remove('active');
-        }
-      }
-
-      const pIdx = catalog.findIndex(b => b.id === 'parenthood-atlas');
-      if (pIdx >= 0) currentBookIdx = pIdx;
-
-      renderBookNav();
-      renderMobileChips();
-      selectBook(currentBookIdx);
-      setupMediaSession();
-      setupScrubberKeyboard();
-      setupReaderKeyboard();
-    }
-
-    function renderBookNav() {
-      const navList = document.getElementById('book-nav-list');
-      navList.innerHTML = '';
-      catalog.forEach((b, idx) => {
-        const btn = document.createElement('button');
-        btn.className = 'book-nav-item' + (idx === currentBookIdx ? ' active' : '');
-        if (idx === currentBookIdx) btn.setAttribute('aria-current', 'page');
-        btn.onclick = () => selectBook(idx);
-        btn.innerHTML = `
-          <span class="book-nav-series">${b.seriesTitle}</span>
-          <span class="book-nav-title">${b.title}</span>
-          <span class="book-nav-meta">
-            <span>${b.chapters.length} ch</span>
-            ${b.hasAudio ? '<span>• Audio live</span>' : ''}
-          </span>
-        `;
-        navList.appendChild(btn);
-      });
-    }
-
-    function renderMobileChips() {
-      const bar = document.getElementById('mobile-series-bar');
-      bar.innerHTML = '';
-      catalog.forEach((b, idx) => {
-        const chip = document.createElement('button');
-        chip.className = 'series-chip' + (idx === currentBookIdx ? ' active' : '');
-        if (idx === currentBookIdx) chip.setAttribute('aria-current', 'page');
-        chip.onclick = () => selectBook(idx);
-        chip.innerHTML = `
-          ${b.hasAudio ? '<span class="dot"></span>' : ''}
-          <span>${b.title}</span>
-        `;
-        bar.appendChild(chip);
-      });
-    }
-
-    function selectBook(idx) {
-      currentBookIdx = idx;
-      currentChapterIdx = 0;
-      renderBookNav();
-      renderMobileChips();
-      const book = catalog[idx];
-
-      document.getElementById('hero-badge').innerText = book.seriesTitle;
-      document.getElementById('hero-title').innerText = book.title;
-      document.getElementById('hero-subtitle').innerText = book.subtitle;
-      document.getElementById('hero-stat-chapters').innerText = `${book.chapters.length} chapters`;
-      const totalWords = book.chapters.reduce((sum, c) => sum + c.words, 0);
-      document.getElementById('hero-stat-words').innerText = `${totalWords.toLocaleString()} words`;
-      document.getElementById('hero-stat-audio').innerText = book.hasAudio ? 'Audio Narration Active' : 'Narration Queued';
-
-      renderPlaylist();
-      if (book.chapters.length > 0) {
-        loadTrack(0, false);
+  function init() {
+    const isLocalHost = ['localhost', '127.0.0.1'].includes(window.location.hostname) ||
+                        window.location.hostname.startsWith('192.168.') ||
+                        window.location.hostname.startsWith('10.') ||
+                        window.location.protocol === 'file:';
+    if (isLocalHost) {
+      streamMode = 'local';
+      const btnLocal = document.getElementById('btn-src-local');
+      const btnOnline = document.getElementById('btn-src-online');
+      if (btnLocal && btnOnline) {
+        btnLocal.className = 'source-btn min-h-[44px] min-w-[44px] px-3 py-2 rounded-lg font-mono text-xs font-semibold border transition inline-flex items-center justify-center bg-amber-500/20 text-amber-400 border-amber-500/50';
+        btnOnline.className = 'source-btn min-h-[44px] min-w-[44px] px-3 py-2 rounded-lg font-mono text-xs font-semibold border transition inline-flex items-center justify-center bg-stone-900 text-stone-400 border-stone-800 hover:text-stone-200';
       }
     }
 
-    function renderPlaylist() {
-      const book = catalog[currentBookIdx];
-      const container = document.getElementById('playlist-view');
-      container.innerHTML = '';
+    const pIdx = catalog.findIndex(b => b.id === 'parenthood-atlas');
+    if (pIdx >= 0) currentBookIdx = pIdx;
 
-      if (book.chapters.length === 0) {
-        container.innerHTML = `<div style="padding: 32px; text-align: center; color: var(--text-muted); background: var(--card-bg); border-radius: 8px;">Chapters currently in research & drafting phase.</div>`;
-        return;
-      }
+    renderBookNav();
+    renderMobileChips();
+    selectBook(currentBookIdx);
+    setupMediaSession();
+    setupScrubberKeyboard();
+    setupReaderKeyboard();
+  }
 
-      book.chapters.forEach((ch, idx) => {
-        const isAvailable = streamMode === 'online' ? (ch.stem === '01-before-the-child-is-born' || ch.hasLocalMp3) : (ch.hasLocalMp3 || ch.hasLocalWav);
-        const isPlaying = idx === currentChapterIdx && !audio.paused;
-        const card = document.createElement('div');
-        card.className = 'chapter-card' + (idx === currentChapterIdx ? ' active-track' : '');
-        card.setAttribute('role', 'button');
-        card.setAttribute('tabindex', '0');
-        card.setAttribute('aria-label', `Play Chapter ${ch.num}: ${ch.title}`);
-        card.onclick = () => {
+  function renderBookNav() {
+    const navList = document.getElementById('book-nav-list');
+    if (!navList) return;
+    navList.innerHTML = '';
+    catalog.forEach((b, idx) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      const isActive = idx === currentBookIdx;
+      btn.className = `book-nav-item min-h-[44px] min-w-[44px] w-full text-left p-3 rounded-xl border transition flex flex-col gap-1 ${
+        isActive
+          ? 'bg-stone-800 border-amber-500/50 text-stone-100 shadow-sm'
+          : 'bg-stone-900/40 border-stone-800/80 text-stone-300 hover:bg-stone-800/60 hover:text-stone-100'
+      }`;
+      if (isActive) btn.setAttribute('aria-current', 'page');
+      btn.onclick = () => selectBook(idx);
+      btn.innerHTML = `
+        <span class="text-[11px] font-mono uppercase tracking-wider text-amber-400/90 font-semibold">${b.seriesTitle}</span>
+        <span class="font-serif font-bold text-sm text-stone-100">${b.title}</span>
+        <span class="text-[11px] font-mono text-stone-400 flex items-center gap-2">
+          <span>${b.chapters.length} ch</span>
+          ${b.hasAudio ? '<span>• Audio live</span>' : ''}
+        </span>
+      `;
+      navList.appendChild(btn);
+    });
+  }
+
+  function renderMobileChips() {
+    const bar = document.getElementById('mobile-series-bar');
+    if (!bar) return;
+    bar.innerHTML = '';
+    catalog.forEach((b, idx) => {
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      const isActive = idx === currentBookIdx;
+      chip.className = `series-chip min-h-[44px] min-w-[44px] px-4 py-2 rounded-full text-xs font-mono border transition flex items-center gap-2 shrink-0 ${
+        isActive
+          ? 'bg-amber-500/20 text-amber-400 border-amber-500/60 font-semibold'
+          : 'bg-stone-900 text-stone-300 border-stone-800 hover:border-stone-700'
+      }`;
+      if (isActive) chip.setAttribute('aria-current', 'page');
+      chip.onclick = () => selectBook(idx);
+      chip.innerHTML = `
+        ${b.hasAudio ? '<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>' : ''}
+        <span>${b.title}</span>
+      `;
+      bar.appendChild(chip);
+    });
+  }
+
+  function selectBook(idx) {
+    currentBookIdx = idx;
+    currentChapterIdx = 0;
+    renderBookNav();
+    renderMobileChips();
+    const book = catalog[idx];
+    if (!book) return;
+
+    const heroBadge = document.getElementById('hero-badge');
+    const heroTitle = document.getElementById('hero-title');
+    const heroSubtitle = document.getElementById('hero-subtitle');
+    const heroChapters = document.getElementById('hero-stat-chapters');
+    const heroWords = document.getElementById('hero-stat-words');
+    const heroAudio = document.getElementById('hero-stat-audio');
+
+    if (heroBadge) heroBadge.innerText = book.seriesTitle;
+    if (heroTitle) heroTitle.innerText = book.title;
+    if (heroSubtitle) heroSubtitle.innerText = book.subtitle;
+    if (heroChapters) heroChapters.innerText = `${book.chapters.length} chapters`;
+
+    const totalWords = book.chapters.reduce((sum, c) => sum + (c.words || 0), 0);
+    if (heroWords) heroWords.innerText = `${totalWords.toLocaleString()} words`;
+    if (heroAudio) {
+      heroAudio.innerHTML = book.hasAudio
+        ? '<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Audio Narration Active'
+        : '<span class="w-1.5 h-1.5 rounded-full bg-stone-400"></span>Narration Queued';
+    }
+
+    renderPlaylist();
+    if (book.chapters.length > 0) {
+      loadTrack(0, false);
+    }
+  }
+
+  function renderPlaylist() {
+    const book = catalog[currentBookIdx];
+    const container = document.getElementById('playlist-view');
+    if (!container || !book) return;
+    container.innerHTML = '';
+
+    if (book.chapters.length === 0) {
+      container.innerHTML = `<div class="p-8 text-center text-stone-400 bg-stone-900/60 rounded-xl border border-stone-800 font-serif">Chapters currently in research &amp; drafting phase.</div>`;
+      return;
+    }
+
+    book.chapters.forEach((ch, idx) => {
+      const isAvailable = streamMode === 'online' ? (ch.stem === '01-before-the-child-is-born' || ch.hasLocalMp3) : (ch.hasLocalMp3 || ch.hasLocalWav);
+      const isPlaying = idx === currentChapterIdx && !audio.paused;
+      const isSelected = idx === currentChapterIdx;
+
+      const card = document.createElement('div');
+      card.className = `chapter-card min-h-[44px] min-w-[44px] p-4 rounded-xl border transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 cursor-pointer ${
+        isSelected
+          ? 'bg-stone-900 border-amber-500/50 shadow-md'
+          : 'bg-stone-900/50 border-stone-800/80 hover:bg-stone-900 hover:border-stone-700'
+      }`;
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-label', `Play Chapter ${ch.num}: ${ch.title}`);
+      card.onclick = () => {
+        loadTrack(idx, isAvailable);
+        if (currentView === 'reader') updateReader();
+      };
+      card.onkeydown = (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
           loadTrack(idx, isAvailable);
           if (currentView === 'reader') updateReader();
-        };
-        card.onkeydown = (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            loadTrack(idx, isAvailable);
-            if (currentView === 'reader') updateReader();
-          }
-        };
-        card.innerHTML = `
-          <div class="ch-left">
-            <div class="ch-num">${String(ch.num).padStart(2, '0')}</div>
-            <div style="min-width: 0;">
-              <div class="ch-title">
-                ${ch.title}
-                ${isPlaying ? '<span class="eq-bars"><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span></span>' : ''}
-              </div>
-              <div class="ch-meta">
-                <span>${ch.words.toLocaleString()} words</span>
-                <span>•</span>
-                <span>~${ch.minutes} min</span>
-              </div>
+        }
+      };
+
+      card.innerHTML = `
+        <div class="flex items-center gap-3 min-w-0">
+          <div class="w-10 h-10 rounded-lg bg-stone-950 border border-stone-800 flex items-center justify-center font-mono font-bold text-xs text-amber-400 shrink-0">
+            ${String(ch.num).padStart(2, '0')}
+          </div>
+          <div class="min-w-0 space-y-1">
+            <div class="font-serif font-bold text-stone-100 text-sm sm:text-base flex items-center gap-1.5 flex-wrap">
+              <span class="truncate">${ch.title}</span>
+              ${isPlaying ? '<span class="eq-bars"><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span></span>' : ''}
+            </div>
+            <div class="text-xs font-mono text-stone-400 flex items-center gap-2">
+              <span>${ch.words ? ch.words.toLocaleString() : 0} words</span>
+              <span>•</span>
+              <span>~${ch.minutes || 0} min</span>
             </div>
           </div>
-          <div class="ch-right">
-            <a href="/read/${book.id}/${ch.stem}" class="nav-link-btn" style="border: 1px solid var(--border); padding: 5px 9px; border-radius: 6px; font-size: 0.72rem; text-decoration: none;" onclick="event.stopPropagation();" title="Open in 2-Pane Epistemic Reader">Reader ↗</a>
-            ${isAvailable
-              ? '<span class="pill pill-live">Audio Ready</span>'
-              : '<span class="pill pill-queue">Queued</span>'}
-            <button class="btn-play-sm" ${!isAvailable ? 'disabled' : ''} aria-label="${isPlaying ? 'Pause' : 'Play'} Chapter ${ch.num}">
-              ${isPlaying ? '⏸' : '▶'}
-            </button>
-          </div>
-        `;
-        container.appendChild(card);
-      });
+        </div>
+        <div class="flex items-center gap-2 shrink-0 self-end sm:self-center">
+          <a href="/read/${book.id}/${ch.stem}"
+             onclick="event.stopPropagation();"
+             title="Open in 2-Pane Epistemic Reader"
+             aria-label="Open Chapter ${ch.num} in Reader"
+             class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-3 py-2 rounded-lg bg-stone-800 hover:bg-stone-700 border border-stone-700/80 text-xs font-mono text-stone-300 hover:text-amber-400 transition">
+            Reader ↗
+          </a>
+          <span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono ${
+            isAvailable
+              ? 'bg-emerald-950/60 text-emerald-400 border border-emerald-500/30'
+              : 'bg-stone-950 text-stone-400 border border-stone-800'
+          }">
+            ${isAvailable ? 'Audio Ready' : 'Queued'}
+          </span>
+          <button type="button"
+                  ${!isAvailable ? 'disabled' : ''}
+                  aria-label="${isPlaying ? 'Pause' : 'Play'} Chapter ${ch.num}"
+                  class="min-h-[44px] min-w-[44px] w-11 h-11 inline-flex items-center justify-center rounded-lg ${
+                    isAvailable
+                      ? 'bg-amber-500/20 text-amber-400 border border-amber-500/40 hover:bg-amber-500/30'
+                      : 'bg-stone-950 text-stone-400 border border-stone-800 cursor-not-allowed opacity-50'
+                  } text-sm transition">
+            ${isPlaying ? '⏸' : '▶'}
+          </button>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  function loadTrack(idx, autoPlay = false) {
+    currentChapterIdx = idx;
+    const book = catalog[currentBookIdx];
+    if (!book) return;
+    const ch = book.chapters[idx];
+    if (!ch) return;
+
+    if (dockTitle) dockTitle.innerText = `${String(ch.num).padStart(2, '0')}. ${ch.title}`;
+    let url = streamMode === 'online' ? ch.onlineUrl : ch.localUrl;
+    if (streamMode === 'local' && url && !url.startsWith('/') && !url.startsWith('http')) {
+      if (window.location.pathname.startsWith('/site')) {
+        url = '/site/' + url;
+      }
+    }
+    audio.src = url || '';
+    if (dockSub) {
+      dockSub.innerText = streamMode === 'online'
+        ? `${book.title} · Online Stream`
+        : `${book.title} · Local Audio`;
     }
 
-    function loadTrack(idx, autoPlay = false) {
-      currentChapterIdx = idx;
-      const book = catalog[currentBookIdx];
-      const ch = book.chapters[idx];
-      if (!ch) return;
+    updateMediaSessionMetadata(ch, book);
 
-      dockTitle.innerText = `${String(ch.num).padStart(2, '0')}. ${ch.title}`;
-      let url = streamMode === 'online' ? ch.onlineUrl : ch.localUrl;
-      if (streamMode === 'local' && !url.startsWith('/') && !url.startsWith('http')) {
-        if (window.location.pathname.startsWith('/site')) {
-          url = '/site/' + url;
-        }
-      }
-      audio.src = url;
-      dockSub.innerText = streamMode === 'online' ? `${book.title} · Online Stream` : `${book.title} · Local Audio`;
-
-      updateMediaSessionMetadata(ch, book);
-
-      if (autoPlay) {
-        audio.play().catch(e => console.log('Autoplay handled:', e));
-      }
-      renderPlaylist();
-      updateReader();
+    if (autoPlay && url) {
+      audio.play().catch(e => console.log('Autoplay handled:', e));
     }
+    renderPlaylist();
+    updateReader();
+  }
 
-    function togglePlay() {
-      if (!audio.src) {
-        loadTrack(0, true);
-        return;
-      }
-      if (audio.paused) {
-        audio.play();
+  function togglePlay() {
+    if (!audio.src) {
+      loadTrack(0, true);
+      return;
+    }
+    if (audio.paused) {
+      audio.play().catch(e => console.log('Play handled:', e));
+    } else {
+      audio.pause();
+    }
+  }
+
+  function skip(sec) {
+    if (audio.duration) {
+      audio.currentTime = Math.max(0, Math.min(audio.duration, audio.currentTime + sec));
+    }
+  }
+
+  function setSpeed(spd) {
+    audio.playbackRate = parseFloat(spd);
+  }
+
+  function setSource(mode) {
+    streamMode = mode;
+    const btnOnline = document.getElementById('btn-src-online');
+    const btnLocal = document.getElementById('btn-src-local');
+    if (btnOnline && btnLocal) {
+      if (mode === 'online') {
+        btnOnline.className = 'source-btn min-h-[44px] min-w-[44px] px-3 py-2 rounded-lg font-mono text-xs font-semibold border transition inline-flex items-center justify-center bg-amber-500/20 text-amber-400 border-amber-500/50';
+        btnLocal.className = 'source-btn min-h-[44px] min-w-[44px] px-3 py-2 rounded-lg font-mono text-xs font-semibold border transition inline-flex items-center justify-center bg-stone-900 text-stone-400 border-stone-800 hover:text-stone-200';
       } else {
-        audio.pause();
+        btnLocal.className = 'source-btn min-h-[44px] min-w-[44px] px-3 py-2 rounded-lg font-mono text-xs font-semibold border transition inline-flex items-center justify-center bg-amber-500/20 text-amber-400 border-amber-500/50';
+        btnOnline.className = 'source-btn min-h-[44px] min-w-[44px] px-3 py-2 rounded-lg font-mono text-xs font-semibold border transition inline-flex items-center justify-center bg-stone-900 text-stone-400 border-stone-800 hover:text-stone-200';
       }
     }
+    renderPlaylist();
+    if (audio.src) {
+      loadTrack(currentChapterIdx, !audio.paused);
+    }
+  }
 
-    function skip(sec) {
-      if (audio.duration) {
-        audio.currentTime = Math.max(0, Math.min(audio.duration, audio.currentTime + sec));
+  function switchView(view) {
+    currentView = view;
+    const tabPlaylist = document.getElementById('tab-playlist');
+    const tabReader = document.getElementById('tab-reader');
+    const playlistView = document.getElementById('playlist-view');
+    const readerView = document.getElementById('reader-view');
+
+    if (tabPlaylist && tabReader && playlistView && readerView) {
+      if (view === 'playlist') {
+        tabPlaylist.className = 'tab-btn min-h-[44px] min-w-[44px] px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-medium border transition inline-flex items-center gap-2 bg-stone-800 text-amber-400 border-amber-500/50 shadow-sm';
+        tabReader.className = 'tab-btn min-h-[44px] min-w-[44px] px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-medium border transition inline-flex items-center gap-2 bg-stone-900 text-stone-400 border-stone-800 hover:text-stone-200';
+        playlistView.classList.remove('hidden');
+        readerView.classList.add('hidden');
+      } else {
+        tabReader.className = 'tab-btn min-h-[44px] min-w-[44px] px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-medium border transition inline-flex items-center gap-2 bg-stone-800 text-amber-400 border-amber-500/50 shadow-sm';
+        tabPlaylist.className = 'tab-btn min-h-[44px] min-w-[44px] px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-medium border transition inline-flex items-center gap-2 bg-stone-900 text-stone-400 border-stone-800 hover:text-stone-200';
+        playlistView.classList.add('hidden');
+        readerView.classList.remove('hidden');
+        updateReader();
       }
     }
+  }
 
-    function setSpeed(spd) {
-      audio.playbackRate = parseFloat(spd);
-    }
+  function updateReader() {
+    const book = catalog[currentBookIdx];
+    if (!book) return;
+    const ch = book.chapters[currentChapterIdx];
+    if (!ch) return;
 
-    function setSource(mode) {
-      streamMode = mode;
-      document.getElementById('btn-src-online').classList.toggle('active', mode === 'online');
-      document.getElementById('btn-src-local').classList.toggle('active', mode === 'local');
-      renderPlaylist();
-      if (audio.src) {
-        loadTrack(currentChapterIdx, !audio.paused);
-      }
-    }
-
-    function switchView(view) {
-      currentView = view;
-      document.getElementById('tab-playlist').classList.toggle('active', view === 'playlist');
-      document.getElementById('tab-reader').classList.toggle('active', view === 'reader');
-      document.getElementById('playlist-view').style.display = view === 'playlist' ? 'flex' : 'none';
-      document.getElementById('reader-view').classList.toggle('active', view === 'reader');
-      if (view === 'reader') updateReader();
-    }
-
-    function updateReader() {
-      const book = catalog[currentBookIdx];
-      const ch = book.chapters[currentChapterIdx];
-      if (!ch) return;
-
-      document.getElementById('reader-header').innerHTML = `
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
-          <span style="font-size: 0.76rem; color: var(--gold); text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em;">
+    const readerHeader = document.getElementById('reader-header');
+    if (readerHeader) {
+      readerHeader.innerHTML = `
+        <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
+          <span class="text-xs font-mono uppercase font-bold tracking-wider text-amber-400">
             ${book.title} · Chapter ${ch.num} of ${book.chapters.length}
           </span>
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <button id="btn-autoscroll" onclick="toggleAutoScroll()" class="sync-indicator">📜 Auto-Scroll: ON</button>
-            <button onclick="switchView('playlist')" style="background: transparent; border: 1px solid var(--border); color: var(--text-muted); border-radius: 6px; padding: 4px 10px; font-size: 0.76rem; font-weight: 600; cursor: pointer;">
+          <div class="flex items-center gap-2">
+            <button type="button"
+                    id="btn-autoscroll"
+                    onclick="toggleAutoScroll()"
+                    aria-label="Toggle text auto-scrolling"
+                    class="min-h-[44px] min-w-[44px] px-3 py-1.5 rounded-lg bg-stone-800 border border-stone-700 text-xs font-mono text-stone-200 inline-flex items-center justify-center">
+              📜 Auto-Scroll: ON
+            </button>
+            <button type="button"
+                    onclick="switchView('playlist')"
+                    aria-label="Return to chapter playlist"
+                    class="min-h-[44px] min-w-[44px] px-3 py-1.5 rounded-lg bg-stone-800 border border-stone-700 text-xs font-mono text-stone-400 hover:text-stone-100 transition inline-flex items-center justify-center">
               ← Playlist
             </button>
           </div>
         </div>
-        <div style="font-size: 0.82rem; color: var(--text-muted); display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
-          <span>${ch.words.toLocaleString()} words</span>
+        <div class="text-xs font-mono text-stone-400 flex gap-2 flex-wrap items-center">
+          <span>${ch.words ? ch.words.toLocaleString() : 0} words</span>
           <span>•</span>
-          <span>~${ch.minutes} min narration</span>
-          ${ch.hasLocalMp3 || ch.stem === '01-before-the-child-is-born' ? '<span>• 🎧 Narration Live (Tap any text to jump audio)</span>' : ''}
+          <span>~${ch.minutes || 0} min narration</span>
+          ${ch.hasLocalMp3 || ch.stem === '01-before-the-child-is-born' ? '<span>• 🎧 Narration Live (Tap text to jump audio)</span>' : ''}
         </div>
       `;
-      const readerContent = document.getElementById('reader-content');
-      readerContent.innerHTML = ch.transcriptHtml;
+    }
 
+    const readerContent = document.getElementById('reader-content');
+    if (readerContent) {
+      readerContent.innerHTML = ch.transcriptHtml || 'Transcript not yet rendered for this chapter.';
       if (window.renderMathInElement) {
         renderMathInElement(readerContent, {
           delimiters: [
@@ -1481,258 +727,244 @@ let currentBookIdx = 0;
         });
       }
     }
+  }
 
-    function formatTime(s) {
-      if (isNaN(s)) return "0:00";
-      const m = Math.floor(s / 60);
-      const rem = Math.floor(s % 60);
-      return `${m}:${rem < 10 ? '0' : ''}${rem}`;
+  function formatTime(s) {
+    if (isNaN(s)) return "0:00";
+    const m = Math.floor(s / 60);
+    const rem = Math.floor(s % 60);
+    return `${m}:${rem < 10 ? '0' : ''}${rem}`;
+  }
+
+  function seek(e) {
+    const scrubber = document.getElementById('scrubber-area');
+    if (!scrubber) return;
+    const rect = scrubber.getBoundingClientRect();
+    const pos = (e.clientX - rect.left) / rect.width;
+    if (audio.duration) {
+      audio.currentTime = Math.max(0, Math.min(audio.duration, pos * audio.duration));
     }
+  }
 
-    function seek(e) {
-      const rect = document.getElementById('scrubber-area').getBoundingClientRect();
-      const pos = (e.clientX - rect.left) / rect.width;
-      if (audio.duration) {
-        audio.currentTime = Math.max(0, Math.min(audio.duration, pos * audio.duration));
-      }
-    }
-
-    /* MediaSession API for Native Mobile Lock Screen & Control Center */
-    function setupMediaSession() {
-      if ('mediaSession' in navigator) {
-        navigator.mediaSession.setActionHandler('play', () => audio.play());
-        navigator.mediaSession.setActionHandler('pause', () => audio.pause());
-        navigator.mediaSession.setActionHandler('seekbackward', () => skip(-15));
-        navigator.mediaSession.setActionHandler('seekforward', () => skip(15));
-        navigator.mediaSession.setActionHandler('previoustrack', () => {
-          if (currentChapterIdx > 0) loadTrack(currentChapterIdx - 1, true);
-        });
-        navigator.mediaSession.setActionHandler('nexttrack', () => {
-          const book = catalog[currentBookIdx];
-          if (currentChapterIdx + 1 < book.chapters.length) loadTrack(currentChapterIdx + 1, true);
-        });
-      }
-    }
-
-    function updateMediaSessionMetadata(ch, book) {
-      if ('mediaSession' in navigator) {
-        navigator.mediaSession.metadata = new MediaMetadata({
-          title: `${String(ch.num).padStart(2, '0')}. ${ch.title}`,
-          artist: book.title,
-          album: "Realized Press Audiobook",
-          artwork: [
-            { src: 'https://github.com/ralfcam/realized-press/raw/main/series/parenthood-atlas/publishing/parenthood-atlas-kdp-cover.pdf', sizes: '512x512', type: 'image/png' }
-          ]
-        });
-      }
-    }
-
-    audio.addEventListener('play', () => {
-      dockPlay.innerText = '⏸';
-      renderPlaylist();
-    });
-
-    audio.addEventListener('pause', () => {
-      dockPlay.innerText = '▶';
-      renderPlaylist();
-    });
-
-    let autoScrollEnabled = true;
-    let userScrollTimer = null;
-
-    function toggleAutoScroll() {
-      autoScrollEnabled = !autoScrollEnabled;
-      const btn = document.getElementById('btn-autoscroll');
-      if (btn) {
-        btn.classList.toggle('disabled', !autoScrollEnabled);
-        btn.innerText = autoScrollEnabled ? '📜 Auto-Scroll: ON' : '📜 Auto-Scroll: OFF';
-      }
-    }
-
-    function pauseUserScroll() {
-      if (!autoScrollEnabled) return;
-      clearTimeout(userScrollTimer);
-      userScrollTimer = setTimeout(() => {
-        userScrollTimer = null;
-      }, 5000); // Resume auto-scrolling 5s after user stops touching/scrolling
-    }
-
-    window.addEventListener('wheel', pauseUserScroll, { passive: true });
-    window.addEventListener('touchmove', pauseUserScroll, { passive: true });
-
-    function updateAudioSyncHighlight(currentTime, duration) {
-      const segments = document.querySelectorAll('.sync-segment');
-      if (!segments.length) return;
-      const hasTimings = segments[0].hasAttribute('data-start-time');
-      const ratio = duration > 0 ? (currentTime / duration) : 0;
-      let active = null;
-
-      segments.forEach(seg => {
-        let isActive = false;
-        if (hasTimings && seg.hasAttribute('data-start-time')) {
-          const start = parseFloat(seg.getAttribute('data-start-time'));
-          const end = parseFloat(seg.getAttribute('data-end-time'));
-          isActive = (currentTime >= start && currentTime < end);
-        } else {
-          const startRatio = parseFloat(seg.getAttribute('data-start-ratio'));
-          const endRatio = parseFloat(seg.getAttribute('data-end-ratio'));
-          isActive = (ratio >= startRatio && ratio < endRatio);
-        }
-
-        if (isActive) {
-          active = seg;
-          seg.classList.add('active-segment');
-        } else {
-          seg.classList.remove('active-segment');
+  function setupMediaSession() {
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('play', () => audio.play());
+      navigator.mediaSession.setActionHandler('pause', () => audio.pause());
+      navigator.mediaSession.setActionHandler('seekbackward', () => skip(-15));
+      navigator.mediaSession.setActionHandler('seekforward', () => skip(15));
+      navigator.mediaSession.setActionHandler('previoustrack', () => {
+        if (currentChapterIdx > 0) loadTrack(currentChapterIdx - 1, true);
+      });
+      navigator.mediaSession.setActionHandler('nexttrack', () => {
+        const book = catalog[currentBookIdx];
+        if (book && currentChapterIdx + 1 < book.chapters.length) {
+          loadTrack(currentChapterIdx + 1, true);
         }
       });
-
-      if (active && autoScrollEnabled && !userScrollTimer) {
-        active.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
     }
+  }
 
-    // Bidirectional seek: Tap any text segment to jump audio to that exact moment
-    document.addEventListener('click', (e) => {
-      if (e.target.closest('a') || e.target.closest('button')) return;
-      const seg = e.target.closest('.sync-segment');
-      if (seg && currentView === 'reader') {
-        if (seg.hasAttribute('data-start-time')) {
-          const startTime = parseFloat(seg.getAttribute('data-start-time'));
-          if (!isNaN(startTime)) {
-            audio.currentTime = Math.max(0, startTime);
-            if (audio.paused) {
-              audio.play().catch(err => console.log('Autoplay on tap handled:', err));
-            }
+  function updateMediaSessionMetadata(ch, book) {
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: `${String(ch.num).padStart(2, '0')}. ${ch.title}`,
+        artist: book.title,
+        album: "Realized Press Audiobook"
+      });
+    }
+  }
+
+  audio.addEventListener('play', () => {
+    if (dockPlay) dockPlay.innerText = '⏸';
+    renderPlaylist();
+  });
+
+  audio.addEventListener('pause', () => {
+    if (dockPlay) dockPlay.innerText = '▶';
+    renderPlaylist();
+  });
+
+  let autoScrollEnabled = true;
+  let userScrollTimer = null;
+
+  function toggleAutoScroll() {
+    autoScrollEnabled = !autoScrollEnabled;
+    const btn = document.getElementById('btn-autoscroll');
+    if (btn) {
+      btn.innerText = autoScrollEnabled ? '📜 Auto-Scroll: ON' : '📜 Auto-Scroll: OFF';
+    }
+  }
+
+  function pauseUserScroll() {
+    if (!autoScrollEnabled) return;
+    clearTimeout(userScrollTimer);
+    userScrollTimer = setTimeout(() => {
+      userScrollTimer = null;
+    }, 5000);
+  }
+
+  window.addEventListener('wheel', pauseUserScroll, { passive: true });
+  window.addEventListener('touchmove', pauseUserScroll, { passive: true });
+
+  function updateAudioSyncHighlight(currentTime, duration) {
+    const segments = document.querySelectorAll('.sync-segment');
+    if (!segments.length) return;
+    const hasTimings = segments[0].hasAttribute('data-start-time');
+    const ratio = duration > 0 ? (currentTime / duration) : 0;
+    let active = null;
+
+    segments.forEach(seg => {
+      let isActive = false;
+      if (hasTimings && seg.hasAttribute('data-start-time')) {
+        const start = parseFloat(seg.getAttribute('data-start-time'));
+        const end = parseFloat(seg.getAttribute('data-end-time'));
+        isActive = (currentTime >= start && currentTime < end);
+      } else {
+        const startRatio = parseFloat(seg.getAttribute('data-start-ratio'));
+        const endRatio = parseFloat(seg.getAttribute('data-end-ratio'));
+        isActive = (ratio >= startRatio && ratio < endRatio);
+      }
+
+      if (isActive) {
+        active = seg;
+        seg.classList.add('active-segment');
+      } else {
+        seg.classList.remove('active-segment');
+      }
+    });
+
+    if (active && autoScrollEnabled && !userScrollTimer) {
+      active.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('a') || e.target.closest('button')) return;
+    const seg = e.target.closest('.sync-segment');
+    if (seg && currentView === 'reader') {
+      if (seg.hasAttribute('data-start-time')) {
+        const startTime = parseFloat(seg.getAttribute('data-start-time'));
+        if (!isNaN(startTime)) {
+          audio.currentTime = Math.max(0, startTime);
+          if (audio.paused) {
+            audio.play().catch(err => console.log('Autoplay on tap handled:', err));
           }
-        } else {
-          const startRatio = parseFloat(seg.getAttribute('data-start-ratio'));
-          if (audio.duration && !isNaN(startRatio)) {
-            audio.currentTime = Math.max(0, Math.min(audio.duration, startRatio * audio.duration));
-            if (audio.paused) {
-              audio.play().catch(err => console.log('Autoplay on tap handled:', err));
-            }
+        }
+      } else {
+        const startRatio = parseFloat(seg.getAttribute('data-start-ratio'));
+        if (audio.duration && !isNaN(startRatio)) {
+          audio.currentTime = Math.max(0, Math.min(audio.duration, startRatio * audio.duration));
+          if (audio.paused) {
+            audio.play().catch(err => console.log('Autoplay on tap handled:', err));
           }
         }
       }
-    });
-
-    function setupScrubberKeyboard() {
-      const scrubber = document.getElementById('scrubber-area');
-      if (!scrubber) return;
-      scrubber.addEventListener('keydown', (e) => {
-        if (!audio.duration) return;
-        let handled = true;
-        switch (e.key) {
-          case 'ArrowLeft':
-          case 'ArrowDown':
-            skip(-5);
-            break;
-          case 'ArrowRight':
-          case 'ArrowUp':
-            skip(5);
-            break;
-          case 'PageDown':
-            skip(-30);
-            break;
-          case 'PageUp':
-            skip(30);
-            break;
-          case 'Home':
-            audio.currentTime = 0;
-            break;
-          case 'End':
-            audio.currentTime = audio.duration;
-            break;
-          case ' ':
-          case 'Enter':
-            togglePlay();
-            break;
-          default:
-            handled = false;
-        }
-        if (handled) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-      });
     }
+  });
 
-    function setupReaderKeyboard() {
-      document.addEventListener('keydown', (e) => {
-        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('input') || e.target.closest('select')) return;
-        const seg = e.target.closest('.sync-segment');
-        if (seg && currentView === 'reader' && (e.key === 'Enter' || e.key === ' ')) {
-          e.preventDefault();
-          seg.click();
-        }
-      });
-    }
-
-    audio.addEventListener('timeupdate', () => {
-      timeCur.innerText = formatTime(audio.currentTime);
-      timeTotal.innerText = formatTime(audio.duration);
-      if (audio.duration) {
-        const pct = (audio.currentTime / audio.duration) * 100;
-        barFill.style.width = `${pct}%`;
-        const scrubber = document.getElementById('scrubber-area');
-        if (scrubber) {
-          scrubber.setAttribute('aria-valuenow', Math.round(pct));
-          scrubber.setAttribute('aria-valuetext', `${formatTime(audio.currentTime)} of ${formatTime(audio.duration)}`);
-        }
-        if (currentView === 'reader') {
-          updateAudioSyncHighlight(audio.currentTime, audio.duration);
-        }
+  function setupScrubberKeyboard() {
+    const scrubber = document.getElementById('scrubber-area');
+    if (!scrubber) return;
+    scrubber.addEventListener('keydown', (e) => {
+      if (!audio.duration) return;
+      let handled = true;
+      switch (e.key) {
+        case 'ArrowLeft':
+        case 'ArrowDown':
+          skip(-5);
+          break;
+        case 'ArrowRight':
+        case 'ArrowUp':
+          skip(5);
+          break;
+        case 'PageDown':
+          skip(-30);
+          break;
+        case 'PageUp':
+          skip(30);
+          break;
+        case 'Home':
+          audio.currentTime = 0;
+          break;
+        case 'End':
+          audio.currentTime = audio.duration;
+          break;
+        case ' ':
+        case 'Enter':
+          togglePlay();
+          break;
+        default:
+          handled = false;
       }
-    });
-
-    audio.addEventListener('ended', () => {
-      const book = catalog[currentBookIdx];
-      if (currentChapterIdx + 1 < book.chapters.length) {
-        loadTrack(currentChapterIdx + 1, true);
-      }
-    });
-
-    
-    // HTMX Footnote Inspection Listener (Never interrupts audio playback)
-    document.addEventListener('click', (e) => {
-      const fnRef = e.target.closest('a.footnote-ref') || e.target.closest('a[href^="#fn:"]');
-      if (fnRef) {
+      if (handled) {
         e.preventDefault();
         e.stopPropagation();
-        const href = fnRef.getAttribute('href') || '';
-        const fnId = href.replace('#fn:', '');
-        const book = catalog[currentBookIdx];
-        const ch = book.chapters[currentChapterIdx];
-        const drawer = document.getElementById('site-footnote-drawer');
-        const content = document.getElementById('site-footnote-content');
-        if (drawer && content && fnId) {
-          drawer.classList.remove('hidden');
-          content.innerHTML = '<span class="text-amber-400">Loading footnote [' + fnId + ']...</span>';
-          htmx.ajax('GET', `/hx/footnote/${book.id}/${ch.stem}/${fnId}`, {
-            target: '#site-footnote-content',
-            swap: 'innerHTML'
-          });
-        }
       }
     });
+  }
 
+  function setupReaderKeyboard() {
+    document.addEventListener('keydown', (e) => {
+      if (e.target.closest('a') || e.target.closest('button') || e.target.closest('input') || e.target.closest('select')) return;
+      const seg = e.target.closest('.sync-segment');
+      if (seg && currentView === 'reader' && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        seg.click();
+      }
+    });
+  }
+
+  audio.addEventListener('timeupdate', () => {
+    if (timeCur) timeCur.innerText = formatTime(audio.currentTime);
+    if (timeTotal) timeTotal.innerText = formatTime(audio.duration);
+    if (audio.duration) {
+      const pct = (audio.currentTime / audio.duration) * 100;
+      if (barFill) barFill.style.width = `${pct}%`;
+      const scrubber = document.getElementById('scrubber-area');
+      if (scrubber) {
+        scrubber.setAttribute('aria-valuenow', Math.round(pct));
+        scrubber.setAttribute('aria-valuetext', `${formatTime(audio.currentTime)} of ${formatTime(audio.duration)}`);
+      }
+      if (currentView === 'reader') {
+        updateAudioSyncHighlight(audio.currentTime, audio.duration);
+      }
+    }
+  });
+
+  audio.addEventListener('ended', () => {
+    const book = catalog[currentBookIdx];
+    if (book && currentChapterIdx + 1 < book.chapters.length) {
+      loadTrack(currentChapterIdx + 1, true);
+    }
+  });
+
+  // HTMX Footnote Inspection Listener
+  document.addEventListener('click', (e) => {
+    const fnRef = e.target.closest('a.footnote-ref') || e.target.closest('a[href^="#fn:"]');
+    if (fnRef) {
+      e.preventDefault();
+      e.stopPropagation();
+      const href = fnRef.getAttribute('href') || '';
+      const fnId = href.replace('#fn:', '');
+      const book = catalog[currentBookIdx];
+      if (!book) return;
+      const ch = book.chapters[currentChapterIdx];
+      const drawer = document.getElementById('site-footnote-drawer');
+      const content = document.getElementById('site-footnote-content');
+      if (drawer && content && fnId && ch) {
+        drawer.classList.remove('hidden');
+        content.innerHTML = '<span class="text-amber-400">Loading footnote [' + fnId + ']...</span>';
+        htmx.ajax('GET', `/hx/footnote/${book.id}/${ch.stem}/${fnId}`, {
+          target: '#site-footnote-content',
+          swap: 'innerHTML'
+        });
+      }
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', init);
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
     init();
-  </script>
-
-  <!-- HTMX Footnote Drawer Modal for Site Reader -->
-  <aside id="site-footnote-drawer" class="hidden fixed bottom-28 right-6 max-w-md w-full z-50 bg-stone-900 border border-amber-500/40 rounded-xl shadow-2xl p-4 text-xs font-mono">
-    <div class="flex items-center justify-between pb-2 border-b border-stone-800 mb-2">
-      <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-        <span class="text-amber-400 font-semibold uppercase tracking-wider">OKF v0.2 Footnote Evidence</span>
-      </div>
-      <button onclick="document.getElementById('site-footnote-drawer').classList.add('hidden')" class="text-stone-400 hover:text-stone-100 font-bold px-2 py-0.5 rounded hover:bg-stone-800">✕</button>
-    </div>
-    <div id="site-footnote-content" class="text-stone-300 leading-relaxed max-h-64 overflow-y-auto pr-1">
-      Loading footnote evidence...
-    </div>
-  </aside>
-
-</body>
-</html>
+  }
+</script>
+{% endblock %}

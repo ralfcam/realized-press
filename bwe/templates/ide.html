@@ -1,317 +1,766 @@
-<!-- bwe/templates/ide.html: Hardened 3-Column Epistemic IDE Workbench with ARIA & Mobile Tabs -->
-<!DOCTYPE html>
-<html lang="en" class="bg-stone-950 text-stone-100 antialiased">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0c0a09">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Realized Press — Epistemic IDE (ARC-56)</title>
-  <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+{% extends "base.html" %}
+
+{% block title %}Realized Press — 3-Pane Epistemic IDE (P-ARC-18){% endblock %}
+
+{% block meta_description %}Realized Press Epistemic IDE — 3-Pane workbench for manuscript composition, OKF v0.2 evidence card verification, and zero-drift TTS synthesis.{% endblock %}
+
+{% block head %}
   <script src="https://unpkg.com/htmx-ext-sse@2.2.2/sse.js"></script>
-  <script defer src="https://unpkg.com/alpinejs@3.14.8/dist/cdn.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @supports (height: 100dvh) {
-      .ide-column-h {
-        height: calc(100dvh - 60px);
+      .ide-viewport-h {
+        height: calc(100dvh - 65px);
       }
     }
     @supports not (height: 100dvh) {
-      .ide-column-h {
-        height: calc(100vh - 60px);
-      }
-    }
-    @media (max-width: 1023px) {
-      .ide-column-h {
-        height: calc(100dvh - 120px);
+      .ide-viewport-h {
+        height: calc(100vh - 65px);
       }
     }
   </style>
-</head>
-<body class="min-h-screen flex flex-col bg-stone-950" x-data="ideWorkbench()">
+{% endblock %}
 
-  {% set active_tab = "ide" %}
-  {% include "partials/nav.html" %}
+{% block content %}
+<div class="flex-1 flex flex-col ide-viewport-h overflow-hidden bg-stone-950" x-data="ideWorkbench()">
 
-  <!-- Mobile-Only Segmented Panel Switcher (Touch Ergonomics + ARIA Tabs) -->
-  <div role="tablist" aria-label="Workbench View Selection" class="lg:hidden flex items-center justify-around bg-stone-900 border-b border-stone-800 p-1.5 sticky top-[57px] z-40">
+  <!-- Mobile-Only 3-Pane Segmented Switcher (44px Touch Ergonomics + ARIA Tabs) -->
+  <div role="tablist"
+       aria-label="IDE Workbench Panes"
+       class="lg:hidden flex items-center justify-around bg-stone-900 border-b border-stone-800 p-1.5 shrink-0 z-30">
+    <!-- Mobile Tab 1: Explorer -->
     <button type="button"
-            id="tab-cards"
+            id="mobile-tab-explorer"
             role="tab"
-            aria-selected="activeMobileTab === 'cards'"
-            aria-controls="panel-cards"
-            @click="activeMobileTab = 'cards'"
-            :class="activeMobileTab === 'cards' ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 font-semibold shadow-inner' : 'text-stone-400 hover:text-stone-200'"
-            class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg border border-transparent text-xs font-mono transition touch-manipulation min-h-[44px] focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
+            aria-selected="activeMobilePane === 'explorer'"
+            aria-controls="file-explorer"
+            @click="activeMobilePane = 'explorer'"
+            :class="activeMobilePane === 'explorer' ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 font-semibold shadow-inner' : 'text-stone-400 hover:text-stone-200'"
+            class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg border border-transparent text-xs font-mono transition touch-manipulation min-h-[44px] min-w-[44px] focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+            aria-label="Switch to File Explorer Pane">
+      <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+      </svg>
+      <span>Explorer</span>
+    </button>
+
+    <!-- Mobile Tab 2: Editor -->
+    <button type="button"
+            id="mobile-tab-editor"
+            role="tab"
+            aria-selected="activeMobilePane === 'editor'"
+            aria-controls="editor-container"
+            @click="activeMobilePane = 'editor'"
+            :class="activeMobilePane === 'editor' ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 font-semibold shadow-inner' : 'text-stone-400 hover:text-stone-200'"
+            class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg border border-transparent text-xs font-mono transition touch-manipulation min-h-[44px] min-w-[44px] focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+            aria-label="Switch to Split Editor Pane">
+      <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+      </svg>
+      <span>Editor</span>
+    </button>
+
+    <!-- Mobile Tab 3: Tools -->
+    <button type="button"
+            id="mobile-tab-tools"
+            role="tab"
+            aria-selected="activeMobilePane === 'tools'"
+            aria-controls="panel-tool-bench"
+            @click="activeMobilePane = 'tools'"
+            :class="activeMobilePane === 'tools' ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 font-semibold shadow-inner' : 'text-stone-400 hover:text-stone-200'"
+            class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg border border-transparent text-xs font-mono transition touch-manipulation min-h-[44px] min-w-[44px] focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+            aria-label="Switch to OKF Tool Bench Pane">
       <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
       </svg>
-      <span>OKF Cards</span>
-    </button>
-
-    <button type="button"
-            id="tab-audit"
-            role="tab"
-            aria-selected="activeMobileTab === 'audit'"
-            aria-controls="panel-audit"
-            @click="activeMobileTab = 'audit'"
-            :class="activeMobileTab === 'audit' ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 font-semibold shadow-inner' : 'text-stone-400 hover:text-stone-200'"
-            class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg border border-transparent text-xs font-mono transition touch-manipulation min-h-[44px] focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
-      <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-      </svg>
-      <span>Audit Gate</span>
-    </button>
-
-    <button type="button"
-            id="tab-audio"
-            role="tab"
-            aria-selected="activeMobileTab === 'audio'"
-            aria-controls="panel-audio"
-            @click="activeMobileTab = 'audio'"
-            :class="activeMobileTab === 'audio' ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 font-semibold shadow-inner' : 'text-stone-400 hover:text-stone-200'"
-            class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg border border-transparent text-xs font-mono transition touch-manipulation min-h-[44px] focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
-      <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path>
-      </svg>
-      <span>TTS Stream</span>
+      <span>OKF Tools</span>
     </button>
   </div>
 
-  <!-- 3-Column Epistemic Workbench (Mobile Stack with Tab Visibility / Desktop 3-Column Split) -->
-  <main class="flex-1 grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-stone-800">
+  <!-- True 3-Pane Epistemic IDE Layout (Side-by-Side Desktop / Tabbed Mobile) -->
+  <div class="flex-1 flex flex-col lg:flex-row min-h-0 overflow-hidden divide-y lg:divide-y-0 lg:divide-x divide-stone-800">
 
-    <!-- COLUMN 1 (4 cols): Live SQLite FTS5 OKF v0.2 Evidence Card Search -->
-    <section id="panel-cards"
-             role="tabpanel"
-             aria-labelledby="tab-cards"
-             x-show="isDesktop || activeMobileTab === 'cards'"
-             class="lg:col-span-4 flex flex-col ide-column-h">
-      <div class="p-3 sm:p-4 border-b border-stone-800 bg-stone-900/40 space-y-2">
-        <div class="flex items-center justify-between">
-          <h2 class="text-xs font-semibold uppercase tracking-wider text-stone-400">
-            OKF v0.2 Evidence Cards (FTS5)
+    <!-- ================================================================= -->
+    <!-- PANE 1: File Explorer (#file-explorer)                            -->
+    <!-- ================================================================= -->
+    <aside id="file-explorer"
+           role="region"
+           aria-label="Manuscript & Evidence File Explorer"
+           x-show="isDesktop || activeMobilePane === 'explorer'"
+           class="w-full lg:w-72 xl:w-80 shrink-0 flex flex-col h-full bg-stone-900/40 border-r border-stone-800/80 overflow-hidden">
+      <!-- Explorer Header -->
+      <div class="p-3 border-b border-stone-800 bg-stone-900/60 flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+          </svg>
+          <h2 class="text-xs font-semibold uppercase tracking-wider text-stone-300 font-mono">
+            File Explorer
           </h2>
-          <span id="search-spinner" class="htmx-indicator text-xs text-amber-400 font-mono">Indexing...</span>
         </div>
+        <span class="text-[10px] font-mono text-stone-400 bg-stone-800/80 px-2 py-0.5 rounded border border-stone-700/60">
+          OKF v0.2
+        </span>
+      </div>
+
+      <!-- Quick Search / Filter Bar in Explorer -->
+      <div class="p-2 border-b border-stone-800/60 bg-stone-950/60 shrink-0">
         <div class="relative">
-          <input type="search"
-                 name="q"
-                 value="{{ query or '' }}"
-                 placeholder="Search DOIs, GI designs, claims..."
-                 aria-label="Search OKF v0.2 Evidence Cards by DOI, study design, or claim"
-                 hx-get="/ide/search-cards"
-                 hx-trigger="keyup changed delay:200ms, search"
-                 hx-target="#card-results"
-                 hx-indicator="#search-spinner"
-                 class="w-full bg-stone-950 border border-stone-700 focus:border-amber-500 rounded-lg px-3 py-2.5 sm:py-2 text-base sm:text-sm outline-none transition touch-manipulation min-h-[44px] sm:min-h-[38px] focus-visible:ring-2 focus-visible:ring-amber-400">
+          <input type="text"
+                 x-model="fileFilter"
+                 placeholder="Filter chapters or cards..."
+                 aria-label="Filter chapters or evidence cards"
+                 class="w-full bg-stone-900 border border-stone-700/80 rounded-lg px-3 py-2 text-xs font-mono text-stone-200 placeholder-stone-400 focus:border-amber-500 focus:outline-none min-h-[44px] min-w-[44px] transition">
         </div>
       </div>
 
-      <!-- Jinja2 Fragment Block for HTMX Swap -->
-      <div id="card-results" role="region" aria-live="polite" aria-label="Evidence Card Search Results" class="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 overscroll-contain">
-        {% block card_results %}
-          {% for card in cards %}
-          <article class="p-3.5 rounded-xl bg-stone-900/90 border border-stone-800 hover:border-stone-700 transition space-y-2 shadow-sm">
-            <div class="flex items-start justify-between gap-2">
-              <div class="min-w-0 flex-1">
-                <span class="text-[11px] font-mono text-amber-400 block truncate">{{ card.series_slug }} / {{ card.book_slug }}</span>
-                <h3 class="text-sm font-semibold text-stone-100 leading-snug break-words">{{ card.title }}</h3>
-              </div>
+      <!-- Navigable Tree from file_tree context -->
+      <nav class="flex-1 overflow-y-auto p-2 space-y-1.5 font-mono text-xs overscroll-contain"
+           aria-label="Series and Manuscript Tree">
+        {% if file_tree %}
+          {% for series_slug, s_data in file_tree.items() %}
+            {% set series_display = "Parenthood: The Atlas" if series_slug == "parenthood-atlas" else ("Architectures of Memory" if series_slug == "architectures-of-memory" else series_slug | replace("-", " ") | title) %}
+            <div x-data="{ seriesExpanded: true }" class="rounded-lg bg-stone-900/30 border border-stone-800/70 overflow-hidden mb-2">
+              <!-- Series Folder Header -->
               <button type="button"
-                      @click="copyFootnote('{{ card.card_slug }}')"
-                      class="shrink-0 text-xs font-mono px-3 py-2 sm:px-2 sm:py-1 rounded-md bg-stone-800 hover:bg-amber-600 hover:text-stone-950 text-stone-300 transition touch-manipulation min-h-[38px] flex items-center justify-center active:scale-95 focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
-                      aria-label="Copy footnote tag for {{ card.title }}"
-                      title="Copy formal Markdown footnote tag">
-                [^{{ card.card_slug }}]
+                      @click="seriesExpanded = !seriesExpanded"
+                      class="w-full flex items-center justify-between px-3 py-2 bg-stone-900/70 hover:bg-stone-800/80 text-stone-200 text-xs font-semibold transition touch-manipulation min-h-[44px] min-w-[44px] text-left focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+                      aria-label="Toggle series {{ series_display }}">
+                <div class="flex items-center gap-2 truncate">
+                  <svg class="w-3.5 h-3.5 text-amber-400 shrink-0 transition-transform duration-150"
+                       :class="{ 'rotate-90': seriesExpanded }"
+                       fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  <span class="truncate text-stone-200 font-bold">{{ series_display }}</span>
+                </div>
+                <span class="text-[10px] text-stone-400 px-1.5 py-0.5 rounded bg-stone-800 border border-stone-700/50 shrink-0">
+                  {% if s_data.books %}
+                    {{ s_data.books | length }} Vol
+                  {% else %}
+                    {{ s_data.root_chapters | length }} Ch
+                  {% endif %}
+                </span>
               </button>
+
+              <!-- Series Contents -->
+              <div x-show="seriesExpanded" class="p-1 space-y-1 bg-stone-950/40">
+                {% if s_data.books %}
+                  <!-- Multi-Book Series (e.g. Architectures of Memory) -->
+                  {% for book_slug, b_data in s_data.books.items() %}
+                    {% set book_display = book_slug | replace("book-", "Vol. ") | replace("-", " ") | title %}
+                    <div x-data="{ bookExpanded: false }" class="rounded border border-stone-800/50 bg-stone-900/20 my-1 overflow-hidden">
+                      <button type="button"
+                              @click="bookExpanded = !bookExpanded"
+                              class="w-full flex items-center justify-between px-2.5 py-2 hover:bg-stone-800/60 text-stone-300 text-xs transition touch-manipulation min-h-[44px] min-w-[44px] text-left focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+                              aria-label="Toggle book {{ book_display }}">
+                        <div class="flex items-center gap-1.5 truncate">
+                          <svg class="w-3 h-3 text-stone-400 shrink-0 transition-transform duration-150"
+                               :class="{ 'rotate-90': bookExpanded }"
+                               fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                          </svg>
+                          <span class="truncate font-medium">{{ book_display }}</span>
+                        </div>
+                        <span class="text-[9px] text-stone-400 px-1 py-0.5 rounded bg-stone-800/70">
+                          {{ b_data.chapters | length }} ch
+                        </span>
+                      </button>
+
+                      <div x-show="bookExpanded" class="pl-2 pr-1 py-1 space-y-1">
+                        <!-- Book Chapters -->
+                        {% for ch in b_data.chapters %}
+                          <button type="button"
+                                  hx-get="/ide/file-content?path={{ ch.path }}"
+                                  hx-target="#editor-container"
+                                  hx-swap="outerHTML"
+                                  @click="loadFile('{{ ch.path }}', '{{ ch.name }}')"
+                                  x-show="!fileFilter || '{{ ch.name | lower }}'.includes(fileFilter.toLowerCase())"
+                                  class="w-full flex items-center gap-2 px-2 py-1.5 text-xs text-stone-300 hover:text-amber-300 hover:bg-stone-800/80 rounded transition min-h-[44px] min-w-[44px] text-left touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+                                  aria-label="Open manuscript chapter {{ ch.name }}">
+                            <svg class="w-3.5 h-3.5 text-amber-400/80 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <span class="truncate">{{ ch.name }}</span>
+                          </button>
+                        {% endfor %}
+
+                        <!-- Book Evidence Cards -->
+                        {% for card in b_data.evidence_cards %}
+                          <button type="button"
+                                  hx-get="/ide/file-content?path={{ card.path }}"
+                                  hx-target="#editor-container"
+                                  hx-swap="outerHTML"
+                                  @click="loadFile('{{ card.path }}', '{{ card.name }}')"
+                                  x-show="!fileFilter || '{{ card.name | lower }}'.includes(fileFilter.toLowerCase())"
+                                  class="w-full flex items-center gap-2 px-2 py-1.5 text-xs text-stone-400 hover:text-emerald-300 hover:bg-stone-800/80 rounded transition min-h-[44px] min-w-[44px] text-left touch-manipulation focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:outline-none"
+                                  aria-label="Open evidence card {{ card.name }}">
+                            <svg class="w-3.5 h-3.5 text-emerald-400/80 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                            <span class="truncate">{{ card.name }}</span>
+                          </button>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  {% endfor %}
+                {% else %}
+                  <!-- Single Series with Root Chapters & Cards (e.g. Parenthood: The Atlas) -->
+                  <!-- Chapters Folder -->
+                  <div x-data="{ chFolderExpanded: true }" class="rounded border border-stone-800/50 bg-stone-900/20 overflow-hidden">
+                    <button type="button"
+                            @click="chFolderExpanded = !chFolderExpanded"
+                            class="w-full flex items-center justify-between px-2.5 py-2 hover:bg-stone-800/60 text-stone-300 text-xs transition touch-manipulation min-h-[44px] min-w-[44px] text-left focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+                            aria-label="Toggle chapters folder">
+                      <div class="flex items-center gap-1.5 truncate">
+                        <svg class="w-3 h-3 text-stone-400 shrink-0 transition-transform duration-150"
+                             :class="{ 'rotate-90': chFolderExpanded }"
+                             fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                        <span class="truncate font-semibold text-stone-200">Chapters ({{ s_data.root_chapters | length }})</span>
+                      </div>
+                    </button>
+
+                    <div x-show="chFolderExpanded" class="pl-2 pr-1 py-1 space-y-1">
+                      {% for ch in s_data.root_chapters %}
+                        <button type="button"
+                                hx-get="/ide/file-content?path={{ ch.path }}"
+                                hx-target="#editor-container"
+                                hx-swap="outerHTML"
+                                @click="loadFile('{{ ch.path }}', '{{ ch.name }}')"
+                                x-show="!fileFilter || '{{ ch.name | lower }}'.includes(fileFilter.toLowerCase())"
+                                class="w-full flex items-center gap-2 px-2 py-1.5 text-xs text-stone-300 hover:text-amber-300 hover:bg-stone-800/80 rounded transition min-h-[44px] min-w-[44px] text-left touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+                                aria-label="Open chapter {{ ch.name }}">
+                          <svg class="w-3.5 h-3.5 text-amber-400/80 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                          </svg>
+                          <span class="truncate">{{ ch.name }}</span>
+                        </button>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                  <!-- Evidence Cards Folder -->
+                  <div x-data="{ cardsFolderExpanded: false }" class="rounded border border-stone-800/50 bg-stone-900/20 overflow-hidden mt-1">
+                    <button type="button"
+                            @click="cardsFolderExpanded = !cardsFolderExpanded"
+                            class="w-full flex items-center justify-between px-2.5 py-2 hover:bg-stone-800/60 text-stone-300 text-xs transition touch-manipulation min-h-[44px] min-w-[44px] text-left focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+                            aria-label="Toggle evidence cards folder">
+                      <div class="flex items-center gap-1.5 truncate">
+                        <svg class="w-3 h-3 text-stone-400 shrink-0 transition-transform duration-150"
+                             :class="{ 'rotate-90': cardsFolderExpanded }"
+                             fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                        <span class="truncate font-semibold text-emerald-400">Cards ({{ s_data.root_cards | length }})</span>
+                      </div>
+                    </button>
+
+                    <div x-show="cardsFolderExpanded" class="pl-2 pr-1 py-1 space-y-1">
+                      {% for card in s_data.root_cards %}
+                        <button type="button"
+                                hx-get="/ide/file-content?path={{ card.path }}"
+                                hx-target="#editor-container"
+                                hx-swap="outerHTML"
+                                @click="loadFile('{{ card.path }}', '{{ card.name }}')"
+                                x-show="!fileFilter || '{{ card.name | lower }}'.includes(fileFilter.toLowerCase())"
+                                class="w-full flex items-center gap-2 px-2 py-1.5 text-xs text-stone-400 hover:text-emerald-300 hover:bg-stone-800/80 rounded transition min-h-[44px] min-w-[44px] text-left touch-manipulation focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:outline-none"
+                                aria-label="Open evidence card {{ card.name }}">
+                          <svg class="w-3.5 h-3.5 text-emerald-400/80 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                          </svg>
+                          <span class="truncate">{{ card.name }}</span>
+                        </button>
+                      {% endfor %}
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
             </div>
-            <p class="text-xs text-stone-400 leading-relaxed">{{ card.snippet | safe }}</p>
-          </article>
-          {% else %}
-          <p class="text-xs text-stone-500 italic p-4 text-center">No matching OKF v0.2 evidence cards found.</p>
           {% endfor %}
-        {% endblock %}
-      </div>
-    </section>
+        {% else %}
+          <p class="text-xs text-stone-400 italic p-3 text-center">No manuscript files loaded.</p>
+        {% endif %}
+      </nav>
+    </aside>
 
-    <!-- COLUMN 2 (4 cols): Manuscript Gate & 5-Rule Audit Workbench -->
-    <section id="panel-audit"
-             role="tabpanel"
-             aria-labelledby="tab-audit"
-             x-show="isDesktop || activeMobileTab === 'audit'"
-             class="lg:col-span-4 flex flex-col ide-column-h">
-      <div class="p-3 sm:p-4 border-b border-stone-800 bg-stone-900/40 space-y-3">
-        <div class="flex items-center justify-between">
-          <h2 class="text-xs font-semibold uppercase tracking-wider text-stone-400">
-            Epistemic Gate &amp; Audit Runner
-          </h2>
-          <span id="audit-spinner" class="htmx-indicator text-xs text-amber-400 font-mono">Running Gate...</span>
-        </div>
+    <!-- ================================================================= -->
+    <!-- PANE 2: Split Markdown Editor & Live Preview (#editor-container)  -->
+    <!-- ================================================================= -->
+    <section id="editor-container"
+             role="region"
+             aria-label="Split Manuscript Editor and Live Preview"
+             x-show="isDesktop || activeMobilePane === 'editor'"
+             class="flex-1 min-w-0 flex flex-col h-full overflow-hidden bg-stone-950">
 
-        <form hx-post="/ide/audit"
-              hx-target="#audit-output"
-              hx-indicator="#audit-spinner"
-              class="space-y-3">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-            <div>
-              <label for="gate-script" class="block text-[11px] text-stone-400 mb-1 font-medium">Gate Script</label>
-              <select id="gate-script" name="script_name" class="w-full bg-stone-950 border border-stone-700 rounded-lg px-3 py-2.5 sm:py-1.5 text-base sm:text-xs min-h-[44px] sm:min-h-[36px] touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
-                <option value="five_rule_check">five_rule_check.py (5-Rule Gate)</option>
-                <option value="audit_manuscript">audit_manuscript.py (Full Audit)</option>
-                <option value="audit_epub">audit_epub.py (EPUB 3 Conformance)</option>
-              </select>
-            </div>
-            <div>
-              <label for="target-path" class="block text-[11px] text-stone-400 mb-1 font-medium">Target Series / Chapter Path</label>
-              <select id="target-path" name="target_path" class="w-full bg-stone-950 border border-stone-700 rounded-lg px-3 py-2.5 sm:py-1.5 text-base sm:text-xs font-mono min-h-[44px] sm:min-h-[36px] touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
-                <option value="series/parenthood-atlas">series/parenthood-atlas (v1.0-rc1)</option>
-                <option value="series/parenthood-atlas/chapters/01-before-the-child-is-born.md">parenthood-atlas/ch01</option>
-                <option value="series/architectures-of-memory/book-01-vanishing-signal">aom/book-01-vanishing-signal</option>
-                <option value="series/architectures-of-memory/book-02-forget-gate">aom/book-02-forget-gate</option>
-                <option value="series/architectures-of-memory/book-03-weight-of-attention">aom/book-03-weight-of-attention</option>
-                <option value="series/architectures-of-memory/book-04-context-window">aom/book-04-context-window</option>
-                <option value="series/architectures-of-memory/book-05-architecture-of-forgetting">aom/book-05-architecture-of-forgetting</option>
-              </select>
-            </div>
-          </div>
-          <button type="submit"
-                  class="w-full py-2.5 sm:py-2 bg-amber-600 hover:bg-amber-500 active:bg-amber-700 text-stone-950 font-semibold rounded-lg text-xs sm:text-xs transition touch-manipulation min-h-[44px] flex items-center justify-center focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none shadow-md">
-            Execute Epistemic Audit Gate
-          </button>
-        </form>
-      </div>
-
-      <div id="audit-output" class="flex-1 overflow-y-auto p-3 sm:p-4 font-mono text-xs text-stone-300 space-y-2 overscroll-contain">
-        <div class="p-4 rounded-xl bg-stone-900/60 border border-stone-800 text-stone-400 leading-relaxed">
-          Select a gate script above to verify purged harness scaffolding, calibrated claim verbs, locked DOIs, and formal <code>## Notes</code> footnote migration.
-        </div>
-      </div>
-    </section>
-
-    <!-- COLUMN 3 (4 cols): SSE Audio Synthesis & SHA-256 PCM Cache Stream -->
-    <section id="panel-audio"
-             role="tabpanel"
-             aria-labelledby="tab-audio"
-             x-show="isDesktop || activeMobileTab === 'audio'"
-             class="lg:col-span-4 flex flex-col ide-column-h">
-      <div class="p-3 sm:p-4 border-b border-stone-800 bg-stone-900/40 space-y-3">
-        <div class="flex items-center justify-between">
-          <h2 class="text-xs font-semibold uppercase tracking-wider text-stone-400">
-            Zero-Drift TTS Synthesis Stream (ARC-62)
-          </h2>
-          <span class="text-[11px] font-mono text-emerald-400 flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true"></span>
-            48,000 B/s PCM
+      <!-- Editor Header Bar with 44px Controls -->
+      <div class="px-4 py-2.5 bg-stone-900 border-b border-stone-800 flex flex-wrap items-center justify-between gap-3 shrink-0">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/15 text-amber-400 border border-amber-500/30 text-xs font-mono font-bold shrink-0">
+            MD
           </span>
-        </div>
-
-        <!-- Fallback Chain Telemetry Badge -->
-        <div class="p-2.5 rounded-lg bg-stone-950 border border-stone-800 text-[11px] font-mono text-stone-400 leading-relaxed">
-          <span class="text-stone-300 font-semibold">Fallback Chain:</span>
-          2.5-pro-preview-tts → 3.8-flash-tts → 3.1-flash-tts-preview → 2.5-flash-preview-tts
-        </div>
-
-        <div class="flex flex-col sm:flex-row gap-2">
-          <label class="sr-only" for="tts-series-select">Select Series</label>
-          <select id="tts-series-select" x-model="ttsSeries" class="bg-stone-950 border border-stone-700 rounded-lg px-3 py-2 sm:py-1.5 text-base sm:text-xs font-mono w-full sm:w-1/2 min-h-[44px] sm:min-h-[36px] touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
-            <option value="parenthood-atlas">parenthood-atlas</option>
-            <option value="architectures-of-memory">architectures-of-memory</option>
-          </select>
-          <label class="sr-only" for="tts-chapter-select">Select Chapter</label>
-          <select id="tts-chapter-select" x-model="ttsChapter" class="bg-stone-950 border border-stone-700 rounded-lg px-3 py-2 sm:py-1.5 text-base sm:text-xs font-mono w-full sm:w-1/2 min-h-[44px] sm:min-h-[36px] touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
-            <option value="01-before-the-child-is-born">01-before-the-child-is-born</option>
-            <option value="02-first-environment">02-first-environment</option>
-            <option value="03-the-great-transition">03-the-great-transition</option>
-            <option value="04-regulatory-relationship">04-regulatory-relationship</option>
-            <option value="05-becoming-a-mind">05-becoming-a-mind</option>
-            <option value="06-the-mind-in-motion">06-the-mind-in-motion</option>
-            <option value="07-the-birth-of-language">07-the-birth-of-language</option>
-            <option value="08-the-expanding-world">08-the-expanding-world</option>
-            <option value="09-the-emotional-revolution">09-the-emotional-revolution</option>
-            <option value="10-boundaries-behavior">10-boundaries-behavior</option>
-            <option value="11-the-developing-executive">11-the-developing-executive</option>
-            <option value="12-play-imagination">12-play-imagination</option>
-            <option value="13-the-ecology-of-development">13-the-ecology-of-development</option>
-            <option value="14-what-actually-works">14-what-actually-works</option>
-            <option value="15-three-years">15-three-years</option>
-          </select>
+          <div class="min-w-0">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-stone-400 block">Current Target</span>
+            <span id="current-file-path"
+                  class="font-mono text-xs text-amber-300 font-semibold truncate block"
+                  x-text="currentFilePath">
+              series/parenthood-atlas/chapters/01-before-the-child-is-born.md
+            </span>
+          </div>
         </div>
 
         <div class="flex items-center gap-2">
+          <!-- Word Count Indicator -->
+          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-stone-950 border border-stone-800 font-mono text-xs text-stone-400">
+            <span id="word-count" class="text-stone-200 font-bold" x-text="wordCount">1,842</span>
+            <span>words</span>
+          </div>
+
+          <!-- Copy Button (44px target) -->
           <button type="button"
-                  @click="startTtsStream()"
-                  class="flex-1 py-2.5 sm:py-1.5 bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-stone-950 font-semibold rounded-lg text-xs transition touch-manipulation min-h-[44px] flex items-center justify-center focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:outline-none shadow-md">
-            Stream Synthesis (.cache/tts_pcm/)
+                  @click="copyEditorContent()"
+                  class="px-3.5 py-2 bg-stone-800 hover:bg-stone-700 active:bg-stone-900 text-stone-300 rounded-lg text-xs font-mono transition touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center gap-1.5 focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+                  aria-label="Copy manuscript markdown text to clipboard"
+                  title="Copy manuscript markdown">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+            </svg>
+            <span class="hidden sm:inline">Copy</span>
           </button>
+
+          <!-- Reset / Reload Button (44px target) -->
           <button type="button"
-                  @click="clearTtsLog()"
-                  class="px-3.5 py-2.5 sm:py-1.5 bg-stone-800 hover:bg-stone-700 active:bg-stone-900 text-stone-300 rounded-lg text-xs min-h-[44px] flex items-center justify-center touch-manipulation focus-visible:ring-2 focus-visible:ring-stone-400 focus-visible:outline-none">
-            Clear
+                  @click="resetEditorContent()"
+                  class="px-3.5 py-2 bg-stone-800 hover:bg-stone-700 active:bg-stone-900 text-stone-300 rounded-lg text-xs font-mono transition touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center gap-1.5 focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+                  aria-label="Reset editor content"
+                  title="Reset manuscript">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+            <span class="hidden sm:inline">Reset</span>
           </button>
         </div>
       </div>
 
-      <!-- Dynamic SSE Log Container -->
-      <div id="tts-sse-mount" role="log" aria-live="polite" aria-label="Audiobook Speech Synthesis Log" class="flex-1 overflow-y-auto p-3 sm:p-4 bg-stone-950 font-mono text-xs space-y-1.5 overscroll-contain">
-        <div class="text-stone-500 italic p-2">
-          Ready. Unchanged paragraphs resolve in &lt;10 ms via SHA-256 PCM disk cache.
+      <!-- Calibrated Verb Guidelines & BWE Harness Rules Banner -->
+      <div class="px-4 py-2 bg-stone-900/60 border-b border-stone-800 flex flex-wrap items-center justify-between text-xs font-mono text-stone-400 gap-2 shrink-0">
+        <div class="flex items-center gap-3">
+          <span class="text-stone-300 font-semibold">Verb Calibration:</span>
+          <span class="text-emerald-400"><strong class="font-bold">High:</strong> shows</span>
+          <span class="text-amber-400"><strong class="font-bold">Moderate:</strong> suggests</span>
+          <span class="text-stone-300"><strong class="font-bold">Low:</strong> is associated with</span>
         </div>
+        <div class="text-[11px] text-stone-400 hidden xl:block">
+          Purge scaffolding · Zero filler (<span class="text-rose-400">delve</span>, <span class="text-rose-400">testament</span>, <span class="text-rose-400">tapestry</span>)
+        </div>
+      </div>
+
+      <!-- Split View: Editor Pane (Left) vs Preview Pane (Right) -->
+      <div class="flex-1 flex flex-col md:flex-row min-h-0 overflow-hidden divide-y md:divide-y-0 md:divide-x divide-stone-800">
+
+        <!-- Left: Markdown Editor -->
+        <div class="flex-1 flex flex-col min-w-0 min-h-0 bg-stone-950">
+          <div class="px-3 py-1.5 bg-stone-900/40 border-b border-stone-800 flex items-center justify-between shrink-0">
+            <span class="text-[11px] font-mono text-stone-400 uppercase tracking-wider">Markdown Editor</span>
+            <span class="text-[11px] font-mono text-amber-400/90">UTF-8 Monospace</span>
+          </div>
+          <div class="flex-1 relative flex min-h-0">
+            <textarea id="markdown-editor"
+                      name="content"
+                      x-model="editorContent"
+                      spellcheck="false"
+                      class="flex-1 w-full p-4 bg-stone-950 text-stone-200 font-mono text-xs leading-relaxed resize-none focus:outline-none focus:ring-1 focus:ring-amber-500/50 min-h-[44px] min-w-[44px]"
+                      aria-label="Markdown chapter manuscript editor"
+                      placeholder="# Chapter Title..."></textarea>
+          </div>
+        </div>
+
+        <!-- Right: Live Preview Pane -->
+        <div class="flex-1 flex flex-col min-w-0 min-h-0 bg-stone-950">
+          <div class="px-3 py-1.5 bg-stone-900/40 border-b border-stone-800 flex items-center justify-between shrink-0">
+            <span class="text-[11px] font-mono text-stone-400 uppercase tracking-wider">Live Preview</span>
+            <span class="text-[11px] font-mono text-emerald-400">HTML · Serif Prose</span>
+          </div>
+          <div id="markdown-preview"
+               class="flex-1 p-6 overflow-y-auto prose prose-invert prose-stone max-w-none text-stone-300 font-serif leading-relaxed overscroll-contain">
+            <h1 class="text-2xl font-serif font-bold text-stone-100 mb-2">Chapter 1 — Before the Child Is Born</h1>
+            <p class="text-sm font-serif italic text-stone-400 mb-4">Fertility, Parental Age, Folate, and What Pregnancy Stress Actually Does</p>
+            <p class="mb-4">There is a moment when a child first becomes visible.</p>
+            <p class="mb-4">It may be the first ultrasound. A tiny flicker of light pulses on a dark screen, and a heartbeat is suddenly real. Or it may come weeks later: a kick beneath a resting hand, a paper printout curled at the edges, or a first sharp cry in a delivery room. We love these moments because they give life a clean starting line. A date goes onto a chart. A family story can officially begin.</p>
+            <p class="mb-4">Biology does not wait for that moment. By the time a heartbeat shows up on a screen, cells have already divided dozens of times. Tiny sheets of tissue have folded into early organs, and the beginnings of a brain and heart are already in place. A new organ, the placenta, is already trading oxygen and nutrients between two separate bloodstreams. Meanwhile, the adults who will welcome this baby are changing too—in their hormones, their brains, and their daily lives. The baby has not been born yet, but development is already well underway.</p>
+            <h2 class="text-xl font-serif font-bold text-amber-300 mt-6 mb-3">I. A Map Without Panic: Science, Interpretation, and Art</h2>
+            <p class="mb-4">Reading this map clearly takes a shared agreement between writer and reader. Throughout this book, we will hold three different kinds of truth in view without mixing them up: <strong class="text-stone-100 font-bold">science</strong>, <strong class="text-stone-100 font-bold">interpretation</strong>, and <strong class="text-stone-100 font-bold">art</strong>. <em>Science</em> names what researchers can observe, measure, test against control groups, and repeat. When strong trials or genetic studies back a claim, we say the evidence <strong class="text-emerald-400 font-bold">shows</strong> it. When several good studies point the same way, we say the evidence <strong class="text-amber-400 font-bold">suggests</strong> it. And when a finding comes from simple surveys where family background blurs the picture, we say one thing <strong class="text-stone-300 font-bold">is associated with</strong> another.</p>
+          </div>
+        </div>
+
       </div>
     </section>
 
-  </main>
+    <!-- ================================================================= -->
+    <!-- PANE 3: OKF v0.2 Live Drawer & Epistemic Tool Bench                -->
+    <!-- ================================================================= -->
+    <aside id="panel-tool-bench"
+           role="region"
+           aria-label="OKF v0.2 Live Drawer and Tool Bench"
+           x-show="isDesktop || activeMobilePane === 'tools'"
+           class="w-full lg:w-80 xl:w-96 shrink-0 flex flex-col h-full bg-stone-900/40 border-l border-stone-800/80 overflow-hidden">
 
-  <!-- Toast Notification for Copied Footnote Tags -->
+      <!-- Tool Bench Tabs Header (44px targets + ARIA) -->
+      <div role="tablist"
+           aria-label="Tool Bench Panels"
+           class="p-2 border-b border-stone-800 bg-stone-900/60 flex items-center justify-around gap-1 shrink-0">
+        <!-- Tool Tab 1: Cards -->
+        <button type="button"
+                id="tab-cards"
+                role="tab"
+                aria-selected="activeToolTab === 'cards'"
+                aria-controls="panel-cards"
+                @click="activeToolTab = 'cards'"
+                :class="activeToolTab === 'cards' ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 font-semibold shadow-inner' : 'text-stone-400 hover:text-stone-200'"
+                class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg border border-transparent text-xs font-mono transition touch-manipulation min-h-[44px] min-w-[44px] focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+                aria-label="Open OKF Cards Search">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+          </svg>
+          <span>Cards</span>
+        </button>
+
+        <!-- Tool Tab 2: Audit Gate -->
+        <button type="button"
+                id="tab-audit"
+                role="tab"
+                aria-selected="activeToolTab === 'audit'"
+                aria-controls="panel-audit"
+                @click="activeToolTab = 'audit'"
+                :class="activeToolTab === 'audit' ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 font-semibold shadow-inner' : 'text-stone-400 hover:text-stone-200'"
+                class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg border border-transparent text-xs font-mono transition touch-manipulation min-h-[44px] min-w-[44px] focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+                aria-label="Open Epistemic Audit Runner">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <span>Audit</span>
+        </button>
+
+        <!-- Tool Tab 3: TTS Stream -->
+        <button type="button"
+                id="tab-tts"
+                role="tab"
+                aria-selected="activeToolTab === 'tts'"
+                aria-controls="panel-tts"
+                @click="activeToolTab = 'tts'"
+                :class="activeToolTab === 'tts' ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 font-semibold shadow-inner' : 'text-stone-400 hover:text-stone-200'"
+                class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg border border-transparent text-xs font-mono transition touch-manipulation min-h-[44px] min-w-[44px] focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+                aria-label="Open Zero-Drift TTS Stream">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path>
+          </svg>
+          <span>Audio</span>
+        </button>
+      </div>
+
+      <!-- ============================================================= -->
+      <!-- TOOL SUB-PANEL 1: FTS5 Evidence Card Search                   -->
+      <!-- ============================================================= -->
+      <section id="panel-cards"
+               role="tabpanel"
+               aria-labelledby="tab-cards"
+               x-show="activeToolTab === 'cards'"
+               class="flex-1 flex flex-col min-h-0 overflow-hidden">
+        <div class="p-3 border-b border-stone-800 bg-stone-900/40 space-y-2 shrink-0">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-stone-300 font-mono">
+              OKF Evidence Cards
+            </h3>
+            <span id="search-spinner" class="htmx-indicator text-xs text-amber-400 font-mono">Searching...</span>
+          </div>
+          <div class="relative">
+            <input type="search"
+                   name="q"
+                   value="{{ query or '' }}"
+                   placeholder="Search DOIs, GI designs, claims..."
+                   aria-label="Search OKF v0.2 Evidence Cards by DOI, study design, or claim"
+                   hx-get="/ide/search-cards"
+                   hx-trigger="keyup changed delay:200ms, search"
+                   hx-target="#card-results"
+                   hx-indicator="#search-spinner"
+                   class="w-full bg-stone-950 border border-stone-700 focus:border-amber-500 text-stone-100 rounded-lg px-3 py-2 text-xs font-mono outline-none transition touch-manipulation min-h-[44px] min-w-[44px] focus-visible:ring-2 focus-visible:ring-amber-400">
+          </div>
+        </div>
+
+        <!-- Evidence Card Results Swap Container -->
+        <div id="card-results"
+             role="region"
+             aria-live="polite"
+             aria-label="Evidence Card Search Results"
+             class="flex-1 overflow-y-auto p-3 space-y-3 overscroll-contain">
+          {% block card_results %}
+            {% for card in cards %}
+            <article class="p-3.5 rounded-xl bg-stone-900/90 border border-stone-800 hover:border-stone-700 transition space-y-2 shadow-sm">
+              <div class="flex items-start justify-between gap-2">
+                <div class="min-w-0 flex-1">
+                  <span class="text-[11px] font-mono text-amber-400 block truncate">{{ card.series_slug }} / {{ card.book_slug }}</span>
+                  <h4 class="text-sm font-semibold text-stone-100 leading-snug break-words">{{ card.title }}</h4>
+                </div>
+                <button type="button"
+                        @click="copyFootnote('{{ card.card_slug }}')"
+                        class="shrink-0 text-xs font-mono px-3 py-2 rounded-md bg-stone-800 hover:bg-amber-600 hover:text-stone-950 text-stone-300 transition touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center active:scale-95 focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+                        aria-label="Copy footnote tag for {{ card.title }}"
+                        title="Copy formal Markdown footnote tag">
+                  [^{{ card.card_slug }}]
+                </button>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-emerald-950/80 text-emerald-400 border border-emerald-800 font-medium">
+                  OKF v0.2
+                </span>
+                <span class="text-[10px] font-mono text-stone-400">Locked DOI</span>
+              </div>
+              <p class="text-xs text-stone-400 leading-relaxed">{{ card.snippet | safe }}</p>
+            </article>
+            {% else %}
+            <p class="text-xs text-stone-400 italic p-4 text-center">No matching OKF v0.2 evidence cards found.</p>
+            {% endfor %}
+          {% endblock %}
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <!-- TOOL SUB-PANEL 2: Epistemic Audit Gate Runner                 -->
+      <!-- ============================================================= -->
+      <section id="panel-audit"
+               role="tabpanel"
+               aria-labelledby="tab-audit"
+               x-show="activeToolTab === 'audit'"
+               class="flex-1 flex flex-col min-h-0 overflow-hidden">
+        <div class="p-3 border-b border-stone-800 bg-stone-900/40 space-y-3 shrink-0">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-stone-300 font-mono">
+              Epistemic Gate Runner
+            </h3>
+            <span id="audit-spinner" class="htmx-indicator text-xs text-amber-400 font-mono">Running Gate...</span>
+          </div>
+
+          <form hx-post="/ide/audit"
+                hx-target="#audit-output"
+                hx-indicator="#audit-spinner"
+                class="space-y-3">
+            <div class="space-y-2.5">
+              <div>
+                <label for="gate-script" class="block text-xs text-stone-300 mb-1 font-medium">Gate Script</label>
+                <select id="gate-script"
+                        name="script_name"
+                        class="w-full bg-stone-950 border border-stone-700 text-stone-100 rounded-lg px-3 py-2 text-xs font-mono min-h-[44px] min-w-[44px] touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
+                  <option value="five_rule_check">five_rule_check.py (5-Rule Gate)</option>
+                  <option value="audit_manuscript">audit_manuscript.py (Full Audit)</option>
+                  <option value="audit_epub">audit_epub.py (EPUB 3 Conformance)</option>
+                </select>
+              </div>
+              <div>
+                <label for="target-path" class="block text-xs text-stone-300 mb-1 font-medium">Target Series / Chapter Path</label>
+                <select id="target-path"
+                        name="target_path"
+                        class="w-full bg-stone-950 border border-stone-700 text-stone-100 rounded-lg px-3 py-2 text-xs font-mono min-h-[44px] min-w-[44px] touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
+                  <option value="series/parenthood-atlas">series/parenthood-atlas (v1.0-rc1)</option>
+                  <option value="series/parenthood-atlas/chapters/01-before-the-child-is-born.md">parenthood-atlas/ch01</option>
+                  <option value="series/architectures-of-memory/book-01-vanishing-signal">aom/book-01-vanishing-signal</option>
+                  <option value="series/architectures-of-memory/book-02-forget-gate">aom/book-02-forget-gate</option>
+                  <option value="series/architectures-of-memory/book-03-weight-of-attention">aom/book-03-weight-of-attention</option>
+                  <option value="series/architectures-of-memory/book-04-context-window">aom/book-04-context-window</option>
+                  <option value="series/architectures-of-memory/book-05-architecture-of-forgetting">aom/book-05-architecture-of-forgetting</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit"
+                    class="w-full py-2.5 bg-amber-600 hover:bg-amber-500 active:bg-amber-700 text-stone-950 font-semibold rounded-lg text-xs font-mono transition touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none shadow-md"
+                    aria-label="Execute Epistemic Audit Gate">
+              Execute Epistemic Audit Gate
+            </button>
+          </form>
+        </div>
+
+        <div id="audit-output"
+             class="flex-1 overflow-y-auto p-3 font-mono text-xs text-stone-300 space-y-2 overscroll-contain">
+          <div class="p-4 rounded-xl bg-stone-900/60 border border-stone-800 text-stone-400 leading-relaxed">
+            Select a gate script above to verify purged harness scaffolding, calibrated claim verbs, locked DOIs, and formal <code>## Notes</code> footnote migration.
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <!-- TOOL SUB-PANEL 3: Zero-Drift TTS Stream Synthesis             -->
+      <!-- ============================================================= -->
+      <section id="panel-tts"
+               role="tabpanel"
+               aria-labelledby="tab-tts"
+               x-show="activeToolTab === 'tts'"
+               class="flex-1 flex flex-col min-h-0 overflow-hidden">
+        <div class="p-3 border-b border-stone-800 bg-stone-900/40 space-y-3 shrink-0">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-stone-300 font-mono">
+              TTS Synthesis Stream
+            </h3>
+            <span class="text-[11px] font-mono text-emerald-400 flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true"></span>
+              48,000 B/s PCM
+            </span>
+          </div>
+
+          <!-- Fallback Telemetry -->
+          <div class="p-2.5 rounded-lg bg-stone-950 border border-stone-800 text-[11px] font-mono text-stone-400 leading-relaxed">
+            <span class="text-stone-300 font-semibold">Fallback Chain:</span>
+            2.5-pro-preview-tts → 3.8-flash-tts → 3.1-flash-tts-preview → 2.5-flash-preview-tts
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <div>
+              <label for="tts-series-select" class="block text-xs text-stone-300 mb-1 font-medium">Series</label>
+              <select id="tts-series-select"
+                      x-model="ttsSeries"
+                      class="bg-stone-950 border border-stone-700 text-stone-100 rounded-lg px-3 py-2 text-xs font-mono w-full min-h-[44px] min-w-[44px] touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
+                <option value="parenthood-atlas">parenthood-atlas</option>
+                <option value="architectures-of-memory">architectures-of-memory</option>
+              </select>
+            </div>
+            <div>
+              <label for="tts-chapter-select" class="block text-xs text-stone-300 mb-1 font-medium">Chapter</label>
+              <select id="tts-chapter-select"
+                      x-model="ttsChapter"
+                      class="bg-stone-950 border border-stone-700 text-stone-100 rounded-lg px-3 py-2 text-xs font-mono w-full min-h-[44px] min-w-[44px] touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
+                <option value="01-before-the-child-is-born">01-before-the-child-is-born</option>
+                <option value="02-first-environment">02-first-environment</option>
+                <option value="03-the-great-transition">03-the-great-transition</option>
+                <option value="04-regulatory-relationship">04-regulatory-relationship</option>
+                <option value="05-becoming-a-mind">05-becoming-a-mind</option>
+                <option value="06-the-mind-in-motion">06-the-mind-in-motion</option>
+                <option value="07-the-birth-of-language">07-the-birth-of-language</option>
+                <option value="08-the-expanding-world">08-the-expanding-world</option>
+                <option value="09-the-emotional-revolution">09-the-emotional-revolution</option>
+                <option value="10-boundaries-behavior">10-boundaries-behavior</option>
+                <option value="11-the-developing-executive">11-the-developing-executive</option>
+                <option value="12-play-imagination">12-play-imagination</option>
+                <option value="13-the-ecology-of-development">13-the-ecology-of-development</option>
+                <option value="14-what-actually-works">14-what-actually-works</option>
+                <option value="15-three-years">15-three-years</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button type="button"
+                    @click="startTtsStream()"
+                    class="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-stone-950 font-semibold rounded-lg text-xs font-mono transition touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:outline-none shadow-md"
+                    aria-label="Stream TTS Speech Synthesis">
+              Stream Synthesis
+            </button>
+            <button type="button"
+                    @click="clearTtsLog()"
+                    class="px-3.5 py-2.5 bg-stone-800 hover:bg-stone-700 active:bg-stone-900 text-stone-300 rounded-lg text-xs font-mono min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation focus-visible:ring-2 focus-visible:ring-stone-400 focus-visible:outline-none"
+                    aria-label="Clear TTS Log">
+              Clear
+            </button>
+          </div>
+        </div>
+
+        <!-- Terminal Output Container (#tts-terminal and #tts-sse-mount) -->
+        <div id="tts-terminal"
+             role="log"
+             aria-live="polite"
+             aria-label="Audiobook Speech Synthesis Terminal"
+             class="flex-1 flex flex-col min-h-0 bg-stone-950 overflow-hidden">
+          <div class="px-3 py-1.5 bg-stone-900 border-b border-stone-800 flex items-center justify-between text-[11px] font-mono text-stone-400 shrink-0">
+            <span>Terminal Output</span>
+            <span class="text-emerald-400 font-semibold">Gemini Audio Engine</span>
+          </div>
+          <div id="tts-sse-mount"
+               class="flex-1 overflow-y-auto p-3 bg-stone-950 font-mono text-xs text-stone-300 space-y-1.5 overscroll-contain">
+            <div class="text-stone-400 italic p-2">
+              Ready. Unchanged paragraphs resolve in &lt;10 ms via SHA-256 PCM disk cache.
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </aside>
+
+  </div>
+
+  <!-- Toast Notification for Copied Footnote Tags or Editor Actions -->
   <div x-show="toastMessage"
        x-transition
        role="status"
        aria-live="polite"
-       class="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] right-5 px-4 py-2.5 rounded-lg bg-amber-500 text-stone-950 font-mono text-xs font-semibold shadow-xl z-50">
+       class="fixed bottom-5 right-5 px-4 py-2.5 rounded-lg bg-amber-500 text-stone-950 font-mono text-xs font-semibold shadow-xl z-50">
     <span x-text="toastMessage"></span>
   </div>
 
-  <script>
-    function ideWorkbench() {
-      return {
-        activeMobileTab: 'cards',
-        isDesktop: window.innerWidth >= 1024,
-        ttsSeries: 'parenthood-atlas',
-        ttsChapter: '01-before-the-child-is-born',
-        toastMessage: '',
-        init() {
-          window.addEventListener('resize', () => {
-            this.isDesktop = window.innerWidth >= 1024;
-          });
-        },
-        copyFootnote(slug) {
-          const tag = `[^${slug}]`;
-          navigator.clipboard.writeText(tag);
-          this.toastMessage = `Copied ${tag} to clipboard`;
-          setTimeout(() => { this.toastMessage = ''; }, 2200);
-        },
-        startTtsStream() {
-          const mount = document.getElementById('tts-sse-mount');
-          const url = `/ide/tts-stream/${this.ttsSeries}/${this.ttsChapter}`;
-          mount.innerHTML = `
-            <div hx-ext="sse" sse-connect="${url}" class="space-y-1">
-              <div class="text-amber-400 pb-1 border-b border-stone-800">
-                Connecting to ${url} ...
-              </div>
-              <div sse-swap="tts-log" hx-swap="beforeend"></div>
-              <div sse-swap="tts-done" hx-swap="innerHTML" class="pt-2 text-emerald-400"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  function ideWorkbench() {
+    return {
+      activeMobilePane: 'editor',
+      activeToolTab: 'cards',
+      isDesktop: window.innerWidth >= 1024,
+      fileFilter: '',
+      currentFilePath: 'series/parenthood-atlas/chapters/01-before-the-child-is-born.md',
+      editorContent: `# Chapter 1 — Before the Child Is Born\n*Fertility, Parental Age, Folate, and What Pregnancy Stress Actually Does*\n\nThere is a moment when a child first becomes visible.\n\nIt may be the first ultrasound. A tiny flicker of light pulses on a dark screen, and a heartbeat is suddenly real. Or it may come weeks later: a kick beneath a resting hand, a paper printout curled at the edges, or a first sharp cry in a delivery room. We love these moments because they give life a clean starting line. A date goes onto a chart. A family story can officially begin.\n\nBiology does not wait for that moment. By the time a heartbeat shows up on a screen, cells have already divided dozens of times. Tiny sheets of tissue have folded into early organs, and the beginnings of a brain and heart are already in place. A new organ, the placenta, is already trading oxygen and nutrients between two separate bloodstreams. Meanwhile, the adults who will welcome this baby are changing too—in their hormones, their brains, and their daily lives. The baby has not been born yet, but development is already well underway.\n\n## I. A Map Without Panic: Science, Interpretation, and Art\n\nReading this map clearly takes a shared agreement between writer and reader. Throughout this book, we will hold three different kinds of truth in view without mixing them up: science, interpretation, and art. Science names what researchers can observe, measure, test against control groups, and repeat. When strong trials or genetic studies back a claim, we say the evidence shows it. When several good studies point the same way, we say the evidence suggests it. And when a finding comes from simple surveys where family background blurs the picture, we say one thing is associated with another.`,
+      toastMessage: '',
+      ttsSeries: 'parenthood-atlas',
+      ttsChapter: '01-before-the-child-is-born',
+      init() {
+        const updateDesktop = () => {
+          this.isDesktop = window.innerWidth >= 1024;
+        };
+        window.addEventListener('resize', updateDesktop);
+      },
+      get wordCount() {
+        const text = this.editorContent ? this.editorContent.trim() : '';
+        return text ? text.split(/\s+/).length : 0;
+      },
+      loadFile(path, name) {
+        this.currentFilePath = path;
+        this.toastMessage = 'Opening ' + name + '...';
+        setTimeout(() => { this.toastMessage = ''; }, 1800);
+      },
+      copyFootnote(slug) {
+        const tag = '[^' + slug + ']';
+        navigator.clipboard.writeText(tag);
+        this.toastMessage = 'Copied ' + tag + ' to clipboard';
+        setTimeout(() => { this.toastMessage = ''; }, 2200);
+      },
+      copyEditorContent() {
+        navigator.clipboard.writeText(this.editorContent);
+        this.toastMessage = 'Copied manuscript markdown to clipboard';
+        setTimeout(() => { this.toastMessage = ''; }, 2200);
+      },
+      resetEditorContent() {
+        this.toastMessage = 'Resetting editor content';
+        setTimeout(() => { this.toastMessage = ''; }, 1800);
+      },
+      startTtsStream() {
+        const mount = document.getElementById('tts-sse-mount');
+        if (!mount) return;
+        const url = '/ide/tts-stream/' + this.ttsSeries + '/' + this.ttsChapter;
+        mount.innerHTML = `
+          <div hx-ext="sse" sse-connect="` + url + `" class="space-y-1">
+            <div class="text-amber-400 pb-1 border-b border-stone-800">
+              Connecting to ` + url + ` ...
             </div>
-          `;
-          htmx.process(mount);
-        },
-        clearTtsLog() {
-          document.getElementById('tts-sse-mount').innerHTML =
-            '<div class="text-stone-500 italic p-2">Log cleared.</div>';
+            <div sse-swap="tts-log" hx-swap="beforeend"></div>
+            <div sse-swap="tts-done" hx-swap="innerHTML" class="pt-2 text-emerald-400"></div>
+          </div>
+        `;
+        htmx.process(mount);
+      },
+      clearTtsLog() {
+        const mount = document.getElementById('tts-sse-mount');
+        if (mount) {
+          mount.innerHTML = '<div class="text-stone-400 italic p-2">Log cleared.</div>';
         }
       }
-    }
-  </script>
-</body>
-</html>
+    };
+  }
+</script>
+{% endblock %}

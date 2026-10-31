@@ -787,7 +787,7 @@ def export_static_charts(
     ax2 = fig5.add_subplot(gs[0, 1])
     sorted_vols = np.sort(np.asarray([b["verified_vol"] for b in breakdown], dtype=float))
     cum_vols = np.cumsum(sorted_vols)
-    if cum_vols[-1] > 0:
+    if len(cum_vols) > 0 and cum_vols[-1] > 0:
         cum_vols_norm = np.insert(cum_vols / cum_vols[-1], 0, 0.0)
     else:
         cum_vols_norm = np.linspace(0, 1, len(sorted_vols) + 1)

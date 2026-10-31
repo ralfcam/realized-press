@@ -1,0 +1,953 @@
+{
+  "chapter": "03-the-great-transition",
+  "total_duration_sec": 1487.529,
+  "sample_rate": 24000,
+  "bytes_per_second": 48000,
+  "chunks": [
+    {
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 3.741,
+      "duration_sec": 3.741,
+      "pcm_bytes": 179566,
+      "block_range": [
+        "b-000",
+        "b-000"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "start_sec": 3.741,
+      "end_sec": 10.052,
+      "duration_sec": 6.311,
+      "pcm_bytes": 302926,
+      "block_range": [
+        "b-001",
+        "b-001"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "start_sec": 10.052,
+      "end_sec": 16.083,
+      "duration_sec": 6.031,
+      "pcm_bytes": 289486,
+      "block_range": [
+        "b-002",
+        "b-002"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "start_sec": 16.083,
+      "end_sec": 43.554,
+      "duration_sec": 27.471,
+      "pcm_bytes": 1318606,
+      "block_range": [
+        "b-003",
+        "b-003"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "start_sec": 43.554,
+      "end_sec": 67.305,
+      "duration_sec": 23.751,
+      "pcm_bytes": 1140046,
+      "block_range": [
+        "b-004",
+        "b-004"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "start_sec": 67.305,
+      "end_sec": 96.056,
+      "duration_sec": 28.751,
+      "pcm_bytes": 1380046,
+      "block_range": [
+        "b-005",
+        "b-005"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "start_sec": 96.056,
+      "end_sec": 123.367,
+      "duration_sec": 27.311,
+      "pcm_bytes": 1310926,
+      "block_range": [
+        "b-006",
+        "b-006"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "start_sec": 123.367,
+      "end_sec": 128.988,
+      "duration_sec": 5.621,
+      "pcm_bytes": 269806,
+      "block_range": [
+        "b-007",
+        "b-007"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "start_sec": 128.988,
+      "end_sec": 153.139,
+      "duration_sec": 24.151,
+      "pcm_bytes": 1159246,
+      "block_range": [
+        "b-008",
+        "b-008"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "start_sec": 153.139,
+      "end_sec": 190.05,
+      "duration_sec": 36.911,
+      "pcm_bytes": 1771726,
+      "block_range": [
+        "b-009",
+        "b-009"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "start_sec": 190.05,
+      "end_sec": 234.921,
+      "duration_sec": 44.871,
+      "pcm_bytes": 2153806,
+      "block_range": [
+        "b-010",
+        "b-010"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "start_sec": 234.921,
+      "end_sec": 294.351,
+      "duration_sec": 59.431,
+      "pcm_bytes": 2852686,
+      "block_range": [
+        "b-011",
+        "b-011"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "start_sec": 294.351,
+      "end_sec": 300.412,
+      "duration_sec": 6.061,
+      "pcm_bytes": 290926,
+      "block_range": [
+        "b-012",
+        "b-012"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "start_sec": 300.412,
+      "end_sec": 310.643,
+      "duration_sec": 10.231,
+      "pcm_bytes": 491086,
+      "block_range": [
+        "b-013",
+        "b-013"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "start_sec": 310.643,
+      "end_sec": 347.634,
+      "duration_sec": 36.991,
+      "pcm_bytes": 1775566,
+      "block_range": [
+        "b-014",
+        "b-014"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "start_sec": 347.634,
+      "end_sec": 373.145,
+      "duration_sec": 25.511,
+      "pcm_bytes": 1224526,
+      "block_range": [
+        "b-015",
+        "b-015"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "start_sec": 373.145,
+      "end_sec": 429.336,
+      "duration_sec": 56.191,
+      "pcm_bytes": 2697166,
+      "block_range": [
+        "b-016",
+        "b-016"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "start_sec": 429.336,
+      "end_sec": 478.127,
+      "duration_sec": 48.791,
+      "pcm_bytes": 2341966,
+      "block_range": [
+        "b-017",
+        "b-017"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "start_sec": 478.127,
+      "end_sec": 533.198,
+      "duration_sec": 55.071,
+      "pcm_bytes": 2643406,
+      "block_range": [
+        "b-018",
+        "b-018"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "start_sec": 533.198,
+      "end_sec": 582.909,
+      "duration_sec": 49.711,
+      "pcm_bytes": 2386126,
+      "block_range": [
+        "b-019",
+        "b-019"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "start_sec": 582.909,
+      "end_sec": 589.85,
+      "duration_sec": 6.941,
+      "pcm_bytes": 333166,
+      "block_range": [
+        "b-020",
+        "b-020"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "start_sec": 589.85,
+      "end_sec": 632.441,
+      "duration_sec": 42.591,
+      "pcm_bytes": 2044366,
+      "block_range": [
+        "b-021",
+        "b-021"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "start_sec": 632.441,
+      "end_sec": 706.752,
+      "duration_sec": 74.311,
+      "pcm_bytes": 3566926,
+      "block_range": [
+        "b-022",
+        "b-022"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "start_sec": 706.752,
+      "end_sec": 754.183,
+      "duration_sec": 47.431,
+      "pcm_bytes": 2276686,
+      "block_range": [
+        "b-023",
+        "b-023"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "start_sec": 754.183,
+      "end_sec": 838.134,
+      "duration_sec": 83.951,
+      "pcm_bytes": 4029646,
+      "block_range": [
+        "b-024",
+        "b-024"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "start_sec": 838.134,
+      "end_sec": 929.205,
+      "duration_sec": 91.071,
+      "pcm_bytes": 4371406,
+      "block_range": [
+        "b-025",
+        "b-025"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "start_sec": 929.205,
+      "end_sec": 973.796,
+      "duration_sec": 44.591,
+      "pcm_bytes": 2140366,
+      "block_range": [
+        "b-026",
+        "b-026"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "start_sec": 973.796,
+      "end_sec": 980.337,
+      "duration_sec": 6.541,
+      "pcm_bytes": 313966,
+      "block_range": [
+        "b-027",
+        "b-027"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "start_sec": 980.337,
+      "end_sec": 991.248,
+      "duration_sec": 10.911,
+      "pcm_bytes": 523726,
+      "block_range": [
+        "b-028",
+        "b-028"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "start_sec": 991.248,
+      "end_sec": 1065.319,
+      "duration_sec": 74.071,
+      "pcm_bytes": 3555406,
+      "block_range": [
+        "b-029",
+        "b-029"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "start_sec": 1065.319,
+      "end_sec": 1128.47,
+      "duration_sec": 63.151,
+      "pcm_bytes": 3031246,
+      "block_range": [
+        "b-030",
+        "b-030"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "start_sec": 1128.47,
+      "end_sec": 1210.701,
+      "duration_sec": 82.231,
+      "pcm_bytes": 3947086,
+      "block_range": [
+        "b-031",
+        "b-031"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "start_sec": 1210.701,
+      "end_sec": 1232.332,
+      "duration_sec": 21.631,
+      "pcm_bytes": 1038286,
+      "block_range": [
+        "b-032",
+        "b-032"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "start_sec": 1232.332,
+      "end_sec": 1239.753,
+      "duration_sec": 7.421,
+      "pcm_bytes": 356206,
+      "block_range": [
+        "b-033",
+        "b-033"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "start_sec": 1239.753,
+      "end_sec": 1250.744,
+      "duration_sec": 10.991,
+      "pcm_bytes": 527566,
+      "block_range": [
+        "b-034",
+        "b-034"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "start_sec": 1250.744,
+      "end_sec": 1290.855,
+      "duration_sec": 40.111,
+      "pcm_bytes": 1925326,
+      "block_range": [
+        "b-035",
+        "b-035"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "start_sec": 1290.855,
+      "end_sec": 1340.685,
+      "duration_sec": 49.831,
+      "pcm_bytes": 2391886,
+      "block_range": [
+        "b-036",
+        "b-036"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "start_sec": 1340.685,
+      "end_sec": 1411.996,
+      "duration_sec": 71.311,
+      "pcm_bytes": 3422926,
+      "block_range": [
+        "b-037",
+        "b-037"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "start_sec": 1411.996,
+      "end_sec": 1438.867,
+      "duration_sec": 26.871,
+      "pcm_bytes": 1289806,
+      "block_range": [
+        "b-038",
+        "b-038"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "start_sec": 1438.867,
+      "end_sec": 1448.818,
+      "duration_sec": 9.951,
+      "pcm_bytes": 477646,
+      "block_range": [
+        "b-039",
+        "b-039"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "start_sec": 1448.818,
+      "end_sec": 1487.529,
+      "duration_sec": 38.711,
+      "pcm_bytes": 1858126,
+      "block_range": [
+        "b-040",
+        "b-040"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "b-000",
+      "tag": "h1",
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 3.741,
+      "words": 6,
+      "weight": 9,
+      "text": "Chapter 3 — The Great Transition",
+      "start_ratio": 0.0,
+      "end_ratio": 0.0025
+    },
+    {
+      "id": "b-001",
+      "tag": "p",
+      "chunk_id": 2,
+      "start_sec": 3.741,
+      "end_sec": 10.052,
+      "words": 7,
+      "weight": 7,
+      "text": "Birth, C-Sections, Skin-to-Skin, Crying, and Early Feeding",
+      "start_ratio": 0.0025,
+      "end_ratio": 0.0068
+    },
+    {
+      "id": "b-002",
+      "tag": "p",
+      "chunk_id": 3,
+      "start_sec": 10.052,
+      "end_sec": 16.083,
+      "words": 16,
+      "weight": 16,
+      "text": "A baby is born. Everyone in the delivery room treats the hour as a brand-new beginning.",
+      "start_ratio": 0.0068,
+      "end_ratio": 0.0108
+    },
+    {
+      "id": "b-003",
+      "tag": "p",
+      "chunk_id": 4,
+      "start_sec": 16.083,
+      "end_sec": 43.554,
+      "words": 71,
+      "weight": 71,
+      "text": "Before this moment there was pregnancy: hidden growth, an umbilical lifeline, and a muffled underwater world. After it there is a child in the open air who gasps, cries, shivers, and roots for milk. Someone lifts the newborn into warm hands. In the legal and emotional calendar of a family, the dividing line is total. In the calendar of human biology, birth is a comma in the middle of a sentence.",
+      "start_ratio": 0.0108,
+      "end_ratio": 0.0293
+    },
+    {
+      "id": "b-004",
+      "tag": "p",
+      "chunk_id": 5,
+      "start_sec": 43.554,
+      "end_sec": 67.305,
+      "words": 60,
+      "weight": 60,
+      "text": "The newborn who comes into the light already has a four-chambered beating heart and an active nervous system. The lungs have already branched like trees, even though they have never breathed air. The ears are already tuned to the melody of human voices. Birth does not create this child from scratch. It changes the world that keeps the child alive.",
+      "start_ratio": 0.0293,
+      "end_ratio": 0.0452
+    },
+    {
+      "id": "b-005",
+      "tag": "p",
+      "chunk_id": 6,
+      "start_sec": 67.305,
+      "end_sec": 96.056,
+      "words": 74,
+      "weight": 74,
+      "text": "Within seconds of leaving the placenta, breathing must move from the umbilical cord to the lungs. At the exact same moment, the entire heart and blood-vessel loop must reroute itself around that new reality. Every baby has to make this switch to survive. Yet the exact hour when internal heart valves seal shut varies across healthy newborns. And a bumpy first hour in the delivery room offers zero forecast of a child’s future character.",
+      "start_ratio": 0.0452,
+      "end_ratio": 0.0646
+    },
+    {
+      "id": "b-006",
+      "tag": "p",
+      "chunk_id": 7,
+      "start_sec": 96.056,
+      "end_sec": 123.367,
+      "words": 67,
+      "weight": 67,
+      "text": "In Chapter 2, we traced how the womb buffers and supports the growing fetus. Now we face a sudden turn. We do not ask which birth plan builds the smartest adult. We ask what kind of physical crossing birth actually is: what happens when the placenta is traded for air, gravity, bright light, milk, and human arms — and what promises can that first hour honestly support?",
+      "start_ratio": 0.0646,
+      "end_ratio": 0.0829
+    },
+    {
+      "id": "b-007",
+      "tag": "h2",
+      "chunk_id": 8,
+      "start_sec": 123.367,
+      "end_sec": 128.988,
+      "words": 11,
+      "weight": 13,
+      "text": "I. Neither Origin Nor Reset: The Meaning of the First Hour",
+      "start_ratio": 0.0829,
+      "end_ratio": 0.0867
+    },
+    {
+      "id": "b-008",
+      "tag": "p",
+      "chunk_id": 9,
+      "start_sec": 128.988,
+      "end_sec": 153.139,
+      "words": 66,
+      "weight": 66,
+      "text": "Because birth is dramatic and timed down to the minute, popular culture pulls it toward one of two extremes. The first treats birth as the true start of the person. That view shrinks the nine months before birth to a mere warm-up. The second treats birth as a fragile ceremony where any departure from a perfect birth plan leaves a permanent emotional scar on the baby.",
+      "start_ratio": 0.0867,
+      "end_ratio": 0.1029
+    },
+    {
+      "id": "b-009",
+      "tag": "p",
+      "chunk_id": 10,
+      "start_sec": 153.139,
+      "end_sec": 190.05,
+      "words": 88,
+      "weight": 88,
+      "text": "Human biology rejects both stories. Birth is neither the start of life nor the erasure of pregnancy. It is a sudden handoff of life support. Inside the uterus, oxygen flowed non-stop across the outer layer of the placenta. Body temperature stayed locked to the mother’s warmth. Blood sugar arrived steadily through the umbilical vein, and blood bypassed the fluid-filled lungs. Once the cord is clamped, every single one of those jobs must be taken over by the baby’s own organs, medical care, and the hands-on care of adults.",
+      "start_ratio": 0.1029,
+      "end_ratio": 0.1278
+    },
+    {
+      "id": "b-010",
+      "tag": "p",
+      "chunk_id": 11,
+      "start_sec": 190.05,
+      "end_sec": 234.921,
+      "words": 114,
+      "weight": 114,
+      "text": "Even the start of labor is the result of weeks of quiet preparation rather than a sudden flip of a switch. During the final weeks of pregnancy, rising fetal cortisol helps the lungs produce a soapy coating that keeps air sacs from sticking shut. It also packs extra sugar into the baby’s liver and preps thyroid hormones for the cool outside world. Then, during contractions, a surge of adrenaline mobilizes fuel and primes the heart for air. Still, as hormone and labor studies suggest, human labor is not triggered by a single simple timer. It builds from a mix of placental clock signals, gentle inflammation, uterine stretch, and chemical messages between mother and baby.",
+      "start_ratio": 0.1278,
+      "end_ratio": 0.1579
+    },
+    {
+      "id": "b-011",
+      "tag": "p",
+      "chunk_id": 12,
+      "start_sec": 234.921,
+      "end_sec": 294.351,
+      "words": 152,
+      "weight": 152,
+      "text": "This link between late-pregnancy prep and labor mechanics explains why how a baby is born changes the first hours of care without writing the child’s life story. When a baby arrives by planned cesarean section before labor starts, the baby misses the natural squeeze and hormone surge of contractions. That slows down how fast fluid clears from the lungs. It also changes which bacteria first touch the skin and gut. High-certainty nursery studies show that delivery mode changes how hard a newborn works to clear lung fluid in the first few hours. Yet researchers have also compared siblings born to the same parents — one by C-section and one vaginally. Those high-certainty sibling studies show that cesarean birth does not lower a child’s later intelligence, self-control, or emotional health. A C-section is a medical surgery with specific short-term recovery trade-offs. It is never a ceiling placed on a child’s mind or bond.",
+      "start_ratio": 0.1579,
+      "end_ratio": 0.1979
+    },
+    {
+      "id": "b-012",
+      "tag": "h2",
+      "chunk_id": 13,
+      "start_sec": 294.351,
+      "end_sec": 300.412,
+      "words": 11,
+      "weight": 13,
+      "text": "II. The Cardiopulmonary Crossing and the End of the Placental Buffer",
+      "start_ratio": 0.1979,
+      "end_ratio": 0.202
+    },
+    {
+      "id": "b-013",
+      "tag": "p",
+      "chunk_id": 14,
+      "start_sec": 300.412,
+      "end_sec": 310.643,
+      "words": 24,
+      "weight": 24,
+      "text": "To grasp the sheer scale of a newborn’s first hour, we have to look inside the chest at the exact moment air replaces fluid.",
+      "start_ratio": 0.202,
+      "end_ratio": 0.2088
+    },
+    {
+      "id": "b-014",
+      "tag": "p",
+      "chunk_id": 15,
+      "start_sec": 310.643,
+      "end_sec": 347.634,
+      "words": 107,
+      "weight": 107,
+      "text": "All through pregnancy, the fetal lungs are not flat, empty balloons. They are active organs filled with salty fluid. High pressure in their blood vessels steers most blood away from them. For decades, hospital folklore claimed that a vaginal birth simply squeezed this liquid out of the chest like wringing out a wet sponge. Modern newborn physiology shows a much smarter cellular trick. Late-pregnancy hormones flip tiny salt pumps in the lining of the lungs from making fluid to pulling fluid back into the bloodstream. Then the deep pull of the baby’s first cries drives air into the tiny lung sacs and pushes the remaining liquid out.",
+      "start_ratio": 0.2088,
+      "end_ratio": 0.2337
+    },
+    {
+      "id": "b-015",
+      "tag": "p",
+      "chunk_id": 16,
+      "start_sec": 347.634,
+      "end_sec": 373.145,
+      "words": 65,
+      "weight": 65,
+      "text": "Breathing and blood flow are locked in an instant mechanical dance. As fresh air fills the lung sacs and oxygen levels jump, the tight blood vessels inside the lungs relax wide open. Resistance drops, and blood rushes into the lungs within minutes. At that very same moment, clamping the umbilical cord cuts off the low-pressure placenta. Blood pressure in the rest of the body rises.",
+      "start_ratio": 0.2337,
+      "end_ratio": 0.2508
+    },
+    {
+      "id": "b-016",
+      "tag": "p",
+      "chunk_id": 17,
+      "start_sec": 373.145,
+      "end_sec": 429.336,
+      "words": 167,
+      "weight": 167,
+      "text": "That pressure flip reverses the three temporary heart shortcuts we met in Chapter 2. As pressure on the left side of the heart rises higher than the right, a small flap door between the upper chambers presses shut. As blood oxygen climbs, a muscular shortcut vessel next to the main artery squeezes closed. That sends all blood from the right side of the heart straight through the lungs. Meanwhile, with cord blood gone, the shortcut vessel through the liver narrows and seals off. As Sarah Morton and Dara Brodsky showed across newborn heart studies, the order of this plumbing switch is known with high certainty. Still, the exact day those doors seal permanently varies across healthy babies. When this switch stalls — as in severe premature lungs or high lung blood pressure — the newborn needs fast medical help in the nursery. Yet once a rough first breath is treated and resolved, low-certainty fears that needing oxygen for an hour causes lifelong anxiety have zero scientific basis.",
+      "start_ratio": 0.2508,
+      "end_ratio": 0.2886
+    },
+    {
+      "id": "b-017",
+      "tag": "p",
+      "chunk_id": 18,
+      "start_sec": 429.336,
+      "end_sec": 478.127,
+      "words": 148,
+      "weight": 148,
+      "text": "A similar rule applies to the sudden loss of the mother’s warmth and fuel supply. Because a newborn has a large skin surface for its weight, thin body fat, and wet skin in a cool room, body temperature can drop fast. Babies cannot shiver like adults to warm up. Instead, they burn a special heat-making tissue called brown fat packed around the neck and shoulders. At the same time, they break down stored liver sugar to feed the brain. Drying the baby, keeping the body warm, and checking blood sugar are vital hospital jobs because getting cold burns up precious oxygen. Once a newborn is warm and fed, however, a brief dip in nursery temperature or blood sugar carries zero weight for who the child will become. Dependence does not end when the cord is cut. It simply moves from the placenta to the people in the room.",
+      "start_ratio": 0.2886,
+      "end_ratio": 0.3214
+    },
+    {
+      "id": "b-018",
+      "tag": "p",
+      "chunk_id": 19,
+      "start_sec": 478.127,
+      "end_sec": 533.198,
+      "words": 141,
+      "weight": 141,
+      "text": "This same handoff from placenta to infant organs explains another common newborn worry: jaundice. In the womb, the placenta cleared the yellow pigment (bilirubin) left over from broken-down fetal red blood cells. After birth, the newborn’s immature liver must take over this job on its own. More than sixty percent of healthy full-term newborns develop a mild yellow tint to their eyes and skin during the first week. In the vast majority of babies, this normal clearing resolves on its own as feedings increase and bowel movements pass the pigment out. When levels rise toward established safety lines, blue-light phototherapy provides an elegant, non-invasive cure. Specialized blue-green light waves (between 460 and 490 nanometers) shine through the skin and convert the pigment into a harmless, water-soluble shape that washes out in the diaper, protecting the developing brain without medications or surgery.",
+      "start_ratio": 0.3214,
+      "end_ratio": 0.3584
+    },
+    {
+      "id": "b-019",
+      "tag": "p",
+      "chunk_id": 20,
+      "start_sec": 533.198,
+      "end_sec": 582.909,
+      "words": 117,
+      "weight": 117,
+      "text": "A related handoff unfolds in how babies meet their first microbes. Over the past decade, popular wellness blogs have promoted “vaginal seeding”—the practice of wiping a cesarean-delivered newborn’s mouth and skin with gauze soaked in maternal vaginal fluid—promising to rebuild the natural gut flora. Yet major obstetric and pediatric bodies, including the American College of Obstetricians and Gynecologists and the American Academy of Pediatrics, explicitly advise against routine vaginal seeding outside controlled clinical trials. The practice carries a documented risk of transmitting severe, latent viral or bacterial infections to an infant without proven long-term immune benefit. Within the first year, an infant’s gut microbiome naturally catches up through ordinary skin-to-skin cuddling, everyday home touch, and responsive feeding.",
+      "start_ratio": 0.3584,
+      "end_ratio": 0.3919
+    },
+    {
+      "id": "b-020",
+      "tag": "h2",
+      "chunk_id": 21,
+      "start_sec": 582.909,
+      "end_sec": 589.85,
+      "words": 10,
+      "weight": 12,
+      "text": "III. Sensory Bridges, Graded Cries, and the Mechanics of Feeding",
+      "start_ratio": 0.3919,
+      "end_ratio": 0.3965
+    },
+    {
+      "id": "b-021",
+      "tag": "p",
+      "chunk_id": 22,
+      "start_sec": 589.85,
+      "end_sec": 632.441,
+      "words": 111,
+      "weight": 111,
+      "text": "The baby who makes this crossing does not meet the room as a stranger. As we saw in Chapter 2, hearing the mother’s voice through the belly wall builds a bridge into the open air. It helps the newborn turn toward familiar voices. Within hours of birth, touch, smell, and sight join in. Newborns turn toward the smell of their mother’s first milk. They look longer at simple face-like shapes than at scrambled patterns, and they calm down when held against warm skin. These early preferences are not adult ideas about family. They are built-in biological compasses that point a young nervous system toward the people who can keep it safe.",
+      "start_ratio": 0.3965,
+      "end_ratio": 0.4252
+    },
+    {
+      "id": "b-022",
+      "tag": "p",
+      "chunk_id": 23,
+      "start_sec": 632.441,
+      "end_sec": 706.752,
+      "words": 180,
+      "weight": 180,
+      "text": "No signal calls those people faster — or triggers more parent guilt — than a newborn’s cry. At three in the morning, a cry that will not stop can feel like proof that you are failing as a parent. Dozens of smartphone apps and parenting influencers add to the pressure. They claim that an attentive parent should be able to tell a “hungry cry” from a “gas cry” or a “tired cry” by ear alone. When Debra Zeifman and Ian St James-Roberts reviewed decades of acoustic studies on infant crying, the evidence punctured that myth. Cries do shift in pitch and roughness depending on how upset the baby is. However, crying works as a graded distress alarm, not a secret dictionary of exact needs. Parents figure out whether a baby is hungry, wet, or cold from the clock, the room temperature, and gentle trial and error — not from perfect musical pitch. Not knowing why your baby is crying from across the hall is not a failure of love. The cry is built to bring you close enough to check.",
+      "start_ratio": 0.4252,
+      "end_ratio": 0.4751
+    },
+    {
+      "id": "b-023",
+      "tag": "p",
+      "chunk_id": 24,
+      "start_sec": 706.752,
+      "end_sec": 754.183,
+      "words": 101,
+      "weight": 101,
+      "text": "Once an adult comes close, the first shared bodily job of life outside the womb is feeding. Before birth, food crossed the placenta automatically. After birth, drinking milk by mouth requires one of the hardest physical skills in infancy: timing sucking, swallowing, and breathing without choking. As Chantal Lau showed in detailed feeding studies, safe feeding requires two skills to mature together. First, the baby has to move from simply chomping the nipple to creating a smooth suction seal. Second, the throat has to swallow milk in the tiny split-second pause between breaths so liquid does not slip into the windpipe.",
+      "start_ratio": 0.4751,
+      "end_ratio": 0.507
+    },
+    {
+      "id": "b-024",
+      "tag": "p",
+      "chunk_id": 25,
+      "start_sec": 754.183,
+      "end_sec": 838.134,
+      "words": 195,
+      "weight": 195,
+      "text": "Because the brainstem circuits that coordinate sucking, swallowing, and breathing mature on an internal clock tied to due date, babies born a few weeks early need time to practice. Plenty of full-term babies also need days or weeks before feeding feels smooth. When a newborn struggles to latch, gets tired halfway through a bottle, or gulps air, modern culture is quick to blame the mother’s effort or the baby’s mouth. In recent years, that anxiety has fueled a massive surge in diagnosing newborn “tongue-tie” and selling out-of-pocket laser surgeries for the tongue, upper lip, and cheeks. When O’Shea and colleagues reviewed the randomized trials for the Cochrane Collaboration, the evidence suggested a narrow boundary. Clipping a classic, tight front tongue-tie (where the tongue tip is visibly tethered to the lower gum ridge) modestly lowers mothers’ nipple pain in the short term. Yet randomized trials have not shown consistent gains in long-term breastfeeding rates. Furthermore, there is zero trial evidence supporting routine laser cutting of “posterior” tongue-ties, lip-ties, or cheek-ties for general fussiness, reflux, or gas. Most early feeding struggles improve with hands-on latch adjustments, paced bottle feeding, and a few weeks of normal mouth growth.",
+      "start_ratio": 0.507,
+      "end_ratio": 0.5634
+    },
+    {
+      "id": "b-025",
+      "tag": "p",
+      "chunk_id": 26,
+      "start_sec": 838.134,
+      "end_sec": 929.205,
+      "words": 200,
+      "weight": 200,
+      "text": "An even bigger cloud of guilt hangs over the choice between breastmilk and infant formula. Simple observational studies have long reported that breastfed babies score three to four points higher on IQ tests in childhood than formula-fed peers. Yet in wealthy countries, mothers who breastfeed for a full year also tend to have more formal education, higher income, and longer parental leave. To separate breastmilk itself from family background, epidemiologist Michael Kramer and his colleagues ran the landmark PROBIT trial, a cluster-randomized study of 17,046 mother-infant pairs in Belarus. Other researchers, like Cynthia Colen, compared a breastfed child to a formula-fed sibling raised in the exact same home. The randomized evidence shows that breastfeeding meaningfully lowers tummy infections and early eczema during infancy. By contrast, when followed to age sixteen in PROBIT — or when tested between brothers and sisters in the same family — the long-term causal effect on overall full-scale IQ shrinks to near zero. Breastfeeding is worth supporting for real infant health and maternal reasons, not because formula ruins a child’s brain. Whether a family feeds at the breast, pumps, uses formula, or combines them, early feeding is a practical partnership, not a test of moral worth.",
+      "start_ratio": 0.5634,
+      "end_ratio": 0.6247
+    },
+    {
+      "id": "b-026",
+      "tag": "p",
+      "chunk_id": 27,
+      "start_sec": 929.205,
+      "end_sec": 973.796,
+      "words": 91,
+      "weight": 91,
+      "text": "This evidence also frees parents from the exhausting trap of all-or-nothing feeding debates. Many parents believe that introducing even a single bottle of formula will spoil the gut microbiome or ruin breastfeeding forever. Yet solid pediatric evidence shows that combo-feeding—combining nursing at the breast with pumped milk or iron-fortified formula—is a safe, nutritionally sound strategy. For many families, letting a partner give an evening formula bottle allows a mother to get four uninterrupted hours of sleep, easing postpartum exhaustion and lowering maternal depression while actually sustaining breastfeeding for more total months.",
+      "start_ratio": 0.6247,
+      "end_ratio": 0.6546
+    },
+    {
+      "id": "b-027",
+      "tag": "h2",
+      "chunk_id": 28,
+      "start_sec": 973.796,
+      "end_sec": 980.337,
+      "words": 10,
+      "weight": 12,
+      "text": "IV. The Warmth of Contact: Skin-to-Skin in Science and Myth",
+      "start_ratio": 0.6546,
+      "end_ratio": 0.659
+    },
+    {
+      "id": "b-028",
+      "tag": "p",
+      "chunk_id": 29,
+      "start_sec": 980.337,
+      "end_sec": 991.248,
+      "words": 22,
+      "weight": 22,
+      "text": "Nowhere have the real biology of the first hour and cultural myth collided harder than in the story of immediate skin-to-skin contact.",
+      "start_ratio": 0.659,
+      "end_ratio": 0.6664
+    },
+    {
+      "id": "b-029",
+      "tag": "p",
+      "chunk_id": 30,
+      "start_sec": 991.248,
+      "end_sec": 1065.319,
+      "words": 161,
+      "weight": 161,
+      "text": "To see how a gentle hospital practice turned into a source of deep parental fear, trace the history of newborn bonding research from the 1970s to today. For much of the twentieth century, Western hospitals ran on a strict germ-control schedule. Right after cutting the cord, nurses carried healthy newborns away to a central nursery. They brought babies back to their mothers only every four hours for timed feeds. Questioning the cost of this cold routine, pediatricians Marshall Klaus and John Kennell published a famous 1972 paper in the New England Journal of Medicine — and a 1976 bestseller, Maternal-Infant Bonding. They compared mothers given sixteen extra hours with their babies over the first three days against mothers under standard nursery rules. Seeing more soothing touch in their small sample of extended-contact mothers, Klaus and Kennell proposed a bold theory. They argued that human mothers — much like sheep and goats — have a hormonally wired “sensitive period” right after birth.",
+      "start_ratio": 0.6664,
+      "end_ratio": 0.7162
+    },
+    {
+      "id": "b-030",
+      "tag": "p",
+      "chunk_id": 31,
+      "start_sec": 1065.319,
+      "end_sec": 1128.47,
+      "words": 143,
+      "weight": 143,
+      "text": "Within a few years, that idea hardened into the cultural dogma of the “magical first hour.” Expectant parents were warned that skin-to-skin contact in the first sixty minutes worked like biological superglue. If a mother missed that narrow window because of an emergency C-section, heavy bleeding, or a trip to intensive care, her bond with her baby would supposedly be broken for life. The pushback from careful developmental scientists was swift. In major reviews during the 1980s and 1990s, researchers like Michael Lamb and Diane Eyer exposed glaring flaws in the early bonding claims. The original studies had tiny samples, unblinded observers, and a basic biological error. Humans are not herd animals that rely on smell-imprinting in the first hour to recognize their young. Human attachment builds across months of daily care and fully includes adoptive parents, fathers, and mothers separated at birth.",
+      "start_ratio": 0.7162,
+      "end_ratio": 0.7586
+    },
+    {
+      "id": "b-031",
+      "tag": "p",
+      "chunk_id": 32,
+      "start_sec": 1128.47,
+      "end_sec": 1210.701,
+      "words": 179,
+      "weight": 179,
+      "text": "To separate what early skin-to-skin contact actually does from what the “superglue” myth exaggerated, Elizabeth Moore and her colleagues ran the landmark 2016 Cochrane systematic review. They pooled thirty-eight randomized trials of 3,472 mother-infant pairs. The randomized evidence suggests with moderate certainty that placing a stable newborn skin-to-skin right after birth raises the chance of breastfeeding between one and four months later (RR 1.24). It also helps keep the baby warm and blood sugar steady. (In low-income settings and for tiny premature babies, continuous Kangaroo Mother Care also saves lives.) At the exact same time, the Cochrane review and long-term follow-ups show that missing immediate skin-to-skin contact does not harm a child’s future intelligence, personality, or ability to form a secure bond. Modern nursery guidelines also stress that warmth and safety go hand in hand. When an exhausted mother is left unmonitored right after delivery, a newborn’s nose and mouth can occasionally press flat against the chest or bedding. Good skin-to-skin care means keeping the baby’s face visible and airway clear while an alert adult or nurse keeps watch.",
+      "start_ratio": 0.7586,
+      "end_ratio": 0.8139
+    },
+    {
+      "id": "b-032",
+      "tag": "p",
+      "chunk_id": 33,
+      "start_sec": 1210.701,
+      "end_sec": 1232.332,
+      "words": 54,
+      "weight": 54,
+      "text": "The modern consensus puts skin-to-skin contact back where it belongs. Holding a newborn chest-to-chest is a wonderful, soothing way to welcome a baby and help early milk flow. And when a medical emergency interrupts that first hour, love has lost zero percent of its power to build a lifelong bond in the days ahead.",
+      "start_ratio": 0.8139,
+      "end_ratio": 0.8284
+    },
+    {
+      "id": "b-033",
+      "tag": "h2",
+      "chunk_id": 34,
+      "start_sec": 1232.332,
+      "end_sec": 1239.753,
+      "words": 11,
+      "weight": 13,
+      "text": "V. When the Crossing Arrives Early: Prematurity and the Human Horizon",
+      "start_ratio": 0.8284,
+      "end_ratio": 0.8334
+    },
+    {
+      "id": "b-034",
+      "tag": "p",
+      "chunk_id": 35,
+      "start_sec": 1239.753,
+      "end_sec": 1250.744,
+      "words": 24,
+      "weight": 24,
+      "text": "If a full-term birth shows how much quiet prep happens before the first breath, premature birth shows what happens when the crossing comes early.",
+      "start_ratio": 0.8334,
+      "end_ratio": 0.8408
+    },
+    {
+      "id": "b-035",
+      "tag": "p",
+      "chunk_id": 36,
+      "start_sec": 1250.744,
+      "end_sec": 1290.855,
+      "words": 84,
+      "weight": 84,
+      "text": "A baby born at twenty-eight or thirty-two weeks enters air, gravity, and bright light before construction is finished. Lung sacs are still thin, brain layers are still organizing, and sucking circuits are weeks away from full coordination. The neonatal intensive care unit (NICU) steps into that gap with warm incubators, gentle breathing support, lung surfactant medicine, and tube feeding. Medical gear does not speed up the baby’s internal clock. Instead, it builds a safe shelter outside the womb so the baby can finish growing.",
+      "start_ratio": 0.8408,
+      "end_ratio": 0.8678
+    },
+    {
+      "id": "b-036",
+      "tag": "p",
+      "chunk_id": 37,
+      "start_sec": 1290.855,
+      "end_sec": 1340.685,
+      "words": 84,
+      "weight": 84,
+      "text": "Because arriving early interrupts third-trimester growth and exposes the baby to lung and medical stress, researchers have tracked premature cohorts for decades. In a massive 2024 meta-analysis combining 161 studies and 39,799 children, Or Burstein, Galit Aryeh, and Ronny Geva suggested that children born premature score, on average, roughly half a standard deviation lower (SMD -0.57) on cognitive tests than full-term peers. Most of that gap is concentrated among babies born extremely early (before twenty-eight weeks) or those who suffered severe newborn lung disease.",
+      "start_ratio": 0.8678,
+      "end_ratio": 0.9013
+    },
+    {
+      "id": "b-037",
+      "tag": "p",
+      "chunk_id": 38,
+      "start_sec": 1340.685,
+      "end_sec": 1411.996,
+      "words": 180,
+      "weight": 180,
+      "text": "Reading that statistic fairly requires our three-part lens. At the level of science, the group average gap is real and tracks how early the baby arrived and how sick the lungs were. That is why pediatricians always judge a premature baby’s milestones by corrected age (counting from the original due date, not the birth certificate date) for the first two years. At the level of interpretation, a shift in a group average (SMD -0.57) is a call for public investment in respiratory care and early physical therapy — never a personal ceiling on an individual child. The score curves of premature and full-term children overlap massively. A supportive home and good schooling shape development powerfully across childhood. And at the level of art, caring for a newborn — whether in a quiet bedroom at home or beside a humming incubator in the NICU — means meeting the specific child in front of you today. You watch the chest rise, offer warmth, pace a feed, and ask for help without treating the first week of life as an audition for adulthood.",
+      "start_ratio": 0.9013,
+      "end_ratio": 0.9492
+    },
+    {
+      "id": "b-038",
+      "tag": "p",
+      "chunk_id": 39,
+      "start_sec": 1411.996,
+      "end_sec": 1438.867,
+      "words": 63,
+      "weight": 63,
+      "text": "What this chapter does not tell us is how those daily acts of holding, feeding, and soothing add up over months into a steady relationship. Nor does it tell us how safe sleep, night waking, solid foods, and attachment work once the newborn weeks are behind us. Those questions belong to Chapter 4. The first hour only tells us how the traveler arrives.",
+      "start_ratio": 0.9492,
+      "end_ratio": 0.9673
+    },
+    {
+      "id": "b-039",
+      "tag": "p",
+      "chunk_id": 40,
+      "start_sec": 1438.867,
+      "end_sec": 1448.818,
+      "words": 23,
+      "weight": 23,
+      "text": "Look back one last time at the delivery room, where the newborn has just taken a first sharp breath in the open air.",
+      "start_ratio": 0.9673,
+      "end_ratio": 0.974
+    },
+    {
+      "id": "b-040",
+      "tag": "p",
+      "chunk_id": 41,
+      "start_sec": 1448.818,
+      "end_sec": 1487.529,
+      "words": 90,
+      "weight": 90,
+      "text": "The child in those hands has not changed because we have mapped how heart valves close, how brown fat burns, or how sucking and breathing lock together. Our reading of the moment has changed. Birth is neither the creation of a person from nothing nor a fragile test where a C-section, a bottle of formula, or a missed skin-to-skin hour breaks a child’s future. It is an extraordinary physical handoff. The placenta finishes its shift, and the capable, unfinished human baby passes into the steady, imperfect care of other people.",
+      "start_ratio": 0.974,
+      "end_ratio": 1.0
+    }
+  ]
+}

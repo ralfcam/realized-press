@@ -1,0 +1,713 @@
+{% extends "base.html" %}
+
+{% block title %}{{ chapter_slug.replace('-', ' ').title() }} — Realized Press Serial Reader{% endblock %}
+
+{% block head %}
+<style>
+  .sync-segment {
+    cursor: pointer;
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+    border-left: 3px solid transparent;
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+  }
+  .sync-segment:hover {
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .sync-segment:focus-visible {
+    outline: 2px solid #f59e0b;
+    outline-offset: 2px;
+    background: rgba(245, 158, 11, 0.08);
+  }
+  .sync-segment.active-segment {
+    background: rgba(245, 158, 11, 0.14) !important;
+    border-left: 3px solid #f59e0b !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.12);
+  }
+  .non-spoken, [data-spoken="false"] {
+    opacity: 0.85;
+  }
+  .footnote-ref {
+    color: #f59e0b;
+    font-size: 0.82em;
+    vertical-align: super;
+    text-decoration: none;
+    padding: 0 0.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    transition: color 0.15s, background 0.15s;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+  .footnote-ref:hover, .footnote-ref:focus {
+    color: #fbbf24;
+    background: rgba(245, 158, 11, 0.2);
+    text-decoration: underline;
+  }
+
+  /* Refined Typography (R2) for Manuscript Container */
+  #reader-content h2 {
+    font-family: Charter, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 1.65rem;
+    line-height: 1.35;
+    color: #f5f5f4;
+    font-weight: 700;
+    margin-top: 2.75rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.015em;
+    border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+    padding-bottom: 0.5rem;
+  }
+  #reader-content h2 .movement-num {
+    color: #fbbf24;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-weight: 700;
+    margin-right: 0.4rem;
+  }
+  #reader-content h3 {
+    font-family: Charter, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    color: #f5f5f4;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.85rem;
+  }
+  #reader-content p {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+
+  /* Styled Takeaway Cards: Epistemic Callout Boxes */
+  .chapter-takeaway, aside.chapter-takeaway {
+    background-color: rgba(28, 25, 23, 0.9);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  }
+  .chapter-takeaway h3 {
+    font-family: Charter, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fbbf24;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+    padding-bottom: 0.5rem;
+  }
+  .chapter-takeaway ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .chapter-takeaway li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: #d6d3d1;
+    font-size: 0.9375rem;
+  }
+  .chapter-takeaway li strong {
+    display: inline-block;
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #fbbf24;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    margin-right: 0.5rem;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="w-full flex-1 flex flex-col"
+     x-data="audioReader({{ timings | tojson }}, '{{ active_lens }}')"
+     @wheel="pauseAutoScroll()"
+     @touchmove="pauseAutoScroll()">
+
+  <div class="max-w-6xl w-full mx-auto px-4 py-6 sm:py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 flex-1 pb-[calc(4rem+env(safe-area-inset-bottom,0px))]">
+
+    <!-- Main Manuscript Column (8 cols) -->
+    <main role="main" aria-label="Chapter Manuscript" class="lg:col-span-8 space-y-6">
+
+      <!-- Breadcrumbs and Epistemic Metadata Header -->
+      <header class="border-b border-stone-800 pb-5 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-2 text-xs font-mono text-amber-400">
+            <span class="font-bold uppercase tracking-wider">{{ series_slug }}</span>
+            <span aria-hidden="true" class="text-stone-400">•</span>
+            <span class="text-stone-300">{{ series_title }}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[11px] font-mono text-stone-300 bg-stone-900 px-2.5 py-1 rounded-full border border-stone-800">
+              Contract: {{ epistemic_contract }}
+            </span>
+          </div>
+        </div>
+
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-stone-100 capitalize leading-tight tracking-tight">
+          {{ chapter_slug.replace('-', ' ') }}
+        </h1>
+
+        {% if series_subtitle %}
+        <p class="text-sm font-serif text-stone-400 italic">
+          {{ series_subtitle }}
+        </p>
+        {% endif %}
+
+        <!-- Three-Lens Method Toggle Bar -->
+        <div id="lens-toggle"
+             data-lens-toggle="true"
+             role="group"
+             aria-label="Epistemic Three-Lens Toggle"
+             class="flex flex-wrap items-center gap-2 p-2 bg-stone-900/90 border border-stone-800 rounded-xl">
+          <span class="text-xs font-mono uppercase tracking-wider text-stone-400 px-2 font-semibold">
+            Epistemic Lens:
+          </span>
+          {% for lens in lenses %}
+          <button type="button"
+                  @click="setLens('{{ lens }}')"
+                  :class="activeLens === '{{ lens }}' ? 'bg-amber-500 text-stone-950 shadow-md font-bold' : 'bg-stone-950 text-stone-300 hover:text-stone-100 hover:bg-stone-800 border border-stone-800'"
+                  class="min-h-[44px] min-w-[44px] px-4 py-2 rounded-lg font-mono text-xs font-semibold transition touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none flex items-center gap-2"
+                  aria-label="Toggle {{ lens }} lens"
+                  :aria-pressed="activeLens === '{{ lens }}'">
+            <span class="w-2 h-2 rounded-full"
+                  :class="activeLens === '{{ lens }}' ? 'bg-stone-950' : 'bg-amber-400'"></span>
+            {{ lens }}
+          </button>
+          {% endfor %}
+        </div>
+      </header>
+
+      {% if has_audio %}
+      <!-- Persistent Mini Audio Player Sticky Bar -->
+      <section aria-label="Chapter Audio Mini-Player"
+               class="sticky top-14 z-30 bg-stone-900/95 backdrop-blur-md border border-stone-800 rounded-xl p-3 sm:p-4 shadow-xl flex flex-wrap sm:flex-nowrap items-center gap-3 sm:gap-4">
+        <audio id="chapter-audio" src="{{ audio_url }}" preload="metadata"></audio>
+
+        <!-- Play / Pause Button (>= 44px) -->
+        <button id="btn-reader-play"
+                onclick="toggleReaderAudio()"
+                class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-stone-950 font-bold flex items-center justify-center text-lg transition touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none shrink-0"
+                aria-label="Play or pause audio narration">
+          ▶
+        </button>
+
+        <!-- Scrubber and Time Indicators -->
+        <div class="flex-1 min-w-[180px]">
+          <div class="flex items-center justify-between text-xs text-stone-400 font-mono mb-1">
+            <span id="reader-time-cur" class="text-stone-300">0:00</span>
+            <span id="active-block-label" class="text-amber-400 font-semibold truncate px-2">Block --</span>
+            <span id="reader-time-total" class="text-stone-400">0:00</span>
+          </div>
+
+          <!-- Touch Scrubber (>= 44px touch container) -->
+          <div class="touch-scrubber-area min-h-[44px] min-w-[44px] py-3.5 flex items-center cursor-pointer w-full focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none rounded"
+               id="reader-scrubber"
+               onclick="seekReaderAudio(event)"
+               role="slider"
+               tabindex="0"
+               aria-label="Audio playback scrubber"
+               aria-valuemin="0"
+               aria-valuemax="100"
+               aria-valuenow="0"
+               aria-valuetext="0:00 of 0:00">
+            <div class="w-full h-1.5 bg-stone-800 rounded-full overflow-hidden">
+              <div id="reader-bar-fill"
+                   class="h-full bg-gradient-to-r from-amber-500 to-amber-300 rounded-full w-0 transition-all duration-100"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Speed Control Select (>= 44px) -->
+        <div class="flex items-center gap-1.5 shrink-0">
+          <label for="reader-speed" class="sr-only">Playback Speed</label>
+          <select id="reader-speed"
+                  onchange="changePlaybackRate(this.value)"
+                  class="bg-stone-950 border border-stone-800 text-stone-200 rounded-lg px-3 py-2 text-xs font-mono min-h-[44px] min-w-[44px] cursor-pointer focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none touch-manipulation"
+                  aria-label="Playback speed control">
+            <option value="0.75">0.75x</option>
+            <option value="1.0" selected>1.0x</option>
+            <option value="1.25">1.25x</option>
+            <option value="1.5">1.5x</option>
+            <option value="2.0">2.0x</option>
+          </select>
+        </div>
+      </section>
+      {% endif %}
+
+      <!-- Refined Typography Article Container -->
+      <article class="prose prose-invert prose-stone max-w-3xl mx-auto font-serif leading-relaxed text-stone-100"
+               id="reader-content"
+               aria-label="Manuscript Prose">
+        {{ prose_html | safe }}
+      </article>
+
+      <!-- Structured Chapter Takeaways Section (3-Tier Causal Resolution) -->
+      <section id="takeaways"
+               data-takeaways="true"
+               class="chapter-takeaway bg-stone-900/90 border border-amber-500/30 rounded-xl p-6 my-8 shadow-xl"
+               aria-label="Chapter Takeaways and Epistemic Resolution">
+        <div class="flex flex-wrap items-center justify-between border-b border-amber-500/20 pb-3 mb-4 gap-2">
+          <h2 class="text-lg font-serif font-bold text-amber-400 flex items-center gap-2">
+            <span aria-hidden="true">✦</span> Chapter Takeaways &amp; 3-Tier Causal Resolution
+          </h2>
+          <span class="bg-amber-500/10 text-amber-400 font-mono text-xs font-semibold px-2.5 py-1 rounded-full border border-amber-500/30">
+            OKF v0.2 Validated
+          </span>
+        </div>
+
+        {% if takeaways %}
+        <div class="space-y-4">
+          {% for item in takeaways %}
+          <div class="flex items-start gap-3">
+            <span class="bg-amber-500/10 text-amber-400 font-mono text-xs font-semibold px-2.5 py-1 rounded shrink-0 border border-amber-500/20">
+              {{ item.label }}
+            </span>
+            <p class="text-sm text-stone-300 leading-relaxed font-serif">
+              {{ item.text }}
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-sm text-stone-300 font-serif leading-relaxed">
+          The three-tier causal resolution for this chapter separates public health population signals from individual biological mechanisms and parental judgment.
+        </p>
+        {% endif %}
+      </section>
+    </main>
+
+    <!-- Epistemic Side Column (Footnotes & Feedback) (4 cols) -->
+    <aside aria-label="Epistemic Apparatus and Feedback" class="lg:col-span-4 space-y-6">
+      <div class="lg:sticky lg:top-20 space-y-6">
+
+        <!-- Persistent Slide Drawer for Footnotes & Telemetry (ARC-55 / ARC-58) -->
+        <section id="footnote-drawer"
+                 class="p-5 rounded-xl bg-stone-900/90 border border-amber-500/30 shadow-xl space-y-3"
+                 aria-label="Epistemic Footnote Drawer">
+          <div class="flex items-center justify-between border-b border-stone-800 pb-2.5 gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-400" aria-hidden="true"></span>
+              <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
+                Epistemic Apparatus (OKF v0.2)
+              </h2>
+            </div>
+            <button type="button"
+                    onclick="closeFootnoteDrawer()"
+                    class="text-stone-400 hover:text-stone-100 p-2 rounded-lg hover:bg-stone-800 min-h-[44px] min-w-[44px] flex items-center justify-center text-sm font-bold focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none transition active:scale-95 touch-manipulation"
+                    aria-label="Close footnote drawer">
+              ✕
+            </button>
+          </div>
+          <div id="footnote-drawer-content" class="mt-2.5">
+            <p class="text-xs sm:text-sm text-stone-300 leading-relaxed font-serif">
+              Tap or hover any footnote reference in the manuscript to inspect primary DOI evidence, methodology, and study design without interrupting narration.
+            </p>
+          </div>
+        </section>
+
+        <!-- Paragraph Feedback Form (ARC-53) -->
+        <form hx-post="/hx/feedback"
+              hx-target="#feedback-status"
+              hx-swap="innerHTML"
+              hx-indicator="#feedback-spinner"
+              class="p-5 rounded-xl bg-stone-900/90 border border-stone-800 shadow-xl space-y-3.5">
+          <input type="hidden" name="series_slug" value="{{ series_slug }}">
+          <input type="hidden" name="chapter_slug" value="{{ chapter_slug }}">
+          <input type="hidden" name="block_id" id="feedback-block-id" :value="activeBlock">
+
+          <div class="flex items-center justify-between">
+            <label for="feedback-category" class="block text-xs uppercase tracking-wider text-stone-300 font-mono font-semibold">
+              Reader Edition Feedback (ARC-53)
+            </label>
+            <span id="feedback-spinner" class="htmx-indicator text-xs font-mono text-amber-400">Saving...</span>
+          </div>
+
+          <!-- Dedicated Feedback Status Container (Non-Destructive Submission) -->
+          <div id="feedback-status" class="empty:hidden"></div>
+
+          <div class="space-y-1">
+            <label for="feedback-category" class="sr-only">Feedback Category</label>
+            <select id="feedback-category"
+                    name="category"
+                    class="w-full bg-stone-950 border border-stone-700 text-stone-200 rounded-lg px-3 py-2.5 text-sm min-h-[44px] min-w-[44px] touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
+              <option value="epistemic-clarity">Epistemic Boundary (Science / Interpretation / Art)</option>
+              <option value="audio-cadence">Audio Narration / PCM Timing</option>
+              <option value="typo-citation">Citation / Footnote Check</option>
+            </select>
+          </div>
+
+          <div class="space-y-1">
+            <label for="feedback-comment" class="sr-only">Your Comment</label>
+            <textarea id="feedback-comment"
+                      name="comment"
+                      required
+                      rows="3"
+                      placeholder="Note on current paragraph or highlighted claim..."
+                      class="w-full bg-stone-950 border border-stone-700 text-stone-200 rounded-lg p-3 text-sm min-h-[44px] h-24 touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none font-sans"></textarea>
+          </div>
+
+          <button type="submit"
+                  class="w-full py-2.5 px-4 bg-amber-600 hover:bg-amber-500 active:bg-amber-700 text-stone-950 font-bold rounded-lg text-sm min-h-[44px] min-w-[44px] flex items-center justify-center transition touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+                  aria-label="Submit paragraph note">
+            Submit Paragraph Note
+          </button>
+        </form>
+
+      </div>
+    </aside>
+  </div>
+
+  <!-- Inline Footnote Tooltip Popover -->
+  <div id="footnote-tooltip"
+       role="tooltip"
+       class="hidden fixed z-50 max-w-sm p-4 bg-stone-900/95 backdrop-blur-md border border-amber-500/40 rounded-xl shadow-2xl text-xs text-stone-200 pointer-events-none transition-opacity duration-150 font-serif leading-relaxed">
+    <div class="text-[10px] font-mono text-amber-400 font-bold uppercase tracking-wider mb-1.5 flex items-center justify-between border-b border-stone-800 pb-1">
+      <span id="tooltip-id">Citation Note</span>
+      <span class="text-stone-400 font-normal">Click for drawer</span>
+    </div>
+    <div id="tooltip-body" class="text-stone-300"></div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // Footnote catalog dictionary for instant inline tooltips
+  const CHAPTER_FOOTNOTES = {{ footnotes | tojson }};
+
+  function audioReader(timings, defaultLens) {
+    return {
+      timings: timings || [],
+      activeBlock: null,
+      activeLens: defaultLens || 'Science',
+      graceUntil: 0,
+      setLens(lens) {
+        this.activeLens = lens;
+      },
+      pauseAutoScroll() {
+        this.graceUntil = Date.now() + 5000;
+      }
+    };
+  }
+
+  const player = document.getElementById('chapter-audio');
+  const playBtn = document.getElementById('btn-reader-play');
+  const timeCur = document.getElementById('reader-time-cur');
+  const timeTotal = document.getElementById('reader-time-total');
+  const barFill = document.getElementById('reader-bar-fill');
+  const blockLabel = document.getElementById('active-block-label');
+  const feedbackBlockInput = document.getElementById('feedback-block-id');
+  const tooltipEl = document.getElementById('footnote-tooltip');
+  const tooltipIdEl = document.getElementById('tooltip-id');
+  const tooltipBodyEl = document.getElementById('tooltip-body');
+
+  function formatTime(s) {
+    if (isNaN(s)) return "0:00";
+    const m = Math.floor(s / 60);
+    const rem = Math.floor(s % 60);
+    return `${m}:${rem < 10 ? '0' : ''}${rem}`;
+  }
+
+  function toggleReaderAudio() {
+    if (!player) return;
+    if (player.paused) {
+      player.play();
+    } else {
+      player.pause();
+    }
+  }
+
+  function seekReaderAudio(e) {
+    if (!player || !player.duration) return;
+    const scrubber = document.getElementById('reader-scrubber');
+    const rect = scrubber.getBoundingClientRect();
+    const pos = (e.clientX - rect.left) / rect.width;
+    player.currentTime = Math.max(0, Math.min(player.duration, pos * player.duration));
+  }
+
+  function changePlaybackRate(rate) {
+    if (player) {
+      player.playbackRate = parseFloat(rate);
+    }
+  }
+
+  function closeFootnoteDrawer() {
+    const content = document.getElementById('footnote-drawer-content');
+    if (content) {
+      content.innerHTML = '<p class="text-xs sm:text-sm text-stone-300 leading-relaxed font-serif">Tap or hover any footnote reference in the manuscript to inspect primary DOI evidence, methodology, and study design without interrupting narration.</p>';
+    }
+  }
+
+  function handleSegmentSeek(seg) {
+    if (!seg) return;
+    const segId = seg.id || '';
+    if (segId) {
+      if (blockLabel) blockLabel.innerText = segId;
+      if (feedbackBlockInput) feedbackBlockInput.value = segId;
+    }
+    if (player) {
+      if (seg.hasAttribute('data-start-time')) {
+        const startTime = parseFloat(seg.getAttribute('data-start-time'));
+        if (!isNaN(startTime)) {
+          player.currentTime = startTime;
+          if (player.paused) player.play();
+        }
+      } else if (seg.hasAttribute('data-start-ratio') && player.duration) {
+        const startRatio = parseFloat(seg.getAttribute('data-start-ratio'));
+        if (!isNaN(startRatio)) {
+          player.currentTime = startRatio * player.duration;
+          if (player.paused) player.play();
+        }
+      }
+    }
+  }
+
+  if (player) {
+    player.addEventListener('play', () => {
+      if (playBtn) playBtn.innerText = '⏸';
+    });
+    player.addEventListener('pause', () => {
+      if (playBtn) playBtn.innerText = '▶';
+    });
+    player.addEventListener('timeupdate', () => {
+      if (timeCur) timeCur.innerText = formatTime(player.currentTime);
+      if (timeTotal) timeTotal.innerText = formatTime(player.duration);
+      if (player.duration && barFill) {
+        const pct = (player.currentTime / player.duration) * 100;
+        barFill.style.width = `${pct}%`;
+        const scrubber = document.getElementById('reader-scrubber');
+        if (scrubber) {
+          scrubber.setAttribute('aria-valuenow', Math.round(pct));
+          scrubber.setAttribute('aria-valuetext', `${formatTime(player.currentTime)} of ${formatTime(player.duration)}`);
+        }
+      }
+
+      // Highlight active segment
+      const segments = document.querySelectorAll('.sync-segment');
+      if (!segments.length) return;
+      const cur = player.currentTime;
+      const dur = player.duration || 1;
+      const ratio = cur / dur;
+      let active = null;
+
+      segments.forEach(seg => {
+        let isActive = false;
+        if (seg.hasAttribute('data-start-time')) {
+          const start = parseFloat(seg.getAttribute('data-start-time'));
+          const end = parseFloat(seg.getAttribute('data-end-time'));
+          isActive = (cur >= start && cur < end);
+        } else if (seg.hasAttribute('data-start-ratio')) {
+          const sRatio = parseFloat(seg.getAttribute('data-start-ratio'));
+          const eRatio = parseFloat(seg.getAttribute('data-end-ratio'));
+          isActive = (ratio >= sRatio && ratio < eRatio);
+        }
+        if (isActive) {
+          active = seg;
+          seg.classList.add('active-segment');
+        } else {
+          seg.classList.remove('active-segment');
+        }
+      });
+
+      if (active) {
+        if (blockLabel) blockLabel.innerText = active.id;
+        if (feedbackBlockInput) feedbackBlockInput.value = active.id;
+        const alpineRoot = document.querySelector('[x-data]');
+        if (alpineRoot && alpineRoot._x_dataStack && alpineRoot._x_dataStack[0]) {
+          alpineRoot._x_dataStack[0].activeBlock = active.id;
+        }
+      }
+    });
+
+    // Keyboard scrubber controls
+    const scrubber = document.getElementById('reader-scrubber');
+    if (scrubber) {
+      scrubber.addEventListener('keydown', (e) => {
+        if (!player.duration) return;
+        let handled = true;
+        switch (e.key) {
+          case 'ArrowLeft':
+          case 'ArrowDown':
+            player.currentTime = Math.max(0, player.currentTime - 5);
+            break;
+          case 'ArrowRight':
+          case 'ArrowUp':
+            player.currentTime = Math.min(player.duration, player.currentTime + 5);
+            break;
+          case 'Home':
+            player.currentTime = 0;
+            break;
+          case 'End':
+            player.currentTime = player.duration;
+            break;
+          case ' ':
+          case 'Enter':
+            toggleReaderAudio();
+            break;
+          default:
+            handled = false;
+        }
+        if (handled) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      });
+    }
+  }
+
+  // Bidirectional seek: Tap or press Enter on any .sync-segment
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('a') || e.target.closest('button') || e.target.closest('select') || e.target.closest('textarea') || e.target.closest('input')) return;
+    const seg = e.target.closest('.sync-segment');
+    if (seg) handleSegmentSeek(seg);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.target.closest('a') || e.target.closest('button') || e.target.closest('input') || e.target.closest('select') || e.target.closest('textarea')) return;
+    const seg = e.target.closest('.sync-segment');
+    if (seg && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault();
+      handleSegmentSeek(seg);
+    }
+  });
+
+  // Helper to extract clean footnote ID
+  function getFootnoteId(el) {
+    if (!el) return '';
+    const href = el.getAttribute('href') || '';
+    if (href.startsWith('#fn:')) return href.substring(4);
+    if (href.startsWith('#fnref:')) return href.substring(7);
+    if (href.startsWith('#fn')) return href.substring(3);
+    const id = el.getAttribute('id') || '';
+    if (id.startsWith('fnref:')) return id.substring(6);
+    if (id.startsWith('fn:')) return id.substring(3);
+    return el.textContent.trim().replace(/[\[\]\^]/g, '');
+  }
+
+  // Footnote drawer listener via HTMX
+  document.addEventListener('click', (e) => {
+    const fnRef = e.target.closest('a.footnote-ref') || e.target.closest('a[href^="#fn:"]') || e.target.closest('a[href^="#fn"]');
+    if (fnRef) {
+      e.preventDefault();
+      e.stopPropagation();
+      const fnId = getFootnoteId(fnRef);
+      const drawer = document.getElementById('footnote-drawer');
+      const content = document.getElementById('footnote-drawer-content');
+      if (drawer && content && fnId) {
+        if (tooltipEl) tooltipEl.classList.add('hidden');
+        content.innerHTML = '<span class="text-amber-400 font-mono text-xs">Loading citation evidence [' + fnId + ']...</span>';
+        htmx.ajax('GET', `/hx/footnote/{{ series_slug }}/{{ chapter_slug }}/${fnId}`, {
+          target: '#footnote-drawer-content',
+          swap: 'innerHTML'
+        });
+        if (window.innerWidth < 1024) {
+          drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+    }
+  });
+
+  // Inline Footnote Tooltips on Hover & Focus
+  function showFootnoteTooltip(el) {
+    if (!tooltipEl || !tooltipBodyEl) return;
+    const fnId = getFootnoteId(el);
+    if (!fnId) return;
+
+    let text = CHAPTER_FOOTNOTES[fnId];
+    if (!text) {
+      const defEl = document.getElementById('fn:' + fnId) || document.getElementById(fnId);
+      if (defEl) text = defEl.textContent.trim();
+    }
+    if (!text) {
+      text = "Primary evidence card and DOI reference for [^" + fnId + "]. Tap to inspect in drawer.";
+    }
+
+    if (tooltipIdEl) tooltipIdEl.innerText = "[^" + fnId + "]";
+    tooltipBodyEl.innerText = text.length > 220 ? text.substring(0, 220) + "..." : text;
+
+    const rect = el.getBoundingClientRect();
+    const tooltipWidth = 320;
+    let left = rect.left + window.scrollX;
+    if (left + tooltipWidth > window.innerWidth - 16) {
+      left = window.innerWidth - tooltipWidth - 16;
+    }
+    if (left < 16) left = 16;
+
+    let top = rect.bottom + window.scrollY + 8;
+    if (rect.bottom + 140 > window.innerHeight) {
+      top = rect.top + window.scrollY - 130;
+    }
+
+    tooltipEl.style.left = `${left}px`;
+    tooltipEl.style.top = `${top}px`;
+    tooltipEl.classList.remove('hidden');
+  }
+
+  function hideFootnoteTooltip() {
+    if (tooltipEl) tooltipEl.classList.add('hidden');
+  }
+
+  document.addEventListener('mouseover', (e) => {
+    const fnRef = e.target.closest('a.footnote-ref') || e.target.closest('a[href^="#fn:"]');
+    if (fnRef) {
+      showFootnoteTooltip(fnRef);
+    }
+  });
+
+  document.addEventListener('mouseout', (e) => {
+    const fnRef = e.target.closest('a.footnote-ref') || e.target.closest('a[href^="#fn:"]');
+    if (fnRef) {
+      hideFootnoteTooltip();
+    }
+  });
+
+  document.addEventListener('focusin', (e) => {
+    const fnRef = e.target.closest('a.footnote-ref') || e.target.closest('a[href^="#fn:"]');
+    if (fnRef) {
+      showFootnoteTooltip(fnRef);
+    }
+  });
+
+  document.addEventListener('focusout', (e) => {
+    const fnRef = e.target.closest('a.footnote-ref') || e.target.closest('a[href^="#fn:"]');
+    if (fnRef) {
+      hideFootnoteTooltip();
+    }
+  });
+
+  // Literary serif styling with amber Roman numerals on Movement Headings
+  document.addEventListener('DOMContentLoaded', () => {
+    const headings = document.querySelectorAll('#reader-content h2');
+    headings.forEach(h2 => {
+      const raw = h2.innerHTML;
+      const match = raw.match(/^([IVXLCDM]+\.\s*)(.*)$/);
+      if (match) {
+        h2.innerHTML = `<span class="movement-num text-amber-400 font-mono">${match[1]}</span>${match[2]}`;
+      }
+    });
+
+    // Clean up bottom markdown footnote backrefs if present
+    const bottomFootnotes = document.querySelector('.footnote');
+    if (bottomFootnotes) {
+      bottomFootnotes.classList.add('mt-12', 'pt-8', 'border-t', 'border-stone-800', 'text-xs', 'text-stone-400');
+    }
+  });
+</script>
+{% endblock %}

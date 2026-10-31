@@ -2,7 +2,7 @@
 <div class="space-y-3" role="region" aria-label="Closed-Loop Citation Telemetry Log">
   <div class="flex items-center justify-between border-b border-stone-800 pb-2">
     <span class="text-xs font-semibold uppercase tracking-wider text-stone-400">Citation Telemetry (ARC-58)</span>
-    <span class="text-[11px] font-mono text-stone-500 bg-stone-900 px-2 py-0.5 rounded border border-stone-800">{{ telemetry | length }} events</span>
+    <span class="text-[11px] font-mono text-stone-400 bg-stone-900 px-2 py-0.5 rounded border border-stone-800">{{ telemetry | length }} events</span>
   </div>
   <div class="overflow-x-auto rounded-lg border border-stone-800/80 focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none" tabindex="0" role="region" aria-label="Scrollable Citation Events Table">
     <table class="w-full text-xs font-mono">
@@ -20,11 +20,11 @@
           <td class="py-2 px-3 text-amber-400 font-medium">{{ event.series_slug }}</td>
           <td class="py-2 px-3">{{ event.chapter_slug }}</td>
           <td class="py-2 px-3 font-semibold">[^{{ event.footnote_id }}]</td>
-          <td class="py-2 px-3 text-stone-500 tabular-nums">{{ event.created_at }}</td>
+          <td class="py-2 px-3 text-stone-400 tabular-nums">{{ event.created_at }}</td>
         </tr>
         {% else %}
         <tr>
-          <td colspan="4" class="py-3 px-3 text-center text-stone-500 italic">No telemetry recorded yet. Tap footnotes in the reader to generate live events.</td>
+          <td colspan="4" class="py-3 px-3 text-center text-stone-400 italic">No telemetry recorded yet. Tap footnotes in the reader to generate live events.</td>
         </tr>
         {% endfor %}
       </tbody>

@@ -1,0 +1,930 @@
+{
+  "chapter": "05-becoming-a-mind",
+  "total_duration_sec": 1306.32,
+  "sample_rate": 24000,
+  "bytes_per_second": 48000,
+  "chunks": [
+    {
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 3.781,
+      "duration_sec": 3.781,
+      "pcm_bytes": 181486,
+      "block_range": [
+        "b-000",
+        "b-000"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "start_sec": 3.781,
+      "end_sec": 9.088,
+      "duration_sec": 5.307,
+      "pcm_bytes": 254756,
+      "block_range": [
+        "b-001",
+        "b-001"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "start_sec": 9.088,
+      "end_sec": 15.076,
+      "duration_sec": 5.987,
+      "pcm_bytes": 287396,
+      "block_range": [
+        "b-002",
+        "b-002"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "start_sec": 15.076,
+      "end_sec": 57.303,
+      "duration_sec": 42.227,
+      "pcm_bytes": 2026916,
+      "block_range": [
+        "b-003",
+        "b-003"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "start_sec": 57.303,
+      "end_sec": 62.531,
+      "duration_sec": 5.227,
+      "pcm_bytes": 250916,
+      "block_range": [
+        "b-004",
+        "b-004"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "start_sec": 62.531,
+      "end_sec": 88.358,
+      "duration_sec": 25.827,
+      "pcm_bytes": 1239716,
+      "block_range": [
+        "b-005",
+        "b-005"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "start_sec": 88.358,
+      "end_sec": 109.905,
+      "duration_sec": 21.547,
+      "pcm_bytes": 1034276,
+      "block_range": [
+        "b-006",
+        "b-006"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "start_sec": 109.905,
+      "end_sec": 139.613,
+      "duration_sec": 29.707,
+      "pcm_bytes": 1425956,
+      "block_range": [
+        "b-007",
+        "b-007"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "start_sec": 139.613,
+      "end_sec": 145.11,
+      "duration_sec": 5.497,
+      "pcm_bytes": 263876,
+      "block_range": [
+        "b-008",
+        "b-008"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "start_sec": 145.11,
+      "end_sec": 180.418,
+      "duration_sec": 35.307,
+      "pcm_bytes": 1694756,
+      "block_range": [
+        "b-009",
+        "b-009"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "start_sec": 180.418,
+      "end_sec": 212.005,
+      "duration_sec": 31.587,
+      "pcm_bytes": 1516196,
+      "block_range": [
+        "b-010",
+        "b-010"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "start_sec": 212.005,
+      "end_sec": 265.713,
+      "duration_sec": 53.707,
+      "pcm_bytes": 2577956,
+      "block_range": [
+        "b-011",
+        "b-011"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "start_sec": 265.713,
+      "end_sec": 328.26,
+      "duration_sec": 62.547,
+      "pcm_bytes": 3002276,
+      "block_range": [
+        "b-012",
+        "b-012"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "start_sec": 328.26,
+      "end_sec": 333.237,
+      "duration_sec": 4.977,
+      "pcm_bytes": 238916,
+      "block_range": [
+        "b-013",
+        "b-013"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "start_sec": 333.237,
+      "end_sec": 344.425,
+      "duration_sec": 11.187,
+      "pcm_bytes": 536996,
+      "block_range": [
+        "b-014",
+        "b-014"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "start_sec": 344.425,
+      "end_sec": 403.652,
+      "duration_sec": 59.227,
+      "pcm_bytes": 2842916,
+      "block_range": [
+        "b-015",
+        "b-015"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "start_sec": 403.652,
+      "end_sec": 459.0,
+      "duration_sec": 55.347,
+      "pcm_bytes": 2656676,
+      "block_range": [
+        "b-016",
+        "b-016"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "start_sec": 459.0,
+      "end_sec": 498.707,
+      "duration_sec": 39.707,
+      "pcm_bytes": 1905956,
+      "block_range": [
+        "b-017",
+        "b-017"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "start_sec": 498.707,
+      "end_sec": 554.294,
+      "duration_sec": 55.587,
+      "pcm_bytes": 2668196,
+      "block_range": [
+        "b-018",
+        "b-018"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "start_sec": 554.294,
+      "end_sec": 558.592,
+      "duration_sec": 4.297,
+      "pcm_bytes": 206276,
+      "block_range": [
+        "b-019",
+        "b-019"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "start_sec": 558.592,
+      "end_sec": 572.539,
+      "duration_sec": 13.947,
+      "pcm_bytes": 669476,
+      "block_range": [
+        "b-020",
+        "b-020"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "start_sec": 572.539,
+      "end_sec": 637.567,
+      "duration_sec": 65.027,
+      "pcm_bytes": 3121316,
+      "block_range": [
+        "b-021",
+        "b-021"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "start_sec": 637.567,
+      "end_sec": 672.674,
+      "duration_sec": 35.107,
+      "pcm_bytes": 1685156,
+      "block_range": [
+        "b-022",
+        "b-022"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "start_sec": 672.674,
+      "end_sec": 719.942,
+      "duration_sec": 47.267,
+      "pcm_bytes": 2268836,
+      "block_range": [
+        "b-023",
+        "b-023"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "start_sec": 719.942,
+      "end_sec": 765.929,
+      "duration_sec": 45.987,
+      "pcm_bytes": 2207396,
+      "block_range": [
+        "b-024",
+        "b-024"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "start_sec": 765.929,
+      "end_sec": 826.756,
+      "duration_sec": 60.827,
+      "pcm_bytes": 2919716,
+      "block_range": [
+        "b-025",
+        "b-025"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "start_sec": 826.756,
+      "end_sec": 834.654,
+      "duration_sec": 7.897,
+      "pcm_bytes": 379076,
+      "block_range": [
+        "b-026",
+        "b-026"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "start_sec": 834.654,
+      "end_sec": 848.001,
+      "duration_sec": 13.347,
+      "pcm_bytes": 640676,
+      "block_range": [
+        "b-027",
+        "b-027"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "start_sec": 848.001,
+      "end_sec": 911.629,
+      "duration_sec": 63.627,
+      "pcm_bytes": 3054116,
+      "block_range": [
+        "b-028",
+        "b-028"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "start_sec": 911.629,
+      "end_sec": 978.336,
+      "duration_sec": 66.707,
+      "pcm_bytes": 3201956,
+      "block_range": [
+        "b-029",
+        "b-029"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "start_sec": 978.336,
+      "end_sec": 1029.643,
+      "duration_sec": 51.307,
+      "pcm_bytes": 2462756,
+      "block_range": [
+        "b-030",
+        "b-030"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "start_sec": 1029.643,
+      "end_sec": 1062.231,
+      "duration_sec": 32.587,
+      "pcm_bytes": 1564196,
+      "block_range": [
+        "b-031",
+        "b-031"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "start_sec": 1062.231,
+      "end_sec": 1066.648,
+      "duration_sec": 4.417,
+      "pcm_bytes": 212036,
+      "block_range": [
+        "b-032",
+        "b-032"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "start_sec": 1066.648,
+      "end_sec": 1086.956,
+      "duration_sec": 20.307,
+      "pcm_bytes": 974756,
+      "block_range": [
+        "b-033",
+        "b-033"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "start_sec": 1086.956,
+      "end_sec": 1129.263,
+      "duration_sec": 42.307,
+      "pcm_bytes": 2030756,
+      "block_range": [
+        "b-034",
+        "b-034"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "start_sec": 1129.263,
+      "end_sec": 1171.211,
+      "duration_sec": 41.947,
+      "pcm_bytes": 2013476,
+      "block_range": [
+        "b-035",
+        "b-035"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "start_sec": 1171.211,
+      "end_sec": 1241.718,
+      "duration_sec": 70.507,
+      "pcm_bytes": 3384356,
+      "block_range": [
+        "b-036",
+        "b-036"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "start_sec": 1241.718,
+      "end_sec": 1264.065,
+      "duration_sec": 22.347,
+      "pcm_bytes": 1072676,
+      "block_range": [
+        "b-037",
+        "b-037"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "start_sec": 1264.065,
+      "end_sec": 1270.173,
+      "duration_sec": 6.107,
+      "pcm_bytes": 293156,
+      "block_range": [
+        "b-038",
+        "b-038"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "start_sec": 1270.173,
+      "end_sec": 1306.32,
+      "duration_sec": 36.147,
+      "pcm_bytes": 1735076,
+      "block_range": [
+        "b-039",
+        "b-039"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "b-000",
+      "tag": "h1",
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 3.781,
+      "words": 6,
+      "weight": 9,
+      "text": "Chapter 5 — Becoming a Mind",
+      "start_ratio": 0.0,
+      "end_ratio": 0.0029
+    },
+    {
+      "id": "b-001",
+      "tag": "p",
+      "chunk_id": 2,
+      "start_sec": 3.781,
+      "end_sec": 9.088,
+      "words": 11,
+      "weight": 11,
+      "text": "How Babies See, Remember, Focus, and Learn Before They Can Talk",
+      "start_ratio": 0.0029,
+      "end_ratio": 0.007
+    },
+    {
+      "id": "b-002",
+      "tag": "p",
+      "chunk_id": 3,
+      "start_sec": 9.088,
+      "end_sec": 15.076,
+      "words": 12,
+      "weight": 12,
+      "text": "A four-month-old baby lies awake on a blanket in the afternoon quiet.",
+      "start_ratio": 0.007,
+      "end_ratio": 0.0115
+    },
+    {
+      "id": "b-003",
+      "tag": "p",
+      "chunk_id": 4,
+      "start_sec": 15.076,
+      "end_sec": 57.303,
+      "words": 106,
+      "weight": 106,
+      "text": "She cannot tell us what she sees. She cannot name a memory, describe a flash of surprise, or explain why she just turned her head toward the window instead of the door. Yet nobody in the room mistakes her for a doll. Something is busy organizing inside that quiet watchfulness. We will soon call it a mind. At four months, however, that growing mind never shows up as spoken words. It shows up only in small actions: how long she stares, how fast she sucks on a pacifier, and how hard she kicks. Then her eyes open wide before she turns to meet an adult’s face.",
+      "start_ratio": 0.0115,
+      "end_ratio": 0.0439
+    },
+    {
+      "id": "b-004",
+      "tag": "p",
+      "chunk_id": 5,
+      "start_sec": 57.303,
+      "end_sec": 62.531,
+      "words": 11,
+      "weight": 11,
+      "text": "The scene looks simple, and it is remarkably easy to misread.",
+      "start_ratio": 0.0439,
+      "end_ratio": 0.0479
+    },
+    {
+      "id": "b-005",
+      "tag": "p",
+      "chunk_id": 6,
+      "start_sec": 62.531,
+      "end_sec": 88.358,
+      "words": 68,
+      "weight": 68,
+      "text": "If a baby were an empty cup, those small glances and kicks would be random noise. She would just be waiting for school to pour intelligence in from the outside. On the other hand, if a baby were already a tiny professor trapped in a clumsy body, every long stare would prove built-in mastery of physics, math, or morality. Neither story fits what lab tests can actually prove.",
+      "start_ratio": 0.0479,
+      "end_ratio": 0.0676
+    },
+    {
+      "id": "b-006",
+      "tag": "p",
+      "chunk_id": 7,
+      "start_sec": 88.358,
+      "end_sec": 109.905,
+      "words": 61,
+      "weight": 61,
+      "text": "High-certainty method reviews show that tracking how long a baby looks at an object is a reliable way to measure what the baby can tell apart and notice in a quiet lab. Yet treating a two-second difference in staring time as proof of adult beliefs or lifelong intelligence stretches the evidence far past what a pair of eyes can tell us.",
+      "start_ratio": 0.0676,
+      "end_ratio": 0.0841
+    },
+    {
+      "id": "b-007",
+      "tag": "p",
+      "chunk_id": 8,
+      "start_sec": 109.905,
+      "end_sec": 139.613,
+      "words": 78,
+      "weight": 78,
+      "text": "Chapter 4 showed how human relationships help a baby calm down and stay balanced. Now we ask what happens during the calm, wide-awake hours that good care makes possible. Our question is sharper than “what does a baby know?” We want to know what kind of learner a baby really is: what is being built when an infant looks, focuses, spots patterns, remembers actions, and shares a look with an adult — and where must our claims stop?",
+      "start_ratio": 0.0841,
+      "end_ratio": 0.1069
+    },
+    {
+      "id": "b-008",
+      "tag": "h2",
+      "chunk_id": 9,
+      "start_sec": 139.613,
+      "end_sec": 145.11,
+      "words": 11,
+      "weight": 13,
+      "text": "I. What Is in a Look: Measurement and the Infant Learner",
+      "start_ratio": 0.1069,
+      "end_ratio": 0.1111
+    },
+    {
+      "id": "b-009",
+      "tag": "p",
+      "chunk_id": 10,
+      "start_sec": 145.11,
+      "end_sec": 180.418,
+      "words": 85,
+      "weight": 85,
+      "text": "For generations, theories of how babies think swung back and forth between two extremes. Early philosophers like John Locke and psychologist William James pictured the newborn’s inner world as a “blooming, buzzing confusion.” In their view, experience had to write order onto a blank slate from scratch. Pushing back in the late twentieth century, nativist researchers pictured the baby as pre-loaded with built-in textbooks on physics, numbers, and people. In that view, the baby was only waiting for stronger muscles to show those theories off.",
+      "start_ratio": 0.1111,
+      "end_ratio": 0.1381
+    },
+    {
+      "id": "b-010",
+      "tag": "p",
+      "chunk_id": 11,
+      "start_sec": 180.418,
+      "end_sec": 212.005,
+      "words": 71,
+      "weight": 71,
+      "text": "Modern infant science has moved past that argument toward a much richer truth. A baby does not arrive knowing the world, but arrives well equipped to learn one. From the very first weeks after birth, visual preferences, attention filters, pattern detectors, and memory circuits are already running. Daily life does not pour knowledge into an empty tank. Instead, everyday experience tunes, sharpens, prunes, and links skills that mature on overlapping clocks.",
+      "start_ratio": 0.1381,
+      "end_ratio": 0.1623
+    },
+    {
+      "id": "b-011",
+      "tag": "p",
+      "chunk_id": 12,
+      "start_sec": 212.005,
+      "end_sec": 265.713,
+      "words": 147,
+      "weight": 147,
+      "text": "Studying those skills before a child can talk took a clever scientific breakthrough. Starting in the 1960s and 1970s, psychologists realized they could use actions a young baby already controls — especially eye movements — as measuring tools. Suppose a baby looks longer at a black-and-white checkerboard than at a plain gray square. That tells us the baby’s eyes can tell the two apart (preferential looking). Suppose a baby sees the same wooden triangle over and over until she gets bored and looks away. Then she perks up and stares when a circle appears. That tells us she remembered the triangle and spotted the change (habituation). And if a baby stares longer when a magic trick seems to break a physical rule — like a ball rolling straight through a solid wall — it tells us the event clashed with what her eyes expected (violation of expectation).",
+      "start_ratio": 0.1623,
+      "end_ratio": 0.2034
+    },
+    {
+      "id": "b-012",
+      "tag": "p",
+      "chunk_id": 13,
+      "start_sec": 265.713,
+      "end_sec": 328.26,
+      "words": 168,
+      "weight": 168,
+      "text": "While these eye-tracking tools opened the pre-verbal mind to science, they also created a classic trap. As vision scientist Richard Aslin famously asked — what’s in a look? — every claim we make from a baby’s stare rests on a bridge of guesswork. That bridge links an eye movement to a hidden thought. A baby might look away from a screen because she has figured out the pattern. Or she might look away because she is sleepy, gassy, or distracted. A baby might stare longer at a trick display because she grasps solid physics. Or she might stare simply because a sudden flash of motion caught her eye. Large global teams like the ManyBabies Consortium have tested thousands of babies across dozens of labs. Their work proves that core looking-time patterns repeat reliably. Still, big claims about what babies understand require backup from several tools at once: eye trackers, pupil size, brain waves, and reaching hands. In baby science, knowing how the ruler works is half the job.",
+      "start_ratio": 0.2034,
+      "end_ratio": 0.2513
+    },
+    {
+      "id": "b-013",
+      "tag": "h2",
+      "chunk_id": 14,
+      "start_sec": 328.26,
+      "end_sec": 333.237,
+      "words": 7,
+      "weight": 9,
+      "text": "II. Tuning the Senses and Gating Attention",
+      "start_ratio": 0.2513,
+      "end_ratio": 0.2551
+    },
+    {
+      "id": "b-014",
+      "tag": "p",
+      "chunk_id": 15,
+      "start_sec": 333.237,
+      "end_sec": 344.425,
+      "words": 34,
+      "weight": 34,
+      "text": "Before a baby can remember a toy or build a mental map, her nervous system has to pick out clear signals. Then she has to choose which corner of the room to focus on.",
+      "start_ratio": 0.2551,
+      "end_ratio": 0.2637
+    },
+    {
+      "id": "b-015",
+      "tag": "p",
+      "chunk_id": 16,
+      "start_sec": 344.425,
+      "end_sec": 403.652,
+      "words": 136,
+      "weight": 136,
+      "text": "Even on day one, sight and hearing are organized rather than random. Newborns track sharp light-and-dark edges, human movement, and the melody of voices. Across the first twelve months, however, the senses go through a remarkable fine-tuning process called perceptual narrowing. Janet Werker and Richard Tees (1984) and Patricia Kuhl and her team (1992) ran classic language experiments on this shift. They found that six-to-eight-month-old babies in English-speaking homes easily heard subtle consonant differences from Hindi or Native American Salish. Their own English-speaking parents could not hear those foreign sound differences at all. By ten to twelve months of age, that wide-open ear had zoomed in. Babies grew faster and sharper at catching the exact sound differences of their home language. At the same time, they tuned out foreign sound differences they never heard at home.",
+      "start_ratio": 0.2637,
+      "end_ratio": 0.309
+    },
+    {
+      "id": "b-016",
+      "tag": "p",
+      "chunk_id": 17,
+      "start_sec": 403.652,
+      "end_sec": 459.0,
+      "words": 144,
+      "weight": 144,
+      "text": "High-certainty lab evidence shows that first-year sensory tuning is a real, repeatable shift in the brain across speech sounds, human faces, and musical beats. Sadly, popular articles often twist this finding into a scary story about “closing brain windows.” They pressure parents to buy foreign-language audio tracks before the first birthday so their baby’s ear doesn’t lock shut. Careful science clears up that fear. Tuning the senses is not brain damage or lost potential. It is an upgrade in efficiency. A brain that spent energy treating every possible sound on earth as equally important would be slow at catching the words spoken at its own kitchen table. Better yet, this tuning is never a welded steel door. Babies raised in bilingual homes smoothly keep their ears tuned to both languages. And children and adults can learn new languages for decades through real human conversation.",
+      "start_ratio": 0.309,
+      "end_ratio": 0.3514
+    },
+    {
+      "id": "b-017",
+      "tag": "p",
+      "chunk_id": 18,
+      "start_sec": 459.0,
+      "end_sec": 498.707,
+      "words": 96,
+      "weight": 96,
+      "text": "What enters this tuning sensory system is controlled second by second by attention. Any living room holds far more sights and sounds than a young brain can process at once. So attention works as the gatekeeper of learning. As John Colombo showed across brain-development studies, infant attention is not one single trait. Instead, it is a team of four separate brain skills that mature on different schedules. First is staying awake and alert. Second is shifting gaze from spot to spot. Third is studying an object closely versus scanning fast. Fourth is slowly building front-of-the-brain willpower.",
+      "start_ratio": 0.3514,
+      "end_ratio": 0.3818
+    },
+    {
+      "id": "b-018",
+      "tag": "p",
+      "chunk_id": 19,
+      "start_sec": 498.707,
+      "end_sec": 554.294,
+      "words": 145,
+      "weight": 145,
+      "text": "During months one and two, babies often get “stuck” staring at a sharp edge. Researchers call this phase sticky fixation. A young baby may fuss because she cannot easily pull her eyes away. By months four to six, maturing eye-control circuits let the baby break gaze smoothly and scan across the room. In lab studies, babies who take in a picture with shorter, brisker glances at six months often score slightly faster on memory games in toddlerhood. Even so, moderate-certainty models of infant attention offer low-certainty support for using how long a baby stares at a toy as an early IQ test. Attention in the first year rides directly on the physical care we met in Chapter 4. A hungry, cold, or overtired baby cannot focus on exploring a block. And surrounding a baby with loud, flashing plastic toys usually triggers tune-out rather than learning.",
+      "start_ratio": 0.3818,
+      "end_ratio": 0.4243
+    },
+    {
+      "id": "b-019",
+      "tag": "h2",
+      "chunk_id": 20,
+      "start_sec": 554.294,
+      "end_sec": 558.592,
+      "words": 6,
+      "weight": 8,
+      "text": "III. Extracting Structure and Remembering Action",
+      "start_ratio": 0.4243,
+      "end_ratio": 0.4276
+    },
+    {
+      "id": "b-020",
+      "tag": "p",
+      "chunk_id": 21,
+      "start_sec": 558.592,
+      "end_sec": 572.539,
+      "words": 36,
+      "weight": 36,
+      "text": "Once a calm, fed baby focuses on a stream of sights and sounds, what does the brain actually do with them? Two famous discoveries show how fast babies spot hidden patterns and remember their own actions.",
+      "start_ratio": 0.4276,
+      "end_ratio": 0.4383
+    },
+    {
+      "id": "b-021",
+      "tag": "p",
+      "chunk_id": 22,
+      "start_sec": 572.539,
+      "end_sec": 637.567,
+      "words": 150,
+      "weight": 150,
+      "text": "Take the puzzle of spoken words. When adults talk naturally, we do not leave neat silent spaces between words. Sound waves flow in one unbroken river. Yet babies somehow figure out where one word ends and the next begins long before they know what the words mean. In 1996, Jenny Saffran, Richard Aslin, and Elissa Newport tested whether eight-month-old babies could solve this puzzle using pure math-like odds. They played babies a two-minute, flat, robotic voice repeating four made-up three-syllable words in random order (bidakupadotigolabubidaku…). There were zero pauses or voice changes. The only clue to where words started and stopped was how often syllables traveled together. Inside a made-up word like bi-da-ku, da followed bi 100 percent of the time. Across the gap between two words, the odds dropped to 33 percent. After just two minutes of listening, eight-month-olds reliably told whole made-up “words” apart from scrambled syllable pairs!",
+      "start_ratio": 0.4383,
+      "end_ratio": 0.4881
+    },
+    {
+      "id": "b-022",
+      "tag": "p",
+      "chunk_id": 23,
+      "start_sec": 637.567,
+      "end_sec": 672.674,
+      "words": 81,
+      "weight": 81,
+      "text": "High-certainty lab replications show that human babies are brilliant pattern detectors across speech sounds, visual shapes, and hand movements. At the same time, knowing what pattern-spotting does not do is vital. Catching syllable patterns in a quiet lab booth does not by itself teach a baby what milk or mama means in a noisy kitchen. Nor does it mean babies are doing conscious math. Pattern-tracking is simply the quiet background wiring that helps a young brain guess what sound comes next.",
+      "start_ratio": 0.4881,
+      "end_ratio": 0.5149
+    },
+    {
+      "id": "b-023",
+      "tag": "p",
+      "chunk_id": 24,
+      "start_sec": 672.674,
+      "end_sec": 719.942,
+      "words": 112,
+      "weight": 112,
+      "text": "Guessing what comes next also takes memory. And the history of infant memory science wiped out the old myth that babies forget everything from one minute to the next. In 1969, psychologist Carolyn Rovee-Collier (then publishing with David Rovee) tied a soft satin ribbon from a three-month-old’s ankle to a wooden mobile hanging over the crib. Within minutes, babies spotted the link. Kicking made the wooden birds dance and chime, and their kicking rate doubled or tripled. When tested days or weeks later with the ribbon untied, babies kicked eagerly as soon as they saw the mobile. They had stored and recalled the exact link between their foot and the overhead toy.",
+      "start_ratio": 0.5149,
+      "end_ratio": 0.5511
+    },
+    {
+      "id": "b-024",
+      "tag": "p",
+      "chunk_id": 25,
+      "start_sec": 719.942,
+      "end_sec": 765.929,
+      "words": 114,
+      "weight": 114,
+      "text": "Across decades of clever follow-ups, Rovee-Collier’s team showed with high certainty that early action memory grows longer month by month. It is also tightly tied to the exact setting. If researchers changed the patterned cloth lining the crib before the memory test, young babies did not kick at all. That proved early memories are anchored to the background sights of the room. Better yet, a quick two-minute reminder (watching the mobile sway by itself) woke up a “forgotten” memory weeks later. What these studies never justified was the booming “super-baby” toy market that quoted them. Showing that a three-month-old remembers kicking a mobile does not mean strapping flashcards to a crib boosts school IQ.",
+      "start_ratio": 0.5511,
+      "end_ratio": 0.5863
+    },
+    {
+      "id": "b-025",
+      "tag": "p",
+      "chunk_id": 26,
+      "start_sec": 765.929,
+      "end_sec": 826.756,
+      "words": 143,
+      "weight": 143,
+      "text": "This eager search for developmental patterns has also created one of modern parenting’s biggest commercial myths: the belief that all babies experience synchronized, calendar-locked “mental leaps” and fussy periods on exact gestational weeks. Popularized by the “Wonder Weeks” franchise, millions of parents check apps expecting predictable crises at five, eight, or nineteen weeks. But when independent developmental psychologists tested this in longitudinal cohorts, the pattern evaporated. Rigorous day-by-day tracking shows that infant fussiness, sleep disruption, and crying peaks vary widely across individual babies and do not align to fixed calendar weeks above random chance. When a baby has a stormy week, it reflects real, shifting biological needs—such as an emerging motor skill, mild illness, or simple fatigue—not a pre-programmed calendar clock. Relieving parents of calendar guilt allows them to read their actual child in front of them rather than consulting an app screen.",
+      "start_ratio": 0.5863,
+      "end_ratio": 0.6329
+    },
+    {
+      "id": "b-026",
+      "tag": "h2",
+      "chunk_id": 27,
+      "start_sec": 826.756,
+      "end_sec": 834.654,
+      "words": 11,
+      "weight": 13,
+      "text": "IV. A World That Disappears: Looking, Searching, and the Embodied Object",
+      "start_ratio": 0.6329,
+      "end_ratio": 0.6389
+    },
+    {
+      "id": "b-027",
+      "tag": "p",
+      "chunk_id": 28,
+      "start_sec": 834.654,
+      "end_sec": 848.001,
+      "words": 29,
+      "weight": 29,
+      "text": "As sight, focus, pattern-spotting, and memory weave together across the first year, the baby runs into a classic puzzle: what happens to things when they go out of sight?",
+      "start_ratio": 0.6389,
+      "end_ratio": 0.6492
+    },
+    {
+      "id": "b-028",
+      "tag": "p",
+      "chunk_id": 29,
+      "start_sec": 848.001,
+      "end_sec": 911.629,
+      "words": 178,
+      "weight": 178,
+      "text": "The scientific showdown over object permanence — and how it was solved — gives us one of the clearest lessons in this book. How we test babies shapes what we find. For fifty years, the giant of child psychology was Swiss researcher Jean Piaget. In The Construction of Reality in the Child (1954), Piaget watched babies play reach-and-find games. If an adult hid a favorite rattle under a cloth napkin while a five- or six-month-old watched, the baby instantly stopped reaching. She acted as if the rattle had vanished into thin air. Only around eight or nine months did babies lift the cloth to grab the hidden rattle. Even stranger, Piaget discovered the famous A-not-B error. An eight-to-ten-month-old pulled a toy out from under cloth A several times in a row. Next, the baby watched the adult hide the toy in plain sight under a second cloth B — and yet reached straight back under cloth A! Piaget concluded that babies build the idea of lasting objects slowly across the first eighteen months through hands-on touching and grabbing.",
+      "start_ratio": 0.6492,
+      "end_ratio": 0.6979
+    },
+    {
+      "id": "b-029",
+      "tag": "p",
+      "chunk_id": 30,
+      "start_sec": 911.629,
+      "end_sec": 978.336,
+      "words": 170,
+      "weight": 170,
+      "text": "In 1987, psychologist Renée Baillargeon challenged Piaget’s timeline with her famous rotating drawbridge experiment. She suspected that six-month-olds failed Piaget’s cloth game for a simpler reason. They did not think the rattle vanished; they just could not yet coordinate a two-step hand plan (lifting a cloth in order to grab a rattle). So Baillargeon swapped reaching hands for watching eyes. Babies aged three and a half to four and a half months watched a cardboard screen swing back and forth flat on a table through a 180-degree arc, like a drawbridge. Next, a solid painted wooden box was set behind the drawbridge. In the possible test, the swinging bridge stopped partway when it hit the hidden box. In the impossible trick test, the box was secretly dropped through a trapdoor. Now the bridge swung the full 180 degrees flat, seeming to pass straight through a solid wooden block. Babies stared much longer at the impossible flat swing. Their eyes expected the hidden box to stay solid and block the bridge.",
+      "start_ratio": 0.6979,
+      "end_ratio": 0.7489
+    },
+    {
+      "id": "b-030",
+      "tag": "p",
+      "chunk_id": 31,
+      "start_sec": 978.336,
+      "end_sec": 1029.643,
+      "words": 136,
+      "weight": 136,
+      "text": "Baillargeon’s drawbridge study sparked a thirty-year debate. Some researchers declared that Piaget was completely wrong and that three-month-olds already think like little physicists. Pushing back, action researchers led by Esther Thelen, Linda Smith, and Marshall Haith showed that staring longer at a magic trick is not the same thing as full, usable knowledge of an object. Most remarkably, when Thelen and Smith tested Piaget’s A-not-B cloth game, they found a simple trick. They could make ten-month-old babies succeed at cloth B simply by standing the baby up between hiding and reaching, or by putting small wrist weights on the baby’s arms! Reaching back to cloth A was not a philosophical belief that the toy teleported. It was a tug-of-war between the eyes, brief working memory, posture balance, and the strong muscle habit of the last reach.",
+      "start_ratio": 0.7489,
+      "end_ratio": 0.7882
+    },
+    {
+      "id": "b-031",
+      "tag": "p",
+      "chunk_id": 32,
+      "start_sec": 1029.643,
+      "end_sec": 1062.231,
+      "words": 80,
+      "weight": 80,
+      "text": "Modern science brings Piaget and Baillargeon together. Moderate-certainty evidence suggests that young babies form visual expectations about hidden objects months before their hands can plan a two-step search. At the same time, low-certainty claims that a four-month-old’s stare proves adult physics ignore the huge gap between noticing a surprise and guiding your hands. Knowing how objects work is not a single light switch that flips on a birthday. It is built layer by layer across eyes, memory, balance, and hands.",
+      "start_ratio": 0.7882,
+      "end_ratio": 0.8131
+    },
+    {
+      "id": "b-032",
+      "tag": "h2",
+      "chunk_id": 33,
+      "start_sec": 1062.231,
+      "end_sec": 1066.648,
+      "words": 7,
+      "weight": 9,
+      "text": "V. Shared Reference and the Everyday Curriculum",
+      "start_ratio": 0.8131,
+      "end_ratio": 0.8165
+    },
+    {
+      "id": "b-033",
+      "tag": "p",
+      "chunk_id": 34,
+      "start_sec": 1066.648,
+      "end_sec": 1086.956,
+      "words": 49,
+      "weight": 49,
+      "text": "Most important of all, a baby never builds this mental world alone in a box. From day one, the most interesting things in any room are other people. Between months nine and twelve, the two-person face-to-face world of Chapter 4 opens up into a three-way triangle called joint attention.",
+      "start_ratio": 0.8165,
+      "end_ratio": 0.8321
+    },
+    {
+      "id": "b-034",
+      "tag": "p",
+      "chunk_id": 35,
+      "start_sec": 1086.956,
+      "end_sec": 1129.263,
+      "words": 117,
+      "weight": 117,
+      "text": "Around nine to twelve months, a baby stops looking only at her parent or only at a ball. Instead, she looks back and forth between the parent’s eyes and the ball. She checks the adult’s face, follows a pointed finger across the rug, or holds up a wooden block just to share the fun of seeing it together. As Peter Mundy and Lisa Newell showed in brain-mapping studies, joint attention actually blends two distinct skills. The first is following someone else’s gaze or point, which uses back-of-the-brain attention circuits. The second is starting a shared moment — pointing or holding up a treasure to win an adult’s eyes — which lights up front-of-the-brain social and motivation circuits.",
+      "start_ratio": 0.8321,
+      "end_ratio": 0.8645
+    },
+    {
+      "id": "b-035",
+      "tag": "p",
+      "chunk_id": 36,
+      "start_sec": 1129.263,
+      "end_sec": 1171.211,
+      "words": 99,
+      "weight": 99,
+      "text": "Moderate-certainty long-term studies suggest that babies who share more of these three-way looks late in the first year build larger spoken vocabularies in toddlerhood. That shared focus forms the bridge into Chapter 7’s story of language. Here again, common sense protects family life from silly drills. Joint attention helps language grow because it connects words to moments two people care about together, not because eye-shifting is a muscle exercise to drill with flashcards. Low-certainty schemes to train eye-following do not raise IQ. And a tired ten-month-old who ignores your pointed finger before naptime is just tired, not falling behind.",
+      "start_ratio": 0.8645,
+      "end_ratio": 0.8966
+    },
+    {
+      "id": "b-036",
+      "tag": "p",
+      "chunk_id": 37,
+      "start_sec": 1171.211,
+      "end_sec": 1241.718,
+      "words": 172,
+      "weight": 172,
+      "text": "Stepping back across the first year of the waking mind, our three lenses fit neatly together. The science shows with high certainty that eye-tracking tests measure what babies notice, that first-year hearing tunes into home languages, that babies spot syllable patterns in speech streams, and that three-month-olds remember kicking a mobile in the same crib. It also suggests with moderate certainty that visual focus matures in stages, that eyes track hidden objects before hands can search for them, and that sharing attention sets the stage for talking. The interpretation of that science honors Richard Aslin’s caution: never stretch a two-second stare in a lab booth into a baby philosophy degree or a lifelong IQ score. And the art of caring for a waking baby mind lies in seeing that ordinary home life is already the best classroom on earth. Playing peekaboo behind a dish towel, naming the dog when your baby looks up, leaving quiet unhurried time on the floor blanket, and spotting when rubbed eyes mean sleep are more than enough.",
+      "start_ratio": 0.8966,
+      "end_ratio": 0.9505
+    },
+    {
+      "id": "b-037",
+      "tag": "p",
+      "chunk_id": 38,
+      "start_sec": 1241.718,
+      "end_sec": 1264.065,
+      "words": 50,
+      "weight": 50,
+      "text": "What this chapter does not tell us is how the baby’s mind changes when she stops just watching from a blanket and starts reaching, sitting up, crawling, and walking across the floor on her own. How moving one’s own body reshapes depth perception, curiosity, and imitation belongs to Chapter 6.",
+      "start_ratio": 0.9505,
+      "end_ratio": 0.9677
+    },
+    {
+      "id": "b-038",
+      "tag": "p",
+      "chunk_id": 39,
+      "start_sec": 1264.065,
+      "end_sec": 1270.173,
+      "words": 16,
+      "weight": 16,
+      "text": "Look back one more time at the four-month-old lying on the blanket in the afternoon light.",
+      "start_ratio": 0.9677,
+      "end_ratio": 0.9723
+    },
+    {
+      "id": "b-039",
+      "tag": "p",
+      "chunk_id": 40,
+      "start_sec": 1270.173,
+      "end_sec": 1306.32,
+      "words": 93,
+      "weight": 93,
+      "text": "She still has not spoken a single word. She has not turned into a different baby because we have traced speech tuning, syllable odds, or the swinging drawbridge. What has changed is how we read her quiet watching. Her mind is neither an empty notebook waiting for first grade nor a tiny computer running pre-written physics formulas. It is a lively, connected workshop. She is picking out edges, tuning to family voices, remembering the kick that made the birds dance, and looking up to see if the person beside her is watching too.",
+      "start_ratio": 0.9723,
+      "end_ratio": 1.0
+    }
+  ]
+}
