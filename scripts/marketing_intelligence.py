@@ -1671,10 +1671,10 @@ def main() -> int:
         return 0
 
     if args.export_charts:
-        from bwe.analytics import export_static_analytics_deck
+        from bwe.analytics import export_static_charts
         series_slug = args.series or "parenthood-atlas"
-        res = export_static_analytics_deck(series_slug, Path(args.export_charts), root=repo_root(), lang=args.lang)
-        print(f"[analytics:export] Rendered static 4-panel analytics deck for {series_slug} -> {res['png']} & {res['svg']}")
+        res = export_static_charts(series_slug, Path(args.export_charts), root=repo_root(), lang=args.lang)
+        print(f"[analytics:export] Rendered static 300-DPI publication charts for {series_slug} -> {Path(args.export_charts)}")
         if not any([args.keywords, args.fetch_live, args.expand_ideas, args.import_gkp_export, args.optimize_kdp_boxes, args.export_amazon_ads]):
             return 0
 

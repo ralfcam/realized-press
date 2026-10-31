@@ -1,0 +1,302 @@
+<!-- bwe/templates/partials/analytics_dashboard.html: BWE Visual Telemetry Dashboard Partial (ARC-80) -->
+<div id="analytics-dashboard" class="space-y-8">
+  
+  <!-- Top KPI Summary Cards -->
+  <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3.5">
+    
+    <!-- Total Clusters -->
+    <div class="bg-stone-900/90 border border-stone-800 rounded-xl p-3.5 flex flex-col justify-between">
+      <span class="text-[10px] font-mono text-stone-400 uppercase tracking-wider block">Canonical Clusters</span>
+      <div class="mt-1 flex items-baseline gap-1.5">
+        <span class="text-2xl font-bold font-mono text-stone-100">{{ "{:,}".format(data.total_clusters) }}</span>
+      </div>
+      <span class="text-[10px] font-mono text-stone-500 mt-1 block">Deduplicated &amp; Normalized</span>
+    </div>
+
+    <!-- Monthly Demand Reach -->
+    <div class="bg-stone-900/90 border border-stone-800 rounded-xl p-3.5 flex flex-col justify-between">
+      <span class="text-[10px] font-mono text-stone-400 uppercase tracking-wider block">Monthly Demand</span>
+      <div class="mt-1 flex items-baseline gap-1.5">
+        <span class="text-2xl font-bold font-mono text-amber-300">{{ "{:,}".format(data.combined_volume) }}</span>
+        <span class="text-[10px] font-mono text-stone-400">/mo</span>
+      </div>
+      <span class="text-[10px] font-mono text-stone-500 mt-1 block">Mean {{ "{:,.0f}".format(data.series_stats.volume.mean) }}/cl</span>
+    </div>
+
+    <!-- GKP Verified Share -->
+    <div class="bg-stone-900/90 border border-stone-800 rounded-xl p-3.5 flex flex-col justify-between">
+      <span class="text-[10px] font-mono text-stone-400 uppercase tracking-wider block">Verified GKP Share</span>
+      <div class="mt-1 flex items-baseline gap-1.5">
+        <span class="text-2xl font-bold font-mono text-emerald-400">{{ data.verified_clusters_pct }}%</span>
+        <span class="text-[10px] font-mono text-stone-400">clusters</span>
+      </div>
+      <span class="text-[10px] font-mono text-stone-500 mt-1 block">{{ data.verified_clusters }} verified rows</span>
+    </div>
+
+    <!-- Covered Demand -->
+    <div class="bg-stone-900/90 border border-stone-800 rounded-xl p-3.5 flex flex-col justify-between">
+      <span class="text-[10px] font-mono text-stone-400 uppercase tracking-wider block">Covered Demand</span>
+      <div class="mt-1 flex items-baseline gap-1.5">
+        <span class="text-2xl font-bold font-mono text-sky-400">{{ data.coverage_rate_pct }}%</span>
+      </div>
+      <span class="text-[10px] font-mono text-stone-500 mt-1 block">{{ data.covered_clusters }} / {{ data.total_clusters }} covered</span>
+    </div>
+
+    <!-- CPC High Ceiling -->
+    <div class="bg-stone-900/90 border border-stone-800 rounded-xl p-3.5 flex flex-col justify-between">
+      <span class="text-[10px] font-mono text-stone-400 uppercase tracking-wider block">Commercial CPC</span>
+      <div class="mt-1 flex items-baseline gap-1.5">
+        <span class="text-2xl font-bold font-mono text-violet-400">${{ "{:.2f}".format(data.series_stats.cpc.max) }}</span>
+        <span class="text-[10px] font-mono text-stone-400">ceiling</span>
+      </div>
+      <span class="text-[10px] font-mono text-stone-500 mt-1 block">Mean ${{ "{:.2f}".format(data.series_stats.cpc.mean) }}</span>
+    </div>
+
+    <!-- Market Readiness -->
+    <div class="bg-stone-900/90 border border-stone-800 rounded-xl p-3.5 flex flex-col justify-between">
+      <span class="text-[10px] font-mono text-stone-400 uppercase tracking-wider block">Market Readiness</span>
+      <div class="mt-1 flex items-baseline gap-1.5">
+        <span class="text-2xl font-bold font-mono text-emerald-300">{{ data.market_readiness }}</span>
+        <span class="text-[10px] font-mono text-stone-400">KDP</span>
+      </div>
+      <span class="text-[10px] font-mono text-stone-500 mt-1 block">{{ data.kdp_captured_pct }}% Demand Cap</span>
+    </div>
+
+    <!-- Bibliographic Velocity -->
+    <div class="bg-stone-900/90 border border-stone-800 rounded-xl p-3.5 flex flex-col justify-between">
+      <span class="text-[10px] font-mono text-stone-400 uppercase tracking-wider block">Bib Velocity</span>
+      <div class="mt-1 flex items-baseline gap-1.5">
+        <span class="text-2xl font-bold font-mono text-indigo-400">{{ data.bib_post_2015_pct }}%</span>
+        <span class="text-[10px] font-mono text-stone-400">≥15</span>
+      </div>
+      <span class="text-[10px] font-mono text-stone-500 mt-1 block">{{ data.bib_count }} Locked DOIs</span>
+    </div>
+
+  </div>
+
+  <!-- Interactive Dark-Mode SVG Charts Grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    
+    <!-- Quadrant Scatter Plot -->
+    <div class="bg-stone-900/80 border border-stone-800 rounded-xl p-4 flex flex-col justify-between space-y-3">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-sm font-serif font-bold text-stone-100 flex items-center gap-2">
+            <span>Demand vs. BM25 Coverage Quadrant</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-800 text-stone-300">Interactive SVG</span>
+          </h2>
+          <p class="text-[11px] font-mono text-stone-400 mt-0.5">
+            Hover over nodes for cluster volume, coverage score, CPC bid, and tier.
+          </p>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <a href="/dist/analytics/{{ deck_dir }}/demand_quadrant.png" target="_blank" class="px-2 py-1 rounded bg-stone-800 hover:bg-stone-700 text-[10px] font-mono text-stone-300 transition">PNG ↗</a>
+          <a href="/dist/analytics/{{ deck_dir }}/demand_quadrant.svg" target="_blank" class="px-2 py-1 rounded bg-amber-500/10 hover:bg-amber-500/20 text-[10px] font-mono text-amber-300 border border-amber-500/30 transition">SVG ↗</a>
+        </div>
+      </div>
+      <div class="w-full overflow-hidden rounded-lg">
+        {{ data.quadrant_svg | safe }}
+      </div>
+    </div>
+
+    <!-- Chapter Volume & CPC Bars -->
+    <div class="bg-stone-900/80 border border-stone-800 rounded-xl p-4 flex flex-col justify-between space-y-3">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-sm font-serif font-bold text-stone-100 flex items-center gap-2">
+            <span>{% if data.is_aom %}Volume Demand &amp; CPC Ceiling{% else %}Chapter Demand &amp; CPC Ceiling{% endif %}</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-800 text-stone-300">Interactive SVG</span>
+          </h2>
+          <p class="text-[11px] font-mono text-stone-400 mt-0.5">
+            Verified GKP volume vs. curated seed volume with max commercial CPC intent overlay.
+          </p>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <a href="/dist/analytics/{{ deck_dir }}/chapter_volume_cpc.png" target="_blank" class="px-2 py-1 rounded bg-stone-800 hover:bg-stone-700 text-[10px] font-mono text-stone-300 transition">PNG ↗</a>
+          <a href="/dist/analytics/{{ deck_dir }}/chapter_volume_cpc.svg" target="_blank" class="px-2 py-1 rounded bg-amber-500/10 hover:bg-amber-500/20 text-[10px] font-mono text-amber-300 border border-amber-500/30 transition">SVG ↗</a>
+        </div>
+      </div>
+      <div class="w-full overflow-hidden rounded-lg">
+        {{ data.chapter_bars_svg | safe }}
+      </div>
+    </div>
+
+  </div>
+
+  <!-- KDP 7-Box 50-Byte Utilization Gauges -->
+  <div class="bg-stone-900/80 border border-stone-800 rounded-xl p-5 space-y-4">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-stone-800 pb-3">
+      <div>
+        <h3 class="text-sm font-serif font-bold text-stone-100 flex items-center gap-2">
+          <span>Amazon KDP 7 Backend Keyword Boxes (50-Byte Ceilings)</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-violet-500/10 text-violet-400 border border-violet-500/20">Captures {{ data.kdp_captured_pct }}% Demand</span>
+        </h3>
+        <p class="text-xs font-mono text-stone-400 mt-0.5">
+          Intact multi-word collocations greedily packed strictly ≤ 49 UTF-8 bytes with zero cross-box stem repetition.
+        </p>
+      </div>
+
+      <!-- Action Row: Write to series.yaml & Download Amazon Ads CSV -->
+      <div class="flex items-center gap-2.5 shrink-0">
+        <a href="/hx/analytics/export-ads?series={{ series_slug }}"
+           class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-xs font-mono text-emerald-300 border border-emerald-500/30 transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          <span>Amazon Ads CSV</span>
+        </a>
+
+        <button hx-post="/hx/analytics/write-kdp-yaml?series={{ series_slug }}"
+                hx-target="#kdp-write-status"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-xs font-mono text-amber-300 border border-amber-500/40 transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path></svg>
+          <span>Write series.yaml</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="kdp-write-status"></div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+      {% for box in data.kdp_boxes_meta %}
+      <div class="bg-stone-950/80 border border-stone-800/80 rounded-lg p-3 space-y-2 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between text-[11px] font-mono">
+            <span class="font-bold text-amber-400">Slot {{ box.box_index }}</span>
+            <span class="{% if box.bytes > 49 %}text-red-400 font-bold{% else %}text-emerald-400{% endif %}">
+              {{ box.bytes }} / 50 B ({{ box.utilization_pct }}%)
+            </span>
+          </div>
+          <div class="w-full bg-stone-800 rounded-full h-1.5 mt-1.5 overflow-hidden">
+            <div class="h-1.5 rounded-full {% if box.bytes > 49 %}bg-red-500{% elif box.bytes >= 47 %}bg-emerald-400{% else %}bg-amber-400{% endif %}" style="width: {{ box.utilization_pct }}%"></div>
+          </div>
+          <p class="text-xs font-mono text-stone-200 mt-2 break-words leading-relaxed select-all">
+            {{ box.text }}
+          </p>
+        </div>
+        <div class="pt-2 border-t border-stone-800/60 flex items-center justify-between">
+          <span class="text-[10px] font-mono text-stone-500">UTF-8 Collocations</span>
+          <button type="button"
+                  onclick="navigator.clipboard.writeText('{{ box.text }}'); this.innerText='Copied!'; setTimeout(() => this.innerText='Copy', 1200)"
+                  class="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 transition">
+            Copy
+          </button>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Filterable Demand Signals Table with 12-Month Sparklines -->
+  <div class="bg-stone-900/80 border border-stone-800 rounded-xl overflow-hidden" x-data="{ search: '', selectedChapter: 'all', selectedTier: 'all' }">
+    
+    <div class="p-4 border-b border-stone-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div>
+        <h3 class="text-sm font-serif font-bold text-stone-100 flex items-center gap-2">
+          <span>Search Demand Signals &amp; 12-Month Trajectory</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-800 text-stone-300 font-normal">
+            {{ data.total_clusters }} clusters
+          </span>
+        </h3>
+        <p class="text-xs font-mono text-stone-400 mt-0.5">
+          Filterable by keyword text, target chapter, source tier, and front-matter quick-finder coverage.
+        </p>
+      </div>
+
+      <!-- Controls -->
+      <div class="flex flex-wrap items-center gap-2">
+        <!-- Live search input -->
+        <input type="text"
+               x-model="search"
+               placeholder="Filter queries..."
+               class="px-2.5 py-1.5 bg-stone-950 border border-stone-800 rounded-lg text-xs font-mono text-stone-200 focus:outline-none focus:border-amber-500/60 w-36 sm:w-44">
+
+        <!-- Chapter Filter -->
+        <select x-model="selectedChapter" class="px-2.5 py-1.5 bg-stone-950 border border-stone-800 rounded-lg text-xs font-mono text-stone-300 focus:outline-none">
+          <option value="all">All Chapters</option>
+          {% for b in data.breakdown %}
+          <option value="{{ b.key }}">{{ b.label }}</option>
+          {% endfor %}
+        </select>
+
+        <!-- Tier Filter -->
+        <select x-model="selectedTier" class="px-2.5 py-1.5 bg-stone-950 border border-stone-800 rounded-lg text-xs font-mono text-stone-300 focus:outline-none">
+          <option value="all">All Tiers</option>
+          <option value="gkp_csv_export">Verified GKP</option>
+          <option value="seed">Curated Seed</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="overflow-x-auto max-h-[580px] overflow-y-auto">
+      <table class="w-full text-left text-xs font-mono">
+        <thead class="bg-stone-950/80 text-stone-400 border-b border-stone-800 uppercase tracking-wider text-[10px] sticky top-0 backdrop-blur z-10">
+          <tr>
+            <th class="py-2.5 px-3">Search Query</th>
+            <th class="py-2.5 px-3 text-right">Volume</th>
+            <th class="py-2.5 px-3 text-center">12-Mo Trend</th>
+            <th class="py-2.5 px-3 text-right">Comp</th>
+            <th class="py-2.5 px-3 text-right">Max CPC</th>
+            <th class="py-2.5 px-3 text-center">Target</th>
+            <th class="py-2.5 px-3 text-center">Coverage</th>
+            <th class="py-2.5 px-3 text-center">Quick-Finder</th>
+            <th class="py-2.5 px-3 text-center">Tier</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-stone-800/60">
+          {% for s in data.signals %}
+          <tr class="hover:bg-stone-800/40 transition"
+              x-show="(search === '' || '{{ s.query }}'.toLowerCase().includes(search.toLowerCase())) &&
+                      (selectedChapter === 'all' || '{{ s.target_chapter }}' === selectedChapter || '{{ s.target_chapter }}' === 'Ch ' + selectedChapter) &&
+                      (selectedTier === 'all' || '{{ s.source_tier }}' === selectedTier)">
+            <td class="py-2.5 px-3 font-medium text-stone-200">
+              {{ s.query }}
+            </td>
+            <td class="py-2.5 px-3 text-right font-bold text-stone-100">
+              {{ "{:,}".format(s.monthly_volume) }}
+            </td>
+            <td class="py-2.5 px-3 text-center">
+              <div class="flex items-center justify-center gap-1.5">
+                <span class="text-[10px] {% if s.yoy_trend_pct > 0 %}text-emerald-400{% elif s.yoy_trend_pct < 0 %}text-rose-400{% else %}text-stone-400{% endif %}">
+                  {% if s.yoy_trend_pct > 0 %}+{% endif %}{{ "{:.0f}".format(s.yoy_trend_pct) }}%
+                </span>
+                {{ s.sparkline_svg | safe }}
+              </div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-stone-400">
+              {{ "{:.2f}".format(s.competition_index) }}
+            </td>
+            <td class="py-2.5 px-3 text-right {% if s.cpc_high_usd > 5 %}text-amber-300 font-semibold{% else %}text-stone-300{% endif %}">
+              ${{ "{:.2f}".format(s.cpc_high_usd) }}
+            </td>
+            <td class="py-2.5 px-3 text-center text-stone-300">
+              Ch {{ s.target_chapter }}
+            </td>
+            <td class="py-2.5 px-3 text-center">
+              <span class="px-1.5 py-0.5 rounded text-[10px] {% if s.covered %}bg-emerald-500/20 text-emerald-300 border border-emerald-500/30{% else %}bg-rose-500/20 text-rose-300 border border-rose-500/30{% endif %}">
+                {{ "{:.2f}".format(s.chapter_score) }}
+              </span>
+            </td>
+            <td class="py-2.5 px-3 text-center">
+              {% if s.quick_finder_mapped %}
+              <span class="px-1.5 py-0.5 rounded text-[10px] bg-emerald-500/15 text-emerald-300 border border-emerald-500/20 font-medium">MAPPED</span>
+              {% else %}
+              <span class="px-1.5 py-0.5 rounded text-[10px] bg-amber-500/10 text-amber-400 border border-amber-500/20">UNMAPPED</span>
+              {% endif %}
+            </td>
+            <td class="py-2.5 px-3 text-center">
+              {% if s.source_tier == 'gkp_csv_export' %}
+              <span class="px-1.5 py-0.5 rounded text-[10px] bg-blue-500/20 text-blue-300 border border-blue-500/30">GKP UI</span>
+              {% elif s.source_tier == 'gads_api' %}
+              <span class="px-1.5 py-0.5 rounded text-[10px] bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Ads API</span>
+              {% else %}
+              <span class="px-1.5 py-0.5 rounded text-[10px] bg-stone-800 text-stone-400 border border-stone-700">Seed</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

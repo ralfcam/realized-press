@@ -4,6 +4,7 @@ import json
 import re
 import subprocess
 import sys
+from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Optional
 from fastapi import FastAPI, Form, HTTPException, Request
@@ -97,10 +98,13 @@ def find_canonical_pdf(filename: str) -> Path | None:
     return None
 
 
-@app.on_event("startup")
-def on_startup() -> None:
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     init_db(REPO_ROOT)
     refresh_media_cache()
+    yield
+
+app.router.lifespan_context = lifespan
 
 
 @app.get("/")
@@ -408,8 +412,8 @@ async def stream_tts_synthesis(series_slug: str, chapter_slug: str):
 
 @app.get("/analytics", response_class=HTMLResponse)
 async def view_analytics(request: Request, series: str = "parenthood-atlas", lang: Optional[str] = None):
-    """BWE v0.8.0 / ARC-80: Editorial Analytics & Demand Telemetry Dashboard."""
-    from bwe.analytics import compute_series_analytics, export_static_analytics_deck
+    """BWE v0.8.0 / ARC-80: Marketing Intelligence Visual Analytics Studio."""
+    from bwe.analytics import build_series_analytics_payload, export_static_charts
 
     deck_dir_map = {
         "parenthood-atlas": "parenthood-atlas",
@@ -418,14 +422,14 @@ async def view_analytics(request: Request, series: str = "parenthood-atlas", lan
     }
     deck_dir = deck_dir_map.get(series, series.replace("/", "_").replace("-", "_"))
     deck_target = DIST_ANALYTICS_DIR / deck_dir
-    if not (deck_target / "analytics_deck.svg").exists():
-        export_static_analytics_deck(series, deck_target, root=REPO_ROOT, lang=lang)
+    if not (deck_target / "demand_quadrant.svg").exists():
+        export_static_charts(series, deck_target, root=REPO_ROOT, lang=lang)
 
-    data = compute_series_analytics(series, root=REPO_ROOT, lang=lang)
+    data = build_series_analytics_payload(series, root=REPO_ROOT, lang=lang)
     return templates.TemplateResponse(
+        request,
         "analytics.html",
         {
-            "request": request,
             "series_slug": series,
             "deck_dir": deck_dir,
             "data": data,
@@ -433,10 +437,11 @@ async def view_analytics(request: Request, series: str = "parenthood-atlas", lan
     )
 
 
+@app.get("/hx/analytics/dashboard", response_class=HTMLResponse)
 @app.get("/hx/analytics/overview", response_class=HTMLResponse)
-async def hx_analytics_overview(request: Request, series: str = "parenthood-atlas", lang: Optional[str] = None):
-    """HTMX sub-view for instant series switching on the analytics dashboard (ARC-80)."""
-    from bwe.analytics import compute_series_analytics, export_static_analytics_deck
+async def hx_analytics_dashboard(request: Request, series: str = "parenthood-atlas", lang: Optional[str] = None):
+    """HTMX endpoint for instant series switching on the analytics dashboard (ARC-80)."""
+    from bwe.analytics import build_series_analytics_payload, export_static_charts
 
     deck_dir_map = {
         "parenthood-atlas": "parenthood-atlas",
@@ -445,17 +450,62 @@ async def hx_analytics_overview(request: Request, series: str = "parenthood-atla
     }
     deck_dir = deck_dir_map.get(series, series.replace("/", "_").replace("-", "_"))
     deck_target = DIST_ANALYTICS_DIR / deck_dir
-    if not (deck_target / "analytics_deck.svg").exists():
-        export_static_analytics_deck(series, deck_target, root=REPO_ROOT, lang=lang)
+    if not (deck_target / "demand_quadrant.svg").exists():
+        export_static_charts(series, deck_target, root=REPO_ROOT, lang=lang)
 
-    data = compute_series_analytics(series, root=REPO_ROOT, lang=lang)
+    data = build_series_analytics_payload(series, root=REPO_ROOT, lang=lang)
     return templates.TemplateResponse(
-        "analytics.html",
+        request,
+        "partials/analytics_dashboard.html",
         {
-            "request": request,
             "series_slug": series,
             "deck_dir": deck_dir,
             "data": data,
         },
-        block_name="overview",
+    )
+
+
+@app.get("/hx/analytics/export-ads")
+async def hx_analytics_export_ads(series: str = "parenthood-atlas", lang: Optional[str] = None):
+    """One-click download of Amazon Ads Sponsored Products CSV from covered demand (ARC-80)."""
+    import sys
+    if str(SCRIPTS_DIR) not in sys.path:
+        sys.path.insert(0, str(SCRIPTS_DIR))
+    import marketing_intelligence as mi
+
+    seed_csv = mi.resolve_seed_csv_path(series, REPO_ROOT)
+    effective_lang = lang or mi.detect_series_language(series, REPO_ROOT)
+    signals, _ = mi.collect_signals(seed_csv, series, lang=effective_lang)
+
+    clean_slug = series.replace("/", "_").replace("-", "_")
+    out_dir = DIST_ANALYTICS_DIR / clean_slug
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / f"amazon_ads_{clean_slug}.csv"
+    mi.export_amazon_ads_csv(signals, series, out_path)
+
+    return FileResponse(
+        out_path,
+        media_type="text/csv",
+        filename=f"amazon_ads_{clean_slug}.csv",
+    )
+
+
+@app.post("/hx/analytics/write-kdp-yaml", response_class=HTMLResponse)
+async def hx_analytics_write_kdp_yaml(series: str = "parenthood-atlas", lang: Optional[str] = None):
+    """HTMX action to optimize & write packed KDP 7 boxes directly into series.yaml (ARC-80)."""
+    import sys
+    if str(SCRIPTS_DIR) not in sys.path:
+        sys.path.insert(0, str(SCRIPTS_DIR))
+    import marketing_intelligence as mi
+
+    seed_csv = mi.resolve_seed_csv_path(series, REPO_ROOT)
+    effective_lang = lang or mi.detect_series_language(series, REPO_ROOT)
+    signals, _ = mi.collect_signals(seed_csv, series, lang=effective_lang)
+
+    _ = mi.optimize_kdp_boxes_report(series, signals, write_yaml=True, lang=effective_lang)
+    return HTMLResponse(
+        content='<div class="p-3 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-mono flex items-center justify-between">'
+                '<span>[SUCCESS] Successfully repacked &amp; updated 7 backend keyword boxes in series.yaml</span>'
+                '<span class="text-[10px] text-emerald-400 font-bold px-2 py-0.5 rounded bg-emerald-500/30">SCHEMA VALID</span>'
+                '</div>'
     )
