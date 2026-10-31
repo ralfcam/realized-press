@@ -1,0 +1,861 @@
+{
+  "chapter": "08-the-expanding-world",
+  "total_duration_sec": 1210.567,
+  "sample_rate": 24000,
+  "bytes_per_second": 48000,
+  "chunks": [
+    {
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 4.057,
+      "duration_sec": 4.057,
+      "pcm_bytes": 194756,
+      "block_range": [
+        "b-000",
+        "b-000"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "start_sec": 4.057,
+      "end_sec": 10.837,
+      "duration_sec": 6.78,
+      "pcm_bytes": 325440,
+      "block_range": [
+        "b-001",
+        "b-001"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "start_sec": 10.837,
+      "end_sec": 40.817,
+      "duration_sec": 29.98,
+      "pcm_bytes": 1439040,
+      "block_range": [
+        "b-002",
+        "b-002"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "start_sec": 40.817,
+      "end_sec": 62.877,
+      "duration_sec": 22.06,
+      "pcm_bytes": 1058880,
+      "block_range": [
+        "b-003",
+        "b-003"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "start_sec": 62.877,
+      "end_sec": 88.937,
+      "duration_sec": 26.06,
+      "pcm_bytes": 1250880,
+      "block_range": [
+        "b-004",
+        "b-004"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "start_sec": 88.937,
+      "end_sec": 109.477,
+      "duration_sec": 20.54,
+      "pcm_bytes": 985920,
+      "block_range": [
+        "b-005",
+        "b-005"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "start_sec": 109.477,
+      "end_sec": 152.657,
+      "duration_sec": 43.18,
+      "pcm_bytes": 2072640,
+      "block_range": [
+        "b-006",
+        "b-006"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "start_sec": 152.657,
+      "end_sec": 159.787,
+      "duration_sec": 7.13,
+      "pcm_bytes": 342240,
+      "block_range": [
+        "b-007",
+        "b-007"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "start_sec": 159.787,
+      "end_sec": 190.367,
+      "duration_sec": 30.58,
+      "pcm_bytes": 1467840,
+      "block_range": [
+        "b-008",
+        "b-008"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "start_sec": 190.367,
+      "end_sec": 252.227,
+      "duration_sec": 61.86,
+      "pcm_bytes": 2969280,
+      "block_range": [
+        "b-009",
+        "b-009"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "start_sec": 252.227,
+      "end_sec": 293.767,
+      "duration_sec": 41.54,
+      "pcm_bytes": 1993920,
+      "block_range": [
+        "b-010",
+        "b-010"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "start_sec": 293.767,
+      "end_sec": 337.987,
+      "duration_sec": 44.22,
+      "pcm_bytes": 2122560,
+      "block_range": [
+        "b-011",
+        "b-011"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "start_sec": 337.987,
+      "end_sec": 344.997,
+      "duration_sec": 7.01,
+      "pcm_bytes": 336480,
+      "block_range": [
+        "b-012",
+        "b-012"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "start_sec": 344.997,
+      "end_sec": 366.097,
+      "duration_sec": 21.1,
+      "pcm_bytes": 1012800,
+      "block_range": [
+        "b-013",
+        "b-013"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "start_sec": 366.097,
+      "end_sec": 437.357,
+      "duration_sec": 71.26,
+      "pcm_bytes": 3420480,
+      "block_range": [
+        "b-014",
+        "b-014"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "start_sec": 437.357,
+      "end_sec": 508.177,
+      "duration_sec": 70.82,
+      "pcm_bytes": 3399360,
+      "block_range": [
+        "b-015",
+        "b-015"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "start_sec": 508.177,
+      "end_sec": 527.437,
+      "duration_sec": 19.26,
+      "pcm_bytes": 924480,
+      "block_range": [
+        "b-016",
+        "b-016"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "start_sec": 527.437,
+      "end_sec": 532.087,
+      "duration_sec": 4.65,
+      "pcm_bytes": 223200,
+      "block_range": [
+        "b-017",
+        "b-017"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "start_sec": 532.087,
+      "end_sec": 540.147,
+      "duration_sec": 8.06,
+      "pcm_bytes": 386880,
+      "block_range": [
+        "b-018",
+        "b-018"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "start_sec": 540.147,
+      "end_sec": 568.287,
+      "duration_sec": 28.14,
+      "pcm_bytes": 1350720,
+      "block_range": [
+        "b-019",
+        "b-019"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "start_sec": 568.287,
+      "end_sec": 616.467,
+      "duration_sec": 48.18,
+      "pcm_bytes": 2312640,
+      "block_range": [
+        "b-020",
+        "b-020"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "start_sec": 616.467,
+      "end_sec": 664.807,
+      "duration_sec": 48.34,
+      "pcm_bytes": 2320320,
+      "block_range": [
+        "b-021",
+        "b-021"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "start_sec": 664.807,
+      "end_sec": 672.577,
+      "duration_sec": 7.77,
+      "pcm_bytes": 372960,
+      "block_range": [
+        "b-022",
+        "b-022"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "start_sec": 672.577,
+      "end_sec": 689.477,
+      "duration_sec": 16.9,
+      "pcm_bytes": 811200,
+      "block_range": [
+        "b-023",
+        "b-023"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "start_sec": 689.477,
+      "end_sec": 731.217,
+      "duration_sec": 41.74,
+      "pcm_bytes": 2003520,
+      "block_range": [
+        "b-024",
+        "b-024"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "start_sec": 731.217,
+      "end_sec": 770.437,
+      "duration_sec": 39.22,
+      "pcm_bytes": 1882560,
+      "block_range": [
+        "b-025",
+        "b-025"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "start_sec": 770.437,
+      "end_sec": 812.537,
+      "duration_sec": 42.1,
+      "pcm_bytes": 2020800,
+      "block_range": [
+        "b-026",
+        "b-026"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "start_sec": 812.537,
+      "end_sec": 882.517,
+      "duration_sec": 69.98,
+      "pcm_bytes": 3359040,
+      "block_range": [
+        "b-027",
+        "b-027"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "start_sec": 882.517,
+      "end_sec": 941.337,
+      "duration_sec": 58.82,
+      "pcm_bytes": 2823360,
+      "block_range": [
+        "b-028",
+        "b-028"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "start_sec": 941.337,
+      "end_sec": 990.317,
+      "duration_sec": 48.98,
+      "pcm_bytes": 2351040,
+      "block_range": [
+        "b-029",
+        "b-029"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "start_sec": 990.317,
+      "end_sec": 995.727,
+      "duration_sec": 5.41,
+      "pcm_bytes": 259680,
+      "block_range": [
+        "b-030",
+        "b-030"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "start_sec": 995.727,
+      "end_sec": 1013.587,
+      "duration_sec": 17.86,
+      "pcm_bytes": 857280,
+      "block_range": [
+        "b-031",
+        "b-031"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "start_sec": 1013.587,
+      "end_sec": 1070.687,
+      "duration_sec": 57.1,
+      "pcm_bytes": 2740800,
+      "block_range": [
+        "b-032",
+        "b-032"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "start_sec": 1070.687,
+      "end_sec": 1143.307,
+      "duration_sec": 72.62,
+      "pcm_bytes": 3485760,
+      "block_range": [
+        "b-033",
+        "b-033"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "start_sec": 1143.307,
+      "end_sec": 1166.807,
+      "duration_sec": 23.5,
+      "pcm_bytes": 1128000,
+      "block_range": [
+        "b-034",
+        "b-034"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "start_sec": 1166.807,
+      "end_sec": 1176.947,
+      "duration_sec": 10.14,
+      "pcm_bytes": 486720,
+      "block_range": [
+        "b-035",
+        "b-035"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "start_sec": 1176.947,
+      "end_sec": 1210.567,
+      "duration_sec": 33.62,
+      "pcm_bytes": 1613760,
+      "block_range": [
+        "b-036",
+        "b-036"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "b-000",
+      "tag": "h1",
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 4.057,
+      "words": 6,
+      "weight": 9,
+      "text": "Chapter 8 — The Expanding World",
+      "start_ratio": 0.0,
+      "end_ratio": 0.0034
+    },
+    {
+      "id": "b-001",
+      "tag": "p",
+      "chunk_id": 2,
+      "start_sec": 4.057,
+      "end_sec": 10.837,
+      "words": 8,
+      "weight": 8,
+      "text": "Daycare vs. Stay-at-Home, Fathers, Grandparents, and Toddler Socializing",
+      "start_ratio": 0.0034,
+      "end_ratio": 0.009
+    },
+    {
+      "id": "b-002",
+      "tag": "p",
+      "chunk_id": 3,
+      "start_sec": 10.837,
+      "end_sec": 40.817,
+      "words": 65,
+      "weight": 65,
+      "text": "A twelve-month-old crawls to the edge of an unfamiliar drop-off. It might be a small step, or it might be a hard fall. She stops and looks up at her parent’s face. She sees a warm, encouraging smile and crawls across. On another afternoon, facing that exact same step, she looks up and sees her parent’s face tighten with fear. Right away, she backs up.",
+      "start_ratio": 0.009,
+      "end_ratio": 0.0337
+    },
+    {
+      "id": "b-003",
+      "tag": "p",
+      "chunk_id": 4,
+      "start_sec": 40.817,
+      "end_sec": 62.877,
+      "words": 59,
+      "weight": 59,
+      "text": "An hour later, that same one-year-old is handed across a doorway to her grandmother. Or she is greeted on a bright classroom rug by a familiar daycare teacher while her parent heads to work. She clings for ten seconds against her parent’s shoulder. Then she reaches for the teacher’s open hand and turns toward a basket of wooden blocks.",
+      "start_ratio": 0.0337,
+      "end_ratio": 0.0519
+    },
+    {
+      "id": "b-004",
+      "tag": "p",
+      "chunk_id": 5,
+      "start_sec": 62.877,
+      "end_sec": 88.937,
+      "words": 68,
+      "weight": 68,
+      "text": "Both scenes happen every day, and both are easy to misread. If a baby’s social world were a sealed two-person bubble, no second adult in the room could ever be a trusted guide. On the other hand, if social growth were a simple numbers game where more faces and more group hours automatically built a friendlier child, any crowded room would do. Neither story fits what research shows.",
+      "start_ratio": 0.0519,
+      "end_ratio": 0.0735
+    },
+    {
+      "id": "b-005",
+      "tag": "p",
+      "chunk_id": 6,
+      "start_sec": 88.937,
+      "end_sec": 109.477,
+      "words": 52,
+      "weight": 52,
+      "text": "High-certainty lab evidence shows that by the end of the first year, babies actively read a familiar adult’s face and voice to decide whether an unfamiliar thing is safe or scary. Still, how often a baby checks a parent’s face in a lab room is no scorecard of attachment or parent worth.",
+      "start_ratio": 0.0735,
+      "end_ratio": 0.0904
+    },
+    {
+      "id": "b-006",
+      "tag": "p",
+      "chunk_id": 7,
+      "start_sec": 109.477,
+      "end_sec": 152.657,
+      "words": 106,
+      "weight": 106,
+      "text": "Chapters 4 through 7 traced a widening circle. First came calming down inside a close relationship. Next came a focused mind, a moving body that tests objects, and a speaker stepping into shared words. Once feelings and words can be shared, the child’s world does not stay locked in a pair. Our question is not “does the main parent still matter once other people step in?” We ask how a baby’s social web is really built. What happens when a child’s world widens from a pair into a network of fathers, grandparents, siblings, playmates, and daycare classrooms? And what promises can that wider circle honestly support?",
+      "start_ratio": 0.0904,
+      "end_ratio": 0.1261
+    },
+    {
+      "id": "b-007",
+      "tag": "h2",
+      "chunk_id": 8,
+      "start_sec": 152.657,
+      "end_sec": 159.787,
+      "words": 10,
+      "weight": 12,
+      "text": "I. Reading Another Face: Social Referencing and the Widening Circle",
+      "start_ratio": 0.1261,
+      "end_ratio": 0.132
+    },
+    {
+      "id": "b-008",
+      "tag": "p",
+      "chunk_id": 9,
+      "start_sec": 159.787,
+      "end_sec": 190.367,
+      "words": 74,
+      "weight": 74,
+      "text": "During the first few months of life, a baby’s social life revolves around staying warm, fed, and calm inside a few familiar arms. By the first birthday, crawling and walking (Chapter 6) meet shared eye contact (Chapter 7). Now the baby runs into a new problem. She can move herself into new corners of the house or park. Yet she does not know which dogs, strangers, or steps are safe and which are dangerous.",
+      "start_ratio": 0.132,
+      "end_ratio": 0.1573
+    },
+    {
+      "id": "b-009",
+      "tag": "p",
+      "chunk_id": 10,
+      "start_sec": 190.367,
+      "end_sec": 252.227,
+      "words": 169,
+      "weight": 169,
+      "text": "To solve that puzzle, babies start reading other people’s faces as safety guides. Psychologists call this skill social referencing. In a famous 1985 experiment by James Sorce, Robert Emde, Joseph Campos, and Marilyn Klinnert, twelve-month-old crawlers were placed on a glass visual cliff. This time, the drop under the glass was set to a medium twelve-inch step. That drop was shallow enough not to scare babies away right away. Yet it was deep enough to make them pause and look up at their mothers standing on the far side. When mothers put on a happy, welcoming smile, roughly three out of four babies crawled right across the glass. When mothers put on a fearful face, not a single baby crossed. As Tedra Walden and Tamra Ogan (1988) showed in follow-up studies, checking faces is not a switch that flips on a single birthday. It grows across the first two years as toddlers learn when to look, whose face to trust, and how to blend voice tone with facial expressions.",
+      "start_ratio": 0.1573,
+      "end_ratio": 0.2084
+    },
+    {
+      "id": "b-010",
+      "tag": "p",
+      "chunk_id": 11,
+      "start_sec": 252.227,
+      "end_sec": 293.767,
+      "words": 105,
+      "weight": 105,
+      "text": "Knowing what social referencing means — and what it does not mean — saves parents a lot of needless worry. High-certainty lab replications show that by twelve months, babies treat trusted adults as reliable guides when a room feels uncertain. Yet popular parenting books often over-read a toddler’s glance. Some claim a child who looks back often is “anxious.” Others claim a child who dashes toward a slide without looking back is “insecurely attached.” In real life, whether your toddler checks your face on a Tuesday afternoon depends on how steep the slide is, how tired she feels, and how well she knows the park.",
+      "start_ratio": 0.2084,
+      "end_ratio": 0.2427
+    },
+    {
+      "id": "b-011",
+      "tag": "p",
+      "chunk_id": 12,
+      "start_sec": 293.767,
+      "end_sec": 337.987,
+      "words": 123,
+      "weight": 123,
+      "text": "The exact same rule applies to stranger shyness, which usually peaks between eight and fourteen months. Imagine a ten-month-old who smiled at every shopper in the grocery store at four months. Suddenly, he buries his face in his dad’s neck when a neighbor says hello. Worried parents often fear they failed to socialize the baby. Moderate-certainty evidence suggests the exact opposite: pausing around strangers is a healthy milestone in memory and sight. Your baby can now clearly tell the difference between the inner circle of people who take care of him and unfamiliar faces who do not. Neither a shy bury of the face at the front door nor a bold wave from the stroller is a verdict on your child’s future personality.",
+      "start_ratio": 0.2427,
+      "end_ratio": 0.2792
+    },
+    {
+      "id": "b-012",
+      "tag": "h2",
+      "chunk_id": 13,
+      "start_sec": 337.987,
+      "end_sec": 344.997,
+      "words": 10,
+      "weight": 12,
+      "text": "II. Configurations of Care: Multiple Attachments, Fathers, Kin, and Siblings",
+      "start_ratio": 0.2792,
+      "end_ratio": 0.285
+    },
+    {
+      "id": "b-013",
+      "tag": "p",
+      "chunk_id": 14,
+      "start_sec": 344.997,
+      "end_sec": 366.097,
+      "words": 56,
+      "weight": 56,
+      "text": "Once we see that a one-year-old clearly knows her trusted circle, we can drop the old myth of the single attachment monopoly. That myth warns that a baby has only enough love for one main parent. In that view, bonding deeply with a dad, a grandma, or a nanny somehow steals love away from the mother.",
+      "start_ratio": 0.285,
+      "end_ratio": 0.3024
+    },
+    {
+      "id": "b-014",
+      "tag": "p",
+      "chunk_id": 15,
+      "start_sec": 366.097,
+      "end_sec": 437.357,
+      "words": 172,
+      "weight": 172,
+      "text": "Modern attachment science proves that love is not a pie that runs out. As Ohad Dagan, Abraham Sagi-Schwartz, and their colleagues showed across large studies of family networks, human babies naturally form several distinct attachment bonds at the same time. They bond with mothers, fathers, grandparents, and steady childcare teachers. Instead of treating other caring adults as pale backups for a mother — or assuming that “more adults always equal a happier child” — researchers look at the child’s social world as a team setup. What matters is how the team works together: who is reliably there, for which needs, and with what daily steadiness. A small one- or two-parent home can offer deep calm, or it can leave a solo parent burned out with no help. A big extended household can surround a toddler with warm, steady arms. Or, if adults constantly argue and come and go, a crowd can leave a child feeling unsettled. How well the team works always matters more than how many people are on the roster.",
+      "start_ratio": 0.3024,
+      "end_ratio": 0.3613
+    },
+    {
+      "id": "b-015",
+      "tag": "p",
+      "chunk_id": 16,
+      "start_sec": 437.357,
+      "end_sec": 508.177,
+      "words": 155,
+      "weight": 155,
+      "text": "Inside that family team, research over the past thirty years has transformed how science views fathers, grandparents, and siblings. Fathers are not babysitters or spare mothers. Their value cannot be measured by a stopwatch counting hours in the house. In large reviews of early childhood studies — including Christine McWayne and colleagues’ (2013) synthesis — warm, hands-on father care, shared book reading, and play suggest steady positive links to children’s early school readiness and emotional balance across income levels. In many families, fathers, uncles, and aunts also love rough-and-tumble floor play. Tossing, tickling, and chasing games build exciting bursts of energy followed by learning to calm back down together. Still, good science refuses to turn that pattern into a rigid gender rule. Mothers, fathers, grandparents, and two-mom or two-dad parents can all offer both quiet midnight cuddles and wild living-room horseplay. Furthermore, survey links with “father involvement” also reflect family income and teamwork between parents.",
+      "start_ratio": 0.3613,
+      "end_ratio": 0.4198
+    },
+    {
+      "id": "b-016",
+      "tag": "p",
+      "chunk_id": 17,
+      "start_sec": 508.177,
+      "end_sec": 527.437,
+      "words": 52,
+      "weight": 52,
+      "text": "When an older brother, sister, or cousin walks into the room, the toddler meets a whole new kind of partner. A sibling is deeply familiar, yet far less patient than a parent. That mix builds a daily bridge between the gentle cushion of adult care and the honest friction of the playground.",
+      "start_ratio": 0.4198,
+      "end_ratio": 0.4357
+    },
+    {
+      "id": "b-017",
+      "tag": "h2",
+      "chunk_id": 18,
+      "start_sec": 527.437,
+      "end_sec": 532.087,
+      "words": 7,
+      "weight": 9,
+      "text": "III. The Unaccommodating Partner: Toddlers Among Peers",
+      "start_ratio": 0.4357,
+      "end_ratio": 0.4395
+    },
+    {
+      "id": "b-018",
+      "tag": "p",
+      "chunk_id": 19,
+      "start_sec": 532.087,
+      "end_sec": 540.147,
+      "words": 21,
+      "weight": 21,
+      "text": "That jump in friction becomes crystal clear the moment a toddler steps into a room with other toddlers her own age.",
+      "start_ratio": 0.4395,
+      "end_ratio": 0.4462
+    },
+    {
+      "id": "b-019",
+      "tag": "p",
+      "chunk_id": 20,
+      "start_sec": 540.147,
+      "end_sec": 568.287,
+      "words": 67,
+      "weight": 67,
+      "text": "When a fourteen-month-old points clumsily or says half a word at home, a loving parent leans in and guesses what she wants. The parent hands over the blue cup and smooths over any fuss. Another eighteen-month-old does none of that. Another toddler has her own short memory, her own wobbly self-control, and her own fierce wish to hold the exact same red plastic dump truck right now.",
+      "start_ratio": 0.4462,
+      "end_ratio": 0.4694
+    },
+    {
+      "id": "b-020",
+      "tag": "p",
+      "chunk_id": 21,
+      "start_sec": 568.287,
+      "end_sec": 616.467,
+      "words": 116,
+      "weight": 116,
+      "text": "As Celia Brownell, Geetha Ramani, and Stephanie Zerwas (2006) showed in clever lab games across the second and third years, playing with peers challenges a toddler’s mind in a brand-new way. Another toddler is far less predictable, less skilled, and less yielding than an adult. At twelve to fifteen months, “playing together” mostly means sitting side by side (parallel play), watching each other, and copying simple moves like banging two blocks on a drum. By nineteen to twenty-four months, toddlers start watching a playmate’s hands and eyes to solve simple two-person jobs, like pulling two handles on a box together to reach a toy. At the same time, they bump into tug-of-wars over toys and turns.",
+      "start_ratio": 0.4694,
+      "end_ratio": 0.5092
+    },
+    {
+      "id": "b-021",
+      "tag": "p",
+      "chunk_id": 22,
+      "start_sec": 616.467,
+      "end_sec": 664.807,
+      "words": 111,
+      "weight": 111,
+      "text": "In modern parenting culture, “socializing” is often sold like a competitive sport. Ads try to convince parents that signing an eight-month-old up for paid baby classes is required to build empathy and leadership. Careful science separates real growth from the sales pitch. Moderate-certainty evidence suggests that safe, watched playdates in the second and third years give toddlers great practice in taking turns, reading other kids’ feelings, and fixing small squabbles. At the same time, low-certainty claims that logging more hours around other babies before age two makes a child kinder in elementary school have zero proof. Playing with other toddlers is a useful practice field, not a shot that guarantees popularity.",
+      "start_ratio": 0.5092,
+      "end_ratio": 0.5492
+    },
+    {
+      "id": "b-022",
+      "tag": "h2",
+      "chunk_id": 23,
+      "start_sec": 664.807,
+      "end_sec": 672.577,
+      "words": 12,
+      "weight": 14,
+      "text": "IV. Inside the Classroom: The NICHD Study and the Science of Childcare",
+      "start_ratio": 0.5492,
+      "end_ratio": 0.5556
+    },
+    {
+      "id": "b-023",
+      "tag": "p",
+      "chunk_id": 24,
+      "start_sec": 672.577,
+      "end_sec": 689.477,
+      "words": 39,
+      "weight": 39,
+      "text": "When a child’s wider circle includes a family home daycare, a neighborhood nursery, or a childcare center, questions about multiple caregivers run straight into one of the biggest guilt trips in modern family life: daycare versus staying at home.",
+      "start_ratio": 0.5556,
+      "end_ratio": 0.5695
+    },
+    {
+      "id": "b-024",
+      "tag": "p",
+      "chunk_id": 25,
+      "start_sec": 689.477,
+      "end_sec": 731.217,
+      "words": 88,
+      "weight": 88,
+      "text": "To see how child science moved past shouting matches to measure the real effects of daycare, look at the landmark project that shaped modern knowledge: the NICHD Study of Early Child Care and Youth Development (SECCYD), launched in 1991. During the 1970s and 1980s, millions of mothers of babies and toddlers joined the paid workforce. Public debate split into two loud camps. Critics warned that daily daycare separation would break mother-child attachment and make children aggressive. Defenders claimed that all daycare was equally harmless regardless of classroom conditions.",
+      "start_ratio": 0.5695,
+      "end_ratio": 0.604
+    },
+    {
+      "id": "b-025",
+      "tag": "p",
+      "chunk_id": 26,
+      "start_sec": 731.217,
+      "end_sec": 770.437,
+      "words": 89,
+      "weight": 89,
+      "text": "Realizing that tiny local studies could never separate the effects of daycare from the differences between the families who chose it, the National Institute of Child Health and Human Development brought together top scientists across ten U.S. cities. They tracked 1,364 children and their families from one month old all the way to age fifteen. Researchers spent hours inside homes and daycare classrooms observing how adults and children actually treated each other. They also tested attachment in the Strange Situation and tracked school and behavior scores over fifteen years.",
+      "start_ratio": 0.604,
+      "end_ratio": 0.6364
+    },
+    {
+      "id": "b-026",
+      "tag": "p",
+      "chunk_id": 27,
+      "start_sec": 770.437,
+      "end_sec": 812.537,
+      "words": 108,
+      "weight": 108,
+      "text": "The findings of the NICHD study overturned both extreme camps. First, going to daycare — even full-time starting in infancy — did not break a baby’s attachment to her mother. Babies in daycare formed secure bonds with their mothers at the exact same rate as babies raised full-time at home. Extra insecurity showed up only when poor-quality daycare piled on top of low warmth at home. Second, at every single age, family life at home mattered far more for a child’s thinking, language, and behavior than whether the child went to daycare. Parents’ warmth, talking and reading at home, family income, and parent mental health led the way.",
+      "start_ratio": 0.6364,
+      "end_ratio": 0.6712
+    },
+    {
+      "id": "b-027",
+      "tag": "p",
+      "chunk_id": 28,
+      "start_sec": 812.537,
+      "end_sec": 882.517,
+      "words": 163,
+      "weight": 163,
+      "text": "Third, inside daycare classrooms, the study drew a vital line between setup rules (structural quality) and daily warmth (process quality). Setup rules are things laws can count: how many babies each teacher cares for, group size, and teacher training. Daily warmth is how the room actually feels: whether teachers comfort crying babies promptly, talk and read back-and-forth with toddlers, and guide play gently. Moderate-certainty evidence suggests that warm daily classroom care consistently predicts modest gains in early language and school readiness. Low ratios and fair teacher pay matter because they give teachers the breathing room to be warm and patient. (While the NICHD study also noticed a small statistical link between spending forty-plus hours a week in large centers from infancy and slightly higher teacher ratings of bossy or acting-out behavior in early grade school, that link was small. It stayed well within the normal range for most kids, faded as kids grew older, and could not fully rule out family background differences.)",
+      "start_ratio": 0.6712,
+      "end_ratio": 0.729
+    },
+    {
+      "id": "b-028",
+      "tag": "p",
+      "chunk_id": 29,
+      "start_sec": 882.517,
+      "end_sec": 941.337,
+      "words": 131,
+      "weight": 131,
+      "text": "For families deciding between care options, this distinction also resolves the high-stakes debate between hiring an in-home nanny and enrolling in a licensed daycare center. Parents often worry that choosing one over the other will alter their child’s cognitive trajectory. Longitudinal evidence from the NICHD SECCYD and comparative care studies suggests that developmental outcomes do not differ fundamentally by setting alone. An in-home nanny provides dedicated one-on-one responsiveness and fewer seasonal illnesses during infancy, but lacks institutional oversight and peer interaction. A licensed center offers social play with peers and steady regulatory standards, but involves larger group sizes and more frequent colds. In both settings, what actually predicts thriving is not the physical address or the job title, but the steady warmth and conversational back-and-forth of the person holding the child.",
+      "start_ratio": 0.729,
+      "end_ratio": 0.7776
+    },
+    {
+      "id": "b-029",
+      "tag": "p",
+      "chunk_id": 30,
+      "start_sec": 941.337,
+      "end_sec": 990.317,
+      "words": 118,
+      "weight": 118,
+      "text": "Just as important is the hard boundary between community daycare and orphanage neglect. In Chapter 4, we saw high-certainty proof from the Bucharest orphanage trial (BEIP) that locking babies in state institutions with rotating staff and almost zero personal care causes severe brain and growth harm. Quoting orphanage studies to scare working parents about a warm neighborhood daycare center is a terrible scientific foul. A toddler who spends eight hours with a caring teacher and comes home every evening to loving parents is living in an expanded circle of care, not an orphanage. What hurts young children is not having working parents. It is underfunded classrooms where teachers are paid so little that staff quit every few months.",
+      "start_ratio": 0.7776,
+      "end_ratio": 0.8181
+    },
+    {
+      "id": "b-030",
+      "tag": "h2",
+      "chunk_id": 31,
+      "start_sec": 990.317,
+      "end_sec": 995.727,
+      "words": 9,
+      "weight": 11,
+      "text": "V. The Developmental Niche and the Horizon of Belonging",
+      "start_ratio": 0.8181,
+      "end_ratio": 0.8225
+    },
+    {
+      "id": "b-031",
+      "tag": "p",
+      "chunk_id": 32,
+      "start_sec": 995.727,
+      "end_sec": 1013.587,
+      "words": 42,
+      "weight": 42,
+      "text": "Why do human babies adapt so naturally to grandparents, fathers, older siblings, and steady daycare teachers? Because across human history, a lone parent locked inside a quiet apartment all day with a baby has been the rare exception, not the human rule.",
+      "start_ratio": 0.8225,
+      "end_ratio": 0.8373
+    },
+    {
+      "id": "b-032",
+      "tag": "p",
+      "chunk_id": 33,
+      "start_sec": 1013.587,
+      "end_sec": 1070.687,
+      "words": 137,
+      "weight": 137,
+      "text": "As anthropologists Charles Super and Sara Harkness showed in their famous framework, every child grows up inside a cultural developmental niche built from three pieces. First is the daily setting (who is in the house or yard). Second are the community’s care customs (whether babies ride in slings during work, nap in cradles, or play in cousin groups). Third are the beliefs of the adults. Moderate-certainty cross-cultural evidence suggests that secure bonds, emotional balance, and rich language bloom across many different family setups. Kids thrive in multi-generation family homes and in two-job households partnering with good daycare teachers, so long as they receive steady warmth and physical safety. A home where aunts and grandmas share daily care is not a broken nuclear family. And a working household using a trusted daycare center is not failing its child.",
+      "start_ratio": 0.8373,
+      "end_ratio": 0.8845
+    },
+    {
+      "id": "b-033",
+      "tag": "p",
+      "chunk_id": 34,
+      "start_sec": 1070.687,
+      "end_sec": 1143.307,
+      "words": 178,
+      "weight": 178,
+      "text": "Here our three lenses bring the widening social world into balance. The science shows with high certainty that one-year-olds read trusted adult faces to judge uncertain steps. It also shows that only severe orphanage neglect — never normal daycare — causes deprivation injury. It suggests with moderate certainty that babies build multiple attachment bonds at once, and that warm father and kin care supports early learning. Likewise, playing with other toddlers builds new sharing skills, and warm daycare teaching boosts early language while home life stays primary. The interpretation of that science refuses to pit stay-at-home parents against working parents in a mommy war. Instead, it asks how society can fund both paid family leave and fair wages for childcare workers. And the art of welcoming a child into a wider world lives in small daily bridges. Take five calm minutes on the daycare rug at drop-off. Tell the teacher how your toddler slept. Welcome a grandma’s special lullaby, and trust that love grows wider — not thinner — when shared across more than one pair of hands.",
+      "start_ratio": 0.8845,
+      "end_ratio": 0.9444
+    },
+    {
+      "id": "b-034",
+      "tag": "p",
+      "chunk_id": 35,
+      "start_sec": 1143.307,
+      "end_sec": 1166.807,
+      "words": 52,
+      "weight": 52,
+      "text": "What this chapter does not tell us is what happens inside the toddler when this growing independence runs headfirst into blocked wishes. Soon come pride, embarrassment, and the sudden storm of a two-year-old tantrum on the kitchen floor. That inner storm — the emotional revolution of toddlerhood — belongs to Chapter 9.",
+      "start_ratio": 0.9444,
+      "end_ratio": 0.9639
+    },
+    {
+      "id": "b-035",
+      "tag": "p",
+      "chunk_id": 36,
+      "start_sec": 1166.807,
+      "end_sec": 1176.947,
+      "words": 28,
+      "weight": 28,
+      "text": "Look back one more time at the twelve-month-old pausing at the edge of the step. She glances up at her parent’s face, and then crosses into the room.",
+      "start_ratio": 0.9639,
+      "end_ratio": 0.9722
+    },
+    {
+      "id": "b-036",
+      "tag": "p",
+      "chunk_id": 37,
+      "start_sec": 1176.947,
+      "end_sec": 1210.567,
+      "words": 90,
+      "weight": 90,
+      "text": "She has not turned into a different child because we have mapped social referencing, attachment teams, or the NICHD daycare study. Our map of her crossing has changed. A wider world does not erase a child’s first bond; it grows outward from that safe base. Backed by a familiar smile at the doorway, the toddler discovers that more than one adult can be a safe harbor. She learns that another two-year-old has a mind of his own, and that a bigger room can still be a place where she belongs.",
+      "start_ratio": 0.9722,
+      "end_ratio": 1.0
+    }
+  ]
+}
