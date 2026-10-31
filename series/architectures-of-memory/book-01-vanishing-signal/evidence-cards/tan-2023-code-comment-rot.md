@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "tan-2023-code-comment-rot"
+series: "architectures-of-memory"
+primary_lens: "organizational"
+causal_design: "empirical_software_repository_mining"
+certainty_grade: "Moderate"
+attenuation_class: "robust_under_20pct"
+allowed_verbs: ["suggests", "indicates", "demonstrates_in_repositories", "finds", "tracks"]
+forbidden_verbs: ["proves_universally", "causes"]
+locked_bib_keys: ["Tan2023", "Holtzblatt2010", "Tan_2023"]
+contradicts_or_bounds: []
+canonical_metaphors:
+  body_prose: "an un-gated archive of fossilized comments that actively misleads new maintainers"
+  spoken_tts: "an un-gated archive of fossilized comments that actively misleads new maintainers"
+jargon_mappings:
+  - term: "documentation rot"
+    notes_definition: "Semantic divergence between static text comments and executable implementation over commit history"
+escalation_plan:
+  1: "Demonstrate empirical rates of code-comment divergence across open-source repositories."
+  2: "Examine corporate compliance wikis as extreme manifestations of un-gated documentation rot."
+  3: "Reflect on how externalized symbols outlive the cognitive state that created them."
 type: Evidence Card
 title: "Code-Comment Inconsistency and Documentation Rot in Software Repositories (Tan et al. 2023)"
 description: "Empirical software repository analyses show that documentation and inline comments frequently drift out of synchronization with executable code when update gating is absent."

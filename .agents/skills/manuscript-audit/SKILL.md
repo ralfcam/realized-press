@@ -11,11 +11,11 @@ description: >-
 
 ## Steps
 
-1. **Deterministic Structural & OKF Audit:**
+1. **Deterministic Structural, OKF & Graph Coherence Audit:**
    Run [`scripts/audit_manuscript.py`](../../../scripts/audit_manuscript.py) on the target book or series folder:
    ```powershell
-   python scripts/audit_manuscript.py series/architectures-of-memory/book-01-vanishing-signal --strict
-   python scripts/audit_manuscript.py series/parenthood-atlas --strict
+   python scripts/audit_manuscript.py series/architectures-of-memory/book-01-vanishing-signal --strict --graph-strict
+   python scripts/audit_manuscript.py series/parenthood-atlas --strict --graph-strict
    ```
 2. **OKF v0.2 Five-Rule Gate (with Live Crossref/OpenAlex Retraction Check):**
    ```powershell

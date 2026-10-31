@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "rumelhart-1986-backpropagation"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_design: "exact_derivation_and_empirical_optimization"
+certainty_grade: "High"
+attenuation_class: "not_applicable"
+allowed_verbs: ["demonstrates", "establishes", "computes", "proves", "shows"]
+forbidden_verbs: ["guarantees_global_optima", "solves_convexity"]
+locked_bib_keys: ["Rumelhart_1986", "Werbos_1990"]
+contradicts_or_bounds: []
+canonical_metaphors:
+  body_prose: "a recursive backward chain of accountability assigning local credit to hidden intermediaries"
+  spoken_tts: "a recursive backward chain of accountability assigning local credit to hidden intermediaries"
+jargon_mappings:
+  - term: "multivariate chain rule"
+    notes_definition: "Decomposition of composite partial derivatives propagating error sensitivities layer by layer"
+escalation_plan:
+  1: "Establish how exact local partial derivatives solve the multi-layer credit assignment bottleneck."
+  2: "Map the backward chain of responsibility to institutional accounting and forensic blame allocation."
+  3: "Reflect on whether credit assignment in distributed representations mirrors collective human accountability."
 type: Evidence Card
 title: "Generalized Delta Rule and Error Backpropagation (Rumelhart et al. 1986)"
 description: "Credit assignment in multi-layer feedforward networks can be computed exactly via recursive application of the multivariate chain rule; this guarantees local gradient calculation, not global convergence to optimal minima."

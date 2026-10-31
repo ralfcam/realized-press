@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "argote-1990-persistence-of-learning-industrial"
+series: "architectures-of-memory"
+primary_lens: "organizational"
+causal_design: "econometric_time_series_and_plant_level_cost_analysis"
+certainty_grade: "High"
+attenuation_class: "robust_under_20pct"
+allowed_verbs: ["demonstrates", "establishes", "shows", "proves", "quantifies"]
+forbidden_verbs: ["proves_zero_turnover_prevents_all_depreciation"]
+locked_bib_keys: ["Argote1990", "Holan2004", "Argote_1990"]
+contradicts_or_bounds: []
+canonical_metaphors:
+  body_prose: "a leaky reservoir of operational skill that drains away the moment assembly lines go quiet"
+  spoken_tts: "a leaky reservoir of operational skill that drains away the moment assembly lines go quiet"
+jargon_mappings:
+  - term: "knowledge depreciation rate"
+    notes_definition: "Monthly exponential decay rate (typically 15-25%) of unit labor efficiency during production lulls"
+escalation_plan:
+  1: "Demonstrate empirical depreciation rates across aircraft and semiconductor manufacturing lines."
+  2: "Examine institutional amnesia in corporate engineering teams during hiring freezes and reorgs."
+  3: "Reflect on whether true institutional memory exists independently of practicing human bodies."
 type: Evidence Card
 title: "Depreciation of Organizational Knowledge in Industrial Production (Argote, Beckman & Epple 1990)"
 description: "Empirical econometric analysis of manufacturing production curves shows organizational knowledge depreciates rapidly over interruptions, proving that institutional memory behaves as a perishable stock rather than a permanent asset."

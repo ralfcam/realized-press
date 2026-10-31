@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "cho-2014-gru-vs-lstm-gating-mechanisms"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_design: "architectural_ablation_and_empirical_sequence_modeling"
+certainty_grade: "High"
+attenuation_class: "not_applicable"
+allowed_verbs: ["shows", "demonstrates", "couples", "simplifies", "establishes"]
+forbidden_verbs: ["proves_gru_dominates_lstm_universally", "obsoletes_lstm"]
+locked_bib_keys: ["cho2014gru", "chung2014empirical"]
+contradicts_or_bounds: ["gers-2000-forget-gate-continual-prediction"]
+canonical_metaphors:
+  body_prose: "a coupled see-saw where every new intake mechanically forces an equal reduction in past baggage"
+  spoken_tts: "a coupled see-saw where every new intake mechanically forces an equal reduction in past baggage"
+jargon_mappings:
+  - term: "coupled update gate"
+    notes_definition: "Enforcing (1 - z_t) + z_t = 1 to couple erasure directly with incoming representation injection"
+escalation_plan:
+  1: "Demonstrate parameter efficiency of coupled update/reset gates compared to three-gate LSTMs."
+  2: "Examine zero-sum budgeting in organizations where new initiatives must replace old projects."
+  3: "Reflect on whether human attention operates as a coupled see-saw or independent parallel buffers."
 type: Evidence Card
 title: "Gated Recurrent Unit (GRU) vs. LSTM: Coupled Gating Mechanisms and Architectural Trade-offs (Cho et al. 2014)"
 description: "GRU simplifies LSTM by coupling the forget and input mechanisms into a single update gate and eliminating the dedicated cell state, achieving comparable sequence modeling performance with 25% fewer parameters."

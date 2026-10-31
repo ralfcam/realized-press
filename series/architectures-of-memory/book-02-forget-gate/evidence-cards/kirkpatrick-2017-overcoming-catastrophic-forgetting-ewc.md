@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "kirkpatrick-2017-overcoming-catastrophic-forgetting-ewc"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_design: "bayesian_quadratic_regularization_and_sequential_reinforcement_learning"
+certainty_grade: "High"
+attenuation_class: "not_applicable"
+allowed_verbs: ["demonstrates", "establishes", "penalizes", "preserves", "shows"]
+forbidden_verbs: ["solves_continual_learning_unboundedly", "eliminates_all_interference"]
+locked_bib_keys: ["kirkpatrick2017ewc", "French1999", "Kirkpatrick_2017"]
+contradicts_or_bounds: []
+canonical_metaphors:
+  body_prose: "an elastic anchor that tethers crucial weights to their historical coordinates while leaving peripheral weights free to adapt"
+  spoken_tts: "an elastic anchor that tethers crucial weights to their historical coordinates while leaving peripheral weights free to adapt"
+jargon_mappings:
+  - term: "Fisher Information Matrix"
+    notes_definition: "Second-order curvature metric quantifying how sensitive task predictions are to shifts in individual parameter weights"
+escalation_plan:
+  1: "Demonstrate how Fisher-weighted quadratic penalties prevent catastrophic forgetting across Atari game sequences."
+  2: "Examine core competency protection in organizations during radical strategic pivots."
+  3: "Reflect on human personal identity as selective elastic weight consolidation over formative memories."
 type: Evidence Card
 title: "Overcoming Catastrophic Forgetting via Elastic Weight Consolidation (Kirkpatrick et al. 2017)"
 description: "Demonstrated that neural networks can retain prior task competencies during sequential learning by penalizing parameter shifts proportionally to their Fisher information matrix importance."
@@ -13,6 +34,9 @@ sources:
   - id: kirkpatrick2017ewc
     resource: https://doi.org/10.1073/pnas.1611835114
     title: "Kirkpatrick et al. (2017), Overcoming catastrophic forgetting in neural networks, PNAS"
+  - id: French1999
+    resource: https://doi.org/10.1016/S1364-6613(99)01294-2
+    title: "French (1999), Catastrophic forgetting in connectionist networks, Trends in Cognitive Sciences"
 ---
 
 # Overcoming Catastrophic Forgetting via Elastic Weight Consolidation

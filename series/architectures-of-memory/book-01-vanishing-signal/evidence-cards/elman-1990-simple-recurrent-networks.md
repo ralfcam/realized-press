@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "elman-1990-simple-recurrent-networks"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_design: "empirical_network_simulation_and_grammar_prediction"
+certainty_grade: "High"
+attenuation_class: "not_applicable"
+allowed_verbs: ["shows", "demonstrates", "establishes", "models", "extracts"]
+forbidden_verbs: ["proves_unbounded_retention", "solves_long_dependencies"]
+locked_bib_keys: ["Elman_1990", "Bengio_1994"]
+contradicts_or_bounds: ["rumelhart-1986-backpropagation"]
+canonical_metaphors:
+  body_prose: "a dynamic echo chamber where hidden activations linger for a few ticks before dissolving into background noise"
+  spoken_tts: "a dynamic echo chamber where hidden activations linger for a few ticks before dissolving into background noise"
+jargon_mappings:
+  - term: "context units"
+    notes_definition: "Recurrent feedback buffer copying hidden state activations h_{t-1} as secondary inputs at step t"
+escalation_plan:
+  1: "Demonstrate how copying hidden states across a single tick captures temporal structure without symbolic rules."
+  2: "Examine institutional working memory and temporary post-it notes as organizational context units."
+  3: "Reflect on lived present (Bergson's durée) vs. the mechanical buffer of context units."
 type: Evidence Card
 title: "Simple Recurrent Networks and Context Unit Dynamics (Elman 1990)"
 description: "Context units copying previous hidden states allow recurrent networks to process temporal structure and miniature grammars; memory capacity is fundamentally bounded by un-gated recurrent Jacobian decay across sequence length."

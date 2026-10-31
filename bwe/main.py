@@ -11,7 +11,7 @@ from typing import Any, Dict, List, Optional
 import markdown
 import yaml
 from fastapi import FastAPI, Form, HTTPException, Request
-from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse, StreamingResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from jinja2_fragments.fastapi import Jinja2Blocks
 
@@ -1015,3 +1015,107 @@ async def hx_analytics_write_kdp_yaml(series: str = "parenthood-atlas", lang: Op
                 '<span class="text-[10px] text-emerald-400 font-bold px-2 py-0.5 rounded bg-emerald-500/30">SCHEMA VALID</span>'
                 '</div>'
     )
+
+
+@app.get("/hx/graph/context-pack", response_class=HTMLResponse)
+async def hx_graph_context_pack(series: str = "parenthood-atlas", chapter: str = "01-before-the-child-is-born", book: Optional[str] = None):
+    """Compile and render a Chapter Context Pack (CCP) partial for Pane 3 drawer (ARC-84)."""
+    from bwe.graph_rag import compile_chapter_context_pack
+
+    conn = get_db()
+    ch_clean = chapter.removesuffix(".md").split("/")[-1]
+    ccp = compile_chapter_context_pack(series_slug=series, chapter_slug=ch_clean, book_slug=book, repo_root=REPO_ROOT, conn=conn)
+
+    raw_md = ccp.to_markdown()
+    token_count = ccp.token_estimate()
+
+    html = f"""
+    <div class="flex flex-col h-full overflow-hidden text-xs font-mono" x-data="{{ copied: false }}">
+        <div class="p-3 border-b border-stone-800 bg-stone-900/60 flex items-center justify-between gap-2 shrink-0">
+            <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">OKF v0.3 CCP</span>
+                <span class="text-stone-300 font-bold">{token_count:,} tokens</span>
+                <span class="text-[10px] text-stone-500">(Budget: &lt; 2,500)</span>
+            </div>
+            <button type="button"
+                    @click="navigator.clipboard.writeText($refs.rawCcp.value); copied = true; setTimeout(() => copied = false, 2000)"
+                    class="px-2.5 py-1.5 rounded bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-[11px] transition flex items-center gap-1 shadow-sm touch-manipulation">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                <span x-text="copied ? 'Copied!' : 'Copy CCP'">Copy CCP</span>
+            </button>
+        </div>
+        <textarea x-ref="rawCcp" class="hidden">{raw_md}</textarea>
+        <div class="flex-1 overflow-y-auto p-4 space-y-4 bg-stone-950/60 text-stone-300 text-[11px] leading-relaxed">
+            <div class="border border-stone-800/80 rounded-lg p-3 bg-stone-900/40">
+                <div class="text-[10px] text-amber-400/90 font-bold uppercase tracking-wider mb-1">Target Chapter Ego-Graph</div>
+                <div class="text-stone-100 font-bold text-sm">{ccp.chapter_title}</div>
+                <div class="text-stone-400 text-xs mt-0.5">Chapter {ccp.chapter_num} &bull; {ccp.series_slug} {f'({ccp.book_slug})' if ccp.book_slug and ccp.book_slug != 'root' else ''}</div>
+            </div>
+
+            <div class="space-y-2">
+                <div class="text-stone-400 font-bold border-b border-stone-800 pb-1 flex justify-between items-center">
+                    <span>1. Active Epistemic Ledger</span>
+                    <span class="text-[10px] text-stone-500">{len(ccp.epistemic_contract)} cards bound</span>
+                </div>
+                <div class="space-y-1.5">
+                    {''.join(f'''<div class="p-2 rounded bg-stone-900/60 border border-stone-800/60">
+                        <div class="flex items-center justify-between text-stone-200 font-semibold">
+                            <span>{c.get("card_slug")}</span>
+                            <span class="text-[10px] px-1.5 py-0.5 rounded bg-stone-800 text-amber-300">{c.get("grade", "Moderate")}</span>
+                        </div>
+                        <div class="text-stone-400 text-[10px] mt-1">{c.get("causal_design", "").replace("_", " ")}</div>
+                        <div class="text-stone-500 text-[10px] mt-0.5">Allowed verbs: {", ".join(c.get("allowed_verbs", [])[:3])}</div>
+                    </div>''' for c in ccp.epistemic_contract) if ccp.epistemic_contract else '<div class="text-stone-500 italic">No cards cited directly in this chapter.</div>'}
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <div class="text-stone-400 font-bold border-b border-stone-800 pb-1">2. Narrative Handoff Vectors</div>
+                <div class="p-2.5 rounded bg-stone-900/60 border border-stone-800/60 space-y-2 text-[10px]">
+                    <div>
+                        <span class="text-stone-500 font-bold block">Incoming Bridge (From Ch.{ccp.incoming_handoff.get("from_ch_num", "Start")}):</span>
+                        <p class="text-stone-300 italic mt-0.5">"{ccp.incoming_handoff.get("closing_anchor", "Start of series")[:180]}..."</p>
+                    </div>
+                    <div>
+                        <span class="text-stone-500 font-bold block">Outgoing Bridge (To Ch.{ccp.outgoing_handoff.get("to_ch_num", "End")}):</span>
+                        <p class="text-stone-300 italic mt-0.5">"{ccp.outgoing_handoff.get("prologue_anchor", "End of series")[:180]}..."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <div class="text-stone-400 font-bold border-b border-stone-800 pb-1">3. Split-Register Metaphor Ledger</div>
+                <div class="space-y-1 text-[10px]">
+                    {''.join(f'''<div class="flex justify-between items-center p-1.5 rounded bg-stone-900/40 border border-stone-800/40">
+                        <span class="text-rose-400/80 font-mono">{m.get("raw_jargon")}</span>
+                        <span class="text-stone-300 italic max-w-[65%] text-right">{m.get("body_prose")}</span>
+                    </div>''' for m in ccp.metaphor_ledger[:5]) if ccp.metaphor_ledger else '<div class="text-stone-500 italic">Zero body jargon violations; terms isolated in ## Notes.</div>'}
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <div class="text-stone-400 font-bold border-b border-stone-800 pb-1 flex justify-between items-center">
+                    <span>4. Demand Weave Targets</span>
+                    <span class="text-[10px] text-stone-500">{len(ccp.demand_targets)} queries</span>
+                </div>
+                <div class="space-y-1 text-[10px]">
+                    {''.join(f'''<div class="flex justify-between items-center p-1.5 rounded bg-stone-900/40 border border-stone-800/40">
+                        <span class="text-stone-200">{d.get("query")}</span>
+                        <span class="text-amber-400 font-mono">{d.get("monthly_volume", 0):,} / mo</span>
+                    </div>''' for d in ccp.demand_targets[:4]) if ccp.demand_targets else '<div class="text-stone-500 italic">No high-volume search clusters mapped.</div>'}
+                </div>
+            </div>
+        </div>
+    </div>
+    """
+    return HTMLResponse(content=html)
+
+
+@app.get("/hx/graph/series-map")
+async def hx_graph_series_map(series: str = "parenthood-atlas"):
+    """Generate interactive SVG map of the OKF v0.3 series knowledge graph (ARC-84)."""
+    from bwe.graph_rag import generate_series_map_svg
+
+    conn = get_db()
+    svg_content = generate_series_map_svg(conn, series)
+    return Response(content=svg_content, media_type="image/svg+xml")

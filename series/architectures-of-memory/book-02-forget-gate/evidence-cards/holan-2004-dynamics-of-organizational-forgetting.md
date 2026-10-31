@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "holan-2004-dynamics-of-organizational-forgetting"
+series: "architectures-of-memory"
+primary_lens: "organizational"
+causal_design: "comparative_case_taxonomy_and_grounded_theory"
+certainty_grade: "Moderate"
+attenuation_class: "partially_confounded_20_50pct"
+allowed_verbs: ["suggests", "indicates", "classifies", "models", "distinguishes"]
+forbidden_verbs: ["proves", "causes", "guarantees_successful_unlearning"]
+locked_bib_keys: ["Holan2004", "Argote1990", "Holan_2004"]
+contradicts_or_bounds: ["argote-1990-persistence-of-learning-industrial"]
+canonical_metaphors:
+  body_prose: "a deliberate administrative purge that prunes dead compliance branches so healthy initiatives can breathe"
+  spoken_tts: "a deliberate administrative purge that prunes dead compliance branches so healthy initiatives can breathe"
+jargon_mappings:
+  - term: "managed forgetting"
+    notes_definition: "Intentional organizational governance gating out conflicting routines and obsolete legacy practices"
+escalation_plan:
+  1: "Articulate the four-quadrant taxonomy: memory decay, failure to capture, unlearning, and managed forgetting."
+  2: "Examine enterprise documentation hoarding and sunset clauses as active forget gates."
+  3: "Reflect on organizational identity persistence when core historical routines are deliberately unlearned."
 type: Evidence Card
 title: "The Dynamics of Organizational Forgetting: Accidental vs. Intentional Modes (de Holan & Phillips 2004)"
 description: "A 4-quadrant taxonomy differentiates accidental memory loss (decay and failure to capture) from purposeful organizational forgetting (unlearning and managed forgetting), framing forgetting as an active governance capability."

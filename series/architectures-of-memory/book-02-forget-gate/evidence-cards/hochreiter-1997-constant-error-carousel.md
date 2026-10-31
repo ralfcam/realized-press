@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "hochreiter-1997-constant-error-carousel"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_design: "formal_proof_and_synthetic_benchmark"
+certainty_grade: "High"
+attenuation_class: "robust_under_20pct"
+allowed_verbs: ["demonstrates", "establishes", "prevents", "preserves", "shows"]
+forbidden_verbs: ["proves_universally", "solves_all_sequence_learning"]
+locked_bib_keys: ["Hochreiter1997", "Bengio1994", "Hochreiter_1997"]
+contradicts_or_bounds: ["elman-1990-simple-recurrent-networks", "rumelhart-1986-backpropagation"]
+canonical_metaphors:
+  body_prose: "a frictionless conveyor belt—the Constant Error Carousel—that carries a signal across time without multiplying it into oblivion"
+  spoken_tts: "a frictionless conveyor belt, called the Constant Error Carousel, that carries a signal across time"
+jargon_mappings:
+  - term: "Constant Error Carousel (CEC)"
+    notes_definition: "Identity self-connection weight fixed at 1.0 inside the LSTM memory cell state c_t"
+escalation_plan:
+  1: "Establish the mathematical necessity of a fixed unit weight (1.0) to prevent exponential gradient decay."
+  2: "Examine why an ungated linear carousel chokes on infinite accumulation without an active forget gate."
+  3: "Translate the carousel into organizational design: why protected institutional archives fail without scheduled sunsetting."
 type: Evidence Card
 title: "The Constant Error Carousel in Long Short-Term Memory (Hochreiter & Schmidhuber 1997)"
 description: "Linear additive recurrent self-connections with unit weight enforce constant error flow, circumventing the exponential vanishing and exploding gradients of multiplicative recurrent backpropagation."

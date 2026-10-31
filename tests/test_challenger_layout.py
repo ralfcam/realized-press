@@ -170,13 +170,9 @@ def test_ide_card_search_normal_and_empty(client: TestClient):
 
 
 def test_ide_card_search_malformed_query_vulnerability(client: TestClient):
-    """
-    Empirical demonstration of Bug 1:
-    Unsanitized quotes or FTS5 syntax in /ide/search-cards trigger sqlite3.OperationalError (HTTP 500).
-    """
-    with pytest.raises(sqlite3.OperationalError):
-        # Directly verify that raw query raises sqlite3.OperationalError without graceful recovery
-        client.get("/ide/search-cards?q=\"\"\"'''")
+    """Verify malformed queries in /ide/search-cards are sanitized and handled gracefully (HTTP 200)."""
+    res = client.get("/ide/search-cards?q=\"\"\"'''")
+    assert res.status_code == 200
 
 
 # =========================================================================
@@ -281,12 +277,9 @@ def test_analytics_htmx_dashboard_swap_consistency(client: TestClient):
 
 
 def test_analytics_invalid_series_vulnerability(client: TestClient):
-    """
-    Empirical demonstration of Bug 2:
-    Navigating to /analytics with an invalid series slug raises unhandled exception (HTTP 500).
-    """
-    with pytest.raises((IndexError, FileNotFoundError)):
-        client.get("/analytics?series=bogus_series_slug_test")
+    """Verify navigating to /analytics with an invalid series slug returns 404 gracefully."""
+    res = client.get("/analytics?series=bogus_series_slug_test")
+    assert res.status_code == 404
 
 
 # =========================================================================

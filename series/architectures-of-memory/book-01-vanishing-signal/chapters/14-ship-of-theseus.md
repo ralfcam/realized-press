@@ -61,10 +61,14 @@ EWC offers an algorithmic answer to Theseus: it marks which planks must stay fix
 
 [^plutarch-theseus]: Plutarch, *Life of Theseus* 23.1, translated by B. Perrin, Loeb Classical Library (1914). Demetrius of Phalerum governed Athens from 317 to 307 BCE.
 
-[^hobbes-decorpore]: T. Hobbes, *De Corpore* (1655), Part II, Chapter 11, §7, in *The English Works of Thomas Hobbes*, ed. W. Molesworth, vol. I (London, 1839).
+[^hobbes-decorpore]: T. Hobbes, *De Corpore* (1655), Part II, Chapter 11, §7, in *The English Works of Thomas Hobbes*, ed. W. Molesworth, vol. I (London, 1839). Evidence Card: `evidence-cards/hobbes-1655-de-corpore-ship-of-theseus.md`.
 
 [^sider-editions]: T. Sider, *Four-Dimensionalism: An Ontology of Persistence and Time* (Clarendon Press, 2001); K. Hawley, *How Things Persist* (Oxford University Press, 2001).
 
 [^wiggins-2001]: D. Wiggins, *Sameness and Substance Renewed* (Cambridge University Press, 2001); E. J. Lowe, *Kinds of Being* (Blackwell, 1989).
 
 [^kirkpatrick2017]: J. Kirkpatrick et al., “Overcoming catastrophic forgetting in neural networks,” *PNAS* 114, no. 13 (2017): 3521–3526.
+
+## Linked evidence cards
+
+- `evidence-cards/hobbes-1655-de-corpore-ship-of-theseus.md`

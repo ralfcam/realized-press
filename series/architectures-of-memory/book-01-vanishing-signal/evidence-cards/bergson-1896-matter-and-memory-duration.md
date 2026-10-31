@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "bergson-1896-matter-and-memory-duration"
+series: "architectures-of-memory"
+primary_lens: "philosophical"
+causal_design: "phenomenological_analysis_and_dual_memory_taxonomy"
+certainty_grade: "High"
+attenuation_class: "robust_under_20pct"
+allowed_verbs: ["shows", "demonstrates", "establishes", "distinguishes", "illuminates"]
+forbidden_verbs: ["proves_empirically_in_silicon", "measures_clock_time"]
+locked_bib_keys: ["Bergson_1896", "Bergson_1889"]
+contradicts_or_bounds: []
+canonical_metaphors:
+  body_prose: "a continuous melodic flow where each note melts into the next rather than beads strung on a necklace"
+  spoken_tts: "a continuous melodic flow where each note melts into the next rather than beads strung on a necklace"
+jargon_mappings:
+  - term: "durée réelle"
+    notes_definition: "Qualitative continuous time experienced directly, distinct from spatialized mathematical clock ticks"
+escalation_plan:
+  1: "Contrast lived duration with the discrete step unrolling of recurrent neural networks."
+  2: "Examine corporate planning cycles as spatialized calendar fictions colliding with lived organizational time."
+  3: "Reflect on whether artificial memory can ever experience continuous duration without sensory bodies."
 type: Evidence Card
 title: "Habit-Memory, Pure Recollection, and Lived Duration (Bergson 1896)"
 description: "Bergson's dual memory architecture differentiates motor habit-memory from episodic pure memory, establishing that lived duration is qualitative and continuous rather than a spatialized sequence of clock ticks, directly illuminating the trade-offs of Bergson duration versus spatialized time in AI architectures."
@@ -13,6 +34,9 @@ sources:
   - id: Bergson_1896
     resource: https://doi.org/10.1037/10006-000
     title: "Bergson (1896), Matter and Memory"
+  - id: Bergson_1889
+    resource: https://doi.org/10.1037/10007-000
+    title: "Bergson (1889), Time and Free Will: An Essay on the Immediate Data of Consciousness"
 ---
 
 # Habit-Memory, Pure Recollection, and Lived Duration

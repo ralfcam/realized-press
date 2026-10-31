@@ -16,7 +16,8 @@ DB_PATH = Path(".cache/bwe_state.db")
 # Bump when a derived table (FTS5) or the keyword cache changes shape; init_db migrates in place.
 # v2: FTS5 porter tokenization & (series_slug, query) primary key.
 # v3 (ARC-78): FTS5 'porter unicode61 remove_diacritics 2', cluster_variants_json & i18n partitioning.
-SCHEMA_VERSION = 3
+# v4 (ARC-84): OKF v0.3 Property Graph (okf_nodes, okf_edges) & Graph RAG Context Engine.
+SCHEMA_VERSION = 4
 
 # Source tiers for keyword_signals.source_tier, best evidence first.
 TIER_GADS_API = "gads_api"
@@ -102,6 +103,33 @@ KEYWORD_COLUMNS = frozenset(
 )
 
 
+_OKF_GRAPH_DDL = """
+    CREATE TABLE IF NOT EXISTS okf_nodes (
+        node_id TEXT PRIMARY KEY,
+        series_slug TEXT NOT NULL,
+        book_slug TEXT,
+        node_type TEXT NOT NULL,
+        label TEXT NOT NULL,
+        metadata_json TEXT NOT NULL DEFAULT '{}'
+    );
+
+    CREATE TABLE IF NOT EXISTS okf_edges (
+        edge_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        series_slug TEXT NOT NULL,
+        source_id TEXT NOT NULL,
+        target_id TEXT NOT NULL,
+        edge_type TEXT NOT NULL,
+        weight REAL DEFAULT 1.0,
+        metadata_json TEXT NOT NULL DEFAULT '{}'
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_okf_nodes_series_type ON okf_nodes(series_slug, node_type);
+    CREATE INDEX IF NOT EXISTS idx_okf_edges_source_type ON okf_edges(source_id, edge_type);
+    CREATE INDEX IF NOT EXISTS idx_okf_edges_target_type ON okf_edges(target_id, edge_type);
+    CREATE INDEX IF NOT EXISTS idx_okf_edges_series_type ON okf_edges(series_slug, edge_type);
+"""
+
+
 def _table_columns(conn: sqlite3.Connection, table: str) -> set[str]:
     return {row[1] for row in conn.execute(f"PRAGMA table_info({table});")}
 
@@ -147,6 +175,9 @@ def _migrate(conn: sqlite3.Connection) -> bool:
         conn.execute("DROP TABLE keyword_signals_legacy;")
     elif legacy_cols and "cluster_variants_json" not in legacy_cols:
         conn.execute("ALTER TABLE keyword_signals ADD COLUMN cluster_variants_json TEXT NOT NULL DEFAULT '[]';")
+
+    if version < 4:
+        conn.executescript(_OKF_GRAPH_DDL)
 
     conn.execute(f"PRAGMA user_version = {SCHEMA_VERSION};")
     return True
@@ -202,9 +233,16 @@ def _init_db_conn(conn: sqlite3.Connection, repo_root: Path) -> None:
     """)
     # 4. ARC-73: Keyword demand telemetry + 30-day cache (one row per series/query)
     conn.execute(_KEYWORD_SIGNALS_DDL)
+    # 5. ARC-84: OKF v0.3 Property Graph (okf_nodes, okf_edges)
+    conn.executescript(_OKF_GRAPH_DDL)
     if (repo_root / "series").is_dir():
         reindex_evidence_cards(conn, repo_root)
         reindex_chapters(conn, repo_root)
+        try:
+            from bwe.graph_rag import build_series_knowledge_graph
+            build_series_knowledge_graph(conn, repo_root)
+        except Exception:
+            pass
     conn.commit()
 
 

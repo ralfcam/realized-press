@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "hochreiter-1991-vanishing-gradient"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_design: "formal_proof_and_numerical_simulation"
+certainty_grade: "High"
+attenuation_class: "not_applicable"
+allowed_verbs: ["demonstrates", "establishes", "proves", "shows", "prevents"]
+forbidden_verbs: ["proves_universally", "solves_all_sequence_learning"]
+locked_bib_keys: ["Bengio1994", "Rumelhart1986", "Hochreiter_1991"]
+contradicts_or_bounds: ["elman-1990-simple-recurrent-networks"]
+canonical_metaphors:
+  body_prose: "a geometric signal decay across unrolled time steps that multiplies credit assignment into oblivion"
+  spoken_tts: "a geometric signal decay across unrolled time steps that multiplies credit assignment into oblivion"
+jargon_mappings:
+  - term: "spectral radius of recurrent Jacobian"
+    notes_definition: "Maximum absolute eigenvalue of the recurrent state transition matrix governing error flow across time steps"
+escalation_plan:
+  1: "Establish the mathematical necessity of exponential gradient decay under unrolled backpropagation."
+  2: "Trace why un-gated organizational communication channels suffer identical attenuation across hierarchical handoffs."
+  3: "Examine the philosophical boundary between continuous duration (Bergson) and discrete computational unrolling."
 type: Evidence Card
 title: "Vanishing and Exploding Gradients in Recurrent Networks (Hochreiter 1991 & Bengio et al. 1994)"
 description: "In standard recurrent neural networks trained with gradient descent, error signals propagated across T steps scale exponentially with the spectral radius of the recurrent Jacobian, causing long-term credit assignment to vanish or explode."

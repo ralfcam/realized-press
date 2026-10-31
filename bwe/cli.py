@@ -97,5 +97,23 @@ def intelligence(
     raise typer.Exit(code=rc)
 
 
+@cli.command()
+def context(
+    series: str = typer.Option(..., "--series", "-s", help="Series slug (e.g. parenthood-atlas or architectures-of-memory)"),
+    chapter: str = typer.Option(..., "--chapter", "-c", help="Chapter slug (e.g. 05-becoming-a-mind)"),
+    book: str = typer.Option(None, "--book", "-b", help="Book slug for multi-volume series (e.g. book-02-forget-gate)"),
+    format: str = typer.Option("md", "--format", "-f", help="Output format: 'md' (Markdown) or 'json'"),
+):
+    """ARC-84: Generate token-budgeted Chapter Context Pack (CCP) from OKF v0.3 Graph RAG."""
+    import json
+    from bwe.graph_rag import compile_chapter_context_pack
+
+    pack = compile_chapter_context_pack(series_slug=series, chapter_slug=chapter, book_slug=book)
+    if format.lower() == "json":
+        typer.echo(json.dumps(pack.to_dict(), indent=2, ensure_ascii=False))
+    else:
+        typer.echo(pack.to_markdown())
+
+
 if __name__ == "__main__":
     cli()

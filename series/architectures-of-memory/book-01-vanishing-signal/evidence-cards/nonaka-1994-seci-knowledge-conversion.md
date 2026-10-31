@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "nonaka-1994-seci-knowledge-conversion"
+series: "architectures-of-memory"
+primary_lens: "organizational"
+causal_design: "case_study_synthesis_and_dynamic_spiral_framework"
+certainty_grade: "Moderate"
+attenuation_class: "partially_confounded_20_50pct"
+allowed_verbs: ["suggests", "indicates", "articulates", "models", "classifies"]
+forbidden_verbs: ["proves", "causes", "guarantees_knowledge_capture"]
+locked_bib_keys: ["Nonaka_1994", "Walsh_1991"]
+contradicts_or_bounds: []
+canonical_metaphors:
+  body_prose: "a dynamic spiral of understanding that freezes into brittle documentation whenever human mentorship is cut"
+  spoken_tts: "a dynamic spiral of understanding that freezes into brittle documentation whenever human mentorship is cut"
+jargon_mappings:
+  - term: "SECI spiral"
+    notes_definition: "Four-mode knowledge conversion cycle: Socialization, Externalization, Combination, and Internalization"
+escalation_plan:
+  1: "Articulate how tacit experiential skill resists pure symbolic codification."
+  2: "Examine corporate post-mortems and compliance documentation as incomplete externalizations."
+  3: "Reflect on whether machine representations can ever internalize human tacit judgment."
 type: Evidence Card
 title: "SECI Knowledge Conversion Model and Tacit Transmission Loss (Nonaka 1994)"
 description: "Organizational knowledge creation requires continuous conversion between tacit and explicit dimensions across four modes (Socialization, Externalization, Combination, Internalization); restructuring disrupts the fragile tacit socialization phase."

@@ -123,6 +123,27 @@
 
   </div>
 
+  <!-- OKF v0.3 Series Knowledge Graph & 2-Hop Ego-Graph Map (ARC-84) -->
+  <div class="bg-stone-900/80 border border-stone-800 rounded-xl p-4 flex flex-col justify-between space-y-3">
+    <div class="flex items-center justify-between">
+      <div>
+        <h2 class="text-sm font-serif font-bold text-stone-100 flex items-center gap-2">
+          <span>OKF v0.3 Series Knowledge Graph &amp; 2-Hop Architecture Map</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">ARC-84</span>
+        </h2>
+        <p class="text-[11px] font-mono text-stone-400 mt-0.5">
+          Topological view of chapters, OKF evidence cards, and 2-hop handoff / citation edges compiled from Git Markdown &amp; BibTeX into SQLite.
+        </p>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="/hx/graph/series-map?series={{ series_slug }}" target="_blank" class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-3 rounded-lg border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/20 text-xs font-mono text-amber-300 transition focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none" aria-label="Open Series Map SVG">Open Map SVG ↗</a>
+      </div>
+    </div>
+    <div class="w-full overflow-hidden rounded-lg bg-stone-950/60 p-2 border border-stone-800/60" hx-get="/hx/graph/series-map?series={{ series_slug }}" hx-trigger="load" hx-swap="innerHTML">
+      <div class="p-8 text-center text-xs font-mono text-stone-400 animate-pulse">Rendering OKF v0.3 Series Map...</div>
+    </div>
+  </div>
+
   <!-- KDP 7-Box 50-Byte Utilization Gauges -->
   <div class="bg-stone-900/80 border border-stone-800 rounded-xl p-5 space-y-4">
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-stone-800 pb-3">

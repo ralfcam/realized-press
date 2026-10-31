@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "pascanu-2013-exploding-vanishing-gradient-clipping"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_design: "geometric_formalization_and_synthetic_benchmark"
+certainty_grade: "High"
+attenuation_class: "not_applicable"
+allowed_verbs: ["demonstrates", "establishes", "bounds", "proves", "shows"]
+forbidden_verbs: ["solves_vanishing_gradient", "proves_convergence_universally"]
+locked_bib_keys: ["pascanu2012arxiv", "Bengio1994"]
+contradicts_or_bounds: ["hochreiter-1991-vanishing-gradient"]
+canonical_metaphors:
+  body_prose: "a safety harness on steep optimization cliffs that bounds update velocities without altering directional intent"
+  spoken_tts: "a safety harness on steep optimization cliffs that bounds update velocities without altering directional intent"
+jargon_mappings:
+  - term: "gradient norm clipping"
+    notes_definition: "Rescaling gradient vector g to maximum Euclidean threshold v whenever norm exceeds v"
+escalation_plan:
+  1: "Demonstrate how steep curvature walls catapult weights into numerical overflow unless norm-clipped."
+  2: "Examine circuit breakers in financial systems and crisis governance as organizational norm clipping."
+  3: "Reflect on bounded intervention as a philosophical necessity for maintaining structural integrity."
 type: Evidence Card
 title: "Exploding and Vanishing Gradients in Recurrent Neural Networks: Geometry and Norm Clipping (Pascanu et al. 2013)"
 description: "Formalized the geometric mechanisms of the vanishing and exploding gradient problem in recurrent neural networks, introducing gradient norm clipping as a provable remedy for exploding cliffs."

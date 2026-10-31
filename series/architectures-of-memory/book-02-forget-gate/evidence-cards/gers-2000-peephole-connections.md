@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "gers-2000-peephole-connections"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_design: "architectural_extension_and_interval_timing_benchmark"
+certainty_grade: "High"
+attenuation_class: "robust_under_20pct"
+allowed_verbs: ["demonstrates", "establishes", "enables", "proves", "shows"]
+forbidden_verbs: ["proves_universally_superior_across_all_tasks"]
+locked_bib_keys: ["Gers2000peephole", "Greff2017", "Gers_2000_peephole", "Greff_2017"]
+contradicts_or_bounds: []
+canonical_metaphors:
+  body_prose: "an internal periscope allowing control gates to inspect internal state without opening the airlock to external observers"
+  spoken_tts: "an internal periscope allowing control gates to inspect internal state without opening the airlock to external observers"
+jargon_mappings:
+  - term: "peephole connections"
+    notes_definition: "Direct weight connections from internal cell state c_t to gate units bypassing output squashing"
+escalation_plan:
+  1: "Demonstrate how direct state-to-gate links enable precise interval timing and event counting."
+  2: "Examine internal compliance audits as organizational peepholes inspecting ledger states before public filings."
+  3: "Reflect on self-inspection and introspection as internal feedback loops distinct from external performance."
 type: Evidence Card
 title: "Peephole Connections in Long Short-Term Memory Networks (Gers & Schmidhuber 2000)"
 description: "Direct recurrent connections from internal cell states to gating units enable LSTMs to measure interval durations and count events precisely without requiring output activation."

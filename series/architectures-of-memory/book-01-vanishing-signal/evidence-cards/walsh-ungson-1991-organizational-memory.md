@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "walsh-ungson-1991-organizational-memory"
+series: "architectures-of-memory"
+primary_lens: "organizational"
+causal_design: "conceptual_synthesis_and_field_taxonomy"
+certainty_grade: "Moderate"
+attenuation_class: "partially_confounded_20_50pct"
+allowed_verbs: ["suggests", "indicates", "models", "classifies", "describes"]
+forbidden_verbs: ["proves", "causes", "establishes_empirically"]
+locked_bib_keys: ["Walsh_1991", "Eppler_2004"]
+contradicts_or_bounds: []
+canonical_metaphors:
+  body_prose: "a five-chambered silo where institutional memory rots whenever handoffs cross unmapped structural divides"
+  spoken_tts: "a five-chambered silo where institutional memory rots whenever handoffs cross unmapped structural divides"
+jargon_mappings:
+  - term: "retention facilities"
+    notes_definition: "Decentralized storage bins comprising individuals, culture, transformations, structure, and ecology"
+escalation_plan:
+  1: "Map the five retention bins to software repository components and communication artifacts."
+  2: "Examine why enterprise wikis fail without scheduled deprecation and active forget gates."
+  3: "Reflect on organizational identity persistence across complete employee turnover (Ship of Theseus)."
 type: Evidence Card
 title: "Organizational Memory Retention Bins and Retrieval Degradation (Walsh & Ungson 1991)"
 description: "Organizational memory is distributed across five internal storage bins (individuals, culture, transformations, structures, ecology) and external archives; retrieval fails systematically during employee turnover, restructuring, and un-gated re-indexing."

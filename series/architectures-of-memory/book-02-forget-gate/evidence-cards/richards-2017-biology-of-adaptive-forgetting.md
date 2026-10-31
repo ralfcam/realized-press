@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "richards-2017-biology-of-adaptive-forgetting"
+series: "architectures-of-memory"
+primary_lens: "philosophical"
+causal_design: "neurobiological_review_and_computational_reinforcement_learning"
+certainty_grade: "High"
+attenuation_class: "robust_under_20pct"
+allowed_verbs: ["demonstrates", "establishes", "shows", "proposes", "formalizes"]
+forbidden_verbs: ["proves_all_memory_loss_is_good", "cures_amnesia"]
+locked_bib_keys: ["Richards_2017", "Richards2017"]
+contradicts_or_bounds: []
+canonical_metaphors:
+  body_prose: "a sculptor carving away marble to reveal the invariant form rather than an archivist accumulating ledger dust"
+  spoken_tts: "a sculptor carving away marble to reveal the invariant form rather than an archivist accumulating ledger dust"
+jargon_mappings:
+  - term: "engram transience"
+    notes_definition: "Regulated biological degradation or remodeling of physical synaptic memory traces to promote behavioral flexibility"
+escalation_plan:
+  1: "Examine active synaptic engram dismantling and adult neurogenesis as biological necessities for generalization."
+  2: "Translate transience to artificial neural networks: why scheduled latent-space pruning prevents overfitting to obsolete distributions."
+  3: "Reflect on Borges's Funes the Memorious and human identity: why total retention is a cognitive curse rather than an intellectual gift."
 type: Evidence Card
 title: "Adaptive Forgetting as Generalization in Biological Memory (Richards & Frankland 2017)"
 description: "Neurobiological evidence demonstrates that memory transience is an active, regulated computational process that optimizes decision-making by eliminating outdated details and preventing overfitting to past environments, resolving the Borges Funes the Memorious memory curse."

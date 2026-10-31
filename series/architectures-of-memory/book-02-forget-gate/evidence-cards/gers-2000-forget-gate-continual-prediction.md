@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "gers-2000-forget-gate-continual-prediction"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_design: "architectural_ablation_and_continual_sequence_benchmark"
+certainty_grade: "High"
+attenuation_class: "robust_under_20pct"
+allowed_verbs: ["demonstrates", "establishes", "enables", "prevents", "resets", "shows"]
+forbidden_verbs: ["proves_universally", "solves_infinite_context"]
+locked_bib_keys: ["Hochreiter1997", "Gers2000", "Gers_2000", "Greff_2017"]
+contradicts_or_bounds: ["hochreiter-1997-constant-error-carousel"]
+canonical_metaphors:
+  body_prose: "a dynamic valve that purges obsolete historical state to protect the memory cell from saturation"
+  spoken_tts: "a dynamic valve that purges obsolete historical state to protect the memory cell from saturation"
+jargon_mappings:
+  - term: "multiplicative forget gate"
+    notes_definition: "Sigmoidal gate unit f_t scaling the previous cell state c_{t-1} before new candidate additions"
+escalation_plan:
+  1: "Demonstrate why an ungated unit self-loop inevitably saturates on unsegmented continuous data streams."
+  2: "Examine institutional hoarders and legal discovery costs as organizations lacking an active forget gate."
+  3: "Reflect on Nietzsche's doctrine of active forgetting as a prerequisite for present agency and sanity."
 type: Evidence Card
 title: "Adaptive Forget Gates in Long Short-Term Memory Networks (Gers, Schmidhuber & Cummins 2000)"
 description: "Adding a multiplicative forget gate to the LSTM constant error carousel enables recurrent networks to reset internal state dynamically, solving continual time-series tasks where standard LSTM fails."

@@ -456,6 +456,22 @@
           </svg>
           <span>Audio</span>
         </button>
+
+        <!-- Tool Tab 4: Graph RAG Context Pack -->
+        <button type="button"
+                id="tab-context"
+                role="tab"
+                aria-selected="activeToolTab === 'context'"
+                aria-controls="panel-context"
+                @click="activeToolTab = 'context'; loadContextPack()"
+                :class="activeToolTab === 'context' ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 font-semibold shadow-inner' : 'text-stone-400 hover:text-stone-200'"
+                class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg border border-transparent text-xs font-mono transition touch-manipulation min-h-[44px] min-w-[44px] focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+                aria-label="Open Chapter Context Pack">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+          <span>Context</span>
+        </button>
       </div>
 
       <!-- ============================================================= -->
@@ -680,6 +696,33 @@
         </div>
       </section>
 
+      <!-- ============================================================= -->
+      <!-- TOOL SUB-PANEL 4: OKF v0.3 Chapter Context Pack (Graph RAG)   -->
+      <!-- ============================================================= -->
+      <section id="panel-context"
+               role="tabpanel"
+               aria-labelledby="tab-context"
+               x-show="activeToolTab === 'context'"
+               class="flex-1 flex flex-col min-h-0 overflow-hidden">
+        <div class="p-3 border-b border-stone-800 bg-stone-900/40 flex items-center justify-between shrink-0">
+          <div>
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-stone-300 font-mono">
+              Graph Context Pack
+            </h3>
+            <span class="text-[10px] text-stone-400 font-mono">OKF v0.3 &bull; &lt; 2,500 Token Budget</span>
+          </div>
+          <button type="button"
+                  @click="loadContextPack()"
+                  class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 rounded hover:bg-stone-800 text-stone-400 hover:text-amber-400 transition"
+                  aria-label="Refresh Context Pack">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+          </button>
+        </div>
+        <div id="context-pack-mount" class="flex-1 flex flex-col min-h-0 overflow-hidden">
+          <div class="p-4 text-xs font-mono text-stone-400">Loading context pack...</div>
+        </div>
+      </section>
+
     </aside>
 
   </div>
@@ -723,6 +766,41 @@
         this.currentFilePath = path;
         this.toastMessage = 'Opening ' + name + '...';
         setTimeout(() => { this.toastMessage = ''; }, 1800);
+        if (this.activeToolTab === 'context') {
+          this.loadContextPack();
+        }
+      },
+      loadContextPack() {
+        const parts = this.currentFilePath.split('/');
+        let series = 'parenthood-atlas';
+        let book = '';
+        let ch = '01-before-the-child-is-born';
+        if (this.currentFilePath.includes('architectures-of-memory')) {
+          series = 'architectures-of-memory';
+          for (let p of parts) {
+            if (p.startsWith('book-')) {
+              book = p;
+              break;
+            }
+          }
+          ch = parts[parts.length - 1].replace('.md', '');
+        } else if (this.currentFilePath.includes('parenthood-atlas')) {
+          if (this.currentFilePath.includes('i18n/es')) {
+            series = 'parenthood-atlas/i18n/es';
+          } else {
+            series = 'parenthood-atlas';
+          }
+          ch = parts[parts.length - 1].replace('.md', '');
+        }
+        let url = `/hx/graph/context-pack?series=${encodeURIComponent(series)}&chapter=${encodeURIComponent(ch)}`;
+        if (book) url += `&book=${encodeURIComponent(book)}`;
+        const mount = document.getElementById('context-pack-mount');
+        if (mount) {
+          fetch(url)
+            .then(res => res.text())
+            .then(html => { mount.innerHTML = html; })
+            .catch(err => { mount.innerHTML = `<div class="p-4 text-rose-400 text-xs font-mono">Failed to load context pack: ${err}</div>`; });
+        }
       },
       copyFootnote(slug) {
         const tag = '[^' + slug + ']';
