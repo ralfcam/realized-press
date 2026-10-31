@@ -52,3 +52,23 @@ llm hallucination,880,0,0.03,B04.05,,0.07,3.53,,gkp_csv_export,2026-10-31T01:18:
 llm context window,390,0,0.01,B04.08,,1.07,4.54,,gkp_csv_export,2026-10-31T01:18:15+00:00
 machine unlearning,390,0,0.02,B05.01,,1.07,8.9,,gkp_csv_export,2026-10-31T01:18:15+00:00
 torch multi head attention,110,0,0,B03.05,,0,0,,gkp_csv_export,2026-10-31T01:18:15+00:00
+gdpr machine learning,10,0,0,B05.06,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+federated learning privacy,20,0,0,B05.03,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+apple federated learning,10,0,0,B05.03,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+differentially private federated learning,10,0,0,B05.03,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+federated learning data privacy,10,0,0.02,B05.03,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+federated learning privacy preserving,10,0,0.07,B05.07,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+openmined federated learning,10,0,0,B05.03,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+ppfl privacy preserving federated learning with trusted execution environments,10,0,0,B04.12,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+privacy first health research with federated learning,10,0,0.07,B05.03,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+privacy preserving vertical federated learning for tree based models,10,0,0,B05.07,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+private federated learning apple,10,0,0,B05.03,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+protect privacy from gradient leakage attack in federated learning,10,0,0,B05.03,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+catastrophic forgetting ai,10,0,0,B02.09,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+flash attention gpu,10,0,0,B03.03,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+state space model mamba,30,0,0,B04.07,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+rag hallucination,40,0,0,B03.09,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+ai compliance audit,10,0,0.5,B03.12,,16.79,53.73,,gkp_csv_export,2026-10-31T10:14:01+00:00
+training data extraction,10,0,0,B05.05,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+elastic weight consolidation,140,0,0,B01.14,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00
+rotary position embedding,260,0,0,B03.06,,0,0,,gkp_csv_export,2026-10-31T10:14:01+00:00

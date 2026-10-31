@@ -375,6 +375,31 @@ def render_bib_decade_svg(
     return "".join(lines)
 
 
+AOM_BOOK_SLUGS = {
+    1: "book-01-vanishing-signal",
+    2: "book-02-forget-gate",
+    3: "book-03-weight-of-attention",
+    4: "book-04-context-window",
+    5: "book-05-architecture-of-forgetting",
+}
+
+
+def _resolve_aom_book_key(target_chapter: str) -> str:
+    """Resolve an AoM target_chapter (e.g. 'B02.05', 'B03-01', or 'book-02-forget-gate/05-...') to its canonical book slug."""
+    tc = str(target_chapter).strip()
+    m_b = re.search(r"^B0?([1-5])(?:\.|\-|\/|$)", tc, re.IGNORECASE)
+    if m_b:
+        return AOM_BOOK_SLUGS.get(int(m_b.group(1)), "book-01-vanishing-signal")
+    if "/" in tc:
+        prefix = tc.split("/")[0]
+        if prefix in AOM_BOOK_SLUGS.values():
+            return prefix
+    m_book = re.search(r"book-0?([1-5])", tc, re.IGNORECASE)
+    if m_book:
+        return AOM_BOOK_SLUGS.get(int(m_book.group(1)), "book-01-vanishing-signal")
+    return "book-01-vanishing-signal"
+
+
 def build_series_analytics_payload(
     series_slug: str, root: Path = REPO_ROOT, lang: Optional[str] = None
 ) -> dict[str, Any]:
@@ -437,13 +462,32 @@ def build_series_analytics_payload(
     # Enrich each signal with Quick-Finder sync and sparkline SVG
     for s in signals:
         setattr(s, "quick_finder_mapped", is_quick_finder_mapped(s.query, fm_corpus))
-        setattr(s, "sparkline_svg", render_sparkline_svg([], yoy=s.yoy_trend_pct, vol=s.monthly_volume, query=s.query))
+        hist_data: list[float] = []
+        if getattr(s, "monthly_histogram_json", None):
+            try:
+                parsed = json.loads(s.monthly_histogram_json)
+                if isinstance(parsed, list):
+                    hist_data = [
+                        float(x.get("monthly_volume", x.get("volume", x)))
+                        if isinstance(x, dict)
+                        else float(x)
+                        for x in parsed
+                    ]
+                elif isinstance(parsed, dict):
+                    hist_data = [float(v) for v in parsed.values()]
+            except Exception:
+                hist_data = []
+        setattr(s, "sparkline_svg", render_sparkline_svg(hist_data, yoy=s.yoy_trend_pct, vol=s.monthly_volume, query=s.query))
 
     if is_aom:
         for s in signals:
-            book_key = s.target_chapter.split("/")[0] if "/" in s.target_chapter else "book-01-vanishing-signal"
+            book_key = _resolve_aom_book_key(s.target_chapter)
             groups.setdefault(book_key, []).append(s)
-        sorted_keys = sorted(groups.keys())
+        all_book_keys = list(AOM_BOOK_SLUGS.values())
+        sorted_keys = [k for k in all_book_keys if k in groups]
+        for k in sorted(groups.keys()):
+            if k not in sorted_keys:
+                sorted_keys.append(k)
     else:
         for s in signals:
             ch_num = mi.chapter_label(s.target_chapter)

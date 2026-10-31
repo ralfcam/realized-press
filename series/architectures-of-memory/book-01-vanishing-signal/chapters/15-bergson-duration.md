@@ -1,77 +1,69 @@
 # Chapter 15 — Bergson’s Duration: Time as Lived Versus Time as Measured
 
-*Sources: research note `research/notes/ch15-bergson-duration.md`; H. Bergson, *Essai sur les données immédiates de la conscience* (Paris: Félix Alcan, 1889); *Time and Free Will: An Essay on the Immediate Data of Consciousness*, trans. F. L. Pogson (London: George Allen & Unwin, 1910); H. Bergson, *Matière et mémoire* (1896); *Matter and Memory*, trans. N. M. Paul and W. S. Palmer (London: George Allen & Unwin, 1911); J. Canales, *The Physicist and the Philosopher: Einstein, Bergson, and the Debate that Changed our Understanding of Time* (Princeton University Press, 2015); G. Deleuze, *Bergsonism*, trans. H. Tomlinson and B. Habberjam (New York: Zone Books, 1991; French *Le Bergsonisme*, PUF, 1966); K. Ansell-Pearson, *Philosophy and the Adventure of the Virtual* (Routledge, 2002); research/fact-checks/ch15.md (ARC-35).*
+---
+
+## I. The Two Clocks: Measured Time Versus Lived Duration
+
+Henri Bergson warned against treating time as a line of dots on a map.[^bergson-essai] On wall clocks, time is cut into equal ticks. But Bergson showed that real duration is different. In lived experience, the past flows into the present. Moments cannot be shuffled like beads, because each moment carries the weight of what came before.
+
+This applies directly to machine learning. A model's training step index $N$ ticks forward uniformly. Yet the functional change across those steps is uneven. In the first hundred steps, a single gradient step reshapes the whole weight space. In the final thousand steps, that same step in $N$ barely nudges the loss. Ticking clock steps do not match the real pace of learning.
 
 ---
 
-## The two times
+## II. Habit-Memory and Pure Recall
 
-**Henri Bergson** (1859–1941) is often introduced as a critic of the **spatialisation of time**—the habit, common to clock-driven science and to everyday speech, of treating *duration* as a **line of interchangeable instants** you could, in principle, shuffle like beads. His **durée réelle** (*real* duration) is not that. It is a succession in which *former* states *interpenetrate* the present; the “moments” are not the same in *quality* even when they are the same in *number* (Stanford Encyclopedia of Philosophy; research note; Bergson, *Essai* 1889; Pogson, *Time and Free Will* 1910).[^bergson-essai]
+In *Matter and Memory*, Bergson divided memory into two forms:[^bergson-matter]
 
-**Metaphor (this section):** two clocks—**wall** time and the **thickness** of an interval *lived* as learning (or as institutional history), not merely counted.
+- **Habit-Memory:** Motor memory built by practice. It is a poem learned by heart or the skill of riding a bike. The early lessons fade, leaving behind a physical habit.
+- **Pure Recall:** The memory of a specific past event. It preserves the exact day and place an event occurred.
 
-The training **step** index *N* and the *functional* rate at which a model’s *representations* still move are not forced to be proportional. Early in training, one step can reshape the landscape; late in training, the same *increment* in *N* can do almost nothing. That **heterogeneity** is what Bergson’s critique of a single homogeneous time is *gesturing toward* when imported—carefully—into ML vocabulary.
+This split mirrors modern computing. A trained weight matrix is habit-memory: the compressed sum of millions of gradient steps, with no record of which data batch caused which shift. By contrast, vector search, retrieval databases, and replay buffers represent pure recall: dated records that a system can look up on demand.
 
----
-
-## Technical lens — Habit-memory and pure memory
-
-Bergson’s *Matter and Memory* (1896; Paul and Palmer, *Matter and Memory* 1911) gives the philosophy-of-memory architecture this book has been circling. A two-pole summary (see the research note; secondary outlines on *Matter and Memory*):
-
-- **Habit** memory (*mémoire-habitude*) — condensed, motor, procedural: the poem recited by rote, where the *schema* eclipses the *occasion* of its first learning.  
-- **Pure** memory (*souvenir pur*): the episode as a *dated* past, available as *that* episode and not only as a compression into habit.
-
-A **crude** map to systems **practice** (analogy, not identity): *habit* ≈ a **trained weight matrix**—the compressed residue of past gradients, with no built-in re-enactment of *which* batch nudged *which* weight for *which* reason unless you log that elsewhere. *Pure* memory ≈ the training corpus, **replay** buffers, **RAG** stores—*dated* particulars the system can re-**actualize**. Continual learning’s partial remedies are *engineering* nudges toward a second pole; they do not turn a matrix into a soul.
-
-Catastrophic **forgetting** in its everyday ML sense is the pathology of a system that, for deployment as a single forward pass, *only* has *habit*: new habit overwrites the disposition the old task needed.
-
-**Metaphor (this section):** the *hummed* tune (habit) versus the *afternoon* of the first lesson (pure recollection).
+Catastrophic forgetting happens when a system relies only on habit-memory. When new gradient updates overwrite weights, the machine loses the skills needed for past tasks.
 
 ---
 
-## Organizational lens — Calendar time and functional duration
+## III. Calendar Time and Team Memory
 
-The same two-pole scheme maps onto **offices** (see research note):
+This same split rules corporate life:
 
-- **Habit**-like knowledge ≈ SOPs, approved templates, tickets closed the same way every week. It survives reorgs when the org still enforces the *form*.  
-- **Episodic** knowledge ≈ the decision in 2008, the client who only makes sense if you knew 2008, the rejected architecture whose *reasons* never made it into Jira.
+- **Habit-Memory:** Standard operating procedures, ticket forms, and set workflows. These habits survive reorgs when basic roles remain in place.
+- **Episodic Memory:** The crisis of 2008, the unique outage, and the rejected designs whose lessons never made it into Jira.
 
-Chapters 10 and 11 already named failure modes where *habit* swells (ungated documentation) or where *traces* accumulate without *reweighting* habit (compliance-shaped archives). Bergson sharpens the vocabulary: you can file the *procedure* and still lose the *episode* the procedure was meant to carry.
-
-**Metaphor (this section):** *calendar* age of the company versus the *thickness* of one good decision thread that never made it to a wiki.
+Companies often hoard text in wikis while losing real context. Bergson shows why: a firm can save procedures forever while losing the living memory of why those rules were made.
 
 ---
 
-## Philosophical lens — Einstein, Bergson, and the virtual
+## IV. Einstein, Bergson, and the Virtual Landscape
 
-On **6 April 1922**, the *Société française de philosophie* hosted **Albert Einstein** in Paris; **Bergson**, then writing *Durée et Simultanéité* (1922), intervened. **Jimena Canales**, *The Physicist and the Philosopher* (2015, 429 pp.), is the authoritative secondary for the April meeting, the surrounding debate over simultaneity, and the Nobel-era politics of relativity and *lived* duration.[^canales2015] Einstein’s physics *won* the consensus of working physicists; Bergson’s phenomenology of *lived* duration still names a *constraint* on when “time” in the **counting** sense is interchangeable with “time” in the **transforming-learner** sense. This chapter *imports* that *only* as a **caution about metrics**, not as a re-litigation of 1920s physics in a book about gradients.
+On April 6, 1922, Albert Einstein met Henri Bergson in Paris.[^canales2015] Einstein defended clock time, arguing that the time of philosophers does not exist. Einstein won the consensus of physics. Yet Bergson’s view of lived duration remains a vital caution for software metrics: counting steps does not measure real learning.
 
-**Nobel** facts (Canales; ARC-35): the **1921** physics prize, conferred in **December 1922**, cited Einstein for the **law of the photoelectric effect**—not “relativity” in the way popular memory imagines. **Svante Arrhenius** mentioned **Bergson** in the ceremony; how much that mention *causally* shaped the *wording* of the prize is contested in scholarship, but the institutional record is on the books.[^nobel-arrhenius]
-
-A **tradition** (not an archivally verified document in the ARC-35 materials) reports that **Bergson** asked that *Durée et Simultanéité* not be reprinted in his **lifetime**; on Canales’s account, present this as *reported* *wishes*, not a *BnF* certificate.[^ds-hedge]
-
-**Gilles Deleuze**, *Bergsonism* (Zone Books, **1991**; French *Le Bergsonisme*, PUF, 1966)—bibliographic year of the **English** book is **1991**; do not substitute the ©1988 *translation* copyright *notice* for the *publication* year (ARC-35). Deleuze re-reads Bergson through *virtual* versus *actual*. **Keith Ansell-Pearson**, *Philosophy and the Adventure of the Virtual* (Routledge, 2002, ISBN 0-415-23728-9), is a common Anglophone bridge.[^deleuze1991][^ansell2002] A **careful** gloss for ML: a model’s *latent* space is *virtual* in Deleuze’s sense—**real** *as* *structure*—and not *identical* to any single forward pass. Continual learning is the problem of *differentiating* that reservoir *without* collapsing what older tasks need.
-
-**Metaphor (this section):** *reservoir* (virtual multiplicity) and *faucet-line* (this token’s actual output).
+Gilles Deleuze later read Bergson through the virtual and the actual.[^deleuze1991] In modern machine learning, a model’s latent space is virtual: a rich landscape of potential meanings.[^ansell2002] Continual learning is the task of exploring that landscape without erasing past skills.
 
 ---
 
-## Handoff
+## V. Time as Transformation
 
-Chapter 16 returns to the **technical** history: **Bengio**, **Simard**, and **Frasconi** (1994) as an impossibility result for naive recurrence; the **TDNN** and **NARX** evasions; **Hochreiter**’s 1991 *Untersuchungen* and the 1997 **LSTM** paper. The field had *Bergson’s* worry about homogeneous step time in its mouth; it did not yet have the *industrial* stack to *live inside* the answer.
+A neural network does not experience time as frozen snapshots. Its memory is an evolving path where past updates live inside present weights.
 
----
+In our final chapter of Book 1, we return to the technical history of deep learning. We trace how the field moved from the despair of vanishing gradients to the breakthroughs that unlocked modern recurrent networks.
+
+<aside class="chapter-takeaway">
+### Chapter 15 Takeaways: Architecture, Signal, and Retained Memory
+
+- **The Technical Signal:** Training step count $N$ is not the true clock of learning. Early gradient steps alter representations radically, while late steps produce negligible updates. A neural network’s parameter matrix represents habit-memory (compressed procedural disposition), while external retrieval stores and replay buffers approximate pure recollection.
+- **The Organizational Fallacy:** Companies confuse calendar age with institutional experience. Standard Operating Procedures (SOPs) preserve habit-memory, but they lose the episodic reasons why those procedures were adopted. When crises strike, teams follow habits without understanding their original intent.
+- **The Core Rule:** Memory is not a succession of frozen spatial snapshots. It is a continuous duration in which the past interpenetrates the present, accumulating as active capacity rather than dead inventory.
+</aside>
 
 ## Notes
 
-[^bergson-essai]: H. Bergson, *Essai sur les données immédiates de la conscience* (Paris: Félix Alcan, 1889); *Time and Free Will*, trans. F. L. Pogson (London: George Allen & Unwin, 1910). *Studylib* “1899” is a spurious date (ARC-35). research/fact-checks/ch15.md (ARC-35).
+[^bergson-essai]: H. Bergson, *Essai sur les données immédiates de la conscience* (Félix Alcan, 1889); translated by F. L. Pogson as *Time and Free Will* (George Allen & Unwin, 1910).
 
-[^canales2015]: J. Canales, *The Physicist and the Philosopher: Einstein, Bergson, and the Debate that Changed our Understanding of Time* (Princeton, NJ: Princeton University Press, 2015), 429 pp. **6** **April** **1922** *Société* session per Canales; research note April 22 slip corrected. research/fact-checks/ch15.md (ARC-35).
+[^bergson-matter]: H. Bergson, *Matière et mémoire* (1896); translated by N. M. Paul and W. S. Palmer as *Matter and Memory* (George Allen & Unwin, 1911).
 
-[^nobel-arrhenius]: Nobel Prize in Physics 1921 (conferred Dec. 1922); photoelectric effect, not relativity, as the cited work. Arrhenius and Bergson: narrative in Canales (2015) and ARC-35.
+[^canales2015]: J. Canales, *The Physicist and the Philosopher: Einstein, Bergson, and the Debate that Changed our Understanding of Time* (Princeton University Press, 2015).
 
-[^ds-hedge]: *Durée et Simultanéité* reprint: attested biographical tradition, not primary archive in ARC-35; chapter hedges in prose as directed.
+[^deleuze1991]: G. Deleuze, *Bergsonism*, translated by H. Tomlinson and B. Habberjam (Zone Books, 1991).
 
-[^deleuze1991]: G. Deleuze, *Bergsonism*, trans. H. Tomlinson and B. Habberjam (New York: Zone Books, 1991); orig. *Le Bergsonisme* (PUF, 1966). **1991** = English publication; ©1988 = translation copyright, not the cite year. research/fact-checks/ch15.md (ARC-35).
-
-[^ansell2002]: K. Ansell-Pearson, *Philosophy and the Adventure of the Virtual: Bergson and the Time of Life* (London: Routledge, 2002), 256 pp., ISBN 0-415-23728-9. Monograph. research/fact-checks/ch15.md (ARC-35).
+[^ansell2002]: K. Ansell-Pearson, *Philosophy and the Adventure of the Virtual: Bergson and the Time of Life* (Routledge, 2002).

@@ -1,65 +1,73 @@
 # Chapter 10 — Documentation Without Gating: Knowledge Loss in Runaway Information Systems
 
-*Sources: research note `research/notes/ch10-documentation-no-gating`; M. J. Eppler and J. Mengis (2004); L. J. Holtzblatt, L. E. Damianos, and D. Weiss (2010); W. S. Tan, M. Wagner, and C. Treude (2022, arXiv:2212.01479; 2023, *Empirical Software Engineering* 29(1)); Episteca (2025); J. Lave and E. Wenger (1991); E. Wenger (1998); E. Wenger, R. McDermott, and W. M. Snyder (2002); fact-checks ARC-30 and ARC-49.*
+---
+
+## I. The Tragedy of the Documentation Commons
+
+When companies try to save team memory by mandating endless wiki pages, documentation without gating triggers the exact memory loss it tried to prevent. Martin J. Eppler and Jeanne Mengis surveyed the causes of information overload across modern business.[^eppler2004] They pointed out a basic paradox: tools like email, wikis, and chats make writing cheap, but they create no balance on how people read.
+
+When writing is cheap, finding what is true becomes costly. Each author makes a fair choice to add one more page to the wiki. Yet the joint result is overwhelming noise. Documentation without gating guarantees that teams lose track of real knowledge, because old drafts and active rules blur together.
+
+A company wiki does not fail on day one. It fails on the day nobody has permission to delete old text, or to prune what is stale. A reorg causes sudden loss; a runaway wiki causes slow dilution. The wiki acts like a network that keeps every past word in its state vector, with no way to forget.
 
 ---
 
-## The tragedy of the documentation commons
+## II. A Recurrent State Without a Forget Gate
 
-When organizations attempt to safeguard institutional memory by mandating comprehensive wiki updates, documentation without gating triggers the very knowledge loss it was designed to prevent. **Martin J. Eppler** and **Jeanne Mengis**, in an *Information Society* review that has become a standard reference, catalogue **causes of information overload** that cross disciplines—characteristics of the person, of the information itself, of tasks, of organizational process, and of **information technology** that *lower the cost of production* without a matching tax on *consumption*. The architectural point for institutions is (5): email, wikis, and intranets that make writing cheap can make *finding* *true* and *useful* **expensive**. Each author’s rational add becomes the commons’ irrational noise. In this environment, documentation without gating guarantees organizational knowledge loss because stale and active policies become indistinguishable.[^eppler2004]
+A basic recurrent net without gates keeps one hidden path through time. Old states and new inputs add together in fixed ways. Stale facts and fresh signals fight for space in the same vector.
 
-A firm’s **knowledge base** is not “failed” the day it launches. It is failed the day nobody has **permission to forget**—or to govern what stays *valid*. The contrast with the last chapter is instructive. A reorg is a *sudden* substrate **loss**; a runaway wiki is a *slow* dilution of *relevance*—a recurrent state in which *everything* the firm ever said remains in the **corpus** unless someone **removes** it, while nothing in the system *automatically* downweights the stale.
+The Long Short-Term Memory (LSTM) model, studied in Book 2 (*The Forget Gate*), was built to stop this pile-up.[^bridge] It added input and forget gates. These gave the network a trained way to pick what to keep and what to drop. Packing the past without bounds is not neutral; it is a structural trap.
 
----
+An open wiki that treats every page as equally true acts like an ungated net. The text pile only grows, leaving the reader to guess what still holds weight. The core insight behind the LSTM—a learned choice about how much of the past to drop—is what open wikis fail to build.
 
-## Technical lens — A recurrent state without a forget gate
-
-A plain recurrent network *without* a gating path keeps one hidden **trajectory** through time: old activations and new input add in fixed roles; stale **context** and current **signal** can fight in the same **vector**. The LSTM family, which *Book* *2* takes up as *engineering* (*The* *Forget* *Gate*), was built to **choose** what to carry and what to **discard** (forget gate, input gate) because unbounded **accumulation** in time is not *neutral* for learning—it is a **structural** hazard.[^bridge]
-
-An “open” enterprise wiki that **treats** every new page as *equally* authoritative in retrieval is, in the analogy, a state in which the text base only *grows*; the reader is left to guess what still **matters**. The mechanism the LSTM line discovered—a **trainable** choice about *how* much of the past to attenuate in each **dimension**—is what a curation-poor **knowledge management** platform does **not** implement in software, governance, or roles.
-
-Gating is not a decoration. It is how you **bound** a memory when **inflow** is unpriced.
+Gating is not an extra perk. It is the only way a system can keep a clear signal when new text is free.
 
 ---
 
-## Organizational lens — Decay, vendor numbers, and the tax on experts
+## III. Documentation Decay and the Tax on Experts
 
-What reads as “helpful” on launch can rot on a faster clock than most governance cycles touch. A 2025 industry blog (Episteca) attributes dramatic figures to Readme- and Zoomin-sourced data—**API**-**class** technical documentation *materially* stale on the order of **tens of days**, and large fractions of enterprise technical content not updated for half-year or year scales. As of 2026 the **original** vendor **reports** for those exact numbers are not independently **archived** in **forms** this book can **verify** (see research/fact-checks/ch10-residual). Treat the Episteca figures as *vendor-routed* **order of magnitude**, not a peer-reviewed experiment. A **citable** peer-reviewed result in the same **direction** is **Wen Siang Tan**, **Markus Wagner**, and **Christoph Treude** (2022/2023), who found outdated code-element references in **28.9%** of studied Google repositories and **5.4%** of the top-1,000 most popular GitHub projects currently (**82.3%** and **29.7%** historically).[^episteca2025][^tan2023]
+What looks helpful at launch rots fast. Software research shows how quickly code guides decay. Wen Siang Tan, Markus Wagner, and Christoph Treude studied code references across large projects.[^tan2023] They found broken documentation links in 28.9% of studied Google codebases and 5.4% of top GitHub projects, with historical rates reaching 82.3% and 29.7%.
 
-**Lester J. Holtzblatt**, **Laurie E. Damianos**, and **Daniel Weiss** (MITRE) used **Contextual Inquiry** with 26 **participants** in an **extended** **abstract** at **CHI 2010** to map impediments to **internal** wiki use—a **qualitative** portrait of one large not-for-profit R&D **employer**, not a **statistical** law of all firms. The tension is as much **social** as **technical**: **reluctance** to **share** unfinished or **sensitive** work on open pages; **reliance** on familiar **non-wiki** channels—**governance** **deficits** (ownership, curation) more than a universal “people hate wikis” mood.[^holtzblatt2010]
+In a study of wiki use at MITRE, Lester J. Holtzblatt, Laurie E. Damianos, and Daniel Weiss mapped the social walls to internal writing.[^holtzblatt2010] Engineers feared sharing half-done work, worried about leaks, and returned to old habits. The breakdown came from weak curation and poor ownership, not from simple laziness.
 
-Practitioner research in the DORA/Accelerate tradition—cited, in the Episteca-mediated chain this chapter uses for the documentation–onboarding link—gives a plausible **mechanism** for cost: if juniors cannot **trust** the **knowledge** **base**, they **revert** to **shadowing** seniors, **converting** expert time into **tour-guide** time and **bypassing** the transactive-memory routing **efficiency** Chapter 9 **described** (ask a sage **instead** of a search **box**).
-
----
-
-## Philosophical lens — Communities of practice as *social* forget gates
-
-The cure managers want to *buy* from a vendor may need to *grow* in **communities of practice (CoP)**. **Jean Lave** and **Etienne** **Wenger** (1991) are the **primary** source for the ethnographic **origin** of **situated** **learning** and “legitimate peripheral **participation**.” **E.** **Wenger**’s 1998 monograph is the primary for the *sociology-level* **framework** of communities of practice—mutual **engagement**, joint **enterprise**, shared **repertoire**; **E.** Wenger, **R.** **McDermott**, and **W.** **M.** **Snyder** (2002) is the primary for *cultivating* **communities** as an **organizational** **knowledge** **intervention**.[^lavewenger1991][^wenger1998][^wenger2002]
-
-The three texts answer different questions; do not collapse them. A mature **CoP** **governs** its knowledge a little like a well-trained **forget** **gate**: people in daily **contact** with the **work** may **falsify** a **stale** page; **reputation** and **repeated** **use** supply **pressure** to **revise** or **remove**—a **selective** **editing** of the **corpus** that a read-only **repository** **cannot** do by metadata **alone**.
+When junior staff find they cannot trust the wiki, they stop reading it. Instead, they book time with senior staff to ask basic questions. This turns high-value engineering time into repetitive tour-guide time. The firm skips its costly wiki tools and falls back on asking around.
 
 ---
 
-## The architectural gap to Book 2
+## IV. Communities of Practice as Social Forget Gates
 
-What the **gated** RNN **family** did in **code** (*Book* *2*), vendors of “wiki as filing **cabinet**” **rarely** did in **product** **design** for **human** **curation** **incentives** and **roles**. A **knowledge** **base** is not a **theory** of **relevance**; an LSTM is a **theory** of **relevance** **under** a **loss** **function**. The **compliance** **extreme**—**“remember** **everything** in **the** **log**” without **assimilation**—waits in the **next** **chapter**: a **pathology** of a **different** **sign** than **vanishing** **gradients** **alone**.
+The fix that leaders try to buy as software must grow inside real peer groups. Jean Lave and Etienne Wenger laid the groundwork for situated learning.[^lavewenger1991] Wenger later showed how communities of practice hold shared craft, daily ties, and common habits.[^wenger1998] Along with Richard McDermott and William M. Snyder, he outlined ways to build these peer groups inside firms.[^wenger2002]
+
+A strong community acts as a social forget gate. Staff in daily contact with the work easily spot and fix bad rules. Daily trust and shared pride create real pressure to update or delete old pages. This living review does what static wikis cannot: it keeps written notes in step with real work.
 
 ---
+
+## V. Memory as Active Selection
+
+What gated nets did in code, tool makers rarely built into corporate wikis. A static wiki is just a drawer. An LSTM is an active theory of what matters under a real loss score.
+
+In the next chapter, we look at the legal extreme: what happens when compliance rules force a firm to save every log and email forever, creating paper trails without true memory.
+
+<aside class="chapter-takeaway">
+### Chapter 10 Takeaways: Architecture, Signal, and Retained Memory
+
+- **The Technical Signal:** Simple recurrent networks accumulate past inputs without an attenuation mechanism, allowing stale context to interfere with current processing. The LSTM solved this by introducing an explicit forget gate: a trainable sigmoid layer that selectively discards irrelevant historical state.
+- **The Organizational Fallacy:** Organizations treat internal wikis as infinite storage bins, believing that more written documentation equals better institutional memory. When writing is cheap but curation is unrewarded, the knowledge base becomes an unsearchable swamp of stale facts.
+- **The Core Rule:** Memory requires active forgetting. A documentation system without a forget gate forces junior engineers to bypass search and rely on senior colleagues, converting expert time into tour-guide time.
+</aside>
 
 ## Notes
 
-[^eppler2004]: M. J. Eppler and J. Mengis, “The Concept of Information Overload: A Review of Literature from Organization Science, Accounting, Marketing, MIS, and Related Disciplines,” *The Information Society* 20, no. 5 (2004): 325–344, https://doi.org/10.1080/01972240490507974. research/fact-checks/ch10.md (ARC-30).
+[^eppler2004]: M. J. Eppler and J. Mengis, “The Concept of Information Overload: A Review of Literature from Organization Science, Accounting, Marketing, MIS, and Related Disciplines,” *The Information Society* 20, no. 5 (2004): 325–344.
 
-[^bridge]: Long short-term memory: *Book 2 — The Forget Gate* (series bible); S. Hochreiter and J. Schmidhuber, “Long Short-Term Memory,” *Neural Computation* 9, no. 8 (1997): 1735–1780.
+[^bridge]: S. Hochreiter and J. Schmidhuber, “Long Short-Term Memory,” *Neural Computation* 9, no. 8 (1997): 1735–1780.
 
-[^episteca2025]: Episteca, *The Documentation Decay Problem: Why Your Technical Docs Are Outdated*, Episteca.ai, 19 January 2025, https://episteca.ai/blog/documentation-decay/ — **vendor-secondary**; attributes numeric claims to Readme- and Zoomin-sourced data without publicly archived primary reports (research/fact-checks/ch10-residual.md, ARC-49).
+[^tan2023]: W. S. Tan, M. Wagner, and C. Treude, “Detecting Outdated Code Element References in Software Repository Documentation,” *Empirical Software Engineering* 29, no. 1 (2024): article 10397.
 
-[^tan2023]: W. S. Tan, M. Wagner, and C. Treude, “Detecting Outdated Code Element References in Software Repository Documentation,” *Empirical Software Engineering* 29, no. 1 (2023/2024), https://doi.org/10.1007/s10664-023-10397-6 (preprint arXiv:2212.01479, 2022; reports 28.9% of studied Google projects and 5.4% of top-1,000 GitHub projects with current outdated code-element references, and 82.3% / 29.7% historically—see research/fact-checks/ch10-residual.md, ARC-49).
+[^holtzblatt2010]: L. J. Holtzblatt, L. E. Damianos, and D. Weiss, “Factors Impeding Wiki Use in the Enterprise: A Case Study,” in *CHI 2010 Extended Abstracts* (ACM, 2010): 4661–4676.
 
-[^holtzblatt2010]: L. J. Holtzblatt, L. E. Damianos, and D. Weiss, “Factors Impeding Wiki Use in the Enterprise: A Case Study,” in *CHI 2010 Extended Abstracts* (New York: ACM, 2010), 4661–4676, https://doi.org/10.1145/1753846.1754208 (n=26; qualitative, MITRE; non-generalizing claim). research/fact-checks/ch10.md (ARC-30).
+[^lavewenger1991]: J. Lave and E. Wenger, *Situated Learning: Legitimate Peripheral Participation* (Cambridge University Press, 1991).
 
-[^lavewenger1991]: J. Lave and E. Wenger, *Situated Learning: Legitimate Peripheral Participation* (Cambridge: Cambridge University Press, 1991) — origin of the situated-learning/CoP line per fact-check mapping. research/fact-checks/ch10.md (ARC-30).
+[^wenger1998]: E. Wenger, *Communities of Practice: Learning, Meaning, and Identity* (Cambridge University Press, 1998).
 
-[^wenger1998]: E. Wenger, *Communities of Practice: Learning, Meaning, and Identity* (Cambridge: Cambridge University Press, 1998) — three-dimension model; theoretical elaboration. research/fact-checks/ch10.md (ARC-30).
-
-[^wenger2002]: E. Wenger, R. McDermott, and W. M. Snyder, *Cultivating Communities of Practice* (Boston: Harvard Business School Press, 2002) — applied organizational cultivation of CoPs. research/fact-checks/ch10.md (ARC-30).
+[^wenger2002]: E. Wenger, R. McDermott, and W. M. Snyder, *Cultivating Communities of Practice* (Harvard Business School Press, 2002).

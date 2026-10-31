@@ -415,6 +415,15 @@ sources:
   - id: van-wijk-2014-plagiocephaly
     resource: https://doi.org/10.1136/bmj.g2741
     title: "van Wijk et al. (2014), BMJ, Helmet therapy in infants with positional skull deformation: randomised controlled trial"
+  - id: de-weerth-1998-wonder-weeks
+    resource: https://doi.org/10.1111/j.2044-835X.1998.tb00748.x
+    title: "de Weerth & van Geert (1998), British Journal of Developmental Psychology, strictly timed infantile transitions"
+  - id: nichd-2000-childcare-types
+    resource: https://doi.org/10.1207/S1532480XADS0403_2
+    title: "NICHD Early Child Care Research Network (2000), Applied Developmental Science, Characteristics and Quality of Child Care"
+  - id: ou-hall-2018-postpartum-anger
+    resource: https://doi.org/10.1111/birt.12356
+    title: "Ou & Hall (2018), Birth, Anger in the context of postnatal depression: An integrative review"
 ---
 
 # Master Source Catalog
@@ -578,6 +587,9 @@ These four live IDs will not acquire a Crossref journal DOI. They already have a
 | `schum-2002-toilet` | Schum et al. (2002), Pediatrics, sequential acquisition of toilet-training skills | [https://doi.org/10.1542/peds.109.3.e48](https://doi.org/10.1542/peds.109.3.e48) | [toilet-learning-readiness](evidence-cards/toilet-learning-readiness.md) |
 | `dadds-2019-discipline` | Dadds & Tully (2019), Journal of Child Psychology and Psychiatry, time-out and positive parenting evidence review | [https://doi.org/10.1111/jcpp.13088](https://doi.org/10.1111/jcpp.13088) | [timeout-vs-spanking-discipline](evidence-cards/timeout-vs-spanking-discipline.md) |
 | `van-wijk-2014-plagiocephaly` | van Wijk et al. (2014), BMJ, Helmet therapy in infants with positional skull deformation: randomised controlled trial | [https://doi.org/10.1136/bmj.g2741](https://doi.org/10.1136/bmj.g2741) | [plagiocephaly-flat-head-helmet-rct](evidence-cards/plagiocephaly-flat-head-helmet-rct.md) |
+| `de-weerth-1998-wonder-weeks` | de Weerth & van Geert (1998), British Journal of Developmental Psychology, strictly timed infantile transitions | [https://doi.org/10.1111/j.2044-835X.1998.tb00748.x](https://doi.org/10.1111/j.2044-835X.1998.tb00748.x) | [Chapter 5](chapters/05-becoming-a-mind.md) |
+| `nichd-2000-childcare-types` | NICHD Early Child Care Research Network (2000), Applied Developmental Science, Characteristics and Quality of Child Care | [https://doi.org/10.1207/S1532480XADS0403_2](https://doi.org/10.1207/S1532480XADS0403_2) | [Chapter 8](chapters/08-the-expanding-world.md) |
+| `ou-hall-2018-postpartum-anger` | Ou & Hall (2018), Birth, Anger in the context of postnatal depression: An integrative review | [https://doi.org/10.1111/birt.12356](https://doi.org/10.1111/birt.12356) | [Chapter 13](chapters/13-the-ecology-of-development.md) |
 
 ## Unresolved Citations
 

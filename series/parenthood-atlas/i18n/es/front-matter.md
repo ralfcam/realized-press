@@ -56,6 +56,9 @@ Si estás leyendo a las dos de la madrugada con tu bebé intranquilo en brazos, 
 **P: ¿Qué ocurre en la regresión del sueño de los cuatro meses y qué debe comer a los seis meses?**  
 *Capítulo 4 (Movimientos II y IV)* — Hacia los cuatro meses, el sueño del lactante se reorganiza de forma permanente en ciclos de cuatro fases similares a los del adulto, lo que exige aprender a conciliar el descanso de manera autónoma. A los seis meses, las reservas de hierro se agotan, por lo que los primeros alimentos ricos en hierro (carne o cereales fortificados) resultan fundamentales para el neurodesarrollo.
 
+**P: ¿Mi bebé está pasando por un «salto mental» de las Wonder Weeks según el calendario, o por qué se puso irritable este martes?**  
+*Capítulo 5 (Movimiento III)* — Los ensayos de replicación demuestran que los picos de llanto e irritabilidad no se sincronizan con semanas fijas del calendario; las fases difíciles responden a ritmos biológicos individuales, cansancio o habilidades motoras emergentes, no a un reloj rígido.
+
 **P: ¿Por qué mi bebé tira cucharas al suelo desde la trona a propósito?**  
 *Capítulo 6 (Movimiento IV)* — Arrojar objetos no es un acto de desafío; es el primer laboratorio de física del bebé. Los lactantes tiran cucharas para poner a prueba la gravedad, la trayectoria del rebote y comprobar si los objetos suenan de forma distinta en superficies diferentes.
 
@@ -74,6 +77,9 @@ Si estás leyendo a las dos de la madrugada con tu bebé intranquilo en brazos, 
 **P: ¿Llevar al lactante a la escuela infantil eleva su estrés o perjudica el vínculo?**  
 *Capítulo 8 (Movimiento II)* — Amplios estudios nacionales demuestran que la atención en escuelas infantiles acreditadas no deteriora el apego seguro. Lo que impulsa el desarrollo temprano es la calidez cotidiana y la calidad de las interacciones en el aula, con independencia de que el cuidado tenga lugar en el hogar o en un centro.
 
+**P: ¿Conviene contratar una niñera en casa o elegir una escuela infantil para nuestro pequeño?**  
+*Capítulo 8 (Movimiento IV)* — El seguimiento longitudinal del NICHD demuestra que el desarrollo cognitivo y emocional no depende del entorno en sí; la calidez constante de quien cuida, las conversaciones ricas y la baja rotación del personal importan mucho más que si el cuidado ocurre en el salón o en un aula.
+
 **P: ¿Por qué decir «cálmate» no funciona durante una rabieta de un niño pequeño?**  
 *Capítulo 9 (Movimiento IV)* — Una rabieta comienza con un pico de enfado de alta intensidad que desconecta temporalmente los circuitos verbales del niño pequeño. Hablar durante ese momento cumbre añade ruido; aguarda con calma hasta que la cresta de la ira dé paso al llanto de tristeza antes de ofrecer consuelo.
 
@@ -91,6 +97,9 @@ Si estás leyendo a las dos de la madrugada con tu bebé intranquilo en brazos, 
 
 **P: ¿Los juguetes de pedagogías específicas y precio elevado hacen más listos a los niños pequeños?**  
 *Capítulo 12 (Movimiento III)* — Las investigaciones sugieren que el juego simbólico y los objetos cotidianos ejercitan los mismos procesos cognitivos que los juguetes comerciales costosos. El juego ordinario con bloques, recipientes y cajas de cartón estimula la imaginación con igual eficacia.
+
+**P: ¿Por qué siento accesos repentinos de ira e irritabilidad intensa (rabia posparto) en lugar de tristeza?**  
+*Capítulo 13 (Movimiento II)* — La falta crónica de sueño y la sobrecarga del sistema nervioso provocan con frecuencia brotes de ira que los cuestionarios de depresión suelen pasar por alto; esta rabia es una señal biológica de agotamiento extremo, no un fallo moral ni una falta de cariño hacia tu bebé.
 
 **P: ¿La personalidad y la inteligencia de mi hijo quedan fijadas definitivamente a los tres años?**  
 *Capítulo 15 (Movimiento III)* — Estudios longitudinales exhaustivos demuestran que alrededor del noventa por ciento de la posición relativa de un niño de tres años frente a sus compañeros permanece abierta al cambio. Los primeros tres años son una pista de despegue y un punto de paso, nunca un veredicto definitivo.

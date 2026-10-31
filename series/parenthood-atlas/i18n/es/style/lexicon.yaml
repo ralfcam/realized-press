@@ -103,3 +103,14 @@ terms:
   sleeper_effects:           { en: "sleeper effects",        es: "beneficios duraderos (efectos latentes)" }
   voltage_drop:              { en: "voltage drop",           es: "pérdida de potencia al escalar" }
   continuity:                { en: "statistical continuity", es: "continuidad estadística" }
+
+  # Batch PA-8 & Telemetry Lexicon Expansion (ARC-81)
+  tongue_tie:                { en: "tongue-tie (ankyloglossia)", es: "frenillo lingual corto" }
+  plagiocephaly:             { en: "plagiocephaly (flat head)", es: "plagiocefalia postural" }
+  cranial_helmet:            { en: "cranial helmet therapy", es: "casco ortopédico infantil (ortesis craneal)" }
+  diaper:                    { en: "diaper / nappy",         es: "pañal" }
+  sphincter_control:         { en: "sphincter control / toilet learning", es: "control de esfínteres" }
+  tantrums_berrinches:       { en: "temper tantrums",        es: "rabietas y berrinches" }
+  purees_papillas:           { en: "purees / spoon feeding", es: "papillas y purés" }
+  choking_hazard:            { en: "choking",                es: "atragantamiento" }
+

@@ -56,6 +56,9 @@ If you are reading at two in the morning with an upset baby on your shoulder, yo
 **Q: What is happening during the 4-month sleep regression, and what should my baby eat at 6 months?**  
 *Chapter 4 (Movement II & IV)* — Around 4 months, infant sleep permanently reorganizes into adult-like four-stage sleep cycles, requiring independent falling-asleep skills. At 6 months, maternal iron stores deplete, making iron-rich first foods (meat or fortified cereal) vital for brain development.
 
+**Q: Is my baby going through a calendar "mental leap" from the Wonder Weeks, or why did she suddenly become fussy this Tuesday?**  
+*Chapter 5 (Movement III)* — Longitudinal replication trials reveal that infant fussiness and crying peaks do not synchronize to fixed calendar gestational weeks above random chance; fussy periods reflect individual biological rhythms, emerging skills, or fatigue rather than an app's pre-programmed calendar clock.
+
 **Q: Why does my baby drop spoons from the high chair on purpose?**  
 *Chapter 6 (Movement IV)* — Dropping objects is not defiance; it is a baby's first physics laboratory. Babies drop spoons to test gravity, bounce trajectories, and see whether objects make different sounds on different surfaces.
 
@@ -74,6 +77,9 @@ If you are reading at two in the morning with an upset baby on your shoulder, yo
 **Q: Does putting an infant in daycare raise stress or harm bonding?**  
 *Chapter 8 (Movement II)* — Large national studies show that licensed childcare does not harm attachment security. What matters for early growth is daily classroom warmth and interaction quality, not whether care happens at home or in a center.
 
+**Q: Should we hire an in-home nanny or choose a licensed daycare center for our toddler?**  
+*Chapter 8 (Movement IV)* — Decades of NICHD longitudinal tracking demonstrate that child cognitive and emotional thriving does not differ by care setting alone; steady caregiver warmth, responsive verbal engagement, and low teacher turnover matter far more than whether care occurs in a living room or a classroom.
+
 **Q: Why doesn't saying "calm down" work during a toddler tantrum?**  
 *Chapter 9 (Movement IV)* — A tantrum begins with a high-energy anger peak that temporarily takes a toddler's language circuits offline. Talking during the peak adds noise; wait quietly until the anger crest drops into sadness before offering comfort.
 
@@ -91,6 +97,9 @@ If you are reading at two in the morning with an upset baby on your shoulder, yo
 
 **Q: Do expensive Montessori toy kits make toddlers smarter?**  
 *Chapter 12 (Movement III)* — Studies show that pretend play and simple household objects exercise the same mental muscles as expensive branded toys. Ordinary play with blocks, pots, and cardboard boxes builds imagination just as well.
+
+**Q: Why am I experiencing sudden surges of intense anger and irritability (postpartum rage) instead of just feeling sad?**  
+*Chapter 13 (Movement II)* — Severe sleep fragmentation and nervous system overload frequently trigger sudden anger flares that standard depression screens miss; this rage is a biological signal of extreme physical depletion and missing support, not a moral failure or a lack of love for your child.
 
 **Q: Is my child's personality and intelligence locked in by age three?**  
 *Chapter 15 (Movement III)* — Comprehensive longitudinal studies show that roughly ninety percent of where a three-year-old ranks relative to peers remains open to change. The first three years are a launchpad and waypoint, never a final verdict.

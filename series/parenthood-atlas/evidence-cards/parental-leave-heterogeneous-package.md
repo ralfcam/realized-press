@@ -13,6 +13,9 @@ sources:
   - id: carneiro-2015-leave
     resource: https://doi.org/10.1086/679627
     title: "Carneiro, Løken & Salvanes (2015), Journal of Political Economy, maternity leave and long-run child outcomes"
+  - id: ou-hall-2018-postpartum-anger
+    resource: https://doi.org/10.1111/birt.12356
+    title: "Ou & Hall (2018), Birth, Anger in the context of postnatal depression: An integrative review"
 ---
 
 # Parental Leave Is a Heterogeneous Package, Not a Unitary Exposure
@@ -23,7 +26,7 @@ sources:
 
 ## What We Know
 
-Carneiro, Løken & Salvanes (2015) studied a Norwegian maternity-leave reform that extended paid leave. Children whose mothers were eligible had better long-run education and earnings outcomes than comparison cohorts. The object is a defined leave *package* in one institutional setting, not “employment” as a single exposure.
+Carneiro, Løken & Salvanes (2015) studied a Norwegian maternity-leave reform that extended paid leave. Children whose mothers were eligible had better long-run education and earnings outcomes than comparison cohorts. The object is a defined leave *package* in one institutional setting, not “employment” as a single exposure. Maternal recovery also supports psychological stabilization; severe sleep fragmentation and exhaustion during early leave absence predict postpartum rage, irritability, and depressive symptoms (Ou & Hall 2018).
 
 ## How Confident We Are
 
@@ -49,7 +52,7 @@ How much of the reform effect is time with a familiar caregiver, income smoothin
 
 ## What This Does Not Mean
 
-Employment is not a unitary harm. Leave is not a guarantee of infant cognition. A missing leave week is not a character defect, and a long leave is not a proven IQ program.
+Employment is not a unitary harm. Leave is not a guarantee of infant cognition. A missing leave week is not a character defect, and a long leave is not a proven IQ program. Does not mean postpartum rage or maternal exhaustion reflects a personal moral failure or lack of love; these are biological indicators of physical depletion and missing structural care.
 
 ## What Action Is Reasonably Justified
 
@@ -58,3 +61,4 @@ Treat leave as an institutional package. Families cannot individually legislate 
 ## Sources
 
 - Carneiro, Løken & Salvanes (2015), *Journal of Political Economy*
+- Ou & Hall (2018), *Birth*, DOI: [10.1111/birt.12356](https://doi.org/10.1111/birt.12356)

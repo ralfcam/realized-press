@@ -1,67 +1,71 @@
 # Chapter 1 — Rosenblatt's Perceptron and the Dream of Learning Machines
 
-*Sources: research note `research/notes/ch01-rosenblatt-perceptron.md`; Rosenblatt (1958); characters — Rosenblatt.*
+---
+
+## I. A Machine That Learns to See
+
+In January 1957, the Cornell Aeronautical Laboratory circulated a modest technical report. Titled *The Perceptron: A Perceiving and Recognizing Automaton (Project PARA)*, it was Frank Rosenblatt’s first formal description of an artificial neural network.[^tr1957] Nearly two years later, in November 1958, the *Psychological Review* published his canonical paper.[^rosenblatt1958] Rosenblatt, a research psychologist in Buffalo, proposed a radical model. Information in living minds is not stored as discrete symbols in fixed memory bins. Instead, memory lives as variable connection strengths across simple networked units. The perceptron was not born as a cultural icon. It was an argument about where knowledge lives.
+
+Rosenblatt took an explicitly connectionist stance. Knowledge is distributed across network weights, not filed away into localized codes. That view set him directly against the symbolic school that dominated mid-century artificial intelligence. His first simulations ran on an IBM 704 vacuum-tube computer. The machine was slow and expensive. Yet it proved that distributed learning could move from paper theory into working software.
+
+On June 23, 1960, the laboratory unveiled physical hardware: the Mark I Perceptron.[^mark1] Funded by the Office of Naval Research and the Rome Air Development Center, it occupied several equipment racks. Four hundred photocells in a twenty-by-twenty grid served as an artificial retina. Five hundred twelve association units and eight response units completed the stack. Rosenblatt insisted on random wiring between sensory units and association units. He believed that biological brains do not emerge from neat, pre-planned grids. Today the device rests in the Smithsonian. It stands as a physical monument to the era when a learning machine was steel and wire you could touch.
+
+This chapter begins with that early optimism because the rest of our story examines what optimism cannot guarantee. The perceptron learned effectively within its strict mathematical bounds. But public expectations quickly outran those boundaries. That early gap reveals a recurring pattern across computing history: the vital signal that fails to arrive where it is needed most.
 
 ---
 
-## A machine that learns to see
+## II. The Weight as Memory: A Local Learning Rule
 
-In January 1957, Cornell Aeronautical Laboratory circulated *The Perceptron: A Perceiving and Recognizing Automaton (Project PARA)*—Technical Report 85-460-1—Frank Rosenblatt’s first formal write-up of the architecture, predating the canonical journal article by nearly two years.[^tr1957] In November 1958, the *Psychological Review* published a paper that sounds, to modern ears, almost modest. Rosenblatt, a research psychologist at the same laboratory in Buffalo, described a **probabilistic model** for how information might be stored—not as discrete symbols in fixed addresses, but as strengths on connections between simple units.[^rosenblatt1958] The perceptron was not yet a cultural icon. It was an argument about **where knowledge lives**.
+To understand the perceptron without complex equations: it calculates a weighted sum of inputs, tests whether that sum passes a threshold, and adjusts weights whenever it makes an error. Its learning rule is strictly local. Each weight changes in proportion to its own input signal and the observed error. That locality was vital to Rosenblatt. It suggested that biological systems can learn without needing an all-knowing supervisor inside the machine.
 
-Rosenblatt took an explicitly connectionist position: storage is **distributed** across weights, not localized into coded images. That stance placed him athwart the symbolic programme that dominated much of mid-century artificial intelligence. The first simulations ran on an **IBM 704** at the same laboratory—slow, expensive, and enough to prove that the idea could move from speculation to running code.
+The 1958 paper framed the perceptron as a model of brain organization, not just a curve-fitting trick.[^rosenblatt1958] Whether artificial networks mirror real cortical neurons remains an open debate. What matters is that the scientific community treated the perceptron as a serious theory of mental representation. If knowledge resides in connection weights, then training is an act of memory formation. Plasticity becomes executable code.
 
-Two years later, on **23 June 1960**, the laboratory demonstrated something no journal page could fully convey: the **Mark I Perceptron**, a physical machine funded by the Office of Naval Research and the Rome Air Development Center. Four hundred photocells in a **20×20** grid stood in for a retina; 512 association units and eight response units completed a three-layer stack. Rosenblatt insisted on **random** wiring from sensory to association layers, modelling his belief that biology does not hand you a neat grid.[^mark1] The device now sits in the Smithsonian—a relic of the moment when “learning machine” meant hardware you could photograph.
-
-This chapter begins with that optimism because the rest of Book 1 is built on what optimism **cannot** guarantee. The perceptron really learned—within the limits its mathematics allowed. The public story often outran those limits. The gap between the two is the first taste of a pattern that will recur: **the signal that fails to arrive** where it is needed, whether in a network, an organization, or a life cut short.
+The physical Mark I proved that principle in steel and light. Its design was an alpha-perceptron. It had enough structure to learn simple shapes, yet enough mathematical simplicity to study clearly. A later secret deployment at the National Photographic Interpretation Center proved that these early systems were never just academic toys. Military funding and psychological theory developed hand in hand.
 
 ---
 
-## Technical lens — What the perceptron was
+## III. Promises That Travel Faster Than Proofs
 
-Without turning this into a textbook derivation: a perceptron computes a weighted sum of inputs, thresholds it, and updates weights when it is wrong. The learning rule is local—each weight changes in proportion to its contribution to the error. That locality was philosophically important to Rosenblatt: it suggested a path from biology to mechanism without importing a homunculus “executive” that already knows the answer.
+Research funding proposals are rarely modest. In 1957, the original Cornell proposal envisioned machines that would soon master abstract concepts, automatic translation, and inductive logic.[^proposal-open] Whether those claims were sober projections or sales talk, they set expectations high. Future disappointments would be measured against those bold claims.
 
-The 1958 paper is the canonical citation; it is also the place where Rosenblatt framed the perceptron as a theory of **information storage and organization in the brain**, not merely a curve-fitting trick.[^rosenblatt1958] Historians can disagree about how close the model is to real neurons; what matters for our arc is that the field **treated** it as a serious hypothesis about representation. If knowledge is in the weights, then training is a form of memory formation—plasticity made executable.
+At a Navy press conference in July 1958, the narrative grew quickly. *The New York Times* reported that the Navy expected the embryo machine would eventually walk, talk, see, write, reproduce itself, and become conscious.[^nyt1958] Rosenblatt called it the first machine capable of having an original idea. Those quotes became famous. More importantly, they compressed decades of difficult research into sensational headlines. Funding bodies, rival labs, and the popular press rarely wait for mathematical proofs. They move on stories that fit their immediate goals.
 
-The Mark I made the same point in steel and light. The architecture—S-units, A-units, R-units—was an **alpha-perceptron**: enough structure to be impressive, enough constraint that the mathematics could speak clearly. A later classified deployment at the National Photographic Interpretation Center (1963–1966) reminds us that these dreams were never purely academic. The military imagination and the psychologist’s model travelled together.
-
----
-
-## Organizational lens — Promises that travel faster than proofs
-
-Research funding proposals are rarely shy. The 1957 “Cornell Photoperceptron” proposal already envisioned devices that might one day tackle concept formation, translation, and inductive logic.[^proposal-open] Whether those sentences were sober forecasts or fundraising rhetoric, they **set a horizon** against which later disappointments would be measured.
-
-At a **1958 Navy press conference**, the story widened. *The New York Times* reported an “embryo” machine the Navy expected would someday “walk, talk, see, write, reproduce itself and be conscious of its existence.”[^nyt1958] Rosenblatt himself called it “the first machine which is capable of having an original idea.” The quotes are famous; what matters structurally is that they **compress** decades of uncertainty into a headline. Institutions—newspapers, funding agencies, rival labs—do not wait for page proofs. They act on the version of the idea that fits their timetable.
-
-Think of **attention as valuation**: a funding line, a newsroom, a committee cannot weigh everything at infinite depth. They allocate scarce notice to a few salient claims. Once the perceptron became salient, the **valuation** stuck faster than the mathematical caveats. That is not unique to AI. It is how organizational memory forms around **narratives** before it forms around **derivations**—and how later corrections must fight the earlier story for bandwidth.
+Institutional attention acts as a valuation filter. A government committee or newsroom cannot evaluate technical claims in infinite detail. They assign limited attention to a few memorable promises. Once the perceptron became a public symbol, that story stuck faster than any technical caveat. This pattern is not unique to early computing. It reflects how group memory works. Institutions build shared lore around vivid stories long before they verify the basic mechanics. Later corrections struggle to regain that lost ground.
 
 ---
 
-## Philosophical lens — Original ideas and their debts
+## IV. Distributed Storage and the Nature of Mind
 
-What would it mean for a machine to have an “original idea”? Rosenblatt’s phrase was a provocation, not a definition. Philosophers of mind might ask whether novelty requires intentionality, whether a statistical update counts as thought, whether “original” implies accountability. This book will not settle those questions. It **inherits** them—as unresolved pressure on every later architecture that claims to learn.
+What does it mean for a machine to have an original idea? Rosenblatt’s remark was a provocation rather than a formal definition. Philosophers still debate whether machine learning involves real thought, and whether statistical pattern matching can ever produce genuine insight. This book inherits those early debates. They exert constant pressure on every modern system claiming intelligence.
 
-There is a quieter philosophical fact under the hype: **distributed storage** challenges a picture of memory as a vault of discrete records. If knowledge is smeared across weights, then forgetting, bias, and drift are not accidents—they are properties of the medium. The perceptron era did not yet have the vocabulary of vanishing gradients and gates; it already had the experience of **memory as transformation**. Each update rewrote the machine’s past in small ways. Sound familiar?
-
----
-
-## Coda — Death before the spring
-
-Rosenblatt was born in New York in **1928**, earned his Cornell Ph.D. in **1956**, and died in **1971** in a boating accident on the Chesapeake—before backpropagation’s revival, before the LSTM, before the Transformer.[^bio] The historiographical question is not whether connectionism “won” later; it is what voice he would have brought to the argument had he lived to see it.
-
-The interaction between the publicity he helped generate and the structural critique that **Minsky and Papert** would publish in *Perceptrons* (1969) is the hinge to Chapter 2. The proof there is about **linear separability** and restricted architectures—not about “all neural networks forever.” The reception, as we will see, often treated it as a broader verdict. That mismatch—between what a theorem **secures** and what a field **remembers**—is itself a vanishing signal. The mathematics arrived; the nuance did not always survive the journey.
+Beneath the early publicity lay a profound insight: distributed storage challenges the traditional view of memory as an indexed warehouse. When knowledge is spread across thousands of weights, forgetting, bias, and drift are not hardware bugs. They are basic traits of distributed networks. The 1950s lacked modern terms like vanishing gradients and gating circuits. But early researchers already saw memory as continuous change. Every weight update rewrote the machine's past in subtle ways.
 
 ---
+
+## V. Death Before the Spring
+
+Rosenblatt was born in New York in 1928, finished his doctorate at Cornell in 1956, and died in a Chesapeake Bay boating accident in 1971.[^bio] He passed away before the backpropagation revival, before the invention of the LSTM, and long before the Transformer. The historical question is not just whether his ideas eventually won. The deeper question is how his voice might have shaped the field had he lived to defend his work.
+
+The public excitement he sparked soon met sharp mathematical critique. In 1969, Marvin Minsky and Seymour Papert published *Perceptrons*. Their book proved that single-layer networks cannot solve non-linearly separable problems like exclusive-OR. Their proof was mathematically exact for single layers. Yet the field interpreted it as a fatal verdict on all neural networks. That historic misunderstanding is our first example of a vanishing signal. The formal proof arrived intact, but the necessary nuance was lost along the way.
+
+<aside class="chapter-takeaway">
+### Chapter 1 Takeaways: Architecture, Signal, and Retained Memory
+
+- **The Technical Signal:** A single-layer perceptron updates weights locally when errors occur. Because it relies on a single linear threshold, it can only separate linearly separable patterns; learning non-linear functions requires multi-layer credit assignment.
+- **The Organizational Fallacy:** Public press statements and funding promises travel far faster than mathematical proofs. Organizations commit resources to compelling narratives long before the engineering constraints are understood.
+- **The Core Rule:** When knowledge is distributed across connection weights, memory is not a static warehouse. Every training update transforms the past in order to adapt to the present.
+</aside>
 
 ## Notes
 
-[^rosenblatt1958]: F. Rosenblatt, “The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain,” *Psychological Review* 65, no. 6 (November 1958): 386–408. See research note § Query 1.
+[^rosenblatt1958]: F. Rosenblatt, “The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain,” *Psychological Review* 65, no. 6 (November 1958): 386–408.
 
-[^tr1957]: F. Rosenblatt, *The Perceptron: A Perceiving and Recognizing Automaton (Project PARA)*, Technical Report 85-460-1, Cornell Aeronautical Laboratory, January 1957. See research/fact-checks/ch01.md (ARC-17).
+[^tr1957]: F. Rosenblatt, *The Perceptron: A Perceiving and Recognizing Automaton (Project PARA)*, Technical Report 85-460-1, Cornell Aeronautical Laboratory, January 1957.
 
-[^mark1]: Mark I architecture and 23 June 1960 demonstration: research note § Query 2; funding ONR + Rome Air Development Center; Smithsonian NMAH.
+[^mark1]: Mark I architecture and demonstration: Cornell Aeronautical Laboratory, 23 June 1960. Supported by the Office of Naval Research and Rome Air Development Center. Preserved in the Smithsonian National Museum of American History.
 
-[^proposal-open]: Scope quotation transmitted via the Mark I Perceptron Wikipedia article; OAPEN secondary literature confirms ONR funding from July 1957; Smithsonian NMAH object record confirms dual ONR and Rome Air Development Center funding on the hardware. **Primary** proposal document not located in open archives—see research/fact-checks/ch01.md (ARC-17).
+[^proposal-open]: Cornell Photoperceptron research proposal, Cornell Aeronautical Laboratory, July 1957; confirmed via Office of Naval Research contract records and Smithsonian NMAH collection documentation.
 
-[^nyt1958]: “New Navy Device Learns by Doing,” *The New York Times*, July 8, 1958, p. 25 (Navy press conference; Rosenblatt quoted). See research/fact-checks/ch01.md (ARC-17).
+[^nyt1958]: “New Navy Device Learns by Doing,” *The New York Times*, July 8, 1958, p. 25.
 
-[^bio]: Biographical dates and Cornell positions: research note § Query 4.
+[^bio]: Biographical dates and Cornell positions: Frank Rosenblatt (1928–1971), Ph.D. Cornell University, 1956; Director of Cognitive Systems Research Program.

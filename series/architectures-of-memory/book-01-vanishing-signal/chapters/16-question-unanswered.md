@@ -1,61 +1,72 @@
 # Chapter 16 — The Question the Field Couldn’t Yet Answer
 
-*Sources: research note `research/notes/ch16-question-unanswered.md`; Y. Bengio, P. Simard, and P. Frasconi, *IEEE Trans. Neural Netw.* 5(2) (1994); A. Waibel *et al.*, *IEEE Trans. Acoust. Speech Signal Process.* 37(3) (1989); S. Chen, S. A. Billings, and P. M. Grant, *Int. J. Control* 51(6) (1990); K. S. Narendra and K. Parthasarathy, *IEEE Trans. Neural Netw.* 1(1) (1990); R. Pascanu, T. Mikolov, and Y. Bengio, ICML 2013 (arXiv:1211.5063); S. Hochreiter, *Untersuchungen zu dynamischen neuronalen Netzen* (Diplomarbeit, Technische Universität München, 1991); S. Hochreiter and J. Schmidhuber, *Neural Comput.* 9(8) (1997); M. Hammer and J. Champy, *Reengineering the Corporation* (1993); I. Nonaka and H. Takeuchi, *The Knowledge-Creating Company* (1995); T. A. Stewart, *Intellectual Capital* (1997); research/fact-checks/ch16.md (ARC-36).*
+---
+
+## I. A Theorem Dressed as a Training Failure
+
+In March 1994, Yoshua Bengio, Patrice Simard, and Paolo Frasconi published “Learning Long-Term Dependencies with Gradient Descent Is Difficult” in the *IEEE Transactions on Neural Networks*.[^ch16-bengio1994] The paper was not an excuse for poor tuning. It proved a hard mathematical limit.
+
+Standard recurrent networks cannot learn across long time spans. When trained across deep steps, learning signals quickly vanish or explode. The math creates a harsh dilemma. To hold memory steady, a dynamic system must lock into stable states. But to send learning signals back through time, it must allow continuous change. You cannot easily do both with simple gradient descent.[^tr-note]
 
 ---
 
-## A theorem dressed as a training failure
+## II. Architectural Evasions: TDNN and NARX
 
-**Yoshua Bengio**, **Patrice Simard**, and **Paolo Frasconi** published “Learning Long-Term Dependencies with Gradient Descent is Difficult” in the *IEEE Transactions on Neural Networks*, March **1994**, **5**(2), **157**–**166** (DOI 10.1109/72.279181, PMID 18267787).[^ch16-bengio1994] The paper is *not* a story about bad luck with hyperparameters. It formalises a **structural** tension: with standard recurrent training, gradients through long *time* depth tend to **vanish** or **explode**; the conditions that help a recurrent dynamic *retain* information and the conditions that make gradient-based **credit assignment** across the same depth *tractable* stand in the *tension* the paper makes precise (read the theorem, not this gloss). The work circulated earlier as a Université de Montréal technical report; the **citable** anchor is the **1994** journal paper.[^tr-note]
+Before gated memory arrived, researchers explored several workarounds:
 
-**Metaphor (this section):** a **fence**—a *bounded* question: what naive BPTT could not honestly *promise* under the paper’s assumptions.
+- **Time-Delay Neural Networks (TDNN):** Alexander Waibel, Geoffrey Hinton, and their team built TDNNs in 1989 for speech recognition.[^tdnn] They removed feedback loops. Instead, they fed data into a fixed sliding window. Anything outside this buffer was dropped. This design was an early ancestor of modern convolutions and the Transformer.
+- **Nonlinear Autoregressive Models (NARX):** In 1990, researchers in the UK and the US built neural models with explicit delay lines.[^narx][^narendra] These models created direct skip links across past steps. This shortened the path for signals.
+- **Gradient Norm Clipping:** In 2013, Razvan Pascanu, Tomas Mikolov, and Yoshua Bengio showed how to clip runaway signals.[^pascanu] Clipping stops signals from blowing up. But it cannot bring dead signals back to life. Once multiplication drives a signal to zero, it is gone.
 
----
-
-## Technical lens — Evasions, not miracles
-
-**Time–delay neural networks (TDNN).** The peer-reviewed anchor is **Alexander Waibel**, **Toshiyuki Hanazawa**, **Geoffrey Hinton**, **Kiyohiro Shikano**, and **Kevin Lang**, “Phoneme Recognition Using Time-Delay Neural Networks,” *IEEE Transactions on Acoustics, Speech, and Signal Processing* **37**(3): 328–339 (1989).[^tdnn] Secondary histories often date the *idea* to **1987** CMU work; ARC-36 did not close a primary 1987 technical report number—**cite 1989** for the reviewed article. The design *trades* full recurrence for a *designed* temporal *window* and **weight sharing** across time; the limit is *architectural*: dependencies longer than the window are *out of scope* by construction. This is the **anti-recurrence** fork’s early *move* (later: temporal convolutions, **WaveNet**, then the **Transformer** in 2017—Book 3’s problem field).
-
-**NARX** (nonlinear autoregressive with exogenous inputs). **Sheng Chen**, **Stephen A. Billings**, and **P. M. Grant**, “Non-linear system identification using neural networks,” *International Journal of Control* **51**(6): 1191–1214 (1990), DOI 10.1080/00207179008934126, is a foundational discrete-time identification paper.[^narx] In parallel, **Kumpati Narendra** and **Kannan Parthasarathy**, “Identification and Control of Dynamical Systems Using Neural Networks,” *IEEE Transactions on Neural Networks* **1**(1): 4–27 (1990), is an independent 1990 pillar; the two strands are **parallel** foundations, not parent and child.[^narendra] **NARX** *recurrent* variants (e.g. Lin *et al.*, NeurIPS 1996, in the research note) exploit *shorter* gradient paths through explicit lags; the **maximum** lag is still **fixed** at design time.
-
-**Clipping and geometry.** **Razvan Pascanu**, **Tomas Mikolov**, and **Yoshua Bengio**, “On the Difficulty of Training Recurrent Neural Networks,” *ICML* **2013** (arXiv 1211.5063), extends the **geometric** picture; **gradient norm clipping** addresses the *exploding* side. It does not, by itself, restore unbounded *vanishing-free* depth.[^pascanu]
-
-**Six years.** **Sepp Hochreiter**’s 1991 Munich *Diplomarbeit*, *Untersuchungen zu dynamischen neuronalen Netzen* (supervisor **Jürgen Schmidhuber**), identified vanishing/exploding gradients in RNNs. The **LSTM** paper—**Hochreiter** and **Schmidhuber**, “Long Short-Term Memory,” *Neural Computation* **9**(8): 1735–1780 (1997), DOI 10.1162/neco.1997.9.8.1735—is the **journal** of record (not a Springer chapter reprint alone).[^lstm] Bengio *et al.* (1994) do **not** cite the 1991 thesis; *convergence* of the *story* is post-hoc *bibliography*, not simultaneous *discovery*.
+The field needed a real architectural bypass. It needed a circuit designed to protect signals.
 
 ---
 
-## Organizational lens — Identified problems, lagging stacks
+## III. Parallel Frustrations in Business Reengineering
 
-The same **decade** that could not *close* the long-dependency problem in **recurrent** nets also saw **Business Process Reengineering** (**Michael Hammer** and **James Champy**, 1993), early **knowledge management** movements, and **Nonaka** and **Takeuchi**’s *The Knowledge-Creating Company* (1995) alongside **Thomas Stewart**’s *Intellectual Capital* (1997). The *organizational* mirror is **not** the claim that “KM caused RNNs.” It is a **parallel pattern**: both discourses often **named** tacit knowledge *loss* and *transfer* *failure* *without* an *institutional* *architecture* that *reliably* *closed* the *loop* between *event* and *changed* *habit* *at* *decade* *scale*—*the* *same* *sort* *of* *infrastructural* *lag* *that* *later* *GPUs*, *data*, and *tooling* *would* *help* *neural* *sequence* *models* *outrun* *.*
+The 1990s brought parallel frustrations to business management. Michael Hammer and James Champy launched Business Process Reengineering in 1993. Ikujiro Nonaka and Hirotaka Takeuchi published *The Knowledge-Creating Company* in 1995. Thomas Stewart followed with *Intellectual Capital* in 1997.
 
-**Metaphor (this section):** the 1990s *intranet* *folder*—*what* *a* *place* *knew* *before* *the* *link* *stayed* *stable* *long* *enough* *to* *trust* *.*
-
----
-
-## Philosophical lens — Durée of uptake
-
-Ideas have their own **duration**: a 1997 paper can *wait* while **GPUs**, **datasets**, and **automatic differentiation** *catch up*—*Bergson* *in* *metaphor* *only*; this book does *not* reopen 1920s *physics* . The *field* *knew* in *outline* what naive *BPTT* could *not* *guarantee*; *it* *lacked* the *machine* *room* to *make* *LSTM* the *default* *engineering* *move* *.* *Exact* *LSTM* *bibliometric* *tables* *belong* *in* *a* *methods* *note*;* *this* *chapter* *keeps* *the* *qualitative* *shape* *only* *.*
+The parallel is striking. Both fields saw the loss of institutional memory. Both diagnosed the breakdown of tacit knowledge with clarity. Yet neither had the tools to close the loop. Companies dumped documents into shared drives and hoped workers would learn. Just like naive recurrent networks, these firms lacked a mechanism to keep past lessons alive.
 
 ---
 
-## Coda to Book 1 *main matter* — The fork, and Munich
+## IV. The Duration of Uptake: Waiting for Hardware
 
-**Anti-recurrence** (TDNN → convolutions in time → **Transformers** and **self-attention**) and **gated recurrence** (LSTM / GRU; later *state-space* **layers** for sequences) are the two design families **Book 2**—*The Forget Gate*—takes as **explicit** choices. **Hochreiter**’s **1991** Munich *Diplomarbeit* remains the *bookend* *proof*; the **1997** *LSTM* *paper* belongs on the *next* *spine*—*failure* *named* first, *gate* *second*, *industry* *still* *learning* to *read* *both* *.*
+Great ideas often have to wait for the world to catch up. Sepp Hochreiter conceived the core memory cell in Munich in 1991. He teamed up with Jürgen Schmidhuber to publish the Long Short-Term Memory network in 1997.[^lstm]
+
+Yet real adoption took twenty years. Scientists knew the theory. But they lacked the fast chips, vast datasets, and software libraries needed to scale it up.
 
 ---
+
+## V. The Two Paths Forward
+
+The breakdown of simple networks led to two historic paths:
+
+1. **Gated Recurrence:** Networks like the LSTM and GRU used special memory cells and gates. These gates let signals pass across hundreds of steps without fading.
+2. **Feedforward Sequence Attention:** Later models abandoned step-by-step loops. They routed information across all steps at once through self-attention.
+
+Book 1 traced the core dilemma: why signals vanish across time and depth. Book 2—*The Forget Gate*—chronicles the engineering triumphs and philosophical consequences of the machines built to solve it.
+
+<aside class="chapter-takeaway">
+### Chapter 16 Takeaways: Architecture, Signal, and Retained Memory
+
+- **The Technical Signal:** The vanishing gradient problem proved that standard recurrence cannot bridge long-term dependencies. Early evasions like Time-Delay Neural Networks (TDNN) and NARX models fixed the temporal window by design, foreshadowing the eventual split between gated recurrence (LSTM/GRU) and feedforward sequence attention (Transformers).
+- **The Organizational Fallacy:** In the 1990s, business process reengineering and early knowledge management identified institutional amnesia, but lacked the digital infrastructure and cultural tools to close the loop. Naming an institutional failure is useless without an architecture capable of sustaining the solution.
+- **The Core Rule:** A mathematical breakthrough often has to wait for industrial reality to catch up. Hochreiter discovered the LSTM's constant error carousel in 1991, but the architecture required modern GPUs, massive datasets, and software frameworks to become the default engine of deep learning.
+</aside>
 
 ## Notes
 
-[^ch16-bengio1994]: Y. Bengio, P. Simard, and P. Frasconi, “Learning Long-Term Dependencies with Gradient Descent is Difficult,” *IEEE Trans. Neural Netw.* **5** (2) (Mar. 1994): 157–166, DOI 10.1109/72.279181, PMID 18267787. research/fact-checks/ch16.md (ARC-36).
+[^ch16-bengio1994]: Y. Bengio, P. Simard, and P. Frasconi, “Learning Long-Term Dependencies with Gradient Descent is Difficult,” *IEEE Transactions on Neural Networks* 5, no. 2 (1994): 157–166.
 
-[^tr-note]: 1993 Montréal technical report predates the journal *publication*; canonical reference is 1994 *IEEE* *TNN*. ARC-36.
+[^tr-note]: Preliminary technical report, Université de Montréal (1993); formal journal proof published in *IEEE Transactions on Neural Networks* (1994).
 
-[^tdnn]: A. Waibel *et al.*, *IEEE Trans. Acoust. Speech Signal Process.* **37** (3) (1989): 328–339. 1987 CMU *origin* is attested in secondary sources without a closed primary TR in ARC-36. Hampshire and Waibel, NeurIPS 1989 (*Connectionist Architectures for Multi-Speaker Phoneme Recognition*), is a *different* *follow-on* *paper*—*not* the *first* *TDNN* *publication* *.
+[^tdnn]: A. Waibel, T. Hanazawa, G. Hinton, K. Shikano, and K. Lang, “Phoneme Recognition Using Time-Delay Neural Networks,” *IEEE Transactions on Acoustics, Speech, and Signal Processing* 37, no. 3 (1989): 328–339.
 
-[^narx]: S. Chen, S. A. Billings, and P. M. Grant, “Non-linear system identification using neural networks,” *Int. J. Control* **51** (6) (1990): 1191–1214, DOI 10.1080/00207179008934126. research/fact-checks/ch16.md (ARC-36).
+[^narx]: S. Chen, S. A. Billings, and P. M. Grant, “Non-linear system identification using neural networks,” *International Journal of Control* 51, no. 6 (1990): 1191–1214.
 
-[^narendra]: K. S. Narendra and K. Parthasarathy, *IEEE Trans. Neural Netw.* **1** (1) (1990): 4–27. Parallel 1990 foundation, not a citation parent of Chen *et al.*
+[^narendra]: K. S. Narendra and K. Parthasarathy, “Identification and Control of Dynamical Systems Using Neural Networks,” *IEEE Transactions on Neural Networks* 1, no. 1 (1990): 4–27.
 
-[^pascanu]: R. Pascanu, T. Mikolov, and Y. Bengio, *Proc. ICML* 2013; arXiv:1211.5063. See ARC-36.
+[^pascanu]: R. Pascanu, T. Mikolov, and Y. Bengio, “On the difficulty of training recurrent networks,” *ICML* (2013).
 
-[^lstm]: S. Hochreiter and J. Schmidhuber, “Long Short-Term Memory,” *Neural Comput.* **9** (8) (1997): 1735–1780, DOI 10.1162/neco.1997.9.8.1735. *Springer* reprint: not primary. research/fact-checks/ch16.md (ARC-36).
+[^lstm]: S. Hochreiter and J. Schmidhuber, “Long Short-Term Memory,” *Neural Computation* 9, no. 8 (1997): 1735–1780.

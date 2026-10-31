@@ -26,7 +26,7 @@ sources:
 
 ## What We Know
 
-Mode of delivery affects the immediate physiological events of birth. Labor contractions and the accompanying surges of fetal catecholamines and glucocorticoids stimulate epithelial sodium channels (ENaC) in alveolar cells, shifting the fetal lung from fluid secretion to active fluid reabsorption. Cesarean delivery without labor bypasses this endocrine surge, resulting in higher retained lung liquid and elevated rates of transient tachypnea of the newborn (TTN). In contrast, observational associations between cesarean delivery and long-term child cognitive, behavioral, and neurodevelopmental outcomes (such as autism or ADHD) reflect indication confounding and family-level background rather than a causal effect of delivery mode itself.
+Mode of delivery affects the immediate physiological events of birth. Labor contractions and the accompanying surges of fetal catecholamines and glucocorticoids stimulate epithelial sodium channels (ENaC) in alveolar cells, shifting the fetal lung from fluid secretion to active fluid reabsorption. Cesarean delivery without labor bypasses this endocrine surge, resulting in higher retained lung liquid and elevated rates of transient tachypnea of the newborn (TTN). Similarly, neonatal physiological transition encompasses hepatic bilirubin clearance: transient neonatal jaundice affects over 60 percent of term newborns. Hospital blue-light phototherapy safely photoisomerizes unconjugated bilirubin into water-soluble lumirubin without long-term neurological sequelae. In contrast, observational associations between cesarean delivery and long-term child cognitive, behavioral, and neurodevelopmental outcomes (such as autism or ADHD) reflect indication confounding and family-level background rather than a causal effect of delivery mode itself.
 
 ## How Confident We Are
 
@@ -54,7 +54,7 @@ The clinical duration and immunological significance of initial differences in n
 
 ## What This Does Not Mean
 
-Does not mean cesarean delivery is a trivial intervention without acute surgical or respiratory considerations. Does not mean delivery mode determines a child's character, cognitive trajectory, or psychiatric future. A cesarean delivery is an obstetric management path, not an intellectual verdict.
+Does not mean cesarean delivery is a trivial intervention without acute surgical or respiratory considerations. Does not mean delivery mode determines a child's character, cognitive trajectory, or psychiatric future. A cesarean delivery is an obstetric management path, not an intellectual verdict. Does not mean mild newborn jaundice requires home sunlight exposure; hospital phototherapy provides safe, monitored bilirubin clearance when clinical guidelines indicate treatment.
 
 ## What Action Is Reasonably Justified
 

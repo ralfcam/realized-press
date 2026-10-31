@@ -1,0 +1,1022 @@
+{
+  "chapter": "01-before-the-child-is-born",
+  "total_duration_sec": 1106.422,
+  "sample_rate": 24000,
+  "bytes_per_second": 48000,
+  "chunks": [
+    {
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 3.901,
+      "duration_sec": 3.901,
+      "pcm_bytes": 187246,
+      "block_range": [
+        "b-000",
+        "b-000"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "start_sec": 3.901,
+      "end_sec": 10.972,
+      "duration_sec": 7.071,
+      "pcm_bytes": 339406,
+      "block_range": [
+        "b-001",
+        "b-001"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "start_sec": 10.972,
+      "end_sec": 15.483,
+      "duration_sec": 4.511,
+      "pcm_bytes": 216526,
+      "block_range": [
+        "b-002",
+        "b-002"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "start_sec": 15.483,
+      "end_sec": 41.514,
+      "duration_sec": 26.031,
+      "pcm_bytes": 1249486,
+      "block_range": [
+        "b-003",
+        "b-003"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "start_sec": 41.514,
+      "end_sec": 74.425,
+      "duration_sec": 32.911,
+      "pcm_bytes": 1579726,
+      "block_range": [
+        "b-004",
+        "b-004"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "start_sec": 74.425,
+      "end_sec": 100.016,
+      "duration_sec": 25.591,
+      "pcm_bytes": 1228366,
+      "block_range": [
+        "b-005",
+        "b-005"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "start_sec": 100.016,
+      "end_sec": 134.327,
+      "duration_sec": 34.311,
+      "pcm_bytes": 1646926,
+      "block_range": [
+        "b-006",
+        "b-006"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "start_sec": 134.327,
+      "end_sec": 140.588,
+      "duration_sec": 6.261,
+      "pcm_bytes": 300526,
+      "block_range": [
+        "b-007",
+        "b-007"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "start_sec": 140.588,
+      "end_sec": 154.219,
+      "duration_sec": 13.631,
+      "pcm_bytes": 654286,
+      "block_range": [
+        "b-008",
+        "b-008"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "start_sec": 154.219,
+      "end_sec": 174.13,
+      "duration_sec": 19.911,
+      "pcm_bytes": 955726,
+      "block_range": [
+        "b-009",
+        "b-009"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "start_sec": 174.13,
+      "end_sec": 221.721,
+      "duration_sec": 47.591,
+      "pcm_bytes": 2284366,
+      "block_range": [
+        "b-010",
+        "b-010"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "start_sec": 221.721,
+      "end_sec": 258.671,
+      "duration_sec": 36.951,
+      "pcm_bytes": 1773646,
+      "block_range": [
+        "b-011",
+        "b-011"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "start_sec": 258.671,
+      "end_sec": 291.742,
+      "duration_sec": 33.071,
+      "pcm_bytes": 1587406,
+      "block_range": [
+        "b-012",
+        "b-012"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "start_sec": 291.742,
+      "end_sec": 311.053,
+      "duration_sec": 19.311,
+      "pcm_bytes": 926926,
+      "block_range": [
+        "b-013",
+        "b-013"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "start_sec": 311.053,
+      "end_sec": 317.194,
+      "duration_sec": 6.141,
+      "pcm_bytes": 294766,
+      "block_range": [
+        "b-014",
+        "b-014"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "start_sec": 317.194,
+      "end_sec": 331.105,
+      "duration_sec": 13.911,
+      "pcm_bytes": 667726,
+      "block_range": [
+        "b-015",
+        "b-015"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "start_sec": 331.105,
+      "end_sec": 362.616,
+      "duration_sec": 31.511,
+      "pcm_bytes": 1512526,
+      "block_range": [
+        "b-016",
+        "b-016"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "start_sec": 362.616,
+      "end_sec": 410.047,
+      "duration_sec": 47.431,
+      "pcm_bytes": 2276686,
+      "block_range": [
+        "b-017",
+        "b-017"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "start_sec": 410.047,
+      "end_sec": 444.998,
+      "duration_sec": 34.951,
+      "pcm_bytes": 1677646,
+      "block_range": [
+        "b-018",
+        "b-018"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "start_sec": 444.998,
+      "end_sec": 459.189,
+      "duration_sec": 14.191,
+      "pcm_bytes": 681166,
+      "block_range": [
+        "b-019",
+        "b-019"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "start_sec": 459.189,
+      "end_sec": 464.65,
+      "duration_sec": 5.461,
+      "pcm_bytes": 262126,
+      "block_range": [
+        "b-020",
+        "b-020"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "start_sec": 464.65,
+      "end_sec": 496.721,
+      "duration_sec": 32.071,
+      "pcm_bytes": 1539406,
+      "block_range": [
+        "b-021",
+        "b-021"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "start_sec": 496.721,
+      "end_sec": 536.872,
+      "duration_sec": 40.151,
+      "pcm_bytes": 1927246,
+      "block_range": [
+        "b-022",
+        "b-022"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "start_sec": 536.872,
+      "end_sec": 595.023,
+      "duration_sec": 58.151,
+      "pcm_bytes": 2791246,
+      "block_range": [
+        "b-023",
+        "b-023"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "start_sec": 595.023,
+      "end_sec": 640.774,
+      "duration_sec": 45.751,
+      "pcm_bytes": 2196046,
+      "block_range": [
+        "b-024",
+        "b-024"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "start_sec": 640.774,
+      "end_sec": 708.205,
+      "duration_sec": 67.431,
+      "pcm_bytes": 3236686,
+      "block_range": [
+        "b-025",
+        "b-025"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "start_sec": 708.205,
+      "end_sec": 728.196,
+      "duration_sec": 19.991,
+      "pcm_bytes": 959566,
+      "block_range": [
+        "b-026",
+        "b-026"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "start_sec": 728.196,
+      "end_sec": 746.187,
+      "duration_sec": 17.991,
+      "pcm_bytes": 863566,
+      "block_range": [
+        "b-027",
+        "b-027"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "start_sec": 746.187,
+      "end_sec": 750.888,
+      "duration_sec": 4.701,
+      "pcm_bytes": 225646,
+      "block_range": [
+        "b-028",
+        "b-028"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "start_sec": 750.888,
+      "end_sec": 760.239,
+      "duration_sec": 9.351,
+      "pcm_bytes": 448846,
+      "block_range": [
+        "b-029",
+        "b-029"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "start_sec": 760.239,
+      "end_sec": 790.03,
+      "duration_sec": 29.791,
+      "pcm_bytes": 1429966,
+      "block_range": [
+        "b-030",
+        "b-030"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "start_sec": 790.03,
+      "end_sec": 828.781,
+      "duration_sec": 38.751,
+      "pcm_bytes": 1860046,
+      "block_range": [
+        "b-031",
+        "b-031"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "start_sec": 828.781,
+      "end_sec": 864.412,
+      "duration_sec": 35.631,
+      "pcm_bytes": 1710286,
+      "block_range": [
+        "b-032",
+        "b-032"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "start_sec": 864.412,
+      "end_sec": 889.483,
+      "duration_sec": 25.071,
+      "pcm_bytes": 1203406,
+      "block_range": [
+        "b-033",
+        "b-033"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "start_sec": 889.483,
+      "end_sec": 918.674,
+      "duration_sec": 29.191,
+      "pcm_bytes": 1401166,
+      "block_range": [
+        "b-034",
+        "b-034"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "start_sec": 918.674,
+      "end_sec": 922.255,
+      "duration_sec": 3.581,
+      "pcm_bytes": 171886,
+      "block_range": [
+        "b-035",
+        "b-035"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "start_sec": 922.255,
+      "end_sec": 936.245,
+      "duration_sec": 13.991,
+      "pcm_bytes": 671566,
+      "block_range": [
+        "b-036",
+        "b-036"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "start_sec": 936.245,
+      "end_sec": 970.796,
+      "duration_sec": 34.551,
+      "pcm_bytes": 1658446,
+      "block_range": [
+        "b-037",
+        "b-037"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "start_sec": 970.796,
+      "end_sec": 996.787,
+      "duration_sec": 25.991,
+      "pcm_bytes": 1247566,
+      "block_range": [
+        "b-038",
+        "b-038"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "start_sec": 996.787,
+      "end_sec": 1034.218,
+      "duration_sec": 37.431,
+      "pcm_bytes": 1796686,
+      "block_range": [
+        "b-039",
+        "b-039"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "start_sec": 1034.218,
+      "end_sec": 1063.729,
+      "duration_sec": 29.511,
+      "pcm_bytes": 1416526,
+      "block_range": [
+        "b-040",
+        "b-040"
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "start_sec": 1063.729,
+      "end_sec": 1069.28,
+      "duration_sec": 5.551,
+      "pcm_bytes": 266446,
+      "block_range": [
+        "b-041",
+        "b-041"
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "start_sec": 1069.28,
+      "end_sec": 1101.151,
+      "duration_sec": 31.871,
+      "pcm_bytes": 1529806,
+      "block_range": [
+        "b-042",
+        "b-042"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "start_sec": 1101.151,
+      "end_sec": 1106.422,
+      "duration_sec": 5.271,
+      "pcm_bytes": 253006,
+      "block_range": [
+        "b-043",
+        "b-043"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "b-000",
+      "tag": "h1",
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 3.901,
+      "words": 8,
+      "weight": 11,
+      "text": "Chapter 1 — Before the Child Is Born",
+      "start_ratio": 0.0,
+      "end_ratio": 0.0035
+    },
+    {
+      "id": "b-001",
+      "tag": "p",
+      "chunk_id": 2,
+      "start_sec": 3.901,
+      "end_sec": 10.972,
+      "words": 10,
+      "weight": 10,
+      "text": "Fertility, Parental Age, Folate, and What Pregnancy Stress Actually Does",
+      "start_ratio": 0.0035,
+      "end_ratio": 0.0099
+    },
+    {
+      "id": "b-002",
+      "tag": "p",
+      "chunk_id": 3,
+      "start_sec": 10.972,
+      "end_sec": 15.483,
+      "words": 10,
+      "weight": 10,
+      "text": "There is a moment when a child first becomes visible.",
+      "start_ratio": 0.0099,
+      "end_ratio": 0.014
+    },
+    {
+      "id": "b-003",
+      "tag": "p",
+      "chunk_id": 4,
+      "start_sec": 15.483,
+      "end_sec": 41.514,
+      "words": 74,
+      "weight": 74,
+      "text": "It may be the first ultrasound. A tiny flicker of light pulses on a dark screen, and a heartbeat is suddenly real. Or it may come weeks later: a kick beneath a resting hand, a paper printout curled at the edges, or a first sharp cry in a delivery room. We love these moments because they give life a clean starting line. A date goes onto a chart. A family story can officially begin.",
+      "start_ratio": 0.014,
+      "end_ratio": 0.0375
+    },
+    {
+      "id": "b-004",
+      "tag": "p",
+      "chunk_id": 5,
+      "start_sec": 41.514,
+      "end_sec": 74.425,
+      "words": 92,
+      "weight": 92,
+      "text": "Biology does not wait for that moment. By the time a heartbeat shows up on a screen, cells have already divided dozens of times. Tiny sheets of tissue have folded into early organs, and the beginnings of a brain and heart are already in place. A new organ, the placenta, is already trading oxygen and nutrients between two separate bloodstreams. Meanwhile, the adults who will welcome this baby are changing too—in their hormones, their brains, and their daily lives. The baby has not been born yet, but development is already well underway.",
+      "start_ratio": 0.0375,
+      "end_ratio": 0.0673
+    },
+    {
+      "id": "b-005",
+      "tag": "p",
+      "chunk_id": 6,
+      "start_sec": 74.425,
+      "end_sec": 100.016,
+      "words": 63,
+      "weight": 63,
+      "text": "That is the opening puzzle of this atlas. Beneath it lies a truth that is both simple and unsettling: a child’s environment begins before conception. Eggs and sperm carry a living history. Vitamins, everyday exposures, a mother’s or father’s age, and the conditions of daily life do not wait in the hallway for a positive pregnancy test. They are already in the room.",
+      "start_ratio": 0.0673,
+      "end_ratio": 0.0904
+    },
+    {
+      "id": "b-006",
+      "tag": "p",
+      "chunk_id": 7,
+      "start_sec": 100.016,
+      "end_sec": 134.327,
+      "words": 92,
+      "weight": 92,
+      "text": "Picture two future parents getting ready to have a baby. One starts taking a daily folic acid pill months before trying to get pregnant, because researchers found a seven-day window when a tiny vitamin prevents a major spinal defect. The other lies awake at two in the morning replaying every stressful deadline at work. She worries that ordinary stress is already leaving a permanent scar on a baby who does not yet exist. Both adults know that early conditions matter. Yet only one of them is acting on what science actually proves.",
+      "start_ratio": 0.0904,
+      "end_ratio": 0.1214
+    },
+    {
+      "id": "b-007",
+      "tag": "h2",
+      "chunk_id": 8,
+      "start_sec": 134.327,
+      "end_sec": 140.588,
+      "words": 9,
+      "weight": 11,
+      "text": "I. A Map Without Panic: Science, Interpretation, and Art",
+      "start_ratio": 0.1214,
+      "end_ratio": 0.1271
+    },
+    {
+      "id": "b-008",
+      "tag": "p",
+      "chunk_id": 9,
+      "start_sec": 140.588,
+      "end_sec": 154.219,
+      "words": 34,
+      "weight": 34,
+      "text": "Most parenting books start the story when the baby comes home from the hospital. Human biology starts the clock much earlier, inside the cells and daily lives of the parents before pregnancy even begins.",
+      "start_ratio": 0.1271,
+      "end_ratio": 0.1394
+    },
+    {
+      "id": "b-009",
+      "tag": "p",
+      "chunk_id": 10,
+      "start_sec": 154.219,
+      "end_sec": 174.13,
+      "words": 57,
+      "weight": 57,
+      "text": "Why do you need folic acid before you even know you are pregnant? Can everyday work stress or anxiety during pregnancy harm an unborn baby? How much does a father’s age at conception actually affect a baby’s health? When prospective parents search for answers at two in the morning, they usually run into one of two traps.",
+      "start_ratio": 0.1394,
+      "end_ratio": 0.1574
+    },
+    {
+      "id": "b-010",
+      "tag": "p",
+      "chunk_id": 11,
+      "start_sec": 174.13,
+      "end_sec": 221.721,
+      "words": 131,
+      "weight": 131,
+      "text": "If we start the clock too late and treat a newborn like a blank slate built at birth, we miss brief early windows that open and close in the first weeks after conception. That is the myth that nothing matters until we can see a baby on a monitor. On the other hand, if we read early biology the wrong way, we fall into the opposite trap: fatalism. We start to act as if a parent’s age, diet, or stressful month has already locked in a child’s future intelligence or personality. Between the myth of a blank slate and the trap of a fixed destiny lies what the evidence really supports: continuity without fate. Development starts early, but it stays buffered, flexible, and open to the love and care that follow.",
+      "start_ratio": 0.1574,
+      "end_ratio": 0.2004
+    },
+    {
+      "id": "b-011",
+      "tag": "p",
+      "chunk_id": 12,
+      "start_sec": 221.721,
+      "end_sec": 258.671,
+      "words": 97,
+      "weight": 97,
+      "text": "Reading this map clearly takes a shared agreement between writer and reader. Throughout this book, we will hold three different kinds of truth in view without mixing them up: science, interpretation, and art. Science names what researchers can observe, measure, test against control groups, and repeat. When strong trials or genetic studies back a claim, we say the evidence shows it. When several good studies point the same way, we say the evidence suggests it. And when a finding comes from simple surveys where family background blurs the picture, we say one thing is associated with another.",
+      "start_ratio": 0.2004,
+      "end_ratio": 0.2338
+    },
+    {
+      "id": "b-012",
+      "tag": "p",
+      "chunk_id": 13,
+      "start_sec": 258.671,
+      "end_sec": 291.742,
+      "words": 87,
+      "weight": 87,
+      "text": "Interpretation is the craft of asking what those numbers mean in real life. A tiny shift in average risk across ten thousand births is a real public health signal, but it is not a crystal ball for your child. Good interpretation always asks what a study cannot tell us before claiming what it does. Finally, art is the lived human part of parenting that no study can measure. It is the warmth, humor, patience, and personal judgment you bring to a specific child in your own home.",
+      "start_ratio": 0.2338,
+      "end_ratio": 0.2637
+    },
+    {
+      "id": "b-013",
+      "tag": "p",
+      "chunk_id": 14,
+      "start_sec": 291.742,
+      "end_sec": 311.053,
+      "words": 45,
+      "weight": 45,
+      "text": "When those three levels get mixed up, a weak correlation gets preached like a moral rule. Developmental science then turns into an exhausting guilt checklist. Keeping science, interpretation, and art distinct lets us look straight at the facts before birth without fear and without blame.",
+      "start_ratio": 0.2637,
+      "end_ratio": 0.2811
+    },
+    {
+      "id": "b-014",
+      "tag": "h2",
+      "chunk_id": 15,
+      "start_sec": 311.053,
+      "end_sec": 317.194,
+      "words": 9,
+      "weight": 11,
+      "text": "II. Eggs, Sperm, Parental Age, and the Epigenetic Myth",
+      "start_ratio": 0.2811,
+      "end_ratio": 0.2867
+    },
+    {
+      "id": "b-015",
+      "tag": "p",
+      "chunk_id": 16,
+      "start_sec": 317.194,
+      "end_sec": 331.105,
+      "words": 35,
+      "weight": 35,
+      "text": "That calm lens matters as soon as we look at eggs and sperm. Reproductive cells are not frozen digital files waiting on a shelf. They are living cells kept alive across decades of adult life.",
+      "start_ratio": 0.2867,
+      "end_ratio": 0.2993
+    },
+    {
+      "id": "b-016",
+      "tag": "p",
+      "chunk_id": 17,
+      "start_sec": 331.105,
+      "end_sec": 362.616,
+      "words": 87,
+      "weight": 87,
+      "text": "In men, the stem cells that make sperm divide over and over throughout adulthood. Every time a cell copies its DNA, there is a tiny chance of a spelling typo. When researcher Augustine Kong and his team sequenced the full DNA of Icelandic parents and their children, the data showed a clear clock. New genetic typos rise steadily with a father’s age at conception. They add about two tiny DNA changes for each extra year of the father’s life. At the cellular level, the clock is real.",
+      "start_ratio": 0.2993,
+      "end_ratio": 0.3277
+    },
+    {
+      "id": "b-017",
+      "tag": "p",
+      "chunk_id": 18,
+      "start_sec": 362.616,
+      "end_sec": 410.047,
+      "words": 134,
+      "weight": 134,
+      "text": "What does that cellular clock mean for an actual family? Across large populations, studies report that having an older father is associated with a small rise in the relative risk of certain rare developmental conditions. Yet for an individual child, the actual chance of those conditions stays very low. Even more important, when scientists compare brothers and sisters born to the same parents at different ages, much of that risk turns out to come from shared family traits and social background. Two extra DNA typos out of three billion letters is a fact about cell division. It is not a forecast of your child’s mind. And in real life, waiting a few years to have a child often brings steadier income, deeper patience, and a stronger partnership. All of those help a child thrive.",
+      "start_ratio": 0.3277,
+      "end_ratio": 0.3706
+    },
+    {
+      "id": "b-018",
+      "tag": "p",
+      "chunk_id": 19,
+      "start_sec": 410.047,
+      "end_sec": 444.998,
+      "words": 92,
+      "weight": 92,
+      "text": "A similar confusion surrounds a popular buzzword in parenting media: epigenetics. Inside our cells, tiny chemical tags sit on top of DNA and act like dimmer switches. They tell a cell which genes to turn on or off without changing the DNA code itself. Without these tags, a brain cell and a liver cell sharing the exact same DNA could never do different jobs. What is more, when eggs and sperm form—and again in the first days after fertilization—most of these chemical tags are wiped clean so the embryo can start fresh.",
+      "start_ratio": 0.3706,
+      "end_ratio": 0.4022
+    },
+    {
+      "id": "b-019",
+      "tag": "p",
+      "chunk_id": 20,
+      "start_sec": 444.998,
+      "end_sec": 459.189,
+      "words": 111,
+      "weight": 111,
+      "text": "In pop-science articles, however, “epigenetics” is often used as a story of parental blame. Parents are told that a hard autumn, a season of grief, or a stressful job chemically scars a future baby’s genes for life. Lab studies in animals and human tissues suggest that chemical gene tags play a real role as cells form and grow. Yet in human beings, claims that ordinary changes in a parent’s mood, diet, or daily stress write lasting behavioral scripts into a child’s DNA are associated with heavy family confounding and remain scientifically weak. These cellular switches evolved to help tissues do their jobs, not to keep a permanent score of parental guilt.",
+      "start_ratio": 0.4022,
+      "end_ratio": 0.415
+    },
+    {
+      "id": "b-020",
+      "tag": "h2",
+      "chunk_id": 21,
+      "start_sec": 459.189,
+      "end_sec": 464.65,
+      "words": 8,
+      "weight": 10,
+      "text": "III. Why Timing Matters: The Folic Acid Breakthrough",
+      "start_ratio": 0.415,
+      "end_ratio": 0.42
+    },
+    {
+      "id": "b-021",
+      "tag": "p",
+      "chunk_id": 22,
+      "start_sec": 464.65,
+      "end_sec": 496.721,
+      "words": 95,
+      "weight": 95,
+      "text": "Once an egg is fertilized, an embryo does not simply grow bigger like a balloon. It builds itself step by step on a strict schedule. First, the single cell divides into a tiny cluster. Next, the cluster folds into layers, and each layer begins to form specific organs. Only later, in the final months of pregnancy, does the fetus focus mainly on putting on weight. Because each week has its own job, an exposure that arrives while an organ is first folding into shape has a very different effect from one that arrives months later.",
+      "start_ratio": 0.42,
+      "end_ratio": 0.4489
+    },
+    {
+      "id": "b-022",
+      "tag": "p",
+      "chunk_id": 23,
+      "start_sec": 496.721,
+      "end_sec": 536.872,
+      "words": 107,
+      "weight": 107,
+      "text": "Nowhere is this step-by-step building clearer than in the fetal brain. Week by week, young nerve cells are born deep inside the brain, travel outward along tiny guide fibers, and stack themselves into the six layers of the outer cortex. This building sequence shows remarkable order across species. Yet birth is not the finish line for the brain. Birth simply moves an unfinished, fast-wiring brain out of the womb and into a world of light, voices, and human touch. Treating early brain growth as if it were an early IQ score confuses pouring the foundation of a house with the life that will be lived inside it.",
+      "start_ratio": 0.4489,
+      "end_ratio": 0.4852
+    },
+    {
+      "id": "b-023",
+      "tag": "p",
+      "chunk_id": 24,
+      "start_sec": 536.872,
+      "end_sec": 595.023,
+      "words": 147,
+      "weight": 147,
+      "text": "To see why timing matters so much—and where its power stops—look at the landmark trial that changed modern pregnancy care: Nicholas Wald’s 1991 Medical Research Council (MRC) Vitamin Study. For decades, doctors faced the heartbreak of neural tube defects such as spina bifida, where the early spine or skull fails to close completely. Health records showed that these birth defects were much more common in poorer regions and during winter months. Yet scientists argued fiercely over the cause. Was it general poverty, inherited genes, or one missing nutrient in the first weeks of pregnancy? For a long time, conventional medicine doubted that a simple vitamin pill could stop a major spinal birth defect. And when early surveys hinted that women who took vitamins had fewer affected babies, skeptics pointed out a huge flaw: women who bought vitamins on their own also had better diets and higher incomes.",
+      "start_ratio": 0.4852,
+      "end_ratio": 0.5378
+    },
+    {
+      "id": "b-024",
+      "tag": "p",
+      "chunk_id": 25,
+      "start_sec": 595.023,
+      "end_sec": 640.774,
+      "words": 119,
+      "weight": 119,
+      "text": "To settle the debate fairly, Wald and his team ran a strict randomized double-blind trial across thirty-three clinics in seven countries. They enrolled women who had already had a baby with a neural tube defect. Before these women got pregnant again, researchers randomly assigned them to take either four milligrams of folic acid a day, a mix of other vitamins, both, or neither. By 1991, the results were so clear that the safety board stopped the trial early. Taking folic acid cut repeat spinal defects by 72 percent. Follow-up trials and a major Cochrane review of five randomized trials covering 6,708 births confirmed this result with high certainty, showing that folic acid prevents more than two-thirds of these defects.",
+      "start_ratio": 0.5378,
+      "end_ratio": 0.5791
+    },
+    {
+      "id": "b-025",
+      "tag": "p",
+      "chunk_id": 26,
+      "start_sec": 640.774,
+      "end_sec": 708.205,
+      "words": 158,
+      "weight": 158,
+      "text": "Yet as countries began adding folic acid to bread flour, the wellness industry stretched the science far beyond the facts. Companies began selling expensive prenatal vitamin packs with promises of building smarter, calmer babies. More recently, marketing campaigns have stoked new fears around common genetic variations, telling women that their bodies cannot convert regular folic acid and urging them to buy costly “methylfolate” pills instead. The empirical trials tell a much firmer story. Every major randomized trial that proved spinal birth defects could be prevented—including Wald’s MRC trial and national food programs that cut spinal defects by more than two-thirds—used standard, affordable folic acid. Biochemical research confirms that women with common genetic variants still turn regular folic acid into active nourishment without trouble. Leading medical societies, including the American College of Obstetricians and Gynecologists, advise against commercial genetic testing for this enzyme and reaffirm that 400 micrograms of everyday folic acid protects every mother regardless of her genes.",
+      "start_ratio": 0.5791,
+      "end_ratio": 0.6401
+    },
+    {
+      "id": "b-026",
+      "tag": "p",
+      "chunk_id": 27,
+      "start_sec": 708.205,
+      "end_sec": 728.196,
+      "words": 72,
+      "weight": 72,
+      "text": "Follow-up research drew a sharp line around what Wald’s trial actually proved. The human neural tube zips shut between day twenty-one and day twenty-eight after conception—often before a woman even knows her period is late. Folic acid works because it supplies the exact raw material cells need during that seven-day zip-up window. Extra vitamin megadoses beyond folate do not share that proven power, and they do not raise a child’s later IQ.",
+      "start_ratio": 0.6401,
+      "end_ratio": 0.6582
+    },
+    {
+      "id": "b-027",
+      "tag": "p",
+      "chunk_id": 28,
+      "start_sec": 728.196,
+      "end_sec": 746.187,
+      "words": 43,
+      "weight": 43,
+      "text": "The lesson of folic acid cuts both ways. A narrow biological window can be real, fast, and preventable with a simple daily pill. At the same time, fixing a missing vitamin prevents a physical birth defect; it does not engineer a smarter child.",
+      "start_ratio": 0.6582,
+      "end_ratio": 0.6744
+    },
+    {
+      "id": "b-028",
+      "tag": "h2",
+      "chunk_id": 29,
+      "start_sec": 746.187,
+      "end_sec": 750.888,
+      "words": 9,
+      "weight": 11,
+      "text": "IV. Pregnancy Stress, the Placental Shield, and Shared Genes",
+      "start_ratio": 0.6744,
+      "end_ratio": 0.6787
+    },
+    {
+      "id": "b-029",
+      "tag": "p",
+      "chunk_id": 30,
+      "start_sec": 750.888,
+      "end_sec": 760.239,
+      "words": 24,
+      "weight": 24,
+      "text": "If folic acid shows where a targeted action works, the science on pregnancy stress shows where everyday worry runs far ahead of the facts.",
+      "start_ratio": 0.6787,
+      "end_ratio": 0.6871
+    },
+    {
+      "id": "b-030",
+      "tag": "p",
+      "chunk_id": 31,
+      "start_sec": 760.239,
+      "end_sec": 790.03,
+      "words": 75,
+      "weight": 75,
+      "text": "In popular advice, the link between a pregnant mother’s stress and her baby’s future is often told like a simple pipe. Work stress or worry raises the mother’s stress hormone, cortisol. Cortisol floods into the womb, rewires the baby’s brain, and leaves the child anxious for life. When scientists test this pipe step by step, however, they find two major roadblocks: a chemical shield in the placenta and the hidden role of shared family genes.",
+      "start_ratio": 0.6871,
+      "end_ratio": 0.714
+    },
+    {
+      "id": "b-031",
+      "tag": "p",
+      "chunk_id": 32,
+      "start_sec": 790.03,
+      "end_sec": 828.781,
+      "words": 105,
+      "weight": 105,
+      "text": "First, the mother’s blood and the baby’s blood do not mix freely. Between them sits the placenta, which acts as a smart filter rather than an open screen door. The outer layer of the placenta acts as a chemical shield. High-certainty physiological evidence shows that it produces a specialized enzyme that disarms most of a mother’s active stress hormone (cortisol), turning it into an inactive form before it ever reaches the baby’s blood. Severe illness or extreme deprivation can strain this shield. During normal days, however, its job is protective: it buffers the fetus from the ordinary ups and downs of a parent’s working life.",
+      "start_ratio": 0.714,
+      "end_ratio": 0.7491
+    },
+    {
+      "id": "b-032",
+      "tag": "p",
+      "chunk_id": 33,
+      "start_sec": 828.781,
+      "end_sec": 864.412,
+      "words": 105,
+      "weight": 105,
+      "text": "Second, what about large surveys that find that mothers who feel more anxious during pregnancy tend to have children who are slightly more anxious years later? Simple surveys cannot tell whether that link comes from stress hormones in the womb, shared genes passed from parent to child, or the ongoing stress of life after birth. To untangle those threads, researchers use clever family comparisons. They compare brothers and sisters when the mother felt stressed in one pregnancy but calm in the next. They also study children conceived through IVF using donor eggs, where the mother carrying the baby does not share genes with the child.",
+      "start_ratio": 0.7491,
+      "end_ratio": 0.7813
+    },
+    {
+      "id": "b-033",
+      "tag": "p",
+      "chunk_id": 34,
+      "start_sec": 864.412,
+      "end_sec": 889.483,
+      "words": 62,
+      "weight": 62,
+      "text": "Across these stronger family designs, the supposed womb effect of everyday pregnancy stress shrinks by more than half—often dropping close to zero once shared genetics and post-birth stress are taken into account. What looked in simple surveys like permanent womb damage turned out to be mostly shared family temperament and the strain of raising a child in a stressful environment after birth.",
+      "start_ratio": 0.7813,
+      "end_ratio": 0.8039
+    },
+    {
+      "id": "b-034",
+      "tag": "p",
+      "chunk_id": 35,
+      "start_sec": 889.483,
+      "end_sec": 918.674,
+      "words": 87,
+      "weight": 87,
+      "text": "Knowing what this research does not say is a huge relief. A hard month of grief, poor sleep, or deadlines during pregnancy is not a chemical sentence passed on your unborn baby. At the same time, the human art of care gives us a much better reason to support stressed parents right away. We care for an overwhelmed pregnant parent not because she is a fragile incubator whose hormones might hurt a future test score, but because she is a human being whose well-being matters right now.",
+      "start_ratio": 0.8039,
+      "end_ratio": 0.8303
+    },
+    {
+      "id": "b-035",
+      "tag": "h2",
+      "chunk_id": 36,
+      "start_sec": 918.674,
+      "end_sec": 922.255,
+      "words": 5,
+      "weight": 7,
+      "text": "V. How Parents Change Too",
+      "start_ratio": 0.8303,
+      "end_ratio": 0.8335
+    },
+    {
+      "id": "b-036",
+      "tag": "p",
+      "chunk_id": 37,
+      "start_sec": 922.255,
+      "end_sec": 936.245,
+      "words": 37,
+      "weight": 37,
+      "text": "As an embryo grows into a fetus, a quiet transformation is also happening on the adult side. Development before birth is never a solo act by the baby. It is the opening scene of a two-way relationship.",
+      "start_ratio": 0.8335,
+      "end_ratio": 0.8462
+    },
+    {
+      "id": "b-037",
+      "tag": "p",
+      "chunk_id": 38,
+      "start_sec": 936.245,
+      "end_sec": 970.796,
+      "words": 87,
+      "weight": 87,
+      "text": "Across pregnancy and the first months after birth, a mother’s brain goes through real physical remodeling. Brain scans that track women from before conception into motherhood suggest a coordinated trimming and tuning of gray matter in brain areas that read faces, emotions, and social cues. Tabloid headlines often mock these changes as “mommy brain” or mental fog. In reality, they look much like the brain tuning that happens in teenagers: the brain prunes away clutter so it can focus sharply on a baby’s cries, glances, and needs.",
+      "start_ratio": 0.8462,
+      "end_ratio": 0.8774
+    },
+    {
+      "id": "b-038",
+      "tag": "p",
+      "chunk_id": 39,
+      "start_sec": 970.796,
+      "end_sec": 996.787,
+      "words": 71,
+      "weight": 71,
+      "text": "This brain tuning is not limited to mothers who carry the pregnancy. Brain scans of first-time fathers before and after birth are associated with subtler changes in social and reward networks. The amount of change tracks how many hours the father spends caring for the baby hands-on. Becoming a parent is not an automatic instinct that switches on at delivery. It is a skill built in the brain through daily care.",
+      "start_ratio": 0.8774,
+      "end_ratio": 0.9009
+    },
+    {
+      "id": "b-039",
+      "tag": "p",
+      "chunk_id": 40,
+      "start_sec": 996.787,
+      "end_sec": 1034.218,
+      "words": 91,
+      "weight": 91,
+      "text": "Of course, parents do not rewire their brains in a vacuum. When researchers track couples across the birth of a first child, average relationship satisfaction often dips. Yet closer study suggests wide variety beneath that average. Many couples stay steady or grow closer, while sharp drops pile up where exhaustion, money trouble, and unfair housework collide. Zooming out further, World Health Organization reviews suggest that healthy beginnings depend on a wider community net. Clean air, safe food, good clinics, paid leave, and stable housing matter far more than solitary maternal perfection.",
+      "start_ratio": 0.9009,
+      "end_ratio": 0.9347
+    },
+    {
+      "id": "b-040",
+      "tag": "p",
+      "chunk_id": 41,
+      "start_sec": 1034.218,
+      "end_sec": 1063.729,
+      "words": 86,
+      "weight": 86,
+      "text": "Where does that leave us before a child is born? Parental health and timing shape the starting line, but a starting condition is never a final verdict. And while a daily folic acid pill is something an individual can take, no family can change air pollution, hospital quality, or work hours by willpower alone. In Chapter 2, we will step inside the womb to see how the fetus begins to hear, taste, and grow—and how dose and timing separate real pregnancy hazards from everyday false alarms.",
+      "start_ratio": 0.9347,
+      "end_ratio": 0.9614
+    },
+    {
+      "id": "b-041",
+      "tag": "p",
+      "chunk_id": 42,
+      "start_sec": 1063.729,
+      "end_sec": 1069.28,
+      "words": 17,
+      "weight": 17,
+      "text": "For now, we can step back into the dim exam room and look at the ultrasound screen.",
+      "start_ratio": 0.9614,
+      "end_ratio": 0.9664
+    },
+    {
+      "id": "b-042",
+      "tag": "p",
+      "chunk_id": 43,
+      "start_sec": 1069.28,
+      "end_sec": 1101.151,
+      "words": 83,
+      "weight": 83,
+      "text": "The small flicker of light has not changed. It beats at the same quick, steady pace. What has changed is how we read it. That pulse is neither the sudden creation of a life out of nothing when a camera finds it, nor the ticking of a fixed clock whose future is already locked in. It is an early milepost on a long road—shielded by biology, open to repair, and waiting for the imperfect, caring adults who are already changing to meet it.",
+      "start_ratio": 0.9664,
+      "end_ratio": 0.9952
+    },
+    {
+      "id": "b-043",
+      "tag": "p",
+      "chunk_id": 44,
+      "start_sec": 1101.151,
+      "end_sec": 1106.422,
+      "words": 11,
+      "weight": 11,
+      "text": "The child is not yet born. The story is already underway.",
+      "start_ratio": 0.9952,
+      "end_ratio": 1.0
+    }
+  ]
+}
