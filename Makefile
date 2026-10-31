@@ -106,6 +106,11 @@ market-intel-kdp:
 market-intel-ads:
 	$(PYTHON) scripts/marketing_intelligence.py --export-amazon-ads dist/kdp_ads_campaign.csv $(if $(strip $(SERIES)),--series $(strip $(SERIES)),)
 
+market-intel-charts: ## Export static 4-panel PNG and vector SVG analytics decks to dist/analytics/ (ARC-80)
+	$(PYTHON) scripts/marketing_intelligence.py --export-charts dist/analytics/parenthood-atlas --series parenthood-atlas
+	$(PYTHON) scripts/marketing_intelligence.py --export-charts dist/analytics/parenthood-atlas-es --series parenthood-atlas/i18n/es --lang es
+	$(PYTHON) scripts/marketing_intelligence.py --export-charts dist/analytics/architectures-of-memory --series architectures-of-memory
+
 test:
 	$(PYTHON) -m pytest tests/
 

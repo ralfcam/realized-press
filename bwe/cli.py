@@ -64,9 +64,10 @@ def intelligence(
     write_series_yaml: bool = typer.Option(False, "--write-series-yaml", help="Write proposed KDP 7 boxes directly into series.yaml in-place (ARC-78)"),
     lang: str = typer.Option(None, "--lang", help="Explicit language override ('en', 'es', 'fr') (ARC-78)"),
     export_amazon_ads: str = typer.Option(None, "--export-amazon-ads", help="Path to export Amazon Advertising (Sponsored Products) bulk upload CSV"),
+    export_charts: str = typer.Option(None, "--export-charts", help="Export static 4-panel PNG and SVG analytics decks to output directory (ARC-80)"),
     dry_run: bool = typer.Option(False, "--dry-run", help="Do not write the seed CSV or series.yaml"),
 ):
-    """ARC-58 / ARC-72 / ARC-73 / ARC-78: Run Marketing Intelligence, Keyword Demand Telemetry & KDP Optimizer."""
+    """ARC-58 / ARC-72 / ARC-73 / ARC-78 / ARC-80: Run Marketing Intelligence, Keyword Demand Telemetry, Analytics Deck & KDP Optimizer."""
     cmd = [sys.executable, str(REPO_ROOT / "scripts" / "marketing_intelligence.py")]
     if discover:
         cmd.extend(["--discover", discover])
@@ -88,6 +89,8 @@ def intelligence(
         cmd.extend(["--lang", lang])
     if export_amazon_ads:
         cmd.extend(["--export-amazon-ads", export_amazon_ads])
+    if export_charts:
+        cmd.extend(["--export-charts", export_charts])
     if dry_run:
         cmd.append("--dry-run")
     rc = subprocess.call(cmd)

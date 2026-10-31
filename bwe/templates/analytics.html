@@ -1,0 +1,273 @@
+<!-- bwe/templates/analytics.html: BWE Editorial Analytics & Demand Telemetry Dashboard (ARC-80) -->
+<!DOCTYPE html>
+<html lang="en" class="bg-stone-950 text-stone-100 antialiased">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0c0a09">
+  <title>Editorial Analytics & Demand Telemetry — Realized Press BWE</title>
+  <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.14.8/dist/cdn.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .deck-container {
+      background-color: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+    }
+    .deck-container img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-stone-950">
+
+  {% set active_tab = "analytics" %}
+  {% include "partials/nav.html" %}
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    
+    <!-- Header Section -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-800 pb-6">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
+            BWE v0.8.0
+          </span>
+          <span class="text-xs font-mono text-stone-400">Marketing Intelligence &amp; Epistemic Telemetry</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-serif font-bold text-stone-100 mt-2">
+          Series Editorial Analytics &amp; Demand Decks
+        </h1>
+        <p class="text-sm text-stone-400 mt-1 max-w-3xl">
+          Quantitative telemetry synthesizing verified Google Ads / GKP search volume, Gini inequality, BM25 chapter coverage quadrants, commercial intent CPC ceilings, and primary bibliographic velocity.
+        </p>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="/ide" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-stone-900 border border-stone-800 text-xs font-mono text-stone-300 hover:text-stone-100 hover:bg-stone-800 transition">
+          Epistemic IDE ↗
+        </a>
+        <a href="https://linear.app/realized/issue/ARC-80" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs font-mono text-amber-300 hover:bg-amber-500/20 transition">
+          Linear ARC-80 ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- Series Switcher Tabs -->
+    <div class="flex items-center gap-2 border-b border-stone-800 pb-2 overflow-x-auto">
+      <button hx-get="/hx/analytics/overview?series=parenthood-atlas"
+              hx-target="#analytics-content"
+              hx-push-url="/analytics?series=parenthood-atlas"
+              class="px-4 py-2.5 rounded-lg text-xs font-mono transition flex items-center gap-2 {% if series_slug == 'parenthood-atlas' %}bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-200 hover:bg-stone-900 border border-transparent{% endif %}">
+        <span class="w-2 h-2 rounded-full {% if series_slug == 'parenthood-atlas' %}bg-amber-400{% else %}bg-stone-600{% endif %}"></span>
+        <span>Parenthood: The Atlas (English)</span>
+      </button>
+
+      <button hx-get="/hx/analytics/overview?series=parenthood-atlas/i18n/es&lang=es"
+              hx-target="#analytics-content"
+              hx-push-url="/analytics?series=parenthood-atlas/i18n/es"
+              class="px-4 py-2.5 rounded-lg text-xs font-mono transition flex items-center gap-2 {% if series_slug == 'parenthood-atlas/i18n/es' %}bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-200 hover:bg-stone-900 border border-transparent{% endif %}">
+        <span class="w-2 h-2 rounded-full {% if series_slug == 'parenthood-atlas/i18n/es' %}bg-amber-400{% else %}bg-stone-600{% endif %}"></span>
+        <span>Parenthood: The Atlas (Spanish)</span>
+      </button>
+
+      <button hx-get="/hx/analytics/overview?series=architectures-of-memory"
+              hx-target="#analytics-content"
+              hx-push-url="/analytics?series=architectures-of-memory"
+              class="px-4 py-2.5 rounded-lg text-xs font-mono transition flex items-center gap-2 {% if series_slug == 'architectures-of-memory' %}bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-200 hover:bg-stone-900 border border-transparent{% endif %}">
+        <span class="w-2 h-2 rounded-full {% if series_slug == 'architectures-of-memory' %}bg-amber-400{% else %}bg-stone-600{% endif %}"></span>
+        <span>Architectures of Memory (5 Volumes)</span>
+      </button>
+    </div>
+
+    <!-- Main Content Swappable Container -->
+    <div id="analytics-content">
+      {% block overview %}
+      <div class="space-y-8">
+        
+        <!-- KPI Metrics Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          
+          <div class="bg-stone-900/80 border border-stone-800 rounded-xl p-4">
+            <span class="text-[11px] font-mono text-stone-400 uppercase tracking-wider block">Total Demand Reach</span>
+            <div class="mt-2 flex items-baseline gap-2">
+              <span class="text-2xl font-bold font-mono text-stone-100">{{ "{:,}".format(data.combined_volume) }}</span>
+              <span class="text-xs font-mono text-stone-400">/ mo</span>
+            </div>
+            <span class="text-[11px] font-mono text-stone-400 mt-1 block">
+              {{ data.total_clusters }} canonical clusters
+            </span>
+          </div>
+
+          <div class="bg-stone-900/80 border border-stone-800 rounded-xl p-4">
+            <span class="text-[11px] font-mono text-stone-400 uppercase tracking-wider block">GKP Verified Share</span>
+            <div class="mt-2 flex items-baseline gap-2">
+              <span class="text-2xl font-bold font-mono text-emerald-400">{{ data.verified_clusters_pct }}%</span>
+              <span class="text-xs font-mono text-stone-400">clusters</span>
+            </div>
+            <span class="text-[11px] font-mono text-stone-400 mt-1 block">
+              {{ data.verified_clusters }} / {{ data.total_clusters }} verified
+            </span>
+          </div>
+
+          <div class="bg-stone-900/80 border border-stone-800 rounded-xl p-4">
+            <span class="text-[11px] font-mono text-stone-400 uppercase tracking-wider block">Demand Equality</span>
+            <div class="mt-2 flex items-baseline gap-2">
+              <span class="text-2xl font-bold font-mono text-amber-300">{{ data.gini_verified }}</span>
+              <span class="text-xs font-mono text-stone-400">Gini</span>
+            </div>
+            <span class="text-[11px] font-mono text-stone-400 mt-1 block">
+              HHI: {{ "{:,.0f}".format(data.hhi_verified) }} (diversified)
+            </span>
+          </div>
+
+          <div class="bg-stone-900/80 border border-stone-800 rounded-xl p-4">
+            <span class="text-[11px] font-mono text-stone-400 uppercase tracking-wider block">Bibliographic Velocity</span>
+            <div class="mt-2 flex items-baseline gap-2">
+              <span class="text-2xl font-bold font-mono text-sky-400">{{ data.bib_post_2015_pct }}%</span>
+              <span class="text-xs font-mono text-stone-400">≥ 2015</span>
+            </div>
+            <span class="text-[11px] font-mono text-stone-400 mt-1 block">
+              {{ data.bib_count }} locked sources ({{ data.bib_post_2020_pct }}% ≥ 2020)
+            </span>
+          </div>
+
+          <div class="col-span-2 md:col-span-4 lg:col-span-1 bg-stone-900/80 border border-stone-800 rounded-xl p-4">
+            <span class="text-[11px] font-mono text-stone-400 uppercase tracking-wider block">KDP Box Capture</span>
+            <div class="mt-2 flex items-baseline gap-2">
+              <span class="text-2xl font-bold font-mono text-violet-400">{{ data.kdp_captured_pct }}%</span>
+              <span class="text-xs font-mono text-stone-400">volume</span>
+            </div>
+            <span class="text-[11px] font-mono text-stone-400 mt-1 block">
+              7 slots packed (≤49 B)
+            </span>
+          </div>
+
+        </div>
+
+        <!-- 4-Panel Publication Deck Container -->
+        <div class="bg-stone-900/80 border border-stone-800 rounded-xl p-5 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <h2 class="text-lg font-serif font-bold text-stone-100 flex items-center gap-2">
+                <span>Static 4-Panel Publication Deck</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-stone-800 text-stone-300 font-normal">300 DPI / Vector</span>
+              </h2>
+              <p class="text-xs font-mono text-stone-400 mt-0.5">
+                Panel A: Chapter Volume Distribution | Panel B: Gini Concentration | Panel C: BM25 Coverage Quadrants | Panel D: Bibliographic Velocity
+              </p>
+            </div>
+            
+            <div class="flex items-center gap-2">
+              <a href="/dist/analytics/{{ deck_dir }}/analytics_deck.png" target="_blank" class="px-3 py-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-xs font-mono text-stone-200 transition">
+                PNG (300 DPI) ↗
+              </a>
+              <a href="/dist/analytics/{{ deck_dir }}/analytics_deck.svg" target="_blank" class="px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-xs font-mono text-amber-300 border border-amber-500/30 transition">
+                Vector SVG ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Chart Rendering -->
+          <div class="deck-container">
+            <img src="/dist/analytics/{{ deck_dir }}/analytics_deck.svg" alt="4-Panel Editorial Analytics Deck for {{ series_slug }}" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Chapter / Volume Breakdown Table -->
+        <div class="bg-stone-900/80 border border-stone-800 rounded-xl overflow-hidden">
+          <div class="px-6 py-4 border-b border-stone-800 flex items-center justify-between">
+            <h3 class="text-base font-serif font-bold text-stone-100">
+              {% if data.is_aom %}Volume-Level Demand Telemetry{% else %}Chapter-Level Demand Telemetry{% endif %}
+            </h3>
+            <span class="text-xs font-mono text-stone-400">
+              Sorted in series sequence
+            </span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs font-mono">
+              <thead class="bg-stone-950/60 text-stone-400 border-b border-stone-800 uppercase tracking-wider text-[10px]">
+                <tr>
+                  <th class="py-3 px-4">{% if data.is_aom %}Volume{% else %}Chapter{% endif %}</th>
+                  <th class="py-3 px-4 text-right">Clusters</th>
+                  <th class="py-3 px-4 text-right">Verified</th>
+                  <th class="py-3 px-4 text-right">Total Vol</th>
+                  <th class="py-3 px-4 text-right">Verified Vol</th>
+                  <th class="py-3 px-4 text-right">Mean Vol</th>
+                  <th class="py-3 px-4 text-right">Max Vol</th>
+                  <th class="py-3 px-4 text-right">Max CPC</th>
+                  <th class="py-3 px-4 text-right">Opportunity</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-800/60">
+                {% for row in data.breakdown %}
+                <tr class="hover:bg-stone-800/40 transition">
+                  <td class="py-3 px-4 font-semibold text-stone-200">{{ row.label }}</td>
+                  <td class="py-3 px-4 text-right text-stone-300">{{ row.clusters }}</td>
+                  <td class="py-3 px-4 text-right text-emerald-400 font-semibold">{{ row.verified_clusters }}</td>
+                  <td class="py-3 px-4 text-right font-bold text-stone-100">{{ "{:,}".format(row.total_vol) }}</td>
+                  <td class="py-3 px-4 text-right text-emerald-300">{{ "{:,}".format(row.verified_vol) }}</td>
+                  <td class="py-3 px-4 text-right text-stone-400">{{ "{:,.0f}".format(row.mean_vol) }}</td>
+                  <td class="py-3 px-4 text-right text-amber-300">{{ "{:,}".format(row.max_vol) }}</td>
+                  <td class="py-3 px-4 text-right text-stone-300">${{ "{:.2f}".format(row.max_cpc) }}</td>
+                  <td class="py-3 px-4 text-right text-violet-300 font-semibold">{{ "{:,.0f}".format(row.opportunity_sum) }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- KDP 7 Backend Boxes Preview -->
+        <div class="bg-stone-900/80 border border-stone-800 rounded-xl p-5 space-y-4">
+          <div class="flex items-center justify-between border-b border-stone-800 pb-3">
+            <div>
+              <h3 class="text-base font-serif font-bold text-stone-100">
+                Amazon KDP 7 Backend Keyword Boxes (Packed &amp; Schema Validated)
+              </h3>
+              <p class="text-xs font-mono text-stone-400 mt-0.5">
+                Greedy pack prioritizing highest opportunity queries within Amazon's strict 49 UTF-8 byte per slot limit.
+              </p>
+            </div>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/30">
+              Captures {{ data.kdp_captured_pct }}% Demand
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+            {% for box in data.kdp_boxes %}
+            <div class="bg-stone-950/80 border border-stone-800 rounded-lg p-3 space-y-1">
+              <div class="flex items-center justify-between text-[11px] font-mono text-stone-400">
+                <span class="font-bold text-amber-400">Box {{ loop.index }}</span>
+                <span class="{% if box|length > 49 %}text-red-400 font-bold{% else %}text-emerald-400{% endif %}">
+                  {{ box.encode('utf-8')|length }} / 49 B
+                </span>
+              </div>
+              <p class="text-xs font-mono text-stone-200 break-words">
+                {{ box }}
+              </p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+      {% endblock %}
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-stone-800 py-6 text-center text-xs font-mono text-stone-500">
+    Realized Press BWE v0.8.0 &bull; Open Knowledge Format v0.2 &bull; Linear ARC-80
+  </footer>
+
+</body>
+</html>

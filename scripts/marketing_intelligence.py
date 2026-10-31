@@ -112,8 +112,15 @@ KDP_STOP_WORDS = BOX_STOPWORDS
 SERIES_DOMAIN_ANCHORS: dict[str, set[str]] = {
     "parenthood-atlas": {
         "baby", "babies", "infant", "infants", "toddler", "toddlers", "child", "children",
-        "prenatal", "pregnancy", "pregnant", "womb", "birth", "newborn", "sleep",
-        "breastfeeding", "formula", "feeding", "weaning", "tantrum", "potty", "daycare",
+        "prenatal", "pregnancy", "pregnant", "womb", "birth", "newborn", "newborns",
+        "neonatal", "neonate", "neonates", "fetus", "fetal", "trimester",
+        "folate", "folic", "methylfolate", "jaundice", "phototherapy", "bilirubin",
+        "plagiocephaly", "brachycephaly", "helmet", "month", "months", "regression",
+        "talker", "speech", "words", "autism", "purees", "allergenic", "allergy",
+        "seeding", "csection", "cesarean", "fussy", "fussiness", "colic",
+        "permissive", "gentle", "tantrum", "tantrums", "spanking", "timeout", "crawl", "crawling",
+        "tummy", "milestone", "milestones", "bilingual", "screen", "screens", "montessori",
+        "sleep", "breastfeeding", "formula", "feeding", "weaning", "potty", "daycare",
         "parent", "parenting", "mother", "father",
     },
     "architectures-of-memory": {
@@ -128,7 +135,7 @@ ALLOWED_SHORT_TOKENS: set[str] = {
 }
 
 NEGATIVE_TOKENS: set[str] = {
-    "office", "adult", "desktop", "commercial", "industrial", "enterprise software",
+    "office", "adult", "adults", "desktop", "commercial", "industrial", "enterprise software",
     "gaming", "headset", "reddit", "vtech", "pampers", "kaedah",
     # Local-service, hiring, coaching & agency intent (ARC-78)
     "near me", "in home", "night nurse", "hire", "consultant", "consultants",
@@ -161,6 +168,8 @@ SERIES_DOMAIN_ANCHORS_ES: set[str] = {
     "embarazo", "embarazada", "parto", "cesarea", "lactancia", "sueno", "dormir", "colecho", "blw",
     "rabietas", "berrinches", "apego", "crianza", "pantallas", "bilingue", "padres", "madre", "padre",
     "guarderia", "escuela", "infantil",
+    "plagiocefalia", "casco", "habla", "palabras", "esfinteres", "panal", "limites", "respetuosa",
+    "ictericia", "fototerapia", "folico", "cacahuate", "alergias", "papillas",
 }
 
 SERIES_DOMAIN_ANCHORS_FR: set[str] = {
@@ -359,13 +368,16 @@ def _extract_core_tokens(query: str) -> list[str]:
 
 
 def chapter_label(matched: Optional[str]) -> str:
-    """'04-regulatory-relationship' -> '04'; 'book-04-x/05-rag' -> 'B04.05'; None -> ''."""
+    """'04-regulatory-relationship' -> '04'; '04' -> '04'; 'book-04-x/05-rag' -> 'B04.05'; None -> ''."""
     if not matched:
         return ""
-    m = re.match(r"^(?:book-(\d+)-[^/]+/)?(\d+)-", matched)
-    if not m:
-        return ""
-    return f"B{m.group(1)}.{m.group(2)}" if m.group(1) else m.group(2)
+    if str(matched).isdigit():
+        return f"{int(matched):02d}"
+    m = re.search(r"(?:book-(\d+)[^/]*/)?(\d+)(?:-|$)", str(matched))
+    if m:
+        b_idx, ch_idx = m.group(1), m.group(2)
+        return f"B{int(b_idx):02d}.{int(ch_idx):02d}" if b_idx else f"{int(ch_idx):02d}"
+    return ""
 
 
 def _fmt_chapter(label: str) -> str:
@@ -382,6 +394,9 @@ def seed_csv_path(series_slug: str, root: Path = ROOT) -> Path:
         clean_slug = series_slug.replace("/", "_").replace("-", "_")
         name = f"gkp_{clean_slug}_seed.csv"
     return root / "data" / name
+
+
+resolve_seed_csv_path = seed_csv_path
 
 
 def _num(value: object, cast: Callable, default):
@@ -742,17 +757,18 @@ def import_gkp_export(
     comments, rows = read_seed_csv(csv_path) if csv_path.is_file() else ([], [])
     by_query = {normalize_query(r["query"]): r for r in rows}
 
-    # Step 1: Filter domain relevancy & group into canonical clusters
-    cluster_buckets: dict[str, list[EnrichedKeywordMetric]] = {}
-    for m in export.metrics:
-        q = normalize_query(m.query)
-        if not is_domain_relevant(q, series_slug, lang=lang):
-            filtered += 1
-            continue
-        sig = query_cluster_signature(q, lang=lang)
-        cluster_buckets.setdefault(sig, []).append(m)
-
     with bwedb.get_db() as conn:
+        # Step 1: Filter domain relevancy & group into canonical clusters (assisted by BM25 coverage)
+        cluster_buckets: dict[str, list[EnrichedKeywordMetric]] = {}
+        for m in export.metrics:
+            q = normalize_query(m.query)
+            cov = bwedb.bm25_coverage(conn, series_slug, _extract_core_tokens(q)[:8])
+            if not is_domain_relevant(q, series_slug, bm25_score=cov.combined, lang=lang):
+                filtered += 1
+                continue
+            sig = query_cluster_signature(q, lang=lang)
+            cluster_buckets.setdefault(sig, []).append(m)
+
         pass1_candidates = []
         for _sig, m_list in cluster_buckets.items():
             cluster_tuples = [(m.query, m.monthly_volume, m.cpc_high_usd, m.competition_index) for m in m_list]
@@ -851,7 +867,7 @@ def import_gkp_export(
 # ---------------------------------------------------------------------------
 
 def collect_signals(
-    csv_path: Optional[Path], series_slug: str
+    csv_path: Optional[Path], series_slug: str, lang: Optional[str] = None
 ) -> tuple[list[KeywordSignal], list[KeywordSignal]]:
     """Load seed + cache for a series and BM25-score it (returns signals, autocomplete candidates)."""
     bwedb.init_db(ROOT)
@@ -1641,6 +1657,7 @@ def main() -> int:
     parser.add_argument("--write-series-yaml", action="store_true", help="Write proposed KDP 7 boxes directly into series.yaml in-place (ARC-78)")
     parser.add_argument("--lang", default=None, help="Explicit language override ('en', 'es', 'fr') (ARC-78)")
     parser.add_argument("--export-amazon-ads", default=None, metavar="PATH", help="Export an Amazon Advertising (Sponsored Products) bulk upload CSV from covered demand")
+    parser.add_argument("--export-charts", default=None, metavar="DIR", help="Export static 4-panel PNG and SVG analytics decks to output directory (ARC-80)")
     parser.add_argument("--refresh", action="store_true", help="Ignore the Google Ads cache TTL and refetch")
     parser.add_argument("--cache-ttl-days", type=int, default=bwedb.DEFAULT_CACHE_TTL_DAYS, help="Google Ads cache TTL in days (default 30)")
     parser.add_argument("--gads-customer-id", default=None, help="Google Ads customer id (default: GOOGLE_ADS_CUSTOMER_ID)")
@@ -1652,6 +1669,14 @@ def main() -> int:
     if args.discover:
         print(discover_frontier_topics(args.discover, limit=args.limit))
         return 0
+
+    if args.export_charts:
+        from bwe.analytics import export_static_analytics_deck
+        series_slug = args.series or "parenthood-atlas"
+        res = export_static_analytics_deck(series_slug, Path(args.export_charts), root=repo_root(), lang=args.lang)
+        print(f"[analytics:export] Rendered static 4-panel analytics deck for {series_slug} -> {res['png']} & {res['svg']}")
+        if not any([args.keywords, args.fetch_live, args.expand_ideas, args.import_gkp_export, args.optimize_kdp_boxes, args.export_amazon_ads]):
+            return 0
 
     if any([args.keywords, args.fetch_live, args.expand_ideas, args.import_gkp_export, args.optimize_kdp_boxes, args.export_amazon_ads]):
         return run_keyword_mode(args)

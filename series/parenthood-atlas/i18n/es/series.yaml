@@ -107,12 +107,12 @@ monetization:
     # after importing a Spanish Keyword Planner export.
     backend_keywords:
       - "ferber sueno llanto dejar panal control baby led"
-      - "colecho seguro muerte esfinteres senales subita"
-      - "rabietas berrinches calmar pegan muerden limites"
-      - "pantallas retraso habla disciplina nalgadas dos"
-      - "introduccion cacahuate alergias weaning blw juego"
-      - "turnos conversacionales simbolico ficcion acido"
-      - "juguetes montessori folico antes embarazo tubo"
+      - "colecho seguro muerte esfinteres senales mi hijo"
+      - "subita lactante rabietas berrinches calmar dos"
+      - "pegan muerden limites pantallas retraso habla blw"
+      - "introduccion cacahuate alergias juego simbolico"
+      - "disciplina nalgadas turnos conversacionales acido"
+      - "ficcion juguetes montessori folico antes embarazo"
 
 books:
   - id: book-01-parenthood-atlas

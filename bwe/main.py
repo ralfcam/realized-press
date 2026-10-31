@@ -5,6 +5,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+from typing import Optional
 from fastapi import FastAPI, Form, HTTPException, Request
 from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
@@ -34,6 +35,11 @@ app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 # Mount documentation if present
 if (REPO_ROOT / "docs").exists():
     app.mount("/docs-static", StaticFiles(directory=str(REPO_ROOT / "docs")), name="docs")
+
+# Mount static analytics charts (ARC-80)
+DIST_ANALYTICS_DIR = REPO_ROOT / "dist" / "analytics"
+DIST_ANALYTICS_DIR.mkdir(parents=True, exist_ok=True)
+app.mount("/dist/analytics", StaticFiles(directory=str(DIST_ANALYTICS_DIR)), name="analytics_dist")
 
 # In-memory index of canonical media files for O(1) streaming
 AUDIO_CACHE: dict[str, Path] = {}
@@ -398,3 +404,58 @@ async def stream_tts_synthesis(series_slug: str, chapter_slug: str):
         yield f"event: tts-done\ndata: <span class='font-bold'>{status}</span>\n\n"
 
     return StreamingResponse(event_generator(), media_type="text/event-stream")
+
+
+@app.get("/analytics", response_class=HTMLResponse)
+async def view_analytics(request: Request, series: str = "parenthood-atlas", lang: Optional[str] = None):
+    """BWE v0.8.0 / ARC-80: Editorial Analytics & Demand Telemetry Dashboard."""
+    from bwe.analytics import compute_series_analytics, export_static_analytics_deck
+
+    deck_dir_map = {
+        "parenthood-atlas": "parenthood-atlas",
+        "parenthood-atlas/i18n/es": "parenthood-atlas-es",
+        "architectures-of-memory": "architectures-of-memory",
+    }
+    deck_dir = deck_dir_map.get(series, series.replace("/", "_").replace("-", "_"))
+    deck_target = DIST_ANALYTICS_DIR / deck_dir
+    if not (deck_target / "analytics_deck.svg").exists():
+        export_static_analytics_deck(series, deck_target, root=REPO_ROOT, lang=lang)
+
+    data = compute_series_analytics(series, root=REPO_ROOT, lang=lang)
+    return templates.TemplateResponse(
+        "analytics.html",
+        {
+            "request": request,
+            "series_slug": series,
+            "deck_dir": deck_dir,
+            "data": data,
+        },
+    )
+
+
+@app.get("/hx/analytics/overview", response_class=HTMLResponse)
+async def hx_analytics_overview(request: Request, series: str = "parenthood-atlas", lang: Optional[str] = None):
+    """HTMX sub-view for instant series switching on the analytics dashboard (ARC-80)."""
+    from bwe.analytics import compute_series_analytics, export_static_analytics_deck
+
+    deck_dir_map = {
+        "parenthood-atlas": "parenthood-atlas",
+        "parenthood-atlas/i18n/es": "parenthood-atlas-es",
+        "architectures-of-memory": "architectures-of-memory",
+    }
+    deck_dir = deck_dir_map.get(series, series.replace("/", "_").replace("-", "_"))
+    deck_target = DIST_ANALYTICS_DIR / deck_dir
+    if not (deck_target / "analytics_deck.svg").exists():
+        export_static_analytics_deck(series, deck_target, root=REPO_ROOT, lang=lang)
+
+    data = compute_series_analytics(series, root=REPO_ROOT, lang=lang)
+    return templates.TemplateResponse(
+        "analytics.html",
+        {
+            "request": request,
+            "series_slug": series,
+            "deck_dir": deck_dir,
+            "data": data,
+        },
+        block_name="overview",
+    )

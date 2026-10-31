@@ -224,6 +224,14 @@ def test_is_domain_relevant():
     assert is_domain_relevant("newborn safe sleep room sharing", "parenthood-atlas")
     assert is_domain_relevant("potty training 3 day method", "parenthood-atlas")
 
+    # ARC-80 regression: Age-window, speech, helmet, jaundice, and milestone queries without literal "baby"/"toddler"
+    assert is_domain_relevant("how many words at 18 months", "parenthood-atlas")
+    assert is_domain_relevant("plagiocephaly helmet", "parenthood-atlas")
+    assert is_domain_relevant("light therapy for jaundice in newborns", "parenthood-atlas")
+    assert is_domain_relevant("iron rich foods for 6 month old", "parenthood-atlas")
+    assert is_domain_relevant("late talker vs autism", "parenthood-atlas")
+    assert not is_domain_relevant("sleep training for adults", "parenthood-atlas")
+
     # Domain anchors for architectures-of-memory
     assert is_domain_relevant("lstm forget gate mechanism", "architectures-of-memory")
     assert is_domain_relevant("transformer multi head attention", "architectures-of-memory")
