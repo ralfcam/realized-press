@@ -1,26 +1,26 @@
-Publishing Extraction Verification — Parenthood Atlas
+Publishing Extraction Verification — Parenthood: The Atlas
 Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: parenthood-atlas-reader-edition.pdf
-SHA-256: 2bdb0dc410ff66566f6e0b148f8a5ff030d1e0c842efc668f2d2e1c7390750b5
-Bytes: 476,373
-Pages: 96 (96/96 nonblank)
+SHA-256: 55d7314b3ccf5aac7b1702d527dacea4602aa62dc2419c46a945cc3b087d4bd0
+Bytes: 492,203
+Pages: 98 (98/98 nonblank)
 
 Chapters:
 - PASS · PDF page 2 · How to Use This Atlas: 2:00 AM Quick-Finder
-- PASS · PDF page 5 · Chapter 1 — Before the Child Is Born
-- PASS · PDF page 11 · Chapter 2 — The First Environment
-- PASS · PDF page 18 · Chapter 3 — The Great Transition
-- PASS · PDF page 25 · Chapter 4 — The Regulatory Relationship
-- PASS · PDF page 32 · Chapter 5 — Becoming a Mind
-- PASS · PDF page 38 · Chapter 6 — The Mind in Motion
-- PASS · PDF page 44 · Chapter 7 — The Birth of Language
-- PASS · PDF page 50 · Chapter 8 — The Expanding World
-- PASS · PDF page 56 · Chapter 9 — The Emotional Revolution
-- PASS · PDF page 62 · Chapter 10 — Boundaries, Behavior, and the First Rules
-- PASS · PDF page 68 · Chapter 11 — The Developing Executive
-- PASS · PDF page 74 · Chapter 12 — Play, Imagination, and Meaning
-- PASS · PDF page 80 · Chapter 13 — The Ecology of Development
-- PASS · PDF page 85 · Chapter 14 — What Actually Works?
-- PASS · PDF page 91 · Chapter 15 — Three Years: What Has Been Built?
+- PASS · PDF page 6 · Chapter 1 — Before the Child Is Born
+- PASS · PDF page 12 · Chapter 2 — The First Environment
+- PASS · PDF page 19 · Chapter 3 — The Great Transition
+- PASS · PDF page 26 · Chapter 4 — The Regulatory Relationship
+- PASS · PDF page 33 · Chapter 5 — Becoming a Mind
+- PASS · PDF page 39 · Chapter 6 — The Mind in Motion
+- PASS · PDF page 45 · Chapter 7 — The Birth of Language
+- PASS · PDF page 52 · Chapter 8 — The Expanding World
+- PASS · PDF page 58 · Chapter 9 — The Emotional Revolution
+- PASS · PDF page 64 · Chapter 10 — Boundaries, Behavior, and the First Rules
+- PASS · PDF page 70 · Chapter 11 — The Developing Executive
+- PASS · PDF page 76 · Chapter 12 — Play, Imagination, and Meaning
+- PASS · PDF page 82 · Chapter 13 — The Ecology of Development
+- PASS · PDF page 87 · Chapter 14 — What Actually Works?
+- PASS · PDF page 93 · Chapter 15 — Three Years: What Has Been Built?

@@ -41,6 +41,8 @@ Even more striking, researchers tested babies in both postures within the exact 
 
 As Karen Adolph and Justine Hoch showed, each new posture sends ripples across every part of a child's life.[^ch06-embodied-action] When a six-month-old masters sitting up without propping on her hands, both hands are suddenly free. Now she can turn toys around, feel shapes while looking at them, and bang two blocks together. When a baby shifts from crawling on hands and knees to walking upright, her view lifts from the carpet to the whole room. Her hands are free to carry toys across the rug to share with a parent, sparking richer conversations. Still, careful causal thinking draws a firm line around the calendar. In healthy babies, the exact month a child first sits, crawls, or walks varies widely across normal kids and has **near-zero link** to adult intelligence or school grades.[^ch06-embodied-action] Putting a baby in a wheeled walker (which actually delays walking and causes stair injuries) or bragging about an early walker treats exploration like a race.
 
+That same developmental freedom explains why panic over infant flat spots—and the expensive custom helmets sold to fix them—relies on a misunderstanding of how babies grow. Because safe sleep guidelines keep babies on their backs, many infants develop a flat spot on the head by four months. Commercial clinics often urge parents to buy a three-thousand-dollar rigid shaping helmet, warning that the skull will harden permanently without it. Yet a landmark randomized trial testing helmet therapy against simple watchful waiting showed zero added benefit by age two.[^ch06-vanwijk-2014] Wearing a plastic shell twenty-three hours a day produced almost identical skull rounding to letting babies sit, roll, and crawl freely. Every infant in the helmet group suffered skin sores, sweat rash, or odor. Once upright milestones lift pressure off the skull, natural growth reshapes the head without costly gear. A pediatrician need only confirm that rare fused skull bones are not the cause.
+
 ## III. Where Prediction Fails: Surprise, Sampling, and Causal Steps
 
 As a moving baby explores toys across the living room rug, how do expectations in the mind guide what the hands do next?
@@ -100,11 +102,13 @@ Neither child has changed because we have mapped sloping ramps, physics tricks, 
 [^ch06-causal-progression]: **Grade: Moderate** for the five-step developmental progression from statistical regularity detection and prediction to operant contingency, active intervention, and differentiated causal representation in the second year; **Grade: Low** for inferring verbal-like mechanical explanations from infant gaze or button-pressing alone.
 [^ch06-deferred-imitation]: **Grade: High** for deferred imitation of novel goal-directed actions (such as Meltzoff's 1988 forehead light-panel task and Gergely et al.'s rational imitation constraints) in 14-month-old toddlers after a 1-week delay (Meltzoff 1988; Barr, Dowden & Hayne 1996); **Grade: Low** for contested neonatal facial imitation or formal home imitation drilling. Evidence Card: `evidence-cards/deferred-imitation.md`.
 [^ch06-fragile-control]: **Grade: Moderate** that repeated sensorimotor problem-solving supports emerging working memory and inhibitory control; **Grade: Low** that infant motor-puzzle persistence forecasts school-age executive function or adult willpower.
+[^ch06-vanwijk-2014]: **Grade: High** that custom cranial orthotic helmets provide no added skull-rounding advantage over watchful waiting by age 2 in infants with moderate-to-severe positional plagiocephaly (van Wijk et al. 2014 BMJ randomized controlled trial, HEADS study, n=84; mean difference in ODDI 0.2, p=0.86; 100% adverse effects in helmet arm including skin irritation and sweating); **Grade: Low** for untreated craniosynostosis (premature cranial suture fusion), which requires specialized surgical and pediatric evaluation. Evidence Card: `evidence-cards/plagiocephaly-flat-head-helmet-rct.md`.
 
 ## Linked evidence cards
 
 - `evidence-cards/infant-contingency-learning.md` (CH06-C01; `stable` for the laboratory claim)
 - `evidence-cards/embodied-perception-action.md`
+- `evidence-cards/plagiocephaly-flat-head-helmet-rct.md`
 - `evidence-cards/exploration-as-sampling.md`
 - `evidence-cards/infant-physical-reasoning.md`
 - `evidence-cards/deferred-imitation.md`

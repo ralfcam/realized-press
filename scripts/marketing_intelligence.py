@@ -135,6 +135,9 @@ NEGATIVE_TOKENS: set[str] = {
     "trainer", "trainers", "training near me", "coaching", "coach", "agency", "agencies",
     "service", "services", "specialist training", "therapist training", "sleep trainee", "the sleep train",
     "sleep tr",
+    # Nursing homework, academic slide presentations & forum/brand noise (ARC-79)
+    "ppt", "pdf", "define", "definition", "indication", "indications",
+    "lil mixins", "mumsnet", "baginal",
 }
 
 KDP_STOP_WORDS_ES: set[str] = {
@@ -750,6 +753,7 @@ def import_gkp_export(
         cluster_buckets.setdefault(sig, []).append(m)
 
     with bwedb.get_db() as conn:
+        pass1_candidates = []
         for _sig, m_list in cluster_buckets.items():
             cluster_tuples = [(m.query, m.monthly_volume, m.cpc_high_usd, m.competition_index) for m in m_list]
             canonical_q, variants = canonicalize_query_cluster(cluster_tuples, lang=lang)
@@ -757,11 +761,61 @@ def import_gkp_export(
                 deduped += len(variants)
             canonical_m = next(m for m in m_list if normalize_query(m.query) == normalize_query(canonical_q))
             q = normalize_query(canonical_m.query)
-
             cov = bwedb.bm25_coverage(conn, series_slug, _extract_core_tokens(q)[:8])
+            pass1_candidates.append({
+                "canonical_m": canonical_m,
+                "variants": variants,
+                "cov": cov,
+                "chapter": chapter_label(cov.chapter),
+            })
+
+        # Step 2: Pass-2 GKP Bucket-Fingerprint Deduplication (ARC-79)
+        # Merge rows mapped to same chapter sharing [volume, competition_index, cpc_high, cpc_low] for volume >= 100
+        bucket_fingerprints: dict[tuple, list[dict]] = {}
+        pass2_candidates: list[dict] = []
+        for cand in pass1_candidates:
+            cm = cand["canonical_m"]
+            if cm.monthly_volume >= 100:
+                fp = (
+                    cand["chapter"],
+                    cm.monthly_volume,
+                    round(cm.competition_index, 2),
+                    round(cm.cpc_high_usd, 4),
+                    round(cm.cpc_low_usd, 4),
+                )
+                bucket_fingerprints.setdefault(fp, []).append(cand)
+            else:
+                pass2_candidates.append(cand)
+
+        for _fp, cands in bucket_fingerprints.items():
+            if len(cands) == 1:
+                pass2_candidates.append(cands[0])
+            else:
+                # Multiple queries in same chapter share exact GKP statistical bucket fingerprint:
+                # Pick the most natural/concise query as canonical, merge others as variants
+                cands.sort(key=lambda c: (len(c["canonical_m"].query.split()), len(c["canonical_m"].query)))
+                chosen = cands[0]
+                merged_variants = list(chosen["variants"])
+                for other in cands[1:]:
+                    deduped += 1
+                    other_q = normalize_query(other["canonical_m"].query)
+                    if other_q not in merged_variants and other_q != normalize_query(chosen["canonical_m"].query):
+                        merged_variants.append(other_q)
+                    for v in other["variants"]:
+                        if v not in merged_variants and v != normalize_query(chosen["canonical_m"].query):
+                            merged_variants.append(v)
+                chosen["variants"] = merged_variants
+                pass2_candidates.append(chosen)
+
+        for cand in pass2_candidates:
+            canonical_m = cand["canonical_m"]
+            variants = cand["variants"]
+            cov = cand["cov"]
+            q = normalize_query(canonical_m.query)
+
             row = by_query.get(q)
             if row is None:
-                row = {"query": q, "target_chapter": chapter_label(cov.chapter), "paa_question_hook": ""}
+                row = {"query": q, "target_chapter": cand["chapter"], "paa_question_hook": ""}
                 rows.append(row)
                 by_query[q] = row
                 added += 1
@@ -918,19 +972,24 @@ def pack_kdp_boxes(
     signals: Iterable[KeywordSignal], excluded_text: str,
     boxes: int = KDP_BOX_COUNT, max_bytes: int = KDP_PACK_BYTES,
     lang: str = "en",
+    max_chapter_bytes: int = 100,
 ) -> tuple[list[str], float, float]:
-    """Greedy knapsack of search phrases and words into KDP backend boxes (ARC-78).
+    """Greedy knapsack of search phrases and words into KDP backend boxes (ARC-78 / ARC-79).
 
     Extracts top-weighted 2-word and 3-word collocations from covered queries (coverage >= 0.25)
     first, packing intact phrases greedily into boxes (<= 49 UTF-8 bytes) before filling residual
-    headroom with high-value singletons. Excludes title/subtitle stems and stop words for `lang`.
+    headroom with high-value singletons. Applies chapter-balanced quotas (capping any single chapter
+    at max_chapter_bytes, default 100 bytes) so high-volume topics do not crowd out other chapters.
+    Excludes title/subtitle stems and stop words for `lang`.
     Returns (boxes, weight_captured, weight_total).
     """
     stop_words = get_box_stopwords(lang)
     used = {_stem_key(t) for t in _box_tokens(excluded_text)}
 
     collocation_weights: Counter = Counter()
+    collocation_ch_weights: dict[tuple[str, ...], Counter] = {}
     unigram_weights: Counter = Counter()
+    unigram_ch_weights: dict[str, Counter] = {}
     unigram_words: dict[str, str] = {}
 
     for sig in signals:
@@ -941,27 +1000,38 @@ def pack_kdp_boxes(
         if not toks:
             continue
 
+        ch = chapter_label(sig.matched_chapter) or "ch00"
+
         for t in toks:
             sk = _stem_key(t)
             unigram_weights[sk] += w
             if sk not in unigram_words or len(t) < len(unigram_words[sk]):
                 unigram_words[sk] = t
+            unigram_ch_weights.setdefault(sk, Counter())[ch] += w
 
         n = len(toks)
         for i in range(n - 1):
             phrase2 = (toks[i], toks[i + 1])
             if _stem_key(phrase2[0]) != _stem_key(phrase2[1]):
                 collocation_weights[phrase2] += w
+                collocation_ch_weights.setdefault(phrase2, Counter())[ch] += w
         for i in range(n - 2):
             phrase3 = (toks[i], toks[i + 1], toks[i + 2])
             stems3 = {_stem_key(t) for t in phrase3}
             if len(stems3) == 3:
                 collocation_weights[phrase3] += w * 1.15
+                collocation_ch_weights.setdefault(phrase3, Counter())[ch] += w
+
+    collocation_chapter = {p: cw.most_common(1)[0][0] for p, cw in collocation_ch_weights.items()}
+    unigram_chapter = {sk: cw.most_common(1)[0][0] for sk, cw in unigram_ch_weights.items()}
 
     total = float(sum(unigram_weights.values()))
     sorted_collocations = sorted(collocation_weights.items(), key=lambda x: (-x[1], len(x[0])))
+    sorted_unigrams = sorted(unigram_weights.items(), key=lambda x: -x[1])
 
     packed: list[str] = []
+    chapter_bytes_packed: Counter[str] = Counter()
+
     for _ in range(boxes):
         chosen_words: list[str] = []
         box_used_stems: set[str] = set()
@@ -971,27 +1041,47 @@ def pack_kdp_boxes(
                 return 0
             return len(" ".join(chosen_words).encode("utf-8"))
 
-        # Phase 1: Pack intact 2-word and 3-word collocations
+        # Phase 1: Pack intact 2-word and 3-word collocations (respecting chapter quota)
         for phrase, _w in sorted_collocations:
             phrase_stems = {_stem_key(t) for t in phrase}
             if phrase_stems & used or phrase_stems & box_used_stems:
                 continue
             phrase_str = " ".join(phrase)
             added_bytes = len(phrase_str.encode("utf-8")) + (1 if chosen_words else 0)
+            ch = collocation_chapter.get(phrase)
+            if max_chapter_bytes > 0 and ch and (chapter_bytes_packed[ch] + added_bytes > max_chapter_bytes):
+                continue
             if current_bytes() + added_bytes <= max_bytes:
                 chosen_words.extend(phrase)
                 box_used_stems.update(phrase_stems)
+                if ch:
+                    chapter_bytes_packed[ch] += added_bytes
 
-        # Phase 2: Pack residual high-value singletons into remaining headroom
-        sorted_unigrams = sorted(unigram_weights.items(), key=lambda x: -x[1])
+        # Phase 2: Pack residual high-value singletons (respecting chapter quota)
         for stem, _w in sorted_unigrams:
             if stem in used or stem in box_used_stems:
                 continue
             word = unigram_words[stem]
             added_bytes = len(word.encode("utf-8")) + (1 if chosen_words else 0)
+            ch = unigram_chapter.get(stem)
+            if max_chapter_bytes > 0 and ch and (chapter_bytes_packed[ch] + added_bytes > max_chapter_bytes):
+                continue
             if current_bytes() + added_bytes <= max_bytes:
                 chosen_words.append(word)
                 box_used_stems.add(stem)
+                if ch:
+                    chapter_bytes_packed[ch] += added_bytes
+
+        # Phase 3: Fill residual byte capacity lifting chapter quota if headroom remains
+        if current_bytes() < max_bytes:
+            for stem, _w in sorted_unigrams:
+                if stem in used or stem in box_used_stems:
+                    continue
+                word = unigram_words[stem]
+                added_bytes = len(word.encode("utf-8")) + (1 if chosen_words else 0)
+                if current_bytes() + added_bytes <= max_bytes:
+                    chosen_words.append(word)
+                    box_used_stems.add(stem)
 
         if chosen_words:
             box_text = " ".join(chosen_words)

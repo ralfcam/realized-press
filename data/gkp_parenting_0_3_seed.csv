@@ -751,3 +751,68 @@ weissbluth extinction method,10,0,0,04,,0,0,,gkp_csv_export,2026-10-29T19:49:34+
 weissbluth method 4 month old,10,0,0,04,,0,0,,gkp_csv_export,2026-10-29T19:49:34+00:00
 weissbluth method age,10,0,0,04,,0,0,,gkp_csv_export,2026-10-29T19:49:34+00:00
 weissbluth sleep method,30,0,0.25,04,,0.32,1.75,,gkp_csv_export,2026-10-30T20:44:52+00:00
+folic acid vs prenatal vitamins,70,0,0.36,01,,0.39,8.18,,gkp_csv_export,2026-10-31T00:40:49+00:00
+difference between folate and folic acid for pregnancy,10,0,0.38,01,,0.04,6.79,,gkp_csv_export,2026-10-31T00:40:49+00:00
+difference between folate and folic acid in prenatal vitamins,10,0,0.67,01,,0.04,5.99,,gkp_csv_export,2026-10-31T00:40:49+00:00
+folic acid instead of prenatal vitamins,10,0,0,01,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+folic acid v folate pregnancy,10,0,1,01,,1,10.12,,gkp_csv_export,2026-10-31T00:40:49+00:00
+folic acid vs folinic acid pregnancy,10,0,0.13,01,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+folic vs folate pregnancy,10,0,0.79,01,,0.75,11.67,,gkp_csv_export,2026-10-31T00:40:49+00:00
+is folate better than folic acid for pregnancy,50,0,0.69,01,,0.13,3.83,,gkp_csv_export,2026-10-31T00:40:49+00:00
+l methylfolate vs folic acid in pregnancy,10,0,0.25,01,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+methylated folate vs folic acid for pregnancy,20,0,0.81,01,,0.24,7.09,,gkp_csv_export,2026-10-31T00:40:49+00:00
+methylfolate vs folic acid prenatal,20,0,0.96,01,,0.33,8.69,,gkp_csv_export,2026-10-31T00:40:49+00:00
+phototherapy light for newborn,40,0,0.11,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+home phototherapy newborn,30,0,0.19,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+breast milk and formula combo,70,0,0.43,03,,0.05,2.67,,gkp_csv_export,2026-10-31T00:40:49+00:00
+combo breast and formula feeding,40,0,0.26,03,,0.03,0.29,,gkp_csv_export,2026-10-31T00:40:49+00:00
+bili light for newborn,40,0,0.1,03,,0.19,1.36,,gkp_csv_export,2026-10-31T00:40:49+00:00
+bilirubin level in newborn requiring phototherapy,10,0,0,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+bilirubin light therapy newborn,20,0,0.11,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+bilirubin lights for infants,10,0,0.14,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+bilirubin phototherapy newborn,10,0,0,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+breast and bottle combo feeding,70,0,0.06,03,,0.07,1.17,,gkp_csv_export,2026-10-31T00:40:49+00:00
+double phototherapy newborn,10,0,0,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+phototherapy for newborn duration,20,0,0.01,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+evening fussy newborn,10,0,0.11,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+importance of phototherapy in newborn,10,0,0,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+infant light therapy,10,0,0.21,06,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+jaundice newborn light therapy,20,0,0.14,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+jaundice newborn treatment light therapy,10,0,0.02,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+newborn receiving phototherapy,10,0,0,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+phototherapy for newborn distance,10,0,0,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+phototherapy for newborn jaundice cost,10,0,0,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+phototherapy for preterm infants,10,0,0.05,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+phototherapy light for newborn jaundice,10,0,0,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+phototherapy range for newborn,10,0,0,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+phototherapy treatment newborn,40,0,0.11,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+ultraviolet light newborn jaundice,10,0,0,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+uv light for newborn jaundice,10,0,0.25,03,,0.15,7.16,,gkp_csv_export,2026-10-31T00:40:49+00:00
+uv light therapy for newborn,10,0,0.14,03,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+when does evening fussiness end in infants,10,0,0.24,04,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+combo feeding breast milk and formula,30,0,0.32,03,,0.04,2.23,,gkp_csv_export,2026-10-31T00:40:49+00:00
+4 month sleep regression symptoms,50,0,0.15,04,,0.02,0.05,,gkp_csv_export,2026-10-31T00:40:49+00:00
+3 4 month sleep regression signs,20,0,0.32,07,,0.02,0.18,,gkp_csv_export,2026-10-31T00:40:49+00:00
+4th month sleep regression symptoms,10,0,0.29,04,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+infant misshapen head helmet,10,0,0,06,,0,0,,gkp_csv_export,2026-10-31T00:40:49+00:00
+infant skull shaping helmet,40,0,0.12,06,,0.51,3.28,,gkp_csv_export,2026-10-31T00:40:49+00:00
+prenatal vs folic acid,1000,0,0.97,01,,0.4,10.09,,gkp_csv_export,2026-10-31T00:40:49+00:00
+folate versus folic acid pregnancy,1300,0,0.91,01,,0.3,8.5,,gkp_csv_export,2026-10-31T00:40:49+00:00
+methylfolate vs folic acid pregnancy,210,0,0.92,01,,0.42,7.49,,gkp_csv_export,2026-10-31T00:40:49+00:00
+newborn jaundice phototherapy,8100,0,0,03,,4.78,8.95,,gkp_csv_export,2026-10-31T00:40:49+00:00
+best formula for combo feeding,480,0,1,03,,0.69,4.67,,gkp_csv_export,2026-10-31T00:40:49+00:00
+infant phototherapy,2900,0,0.05,03,,0.53,7.16,,gkp_csv_export,2026-10-31T00:40:49+00:00
+home phototherapy for newborn jaundice,590,0,0.16,03,,0.11,0.33,,gkp_csv_export,2026-10-31T00:40:49+00:00
+bilirubin infant levels,12100,0,0.04,03,,0.02,2.95,,gkp_csv_export,2026-10-31T00:40:49+00:00
+newborn jaundice blue light,260,0,0.13,03,,0.31,8.95,,gkp_csv_export,2026-10-31T00:40:49+00:00
+infant blue light therapy,320,0,0.09,03,,4.1,7.16,,gkp_csv_export,2026-10-31T00:40:49+00:00
+infant jaundice phototherapy,12100,0,0.01,03,,0.47,8.95,,gkp_csv_export,2026-10-31T00:40:49+00:00
+infant fussy in evening,140,0,0.22,04,,0.01,0.07,,gkp_csv_export,2026-10-31T00:40:49+00:00
+newborn jaundice light,320,0,0.19,03,,0.27,8.95,,gkp_csv_export,2026-10-31T00:40:49+00:00
+newborn evening fussiness,140,0,0.22,03,,0.01,0.07,,gkp_csv_export,2026-10-31T00:40:49+00:00
+newborn jaundice treatment phototherapy,170,0,0.07,03,,0.5,8.95,,gkp_csv_export,2026-10-31T00:40:49+00:00
+newborn photo therapy,2900,0,0.05,14,,0.53,7.16,,gkp_csv_export,2026-10-31T00:40:49+00:00
+4 month sleep regression signs,2900,0,0.27,07,,0.02,0.14,,gkp_csv_export,2026-10-31T00:40:49+00:00
+infant head shape helmet,2400,0,0.3,06,,0.51,5.28,,gkp_csv_export,2026-10-31T00:40:49+00:00
+infant helmet flat head,6600,0,0.3,06,,0.9,8.05,,gkp_csv_export,2026-10-31T00:40:49+00:00
+gentle parenting vs permissive parenting,720,0,0.09,10,,0.03,0.26,,gkp_csv_export,2026-10-31T00:40:49+00:00

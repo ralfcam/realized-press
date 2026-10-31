@@ -412,6 +412,9 @@ sources:
   - id: dadds-2019-discipline
     resource: https://doi.org/10.1111/jcpp.13088
     title: "Dadds & Tully (2019), Journal of Child Psychology and Psychiatry, What is it to be a good parent? The role of discipline, warm parenting, and children's conduct problems"
+  - id: van-wijk-2014-plagiocephaly
+    resource: https://doi.org/10.1136/bmj.g2741
+    title: "van Wijk et al. (2014), BMJ, Helmet therapy in infants with positional skull deformation: randomised controlled trial"
 ---
 
 # Master Source Catalog
@@ -574,6 +577,7 @@ These four live IDs will not acquire a Crossref journal DOI. They already have a
 | `blum-2003-toilet` | Blum, Taubman & Nemeth (2003), Pediatrics, relationship between age at initiation of toilet training and duration | [https://doi.org/10.1542/peds.111.4.810](https://doi.org/10.1542/peds.111.4.810) | [toilet-learning-readiness](evidence-cards/toilet-learning-readiness.md) |
 | `schum-2002-toilet` | Schum et al. (2002), Pediatrics, sequential acquisition of toilet-training skills | [https://doi.org/10.1542/peds.109.3.e48](https://doi.org/10.1542/peds.109.3.e48) | [toilet-learning-readiness](evidence-cards/toilet-learning-readiness.md) |
 | `dadds-2019-discipline` | Dadds & Tully (2019), Journal of Child Psychology and Psychiatry, time-out and positive parenting evidence review | [https://doi.org/10.1111/jcpp.13088](https://doi.org/10.1111/jcpp.13088) | [timeout-vs-spanking-discipline](evidence-cards/timeout-vs-spanking-discipline.md) |
+| `van-wijk-2014-plagiocephaly` | van Wijk et al. (2014), BMJ, Helmet therapy in infants with positional skull deformation: randomised controlled trial | [https://doi.org/10.1136/bmj.g2741](https://doi.org/10.1136/bmj.g2741) | [plagiocephaly-flat-head-helmet-rct](evidence-cards/plagiocephaly-flat-head-helmet-rct.md) |
 
 ## Unresolved Citations
 

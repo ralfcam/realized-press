@@ -419,3 +419,87 @@ def test_audit_quick_finder_coverage():
     assert "MAPPED" in report
 
 
+def test_arc79_negative_tokens():
+    from scripts.marketing_intelligence import is_domain_relevant
+
+    # ARC-79: Block nursing-student homework, academic slide presentations & forum/brand noise
+    assert not is_domain_relevant("phototherapy neonatal jaundice nursing ppt", "parenthood-atlas")
+    assert not is_domain_relevant("infant sleep training guidelines pdf download", "parenthood-atlas")
+    assert not is_domain_relevant("define neonatal jaundice pathophysiology", "parenthood-atlas")
+    assert not is_domain_relevant("definition of plagiocephaly in pediatrics", "parenthood-atlas")
+    assert not is_domain_relevant("cranial helmet indication for infants", "parenthood-atlas")
+    assert not is_domain_relevant("phototherapy indications in newborn care", "parenthood-atlas")
+    assert not is_domain_relevant("lil mixins peanut powder baby", "parenthood-atlas")
+    assert not is_domain_relevant("baby sleep regression mumsnet", "parenthood-atlas")
+    assert not is_domain_relevant("baginal seeding newborn c section", "parenthood-atlas")
+
+
+def test_arc79_chapter_balanced_kdp_packing():
+    from scripts.marketing_intelligence import pack_kdp_boxes, KeywordSignal
+
+    # Construct signals where Ch 04 has huge volume and multiple phrases,
+    # but Ch 01, Ch 06, and Ch 07 also have distinct keywords
+    signals = [
+        # Ch 04 (Sleep): 4 phrases
+        KeywordSignal(query="baby sleep training methods", monthly_volume=90000, yoy_trend_pct=10.0,
+                      competition_index=0.5, target_chapter="04", paa_hook="", chapter_score=0.95, card_score=0.9, matched_chapter="04-sleep"),
+        KeywordSignal(query="infant bedtime routine solutions", monthly_volume=80000, yoy_trend_pct=10.0,
+                      competition_index=0.5, target_chapter="04", paa_hook="", chapter_score=0.95, card_score=0.9, matched_chapter="04-sleep"),
+        KeywordSignal(query="graduated extinction crying nights", monthly_volume=70000, yoy_trend_pct=10.0,
+                      competition_index=0.5, target_chapter="04", paa_hook="", chapter_score=0.95, card_score=0.9, matched_chapter="04-sleep"),
+        KeywordSignal(query="infant night awakenings rhythm", monthly_volume=60000, yoy_trend_pct=10.0,
+                      competition_index=0.5, target_chapter="04", paa_hook="", chapter_score=0.95, card_score=0.9, matched_chapter="04-sleep"),
+
+        # Ch 01 (Preconception/Folate)
+        KeywordSignal(query="prenatal folate nutrition vitamins", monthly_volume=25000, yoy_trend_pct=15.0,
+                      competition_index=0.4, target_chapter="01", paa_hook="", chapter_score=0.90, card_score=0.85, matched_chapter="01-preconception"),
+
+        # Ch 06 (Motor / Plagiocephaly)
+        KeywordSignal(query="positional plagiocephaly cranial shape", monthly_volume=20000, yoy_trend_pct=12.0,
+                      competition_index=0.3, target_chapter="06", paa_hook="", chapter_score=0.90, card_score=0.85, matched_chapter="06-motor"),
+
+        # Ch 07 (Language / 18-month speech)
+        KeywordSignal(query="toddler speech milestone vocabulary", monthly_volume=22000, yoy_trend_pct=14.0,
+                      competition_index=0.3, target_chapter="07", paa_hook="", chapter_score=0.90, card_score=0.85, matched_chapter="07-language"),
+    ]
+
+    # Packing with max_chapter_bytes=100 ensures Ch 04 does not crowd out Ch 01, Ch 06, and Ch 07
+    boxes, captured, total = pack_kdp_boxes(signals, excluded_text="Book Title Subtitle", max_chapter_bytes=100)
+    all_packed_text = " ".join(boxes)
+
+    # Ensure box constraints (<= 49 bytes per box)
+    for b in boxes:
+        assert len(b.encode("utf-8")) <= 49
+
+    # Verify that non-sleep chapters are present in the packed boxes
+    assert "folate" in all_packed_text or "prenat" in all_packed_text
+    assert "plagiocephaly" in all_packed_text or "cran" in all_packed_text
+    assert "speech" in all_packed_text or "vocabul" in all_packed_text
+
+
+def test_arc79_bucket_fingerprint_deduplication(tmp_path):
+    from scripts.marketing_intelligence import import_gkp_export
+    import csv
+
+    # Create dummy native GKP export CSV with identical bucket metrics for 2 different queries mapped to Ch 03
+    export_csv = tmp_path / "gkp_bucket_test.csv"
+    with open(export_csv, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["Keyword", "Avg. monthly searches", "Competition", "Competition (indexed value)", "Top of page bid (low range)", "Top of page bid (high range)"])
+        # Both queries have volume 12100, comp 0, bid 0.4711 - 8.9545
+        writer.writerow(["light therapy for jaundice in newborns", "12100", "Low", "0", "0.471067", "8.9545"])
+        writer.writerow(["infant jaundice phototherapy", "12100", "Low", "0", "0.471067", "8.9545"])
+
+    seed_csv = tmp_path / "seed.csv"
+    report = import_gkp_export(export_csv, "parenthood-atlas", seed_csv)
+    assert "duplicate permutations merged" in report or "keyword row(s) parsed" in report
+
+    # Verify that seed CSV only contains 1 consolidated row instead of 2 redundant rows
+    with open(seed_csv, "r", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    assert len(rows) == 1
+    assert rows[0]["query"] in ("light therapy for jaundice in newborns", "infant jaundice phototherapy")
+
+
+
+

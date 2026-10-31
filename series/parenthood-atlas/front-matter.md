@@ -17,6 +17,9 @@ If you are reading at two in the morning with an upset baby on your shoulder, yo
 **Q: Why do I need folic acid before I even know I am pregnant?**  
 *Chapter 1 (Movement III)* — The neural tube closes by the twenty-eighth day after conception, before most women miss a period. Taking 400 micrograms daily bridges a narrow biological window and prevents roughly 70 percent of neural tube defects.
 
+**Q: Do I need expensive "methylfolate" instead of folic acid if I have an MTHFR gene variant?**  
+*Chapter 1 (Movement III)* — No. Every global trial proving neural tube defect reduction used standard folic acid, which is safely metabolized regardless of common genetic variants. Expensive methylfolate supplements are commercial marketing without clinical proof of defect prevention.
+
 **Q: How much does a father's age at conception matter?**  
 *Chapter 1 (Movement II)* — Men over 45 pass along slightly more new genetic changes, but the absolute risk of rare conditions remains very low. The vast majority of children born to older fathers are completely healthy.
 
@@ -25,6 +28,9 @@ If you are reading at two in the morning with an upset baby on your shoulder, yo
 
 **Q: Does a C-section or missing the first hour hurt bonding?**  
 *Chapter 3 (Movement II)* — Parent-infant attachment is built through thousands of daily interactions across months, not a single golden hour. Babies born by cesarean form secure attachments at the exact same rates as vaginally delivered babies.
+
+**Q: Is newborn jaundice dangerous, and does my baby need "vaginal seeding" after a C-section?**  
+*Chapter 3 (Movement II)* — Mild jaundice is common and safely treated with hospital blue-light therapy; never expose a newborn to direct sunlight. Unregulated vaginal gauze swabbing carries real neonatal infection risks without proven health benefits.
 
 **Q: Does breastfeeding actually boost long-term IQ?**  
 *Chapter 3 (Movement III)* — Large randomized trials and sibling comparisons show that breastfeeding provides real immune protection against infant gut infections, but long-term IQ differences between siblings fed breastmilk versus formula shrink to near zero.
@@ -47,8 +53,17 @@ If you are reading at two in the morning with an upset baby on your shoulder, yo
 **Q: Will sleep training damage my baby's attachment?**  
 *Chapter 4 (Movement II)* — Multiple randomized trials show that behavioral sleep strategies help babies sleep longer without damaging parent-child attachment or elevating long-term stress hormones.
 
+**Q: What is happening during the 4-month sleep regression, and what should my baby eat at 6 months?**  
+*Chapter 4 (Movement II & IV)* — Around 4 months, infant sleep permanently reorganizes into adult-like four-stage sleep cycles, requiring independent falling-asleep skills. At 6 months, maternal iron stores deplete, making iron-rich first foods (meat or fortified cereal) vital for brain development.
+
 **Q: Why does my baby drop spoons from the high chair on purpose?**  
 *Chapter 6 (Movement IV)* — Dropping objects is not defiance; it is a baby's first physics laboratory. Babies drop spoons to test gravity, bounce trajectories, and see whether objects make different sounds on different surfaces.
+
+**Q: Does my baby's flat head need a $3,000 shaping helmet?**  
+*Chapter 6 (Movement II)* — A landmark randomized controlled trial showed that rigid helmets produce zero added skull-rounding benefit over natural growth and floor play by age two. Once babies roll and sit upright, natural growth reshapes the head on its own.
+
+**Q: How many words should an 18-month-old speak, and when is a speech delay a red flag?**  
+*Chapter 7 (Movement II)* — The median 18-month-old speaks about 50 words, but 10 to 20 words is common. As long as a toddler points to share interest, makes eye contact, and understands directions, language is on track; missing pointing or eye contact warrants prompt evaluation.
 
 **Q: Does screen time cause speech delay?**  
 *Chapter 7 (Movement IV)* — Passive television and video apps do not teach words to babies. Speech delays track not with screens themselves, but with the lost back-and-forth conversational turns that screens replace.
@@ -64,6 +79,9 @@ If you are reading at two in the morning with an upset baby on your shoulder, yo
 
 **Q: Why does my toddler hit even when she knows the rule?**  
 *Chapter 10 (Movement I & III)* — Physical hitting peaks naturally between ages 2 and 3 because an angry child with strong hands lacks the words to negotiate. Understanding the words "no hit" happens long before the brain's physical impulse brakes are fully built.
+
+**Q: Is gentle parenting making my toddler more defiant?**  
+*Chapter 10 (Movement II)* — Effective parenting pairs high emotional warmth with firm, consistent boundaries. Empathy belongs to the child's feelings, while decisions and safety belong to the adult; avoiding firm limits creates anxiety and behavioral dysregulation.
 
 **Q: How do we know when a toddler is truly ready for potty training?**  
 *Chapter 10 (Movement V)* — Bladder capacity and spinal nerve signals mature between 22 and 30 months. Starting intensive training before readiness stretches the process to over a year, while waiting for readiness finishes training in a few calm months.

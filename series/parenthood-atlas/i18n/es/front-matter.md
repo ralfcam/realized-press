@@ -17,6 +17,9 @@ Si estás leyendo a las dos de la madrugada con tu bebé intranquilo en brazos, 
 **P: ¿Por qué necesito tomar ácido fólico antes de saber que estoy embarazada?**  
 *Capítulo 1 (Movimiento III)* — El tubo neural se cierra hacia el vigésimo octavo día tras la concepción, antes de que la mayoría de las mujeres noten una falta en el ciclo. Tomar 400 microgramos al día cubre una ventana biológica estrecha y previene aproximadamente el 70 por ciento de los defectos del tubo neural.
 
+**P: ¿Necesito «metilfolato» en vez de ácido fólico si tengo una variante del gen MTHFR?**  
+*Capítulo 1 (Movimiento III)* — No. Todos los ensayos clínicos internacionales que demostraron la prevención de defectos del tubo neural utilizaron ácido fólico estándar, que el organismo metaboliza de forma segura al margen de variantes genéticas habituales. Los costosos suplementos de metilfolato responden al marketing comercial sin respaldo clínico en prevención de anomalías.
+
 **P: ¿Cuánto influye la edad del padre en el momento de la concepción?**  
 *Capítulo 1 (Movimiento II)* — Los hombres mayores de 45 años transmiten un número ligeramente mayor de variaciones genéticas nuevas, pero el riesgo absoluto de afecciones infrecuentes continúa siendo muy bajo. La inmensa mayoría de los niños de padres mayores nacen completamente sanos.
 
@@ -25,6 +28,9 @@ Si estás leyendo a las dos de la madrugada con tu bebé intranquilo en brazos, 
 
 **P: ¿Un parto por cesárea o perderse la primera hora perjudica el vínculo de apego?**  
 *Capítulo 3 (Movimiento II)* — El apego filial se construye mediante miles de interacciones cotidianas a lo largo de meses, no en una hora mágica irrepetible. Los bebés nacidos por cesárea desarrollan apego seguro en proporciones idénticas a los nacidos por vía vaginal.
+
+**P: ¿Es peligrosa la ictericia neonatal y necesita mi bebé «siembra vaginal» tras una cesárea?**  
+*Capítulo 3 (Movimiento II)* — La ictericia leve es frecuente y se trata con seguridad mediante fototerapia hospitalaria; jamás expongas al recién nacido a la luz solar directa. Frotar gasas vaginales sin control médico entraña riesgos reales de infección neonatal sin beneficios probados.
 
 **P: ¿La lactancia materna aumenta realmente el cociente intelectual a largo plazo?**  
 *Capítulo 3 (Movimiento III)* — Ensayos aleatorizados amplios y comparaciones entre hermanos demuestran que amamantar confiere una protección inmunitaria real frente a infecciones digestivas del lactante, pero las diferencias de cociente intelectual entre hermanos alimentados con leche materna o de fórmula se reducen prácticamente a cero.
@@ -47,8 +53,17 @@ Si estás leyendo a las dos de la madrugada con tu bebé intranquilo en brazos, 
 **P: ¿El entrenamiento del sueño daña el apego del bebé?**  
 *Capítulo 4 (Movimiento II)* — Múltiples ensayos aleatorizados demuestran que las estrategias conductuales de sueño ayudan a los bebés a consolidar descansos más prolongados sin alterar la seguridad del apego ni elevar las hormonas de estrés a largo plazo.
 
+**P: ¿Qué ocurre en la regresión del sueño de los cuatro meses y qué debe comer a los seis meses?**  
+*Capítulo 4 (Movimientos II y IV)* — Hacia los cuatro meses, el sueño del lactante se reorganiza de forma permanente en ciclos de cuatro fases similares a los del adulto, lo que exige aprender a conciliar el descanso de manera autónoma. A los seis meses, las reservas de hierro se agotan, por lo que los primeros alimentos ricos en hierro (carne o cereales fortificados) resultan fundamentales para el neurodesarrollo.
+
 **P: ¿Por qué mi bebé tira cucharas al suelo desde la trona a propósito?**  
 *Capítulo 6 (Movimiento IV)* — Arrojar objetos no es un acto de desafío; es el primer laboratorio de física del bebé. Los lactantes tiran cucharas para poner a prueba la gravedad, la trayectoria del rebote y comprobar si los objetos suenan de forma distinta en superficies diferentes.
+
+**P: ¿La cabeza plana de mi bebé necesita un casco ortopédico de tres mil dólares?**  
+*Capítulo 6 (Movimiento II)* — Un histórico ensayo aleatorizado demostró que los cascos rígidos aportan un beneficio añadido nulo frente al crecimiento natural y el juego en el suelo hacia los dos años. En cuanto el bebé rueda y se sienta erguido, el desarrollo natural redondea el cráneo por sí solo.
+
+**P: ¿Cuántas palabras debe decir a los dieciocho meses y cuándo un retraso en el habla es una señal de alarma?**  
+*Capítulo 7 (Movimiento II)* — La media a los dieciocho meses ronda las cincuenta palabras, pero decir entre diez y veinte es frecuente. Mientras la criatura señale con entusiasmo para compartir interés, mantenga contacto visual y comprenda indicaciones, la comunicación progresa bien; la falta de gestos para señalar o de mirada compartida justifica una valoración temprana.
 
 **P: ¿El uso de pantallas provoca retrasos en el habla?**  
 *Capítulo 7 (Movimiento IV)* — La televisión pasiva y las aplicaciones de vídeo no enseñan palabras a los bebés. El retraso en el lenguaje no se vincula a las pantallas en sí, sino a la pérdida de los turnos de conversación recíproca que las pantallas desplazan.
@@ -64,6 +79,9 @@ Si estás leyendo a las dos de la madrugada con tu bebé intranquilo en brazos, 
 
 **P: ¿Por qué mi hija pequeña pega aunque sepa que está prohibido?**  
 *Capítulo 10 (Movimientos I y III)* — Las agresiones físicas alcanzan su punto máximo natural entre los dos y los tres años porque un niño enfadado con manos fuertes aún carece de las palabras para negociar. Entender la frase «no se pega» ocurre mucho antes de que los frenos de control de impulsos del cerebro estén terminados de construir.
+
+**P: ¿La crianza respetuosa está haciendo a mi hijo más desafiante?**  
+*Capítulo 10 (Movimiento II)* — La crianza eficaz combina una alta cercanía afectiva con límites firmes y constantes. La empatía acompaña los sentimientos del niño, mientras que las decisiones y la seguridad corresponden al adulto; eludir los límites firmes provoca ansiedad y desregulación de la conducta.
 
 **P: ¿Cómo sabemos si un niño pequeño está preparado de verdad para dejar el pañal?**  
 *Capítulo 10 (Movimiento V)* — La capacidad vesical y las señales nerviosas de la médula espinal maduran entre los 22 y los 30 meses. Comenzar un entrenamiento intensivo antes de tiempo prolonga el proceso durante más de un año; esperar a las señales de madurez permite completarlo en unos pocos meses tranquilos.
