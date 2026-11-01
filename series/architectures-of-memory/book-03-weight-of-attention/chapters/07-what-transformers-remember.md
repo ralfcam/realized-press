@@ -1,81 +1,73 @@
-# Chapter 7: What Transformers Remember and What They Cannot
-
-When modern users interact with large language models built on the Transformer architecture, they routinely experience an illusion of memory. An AI assistant remembers the user’s name from ten messages earlier, adheres to formatting constraints specified at the beginning of a session, and recalls obscure historical facts from eighteenth-century physics. In common parlance, the machine is said to "remember."
-
-Yet beneath this conversational interface lies an architecture whose memory mechanisms are completely decoupled from the temporal continuity of biological or recurrent minds. To understand the Transformer’s limits, one must dissect its dual memory architecture: the split between **parametric memory** and **non-parametric in-context attention**.[^geva2021]
-
-```
-                                TRANSFORMER DUAL MEMORY MODEL
-                                
-      PARAMETRIC MEMORY (Static Weights)              NON-PARAMETRIC WORKING MEMORY (Attention)
-┌───────────────────────────────────────────┐    ┌───────────────────────────────────────────┐
-│ Locus: Feed-forward layers (W_1, W_2)     │    │ Locus: Active context window (Q, K, V)    │
-│ Update: Gradient descent during training  │    │ Update: Ephemeral activations in forward  │
-│ State: Frozen during inference            │    │         pass; zero weight change          │
-│ Function: Associative key-value facts     │    │ Function: Working scratchpad; disappears  │
-│ Analogy: Long-term crystalline storage    │    │           the instant execution finishes  │
-└───────────────────────────────────────────┘    └───────────────────────────────────────────┘
-```
-
-## The Frozen Parametric Archive
-
-The first memory system of a Transformer resides in its parameter weights $\theta$. In a model with seventy billion parameters, these values are fixed floating-point numbers stored in high-bandwidth GPU memory.
-
-Where do facts live inside this vast parameter matrix?
-
-In a landmark 2021 study, Mor Geva and colleagues demonstrated that the two-layer feed-forward networks (FFNs) operating between attention layers function as **key-value associative memories**.[^geva2021] In an FFN block:
-
-$$\text{FFN}(\mathbf{x}) = \sigma(\mathbf{x}\mathbf{W}_1 + \mathbf{b}_1)\mathbf{W}_2 + \mathbf{b}_2$$
-
-The first weight matrix $\mathbf{W}_1$ acts as a set of keys: each row detects specific semantic or linguistic patterns (e.g., detecting the subject "Eiffel Tower" in Paris). The intermediate activation acts as a soft coefficient, and the second weight matrix $\mathbf{W}_2$ acts as a set of values, storing the factual completion ("Gustave Eiffel" or "Champ de Mars").
-
-Crucially, this parametric memory is **static**. During inference—when the model is generating answers for an end user—gradient descent is turned off ($\nabla_\theta \mathcal{L} = 0$). The model cannot learn a new fact, modify an obsolete belief, or record a conversational transaction into its weights. Its parametric memory is a crystalline fossil: an immutable archive of the internet as it existed at the moment pre-training concluded.
-
-## The Ephemeral Working Surface
-
-Because its weights cannot change, the Transformer must accomplish all short-term adaptation within its **context window** using self-attention.
-
-When an AI remembers your name across a chat session, it does not do so by writing your name into memory. It does so because the client software re-submits your entire conversation history with every single query:
-
-$$\mathbf{X} = [\text{Prompt}, \text{Turn 1}, \text{Turn 2}, \dots, \text{Current Message}]$$
-
-The model reads the entire conversation from the beginning on every forward pass. Self-attention projects queries across this prompt, matching keys and extracting values to construct a response.
-
-The moment the forward pass terminates and the final token is emitted, the activations $\mathbf{Q}, \mathbf{K}, \mathbf{V}$ are instantly deallocated from GPU VRAM. The network retains no physical residue of having spoken with you. It does not possess episodic memory; it possesses an automated looking-glass that repeatedly inspects a supplied transcript.
-
-## The Quadratic Wall: $O(n^2)$
-
-This reliance on non-parametric attention encounters a severe physical boundary: the **quadratic complexity** of dot-product attention.
-
-Computing the attention matrix requires evaluating pairwise affinities between every token and every other token:
-
-$$\mathbf{S} = \frac{\mathbf{Q}\mathbf{K}^\top}{\sqrt{d_k}} \in \mathbb{R}^{n \times n}$$
-
-The memory and computational requirements scale with the square of sequence length:
-
-$$\text{Memory Complexity} = O(n^2), \quad \text{Compute Complexity} = O(n^2 \cdot d)$$
-
-| Sequence Length ($n$) | Attention Matrix Entries ($n^2$) | Attention VRAM per Layer (Float16) |
-| :--- | :---: | :---: |
-| **1,000 tokens** | $1 \times 10^6$ | $2\text{ MB}$ |
-| **8,000 tokens** | $6.4 \times 10^7$ | $128\text{ MB}$ |
-| **32,000 tokens** | $1.02 \times 10^9$ | $2.05\text{ GB}$ |
-| **128,000 tokens** | $1.64 \times 10^{10}$ | $32.8\text{ GB}$ |
-
-For an enterprise attempting to feed an entire corporate archive of one million documents into a single model, full quadratic attention requires petabytes of memory for a single forward pass. Even with engineering optimizations like FlashAttention, sequence length cannot expand indefinitely without catastrophic resource expenditure.
-
-## The Illusion of Continuity
-
-The Transformer represents a triumph of engineering: it replaced the fragile, recurrent compression of the LSTM with an omniscient, parallel search across active context.
-
-Yet it achieved this speed by abandoning the very definition of subjective memory. An LSTM carried time within itself; its cell state was a living accumulation of its history. A Transformer carries no time. It is an extraordinary pattern engine that stands outside time, endlessly querying whatever transient snapshot is placed before it.
-
-When we rely on Transformers for organizational knowledge, we are not consulting a mind that remembers our history. We are consulting an engine of real-time search.
-
-And as organizations began replacing institutional memory with automated search, they began discovering that looking up the past is not the same as understanding it.
+# Chapter 7 — What Transformers Remember (and What They Forget)
 
 ---
 
+## I. The Illusion of Memory
+
+When an engineer interacts with a modern Transformer language model. the machine creates a powerful illusion: it feels as if it possesses an encyclopedic memory.
+
+Ask the model about the Peloponnesian War. the synthesis of aspirin, or the syntax of Python generators. It replies with fluent, detailed prose.
+
+Yet if you open the neural network and search for a traditional memory bank—a hard drive. a database table, or an isolated filing cabinet—you will find nothing of the sort.
+
+The Transformer does not store documents. It possesses no internal recurrent hidden state that accumulates experience across conversations.
+
+Once a response is emitted and the prompt cleared. the model returns instantly to its initial state. The machine. That seems to remember everything actually retains nothing at all.
+
+---
+
+## II. Parametric Weights and In-Context Workspace
+
+To understand the Transformer, we must distinguish between two completely different forms of memory:
+- **Parametric Memory:** The static weights stored in the network's matrices. These weights are frozen during training. They do not store specific text files; they store statistical associations, linguistic grammar, and conceptual coordinates.
+- **In-Context Working Memory:** The dynamic activations generated across the context window while processing a specific prompt.[^vaswani2017]
+
+When an engineer supplies five documents in a prompt. the Transformer does not learn them permanently. It holds them in its temporary attention switchboard.
+
+Every token in the context window can attend to every other token. The model reads its working memory in real time. reasoning across facts. That exist only within that single execution pass.
+
+The moment the inference run concludes, that working memory dissolves completely.
+
+---
+
+## III. Power-Law Scaling and Capacity
+
+How much knowledge can a Transformer absorb into its static weights?
+
+In 2020. Jared Kaplan and his colleagues at OpenAI published a landmark study investigating the scaling laws of neural language models.[^kaplan2020]
+
+They showed. That cross-entropy loss scales as a smooth power-law function of three variables: weight count. dataset size, and training compute.[^scaling-math]
+
+Over six orders of magnitude. performance did not plateau. As models grew from millions to billions of weights, their capacity to store world knowledge and generalize across novel tasks expanded predictably.
+
+Yet Kaplan's scaling laws revealed a core trade-off: parametric memory is extraordinarily expensive to update. Adding a single new fact to a 100-billion weight model requires re-running gradient descent or risking catastrophic forgetting.
+
+---
+
+## IV. The Handoff to the company
+
+With the Transformer, computing achieved a clean separation between static intelligence and dynamic search.
+
+The weights provide the reasoning engine. the grammar, and the associative index. The context window provides the active workspace.
+
+Yet this technical split mirrors an ancient company dilemma:
+- A corporation cannot retrain all its employees whenever a new contract is signed.
+- Instead, the company relies on general competencies stored in human habits, coupled with external records retrieved as needed.
+
+Part II turns from machine learning design to collective human systems. Chapter 8 begins by examining how human companies adapted when looking up permanently replaced memorizing.
+
+<aside class="chapter-takeaway">
+### Chapter 7 Takeaways: Parametric Weights, Working Memory, and Scale.
+
+- **The Technical Signal:** Transformers decouple frozen parametric weights (reasoning engine) from dynamic in-context working memory (the prompt context window).
+- **The company Fallacy:** Expecting employees to memorize every corporate policy rather than giving them agile search tools leads to daily fatigue.
+- **The Core Rule:** Sustainable intelligence combines a stable underlying reasoning model with dynamic, on-demand retrieval of current factual evidence.
+</aside>
+
 ## Notes
 
-[^geva2021]: M. Geva, R. Schuster, J. Berant, and O. Levy, "Transformer Feed-Forward Layers Are Key-Value Memories," in *Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing*, 2021, pp. 5484–5495. doi:10.18653/v1/2021.emnlp-main.446.
+[^vaswani2017]: **Grade: High** for Transformer self-attention providing temporary in-context working memory across token positions (Vaswani et al. 2017). A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin, "Attention Is All You Need," *NeurIPS* 30 (2017): 5998–6008, arXiv:1706.03762. Evidence Card: `evidence-cards/vaswani-2017-attention-is-all-you-need.md`.
+
+[^kaplan2020]: **Grade: High** for empirical power-law scaling governing language model performance across parameters, dataset size, and compute budget (Kaplan et al. 2020). J. Kaplan, S. McCandlish, T. Henighan, T. B. Brown, B. Chess, R. Child, ... and D. Amodei, "Scaling Laws for Neural Language Models," *arXiv:2001.08361* (2020). Evidence Card: `evidence-cards/kaplan-2020-scaling-laws-neural-language-models.md`.
+
+[^scaling-math]: **Power-Law Scaling Formulation:** Cross-entropy test loss scales smoothly via (N) \approx (N_c/N)^{\alpha_N}$, (D) \approx (D_c/D)^{\alpha_D}$, and (C) \approx (C_c/C)^{\alpha_C}$, showing predictable loss reductions over multiple orders of magnitude.

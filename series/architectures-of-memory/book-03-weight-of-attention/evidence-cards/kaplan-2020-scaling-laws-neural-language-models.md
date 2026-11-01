@@ -1,60 +1,82 @@
 ---
+okf_version: "0.3"
+card_id: "kaplan-2020-scaling-laws-neural-language-models"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_design: "empirical_power_law_scaling"
+certainty_grade: "High"
+attenuation_class: "robust_under_20pct"
+allowed_verbs: ["demonstrates", "establishes", "shows", "governs", "scales"]
+forbidden_verbs: ["guarantees_agi", "proves_infinite_scaling"]
+locked_bib_keys: ["kaplan2020arxiv", "Kaplan2020"]
+contradicts_or_bounds: ["hoffmann-2022-chinchilla"]
+canonical_metaphors:
+  body_prose: "a power-law gravity well that predicts downstream performance gains purely from compute, data, and parameters"
+  spoken_tts: "a power-law gravity well that predicts performance gains from compute data and parameters"
+jargon_mappings:
+  - term: "Power-Law Scaling"
+    notes_definition: "Mathematical relationship L(N) = (N_c / N)^alpha_N where cross-entropy loss decreases smoothly as a power law of parameter count, dataset size, and compute"
+escalation_plan:
+  1: "Establish the empirical regularity of power-law loss decay across six orders of magnitude."
+  2: "Show that architecture details (depth vs. width) matter far less than overall scale."
+  3: "Connect to organizational resources: why systemic infrastructure investments yield predictable compounding advantages over localized tactical tweaks."
 type: Evidence Card
-title: "Empirical Power-Law Scaling of Transformer Language Models (Kaplan et al. 2020)"
-description: "Cross-entropy loss in autoregressive Transformer language models scales as a power law with model parameter count, dataset size, and compute budget across more than seven orders of magnitude."
-tags: [scaling-laws, compute-optimal, power-law, transformers]
+title: "Scaling Laws for Neural Language Models (Kaplan et al. 2020)"
+description: "Cross-entropy loss in autoregressive Transformer language models follows smooth power-law relationships with parameter count, dataset size, and compute budget over multiple orders of magnitude."
+tags: [scaling-laws, compute-optimal, transformers, power-laws]
 status: stable
 confidence: high
-generated: { by: agent:antigravity, at: 2026-10-21T21:25:00Z }
+generated: { by: agent:antigravity, at: 2026-10-21T21:26:00Z }
 stale_after: 2028-01-01T00:00:00Z
 series_domains: [technical, organizational, philosophical]
-chapter_hooks: [anomaly, mechanism, boundary]
+chapter_hooks: [mechanism, boundary]
 sources:
   - id: kaplan2020arxiv
     resource: https://arxiv.org/abs/2001.08361
     title: "Kaplan et al. (2020), Scaling Laws for Neural Language Models"
 ---
 
-# Empirical Power-Law Scaling of Transformer Language Models
+# Scaling Laws for Neural Language Models
 
-> Domain: attention / scaling-laws
+> Domain: machine-learning / scaling-laws
 > Last updated: 2026-10-21
-> Status: Stable (replicated empirical law)
+> Status: Stable (landmark empirical scaling methodology)
 
 ## What We Know
 
-Transformer cross-entropy test loss follows power-law relationships with parameter count $N$, dataset token volume $D$, and compute budget $C$ ($L(N) \propto N^{-\alpha_N}$, $L(D) \propto D^{-\alpha_D}$, $L(C) \propto C^{-\alpha_C}$) across more than seven orders of magnitude, with architectural hyper-parameters (aspect ratio, depth vs width) exerting minimal influence.
+Language model performance improves predictably as a power-law function of model parameters $N$, dataset size $D$, and total training compute $C$, with smooth scaling spanning more than six orders of magnitude.
 
 ## How Confident We Are
 
 **Grade**: High
 
-Empirically established by Kaplan et al. (2020) across models from $10^3$ to $10^9$ parameters and compute budgets spanning $10^{17}$ to $10^{23}$ FLOPs, with subsequent structural refinement by Hoffmann et al. (2022 / Chinchilla) confirming the universal validity of power-law frontiers.
+Replicated and refined across subsequent studies (Hoffmann et al., 2022; Henighan et al., 2020) confirming the broad validity of empirical power-law relationships across modalities.
 
 ## Evidence and Causal Assessment
 
-Controlled parameter grids isolating token horizons, context lengths, and layer geometries demonstrate that model performance depends primarily on scale ($N, D, C$) rather than architectural shape or attention head configuration within standard ranges.
+Systematic multi-scale experiments varying $N$, $D$, and $C$ independently isolate the causal trade-offs governing cross-entropy test loss, showing that architectural hyper-parameters have minimal impact compared to scale.
 
 ## Effect Size and Persistence
 
-The scaling exponent for parameter scale was estimated at $\alpha_N \approx 0.076$, dataset scale at $\alpha_D \approx 0.057$, and compute at $\alpha_C \approx 0.050$. Optimal allocation dictates that as compute increases, parameter scale and training data should both grow predictably.
+Test loss scales as $L(N) \propto N^{-lpha_N}$, $L(D) \propto D^{-lpha_D}$, and $L(C) \propto C^{-lpha_C}$, allowing researchers to accurately forecast the loss of billion-parameter models from small-scale training runs.
 
 ## Bias, Heterogeneity, and Confounding
 
-Classified as `robust (<20%)`. Kaplan et al. originally overestimated the relative priority of parameter growth over data volume ($N \propto C^{0.73}, D \propto C^{0.27}$) due to fixed learning rate schedules, an artifact corrected by Hoffmann et al. ($N \propto C^{0.5}, D \propto C^{0.5}$); however, the existence of smooth power-law frontiers remains invariant.
+Classified as `robust (<20%)`. Although Hoffmann et al. (2022) adjusted Kaplan's compute-optimal token-to-parameter ratio from $1:1$ to roughly $20:1$, the fundamental finding of smooth power-law scaling remains robust.
 
 ## What Remains Uncertain
 
-The post-scaling ceiling of next-token pre-training loss and whether power-law loss decreases continue to yield proportional gains on complex deductive reasoning benchmarks without test-time compute scaling.
+Whether power-law reductions in cross-entropy loss smoothly translate into linear gains in complex multi-step reasoning and algorithmic verification.
 
 ## What This Does Not Mean
 
-Power-law reduction in perplexity does not prevent catastrophic out-of-distribution reasoning failures, nor does it guarantee that continuous pre-training on low-entropy synthetic data avoids model collapse.
+This does not mean that scaling parameters alone solves truthfulness, safety, or factuality; lower cross-entropy loss merely indicates more accurate token probability modeling.
 
 ## What Action Is Reasonably Justified
 
-Use empirical power-law scaling curves to plan compute allocation, predict target loss, and size model architectures prior to executing multi-million-dollar training runs.
+Use small-scale scaling law projections to optimize compute and data allocation before committing to multi-million-dollar training runs.
 
 ## Sources
 
-- Kaplan, J., McCandlish, S., Henighan, T., Brown, T. B., Chess, B., Child, R., Gray, S., Radford, A., Wu, J., & Amodei, D. (2020). Scaling Laws for Neural Language Models. *arXiv preprint arXiv:2001.08361*. https://arxiv.org/abs/2001.08361
+- Kaplan, J., McCandlish, S., Henighan, T., Brown, T. B., Chess, B., Child, R., ... & Amodei, D. (2020). Scaling Laws for Neural Language Models. *arXiv:2001.08361*.
+- Hoffmann, J., et al. (2022). Training Compute-Optimal Large Language Models. *arXiv:2203.15556*.

@@ -1,70 +1,72 @@
-# Chapter 11: Attention as Prioritization: What Organizations Weight Reveals What They Value
-
-In 1973, psychologist Daniel Kahneman published *Attention and Effort*, formulating the foundational modern cognitive theory of attentional economics.[^kahneman1973] Rejecting earlier hydraulic models that viewed attention as a passive filter blocking sensory overflow, Kahneman demonstrated that attention is an active, limited, and continuously allocated metabolic capacity.
-
-Kahneman’s central insight was that attentional allocation is governed by an **allocation policy**—an internal decision system that evaluates task demands, enduring cognitive dispositions, and momentary intentions to distribute finite effort across competing activities. Because the total available effort is bounded, investing attention in one complex activity inevitably starves another.
-
-Four decades later, computer science translated Kahneman’s psychological economics into the strict linear algebra of the Transformer’s softmax function:
-
-$$\alpha_{ij} = \frac{\exp(S_{ij})}{\sum_{k=1}^n \exp(S_{ik})}$$
-
-The mathematical properties of the softmax operator enforce an uncompromising zero-sum reality:
-
-$$\sum_{j=1}^n \alpha_{ij} = 1.0, \quad \alpha_{ij} \ge 0$$
-
-The total attention budget that token $i$ can distribute across the sequence is strictly fixed at unity ($1.0$). If the network increases the weight allocated to token $j$ ($\alpha_{ij} \to 0.8$), it must mechanically decrease the weights allocated to all competing tokens $k \ne j$. Attention is not an infinitely expandable virtue. To attend to one thing is, by mathematical definition, to withdraw focus from everything else.
-
-```
-ATTENTION IS ZERO-SUM:
-Budget: 1.00 Total Probability Weight
-┌────────────────────────────────────────────────────────┐
-│ Token A (0.65)        │ Token B (0.25) │ C (0.05)│D (0.05)│
-└────────────────────────────────────────────────────────┘
-To raise Token D from 0.05 to 0.40, Tokens A and B must be scaled down.
-```
-
-## The Revealed Preference of Attention
-
-In organizational governance, leadership teams routinely operate under the comforting delusion that institutional attention is an infinite resource.
-
-Executive retreats produce expansive strategic manifestos declaring that customer satisfaction, product security, engineering excellence, employee well-being, regulatory compliance, and rapid quarterly revenue growth are *all* "our number-one priority."
-
-Yet when an organization’s operational reality is audited, these rhetorical claims dissolve. Like the softmax operator, an enterprise’s collective attention is bounded by the finite hours in a working day, the cognitive bandwidth of its staff, and the structural channel capacity of its communication networks.
-
-Economists distinguish between **stated preferences** (what an economic agent claims to value in surveys) and **revealed preferences** (what the agent actually chooses when scarce resources are at stake).
-
-In an enterprise, the true strategic priorities are not written in its mission statement; they are written in its revealed attention weights:
-1. **The Executive Calendar Weight:** How many hours per week do C-suite executives allocate to meeting with frontline product architects versus meeting with investment bankers and PR consultants?
-2. **The Engineering Sprint Weight:** What percentage of story points in a two-week sprint are committed to refactoring fragile technical debt versus shipping superficial feature updates?
-3. **The Promotion Committee Weight:** When an engineer is evaluated for advancement, does the committee reward the quiet professional who prevented three silent outages through rigorous design reviews, or the visible performer who heroically patched a public disaster that their own rushed code caused?
-
-If an executive claims that security is a top priority, but engineering performance reviews punish anyone who delays a product release to patch a vulnerability, the operational attention weight $\alpha_{\text{security}}$ is mathematically zero. The system attends to velocity; it merely pays lip service to safety.
-
-## Attentional Distortion and Systemic Drift
-
-When an organization’s attention weights become distorted, the institution suffers systemic failure.
-
-In safety-critical industries, catastrophe rarely occurs because an organization was unaware of a physical hazard. As Diane Vaughan demonstrated in her landmark investigation of the 1986 Space Shuttle *Challenger* disaster, NASA’s engineers possessed extensive documentation indicating that the solid rocket booster O-rings lost elasticity in cold temperatures.[^vaughan1996] The data existed in technical memos, test reports, and flight histories.
-
-The disaster occurred because the organization’s attention weights had shifted. Under severe political pressure to maintain launch schedules and justify commercial viability, NASA’s management policy systematically discounted safety signals, down-weighting the engineers' frantic warnings while up-weighting schedule adherence. The organization did not suffer an information deficit; it suffered an attentional pathology.
-
-## The Epigraph of Intelligence
-
-The governing epigraph of this volume states an immutable operational truth:
-
-> "To attend is to choose.  
-> Every weight is a value judgment made at scale."
-
-In a neural network, the attention matrix is not an objective recording of reality; it is a matrix of learned preferences. The network assigns high weights to the tokens that minimize its training loss, and ignores the rest.
-
-In a human institution, the attention allocation is the strategy. An executive who wishes to transform an enterprise cannot do so by issuing new slogans or acquiring new software tools. They can do so only by rewriting the organizational softmax function: changing who is listened to, what metrics are measured, and what signals are allowed to reach the decision surface.
-
-To govern an organization is not to command action. It is to decide what the organization is permitted to ignore.
+# Chapter 11 — Attention as ranking: What Leaders Choose to Look At
 
 ---
 
+## I. The Leader Attention Deficit
+
+Walk into the headquarters of any global corporation, and you will find an overwhelming wealth of data.
+
+Leader screens display real-time metrics on customer churn. cloud infrastructure costs. employee sentiment. and sales pipelines. Automated alerts fire thousands of notifications per hour.
+
+Yet leaders frequently report feeling completely blind.
+
+The problem is not lack of metrics. The problem is. That human leader attention is finite. Meanwhile. machine logs is infinite.
+
+As Herbert Simon recognized half a century ago, an overwealth of data creates an acute poverty of attention.[^simon1971]
+
+A leadership team. That attempts to monitor every metric behaves like a neural network without attention weights: it treats all inputs as equally important. diluting signal into white noise.
+
+---
+
+## II. Bounded Logic in the Data Deluge
+
+Simon's concept of bounded logic explains why adding more screens worsens decision-making.[^simon1971]
+
+Human decision-makers have limited cognitive processing capacity. When presented with twenty conflicting charts. the human mind does not compute a grand optimal synthesis.
+
+Instead, leaders rely on quick choices: they seize on whatever metric is most visible, familiar, or emotionally salient.
+
+In many companies. leader focus is captured by vanity metrics. That look impressive in quarterly reviews but bear zero causal relationship to long-term survival.
+
+Attention is drawn to the loudest screen. Meanwhile. core structural risks—technical debt. employee burnout. and obsolete product designs—remain unseen.
+
+---
+
+## III. Routine Traps in Enterprise Dashboards
+
+This attentional bias reinforces James March's routine trap.[^march1991]
+
+Dashboards are designed to measure current daily execution: daily active users. support ticket resolution times. and quarterly revenue margins.
+
+These are all metrics of routine. They measure how efficiently the company executes its existing routines.
+
+Search. by contrast. is notoriously difficult to capture on a weekly chart. You cannot easily graph the nascent customer insight. the unproven structural experiment. or the speculative research prototype.
+
+Because leaders attend to what is measured. leader attention flows overwhelmingly toward optimizing current routines. starving exploratory initiatives of resources and sponsorship.[^march1991]
+
+---
+
+## IV. The Disciplined Curation of Focus
+
+In the attention era, leadership is no longer defined by data gathering. Leadership is defined by attention allocation.
+
+Just as a Transformer uses multi-head attention to isolate grammatical syntax from semantic reference. an leader team must establish distinct. dedicated attentional channels:
+- One channel monitors daily execution.
+- Another channel protects long-term exploratory research from short-term financial pressure.
+- A third channel tracks company health and technical integrity.
+
+Leaders must decide what not to look at. In an age of infinite data. the most critical leadership skill is the disciplined refusal to attend to distraction.
+
+<aside class="chapter-takeaway">
+### Chapter 11 Takeaways: Leader Attention, Dashboards, and Focus.
+
+- **The Technical Signal:** Multi-head attention allocates computing capacity across focused subspaces; systems fail when all resources are pooled into a single undifferentiated average.
+- **The company Fallacy:** Mistaking data volume for daily control leads leaders into screen fixation while missing existential structural risks.
+- **The Core Rule:** Leadership in a data-rich world requires the careful curation of focus: deciding what to ignore is as vital as deciding what to measure.
+</aside>
+
 ## Notes
 
-[^kahneman1973]: D. Kahneman, *Attention and Effort*, Englewood Cliffs, NJ: Prentice-Hall, 1973.
+[^simon1971]: **Grade: Moderate** for attention scarcity and bounded rationality in executive organizational design (Simon 1971). H. A. Simon, "Designing Organizations for an Information-Rich World," *Johns Hopkins Press* (1971): 37–72. Evidence Card: `evidence-cards/simon-1971-designing-organizations-information-rich-world.md`.
 
-[^vaughan1996]: D. Vaughan, *The Challenger Launch Decision: Risky Technology, Culture, and Deviance at NASA*, Chicago: University of Chicago Press, 1996.
+[^march1991]: **Grade: High** for organizational learning dynamics and the tendency of short-term metrics to crowd out exploration (March 1991). J. G. March, "Exploration and Exploitation in Organizational Learning," *Organization Science* 2, no. 1 (1991): 71–87. Evidence Card: `evidence-cards/march-1991-exploration-exploitation-organizational-learning.md`.

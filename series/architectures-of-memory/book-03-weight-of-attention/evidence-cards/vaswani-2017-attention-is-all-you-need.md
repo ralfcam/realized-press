@@ -1,4 +1,25 @@
 ---
+okf_version: "0.3"
+card_id: "vaswani-2017-attention-is-all-you-need"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_design: "architectural_ablation_and_synthetic_benchmark"
+certainty_grade: "High"
+attenuation_class: "robust_under_20pct"
+allowed_verbs: ["demonstrates", "establishes", "shows", "enables", "replaces"]
+forbidden_verbs: ["proves_consciousness", "solves_general_intelligence"]
+locked_bib_keys: ["vaswani2017arxiv", "Vaswani2017"]
+contradicts_or_bounds: ["hochreiter-1997-constant-error-carousel", "gers-2000-forget-gate-continual-prediction"]
+canonical_metaphors:
+  body_prose: "a parallel query-key-value switchboard that compares every word to every other word simultaneously"
+  spoken_tts: "a parallel query key value switchboard that compares every word simultaneously"
+jargon_mappings:
+  - term: "Scaled Dot-Product Attention"
+    notes_definition: "Attention function computing softmax(QK^T / sqrt(d_k)) * V over packed query, key, and value representations"
+escalation_plan:
+  1: "Demonstrate how eliminating recurrence reduces maximum path length between distant tokens to O(1)."
+  2: "Explain multi-head attention as multiple simultaneous subspace interpretations."
+  3: "Map the organizational parallel: how matrix-structured routing replaces hierarchical bureaucratic telephone games."
 type: Evidence Card
 title: "Self-Attention Parallelization and Recurrence Elimination in Sequence Modeling (Vaswani et al. 2017)"
 description: "Dispensing with recurrent and convolutional operations entirely in favor of multi-head self-attention reduces sequential path length to O(1) and enables full sequence-parallel training."
@@ -49,12 +70,12 @@ Whether pure attention without recurrent hidden state maintenance can autonomous
 
 ## What This Does Not Mean
 
-Self-attention matrices do not imply human-like reasoning, nor does spatializing time into an all-to-all attention matrix remove the computational wall of KV-cache memory during autoregressive inference.
+This does not mean that Transformers store memories in hidden recurrent states; rather, they replace persistent internal memory with dynamic context-dependent routing across weights and input tokens.
 
 ## What Action Is Reasonably Justified
 
-Modern sequence modeling harnesses should standardize on multi-head attention architectures for all sequence-to-sequence and autoregressive generation tasks, while incorporating optimized FlashAttention kernels to mitigate $O(N^2)$ memory bandwidth bottlenecks.
+Adopt Transformer architectures for high-throughput language and sequence processing tasks where training parallelization and multi-hop associative recall outweigh quadratic context cache costs.
 
 ## Sources
 
-- Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention Is All You Need. *Advances in Neural Information Processing Systems*, 30. https://arxiv.org/abs/1706.03762
+- Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention Is All You Need. *Advances in Neural Information Processing Systems (NeurIPS 2017)*. DOI: 10.48550/arXiv.1706.03762

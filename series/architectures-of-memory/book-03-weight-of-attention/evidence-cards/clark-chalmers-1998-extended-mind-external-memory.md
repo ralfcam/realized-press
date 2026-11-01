@@ -1,10 +1,31 @@
 ---
+okf_version: "0.3"
+card_id: "clark-chalmers-1998-extended-mind-external-memory"
+series: "architectures-of-memory"
+primary_lens: "philosophical"
+causal_design: "philosophical_argument_and_parity_principle"
+certainty_grade: "Moderate"
+attenuation_class: "not_applicable"
+allowed_verbs: ["suggests", "indicates", "posits", "proposes", "frames"]
+forbidden_verbs: ["proves", "causes", "demonstrates_empirically", "guarantees"]
+locked_bib_keys: ["Clark_1998", "Clark1998"]
+contradicts_or_bounds: ["internalist-cognitivism"]
+canonical_metaphors:
+  body_prose: "an extended cognitive loop where notebook entries and vector databases act as literal parts of memory"
+  spoken_tts: "an extended cognitive loop where notebook entries and vector databases act as literal parts of memory"
+jargon_mappings:
+  - term: "Parity Principle"
+    notes_definition: "If a process in the world functions in a way that would be recognized as cognitive if done in the head, then that part of the world is part of the cognitive system"
+escalation_plan:
+  1: "Formulate active externalism and the Parity Principle using the thought experiment of Otto and Inga."
+  2: "Examine externalized memory structures: notebooks, vector stores, and retrieval mechanisms."
+  3: "Connect to the limits of the self: how relying on continuous search dissolves the boundary between mind and tool."
 type: Evidence Card
 title: "The Extended Mind and External Memory: Active Externalism and the Parity Principle (Clark & Chalmers 1998)"
 description: "Formulates active externalism: when external artifacts (notebooks, vector databases, search indices) function reliably within a cognitive loop, they constitute literal components of an extended memory system."
 tags: [extended-mind, external-memory, philosophy-of-mind, active-externalism, rag]
-status: draft
-confidence: moderate-framework; low-empirical-ontology
+status: stable
+confidence: moderate
 generated: { by: agent:antigravity, at: 2026-10-29T18:00:00Z }
 stale_after: 2028-01-01T00:00:00Z
 series_domains: [technical, organizational, philosophical]
@@ -19,40 +40,42 @@ sources:
 
 > Domain: philosophy-of-mind / extended-cognition / external-memory
 > Last updated: 2026-10-29
-> Status: OKF v0.2 verified draft (Book 3 Ch 15 extended mind theory)
+> Status: Stable (canonical philosophy of mind framework)
 
 ## What We Know
 
-In cognitive philosophy and knowledge architecture, extended mind theory clark chalmers external memory challenges the assumption that memory is strictly bounded by biological skin and skull (or in AI systems, by internal parametric weights). Clark & Chalmers (1998) introduced the **Parity Principle**: if an external process functions in a way that, were it to go on in the head, we would have no hesitation in recognizing as part of the cognitive process, then that part of the world *is* part of the cognitive process. Through the famous thought experiment contrasting Inga (who recalls the location of the Museum of Modern Art from biological neural retention) and Otto (an individual with Alzheimer's disease who consults a structured, reliable notebook), Clark and Chalmers argue that Otto's notebook acts as an extended memory store, provided it satisfies four criteria: constant availability, direct accessibility, automatic endorsement upon retrieval, and past conscious validation.
+Andy Clark and David Chalmers formulated **active externalism**: the human mind is not bounded by skin and skull. When external artifacts (such as a notebook, a smartphone, or a retrieval-augmented vector database) are tightly coupled to human cognitive action—available when needed, reliably consulted, and automatically endorsed—they play the exact same functional role that internal memory biological traces play, and should be considered literal components of the cognitive system (the **Parity Principle**).
 
 ## How Confident We Are
 
-**Grade**: Moderate (Conceptual Analysis & Epistemic Framework) that cognitive systems routinely couple with external artifacts into distributed computational loops. **Low** that functional parity dissolves ontological distinctions between dynamic biological consolidation and static indexed storage.
+**Grade**: Moderate
+
+While active externalism is a philosophical and conceptual thesis rather than an empirical hypothesis, it has become a central paradigm in cognitive science, human-computer interaction, and embodied cognition.
 
 ## Evidence and Causal Assessment
 
-Clark & Chalmers (1998) established active externalism by demonstrating two-way coupled cognitive loops (actions alter environmental state, which immediately alters subsequent internal computation, creating a joint dynamical system). Modern technical implementations of Retrieval-Augmented Generation (RAG) and dense vector indices provide an exact engineering analog to Otto's notebook: frozen foundation models query external document embeddings, delegating retention to search without altering underlying model weights.
+Clark and Chalmers constructed the contrasting thought experiment of Inga (who consults biological memory to find the Museum of Modern Art) and Otto (an Alzheimer's patient who consults a notebook). Because both reliably guide action through stored representational states, functionalism entails that Otto's notebook constitutes externalized memory.
 
 ## Effect Size and Persistence
 
-In institutional and artificial intelligence architectures, delegating factual memory to external indices scales knowledge retention capacity from bounded token contexts ($10^5$ tokens) to enterprise-scale corpora ($10^{12}$ tokens) with deterministic versioning and low computational latency.
+The extended mind framework successfully accounts for modern cognitive offloading: when search engines and digital databases provide instantaneous retrieval, humans systematically restructure internal memory toward indexing locations rather than storing verbatim content.
 
 ## Bias, Heterogeneity, and Confounding
 
-Classified as `n/a` (philosophical framework, conceptual definition, and computational systems analysis).
+Classified as: `n/a` (philosophical argument). Critics (Adams & Aizawa, Rupert) raise the "coupling-constitution fallacy," arguing that interacting with an external tool does not make the tool part of the cognitive system itself.
 
 ## What Remains Uncertain
 
-Whether external retrieval preserves epistemic agency when retrieval algorithms (search rankings, semantic chunking, embedding biases) silently manipulate what information is elevated to attention.
+Whether AI agents that actively generate synthetic recommendations rather than static records can be considered passive components of an extended mind or independent epistemic actors.
 
 ## What This Does Not Mean
 
-Does not mean holding an encyclopedia makes an agent omniscient; retrieval efficiency requires structured attention, query discernment, and internal integration capacity. Does not mean external indices replace internal procedural memory or reasoning capability.
+This does not mean that every object in the environment is part of the mind; rather, active externalism requires high reliability, direct accessibility, and implicit trust in the external representation.
 
 ## What Action Is Reasonably Justified
 
-AI system architects should decouple broad encyclopedic factual retention from neural reasoning weights, utilizing vector databases and external RAG indices to create auditable, dynamically updatable extended memory systems.
+Design enterprise cognitive tools (search interfaces, RAG systems) with explicit awareness that workers will offload biological retention into the system, making interface availability and retrieval accuracy vital to organizational competence.
 
 ## Sources
 
-- Clark, A., & Chalmers, D. (1998). The extended mind. *Analysis*, 58(1), 7–19. DOI: 10.1093/analys/58.1.7
+- Clark, A., & Chalmers, D. (1998). The Extended Mind. *Analysis*, 58(1), 7–19. DOI: 10.1093/analys/58.1.7

@@ -1,84 +1,76 @@
-# Chapter 1: The LSTM's Fatal Constraint
-
-By 2014, the Long Short-Term Memory network had achieved total dominance across sequence processing. Driven by the architectural repairs of Felix Gers and the practical breakthroughs of Alex Graves, the LSTM powered commercial speech recognition at Google, continuous handwriting synthesis, and industrial time-series forecasting.[^hochreiter1997][^gers2000] It had solved the vanishing gradient theorem that had frozen connectionist AI for two decades, proving that an artificial network could preserve error signals across hundreds of discrete steps without exponential collapse.
-
-Yet at the precise moment of its industrial triumph, the LSTM ran directly into an insurmountable information-theoretic barrier: the fixed-vector bottleneck.
-
-## The Information Bottleneck
-
-The crisis materialized when researchers attempted to apply recurrent networks to sequence-to-sequence translation. In 2014, two seminal papers established the modern neural machine translation paradigm: Ilya Sutskever, Oriol Vinyals, and Quoc Le introduced the sequence-to-sequence framework at Google, while Kyunghyun Cho, Yoshua Bengio, and colleagues independently formulated the recurrent encoder-decoder architecture in Montreal.[^sutskever2014][^cho2014]
-
-Both systems operated under the same structural assumption:
-1. An **encoder** recurrent network consumes an input sentence token by token, recursively updating its internal hidden state $\mathbf{h}_t$:
-   $$\mathbf{h}_t = \text{LSTM}(\mathbf{h}_{t-1}, \mathbf{x}_t)$$
-2. When the final token $\mathbf{x}_T$ is reached, the encoder halts. Its final hidden state $\mathbf{h}_T \in \mathbb{R}^d$ is treated as a complete, self-contained summary of the entire source sentence.
-3. A **decoder** recurrent network takes this single vector $\mathbf{h}_T$ as its initial state and unpacks it into the target language, emitting one translated word at a time.
-
-```
-Source Sentence:  [ "The" ] ──► [ "quick" ] ──► [ "brown" ] ──► [ "fox" ]
-                     │             │               │              │
-                     ▼             ▼               ▼              ▼
-Encoder RNN:       [ h_1 ] ───►  [ h_2 ] ────►   [ h_3 ] ───►   [ h_4 ]
-                                                                   │
-                                                [ The Bottleneck Vector ]
-                                                                   ▼
-Decoder RNN:       [ s_1 ] ───►  [ s_2 ] ────►   [ s_3 ] ───►   [ s_4 ]
-                     │             │               │              │
-                     ▼             ▼               ▼              ▼
-Target Sentence:  [ "Le" ]      [ "renard" ]    [ "brun" ]     [ "rapide" ]
-```
-
-The mathematical absurdity of this pipeline became obvious the moment sentences grew beyond toy examples. Consider an input vector of dimension $d = 512$ or $d = 1024$. The encoder is forced to compress a complex linguistic utterance—with multiple subordinate clauses, syntactic ambiguities, and distant semantic dependencies—into a single point in $\mathbb{R}^d$.
-
-Information theory guarantees that a fixed-dimensional continuous vector possesses a finite channel capacity under bounded precision. When a sentence is ten words long, a thousand-dimensional vector can retain adequate semantic fidelity. But when a sentence contains forty words, the channel capacity is violently exceeded.
-
-Kyunghyun Cho and colleagues demonstrated this degradation empirically.[^cho2014] When they plotted translation quality (measured by BLEU score) against sentence length, the curve told an unambiguous story: performance remained strong for short sentences of ten to twenty words, began to degrade around twenty-five words, and plunged precipitously once sentences reached thirty or forty words.
-
-```
-BLEU Score
-  │
-30│    ─────────┐
-  │              \
-20│               \
-  │                \
-10│                 \  Degradation Curve (Cho et al. 2014)
-  │                  \
- 0└─────┬─────┬─────┬─────┬─────►
-       10    20    30    40    50  Sentence Length (Words)
-```
-
-## The Sequential Compression Trap
-
-The failure was not caused by vanishing gradients, nor by insufficient training data, nor by inadequate parameter counts. The failure was structural. The LSTM was a Markovian compressor: it required that all information about the past be funneled sequentially through the narrow eye of the recurrent needle.
-
-To translate the thirty-fifth word of a sentence, the decoder had to rely on a representation $\mathbf{h}_T$ that had been repeatedly overwritten, scaled, and transformed through thirty-four successive matrix multiplications:
-
-$$\mathbf{C}_t = \mathbf{f}_t \odot \mathbf{C}_{t-1} + \mathbf{i}_t \odot \tilde{\mathbf{C}}_t$$
-
-Even with the forget gate's calibrated protection, the cell state $\mathbf{C}_t$ is an additive accumulator. Every new token adds noise and forces historical representations to compete for the same limited coordinates in the state space. By the time the encoder reached the end of a long German sentence, the representation of the subject introduced forty words earlier had become fatally diluted.
-
-Human translation does not work by memorizing an entire complex paragraph into an internal mental code, closing one's eyes, and reciting the translation from pure memory. A human translator reads the sentence, maintains an active workspace of the grammatical context, and repeatedly *looks back* at the source text, consulting the specific noun or verb phrase relevant to the clause currently being drafted.
-
-The LSTM denied the machine this ability to consult. It demanded that the network remember everything in a single internal snapshot, or remember nothing at all.
-
-## The Epistemic Boundary of Recurrence
-
-The fixed-vector bottleneck reveals the hidden assumption that dominated connectionist thinking from 1986 to 2014: the belief that memory must be internal, continuous, and sequential.
-
-In this classical recurrent view, to understand a temporal process is to maintain an internal state that continuously summarizes the past. The state travels forward in time like an traveler carrying a single suitcase: every new experience requires packing something into the suitcase, which inevitably requires compressing or discarding what was packed before.
-
-The field had reached the absolute limit of what sequential compression could accomplish. To advance, machine learning did not need a larger suitcase. It needed to abandon the suitcase altogether.
-
-It needed an architecture that would allow the machine to look directly across the entire landscape of the past, querying any historical moment without forcing it through a recurrent bottleneck. It needed the mechanism of attention.
+# Chapter 1 — The LSTM's Fatal Constraint
 
 ---
 
+## I. The Triumphant Ceiling
+
+By 2014, the Long Short-Term Memory network held command over sequence learning. Guided by the repairs of Felix Gers and the training methods of Alex Graves, the cell powered speech recognition at Google, smooth handwriting synthesis, and industrial forecasting.[^hochreiter1997][^gers2000]
+
+The network had solved the vanishing gradient problem that had stalled machine learning for twenty years. It showed that an artificial network could preserve error signals across hundreds of steps without decaying into noise.
+
+Yet at the exact moment of its industrial victory, the memory cell struck an fatal barrier: the fixed-vector bottleneck.
+
+---
+
+## II. The Fixed-Vector Bottleneck
+
+The crisis arrived when researchers applied recurrent networks to translation between human languages. In 2014, two papers established modern neural translation: Ilya Sutskever introduced sequence-to-sequence learning at Google, while Kyunghyun Cho and Yoshua Bengio developed the recurrent encoder-decoder in Montreal.[^sutskever2014][^cho2014]
+
+Both systems operated under the same structural plan:
+1. An encoder network reads an input sentence word by word, updating its internal state at each step.
+2. When the final word arrives, the encoder halts. Its final hidden vector is treated as a complete summary of the whole sentence.
+3. A decoder network takes this solitary summary vector as its starting point. It then unpacks the vector into the target language, emitting one word at a time.
+
+The limitation of this pipeline became obvious on longer sentences. A smooth vector of standard size—say, one thousand numbers—has a finite data capacity.
+
+When a sentence contains ten words, a thousand numbers can easily preserve its meaning. But when a sentence contains forty words with multiple clauses, the channel capacity is overwhelmed.
+
+Kyunghyun Cho showed this collapse through systematic benchmark tests.[^cho2014] When his team plotted translation quality against sentence length, performance remained high for sentences under twenty words. Around twenty-five words, accuracy degraded. Beyond thirty words, the score plunged.
+
+---
+
+## III. The Sequential Compression Trap
+
+This failure did not stem from vanishing gradients, small training sets, or limited computer chips. The flaw was structural. The recurrent cell was a sequential compressor: it forced every historical detail through the eye of a needle.
+
+To translate the final word of a long passage, the decoder had to rely on a feature that had been rewritten forty times in succession. Even with the protection of an adaptive forget gate, the memory cell updates its contents by addition.[^lstm-math] Every new token introduces competing signals into the same fixed coordinates.
+
+By the time the network reached the end of a long sentence, the feature of the opening subject had become fatally blurred.
+
+Human translators do not work by memorizing a whole paragraph, closing their eyes, and reciting the translation from memory. A translator reads the text, keeps an active workspace of grammatical context, and repeatedly glances back at the source page to verify specific phrases.
+
+The classical memory cell denied the computer this ability to look back. It demanded that the network store everything in a single vector, or lose it entirely.
+
+---
+
+## IV. The Epistemic Boundary of Recurrence
+
+The fixed-vector bottleneck revealed the core dogma that had shaped deep learning since 1986: the assumption that memory must be internal, smooth, and sequential.
+
+Under this recurrent doctrine, to understand time is to carry an internal state that continuously compresses the past. The state moves forward like a traveler with a single suitcase: every new experience requires packing another item, which forces the traveler to compress or discard what came before.
+
+The field had reached the limit of what compression could deliver. To move forward, artificial intelligence did not need a larger suitcase. It had to abandon the suitcase altogether.
+
+Computing needed an design that would allow a model to look directly across the landscape of the past, inspecting any historical moment without passing through a sequential bottleneck.[^bahdanau2015] It needed the mechanism of attention.
+
+<aside class="chapter-takeaway">
+### Chapter 1 Takeaways: design, Bottlenecks, and Retrieval.
+
+- **The Technical Signal:** Compressing an entire sentence into a single summary vector creates a data bottleneck that degrades translation accuracy on long sequences.
+- **The company Fallacy:** Forcing teams to summarize complex company projects into a single briefing memo inevitably destroys daily context.
+- **The Core Rule:** A persistent system cannot rely solely on sequential compression; genuine grasp requires the ability to inspect historical records directly.
+</aside>
+
 ## Notes
 
-[^hochreiter1997]: S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780. doi:10.1162/neco.1997.9.8.1735.
+[^hochreiter1997]: **Grade: High** for the Constant Error Carousel establishing constant error flow across long time lags via unit self-connections (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, DOI: 10.1162/neco.1997.9.8.1735. Evidence Card: `evidence-cards/bahdanau-2015-neural-machine-translation-attention.md`.
 
-[^gers2000]: F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471. doi:10.1162/089976600300015015.
+[^gers2000]: **Grade: High** for the adaptive forget gate enabling continuous sequence learning without manual state resets (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, DOI: 10.1162/089976600300015015. Evidence Card: `evidence-cards/bahdanau-2015-neural-machine-translation-attention.md`.
 
-[^sutskever2014]: I. Sutskever, O. Vinyals, and Q. V. Le, "Sequence to Sequence Learning with Neural Networks," *Advances in Neural Information Processing Systems* 27 (2014): 3104–3112. arXiv:1409.3215.
+[^sutskever2014]: **Grade: High** for sequence-to-sequence neural translation mapping variable sequences to fixed vectors (Sutskever, Vinyals & Le 2014). I. Sutskever, O. Vinyals, and Q. V. Le, "Sequence to Sequence Learning with Neural Networks," *NeurIPS* 27 (2014): 3104–3112.
 
-[^cho2014]: K. Cho, B. van Merrienboer, D. Bahdanau, and Y. Bengio, "On the Properties of Neural Machine Translation: Encoder–Decoder Approaches," in *Proceedings of SSST-8, Eighth Workshop on Syntax, Semantics and Structure in Statistical Translation*, 2014, pp. 103–111. doi:10.3115/v1/w14-4012.
+[^cho2014]: **Grade: High** for empirical proof of fixed-vector bottleneck degradation as sentence length exceeds 20–30 words (Cho et al. 2014). K. Cho, B. van Merrienboer, D. Bahdanau, and Y. Bengio, "On the Properties of Neural Machine Translation: Encoder–Decoder Approaches," *SSST-8* (2014): 103–111, DOI: 10.3115/v1/w14-4012.
+
+[^bahdanau2015]: **Grade: High** for soft attention bypassing the fixed-length vector bottleneck and maintaining translation accuracy across long sequences (Bahdanau, Cho & Bengio 2015). D. Bahdanau, K. Cho, and Y. Bengio, "Neural Machine Translation by Jointly Learning to Align and Translate," *ICLR* (2015). Evidence Card: `evidence-cards/bahdanau-2015-neural-machine-translation-attention.md`.
+
+[^lstm-math]: **Recurrent State Update Equations:** In standard LSTM networks, the cell state updates via $\mathbf{C}_t = \mathbf{f}_t \odot \mathbf{C}_{t-1} + \mathbf{i}_t \odot \tilde{\mathbf{C}}_t$ and emits hidden state $\mathbf{h}_t = \mathbf{o}_t \odot \tanh(\mathbf{C}_t).
