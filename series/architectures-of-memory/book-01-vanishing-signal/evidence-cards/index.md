@@ -1,6 +1,6 @@
 # Evidence Cards — Book 1: The Vanishing Signal
 
-Six OKF v0.2 atomic evidence cards anchoring this volume across technical, organizational, and philosophical lenses:
+Nine OKF v0.3 atomic evidence cards anchoring this volume across technical, organizational, and philosophical lenses:
 
 ## Technical Lens (Backpropagation, RNNs & Gradient Dynamics)
 * [Vanishing and Exploding Gradients in Recurrent Networks](hochreiter-1991-vanishing-gradient.md) — **`status: stable`** (Grade: High): Hochreiter 1991 / Bengio et al. 1994; exponential decay of backpropagated credit signals with recurrent Jacobian spectral radius.
@@ -15,5 +15,6 @@ Six OKF v0.2 atomic evidence cards anchoring this volume across technical, organ
 
 ## Philosophical Lens (Temporal Phenomenology & Lived Duration)
 * [Habit-Memory, Pure Recollection, and Lived Duration](bergson-1896-matter-and-memory-duration.md) — **`status: stable`** (Grade: High): Bergson 1896 / 1889; dual-memory architecture distinguishing somatic habit from dated recollection, and the spatialization of time in learning systems.
+* [The Ship of Theseus and the Bifurcation of Diachronic Identity](hobbes-1655-de-corpore-ship-of-theseus.md) — **`status: stable`** (Grade: High): Hobbes 1655 / Sider 2001; dual-logbook puzzle where continuous replacement of parts conflicts with reassembly of original matter.
 
 

@@ -73,6 +73,15 @@ sources:
   - id: Bergson_1896
     resource: https://doi.org/10.1037/10006-000
     title: "Mati{\e (1896)"
+  - id: Bergson_1889
+    resource: https://doi.org/10.1037/10007-000
+    title: "Essai sur les donnees immediates de la conscience (1889)"
+  - id: Hobbes_1655
+    resource: https://doi.org/10.1093/oseo/instance.00015505
+    title: "De Corpore (1655)"
+  - id: Sider_2001
+    resource: https://doi.org/10.1093/019924443x.001.0001
+    title: "Four-Dimensionalism: An Ontology of Persistence and Time (2001)"
 ---
 
 # Master Source Catalog (`book-01-vanishing-signal`)
@@ -99,3 +108,6 @@ sources:
 - **`Holtzblatt_2010`** (2010): Factors impeding Wiki use in the enterprise: a case study — <http://dx.doi.org/10.1145/1753846.1754208>
 - **`Hochreiter_1997`** (1997): Long Short-Term Memory — <http://dx.doi.org/10.1162/neco.1997.9.8.1735>
 - **`Bergson_1896`** (1896): Mati{\e — <https://doi.org/10.1037/10006-000>
+- **`Bergson_1889`** (1889): Essai sur les donnees immediates de la conscience — <https://doi.org/10.1037/10007-000>
+- **`Hobbes_1655`** (1655): De Corpore — <https://doi.org/10.1093/oseo/instance.00015505>
+- **`Sider_2001`** (2001): Four-Dimensionalism: An Ontology of Persistence and Time — <https://doi.org/10.1093/019924443x.001.0001>

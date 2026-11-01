@@ -103,6 +103,9 @@ sources:
   - id: kirkpatrick2017ewc
     resource: https://doi.org/10.1073/pnas.1611835114
     title: "Overcoming catastrophic forgetting in neural networks (2017)"
+  - id: French_1999
+    resource: https://doi.org/10.1016/S1364-6613(99)01294-2
+    title: "Catastrophic forgetting in connectionist networks (1999)"
 ---
 
 # Master Source Catalog (`book-02-forget-gate`)
@@ -139,3 +142,4 @@ sources:
 - **`cho2014gru`** (2014): Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation — <https://doi.org/10.3115/v1/D14-1179>
 - **`chung2014empirical`** (2014): Empirical Evaluation of Gated Recurrent Neural Networks on Sequence Modeling — <https://arxiv.org/abs/1412.3555>
 - **`kirkpatrick2017ewc`** (2017): Overcoming catastrophic forgetting in neural networks — <https://doi.org/10.1073/pnas.1611835114>
+- **`French_1999`** (1999): Catastrophic forgetting in connectionist networks — <https://doi.org/10.1016/S1364-6613(99)01294-2>

@@ -11,12 +11,16 @@ Executes one complete **Book Development Lifecycle (BDLC)** refinement and harne
 
 ## 5-Step Refinement Loop
 
-1. **Step 1 — Mechanical Diagnostics & Baseline Snapshot:**
-   - Run the OKF v0.2 Five-Rule Gate, Manuscript Auditor, and Marketing Intelligence Scorecard on the target book/series:
+1. **Step 1 — Mechanical Diagnostics & Graph Baseline:**
+   - Run the OKF Five-Rule Gate, Graph Coherence Auditor, and Marketing Intelligence Scorecard on the target book/series:
      ```bash
      python scripts/five_rule_check.py <book-dir> --online-retraction-check
-     python scripts/audit_manuscript.py <book-dir> --strict
+     python scripts/audit_manuscript.py <book-dir> --strict --graph-strict
      python scripts/marketing_intelligence.py --series <series-slug>
+     ```
+   - Generate Chapter Context Packs (CCPs) for any chapters under active revision:
+     ```bash
+     python -m bwe.cli context --series <series-slug> --chapter <ch-slug>
      ```
 2. **Step 2 — Epistemic & Confounding Refinement (`evidence-cards/*.md` & `sources.bib`):**
    - Follow the **5-Step Definitive Tool Routing Protocol** (`perplexity_research` / `perplexity_reason` $\to$ `context7` $\to$ `academic-bib` `crossref_lookup`/`openalex_work`/`add_bibtex_entry` $\to$ `scripts/sync_okf_sources.py`).
