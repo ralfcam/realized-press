@@ -1,19 +1,40 @@
 ---
+okf_version: '0.3'
+card_id: zuboff-2019-age-of-surveillance-capitalism
+series: architectures-of-memory
+primary_lens: organizational
+causal_role: foundation
+plain_english_metaphor: the behavioral surplus vault
+attenuation_class: not_applicable
 type: Evidence Card
-title: "Surveillance Capitalism and Behavioral Memory Asymmetry (Zuboff 2019)"
-description: "Surveillance capitalism monetizes behavioral surplus by unilaterally claiming private human experience as behavioral data, creating an epistemic asymmetry where corporations remember everything and users know nothing."
-tags: [surveillance-capitalism, memory-asymmetry, behavioral-surplus, platform-governance]
+title: Surveillance Capitalism and Behavioral Memory Asymmetry (Zuboff 2019)
+description: Surveillance capitalism monetizes behavioral surplus by unilaterally
+  claiming private human experience as behavioral data, creating an epistemic asymmetry
+  where corporations remember everything and users know nothing.
+tags:
+- surveillance-capitalism
+- memory-asymmetry
+- behavioral-surplus
+- platform-governance
 status: stable
 confidence: high
-generated: { by: agent:antigravity, at: 2026-10-23T18:30:00Z }
-stale_after: 2028-01-01T00:00:00Z
-series_domains: [organizational, philosophical]
-chapter_hooks: [mechanism, boundary, action]
+generated:
+  by: agent:antigravity
+  at: 2026-10-23 18:30:00+00:00
+stale_after: '2028-01-01T00:00:00Z'
+series_domains:
+- organizational
+chapter_hooks:
+- mechanism
+- boundary
+- action
+locked_bib_keys:
+- Zuboff_2019
 sources:
   - id: Zuboff_2019
     resource: https://www.publicaffairsbooks.com/titles/shoshana-zuboff/the-age-of-surveillance-capitalism/9781610395694/
-    title: "Zuboff (2019), The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power"
----
+    title: 'Zuboff (2019), The Age of Surveillance Capitalism: The Fight for a Human
+    Future at the New Frontier of Power'---
 
 # Surveillance Capitalism and Behavioral Memory Asymmetry
 

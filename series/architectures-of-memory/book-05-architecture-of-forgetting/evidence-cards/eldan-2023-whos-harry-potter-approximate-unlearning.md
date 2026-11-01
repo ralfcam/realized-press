@@ -1,19 +1,41 @@
 ---
+okf_version: '0.3'
+card_id: eldan-2023-whos-harry-potter-approximate-unlearning
+series: architectures-of-memory
+primary_lens: technical
+causal_role: mechanism
+plain_english_metaphor: the targeted conceptual erasure
+attenuation_class: robust_under_20pct
 type: Evidence Card
-title: "Approximate Selective Unlearning in Pre-Trained Language Models (Eldan & Russinovich 2023)"
-description: "Fine-tuning target models on synthetic counterfactual completions paired with reinforced generic text unlearns targeted copyrighted or sensitive domain knowledge without catastrophic general language degradation."
-tags: [machine-unlearning, llm-unlearning, selective-forgetting, copyright]
+title: Approximate Selective Unlearning in Pre-Trained Language Models (Eldan & Russinovich
+  2023)
+description: Fine-tuning target models on synthetic counterfactual completions paired
+  with reinforced generic text unlearns targeted copyrighted or sensitive domain knowledge
+  without catastrophic general language degradation.
+tags:
+- machine-unlearning
+- llm-unlearning
+- selective-forgetting
+- copyright
 status: stable
 confidence: high
-generated: { by: agent:antigravity, at: 2026-10-21T21:32:00Z }
-stale_after: 2028-01-01T00:00:00Z
-series_domains: [technical, organizational, philosophical]
-chapter_hooks: [anomaly, mechanism, boundary]
+generated:
+  by: agent:antigravity
+  at: 2026-10-21 21:32:00+00:00
+stale_after: '2028-01-01T00:00:00Z'
+series_domains:
+- technical
+chapter_hooks:
+- anomaly
+- mechanism
+- boundary
+locked_bib_keys:
+- eldan2023arxiv
 sources:
   - id: eldan2023arxiv
     resource: https://arxiv.org/abs/2310.02238
-    title: "Eldan & Russinovich (2023), Who's Harry Potter? Approximate Unlearning in LLMs"
----
+    title: Eldan & Russinovich (2023), Who's Harry Potter? Approximate Unlearning in
+    LLMs---
 
 # Approximate Selective Unlearning in Pre-Trained Language Models
 

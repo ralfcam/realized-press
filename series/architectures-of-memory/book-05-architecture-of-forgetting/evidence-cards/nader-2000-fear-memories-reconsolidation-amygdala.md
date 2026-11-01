@@ -1,19 +1,40 @@
 ---
+okf_version: '0.3'
+card_id: nader-2000-fear-memories-reconsolidation-amygdala
+series: architectures-of-memory
+primary_lens: philosophical
+causal_role: mechanism
+plain_english_metaphor: the malleable recalled trace
+attenuation_class: robust_under_20pct
 type: Evidence Card
-title: "Memory Reconsolidation and Labile Retrieval States (Nader et al. 2000)"
-description: "Retrieving a consolidated fear memory returns it to a transient labile state requiring new protein synthesis for reconsolidation, enabling pharmacological erasure or attenuation of traumatic memory."
-tags: [reconsolidation, neurobiology, memory-erasure, ptsd]
+title: Memory Reconsolidation and Labile Retrieval States (Nader et al. 2000)
+description: Retrieving a consolidated fear memory returns it to a transient labile
+  state requiring new protein synthesis for reconsolidation, enabling pharmacological
+  erasure or attenuation of traumatic memory.
+tags:
+- reconsolidation
+- neurobiology
+- memory-erasure
+- ptsd
 status: stable
 confidence: high
-generated: { by: agent:antigravity, at: 2026-10-23T18:30:00Z }
-stale_after: 2028-01-01T00:00:00Z
-series_domains: [philosophical, technical]
-chapter_hooks: [anomaly, mechanism, boundary]
+generated:
+  by: agent:antigravity
+  at: 2026-10-23 18:30:00+00:00
+stale_after: '2028-01-01T00:00:00Z'
+series_domains:
+- philosophical
+chapter_hooks:
+- anomaly
+- mechanism
+- boundary
+locked_bib_keys:
+- Nader_2000
 sources:
   - id: Nader_2000
     resource: https://doi.org/10.1038/35021052
-    title: "Nader, Schafe & Le Doux (2000), Fear memories require protein synthesis in the amygdala for reconsolidation after retrieval"
----
+    title: Nader, Schafe & Le Doux (2000), Fear memories require protein synthesis in
+    the amygdala for reconsolidation after retrieval---
 
 # Memory Reconsolidation and Labile Retrieval States
 

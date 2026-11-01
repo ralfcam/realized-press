@@ -1,22 +1,43 @@
 ---
+okf_version: '0.3'
+card_id: bourtoule-2021-sisa-machine-unlearning
+series: architectures-of-memory
+primary_lens: technical
+causal_role: mechanism
+plain_english_metaphor: the sharded compartmentalized vault
+attenuation_class: robust_under_20pct
 type: Evidence Card
-title: "Sharded, Isolated, Sliced, and Aggregated (SISA) Exact Machine Unlearning (Bourtoule et al. 2021)"
-description: "Exact removal of a training point's influence from a deep neural network without full retraining requires architectural partitioning (SISA), trading ensemble accuracy and storage overhead for bounded retraining cost."
-tags: [unlearning, privacy, forgetting]
+title: Sharded, Isolated, Sliced, and Aggregated (SISA) Exact Machine Unlearning (Bourtoule
+  et al. 2021)
+description: Exact removal of a training point's influence from a deep neural network
+  without full retraining requires architectural partitioning (SISA), trading ensemble
+  accuracy and storage overhead for bounded retraining cost.
+tags:
+- unlearning
+- privacy
+- forgetting
 status: stable
 confidence: high
-generated: { by: agent:antigravity, at: 2026-10-20T23:05:00Z }
-stale_after: 2028-01-01T00:00:00Z
-series_domains: [technical, organizational, philosophical]
-chapter_hooks: [anomaly, mechanism, boundary]
+generated:
+  by: agent:antigravity
+  at: 2026-10-20 23:05:00+00:00
+stale_after: '2028-01-01T00:00:00Z'
+series_domains:
+- technical
+chapter_hooks:
+- anomaly
+- mechanism
+- boundary
+locked_bib_keys:
+- Bourtoule_2021
 sources:
   - id: Bourtoule_2021
     resource: https://doi.org/10.1109/sp40001.2021.00019
-    title: "Bourtoule et al. (2021), Machine Unlearning (IEEE S&P)"
+    title: Bourtoule et al. (2021), Machine Unlearning (IEEE S&P)
   - id: Dwork_2006
     resource: https://doi.org/10.1007/11681878_14
-    title: "Dwork, McSherry, Nissim, and Smith (2006), Calibrating Noise to Sensitivity in Private Data Analysis"
----
+    title: Dwork, McSherry, Nissim, and Smith (2006), Calibrating Noise to Sensitivity
+    in Private Data Analysis---
 
 # Sharded, Isolated, Sliced, and Aggregated (SISA) Exact Machine Unlearning
 

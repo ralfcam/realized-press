@@ -1,19 +1,41 @@
 ---
+okf_version: '0.3'
+card_id: feldman-2020-does-learning-require-memorization
+series: architectures-of-memory
+primary_lens: technical
+causal_role: constraint
+plain_english_metaphor: the long-tail memory tax
+attenuation_class: not_applicable
 type: Evidence Card
-title: "Necessity of Memorization for Generalization in Long-Tailed Distributions (Feldman 2020)"
-description: "Achieving Bayes-optimal generalization on long-tailed data distributions mathematically necessitates memorizing training sample labels from rare sub-populations, creating a fundamental tension with differential privacy."
-tags: [memorization, generalization, long-tail, privacy-utility-tradeoff]
+title: Necessity of Memorization for Generalization in Long-Tailed Distributions (Feldman
+  2020)
+description: Achieving Bayes-optimal generalization on long-tailed data distributions
+  mathematically necessitates memorizing training sample labels from rare sub-populations,
+  creating a fundamental tension with differential privacy.
+tags:
+- memorization
+- generalization
+- long-tail
+- privacy-utility-tradeoff
 status: stable
 confidence: high
-generated: { by: agent:antigravity, at: 2026-10-21T21:32:00Z }
-stale_after: 2028-01-01T00:00:00Z
-series_domains: [technical, organizational, philosophical]
-chapter_hooks: [anomaly, mechanism, boundary]
+generated:
+  by: agent:antigravity
+  at: 2026-10-21 21:32:00+00:00
+stale_after: '2028-01-01T00:00:00Z'
+series_domains:
+- technical
+chapter_hooks:
+- anomaly
+- mechanism
+- boundary
+locked_bib_keys:
+- feldman2019arxiv
 sources:
   - id: feldman2019arxiv
     resource: https://arxiv.org/abs/1906.05271
-    title: "Feldman (2020), Does Learning Require Memorization? A Short Tale about a Long Tail"
----
+    title: Feldman (2020), Does Learning Require Memorization? A Short Tale about a
+    Long Tail---
 
 # Necessity of Memorization for Generalization in Long-Tailed Distributions
 

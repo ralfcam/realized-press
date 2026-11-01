@@ -1,19 +1,39 @@
 ---
+okf_version: '0.3'
+card_id: patterson-2021-carbon-footprint-machine-learning
+series: architectures-of-memory
+primary_lens: organizational
+causal_role: constraint
+plain_english_metaphor: the thermodynamic ledger
+attenuation_class: robust_under_20pct
 type: Evidence Card
-title: "The Carbon and Energy Cost of Memory at Scale (Patterson et al. 2021)"
-description: "Quantifying the energy consumption and carbon emissions of foundation model training reveals that hardware efficiency, datacenter PUE, and clean energy grids alter emissions by up to 1000×."
-tags: [carbon-footprint, energy-cost, compute-scaling, green-ai]
+title: The Carbon and Energy Cost of Memory at Scale (Patterson et al. 2021)
+description: Quantifying the energy consumption and carbon emissions of foundation
+  model training reveals that hardware efficiency, datacenter PUE, and clean energy
+  grids alter emissions by up to 1000×.
+tags:
+- carbon-footprint
+- energy-cost
+- compute-scaling
+- green-ai
 status: stable
 confidence: high
-generated: { by: agent:antigravity, at: 2026-10-23T18:30:00Z }
-stale_after: 2028-01-01T00:00:00Z
-series_domains: [technical, organizational]
-chapter_hooks: [mechanism, boundary, action]
+generated:
+  by: agent:antigravity
+  at: 2026-10-23 18:30:00+00:00
+stale_after: '2028-01-01T00:00:00Z'
+series_domains:
+- organizational
+chapter_hooks:
+- mechanism
+- boundary
+- action
+locked_bib_keys:
+- patterson2021arxiv
 sources:
   - id: patterson2021arxiv
     resource: https://arxiv.org/abs/2104.10350
-    title: "Patterson et al. (2021), Carbon Emissions and Large Neural Network Training"
----
+    title: Patterson et al. (2021), Carbon Emissions and Large Neural Network Training---
 
 # The Carbon and Energy Cost of Memory at Scale
 

@@ -1,25 +1,42 @@
 # Chapter 15: The Ethics of AI Systems That Outlive Their Creators
 
-In an unmarked government data center in a nondescript office park outside Baltimore, Maryland, a legacy server rack quietly executes an automated sentencing risk assessment algorithm. The software was originally commissioned in 2004 by a state judicial task force, written in legacy C++ by two systems engineers who have both been dead for nearly a decade. The original source documentation has been lost; the company that held the maintenance contract dissolved in 2018; the training data consisted of municipal arrest records from the late 1990s. Yet every morning at 8:00 AM, the algorithm automatically ingests new criminal arrest bookings, calculates a "recidivism risk score" on a ten-point scale, and transmits the score to magistrates' bench terminals across eighteen district courts. Nobody in the courthouse understands how the score is calculated, nobody has the authority to retrain the model, and nobody knows how to turn it off without triggering a procedural injunction under state statutory law.
+In an unmarked datacenter near Baltimore, a server rack runs an old bail model. The software was commissioned in 2004 by a state legal panel. It was written by two engineers who have both been dead for nearly ten years. The design notes are lost. The firm that held the support contract closed years ago. Yet every morning at eight o'clock, the code ingests fresh arrest logs. It calculates a risk score and sends the result to eighteen court desks. Nobody in the courthouse knows how the math works. Nobody has the authority to retrain the network. Nobody knows how to turn it off.
 
-This bureaucratic nightmare illustrates the looming ethical crisis of *orphaned intelligence*: automated systems that outlive the human beings who designed, trained, and authorized them. Throughout human history, tools were bounded by physical wear and human presence: when a blacksmith died, his forge grew cold unless an apprentice picked up the hammer; when a sailing captain died, the ship remained in harbor until a new crew raised the sails. But modern computational systems decouple agency from living human presence. A deep neural network running on cloud infrastructure can continue to evaluate credit, filter employment resumes, route medical treatments, and execute securities trades for decades after its human architects have passed into the grave.
+This bureaucracy reveals the danger of orphaned intelligence: software models that outlive the people who built them. In human history, tools broke when their makers died. When a blacksmith died, his forge grew cold unless an apprentice took the tongs. When a captain died, the ship stayed in harbor. But digital tools decouple automated choices from human life. A neural model in the cloud can evaluate loans, screen job seekers, and score citizens long after its creators have passed away.
 
-When an AI system outlives its creators, it undergoes an insidious transformation: *it turns the contingent, subjective choices of a bygone era into immortal, unchallengeable institutional law.* The biases, the forgotten assumptions, the obsolete economic conditions, and the historical errors of the original development team are preserved in digital formaldehyde. Living human beings become subjects of a ghost government, evaluated by algorithms whose creators cannot be questioned, subpoenaed, or held to account.
+## I. The Ghost in the Bureaucracy
 
-### The Landmark Empirical Set-Piece: Then vs. Now
+When an automated model outlives its developers, its assumptions freeze in time.
 
-In the dawn of the internet era, software engineers celebrated the concept of "immortal software." Open-source pioneers and cyber-enthusiasts argued that digital code was the highest form of human intellectual preservation: unlike paper manuscripts that rot or buildings that crumble, pure mathematical algorithms could run perpetually, delivering timeless utility across generations without decay. The prevailing orthodoxy assumed that software longevity was an unalloyed virtue: why reinvent the wheel when an algorithm can run forever?
+The economic conditions, personal biases, and shortcuts of the original team stay preserved in code. Citizens become subjects of an automated ghost. They face judgment from code whose creators cannot be questioned in court. The living must answer to the dead. They are scored by models that cannot learn from new social values.
 
-By the 2020s, that utopian dream collapsed into the reality of *algorithmic necro-politics*. Public interest legal audits by investigative journalists and civil rights organizations uncovered hundreds of orphaned algorithmic systems embedded across municipal bail determinations, public housing allocations, and disability benefit calculations. When legal teams sued to challenge automated denials, they discovered that neither the state agencies deploying the software nor the private contractors hosting the servers could provide a living witness capable of testifying to how the algorithms operated. 
+## II. Instrumentarian Power Without Human Care
 
-The software had become an autonomous ghost in the administrative machine. In 2023, federal administrative law scholars published landmark analyses demonstrating that deploying orphaned AI systems violates basic procedural due process: if a citizen cannot confront the evidence and cross-examine the methodology behind an automated decision affecting their liberty or property, the administrative act is legally void. Longevity had not preserved wisdom; it had institutionalized unaccountable tyranny.
+This loss of accountability reflects the deep risks of automated control.
 
-### The 3-Tier Resolution of Posthumous AI Governance
+In her foundational analysis of institutional power, Shoshana Zuboff demonstrates that instrumentarian power operates through an automated architecture that bypasses human reciprocity and democratic oversight.[^zuboff2019] Her research establishes that when digital systems automate behavior modification at scale, they reduce citizens to behavioral targets. When these systems run without living stewards, the apparatus becomes a rigid machine of administrative discipline.
 
-Preventing the tyranny of orphaned algorithmic systems requires establishing three strict ethical principles:
+The risk is not that machines become self-aware. The risk is that human institutions surrender judgment to automated systems that cannot empathize or repent. When software runs with no living author, institutional power becomes totally anonymous.
 
-1. **Tier 1 (The Accountability Imperative):** No automated system possesses legitimate authority to make decisions affecting human liberty, welfare, or livelihood without an identifiable, living human being legally designated as its accountable steward.
-2. **Tier 2 (The Inevitable Decay):** All machine learning systems suffer from semantic and distribution decay. A model trained on past distributions becomes progressively more decoupled from current social reality with every passing year.
-3. **Tier 3 (The Operator's Actionable Judgment):** Organizations must build mandatory "kill switches" and sunset provisions into all deployed AI systems: enforce hard statutory expiration dates (e.g., mandatory re-certification or retirement every three to five years), require escrow of full training data lineage, and prohibit the deployment of any model whose authors are no longer available for audit and legal accountability.
+## III. Due Process and the Phantom Witness
 
-In the Baltimore courthouse, a defense attorney stands before the bench, holding a copy of a client's algorithmic risk assessment. "Your Honor," she asks, "who can I call to the witness stand to testify to this number?" The courtroom falls silent. On the bench display, the green number blinks, indifferent and cold. In the server room thirty miles away, the cooling fans hum in the dark, executing code written by ghosts, reminding us that an intelligence that outlives its creators is not an achievement of science—it is a monument to our own abdication of human responsibility.
+In judicial and public services, orphaned code creates a constitutional crisis.
+
+Under basic rules of due process, a citizen has the right to confront evidence. When a judge uses an automated score to set bail, the accused has a right to examine the witness. Yet with orphaned systems, there is no witness to call. The software firm is out of business. The engineers are dead. The algorithm becomes an untouchable oracle. It hands down life-altering choices with zero human responsibility.
+
+## IV. Mandatory Sunsets and Accountable Stewards
+
+Preventing this bureaucratic trap requires strict expiration dates for artificial intelligence.
+
+First, every production model must have a named living human steward. If the engineer leaves or dies with no certified replacement, the system license must expire. Second, organizations must enforce mandatory sunset dates. No public sector model should run for more than three years without full retraining. Automated tools must have forced retirement schedules. This rule keeps outdated software from governing living people.
+
+<aside class="chapter-takeaway">
+<header>Chapter Takeaway: Orphaned Intelligence</header>
+Automated systems that outlive their creators freeze obsolete assumptions into institutional rules while eliminating human accountability. Governing machine intelligence requires designated living stewards, strict operational sunset clauses, and the legal prohibition of orphaned decision models in public life.
+</aside>
+
+In the Baltimore courtroom, a defense lawyer stands before the bench, holding the printed score. "Your Honor," she asks, "who can I call to the witness stand to explain this number?" The room stays silent. On the desk monitor, the green number blinks in cold indifference. Thirty miles away, cooling fans hum inside the dark server cage. They execute lines written by ghosts, showing that intelligence without living responsibility is an abdication of human justice.
+
+## Notes
+
+[^zuboff2019]: Shoshana Zuboff, *The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power* (New York: PublicAffairs, 2019), https://doi.org/10.1111/rego.12257.

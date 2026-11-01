@@ -1,19 +1,39 @@
 ---
+okf_version: '0.3'
+card_id: davis-2017-active-forgetting-drosophila-neurobiology
+series: architectures-of-memory
+primary_lens: philosophical
+causal_role: foundation
+plain_english_metaphor: the active pruning signal
+attenuation_class: robust_under_20pct
 type: Evidence Card
-title: "The Neurobiology of Active Forgetting (Davis & Zhong 2017)"
-description: "Biological forgetting is not a passive decay or storage failure, but a dedicated, active biochemical signaling process driven by dopamine and Rac1 signaling to maintain cognitive flexibility."
-tags: [active-forgetting, dopamine, neurobiology, cognitive-flexibility]
+title: The Neurobiology of Active Forgetting (Davis & Zhong 2017)
+description: Biological forgetting is not a passive decay or storage failure, but
+  a dedicated, active biochemical signaling process driven by dopamine and Rac1 signaling
+  to maintain cognitive flexibility.
+tags:
+- active-forgetting
+- dopamine
+- neurobiology
+- cognitive-flexibility
 status: stable
 confidence: high
-generated: { by: agent:antigravity, at: 2026-10-23T18:30:00Z }
-stale_after: 2028-01-01T00:00:00Z
-series_domains: [philosophical, technical]
-chapter_hooks: [anomaly, mechanism, boundary]
+generated:
+  by: agent:antigravity
+  at: 2026-10-23 18:30:00+00:00
+stale_after: '2028-01-01T00:00:00Z'
+series_domains:
+- philosophical
+chapter_hooks:
+- anomaly
+- mechanism
+- boundary
+locked_bib_keys:
+- Davis_2017
 sources:
   - id: Davis_2017
     resource: https://doi.org/10.1016/j.neuron.2017.05.039
-    title: "Davis & Zhong (2017), The Biology of Forgetting—A Perspective"
----
+    title: Davis & Zhong (2017), The Biology of Forgetting—A Perspective---
 
 # The Neurobiology of Active Forgetting
 

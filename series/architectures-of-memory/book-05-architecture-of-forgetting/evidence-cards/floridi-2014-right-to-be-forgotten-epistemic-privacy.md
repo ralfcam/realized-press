@@ -1,19 +1,39 @@
 ---
+okf_version: '0.3'
+card_id: floridi-2014-right-to-be-forgotten-epistemic-privacy
+series: architectures-of-memory
+primary_lens: philosophical
+causal_role: boundary
+plain_english_metaphor: ontological friction
+attenuation_class: not_applicable
 type: Evidence Card
-title: "The Right to be Forgotten and Epistemic Privacy (Floridi 2014/2021)"
-description: "The right to be forgotten protects personal narrative identity from eternal digital petrification, balancing informational friction against historical truth in networked memory."
-tags: [right-to-be-forgotten, privacy, gdpr, philosophy-of-information]
+title: The Right to be Forgotten and Epistemic Privacy (Floridi 2014/2021)
+description: The right to be forgotten protects personal narrative identity from eternal
+  digital petrification, balancing informational friction against historical truth
+  in networked memory.
+tags:
+- right-to-be-forgotten
+- privacy
+- gdpr
+- philosophy-of-information
 status: stable
 confidence: high
-generated: { by: agent:antigravity, at: 2026-10-23T18:30:00Z }
-stale_after: 2028-01-01T00:00:00Z
-series_domains: [organizational, philosophical]
-chapter_hooks: [mechanism, boundary, action]
+generated:
+  by: agent:antigravity
+  at: 2026-10-23 18:30:00+00:00
+stale_after: '2028-01-01T00:00:00Z'
+series_domains:
+- philosophical
+chapter_hooks:
+- mechanism
+- boundary
+- action
+locked_bib_keys:
+- Floridi_2021
 sources:
   - id: Floridi_2021
     resource: https://doi.org/10.2139/ssrn.3853478
-    title: "Floridi (2021), 'The Right to be Forgotten': A Philosophical View"
----
+    title: 'Floridi (2021), ''The Right to be Forgotten'': A Philosophical View'---
 
 # The Right to be Forgotten and Epistemic Privacy
 

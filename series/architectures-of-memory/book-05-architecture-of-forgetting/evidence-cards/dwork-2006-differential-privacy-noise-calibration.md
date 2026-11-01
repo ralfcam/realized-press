@@ -1,19 +1,39 @@
 ---
+okf_version: '0.3'
+card_id: dwork-2006-differential-privacy-noise-calibration
+series: architectures-of-memory
+primary_lens: technical
+causal_role: foundation
+plain_english_metaphor: the calibrated statistical fog
+attenuation_class: not_applicable
 type: Evidence Card
-title: "Calibrating Noise to Sensitivity for Differential Privacy (Dwork et al. 2006)"
-description: "Differential privacy bounds the privacy loss of individual data participants by calibrating additive noise to the global sensitivity of query functions, providing mathematical guarantees against data reconstruction."
-tags: [differential-privacy, noise-calibration, sensitivity, cryptography]
+title: Calibrating Noise to Sensitivity for Differential Privacy (Dwork et al. 2006)
+description: Differential privacy bounds the privacy loss of individual data participants
+  by calibrating additive noise to the global sensitivity of query functions, providing
+  mathematical guarantees against data reconstruction.
+tags:
+- differential-privacy
+- noise-calibration
+- sensitivity
+- cryptography
 status: stable
 confidence: high
-generated: { by: agent:antigravity, at: 2026-10-21T21:30:00Z }
-stale_after: 2028-01-01T00:00:00Z
-series_domains: [technical, organizational]
-chapter_hooks: [mechanism, boundary, action]
+generated:
+  by: agent:antigravity
+  at: 2026-10-21 21:30:00+00:00
+stale_after: '2028-01-01T00:00:00Z'
+series_domains:
+- technical
+chapter_hooks:
+- mechanism
+- boundary
+- action
+locked_bib_keys:
+- Dwork_2006
 sources:
   - id: Dwork_2006
     resource: https://doi.org/10.1007/11681878_14
-    title: "Dwork et al. (2006), Calibrating Noise to Sensitivity in Private Data Analysis"
----
+    title: Dwork et al. (2006), Calibrating Noise to Sensitivity in Private Data Analysis---
 
 # Calibrating Noise to Sensitivity for Differential Privacy
 

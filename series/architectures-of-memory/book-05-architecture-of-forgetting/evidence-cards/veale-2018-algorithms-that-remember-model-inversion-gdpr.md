@@ -1,19 +1,41 @@
 ---
+okf_version: '0.3'
+card_id: veale-2018-algorithms-that-remember-model-inversion-gdpr
+series: architectures-of-memory
+primary_lens: organizational
+causal_role: audit
+plain_english_metaphor: the regulatory mirror of weights
+attenuation_class: robust_under_20pct
 type: Evidence Card
-title: "Algorithms That Remember: Model Inversion and Data Protection Law (Veale et al. 2018)"
-description: "Trained machine learning models retain personal data within their parameters, rendering models themselves personal data subject to GDPR subject access and deletion rights under model inversion vulnerabilities."
-tags: [model-inversion, gdpr, privacy-attacks, legal-compliance]
+title: 'Algorithms That Remember: Model Inversion and Data Protection Law (Veale et
+  al. 2018)'
+description: Trained machine learning models retain personal data within their parameters,
+  rendering models themselves personal data subject to GDPR subject access and deletion
+  rights under model inversion vulnerabilities.
+tags:
+- model-inversion
+- gdpr
+- privacy-attacks
+- legal-compliance
 status: stable
 confidence: high
-generated: { by: agent:antigravity, at: 2026-10-23T18:30:00Z }
-stale_after: 2028-01-01T00:00:00Z
-series_domains: [technical, organizational]
-chapter_hooks: [mechanism, boundary, action]
+generated:
+  by: agent:antigravity
+  at: 2026-10-23 18:30:00+00:00
+stale_after: '2028-01-01T00:00:00Z'
+series_domains:
+- organizational
+chapter_hooks:
+- mechanism
+- boundary
+- action
+locked_bib_keys:
+- Veale_2018
 sources:
   - id: Veale_2018
     resource: https://doi.org/10.1098/rsta.2018.0080
-    title: "Veale, Binns & Edwards (2018), Algorithms that Remember: Model Inversion Attacks and Data Protection Law"
----
+    title: 'Veale, Binns & Edwards (2018), Algorithms that Remember: Model Inversion
+    Attacks and Data Protection Law'---
 
 # Algorithms That Remember: Model Inversion and Data Protection Law
 

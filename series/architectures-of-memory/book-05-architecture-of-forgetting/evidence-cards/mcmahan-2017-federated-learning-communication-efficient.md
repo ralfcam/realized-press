@@ -1,19 +1,40 @@
 ---
+okf_version: '0.3'
+card_id: mcmahan-2017-federated-learning-communication-efficient
+series: architectures-of-memory
+primary_lens: technical
+causal_role: mechanism
+plain_english_metaphor: the decentralized gradient courier
+attenuation_class: robust_under_20pct
 type: Evidence Card
-title: "Federated Learning and Decentralized Model Aggregation (McMahan et al. 2017)"
-description: "Federated optimization trains deep neural networks on decentralized edge data via local SGD updates and secure federated averaging, enabling shared intelligence without centralized raw data retention."
-tags: [federated-learning, decentralized-memory, privacy, fedavg]
+title: Federated Learning and Decentralized Model Aggregation (McMahan et al. 2017)
+description: Federated optimization trains deep neural networks on decentralized edge
+  data via local SGD updates and secure federated averaging, enabling shared intelligence
+  without centralized raw data retention.
+tags:
+- federated-learning
+- decentralized-memory
+- privacy
+- fedavg
 status: stable
 confidence: high
-generated: { by: agent:antigravity, at: 2026-10-23T18:30:00Z }
-stale_after: 2028-01-01T00:00:00Z
-series_domains: [technical, organizational]
-chapter_hooks: [anomaly, mechanism, boundary]
+generated:
+  by: agent:antigravity
+  at: 2026-10-23 18:30:00+00:00
+stale_after: '2028-01-01T00:00:00Z'
+series_domains:
+- technical
+chapter_hooks:
+- anomaly
+- mechanism
+- boundary
+locked_bib_keys:
+- mcmahan2016arxiv
 sources:
   - id: mcmahan2016arxiv
     resource: https://arxiv.org/abs/1602.05629
-    title: "McMahan et al. (2017), Communication-Efficient Learning of Deep Networks from Decentralized Data"
----
+    title: McMahan et al. (2017), Communication-Efficient Learning of Deep Networks
+    from Decentralized Data---
 
 # Federated Learning and Decentralized Model Aggregation
 

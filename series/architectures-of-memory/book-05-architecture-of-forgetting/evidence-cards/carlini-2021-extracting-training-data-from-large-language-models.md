@@ -1,19 +1,40 @@
 ---
+okf_version: '0.3'
+card_id: carlini-2021-extracting-training-data-from-large-language-models
+series: architectures-of-memory
+primary_lens: technical
+causal_role: boundary
+plain_english_metaphor: the verbatim memory leak
+attenuation_class: robust_under_20pct
 type: Evidence Card
-title: "Verbatim Training Data Extraction Attacks on Autoregressive Language Models (Carlini et al. 2021)"
-description: "Black-box sampling and membership inference metrics allow adversaries to extract verbatim training sequences—including personally identifiable information—directly from pre-trained language model parameters."
-tags: [data-extraction, memorization, privacy-attack, language-models]
+title: Verbatim Training Data Extraction Attacks on Autoregressive Language Models
+  (Carlini et al. 2021)
+description: Black-box sampling and membership inference metrics allow adversaries
+  to extract verbatim training sequences—including personally identifiable information—directly
+  from pre-trained language model parameters.
+tags:
+- data-extraction
+- memorization
+- privacy-attack
+- language-models
 status: stable
 confidence: high
-generated: { by: agent:antigravity, at: 2026-10-21T21:32:00Z }
-stale_after: 2028-01-01T00:00:00Z
-series_domains: [technical, organizational, philosophical]
-chapter_hooks: [anomaly, mechanism, boundary]
+generated:
+  by: agent:antigravity
+  at: 2026-10-21 21:32:00+00:00
+stale_after: '2028-01-01T00:00:00Z'
+series_domains:
+- technical
+chapter_hooks:
+- anomaly
+- mechanism
+- boundary
+locked_bib_keys:
+- carlini2020arxiv
 sources:
   - id: carlini2020arxiv
     resource: https://arxiv.org/abs/2012.07805
-    title: "Carlini et al. (2020), Extracting Training Data from Large Language Models"
----
+    title: Carlini et al. (2020), Extracting Training Data from Large Language Models---
 
 # Verbatim Training Data Extraction Attacks on Autoregressive Language Models
 

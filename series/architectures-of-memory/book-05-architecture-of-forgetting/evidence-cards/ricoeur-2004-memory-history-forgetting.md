@@ -1,19 +1,39 @@
 ---
+okf_version: '0.3'
+card_id: ricoeur-2004-memory-history-forgetting
+series: architectures-of-memory
+primary_lens: philosophical
+causal_role: foundation
+plain_english_metaphor: the gift of happy forgetting
+attenuation_class: not_applicable
 type: Evidence Card
-title: "Memory, History, and the Ethics of Forgetting (Ricoeur 2004)"
-description: "Paul Ricoeur articulates the dialectic between blocked memory, manipulated memory, and happy forgetting, demonstrating that forgiveness unbinds the future from the inexorable repetition of the past."
-tags: [ricoeur, philosophy-of-memory, happy-forgetting, forgiveness]
+title: Memory, History, and the Ethics of Forgetting (Ricoeur 2004)
+description: Paul Ricoeur articulates the dialectic between blocked memory, manipulated
+  memory, and happy forgetting, demonstrating that forgiveness unbinds the future
+  from the inexorable repetition of the past.
+tags:
+- ricoeur
+- philosophy-of-memory
+- happy-forgetting
+- forgiveness
 status: stable
 confidence: high
-generated: { by: agent:antigravity, at: 2026-10-23T18:30:00Z }
-stale_after: 2028-01-01T00:00:00Z
-series_domains: [philosophical]
-chapter_hooks: [anomaly, mechanism, boundary]
+generated:
+  by: agent:antigravity
+  at: 2026-10-23 18:30:00+00:00
+stale_after: '2028-01-01T00:00:00Z'
+series_domains:
+- philosophical
+chapter_hooks:
+- anomaly
+- mechanism
+- boundary
+locked_bib_keys:
+- Ricoeur_2004
 sources:
   - id: Ricoeur_2004
     resource: https://doi.org/10.7208/chicago/9780226713465.001.0001
-    title: "Ricoeur (2004), Memory, History, Forgetting"
----
+    title: Ricoeur (2004), Memory, History, Forgetting---
 
 # Memory, History, and the Ethics of Forgetting
 

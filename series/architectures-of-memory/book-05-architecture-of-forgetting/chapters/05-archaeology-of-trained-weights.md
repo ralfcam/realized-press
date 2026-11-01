@@ -1,25 +1,42 @@
-# Chapter 5: Model Versioning and the Archaeology of Trained Weights — What Persists Across Fine-Tuning?
+# Chapter 5: The Archaeology of Trained Weights — Forensic Extraction and Unintended Retention
 
-In a paleontology conservation laboratory at the Natural History Museum in London, a conservator uses an ultrasonic dental pick to chip away crumbly grey chalk from the fossilized ribcage of an ichthyosaur discovered along the Dorset coast. Beneath the Jurassic limestone, the calcified bone preserves the exact tooth marks of a marine predator from one hundred and eighty million years ago. No matter how many layers of sedimentary shale accumulated above the skeleton over the millennia, the original trauma remains permanently recorded in the deep mineral matrix. To reconstruct the creature’s death, the paleontologist does not look at the topsoil; she digs through the stratigraphic layers until the ancient baseline is exposed.
+In a security lab in Massachusetts, a researcher tests an open-source language model. She does not test logic or translation. She probes the hidden edges of its memory. By feeding the model specific prompt starts, she nudges it to complete long text strings. Within an hour, the screen displays verbatim text. It shows lines of private code, a personal phone number, and a home address. The data came from a public forum thread scraped years earlier.
 
-In modern software engineering, when developers update a relational database or deploy a new software release, versioning is clean and absolute: version 2.0 overwrites version 1.0, deleted tables are dropped from disk, and git commit diffs show precisely which lines of code were excised. But in the engineering of foundation models, fine-tuning does not behave like code versioning. When an organization takes a massive, pretrained base model and subjects it to instruction fine-tuning, domain adaptation, or Reinforcement Learning from Human Feedback (RLHF), engineers routinely assume that the model has been "reprogrammed"—that unacceptable behaviors, private training tokens, and obsolete associations from the pretraining corpus have been cleanly overwritten. 
+The test exposes a troubling property of foundation scale. Models do not just learn rules. They memorize raw training examples. In traditional software, databases store records while code executes logic. In deep learning, the model is both code and database. Floating-point numbers hold abstract syntax and verbatim quotes in the same shared web of weights. Once a secret enters the training set, it becomes part of the permanent artifact.
 
-This assumption is an engineering delusion. Deep neural network fine-tuning is an act of geological sedimentation, not digital overwriting. The pretraining weights—formed through billions of gradient steps across uncurated internet text—remain the massive, immovable core of the network. Post-training alignment modifies only a tiny fraction of the model’s effective rank, functioning as a thin decorative veneer. Beneath that superficial polish, the deep parametric memory remains entirely intact.
+## I. The Forensic Probe in Cambridge
 
-### The Landmark Empirical Set-Piece: Then vs. Now
+Probing neural weights resembles digital archaeology. An analyst sifts through layers of parameters to find preserved records.
 
-In 2020 and 2021, artificial intelligence laboratories claimed that safety fine-tuning and RLHF had solved the problem of toxic memorization and private data leakage. The prevailing industry orthodoxy asserted that by penalizing offensive completions and training the model on polite, aligned refusal demonstrations, undesirable pretraining memories were effectively erased from the network's cognitive repertoire.
+The researcher does not need the original training logs. She queries the model via its public interface. By measuring output confidence, she separates common speech from memorized quotes. When the model outputs words with unusually high certainty, it is often reciting a memorized training document.
 
-In 2021, Nicholas Carlini and an interdisciplinary consortium of researchers from Google, Stanford, UC Berkeley, and OpenAI published "Extracting Training Data from Large Language Models." Carlini devised automated extraction attacks that queried commercial foundation models without access to internal weights or training data. By designing targeted prompt prefixes and measuring output perplexity, Carlini’s team extracted thousands of verbatim memorized records from the models' pretraining data—including personal names, physical home addresses, private phone numbers, 128-bit cryptographic keys, and proprietary software code snippets.
+## II. Why Models Memorize
 
-Subsequent investigations in 2023 and 2024 by security researchers demonstrated the fragility of post-hoc alignment. By appending simple adversarial suffixes or querying models via multi-turn role-play prompts, researchers easily bypassed the RLHF safety veneer, causing models to revert instantly to their raw pretraining distributions. Fine-tuning had not erased the dangerous or private memories; it had merely tilted the output probability distribution so the model avoided generating them under normal conversational conditions. The pretraining data was not forgotten; it was merely buried beneath a thin layer of sand.
+For years, advocates argued that deep networks learn general concepts rather than rote details.
 
-### The 3-Tier Resolution of Model Stratigraphy
+Empirical security research by Nicholas Carlini and colleagues demonstrates that autoregressive language models memorize and emit verbatim training sequences when prompted with specific adversarial prefixes.[^carlini2021] Their extraction attacks prove that larger models memorize a strictly larger fraction of their training data than smaller networks. As parameter counts scale up, the capacity for unintended retention grows faster than generalization.
 
-Managing the persistence of buried memory across model versions requires three structural disciplines:
+## III. The Long-Tail Necessity of Memorization
 
-1. **Tier 1 (The Stratigraphic Reality):** Foundation models are geological artifacts. Fine-tuning, RLHF, and prompt steering do not delete underlying pretraining memories; they simply adjust surface sampling trajectories.
-2. **Tier 2 (The Extraction Vulnerability):** Any sensitive, copyrighted, or private text ingested during pretraining remains permanently embedded in the network's weight space, vulnerable to forensic extraction through adversarial probing or out-of-distribution prompts.
-3. **Tier 3 (The Operator's Actionable Judgment):** Organizations must never rely on downstream fine-tuning to cleanse models of confidential or non-compliant data. Epistemic and legal compliance must be enforced upstream at the pretraining data curation stage: what must not be leaked must never be fed to the gradients in the first place.
+This memorization is not simply an engineering error. It is deeply tied to how models learn.
 
-In the London conservation laboratory, the paleontologist brushes a fine dust of white chalk from the fossilized bone, revealing the prehistoric bite mark in sharp relief beneath the halogen lamp. Millions of years of pressure and mineral replacement could not erase the impact of that ancient jaw. In the software repository of an enterprise AI startup, an engineer reviews the release notes for a "realigned" medical chatbot, unaware that buried five layers deep in the weight matrices, a private patient record from an uncurated pretraining scrape lies waiting for the single unexpected prompt that will call it back into the light.
+Theoretical analysis by Vitaly Feldman establishes that memorization of rare examples is mathematically necessary for near-optimal generalization in long-tailed data distributions.[^feldman2020] His proof shows that an algorithm cannot achieve high accuracy on natural distributions without memorizing sub-populations that appear only once or twice. If a model forgets the rare tail, its accuracy drops on atypical edge cases.
+
+## IV. The Dilemma of Unintended Retention
+
+These findings create a fundamental engineering dilemma. Feldman shows that memorization is required for accuracy. Meanwhile, Carlini shows that memorization creates severe privacy leaks.
+
+First, engineers must abandon the belief that models are pure conceptual learners. They are also verbatim storage devices. Second, protecting privacy requires filtering training sets before training begins. Scrub personal phone numbers, keys, and private names before feeding documents to the cluster. Third, where privacy is vital, teams must use differential privacy to bound memorization. This holds true even if tail accuracy drops.
+
+<aside class="chapter-takeaway">
+<header>Chapter Takeaway: The Memorization Dilemma</header>
+Language models memorize rare training examples verbatim, creating severe privacy risks under extraction attacks. Yet theoretical analysis proves memorization is necessary to generalize across long-tailed distributions. Resolving this tension requires aggressive pretraining data curation and cryptographic privacy bounds.
+</aside>
+
+The researcher saves her terminal session and powers down the display. In the silent room, the workstation fans slow to a stop. The model file rests on the disk. Billions of numbers hold the traces of millions of forgotten web pages. They wait for the right prompt to bring them back to light.
+
+## Notes
+
+[^carlini2021]: Nicholas Carlini, Florian Tramèr, Eric Wallace, Matthew Jagielski, Ariel Herbert-Voss, Katherine Lee, Adam Roberts, Tom Brown, Dawn Song, Úlfar Erlingsson, Alina Oprea, and Colin Raffel, "Extracting Training Data from Large Language Models," in *30th USENIX Security Symposium (USENIX Security 21)* (Berkeley, CA: USENIX Association, 2021), 2633–2650, https://doi.org/10.48550/arXiv.2012.07805.
+
+[^feldman2020]: Vitaly Feldman, "Does Learning Require Memorization? A Short Tale about a Long Tail," in *Proceedings of the 52nd Annual ACM SIGACT Symposium on Theory of Computing (STOC 2020)* (New York: ACM, 2020), 954–959, https://doi.org/10.1145/3357713.3384290.

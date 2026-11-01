@@ -1,19 +1,39 @@
 ---
+okf_version: '0.3'
+card_id: abadi-2016-deep-learning-with-differential-privacy
+series: architectures-of-memory
+primary_lens: technical
+causal_role: mechanism
+plain_english_metaphor: the privacy noise blanket
+attenuation_class: robust_under_20pct
 type: Evidence Card
-title: "Differentially Private Stochastic Gradient Descent (Abadi et al. 2016)"
-description: "Clipping per-sample gradient norms and injecting calibrated Gaussian noise during stochastic gradient descent (DP-SGD) provides provable (epsilon, delta)-differential privacy for deep neural networks."
-tags: [dp-sgd, differential-privacy, gradient-clipping, moments-accountant]
+title: Differentially Private Stochastic Gradient Descent (Abadi et al. 2016)
+description: Clipping per-sample gradient norms and injecting calibrated Gaussian
+  noise during stochastic gradient descent (DP-SGD) provides provable (epsilon, delta)-differential
+  privacy for deep neural networks.
+tags:
+- dp-sgd
+- differential-privacy
+- gradient-clipping
+- moments-accountant
 status: stable
 confidence: high
-generated: { by: agent:antigravity, at: 2026-10-21T21:32:00Z }
-stale_after: 2028-01-01T00:00:00Z
-series_domains: [technical, organizational, philosophical]
-chapter_hooks: [anomaly, mechanism, boundary]
+generated:
+  by: agent:antigravity
+  at: 2026-10-21 21:32:00+00:00
+stale_after: '2028-01-01T00:00:00Z'
+series_domains:
+- technical
+chapter_hooks:
+- anomaly
+- mechanism
+- boundary
+locked_bib_keys:
+- abadi2016arxiv
 sources:
   - id: abadi2016arxiv
     resource: https://arxiv.org/abs/1607.00133
-    title: "Abadi et al. (2016), Deep Learning with Differential Privacy"
----
+    title: Abadi et al. (2016), Deep Learning with Differential Privacy---
 
 # Differentially Private Stochastic Gradient Descent
 
