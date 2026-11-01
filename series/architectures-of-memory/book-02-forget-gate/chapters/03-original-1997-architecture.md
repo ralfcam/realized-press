@@ -1,105 +1,81 @@
 # Chapter 3 — The Original 1997 Architecture: Cell State, Input Gate, Output Gate
 
-*Sources: research/SOURCES.md (`Hochreiter_1997`, `Greff_2017`); evidence card `hochreiter-1997-constant-error-carousel.md`; characters — Hochreiter, Schmidhuber.*
+---
+
+## I. The Three-Piece Machine
+
+When Sepp Hochreiter and Jürgen Schmidhuber published their landmark paper in 1997, the architecture looked very different from modern textbooks.[^hochreiter1997]
+
+The 1997 machine had no forget gate.
+
+Instead, it was a tripartite mechanism built around a single priority: keep the Constant Error Carousel stable. To accomplish this, the authors placed the linear state between two protective shields. The first shield, the input gate, protected the memory from unwanted writes. The second shield, the output gate, protected downstream layers from premature reads.
+
+Understanding why the original design took this form requires looking past modern assumptions. The 1997 model was not an abstract ideal. It was a practical compromise between constant gradient flow, local learning rules, and available computing power.
 
 ---
 
-## The three-piece machine
+## II. Shielding the Carousel: Decoupling Storage from Expression
 
-In November 1997, when Sepp Hochreiter and Jürgen Schmidhuber published the definitive specification of Long Short-Term Memory in *Neural Computation*, the architecture looked strikingly different from the standard four-gate block taught in contemporary textbooks.[^hochreiter1997]
+In a standard recurrent network, every unit is directly tied to its neighbors. When a unit receives input, its state changes immediately. When its state changes, downstream connections immediately broadcast that update. There is no containment.
 
-The 1997 machine had **no forget gate**.
+The 1997 design severed this tight coupling by introducing the memory cell. Inside the cell, an internal state unit runs on an identity self-loop. Around this loop sit two multiplicative valves.
 
-Instead, it was a precise tripartite mechanism designed around a single imperative: keep the Constant Error Carousel stable. To accomplish this, the authors encapsulated the linear cell state between two multiplicative shields. The first shield, the **input gate**, guarded the memory against unwanted writes. The second shield, the **output gate**, guarded the rest of the network against premature reads.
+The input gate decides when incoming signals may alter the cell state.[^cell-math] When closed, external noise cannot perturb the stored memory. The output gate decides when the internal value may influence the rest of the network. When closed, the stored value continues to circulate in silence. Downstream layers cannot see it.
 
-Understanding why this original design took the shape it did requires looking past modern simplifications. The 1997 LSTM was not an abstract mathematical ideal; it was an intricate engineering compromise between constant gradient flow, computational complexity, and local learning rules.
-
----
-
-## Technical lens — Shielding the carousel
-
-In a standard feedforward or simple recurrent network, every unit is directly coupled to its neighbors. If a unit receives an input, its state changes; if its state changes, its downstream connections immediately transmit that change. There is no concept of containment.
-
-The 1997 LSTM severed this direct coupling by introducing the **memory cell**. A cell contains an internal state $s_c$ governed by the Constant Error Carousel, surrounded by two multiplicative units:
-
-1. **The Input Gate ($in$):** A sigmoidal unit whose activation $y^{in} \in (0, 1)$ scales the incoming candidate state before it can reach the carousel:
-   $$net_c(t) = \sum_i w_{ci} y_i(t-1)$$
-   $$s_c(t) = s_c(t-1) + y^{in}(t) \cdot g(net_c(t))$$
-   Here, $g$ is a squashing function (typically scaled to $[-2, 2]$ in the 1997 paper). When $y^{in}(t) \approx 0$, the input gate is closed: external inputs cannot perturb the internal state, and the cell retains its existing memory unchanged.
-
-2. **The Output Gate ($out$):** A sigmoidal unit whose activation $y^{out} \in (0, 1)$ scales the cell's emission to the rest of the network:
-   $$y^c(t) = y^{out}(t) \cdot h(s_c(t))$$
-   Here, $h$ is a squashing function (typically $[-1, 1]$). When $y^{out}(t) \approx 0$, the output gate is closed: the internal state continues to circulate on its carousel, but it is invisible to downstream layers.
-
-```
-       [ Output Gate (y^out) ] ---> Multiplier ---> Visible Output y^c(t)
-                                         ^
-                                         | h(s_c)
-             +---------------------------+
-             |
-             v
-   +--------------------+
-   |  Cell State s_c    | <--- Identity Self-Loop (w_cc = 1.0)
-   +--------------------+
-             ^
-             |
-       [ Multiplier ] <--- [ Input Gate (y^in) ]
-             ^
-             | g(net_c)
-     Incoming Inputs
-```
-
-The mathematical elegance of this arrangement lies in how it decouples **storage** from **expression**. A cell can store a critical bit of information at step $t=5$, keep its input gate closed from step $6$ through $999$ to block noise, and keep its output gate closed until step $1000$, when the information is finally needed to make a classification.[^hochreiter1997]
-
-Crucially, the 1997 algorithm did not use full Backpropagation Through Time (BPTT). Because computing full recurrent gradients across long sequences was prohibitively expensive in 1997, the authors used a hybrid algorithm: Real-Time Recurrent Learning (RTRL) for the gate units, while gradient flow into the cell was **truncated** outside the carousel.[^greff2017] Error signals flowed backward through the linear self-loop without decay, but once they exited the cell to update input connections, they were cut off to prevent infinite loops. The carousel was an isolated sanctuary of exact gradient preservation.
+This separation between storage and expression changed everything. A cell can capture a critical signal at step five, keep its input gate closed for hundreds of steps to block noise, and keep its output gate shut until step one thousand.[^hochreiter1997] Crucially, early training relied on truncated gradient flows outside the carousel, insulating the core loop from infinite loops.[^greff2017] The carousel became a protected sanctuary of exact gradient preservation.
 
 ---
 
-## Organizational lens — Access controls and information compartmentalization
+## III. Intake Governance and Disclosure Control
 
-The tripartite structure of the 1997 LSTM mirrors the access-control architectures that large organizations build to survive in adversarial or highly regulated environments.
+The three-piece structure of the 1997 architecture mirrors the access controls that complex organizations build to survive in volatile environments.
 
-In an undisciplined organization, communication is un-gated: every email, Slack message, or hallway comment immediately alters the priorities of everyone who hears it. This is organizational simple recurrence: high susceptibility to immediate noise, zero long-term retention of strategic focus. The organization suffers from what executive leadership calls "firefighting mode."
+In an undisciplined company, communication is un-gated. Every urgent email or chat message immediately shifts the team's priorities. This is organizational simple recurrence: extreme vulnerability to immediate noise, and zero long-term strategic retention. Leadership spends its days fighting fires.
 
-To protect long-term initiatives, sophisticated enterprises implement institutional equivalents of the input and output gates:
+To protect long-term work, resilient enterprises create institutional equivalents of the input and output gates:
 
-- **The Institutional Input Gate (Intake Governance):** In defense contracting, clinical research, or software engineering, new work cannot simply be injected into a production system. It must pass through formal **Change Control Boards (CCB)**, intake triage, or IRB approvals. The input gate evaluates incoming requests: *Is this proposal aligned with the charter? Does it meet the specification?* If the gate remains closed, the engineering team preserves its internal roadmap undisturbed by external distraction.
-- **The Institutional Output Gate (Disclosure Governance):** Conversely, organizations hold sensitive internal states—trade secrets, preliminary audit findings, unannounced financial earnings—that must not leak prematurely into public activation. The legal compliance department acts as an output gate: the internal state is preserved on the corporate ledger, but its visible expression is gated until regulatory clearance (such as an SEC 10-K filing or FDA announcement) is formally triggered.
+First is intake governance, the institutional input gate. In clinical trials, software architecture, or defense programs, new work cannot be dropped straight into production. Requests must pass through formal review boards and intake triage. The input gate asks whether the proposal matches the charter. If the gate remains shut, the engineering team works undisturbed.
 
-The lesson of the 1997 LSTM is that organizational durability requires **bidirectional isolation**. If an institution cannot gate what enters its memory, it drowns in triviality. If it cannot gate what leaves its memory, it destroys its own operational security.
+Second is disclosure governance, the institutional output gate. Companies hold sensitive internal states, such as trade secrets, draft patent filings, and preliminary financial audits. These records must not leak into premature activation. Legal compliance acts as an output valve, holding internal records until regulatory clearance triggers a public release.
 
----
-
-## Philosophical lens — Locke and the dual faculties of memory
-
-In *An Essay Concerning Human Understanding* (1689), John Locke divided the mind's handling of ideas into distinct operations: **retention** (the power to keep ideas in mind) and **discernment** (the power to distinguish between ideas and deploy them at the proper moment).[^locke1689] Locke observed that having ideas stored in the mind is useless if the mind lacks the ability to control their emergence:
-
-> "The next faculty of the mind, whereby it makes a further progress towards knowledge, is that which I call discernment, and distinguishing between several ideas... Memory is as it were the storehouse of our ideas... but if they are produced in confusion, they serve rather to perplex than to instruct."[^locke1689]
-
-The 1997 LSTM instantiated Locke's dual faculties in silicon. The Constant Error Carousel provides pure retention—the storage of the trace across time. But retention alone is blind. Discernment is provided by the gates: the input gate discerns **what is worth recording**, and the output gate discerns **when a memory is relevant to judgment**.
-
-By separating the vessel (the cell state) from the regulators (the gates), the architecture affirmed that memory is not a unitary substance. Memory is a relationship between an invariant trace and active, learned boundaries.
+Organizational survival requires bidirectional isolation. If a company cannot gate what enters its memory, it drowns in triviality. If it cannot gate what leaves, it destroys its own security.
 
 ---
 
-## Coda — The missing dimension
+## IV. Locke and the Architecture of Discernment
 
-The 1997 architecture was a triumphant proof of concept. It solved long time lag problems that had defied connectionism for decades.
+In his *Essay Concerning Human Understanding*, philosopher John Locke divided the mind's operations into retention and discernment.[^locke1689] Locke noted that holding ideas in memory is useless without the ability to separate them and deploy them at the proper moment.
 
-Yet it contained a silent, compounding flaw. Notice the cell state update equation:
+The 1997 architecture turned Locke's distinction into working code. The Constant Error Carousel provides retention: the preservation of a trace across time. But retention alone is blind. Discernment is provided by the gates. The input gate discerns what is worth recording. The output gate discerns when a recorded trace is relevant to action.
 
-$$s_c(t) = s_c(t-1) + y^{in}(t) \cdot g(net_c(t))$$
-
-Because $w_{cc}$ is fixed at $1.0$, the only operation applied to the existing state is **addition**. If the network processes a continuous, uninterrupted sequence—such as an infinite text stream or continuous audio—the cell state can only grow. It has no mechanism to prune its own contents. Left to run indefinitely, the cell state grows without bound, eventually driving the output squashing function $h(s_c)$ into saturation and paralyzing the network.
-
-To solve continual prediction, the machine needed one more gate. It needed a gate dedicated to erasure. Chapter 4 tells the story of Felix Gers and the missing piece: the forget gate.
+By separating the container from its regulators, the architecture affirmed that memory is not a single passive storehouse. Memory is an active relationship between an invariant trace and learned boundaries.
 
 ---
+
+## V. The Missing Dimension: The Saturation Trap
+
+The 1997 architecture was a major breakthrough. It solved long time lags that had defeated connectionist systems for decades.
+
+Yet it contained a silent, compounding flaw. Because the self-connection weight was fixed at 1.0, the only operation applied to the cell state was addition.[^cell-math] If a network processes an ongoing, unsegmented stream of data, the state can only grow.
+
+The cell had no way to prune its own contents. Left running over endless sequences, the state accumulated without bound, driving activation curves into saturation and freezing the network.
+
+To handle continuous learning, the machine needed one more valve. It needed a gate dedicated to erasure. Chapter 4 examines the missing piece: the forget gate.
+
+<aside class="chapter-takeaway">
+### Chapter 3 Takeaways: Architecture, Signal, and Retained Memory
+
+- **The Technical Signal:** The 1997 LSTM used two gates: an input gate to shield the cell from incoming noise and an output gate to control when stored states affect downstream layers.
+- **The Organizational Fallacy:** Operating without intake and disclosure boundaries exposes teams to constant disruption; long-term initiatives require formal gates on both intake and release.
+- **The Core Rule:** Pure retention is blind without discernment: memory systems must separate the storage vessel from the valves that govern write and read access.
+</aside>
 
 ## Notes
 
-[^hochreiter1997]: S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780. doi:10.1162/neco.1997.9.8.1735.
+[^hochreiter1997]: **Grade: High** across artificial benchmark tasks that input and output gating combined with the Constant Error Carousel eliminate vanishing gradients across lags exceeding 1,000 steps (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, DOI: 10.1162/neco.1997.9.8.1735. Evidence Card: `evidence-cards/hochreiter-1997-constant-error-carousel.md`.
 
-[^greff2017]: K. Greff, R. K. Srivastava, J. Koutník, B. R. Steunebrink, and J. Schmidhuber, "LSTM: A Search Space Odyssey," *IEEE Transactions on Neural Networks and Learning Systems* 28, no. 10 (2017): 2222–2232. doi:10.1109/tnnls.2016.2582924.
+[^greff2017]: **Grade: High** across 5,400 experimental runs demonstrating that gating mechanisms account for the majority of LSTM performance gains across speech, handwriting, and music benchmarks (Greff et al. 2017). K. Greff, R. K. Srivastava, J. Koutník, B. R. Steunebrink, and J. Schmidhuber, "LSTM: A Search Space Odyssey," *IEEE Transactions on Neural Networks and Learning Systems* 28, no. 10 (2017): 2222–2232, DOI: 10.1109/TNNLS.2016.2582924. Evidence Card: `evidence-cards/greff-2017-lstm-search-space-odyssey.md`.
 
-[^locke1689]: J. Locke, *An Essay Concerning Human Understanding*, London: Thomas Basset, 1689. Book II, Chapter X ("Of Retention") and Chapter XI ("Of Discerning, and Other Operations of the Mind").
+[^cell-math]: **1997 Memory Cell Equations:** The candidate state is $net_c(t) = \sum_i w_{ci} y_i(t-1)$, and the state updates by $s_c(t) = s_c(t-1) + y^{in}(t) \cdot g(net_c(t))$, where $g$ squashes incoming values. The cell output is $y^c(t) = y^{out}(t) \cdot h(s_c(t))$, with $h$ squashing the cell state for external emission.
+
+[^locke1689]: **Historical Locus:** John Locke, *An Essay Concerning Human Understanding* (London: Thomas Basset, 1689), Book II, Chapter X ("Of Retention") and Chapter XI ("Of Discerning, and Other Operations of the Mind").

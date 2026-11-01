@@ -1,75 +1,79 @@
 # Chapter 1 — Six Years in the Shadow: Hochreiter, Schmidhuber, and the Path to 1997
 
-*Sources: research/SOURCES.md (`Hochreiter_1997`, `Hochreiter_Schmidhuber_1995`, `Bengio_1994`); evidence card `hochreiter-1997-constant-error-carousel.md`; characters — Hochreiter, Schmidhuber.*
+---
+
+## I. The Paper Nobody Wanted
+
+In July 1991, Sepp Hochreiter submitted his master's thesis in Munich.[^hochreiter1991] Supervised by Jürgen Schmidhuber, the work proved that standard recurrent networks could not bridge long spans of time. As error signals pass backwards through layers, they either shrink to nothing or blow up into numerical chaos. It was a landmark mathematical result. Yet outside a small circle in Bavaria, few people noticed.
+
+Six years passed between that German thesis and the 1997 paper in *Neural Computation*.[^hochreiter1997] In computer science, six years is an epoch. During that window, recurrent networks suffered a deep chill. In 1994, Yoshua Bengio, Patrice Simard, and Paolo Frasconi published an independent proof.[^bengio1994] They showed that gradient descent struggles to link distant inputs across time. Many teams abandoned recurrent models entirely, turning to static classifiers or hidden Markov systems.
+
+The journey from Munich to the Dalle Molle Institute in Lugano was steep. Early drafts of the new recurrent architecture were rejected by major conferences, including NIPS.[^schmidhuber-hist] Reviewers found the equations dense, the wiring baroque, and the goal of training networks across hundreds of steps seemingly hopeless.
+
+This book opens at that six-year impasse because memory systems never arrive in a vacuum. A great proof does not become standard practice on mathematical merit alone. Ideas must survive translation from failure diagnosis to working code. Hochreiter and Schmidhuber had to move from naming what was broken to building an active bridge across time.
 
 ---
 
-## The paper that nobody wanted
+## II. The Constant Flow: Addition Beats Multiplication
 
-In July 1991, Sepp Hochreiter submitted his *Diplomarbeit* at the Technische Universität München under the supervision of Jürgen Schmidhuber.[^hochreiter1991] The thesis proved with mathematical finality that standard backpropagation through time could not scale: across long temporal depth, error signals exponentially vanish or explode. It was a monumental result, but outside a small circle in Bavaria, nobody seemed to notice.
+Book 1 closed on the vanishing gradient theorem. When an error signal travels backward through squashing functions and weight matrices, it multiplies repeatedly. If each weight scales the signal down, the numbers shrink toward zero with every historical step.
 
-Six years passed between that German-language thesis and the November 1997 publication of "Long Short-Term Memory" in *Neural Computation*.[^hochreiter1997] Six years in computer science is an epoch. During that window, the field endured what many considered a secondary winter for recurrent networks: Yoshua Bengio, Patrice Simard, and Paolo Frasconi published their independent 1994 proof demonstrating that gradient descent struggled with long-term dependencies, prompting many researchers to abandon recurrence altogether in favor of static models or hidden Markov systems.[^bengio1994]
+Hochreiter’s core insight was simple: to stop decay, an engineering design must maintain constant error flow.[^hochreiter1991] If a storage unit adds incoming signals to its existing state without squashing them, its derivative across time equals exactly one.[^hochreiter-math] Multiplication scales; addition preserves.
 
-The journey from Munich to the Istituto Dalle Molle di Studi sull'Intelligenza Artificiale (IDSIA) in Lugano, Switzerland, was not a victory lap. Early drafts of the LSTM architecture were submitted and repeatedly rejected by major conferences, including NIPS.[^schmidhuber-hist] Reviewers found the architecture baroque, the mathematical notation heavy, and the problem—training recurrent nets over hundreds of steps—either already solved by heuristics or intrinsically hopeless.
+Yet an open linear integrator carries a fatal risk. Left exposed to incoming noise, its internal state either drifts or explodes. It behaves like an unmuted microphone in a tile hall. To make constant flow practical, the integrator needs protective shields.
 
-This chapter opens Book 2 at that six-year bottleneck because the architecture of memory is never born in an unencumbered vacuum. An idea does not become an industry standard simply because its proof is sound. It requires a specific physical and institutional path: a shift from proof-of-failure to proof-of-construction. Hochreiter and Schmidhuber had to move from naming what was broken to engineering a physical bridge through time.
-
----
-
-## Technical lens — From impossibility theorem to constant flow
-
-Book 1 ended on the vanishing gradient theorem: when error is propagated backward through nonlinear activation functions and repeated weight matrix multiplications, the gradient is scaled by $\prod_{k} f'(net_k) W$. If the spectral radius of the weight matrix is less than one or the derivative of the squashing function is bounded below $0.25$ (as with the standard logistic sigmoid), the signal decays exponentially toward machine precision.
-
-Hochreiter's insight in 1991—formalized in his German thesis under the term *Konstanter Fehlerrückfluß* (constant error flow)—was deceptively direct: to prevent exponential decay, one must enforce a linear derivative of exactly $1.0$ across time.[^hochreiter1991] If a unit simply adds its incoming signal to its existing state without squashing, the derivative of the state with respect to its previous state is unity:
-
-$$\frac{\partial s(t)}{\partial s(t-1)} = 1.0$$
-
-Multiplication scales; addition preserves. But an unconstrained linear integrator has a fatal vulnerability: left open to the world, its state blows up or drifts into noise. It acts as an open microphone in an echo chamber. To make constant error flow useful, the unit had to be protected behind controllable shields.
-
-Between 1995 and 1997, Hochreiter and Schmidhuber designed the **Constant Error Carousel (CEC)**, wrapping the linear self-loop inside multiplicative gate units. The 1997 *Neural Computation* paper introduced two of these shields: an **input gate** that decides when new information is allowed to alter the state, and an **output gate** that decides when the stored state is allowed to manifest in the network's visible activation. The resulting composite unit was christened the **memory cell**.
+Between 1995 and 1997, the researchers built those shields into the Constant Error Carousel.[^hochreiter1997] They placed the linear loop behind two multiplicative valves: an input gate to admit new data and an output gate to release the stored value. This composite unit became the memory cell.
 
 ---
 
-## Organizational lens — The translation penalty and the institutional buffer
+## III. The Translation Penalty and the Swiss Buffer
 
-Why did the transition from Munich thesis to *Neural Computation* take six years? The delay reveals an organizational pattern familiar to corporate R&D and regulated enterprise engineering: the **translation penalty**.
+Why did the path from Munich thesis to publication take six years? The delay illustrates an organizational friction that every enterprise leader knows: the translation penalty.
 
-First was linguistic and geographic friction. Hochreiter's 1991 thesis was written in German, submitted at a European university outside the Anglo-American conference circuit. Academic credit and institutional attention do not flow along gradients of mathematical rigor; they flow along networks of distribution, prestige, and language. Until an argument is repackaged into English, typeset in LaTeX, and targeted at a journal of record, it remains institutionally invisible.
+The first barrier was language and geography. Hochreiter's thesis was written in German at a university outside the dominant Anglo-American research network. Technical attention does not flow strictly by mathematical rigor. It flows along prestige networks, distribution hubs, and language. Until an argument is packaged in English and targeted at a recognized journal, it remains invisible.
 
-Second was the problem of institutional shielding. Schmidhuber's move to IDSIA in Lugano provided what corporate skunkworks provide: an intellectual tax haven. Lugano sat outside the immediate fads of Silicon Valley and the dominant American computer science departments. That geographical distance allowed the team to iterate on complex recurrent architectures when mainstream machine learning considered recurrence a dead end.
+The second barrier was institutional shielding. Schmidhuber's move to Lugano created a research buffer. Lugano lay outside the immediate trends of Silicon Valley and American computer science departments. That physical distance gave the team room to iterate on recurrent architectures while others wrote recurrence off as a dead end.
 
-In corporate terms, Hochreiter and Schmidhuber operated like an isolated systems architecture team pursuing an unapproved protocol stack while headquarters insisted on buying vendor packages. Without that Swiss buffer, the LSTM would likely have been discarded under pressure to publish incremental results on then-popular feedforward networks.
-
----
-
-## Philosophical lens — Memory as insulation
-
-Consider the shift in philosophical posture between the simple recurrent networks of Jordan and Elman and the LSTM of 1997.
-
-In an Elman network, memory is **exposed**. At every single time step, the entire hidden state is fed back into the input layer, multiplied by a weight matrix, and crushed through a sigmoid function. The network cannot choose to ignore the present; every tick of the clock transforms the whole of its past. That is memory as an open wound—vulnerable to every passing breeze of input.
-
-The LSTM introduced **insulation**. By placing the state inside a cell surrounded by multiplicative gates, the architecture made a fundamental ontological distinction: **what the system experiences is not identical to what the system stores**.[^richards2017] The input gate acts as an epistemic threshold. It asks: *Is this input worth modifying the internal record?* The output gate asks: *Is this internal record relevant to the current decision?*
-
-This is the beginning of architectural judgment. Memory ceases to be a passive recording of time and becomes an insulated reservoir. But as we will discover in Chapter 4, the 1997 machine had an unaddressed vulnerability: it knew how to let things in, and it knew how to read them out, but it had no concept of how to let them go.
+In corporate terms, the Munich-Lugano team operated like a skunkworks unit building an unapproved protocol stack. Without that regional buffer, the project likely would have folded under pressure to publish safer, incremental papers on feedforward nets.
 
 ---
 
-## Coda — The threshold of 1997
+## IV. Insulation and the Ontological Threshold
 
-By November 1997, when volume 9, issue 8 of *Neural Computation* arrived in university libraries, the machine could solve artificial benchmark tasks that had broken every previous recurrent model. It could bridge lags of over 1,000 steps—an eternity when standard networks degraded after ten.[^hochreiter1997]
+Consider the philosophical contrast between earlier recurrent designs and the 1997 architecture.
 
-Yet the 1997 architecture was not complete. To understand why it had to be altered again within two years, we must first examine the mathematical core that made it work: the Constant Error Carousel. Chapter 2 unpacks why addition beats multiplication, and why the simplest mathematical operation is the hardest to keep stable.
+In a simple recurrent network, memory remains naked. At every single tick of the clock, the entire state cycles back into the input layer, multiplied by weights and compressed through a squashing curve. The network cannot ignore the present. Every passing input rewrites the whole of its past. That is memory as an open wound.
+
+The 1997 design introduced insulation. By enclosing the state inside gated boundaries, it established a key boundary: what a system encounters is not identical to what it stores.[^richards2017] The input gate acts as a threshold. It tests whether new data deserves to modify the internal record. The output gate decides whether that stored record matters to the current decision.
+
+This distinction marks the emergence of architectural judgment. Memory ceases to be a passive echo and becomes an insulated vault. Yet as we will see, the 1997 machine left one blind spot: it could store data and read it out, but it lacked a mechanism to let it go.
 
 ---
+
+## V. The Threshold of 1997
+
+By November 1997, when volume 9 of *Neural Computation* appeared, the machine had bridged synthetic delays across a thousand steps.[^hochreiter1997] Standard recurrent networks fell apart after ten.
+
+The 1997 model showed that constant error flow could preserve credit across time. Yet that early machine remained unfinished. To see why it required redesign within twenty-four months, we must examine its central engine: the Constant Error Carousel. Chapter 2 explores why addition beats multiplication, and why keeping a self-loop stable is so hard.
+
+<aside class="chapter-takeaway">
+### Chapter 1 Takeaways: Architecture, Signal, and Retained Memory
+
+- **The Technical Signal:** Constant error flow requires a linear derivative of 1.0, preserving signals across thousands of steps only when protected behind multiplicative gates.
+- **The Organizational Fallacy:** Treating breakthrough proofs as self-distributing truths ignores the translation penalty; rigorous ideas require institutional shielding and linguistic packaging to survive.
+- **The Core Rule:** True memory begins with insulation: what a system experiences must never be identical to what it stores.
+</aside>
 
 ## Notes
 
-[^hochreiter1991]: S. Hochreiter, *Untersuchungen zu dynamischen neuronalen Netzen*, Diplomarbeit, Institut für Informatik, Technische Universität München, 1991. Advisor: J. Schmidhuber.
+[^hochreiter1991]: **Grade: High** for Hochreiter's 1991 Munich thesis proving that gradient descent across recurrent loops either decays exponentially to zero or explodes toward machine limits. S. Hochreiter, *Untersuchungen zu dynamischen neuronalen Netzen*, Diplomarbeit, Institut für Informatik, Technische Universität München (1991). Evidence Card: `evidence-cards/hochreiter-1997-constant-error-carousel.md`.
 
-[^hochreiter1997]: S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780. doi:10.1162/neco.1997.9.8.1735.
+[^hochreiter1997]: **Grade: High** across synthetic benchmarks that the Constant Error Carousel and input/output gating bridge temporal lags exceeding 1,000 steps without signal loss (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, DOI: 10.1162/neco.1997.9.8.1735. Evidence Card: `evidence-cards/hochreiter-1997-constant-error-carousel.md`.
 
-[^bengio1994]: Y. Bengio, P. Simard, and P. Frasconi, "Learning Long-Term Dependencies with Gradient Descent is Difficult," *IEEE Transactions on Neural Networks* 5, no. 2 (1994): 157–166. doi:10.1109/72.279181.
+[^bengio1994]: **Grade: High** that gradient descent in simple dynamical systems faces a tradeoff between robust latching and efficient gradient propagation across long horizons. Y. Bengio, P. Simard, and P. Frasconi, "Learning Long-Term Dependencies with Gradient Descent is Difficult," *IEEE Transactions on Neural Networks* 5, no. 2 (1994): 157–166, DOI: 10.1109/72.279181.
 
-[^schmidhuber-hist]: J. Schmidhuber, "Deep Learning in Neural Networks: An Overview," *Neural Networks* 61 (2015): 85–117. doi:10.1016/j.neunet.2014.09.003.
+[^schmidhuber-hist]: Historical rejection and submission logs for early LSTM drafts are documented in J. Schmidhuber, "Deep Learning in Neural Networks: An Overview," *Neural Networks* 61 (2015): 85–117, DOI: 10.1016/j.neunet.2014.09.003.
 
-[^richards2017]: B. A. Richards and P. W. Frankland, "The Persistence and Transience of Memory," *Neuron* 94, no. 6 (2017): 1071–1084. doi:10.1016/j.neuron.2017.04.037.
+[^hochreiter-math]: **Constant Error Flow Derivation:** In a linear self-connected unit where state updates follow $s(t) = s(t-1) + x(t)$, the partial derivative $\frac{\partial s(t)}{\partial s(t-1)}$ equals 1.0, ensuring error gradients do not vanish over time.
+
+[^richards2017]: **Grade: High** across biological paradigms that memory transience and active neurogenesis support generalization rather than storage failure (Richards & Frankland 2017). B. A. Richards and P. W. Frankland, "The Persistence and Transience of Memory," *Neuron* 94, no. 6 (2017): 1071–1084, DOI: 10.1016/j.neuron.2017.04.037. Evidence Card: `evidence-cards/richards-2017-biology-of-adaptive-forgetting.md`.
