@@ -1,4 +1,11 @@
 ---
+okf_version: "0.3"
+card_id: "liu-2024-lost-in-the-middle-long-context"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_role: "constraint"
+plain_english_metaphor: "the desk valley"
+attenuation_class: "robust (<20%)"
 type: Evidence Card
 title: "U-Shaped Positional Retrieval Degradation in Long Context Windows (Liu et al. 2024)"
 description: "Language models exhibit a pronounced U-shaped accuracy curve on multi-document question answering and key-value retrieval, performing highest when relevant information appears at the very beginning or end of the input context and degrading significantly when placed in the middle."
@@ -43,6 +50,8 @@ Liu et al. (2024) hold the exact gold document and distractor set constant while
 Across evaluated long-context models, moving the gold document from position 1 (start) or position 20 (end) to position 10 (middle) reduces multi-document QA accuracy by $15$ to $30+$ percentage points—sometimes falling below the model's closed-book (zero-context) accuracy.
 
 ## Bias, Heterogeneity, and Confounding
+
+Classified as: `robust (<20%)`.
 
 Classified as `robust (<20%)` in controlled position-permutation experiments. Instruction tuning and RoPE scaling mitigate but do not eliminate mid-context entropy dilution as distractor volume grows.
 

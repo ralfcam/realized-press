@@ -1,4 +1,11 @@
 ---
+okf_version: "0.3"
+card_id: "lewis-2020-retrieval-augmented-generation"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_role: "intervention"
+plain_english_metaphor: "the open reference shelf"
+attenuation_class: "robust (<20%)"
 type: Evidence Card
 title: "Retrieval-Augmented Generation for Parametric and Non-Parametric Memory Synthesis (Lewis et al. 2020)"
 description: "Combining pre-trained parametric sequence-to-sequence models with non-parametric dense vector index retrieval resolves the RAG vs fine-tuning trade-off, reducing factual hallucination without expanding parametric memory."
@@ -40,6 +47,8 @@ Controlled comparisons against purely parametric BART models demonstrate that co
 RAG models outperformed purely parametric baseline models with equal parameter counts by up to $+6.7\%$ exact match on open-domain question answering benchmarks, while human evaluations favored RAG generations for factuality and specificity on Jeopardy generation.
 
 ## Bias, Heterogeneity, and Confounding
+
+Classified as: `robust (<20%)`.
 
 Classified as `robust (<20%)`. Retrieval error propagates directly into generative outputs; if the retriever fetches irrelevant or adversarial distractors, generation quality degrades, underscoring that generation fidelity is bounded by retrieval precision.
 

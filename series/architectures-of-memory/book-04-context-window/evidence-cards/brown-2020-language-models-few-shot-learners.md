@@ -1,4 +1,11 @@
 ---
+okf_version: "0.3"
+card_id: "brown-2020-language-models-few-shot-learners"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_role: "mechanism"
+plain_english_metaphor: "the dynamic blackboard"
+attenuation_class: "robust (<20%)"
 type: Evidence Card
 title: "In-Context Few-Shot Learning via Foundation Scale (Brown et al. 2020)"
 description: "Scaling autoregressive language models to 175B parameters enables in-context learning without gradient updates, highlighting the fundamental divide of in-context learning vs parametric memory where models execute novel tasks conditioned purely on context window demonstrations."
@@ -40,6 +47,8 @@ Model performance scales monotonically with parameter count on few-shot tasks, w
 On SuperGLUE, GPT-3 few-shot performance improved from 41.5% at 125M parameters to 71.8% at 175B parameters without gradient modifications; on TriviaQA few-shot accuracy reached 64.3%, competitive with fine-tuned state-of-the-art systems.
 
 ## Bias, Heterogeneity, and Confounding
+
+Classified as: `robust (<20%)`.
 
 Classified as `robust (<20%)`. Prompt formatting, demonstration ordering, and token distribution introduce high sensitivity into few-shot outputs; nevertheless, the fundamental capability to execute task induction in-context is thoroughly verified.
 

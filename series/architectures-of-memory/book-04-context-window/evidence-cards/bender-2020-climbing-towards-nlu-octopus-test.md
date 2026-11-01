@@ -1,4 +1,11 @@
 ---
+okf_version: "0.3"
+card_id: "bender-2020-climbing-towards-nlu-octopus-test"
+series: "architectures-of-memory"
+primary_lens: "philosophical"
+causal_role: "boundary"
+plain_english_metaphor: "the deep-sea cable operator"
+attenuation_class: "n/a"
 type: Evidence Card
 title: "The Octopus Test: Form Does Not Imply Meaning (Bender & Koller 2020)"
 description: "Language models trained purely on linguistic form (text surface strings) cannot learn meaning (the relation between linguistic expressions and the communicative intent regarding the external world)."
@@ -40,6 +47,8 @@ The "Octopus Test" thought experiment constructs an hyper-intelligent deep-sea o
 The theoretical boundary holds regardless of dataset size or parameter count: scaling text token corpora from gigabytes to terabytes increases the fidelity of syntactic and distributional mimicry without supplying extralinguistic causal referents.
 
 ## Bias, Heterogeneity, and Confounding
+
+Classified as: `n/a`.
 
 Classified as `robust (<20%)`. Humans naturally project communicative intent onto fluent text (the ELIZA effect), creating an observer illusion of comprehension where none exists within the generative mechanism.
 

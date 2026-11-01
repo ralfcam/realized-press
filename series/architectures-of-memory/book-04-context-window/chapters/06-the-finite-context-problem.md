@@ -1,23 +1,57 @@
 # Chapter 6: The Finite Context Problem — What Falls Outside the Window Is Gone
 
-A flight controller sits in an air traffic control tower overlooking an international airport during an evening thunderstorm. Across four radar screens, fifty-four commercial aircraft descend along arrival vectors, adjust headings for wind shear, and request holding patterns. The controller’s working memory can hold roughly seven distinct callsigns simultaneously, cross-referencing altitudes, fuel reserves, and runway visual ranges. Every time a new aircraft checks in on the radio frequency, an older, less urgent detail must be pushed to a paper flight strip or delegated to an assistant. If an emergency occurs with a flight whose status was dismissed from immediate attention, the controller must spend precious seconds re-reading the physical strip. What falls outside the controller's active perceptual window does not cease to exist in reality, but it ceases to exist in the operational circuit of decision-making.
+A flight controller sits in an air traffic tower overlooking a busy runway during an evening storm. Across four radar screens, fifty commercial jets descend along arrival paths. The controller's working memory holds about seven distinct call signs at once. He tracks altitudes, fuel reserves, and runway visual ranges. 
 
-In an autoregressive language model, the context window is bounded by the same unforgiving physical arithmetic. While an operational human can look away, write a note, and look back, a Transformer’s attention mechanism is strictly delimited by its context length $N$. Standard scaled dot-product attention computes pairwise interaction scores between all tokens in the sequence, producing an $N \times N$ matrix. The computational complexity and memory consumption scale quadratically: doubling the context length from 4,096 tokens to 8,192 quadruples the memory required for the intermediate attention map. Furthermore, in autoregressive inference, the key-value states (the "KV cache") for all preceding tokens must be stored in high-speed GPU memory to avoid recalculating past states on every step. For high-concurrency enterprise deployments, the KV cache rapidly exhausts physical VRAM, forcing architects to choose between sequence length and serving capacity.
+Every time a new plane checks in on the radio, an older detail must be shifted to a paper strip. If an emergency occurs with a flight set aside minutes earlier, the controller must re-read the physical strip. What falls outside his active focus does not vanish from the physical sky. But it vanishes from the operational circuit of decision-making.
 
-### The Landmark Empirical Set-Piece: Then vs. Now
+---
 
-Between 2022 and 2024, model providers announced context windows expanding at a breathtaking pace: from 8,000 tokens to 32,000, then 128,000, and eventually over a million tokens. Marketing materials suggested that finite context limits had been definitively conquered. The prevailing industry orthodoxy assumed that if an entire novel, a five-hundred-page corporate annual report, or a comprehensive code repository could be placed inside the prompt, the model would possess uniform, omniscient recall across every word.
+## I. The Quadratic Arithmetic of Attention
 
-In 2024, Nelson Liu and a team of researchers from Stanford, UC Berkeley, and Samaya AI published a landmark empirical study in *Transactions of the Association for Computational Linguistics* titled "Lost in the Middle: How Language Models Use Long Contexts." Designing controlled multi-document question answering benchmarks, Liu’s team placed target key-value information (a needle) at varying relative positions within input contexts containing dozens of retrieved documents (a haystack).
+In an autoregressive language model, the context window faces the same physical limits. A human can look away, write a note, and look back. A Transformer’s attention mechanism is strictly bound by its context length. 
 
-The findings dealt a devastating blow to the assumption of uniform context utilization. Across both open-source and proprietary frontier models, performance followed a sharp U-shaped curve: models retrieved information with high accuracy when it appeared at the very beginning of the prompt (the primacy effect) or at the very end of the prompt (the recency effect). But when the critical factual passage was placed in the middle of a long context, retrieval accuracy plunged dramatically—in many cases dropping below the performance of a model given only a single document. Expanding the context window did not guarantee comprehension; it merely expanded the territory across which attention could wander and degrade.
+Standard dot-product attention computes pairwise scores between all tokens in a prompt. This produces a square attention matrix. Memory use scales quadratically with length: doubling the context from four thousand tokens to eight thousand quadruples the memory required for intermediate maps. 
 
-### The 3-Tier Resolution of Context Saturation
+During inference, key-value states for all past tokens must sit in high-speed GPU memory.[^kvcache-math] This cache avoids recalculating past states on every step. For high-volume enterprise systems, the cache quickly exhausts video memory, forcing a choice between sequence length and serving capacity.
 
-Managing finite and long-context architectures requires confronting three operational truths:
+---
 
-1. **Tier 1 (The Theoretical Capacity):** Long context windows allow models to ingest immense volumes of text, enabling comprehensive single-pass document summarization and large-scale code analysis that were previously impossible.
-2. **Tier 2 (The Mechanistic Bias):** Attention distribution over long sequences is fundamentally non-uniform. Positional encodings, causal masking, and the dilution of softmax weights across thousands of tokens cause mid-context information to suffer severe retrieval degradation.
-3. **Tier 3 (The Operator's Actionable Judgment):** Operators cannot treat a long-context window as a passive dump for unsorted documents. Critical data must be positioned strategically at the beginning or end of prompts, or pre-filtered using targeted retrieval systems before being passed to the model.
+## II. Lost in the Middle: The U-Shaped Reality
 
-The air traffic controller leans forward, pencil in hand, shifting the flight strip of an approaching Boeing 777 to the top of his plastic rack as the storm front crosses the runway threshold. Outside in the dark, thirty miles away, fifty tons of metal and fuel descend through the clouds. Inside the GPU memory bank, an inference pass reaches its limit, the earliest tokens roll off the edge of the buffer, and whatever was written there evaporates into pure mathematical silence.
+Between 2022 and 2024, providers expanded context windows at a rapid pace. Windows grew from eight thousand tokens to over one hundred thousand. Marketing claims suggested that context limits had been solved. Many assumed that if a long document fit inside the prompt, the model would recall every word with equal clarity.
+
+In 2024, Nelson Liu and an academic team tested that belief in a controlled study.[^liu2024] They placed target facts at varying positions inside long contexts surrounded by dozens of retrieved documents. 
+
+Their findings overturned assumptions of uniform recall. Performance followed a sharp U-shaped curve. Models retrieved facts with high accuracy when information appeared at the very start or the very end of the prompt. 
+
+When the critical passage sat in the middle of a long prompt, retrieval accuracy plunged. Expanding the context window did not ensure understanding. It merely expanded the space across which attention could wander and degrade.
+
+Researchers also explored structural solutions like non-learned linear position penalties.[^press2021] These methods help models extrapolate to longer sequences, but they cannot remove the fundamental need for selective attention.
+
+---
+
+## III. Three Tiers of Context Saturation
+
+Managing long-context architectures requires confronting three operational truths:
+
+1. **The Population Signal:** Long context windows allow models to ingest large files in a single pass. This enables document summaries and code analysis that were previously impossible.
+2. **The Mechanistic Bias:** Attention across long sequences is fundamentally uneven. Positional encodings and softmax dilution cause mid-prompt facts to suffer serious retrieval drops.
+3. **The Operator's Actionable Judgment:** Teams cannot treat a long window as an unorganized bucket. Critical data must be placed strategically at the start or end of prompts, or filtered with targeted retrieval first.
+
+The air traffic controller leans forward, pencil in hand, shifting a flight strip to the top of his rack as the storm crosses the runway. Outside in the dark, tons of metal and fuel descend through cloud layers. Inside the GPU memory bank, an inference pass reaches its edge. The earliest tokens roll off the buffer, and their details fade into mathematical silence.
+
+<aside class="chapter-takeaway">
+### Chapter 6 Takeaways: Context Limits, Positional Bias, and Cache Costs.
+
+- **The Technical Signal:** Transformer attention exhibits a U-shaped accuracy curve in long contexts, retrieving facts reliably from prompt edges while dropping accuracy in the middle.
+- **The Company Fallacy:** Assuming that dumping hundreds of pages into a single prompt guarantees complete recall creates silent omissions in critical reviews.
+- **The Core Rule:** Place critical instructions and evidence at the very beginning or end of prompts, and use pre-retrieval filters to keep contexts compact.
+</aside>
+
+## Notes
+
+[^liu2024]: **Grade: High** for empirical identification of U-shaped retrieval degradation and positional bias in long-context language models (Liu et al. 2024). N. F. Liu, K. Lin, J. Hewitt, A. Paranjape, M. Bevilacqua, F. Petroni, and P. Liang, "Lost in the Middle: How Language Models Use Long Contexts," *Transactions of the Association for Computational Linguistics* 12 (2024): 157–173, DOI: 10.1162/tacl_a_00638. Evidence Card: `evidence-cards/liu-2024-lost-in-the-middle-long-context.md`.
+
+[^press2021]: **Grade: High** for attention with linear biases enabling sequence length extrapolation beyond training windows (Press et al. 2021). O. Press, N. A. Smith, and M. Lewis, "Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation," *ICLR* (2022), arXiv:2108.12409. Evidence Card: `evidence-cards/press-2022-train-short-test-long-alibi.md`.
+
+[^kvcache-math]: **KV Cache Complexity Formulation:** Autoregressive generation requires storing key-value activations with memory footprint $M_{KV} = 2 \times b \times l \times h \times d \times n$, demonstrating that memory demands scale linearly with sequence length $n$ across batch size $b$ and layers $l$.

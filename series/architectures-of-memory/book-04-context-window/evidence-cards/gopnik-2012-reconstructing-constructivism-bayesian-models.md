@@ -1,4 +1,11 @@
 ---
+okf_version: "0.3"
+card_id: "gopnik-2012-reconstructing-constructivism-bayesian-models"
+series: "architectures-of-memory"
+primary_lens: "philosophical"
+causal_role: "boundary"
+plain_english_metaphor: "the exploring toddler"
+attenuation_class: "robust (<20%)"
 type: Evidence Card
 title: "Reconstructing Constructivism: Causal Models and Bayesian Cognition (Gopnik & Wellman 2012)"
 description: "Human children learn causal models of the world through hierarchical Bayesian inference and active counterfactual experimentation, contrasting sharply with pure correlational statistical text prediction."
@@ -40,6 +47,8 @@ Laboratory experiments show that toddlers as young as two years old infer causal
 Where deep statistical models require billions of tokens to identify correlations that remain fragile to out-of-distribution shifts, human children acquire robust, transferable causal models that support counterfactual reasoning, explanation, and imaginative physical manipulation.
 
 ## Bias, Heterogeneity, and Confounding
+
+Classified as: `robust (<20%)`.
 
 Classified as `robust (<20%)`. Causal inference mechanisms develop unevenly across domains (intuitive physics precedes complex theory of mind), but the Bayesian structural revision process is ubiquitous across cultures.
 

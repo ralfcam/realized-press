@@ -1,4 +1,11 @@
 ---
+okf_version: "0.3"
+card_id: "searle-1980-minds-brains-programs"
+series: "architectures-of-memory"
+primary_lens: "philosophical"
+causal_role: "boundary"
+plain_english_metaphor: "the locked translation chamber"
+attenuation_class: "n/a"
 type: Evidence Card
 title: "The Chinese Room Argument: Syntax Is Not Semantics (Searle 1980)"
 description: "Formal symbol manipulation according to syntactic rules is neither constitutive of nor sufficient for intentionality, semantics, and genuine understanding."
@@ -40,6 +47,8 @@ The logical argument hinges on the distinction between syntax (formal shapes, to
 The core insight persists across all computational paradigms: whether symbols are manipulated via discrete production rules or high-dimensional vector dot-products, statistical operations on form alone do not magically instantiate intentional states.
 
 ## Bias, Heterogeneity, and Confounding
+
+Classified as: `n/a`.
 
 Classified as `robust (<20%)`. Objections (the Systems Reply, Robot Reply, Brain Simulator Reply) claim understanding emerges at the level of the whole system or through robotic embodiment; Searle responds that internalizing the entire system still leaves the agent manipulating ungrounded symbols.
 

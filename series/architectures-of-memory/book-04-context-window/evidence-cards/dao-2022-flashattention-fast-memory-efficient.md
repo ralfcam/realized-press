@@ -1,4 +1,11 @@
 ---
+okf_version: "0.3"
+card_id: "dao-2022-flashattention-fast-memory-efficient"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_role: "mechanism"
+plain_english_metaphor: "the tiled workbench"
+attenuation_class: "robust (<20%)"
 type: Evidence Card
 title: "IO-Aware Tiling and Exact Memory-Efficient Attention (Dao et al. 2022)"
 description: "FlashAttention computes exact self-attention with O(N) memory complexity and 2–4× wall-clock speedup by leveraging GPU SRAM tiling, overcoming the KV cache memory bottleneck and unlocking the long context window for foundation models."
@@ -40,6 +47,8 @@ Profiling memory bandwidth vs. compute throughput proves that standard self-atte
 FlashAttention scales context length up to 64K tokens without out-of-memory errors on standard GPUs, yielding 8× speedup on sequences of length 4K, enabling the training of extended-context Transformers that were previously computationally intractable.
 
 ## Bias, Heterogeneity, and Confounding
+
+Classified as: `robust (<20%)`.
 
 Classified as `robust (<20%)`. Hardware-specific optimization requires custom CUDA/Triton kernels adapted to specific GPU architectures (Ampere, Hopper, Ada Lovelace); however, the mathematical tiling principle applies universally across accelerator hierarchies.
 

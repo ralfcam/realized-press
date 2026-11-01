@@ -1,4 +1,11 @@
 ---
+okf_version: "0.3"
+card_id: "raji-2020-closing-ai-accountability-gap"
+series: "architectures-of-memory"
+primary_lens: "organizational"
+causal_role: "intervention"
+plain_english_metaphor: "the inspector's logbook"
+attenuation_class: "robust (<20%)"
 type: Evidence Card
 title: "Internal Algorithmic Auditing and Accountability Frameworks (Raji et al. 2020)"
 description: "Closing the AI accountability gap requires end-to-end internal auditing frameworks across system lifecycles, establishing verifiable documentation, ownership, and testing prior to organizational deployment."
@@ -40,6 +47,8 @@ Case studies in algorithmic bias and corporate failure reveal that harms occur p
 Pre-deployment auditing identifies systemic performance disparities and compliance violations that routine unit testing fails to capture, formalizing a paper trail necessary for regulated industry compliance (finance, healthcare, employment).
 
 ## Bias, Heterogeneity, and Confounding
+
+Classified as: `robust (<20%)`.
 
 Classified as `robust (<20%)`. Organizational incentives often treat auditing frameworks as compliance theater unless audits are backed by independent authority to halt deployments.
 

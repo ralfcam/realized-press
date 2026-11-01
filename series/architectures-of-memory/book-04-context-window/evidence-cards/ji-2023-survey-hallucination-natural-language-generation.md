@@ -1,4 +1,11 @@
 ---
+okf_version: "0.3"
+card_id: "ji-2023-survey-hallucination-natural-language-generation"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_role: "constraint"
+plain_english_metaphor: "the mirage in the mirror"
+attenuation_class: "robust (<20%)"
 type: Evidence Card
 title: "Taxonomy and Structural Mechanisms of Hallucination in NLG (Ji et al. 2023)"
 description: "Hallucination in neural language generation stems from parametric memory corruption, training data bias, and decoding divergence, categorizable into intrinsic and extrinsic factual inaccuracies."
@@ -40,6 +47,8 @@ Causal roots of hallucination include: (1) imperfect memorization during pretrai
 Hallucination rates range from 3% to over 30% depending on domain complexity, entity rarity, and context window length, persisting even as model scale expands into hundreds of billions of parameters.
 
 ## Bias, Heterogeneity, and Confounding
+
+Classified as: `robust (<20%)`.
 
 Classified as `robust (<20%)`. Surface plausibility correlates inversely with detectability: larger models produce hallucinations that are more syntactically polished and self-consistent, increasing the cognitive load required to audit them.
 

@@ -1,4 +1,11 @@
 ---
+okf_version: "0.3"
+card_id: "press-2022-train-short-test-long-alibi"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_role: "mechanism"
+plain_english_metaphor: "the fading horizon"
+attenuation_class: "robust (<20%)"
 type: Evidence Card
 title: "Attention with Linear Biases for Input Length Extrapolation (Press et al. 2021)"
 description: "Injecting non-learned, head-specific static negative linear penalties into query-key attention scores (ALiBi) enables Transformer language models to extrapolate smoothly to sequences far longer than those observed during training."
@@ -40,6 +47,8 @@ Controlled comparisons against sinusoidal positional encodings, learned position
 Models trained on sequences of length 512 with ALiBi maintained declining or flat validation perplexity when evaluated on sequences up to 2,048 tokens (+4× extrapolation), whereas models with sinusoidal or learned embeddings suffered catastrophic perplexity spikes within 50–100 tokens past the training horizon.
 
 ## Bias, Heterogeneity, and Confounding
+
+Classified as: `robust (<20%)`.
 
 Classified as `robust (<20%)`. While ALiBi guarantees stable perplexity extrapolation, its strong monotonic recency bias can impair long-range associative recall and needle-in-a-haystack retrieval tasks at extreme sequence lengths (>32K tokens).
 

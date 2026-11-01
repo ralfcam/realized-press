@@ -16,7 +16,7 @@ OKF v0.2 atomic evidence cards anchoring this volume across all three lenses (Te
 
 ### Organizational Lens (AI as Organizational Infrastructure & Governance)
 11. [`raji-2020-closing-ai-accountability-gap.md`](raji-2020-closing-ai-accountability-gap.md) — Internal Algorithmic Auditing and Accountability Frameworks (Grade: High)
-12. [`selbst-2018-intuitive-appeal-explainable-machines.md`](selbst-2018-intuitive-appeal-explainable-machines.md) — The Intuitive Appeal of Explainable Machines (Grade: High)
+12. [`selbst-2018-intuitive-appeal-explainable-machines.md`](selbst-2018-intuitive-appeal-explainable-machines.md) — The Intuitive Appeal of Explainable Machines (Grade: Moderate)
 
 ### Philosophical Lens (Pattern, Semantics & Cognition)
 13. [`searle-1980-minds-brains-programs.md`](searle-1980-minds-brains-programs.md) — The Chinese Room Argument: Syntax Is Not Semantics (Grade: High)

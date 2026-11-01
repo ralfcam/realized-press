@@ -1,23 +1,56 @@
 # Chapter 4: Hallucination as a Memory Failure — Confident Retrieval of Nothing
 
-In May 2023, an attorney preparing a legal brief in a personal injury suit against an airline filed a memorandum citing six precedent decisions: *Martinez v. Delta Air Lines*, *Zicherman v. Korean Air Lines*, and *Varghese v. China Southern Airlines*. The citations were immaculately formatted, complete with docket numbers, court jurisdictions, and excerpted judicial prose. When opposing counsel and the presiding federal judge searched the official federal caselaw databases, none of the opinions existed. The attorney had not invented them out of malicious deceit; he had asked an autoregressive foundation model to find cases supporting his proposition. The model, trained on millions of legal texts, had generated citations that perfectly mirrored the syntactic surface of federal jurisprudence while referring to cases that had never been argued in any courtroom on earth.
+In May 2023, a lawyer preparing a brief in a federal court case cited six past court rulings. The filing included *Martinez v. Delta Air Lines* and *Varghese v. China Southern Airlines*. The citations looked immaculate. They had docket numbers, court names, and quoted rulings. 
 
-In popular discourse, this failure is often labeled with anthropomorphic terms, as though the model possessed a wandering imagination. In the rigorous vocabulary of computational systems, it is a structural failure of parametric memory. When a Transformer generates text, it does not distinguish between a factual historical event and a statistically plausible phrase continuation. Its objective function during pretraining is exclusively next-token prediction: maximizing the conditional probability distribution $P(x_t \mid x_{<t})$. If the true historical token sequence is weakly supported in its parameters, the model does not output an error code; it samples the highest-probability continuation according to its softmax distribution. The result is the generation of non-grounded content—a confident retrieval of nothing.
+When opposing counsel and the federal judge searched official case law, none of the opinions existed. The lawyer had not invented them out of malice. He had asked a foundation model to find cases supporting his client. 
 
-### The Landmark Empirical Set-Piece: Then vs. Now
+The model had read millions of legal texts. It wrote citations that matched the exact style of federal judges, while describing cases that had never happened in any court on earth.
 
-In the initial euphoria following the emergence of large-scale autoregressive models, a common industry orthodoxy arose: hallucination was merely a transient calibration artifact born of insufficient data or excessive sampling temperatures. Early commentators asserted that scaling models from billions to trillions of parameters, combined with reinforcement learning from human feedback (RLHF), would steadily drive factual generation errors down to zero, leaving a reliable parametric oracle.
+---
 
-In 2023, Ziwei Ji and a team at the Hong Kong University of Science and Technology published a comprehensive survey in *ACM Computing Surveys* categorizing hallucination phenomena across natural language generation. Synthesizing hundreds of empirical evaluations, their taxonomy decoupled the problem into two distinct mechanisms: *intrinsic hallucination*, where generated text directly contradicts the source context provided in the prompt, and *extrinsic hallucination*, where the generated text introduces assertions that cannot be verified or grounded in either the prompt or the training distribution.
+## I. The Architecture of Plausible Continuation
 
-The modern consensus overturned the naive scaling optimism. Ji and subsequent empirical audits demonstrated that increasing model scale does not eliminate factual divergence; instead, it refines surface plausibility. Larger models produce fewer obvious grammatical blunders, but their factual errors become far more subtle, self-consistent, and difficult to detect. Because the training loss rewards fluent statistical mimicry rather than epistemic truth-tracking, ungrounded autoregressive generation remains inherently prone to factual drift.
+People call this error a machine hallucination, as if the model possessed a wandering imagination. In computing, it is a structural failure of parametric memory. 
 
-### The 3-Tier Resolution of Factual Divergence
+When a Transformer writes text, it does not distinguish between a true historical event and a plausible phrase. Its training goal is next-token prediction: maximizing the chance of each following word.[^softmax-math] 
 
-Addressing factual divergence in production architectures requires a clear operational framework:
+If a true historical fact is weakly supported in its weights, the model does not return an error code. It samples the most likely word continuation according to its math. The result is confident writing ungrounded in physical reality.
 
-1. **Tier 1 (The Distributional Reality):** Across broad common-knowledge queries, foundation models achieve high factual hit rates. But this reliability is an average property across a training distribution, not a guarantee for any single token sequence.
-2. **Tier 2 (The Mechanistic Flaw):** Maximum-likelihood next-token prediction cannot verify whether a sampled token corresponds to an actual state of affairs in the physical world. When parameters lack sufficient density for a specific entity or date, the network smoothly interpolates plausible-sounding substitutes.
-3. **Tier 3 (The Operator's Actionable Judgment):** System architects must never permit an autoregressive language model to act as the authoritative source of record in high-stakes workflows. Factual claims must be bounded by deterministic verification layers, citation anchoring, and external retrieval pipelines.
+---
 
-The federal judge in Manhattan issued a formal sanctions order against the attorneys who filed the fictitious precedents, noting that while technology provides remarkable tools, the obligation to verify truth remains indivisible. On an idling GPU server, a generation run finishes and the token buffer clears. The model feels no embarrassment, no remorse, and no satisfaction. It has simply executed floating-point operations over high-dimensional vectors, indifferent to whether the worlds it describes exist in ink, in reality, or nowhere at all.
+## II. The Anatomy of Factual Drift
+
+When large models first emerged, an optimistic industry belief took hold. Many assumed that factual drift was merely a temporary tuning flaw. Observers argued that scaling models to trillions of parameters would eliminate factual errors, leaving a reliable electronic oracle.
+
+In 2023, Ziwei Ji and an academic team published a thorough study analyzing these errors.[^ji2023] Their review outlined two main errors:
+
+1. *Intrinsic errors*, where the generated text directly contradicts the source text supplied in the prompt.
+2. *Extrinsic errors*, where the generated text introduces claims that cannot be verified against the prompt or training data.
+
+Their work showed that scaling model size does not eliminate factual drift. Instead, scale refines surface style. Larger models make fewer obvious grammatical errors, but their factual mistakes become more subtle and self-consistent. Because training rewards fluent statistical mimicry rather than truth-tracking, ungrounded writing remains prone to drift.
+
+---
+
+## III. Grounding Systems Against Drift
+
+Using models in critical work requires three clear operational rules:
+
+1. **The Population Signal:** Across common topics, foundation models achieve high factual hit rates. But this is an average property across a massive corpus, not a guarantee for any single answer.
+2. **The Mechanistic Constraint:** Next-token prediction cannot check whether a word matches an actual fact in the real world. When weights lack dense coverage for an entity, the network guesses plausible substitutes.
+3. **The Operator's Actionable Judgment:** System architects must never permit an autoregressive model to act as an unchecked source of truth. Factual claims must be bounded by deterministic verification layers and external retrieval systems.
+
+The federal judge in Manhattan penalized the lawyers who filed the fake rulings, noting that the duty to check truth cannot be outsourced. On an idling server, a generation run finishes and the token buffer clears. The model feels no regret and no embarrassment. It has simply multiplied numbers across vectors, indifferent to whether its words exist in ink, in fact, or nowhere at all.
+
+<aside class="chapter-takeaway">
+### Chapter 4 Takeaways: Hallucination, Probability, and Grounding.
+
+- **The Technical Signal:** Hallucination is a structural consequence of next-token prediction loss, where models sample statistically plausible phrases rather than retrieving verified facts.
+- **The Company Fallacy:** Believing that larger parameter counts or fine-tuning will eliminate factual errors leads organizations to trust ungrounded models in legal and financial workflows.
+- **The Core Rule:** Never allow language models to serve as authoritative databases; anchor all factual assertions to external, verifiable source documents.
+</aside>
+
+## Notes
+
+[^ji2023]: **Grade: High** for comprehensive taxonomy and structural mechanisms of intrinsic versus extrinsic hallucination in natural language generation (Ji et al. 2023). Z. Ji, N. Lee, R. Frieske, T. Yu, D. Su, Y. Xu, ... and P. Fung, "Survey of Hallucination in Natural Language Generation," *ACM Computing Surveys* 55, no. 12 (2023): 1–38, DOI: 10.1145/3571730. Evidence Card: `evidence-cards/ji-2023-survey-hallucination-natural-language-generation.md`.
+
+[^softmax-math]: **Autoregressive Softmax Formulation:** Next-token generation samples from $P(x_t \mid x_{<t}) = \text{softmax}(W_u h_t)$, demonstrating that generation maximizes conditional probability rather than factual truth-values.

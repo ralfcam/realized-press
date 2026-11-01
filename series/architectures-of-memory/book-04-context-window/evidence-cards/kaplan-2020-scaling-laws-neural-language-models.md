@@ -1,4 +1,11 @@
 ---
+okf_version: "0.3"
+card_id: "kaplan-2020-scaling-laws-neural-language-models"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_role: "baseline"
+plain_english_metaphor: "the power grid"
+attenuation_class: "robust (<20%)"
 type: Evidence Card
 title: "Empirical Scaling Laws for Neural Language Models (Kaplan et al. 2020)"
 description: "Language model cross-entropy loss scales as a power-law with compute, dataset size, and parameter count across more than seven orders of magnitude, with architectural hyperparameters having minimal effect."
@@ -40,6 +47,8 @@ Systematic ablation across model sizes from $10^3$ to $10^9$ parameters and comp
 Performance improves smoothly as $L(N) \approx (N_c/N)^{\alpha_N}$, with power-law exponents $\alpha_N \approx 0.076$, $\alpha_C \approx 0.050$, and $\alpha_D \approx 0.095$. Models can be scaled reliably by predicting loss before committing massive training clusters.
 
 ## Bias, Heterogeneity, and Confounding
+
+Classified as: `robust (<20%)`.
 
 Classified as `robust (<20%)`. Downstream task evaluation can exhibit sharp non-linear emergent phase changes even when the underlying pretraining token cross-entropy loss decreases smoothly and continuously.
 

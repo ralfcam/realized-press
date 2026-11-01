@@ -1,4 +1,11 @@
 ---
+okf_version: "0.3"
+card_id: "gu-2023-mamba-linear-time-sequence-modeling"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_role: "mechanism"
+plain_english_metaphor: "the selective sieve"
+attenuation_class: "robust (<20%)"
 type: Evidence Card
 title: "Selective State Space Models for Linear-Time Sequence Modeling (Gu & Dao 2023)"
 description: "Mamba introduces input-dependent selection mechanisms into structured state space models, achieving linear O(N) sequence scaling, fast inference, and performance matching Transformers on million-length sequences."
@@ -40,6 +47,8 @@ Traditional linear-time recurrent models failed on language because their time-i
 Mamba achieves 5× higher inference throughput than Transformers of comparable parameter size and scales linearly with context length, eliminating the quadratic KV cache memory footprint that bounds Transformer deployments.
 
 ## Bias, Heterogeneity, and Confounding
+
+Classified as: `robust (<20%)`.
 
 Classified as `robust (<20%)`. Pure SSMs can struggle with exact copy-pasting of long random sequences relative to full quadratic attention; hybrid architectures (Mamba-Transformer hybrids) frequently resolve this boundary condition.
 

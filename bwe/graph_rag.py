@@ -384,6 +384,7 @@ def parse_card_file(card_path: Path, series_slug: str, book_slug: str) -> dict[s
     return {
         "card_slug": card_slug,
         "card_id": card_id,
+        "book_slug": book_slug,
         "okf_version": okf_version,
         "title": title,
         "primary_lens": str(primary_lens).lower(),
@@ -902,10 +903,11 @@ def build_series_knowledge_graph(
                         fn_clean_sub = fn_clean
 
                     note_clean = re.sub(r"[^a-z0-9]", "", note_def.lower())
+                    ordered_card_items = sorted(cards.items(), key=lambda kv: 0 if kv[1].get("book_slug") == b_slug else 1)
 
                     # Match by card slug or clean substring
                     if not target_card_slugs:
-                        for c_slug in cards:
+                        for c_slug, _ in ordered_card_items:
                             c_clean = re.sub(r"[^a-z0-9]", "", c_slug.lower())
                             if fn_clean_sub and (fn_clean_sub in c_clean or c_clean in fn_clean) and len(fn_clean_sub) >= 4:
                                 target_card_slugs.append(c_slug)
@@ -913,7 +915,7 @@ def build_series_knowledge_graph(
 
                     # Match by locked bib keys in note text or fn_id
                     if not target_card_slugs:
-                        for c_slug, c_data in cards.items():
+                        for c_slug, c_data in ordered_card_items:
                             for b_key in c_data.get("locked_bib_keys", []):
                                 b_clean = re.sub(r"[^a-z0-9]", "", b_key.lower())
                                 if ((b_clean in fn_clean or fn_clean in b_clean or b_clean in note_clean) and len(b_clean) >= 3) or (b_key.lower() in note_def.lower()):
@@ -924,7 +926,7 @@ def build_series_knowledge_graph(
 
                     # Match by author and year tokens from card slug in note_def / fn_id
                     if not target_card_slugs:
-                        for c_slug, c_data in cards.items():
+                        for c_slug, c_data in ordered_card_items:
                             slug_parts = c_slug.split("-")
                             if len(slug_parts) >= 2 and slug_parts[1].isdigit():
                                 author_part = slug_parts[0]
@@ -938,7 +940,7 @@ def build_series_knowledge_graph(
 
                     # Match by sources in frontmatter
                     if not target_card_slugs:
-                        for c_slug, c_data in cards.items():
+                        for c_slug, c_data in ordered_card_items:
                             for src in c_data.get("sources", []):
                                 s_id = src.get("id", "")
                                 s_clean = re.sub(r"[^a-z0-9]", "", s_id.lower())

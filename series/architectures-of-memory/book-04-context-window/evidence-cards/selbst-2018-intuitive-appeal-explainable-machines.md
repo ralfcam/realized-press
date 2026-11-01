@@ -1,4 +1,11 @@
 ---
+okf_version: "0.3"
+card_id: "selbst-2018-intuitive-appeal-explainable-machines"
+series: "architectures-of-memory"
+primary_lens: "organizational"
+causal_role: "boundary"
+plain_english_metaphor: "the legal deposition"
+attenuation_class: "n/a"
 type: Evidence Card
 title: "The Intuitive Appeal of Explainable Machines (Selbst & Barocas 2018)"
 description: "Legal and regulatory demands for algorithmic explainability conflate inscrutability (epistemic opacity) with non-intuitiveness (statistical counter-intuitiveness), creating governance gaps when applied to complex models."
@@ -40,6 +47,8 @@ Even if a deep neural network's calculations are rendered fully transparent (com
 Post-hoc explainability techniques (e.g., LIME, SHAP, feature saliency) provide local linear approximations that can be misleading or easily gamed, failing to satisfy the legal standard of substantive causal accountability.
 
 ## Bias, Heterogeneity, and Confounding
+
+Classified as: `n/a`.
 
 Classified as `robust (<20%)`. Demands for simplified intuitive explanations frequently force organizations to discard predictive accuracy or resort to superficial explanations that conceal underlying disparate impacts.
 

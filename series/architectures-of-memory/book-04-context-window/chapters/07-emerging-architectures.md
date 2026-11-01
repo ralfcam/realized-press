@@ -1,23 +1,59 @@
 # Chapter 7: Emerging Architectures — Longer Contexts, Memory-Augmented Models, State Space Models
 
-At an experimental physics test stand in Menlo Park, California, high-speed digitizers record millions of sensor voltage samples per second during a plasma confinement pulse. If engineers feed this raw, continuous time-series stream into a standard Transformer, the memory required to compute pairwise attention matrices explodes within fractions of a second, crashing the data acquisition cluster. For seven years, the Transformer’s quadratic memory complexity seemed an immovable tax on intelligence: to attend to everything, one had to pay for every token with every other token. But as the frontier pushes toward million-token contexts and real-time continuous streams, a quiet architectural revolution has begun to dismantle the Transformer’s monopolistic hold over sequential memory.
+At a physics lab in California, digital sensors record voltage samples during a plasma test. The stream produces millions of data points every second. 
 
-The first line of attack was algorithmic and hardware-aware. In 2022, Tri Dao and his collaborators introduced *FlashAttention*, recognizing that standard attention was bottlenecked not by arithmetic computation (FLOPs), but by memory bandwidth—the slow transfer of data between GPU High Bandwidth Memory (HBM) and fast on-chip SRAM. By tiling the attention matrix into blocks and computing the softmax normalization incrementally, FlashAttention eliminated intermediate matrix storage in HBM, speeding up training by 2–4× and slashing memory consumption from $O(N^2)$ to $O(N)$ without numerical approximation. In parallel, innovations in positional encodings—from Rotary Position Embeddings (RoPE) developed by Jianlin Su to Attention with Linear Biases (ALiBi) by Ofir Press—allowed networks trained on short 2,048-token windows to extrapolate gracefully to longer sequences at inference time.
+Feeding this raw data into a standard Transformer quickly crashes the system. Memory usage spikes within seconds. 
 
-### The Landmark Empirical Set-Piece: Then vs. Now
+For years, the Transformer’s heavy memory footprint seemed like an unavoidable tax. To attend to everything, every token had to be compared with every other word. 
 
-Yet the most radical challenge to the Transformer paradigm came from an architectural resurrection: structured state space models. When Vaswani published "Attention Is All You Need" in 2017, the prevailing orthodoxy concluded that recurrent architectures (RNNs and LSTMs) were dead. Recurrent models had to be computed sequentially step-by-step, making them impossible to parallelize efficiently across modern GPU clusters, and their fixed-size hidden vectors inevitably suffered from catastrophic forgetting over long sequences. The Transformer’s all-to-all attention seemed the only viable path forward.
+As teams push toward million-token contexts and live streams, a quiet shift has begun to challenge that model.
 
-In December 2023, Albert Gu and Tri Dao published "Mamba: Linear-Time Sequence Modeling with Selective State Spaces." Drawing from classical control theory and continuous state-space equations, Gu and Dao addressed the fatal flaw of prior linear-time recurrent models: their time-invariant transition matrices treated all incoming tokens identically, preventing the model from filtering out irrelevant background noise. 
+---
 
-Mamba introduced an *input-dependent selection mechanism*, allowing the state transitions ($B, C, \Delta$) to vary dynamically based on the current input token. Combined with a hardware-aware parallel associative scan, Mamba achieved the best of both worlds: fully parallel training during the backward pass like a Transformer, but linear $O(N)$ computational complexity and constant $O(1)$ memory consumption per step during autoregressive generation. On downstream language evaluations, Mamba matched or outperformed Transformers of equivalent size (up to 2.8 billion parameters) while delivering 5× higher inference throughput and processing sequences up to one million tokens without a ballooning KV cache.
+## I. Tiling and Rotary Coordinates
 
-### The 3-Tier Resolution of Post-Transformer Memory
+The first major fixes targeted chips and code. Engineers realized that standard attention was slowed by memory bottlenecks. Shuffling data between main memory and on-chip cache created delays. 
 
-Evaluating emerging sequence architectures requires distinguishing theoretical elegance from production trade-offs:
+By splitting the attention grid into small blocks, engineers stopped storing large temporary files in slow memory. This change cut training time in half. It reduced memory growth without changing final answers. 
 
-1. **Tier 1 (The Macro Trend):** The monopoly of pure quadratic self-attention has broken. Hybrid architectures—combining selective state spaces (SSMs) for linear long-sequence ingestion with sparse local attention for precision retrieval—represent the emerging consensus for next-generation foundation models.
-2. **Tier 2 (The Mechanistic Trade-off):** Selective state space models compress sequence history into a continuous latent state vector. While this eliminates the memory-destroying KV cache, it means that exact, verbatim copy-pasting of long random sequences remains inherently harder for an SSM than for full dot-product attention.
-3. **Tier 3 (The Operator's Actionable Judgment):** Engineers building production systems should deploy FlashAttention-optimized Transformers for tasks requiring dense, high-precision document reasoning, while evaluating SSMs and hybrid architectures for long-horizon continuous telemetry, real-time audio, and low-latency streaming applications.
+In parallel, improvements in position markers emerged. Rotary embeddings rotate vectors in vector space.[^su2021] This geometry preserves relative distance. Networks trained on short prompts can now handle longer sequences at runtime.
 
-The digitizers at the plasma test stand stream their millions of sensor readings into an experimental selective scan kernel. The numbers flow in a continuous, unbroken river, filtered and compressed into state vectors in real time, without exhausting a single gigabyte of memory cache. The rigid frame of the context window has begun to soften, opening outward into architectures that breathe, remember, and let go.
+---
+
+## II. The Mamba Breakthrough: Linear Time and Selection
+
+Yet a deeper change came from a revival of older recurrent concepts: state space systems. When the Transformer appeared in 2017, many concluded that recurrent models were obsolete. Recurrent networks ran one step at a time, making them hard to scale on chips, while their fixed vectors lost details over long horizons.
+
+In late 2023, Albert Gu and Tri Dao introduced Mamba, combining state space models with input selection.[^gu2023] Earlier linear recurrent models treated all incoming words the same way. They could not filter out background noise.
+
+Mamba added a dynamic selection filter.[^mamba-math] The state transitions change based on the current input word. Paired with a fast parallel scan, Mamba achieved parallel training during learning, but linear speed and constant memory during generation. 
+
+On standard tests, Mamba matched Transformers of equal size while processing sequences up to one million tokens without a runaway cache.
+
+---
+
+## III. Three Tiers of Post-Transformer Memory
+
+Evaluating these new models requires looking at three clear points:
+
+1. **The Population Signal:** Basic attention is no longer the only choice. Hybrid models—combining state spaces for long inputs with sparse attention for precision lookup—represent the new direction for foundation models.
+2. **The Mechanistic Trade-off:** State space models compress history into a compact vector. While this removes the heavy memory cache, exact copying of long random sequences remains harder for a state space model than for full attention.
+3. **The Operator's Actionable Judgment:** Teams building live systems should deploy tiled attention for exact document reviews, while testing state space models for continuous sensor feeds, audio, and streaming tasks.
+
+The sensors at the lab stream their readings into an experimental code kernel. The numbers flow in a continuous river, filtered into state vectors in real time, without filling chip memory. The rigid frame of the context window has begun to soften, opening toward tools that process, retain, and let go.
+
+<aside class="chapter-takeaway">
+### Chapter 7 Takeaways: State Spaces, Linear Complexity, and Hybrid Models.
+
+- **The Technical Signal:** Selective state space models achieve linear computational complexity and constant inference memory by filtering inputs into continuous state transitions.
+- **The Company Fallacy:** Assuming that one model architecture fits every problem leads teams to force quadratic Transformers into high-speed continuous streaming tasks.
+- **The Core Rule:** Use full attention for dense multi-document analysis, and deploy selective state space models for continuous, long-horizon data streams.
+</aside>
+
+## Notes
+
+[^su2021]: **Grade: High** for Rotary Position Embedding rotating query and key representations in complex space to enable relative attention scaling (Su et al. 2021). J. Su, M. Ahmed, Y. Lu, S. Pan, B. Wen, and Y. Liu, "RoFormer: Enhanced Transformer with Rotary Position Embedding," *Neurocomputing* 568 (2024): 127063, arXiv:2104.09864. Evidence Card: `evidence-cards/su-2024-roformer-rotary-position-embedding.md`.
+
+[^gu2023]: **Grade: High** for selective state space models achieving linear-time sequence modeling and constant-memory inference matching Transformer quality (Gu & Dao 2023). A. Gu and T. Dao, "Mamba: Linear-Time Sequence Modeling with Selective State Spaces," *arXiv:2312.00752* (2023). Evidence Card: `evidence-cards/gu-2023-mamba-linear-time-sequence-modeling.md`.
+
+[^mamba-math]: **Selective State Space Formulation:** The continuous state-space equation $h'(t) = A h(t) + B x(t)$ discretizes via zero-order hold with input-dependent parameters $\Delta, B, C = \text{Linear}(x_t)$, establishing linear $O(N)$ computational complexity across long sequences.

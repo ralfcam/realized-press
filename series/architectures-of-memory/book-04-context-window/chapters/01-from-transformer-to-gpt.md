@@ -1,25 +1,57 @@
 # Chapter 1: From Transformer to GPT — What Changes When Scale Arrives
 
-A server rack humming in an air-conditioned cluster in Quincy, Washington does not smell like iron filings or ozone; it smells like warm recirculated air and dry polymer. Inside, thousands of graphics processing units draw kilowatts of power through copper busbars, multiplying 16-bit floating-point numbers across matrix arrays. When Ashish Vaswani and his seven co-authors submitted the Transformer architecture in 2017, their primary objective was computational throughput in machine translation—replacing the serial recurrent step of the LSTM with parallel matrix multiplications that could saturate high-bandwidth hardware. None of them anticipated that by discarding recurrence, they had cleared the runway for a different phenomenon entirely: the emergence of what looks like universal semantic memory, purchased purely through the multiplication of parameters.
+A server rack in Quincy, Washington does not smell like iron filings. It smells like warm, dry air and polymer. Inside, thousands of graphics processing units draw steady electrical power. Copper busbars feed current across dense computing trays. 
 
-The architectural leap from the original encoder-decoder Transformer to the generative pre-trained Transformer (GPT) was conceptually modest. Alec Radford and his collaborators at OpenAI stripped the encoder, retained the decoder stack, masked the future tokens so attention could only look backward, and trained the resulting model on an uncurated sweep of the internet. The goal was simple autoregressive sequence prediction: given a sequence of tokens $x_1, x_2, \dots, x_{t-1}$, maximize the log-likelihood of predicting the true next token $x_t$. In an LSTM or a Jordan network, historical context was funnelled into a single hidden state vector whose magnitude either vanished or exploded over long sequences. In the decoder-only Transformer, every token retained an uncompressed vector representation, and attention heads computed direct pairwise alignments across the entire context window.
+When Ashish Vaswani and his co-authors introduced the Transformer in 2017, their goal was speed. They wanted to replace the slow sequential steps of recurrent networks. Matrix multiplications could run in parallel across modern chips. 
 
-### The Landmark Empirical Set-Piece: Then vs. Now
+No one foresaw the larger revolution. By removing recurrence, the authors cleared the path for a different phenomenon. Scaling parameters created what looked like universal semantic memory.
 
-In late 2019, Jared Kaplan and a team of physicists and machine learning researchers at OpenAI set out to answer a question that had haunted connectionism since Frank Rosenblatt’s Mark I Perceptron: does adding capacity to a neural network yield diminishing returns, or does it follow a predictable mathematical trajectory? The historical orthodoxy dating back to the statistical learning theory of Vladimir Vapnik held that increasing model parameters far beyond the number of training samples inevitably provoked catastrophic overfitting, producing brittle models that memorized noise rather than generalizing structure. 
+---
 
-Kaplan’s team constructed models spanning seven orders of magnitude in compute and evaluated cross-entropy loss across parameter scales ranging from $10^3$ to over $10^9$. What they discovered overturned the classical intuition of statistical learning. Cross-entropy loss did not stall; it decayed as a clean, continuous power law:
+## I. The Removal of the Recurrent Loop
 
-$$L(N) \approx \left(\frac{N_c}{N}\right)^{\alpha_N}$$
+The shift from the original Transformer to the generative pre-trained model was conceptually simple. Alec Radford and his team at OpenAI simplified the architecture. They removed the encoder stack and kept the decoder layers. 
 
-The power-law exponent showed that scaling the parameter count $N$, the dataset size $D$, and the compute budget $C$ reduced next-token prediction loss with mathematical uniformity, while hyperparameter choices like network depth versus width had virtually no measurable impact. Subsequent revisions by Hoffmann and the DeepMind team in 2022 (the Chinchilla scaling laws) corrected Kaplan’s compute-data ratios, proving that earlier models were undertrained, but the foundational principle held firm: scale is not merely an engineering convenience; it is an empirical law of statistical compression.
+Next, they masked future tokens. Attention could only look backward toward earlier words in the prompt. The network was trained on broad sweeps of public text. 
 
-### The 3-Tier Resolution of Scale
+The task was next-token prediction. Given a sequence of earlier tokens, the model predicted the next word. In an older recurrent network, history was squeezed into a single vector. That hidden state vector degraded over long sequences. 
 
-To understand what happens when scale arrives, one must separate the macro statistical behavior of neural networks from their runtime operational reality:
+In the decoder model, every token keeps its own distinct representation. Attention heads calculate direct pairwise connections across the full sequence. History is never forced through a narrow bottleneck.
 
-1. **Tier 1 (The Population Signal):** Across massive distributions of text, increasing parameter scale smoothly and continuously drives down cross-entropy loss. The macro trajectory is predictable: larger networks systematically internalize more statistical regularities across human discourse.
-2. **Tier 2 (The Mechanistic Constraint):** At the level of individual inferences, a smaller loss does not prevent sudden failure. An autoregressive Transformer possesses no latent workspace outside its activations; every token is sampled strictly from a probability distribution shaped by static weight matrices and recent context tokens.
-3. **Tier 3 (The Operator's Actionable Judgment):** System architects cannot treat statistical power laws as guarantees of factual correctness. Scale purchases breadth of association and grammatical coherence, but verifiability must be supplied by external structural constraints and deterministic retrieval.
+---
 
-When scale expands, memory ceases to be an explicit data structure like a relational table or an LSTM cell state. It becomes distributed throughout billions of numerical weights—invisible, continuous, and everywhere at once. The server cluster cools its exhaust into the Washington desert night, silent and indifferent, holding petabytes of human text compressed into high-dimensional geometric curves.
+## II. The Seven Orders of Magnitude
+
+In late 2019, Jared Kaplan and a team of researchers tested a fundamental question. Does adding parameters to a neural network deliver diminishing returns? Or does performance follow a smooth mathematical trajectory?
+
+Historical orthodoxy warned against extreme scale. Vladimir Vapnik's statistical learning theory had long guided the field. That theory warned that parameter counts far larger than training samples would cause severe overfitting. Models would memorize noise rather than learning general structure.
+
+Kaplan tested models across seven orders of magnitude in compute.[^kaplan2020] The team evaluated loss across parameter sizes from thousands to billions. Their findings overturned established expectations. Cross-entropy loss did not stall. It declined as a clean power law.[^scaling-law-math]
+
+Scaling parameters, training data, and compute budgets produced consistent gains. Network depth and width made little difference compared to total scale. Later work by the Chinchilla team refined the balance between data and parameters. Yet the core principle remained intact. Scale is an empirical law of statistical compression.
+
+---
+
+## III. Three Tiers of Architectural Scale
+
+To evaluate foundation scale in production systems, engineers must separate average trends from runtime behavior:
+
+1. **The Population Signal:** Across vast text distributions, larger parameter counts drive down test loss smoothly. The macro trend is reliable. Larger models capture deeper statistical patterns across language.
+2. **The Mechanistic Constraint:** At runtime, lower average loss does not prevent sudden failure. An autoregressive network has no scratchpad outside its activations. Every token is sampled from a probability distribution shaped by static weights and recent context.
+3. **The Operator's Actionable Judgment:** Architects cannot treat statistical scaling laws as promises of factual accuracy. Scale delivers fluency and association. Factual correctness requires external verification and structured retrieval.
+
+When scale expands, memory stops being a distinct database table. It becomes distributed across billions of numerical weights. The data center hums quietly into the desert night. Petabytes of human text remain compressed into high-dimensional geometry.
+
+<aside class="chapter-takeaway">
+### Chapter 1 Takeaways: Parameters, Parallelism, and Scaling Laws.
+
+- **The Technical Signal:** Cross-entropy test loss scales as a power law with compute and parameters, demonstrating predictable statistical compression without architectural redesign.
+- **The Company Fallacy:** Assuming that buying larger foundation models guarantees factual correctness blinds teams to silent, confident errors in critical workflows.
+- **The Core Rule:** Scale purchases linguistic fluency and broad association, but domain correctness requires external verification and deterministic retrieval systems.
+</aside>
+
+## Notes
+
+[^kaplan2020]: **Grade: High** for empirical power-law scaling governing language model cross-entropy loss across compute, parameter count, and dataset size (Kaplan et al. 2020). J. Kaplan, S. McCandlish, T. Henighan, T. B. Brown, B. Chess, R. Child, ... and D. Amodei, "Scaling Laws for Neural Language Models," *arXiv:2001.08361* (2020). Evidence Card: `evidence-cards/kaplan-2020-scaling-laws-neural-language-models.md`.
+
+[^scaling-law-math]: **Power-Law Scaling Formulation:** Cross-entropy loss scales smoothly via $L(N) \approx (N_c/N)^{\alpha_N}$, showing that empirical performance improves predictably over multiple orders of magnitude.

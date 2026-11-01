@@ -1,4 +1,11 @@
 ---
+okf_version: "0.3"
+card_id: "su-2024-roformer-rotary-position-embedding"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_role: "mechanism"
+plain_english_metaphor: "the winding clock dial"
+attenuation_class: "robust (<20%)"
 type: Evidence Card
 title: "Rotary Position Embedding for Relative Attention Dynamics (Su et al. 2021)"
 description: "Rotary Position Embedding (RoPE) encodes token positions by rotating query and key representations in complex vector space, naturally preserving relative distance decay and enabling long-context frequency scaling."
@@ -40,6 +47,8 @@ Mathematical derivation proves that RoPE is the unique multiplicative operator t
 RoFormer achieved faster pre-training convergence and superior GLUE/CAIL accuracy compared to standard sinusoidal and learned positional baselines. Furthermore, RoPE allows post-hoc context extension via RoPE frequency interpolation (PI, YaRN) up to 128K–1M tokens with minimal fine-tuning.
 
 ## Bias, Heterogeneity, and Confounding
+
+Classified as: `robust (<20%)`.
 
 Classified as `robust (<20%)`. Direct zero-shot extrapolation without frequency rescaling suffers high perplexity beyond the pre-training window due to out-of-distribution rotation angles in high-frequency dimensions.
 

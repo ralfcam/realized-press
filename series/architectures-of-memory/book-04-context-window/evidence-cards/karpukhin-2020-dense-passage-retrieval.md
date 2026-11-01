@@ -1,4 +1,11 @@
 ---
+okf_version: "0.3"
+card_id: "karpukhin-2020-dense-passage-retrieval"
+series: "architectures-of-memory"
+primary_lens: "technical"
+causal_role: "mechanism"
+plain_english_metaphor: "the card catalog"
+attenuation_class: "robust (<20%)"
 type: Evidence Card
 title: "Dense Passage Retrieval via Dual-Encoder Vector Representations (Karpukhin et al. 2020)"
 description: "Dense dual-encoder embeddings trained with in-batch negatives outperform traditional sparse lexical BM25 systems by 9–19% absolute top-20 passage retrieval accuracy in open-domain question answering."
@@ -40,6 +47,8 @@ Controlled comparisons against BM25 holding downstream reader models constant is
 On Natural Questions, DPR achieved 78.4% top-20 retrieval accuracy compared to 59.1% for BM25. Combining dense representations with sparse BM25 scores (hybrid retrieval) yielded further performance gains across all benchmarks.
 
 ## Bias, Heterogeneity, and Confounding
+
+Classified as: `robust (<20%)`.
 
 Classified as `robust (<20%)`. DPR is sensitive to out-of-domain vocabulary shifts, rare proper nouns, and unique serial alphanumeric strings where exact token matching in BM25 remains superior, motivating hybrid dense-sparse indexing architectures.
 
