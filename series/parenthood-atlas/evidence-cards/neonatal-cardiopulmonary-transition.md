@@ -2,7 +2,7 @@
 type: Evidence Card
 title: "Neonatal Cardiopulmonary Transition"
 description: "Birth reorganizes gas exchange and circulation after placental separation; shunt closure is functional, not instant destiny, and a difficult transition is not a personality forecast."
-tags: [birth, physiology, mechanism]
+tags: [birth, physiology, mechanism, jaundice, phototherapy]
 status: stable
 confidence: high-sequence; moderate-timing
 generated: { by: agent:cursor, at: 2026-09-15T19:00:00Z }
@@ -35,7 +35,7 @@ relates_to_cards:
 
 ## What We Know
 
-After placental separation, gas exchange must move from placenta to lungs. Lung aeration and oxygenation lower pulmonary vascular resistance; loss of the low-resistance placental circuit raises systemic vascular resistance. Those pressure changes drive functional closure of the foramen ovale, ductus arteriosus, and ductus venosus. Metabolic and endocrine support (cortisol, catecholamines, glucose) is part of the same transition, not a separate personality system.
+After placental separation, gas exchange must move from placenta to lungs. Lung aeration and oxygenation lower pulmonary vascular resistance; loss of the low-resistance placental circuit raises systemic vascular resistance. Those pressure changes drive functional closure of the foramen ovale, ductus arteriosus, and ductus venosus. Metabolic and endocrine support (cortisol, catecholamines, glucose) is part of the same transition, not a separate personality system. Similarly, transitional bilirubin metabolism and physiological neonatal jaundice (managed when clinically indicated with newborn phototherapy / photo therapy under blue light) reflect temporary hepatic enzyme clearance, not systemic illness.
 
 ## How Confident We Are
 
@@ -59,7 +59,7 @@ How much ordinary variation in first-hour adaptation forecasts later health once
 
 ## What This Does Not Mean
 
-A difficult first breath or a temporarily open shunt is not a developmental sentence. A smooth transition is not evidence of superior future cognition or character. Caregivers do not replace the placenta as an organ. Furthermore, neonatal cardiopulmonary transition and transient physiological neonatal jaundice (managed routinely when indicated with newborn phototherapy / blue light irradiance to isomerize unconjugated bilirubin) reflect acute physiological adaptation and hepatic enzyme maturation, not cranial deformities, developmental disability, or a temperament forecast.
+A difficult first breath or a temporarily open shunt is not a developmental sentence. A smooth transition is not evidence of superior future cognition or character. Caregivers do not replace the placenta as an organ. Furthermore, neonatal cardiopulmonary transition and transient physiological neonatal jaundice (managed routinely when indicated with newborn phototherapy / photo therapy blue light irradiance to isomerize unconjugated bilirubin) reflect acute physiological adaptation and hepatic enzyme maturation, not cranial deformities, developmental disability, or a temperament forecast.
 
 ## What Action Is Reasonably Justified
 

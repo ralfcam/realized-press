@@ -104,7 +104,7 @@ terms:
   voltage_drop:              { en: "voltage drop",           es: "pérdida de potencia al escalar" }
   continuity:                { en: "statistical continuity", es: "continuidad estadística" }
 
-  # Batch PA-8 & Telemetry Lexicon Expansion (ARC-81)
+  # Batch PA-8 & Telemetry Lexicon Expansion (ARC-81 / ARC-94)
   tongue_tie:                { en: "tongue-tie (ankyloglossia)", es: "frenillo lingual corto" }
   plagiocephaly:             { en: "plagiocephaly (flat head)", es: "plagiocefalia postural" }
   cranial_helmet:            { en: "cranial helmet therapy", es: "casco ortopédico infantil (ortesis craneal)" }
@@ -113,4 +113,20 @@ terms:
   tantrums_berrinches:       { en: "temper tantrums",        es: "rabietas y berrinches" }
   purees_papillas:           { en: "purees / spoon feeding", es: "papillas y purés" }
   choking_hazard:            { en: "choking",                es: "atragantamiento" }
+
+  # Demand Telemetry Lexicon Enrichment (ARC-94)
+  rank_order_continuity_traits: { en: "rank-order continuity traits personality stability neurodevelopment", es: "personalidad fija a los tres anos neurodesarrollo temperamento" }
+  tantrums_calming:          { en: "temper tantrums calming de-escalation emotional regulation time-out", es: "rabietas berrinches como calmar a un nino de dos anos" }
+  discipline_limits_spanking: { en: "toddler physical aggression hitting biting limits discipline spanking time-out", es: "ninos que pegan muerden limites disciplina sin nalgadas" }
+  parental_leave_reform:     { en: "parental leave maternity paternity reform child development package", es: "permiso de paternidad y maternidad desarrollo infantil" }
+  maternal_stress_pregnancy: { en: "prenatal maternal stress anxiety pregnancy placenta cortisol", es: "estres en el embarazo afecta al bebe placenta" }
+  marshmallow_self_control:  { en: "marshmallow test delay of gratification self-control willpower replication", es: "experimento del malvavisco fuerza de voluntad autocontrol" }
+  object_permanence_search:  { en: "object permanence looking vs search violation of expectation", es: "permanencia del objeto cuando la adquiere el bebe" }
+  speech_delay_screens:      { en: "screen time language speech delay conversational turns LENA", es: "pantallas retraso en el habla turnos conversacionales" }
+  white_noise_sleep:         { en: "white noise infant sleep safe sound auditory environment", es: "ruido blanco bebes seguro o peligroso dormir" }
+  paternal_age_mutations:    { en: "paternal age de novo mutations autism risk trios", es: "edad paterna avanzada riesgos mutaciones autismo" }
+  folate_neural_tube:        { en: "prenatal folate folic acid neural tube defect preconception window", es: "acido folico antes del embarazo tubo neural" }
+  daycare_home_cortisol:     { en: "daycare childcare center vs home stay-at-home cortisol attachment", es: "guarderia o quedarse en casa apego cortisol" }
+  frenotomy_surgery:         { en: "neonatal frenotomy tongue-tie ankyloglossia clipping necessary surgery", es: "cortar frenillo lingual bebe cirugia necesaria" }
+  breastfeeding_formula_iq:  { en: "breastfeeding formula cognitive development IQ sibling comparison PROBIT", es: "lactancia materna vs formula inteligencia hermanos" }
 

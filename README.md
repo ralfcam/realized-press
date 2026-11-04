@@ -20,7 +20,7 @@ See **[VISION.md](VISION.md)** for the full product, monetization, and BWE softw
 
 ---
 
-## 2. The Book Writing Environment (BWE) Harness (`BWE v1.0.3`)
+## 2. The Book Writing Environment (BWE) Harness (`BWE v1.0.4`)
 
 | SDLC / IDE Equivalent | Realized Press BWE Component | Purpose |
 | :--- | :--- | :--- |

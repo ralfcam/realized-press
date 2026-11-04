@@ -464,9 +464,26 @@ def test_epistemic_demand_card_routing():
         assert cov_words.card == "conversational-turns-language", f"Expected conversational-turns-language, got {cov_words.card}"
         assert cov_words.card_score > 0.50
 
-    # 4. Newborn phototherapy out-of-scope routing
-    cov_photo = bm25_coverage(conn, "parenthood-atlas", ["newborn", "photo", "therapy"])
+    # 4. Newborn phototherapy routing (ARC-94)
+    from scripts.marketing_intelligence import is_domain_relevant
+    assert is_domain_relevant("newborn photo therapy", "parenthood-atlas") is True
+
+    cov_photo = bm25_coverage(conn, "parenthood-atlas", ["newborn", "photo", "therapy"], repo_root=REPO_ROOT)
     assert cov_photo.card != "plagiocephaly-flat-head-helmet-rct", "Newborn phototherapy must not match helmet therapy"
-    assert cov_photo.card is None, f"Expected None card for unmatched phototherapy query, got {cov_photo.card}"
-    assert cov_photo.card_score == 0.0
-    assert cov_photo.combined < 0.45, "Uncorroborated phototherapy query must remain below 0.45 coverage threshold"
+    assert cov_photo.card == "neonatal-cardiopulmonary-transition", f"Expected neonatal-cardiopulmonary-transition, got {cov_photo.card}"
+    assert cov_photo.card_score >= 0.45
+    assert cov_photo.combined >= 0.45
+
+    # 5. Cross-lingual demand routing (parenthood-atlas/i18n/es -> English OKF cards)
+    es_queries = [
+        ("metodo ferber sueno bebe llanto", "infant-sleep-training"),
+        ("dejar el panal control de esfinteres senales", "toilet-learning-readiness"),
+        ("personalidad fija a los tres anos neurodesarrollo", "temperament-reactivity-not-destiny"),
+        ("rabietas berrinches como calmar a un nino de dos anos", "temperament-reactivity-not-destiny"),
+        ("guarderia o quedarse en casa apego cortisol", "early-childcare-quality"),
+    ]
+    for q_text, expected_card in es_queries:
+        cov_es = bm25_coverage(conn, "parenthood-atlas/i18n/es", q_text.split(), repo_root=REPO_ROOT)
+        assert cov_es.card == expected_card, f"Query '{q_text}' expected card {expected_card}, got {cov_es.card}"
+        assert cov_es.card_score >= 0.45, f"Query '{q_text}' card_score {cov_es.card_score:.4f} < 0.45"
+        assert cov_es.combined >= 0.45

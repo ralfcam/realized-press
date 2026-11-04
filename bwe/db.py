@@ -685,20 +685,21 @@ def bm25_coverage(
         conn, "chapters_fts", "book_slug, chapter_slug", series_slug, match, terms, saturation
     )
 
-    # ARC-93: Extract co-cited cards from the winning chapter in okf_edges
+    # ARC-93 / ARC-94: Extract co-cited cards from the winning chapter in okf_edges
     co_cited_cards: set[str] = set()
     if ch:
         best_ch_slug = ch["chapter_slug"]
+        clean_ch_slug = best_ch_slug.split("/")[-1]
         parent_slug = series_slug.partition("/i18n/")[0] if "/i18n/" in series_slug else series_slug
         try:
             cited_rows = conn.execute(
                 """
                 SELECT target_id FROM okf_edges
-                WHERE (series_slug = ? OR series_slug = ?)
+                WHERE (series_slug = ? OR series_slug = ? OR series_slug LIKE ?)
                   AND source_id LIKE ?
                   AND edge_type = 'CITES_CARD';
                 """,
-                (series_slug, parent_slug, f"%:{best_ch_slug}"),
+                (series_slug, parent_slug, f"{parent_slug}%", f"%:{clean_ch_slug}"),
             ).fetchall()
             for cr in cited_rows:
                 co_cited_cards.add(cr[0].split(":")[-1])
@@ -717,13 +718,19 @@ def bm25_coverage(
             root = repo_root or Path(__file__).resolve().parent.parent
             lexicon_path = root / "series" / parent_slug / "i18n" / lang / "style" / "lexicon.yaml"
             mapping = _load_lexicon_term_mapping(lexicon_path)
-            card_terms = list(terms)
+            en_mapped: list[str] = []
+            unmapped: list[str] = []
             for t in terms:
                 norm_t = "".join(c for c in unicodedata.normalize("NFD", t) if unicodedata.category(c) != "Mn")
                 en_w = mapping.get(t, []) or mapping.get(norm_t, [])
-                card_terms.extend(en_w)
-            card_terms = [t for t in dict.fromkeys(card_terms) if re.fullmatch(r"[a-z0-9]+", t)]
-            card_match = _fts_or_query(card_terms)
+                if en_w:
+                    en_mapped.extend(en_w)
+                elif t.lower() not in STOPWORDS:
+                    unmapped.append(t)
+            # ARC-94: Evaluate term-fraction gate on mapped English terms + loanwords/cognates
+            card_terms = [t for t in dict.fromkeys(en_mapped + unmapped or terms) if re.fullmatch(r"[a-z0-9]+", t)]
+            all_search_terms = [t for t in dict.fromkeys(en_mapped + terms) if re.fullmatch(r"[a-z0-9]+", t)]
+            card_match = _fts_or_query(all_search_terms)
             card, raw_card, score_card = _best_document(
                 conn, "evidence_cards_fts", "card_slug", parent_slug, card_match, card_terms, saturation,
                 co_cited_cards=co_cited_cards,
