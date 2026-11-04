@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adaptive Forgetting as Generalization in Biological Memory (Richards &amp; Frankland 2017) — Realized Press Evidence Brief</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --success: #15803d;
+            --success-light: #f0fdf4;
+            --warning: #b45309;
+            --warning-light: #fffbeb;
+            --danger: #b91c1c;
+            --danger-light: #fef2f2;
+            --text: #1f2937;
+            --text-muted: #4b5563;
+            --border: #e5e7eb;
+            --border-dark: #cbd5e1;
+            --bg: #ffffff;
+            --surface: #f8fafc;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--surface);
+            margin: 0;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--bg);
+            padding: 2.5rem 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-back:hover { text-decoration: underline; }
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .series-label {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 1.875rem;
+            font-weight: 800;
+            line-height: 1.25;
+            color: #0f172a;
+            margin: 0.25rem 0 0.75rem 0;
+        }
+        .description {
+            font-size: 1.0625rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+        .badges-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+        .badge-status { background: #e0e7ff; color: #3730a3; }
+        .badge-grade { background: #dcfce7; color: #166534; }
+        .badge-tier { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+        .badge-domain { background: #f1f5f9; color: #475569; }
+        .anchors-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .anchors-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #0369a1;
+            margin-bottom: 0.5rem;
+        }
+        .anchors-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .anchor-pill {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.75rem;
+            background: #e0f2fe;
+            color: #075985;
+            border: 1px solid #7dd3fc;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+        .neighbors-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .neighbor-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+        .neighbor-type {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+        }
+        .neighbor-extends { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        .neighbor-bounds { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+        .neighbor-contrasts { background: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3; }
+        .neighbor-mitigates { background: #cffafe; color: #155e75; border: 1px solid #67e8f9; }
+        .neighbor-bridges-lens { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+        .neighbor-relates { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+        .neighbor-link {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .neighbor-link:hover { text-decoration: underline; }
+        .download-pill {
+            margin-left: auto;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: var(--primary-light);
+            border: 1px solid #bfdbfe;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .download-pill:hover { background: #dbeafe; }
+        .callout {
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.75rem 0;
+            border-left: 4px solid;
+        }
+        .callout-know {
+            background: var(--success-light);
+            border-color: var(--success);
+        }
+        .callout-wtdm {
+            background: var(--danger-light);
+            border-color: var(--danger);
+        }
+        .callout-action {
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+        .callout h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.9375rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .callout-know h3 { color: var(--success); }
+        .callout-wtdm h3 { color: var(--danger); }
+        .callout-action h3 { color: var(--primary); }
+        .callout p {
+            margin: 0;
+            font-size: 0.9375rem;
+        }
+        .brief-section {
+            margin: 2rem 0;
+        }
+        .brief-section h2 {
+            font-size: 1.1875rem;
+            font-weight: 700;
+            color: #0f172a;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.4rem;
+            margin-bottom: 0.75rem;
+        }
+        .brief-section p {
+            font-size: 0.9375rem;
+            margin-bottom: 0.75rem;
+        }
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="index.html" class="nav-back">← Back to Evidence Briefs Index</a>
+    <header>
+        <div class="series-label">Realized Press · Public Evidence Brief · OKF v0.3</div>
+        <h1>Adaptive Forgetting as Generalization in Biological Memory (Richards &amp; Frankland 2017)</h1>
+        <div class="description">Neurobiological evidence demonstrates that memory transience is an active, regulated computational process that optimizes decision-making by eliminating outdated details and preventing overfitting to past environments, resolving the Borges Funes the Memorious memory curse.</div>
+        <div class="badges-bar">
+            <span class="badge badge-status">Status: STABLE</span>
+            <span class="badge badge-grade">Confidence: HIGH</span>
+            <span class="badge badge-tier">Tier: robust_&lt;20%</span>
+            <span class="badge badge-domain">technical</span><span class="badge badge-domain">philosophical</span>
+            <a href="richards-2017-biology-of-adaptive-forgetting.pdf" class="download-pill" download>Download 2-Page PDF</a>
+        </div>
+    </header>
+
+    
+        <div class="anchors-box">
+            <div class="anchors-title">Quantitative Anchors</div>
+            <div class="anchors-list"><span class="anchor-pill">neurobiological mechanisms of active forgetting promoting cognitive flexibility and generalization</span><span class="anchor-pill">adult hippocampal neurogenesis uncoupling established synaptic potentiations</span><span class="anchor-pill">reduction of overfitting in biological neural networks through transience</span></div>
+        </div>
+        
+
+    
+    <div class="callout callout-know">
+        <h3>What We Know (Narrowest Supported Conclusion)</h3>
+        <p>Memory research historically framed forgetting as a failure of mnemonic storage or retrieval. Richards and Frankland (2017), synthesizing cellular, circuit, and computational neuroscience, established that memory transience is an active, highly regulated neurobiological process. Brains expend significant metabolic energy to erase, remodel, and suppress engrams (via adult hippocampal neurogenesis, rac1-dependent actin reorganization, and active AMPA receptor endocytosis) in order to prevent overfitting to past environmental details, facilitate behavioral flexibility, and promote statistical generalization in dynamic environments. This provides the empirical neurobiological foundation for why total retention is pathological, directly formalizing Jorge Luis Borges&#x27;s literary parable in <em>Funes the Memorious</em>: without regulated forgetting, cognitive architectures succumb to the Borges Funes the Memorious memory curse—an inability to abstract, categorize, or think beyond overwhelming episodic minutiae.</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>Evidence and Causal Assessment</h2>
+            <p>Richards and Frankland bridged reinforcement learning theory with neurobiology to formulate the computational imperative for active forgetting:
+1. <strong>Rule Extraction over Episodic Clutter</strong>: Perfect verbatim retention binds decision policies to idiosyncratic environmental quirks. Decaying surface details allows neural representations to isolate invariant underlying causal structures (general concepts).
+2. <strong>Environmental Non-stationarity</strong>: When state transition dynamics shift, clinging to historical outcomes produces maladaptive perseveration. Active transience clears obsolete reward contingencies.
+3. <strong>Causal Biological Mechanisms</strong>: Pharmacological or genetic inhibition of neurogenesis preserves granular memories but impairs behavioral reversal learning, proving that forgetting is causally required for adaptive cognitive updating.</p>
+        </section>
+        
+    
+        <section class="brief-section">
+            <h2>Effect Size and Persistence</h2>
+            <p>In behavioral reversal tasks, rodents with genetically or exercise-enhanced neurogenesis-induced forgetting adapt to relocated escape platforms or altered danger cues up to 3× faster than animals with pathologically persistent memories, which display rigid perseveration on previous goal locations.</p>
+        </section>
+        
+    
+        <section class="brief-section">
+            <h2>Bias, Heterogeneity, and Confounding</h2>
+            <p>Classified as <code>robust (&lt;20%)</code> in controlled laboratory rodent assays. In humans, natural memory variability interacts with emotional valence, sleep architecture, and stress biomarkers, but clinical cases of hyperthymesia (such as individuals with Highly Superior Autobiographical Memory) provide strong ecological corroboration: hyper-retention correlates with cognitive rigidity and executive fatigue.</p>
+        </section>
+        
+
+    
+    <div class="callout callout-wtdm">
+        <h3>What This Does Not Mean (Strict Boundary Conditions)</h3>
+        <p>Adaptive forgetting does not imply that traumatic memory intrusions, Alzheimer&#x27;s disease, or retrograde amnesia are beneficial adaptations; pathological neurodegeneration and structural circuit destruction are distinct from regulated physiological transience.</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>What Remains Uncertain</h2>
+            <p>The exact quantitative switching criteria by which mammalian neural circuits evaluate whether a specific sensory experience is transient noise or permanent survival-critical signal before scheduling engram decay.</p>
+        </section>
+        
+
+    
+    <div class="callout callout-action">
+        <h3>What Action Is Reasonably Justified</h3>
+        <p>Cognitive systems and artificial agents operating in dynamic, non-stationary environments should deliberately incorporate scheduled latent-space decay, dropout, or engram pruning mechanisms to avoid decision paralysis and overfitting to obsolete historical distributions.</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>Epistemic Neighbor Cards (2 linked)</h2>
+            <div class="neighbors-list"><div class="neighbor-item"><span class="neighbor-type neighbor-extends">EXTENDS</span> <a href="davis-2017-biology-of-active-forgetting.html" class="neighbor-link">davis-2017-biology-of-active-forgetting</a></div><div class="neighbor-item"><span class="neighbor-type neighbor-bridges-lens">BRIDGES_LENS</span> <a href="gers-2000-forget-gate-continual-prediction.html" class="neighbor-link">gers-2000-forget-gate-continual-prediction</a></div></div>
+        </section>
+        
+
+    
+        <section class="brief-section">
+            <h2>Sources</h2>
+            <p>- Richards, B. A., &amp; Frankland, P. W. (2017). The Persistence and Transience of Memory. <em>Neuron</em>, 94(6), 1071–1084. https://doi.org/10.1016/j.neuron.2017.04.037
+- Davis, R. L., &amp; Zhong, Y. (2017). The Biology of Forgetting—A Perspective. <em>Neuron</em>, 95(3), 490–503. https://doi.org/10.1016/j.neuron.2017.05.039</p>
+        </section>
+        
+
+    <footer>
+        <p>Published by Realized Press · Open Knowledge Format (OKF v0.3) · Verified Academic Citation Lock</p>
+    </footer>
+</div>
+</body>
+</html>

@@ -575,7 +575,8 @@ def render_compendium_and_index(
     series_title: str = "Parenthood: The Atlas",
 ) -> tuple[Path, Path]:
     # 1. Build Compendium PDF
-    compendium_pdf_path = output_dir / "parenthood-atlas-evidence-briefs-compendium.pdf"
+    comp_slug = output_dir.parent.parent.name if len(output_dir.parts) >= 3 else "evidence"
+    compendium_pdf_path = output_dir / f"{comp_slug}-evidence-briefs-compendium.pdf"
     writer = PdfWriter()
 
     for item in rendered_cards:
@@ -737,7 +738,7 @@ def render_compendium_and_index(
 
     <div class="compendium-banner">
         <p><strong>Complete Collection:</strong> Download all {len(rendered_cards)} verified briefs in a single compiled PDF.</p>
-        <a href="parenthood-atlas-evidence-briefs-compendium.pdf" class="btn-compendium" download>Download Compendium PDF</a>
+        <a href="{comp_slug}-evidence-briefs-compendium.pdf" class="btn-compendium" download>Download Compendium PDF</a>
     </div>
 
     <table>
@@ -823,7 +824,8 @@ def main(argv: list[str]) -> int:
         print(f"[brief] Rendered {slug} (Grade: {data.get('confidence')}) -> PDF + HTML")
 
     if rendered:
-        compendium_path, index_path = render_compendium_and_index(rendered, out_dir)
+        target_title = target_dir.name.replace("-", " ").title()
+        compendium_path, index_path = render_compendium_and_index(rendered, out_dir, series_title=target_title)
         print(f"[compendium] Wrote {compendium_path} ({len(rendered)} briefs)")
         print(f"[index] Wrote {index_path}")
     else:

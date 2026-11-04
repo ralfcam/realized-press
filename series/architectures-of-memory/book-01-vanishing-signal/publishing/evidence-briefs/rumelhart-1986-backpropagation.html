@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Generalized Delta Rule and Error Backpropagation (Rumelhart et al. 1986) — Realized Press Evidence Brief</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --success: #15803d;
+            --success-light: #f0fdf4;
+            --warning: #b45309;
+            --warning-light: #fffbeb;
+            --danger: #b91c1c;
+            --danger-light: #fef2f2;
+            --text: #1f2937;
+            --text-muted: #4b5563;
+            --border: #e5e7eb;
+            --border-dark: #cbd5e1;
+            --bg: #ffffff;
+            --surface: #f8fafc;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--surface);
+            margin: 0;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--bg);
+            padding: 2.5rem 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-back:hover { text-decoration: underline; }
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .series-label {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 1.875rem;
+            font-weight: 800;
+            line-height: 1.25;
+            color: #0f172a;
+            margin: 0.25rem 0 0.75rem 0;
+        }
+        .description {
+            font-size: 1.0625rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+        .badges-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+        .badge-status { background: #e0e7ff; color: #3730a3; }
+        .badge-grade { background: #dcfce7; color: #166534; }
+        .badge-tier { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+        .badge-domain { background: #f1f5f9; color: #475569; }
+        .anchors-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .anchors-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #0369a1;
+            margin-bottom: 0.5rem;
+        }
+        .anchors-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .anchor-pill {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.75rem;
+            background: #e0f2fe;
+            color: #075985;
+            border: 1px solid #7dd3fc;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+        .neighbors-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .neighbor-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+        .neighbor-type {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+        }
+        .neighbor-extends { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        .neighbor-bounds { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+        .neighbor-contrasts { background: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3; }
+        .neighbor-mitigates { background: #cffafe; color: #155e75; border: 1px solid #67e8f9; }
+        .neighbor-bridges-lens { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+        .neighbor-relates { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+        .neighbor-link {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .neighbor-link:hover { text-decoration: underline; }
+        .download-pill {
+            margin-left: auto;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: var(--primary-light);
+            border: 1px solid #bfdbfe;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .download-pill:hover { background: #dbeafe; }
+        .callout {
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.75rem 0;
+            border-left: 4px solid;
+        }
+        .callout-know {
+            background: var(--success-light);
+            border-color: var(--success);
+        }
+        .callout-wtdm {
+            background: var(--danger-light);
+            border-color: var(--danger);
+        }
+        .callout-action {
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+        .callout h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.9375rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .callout-know h3 { color: var(--success); }
+        .callout-wtdm h3 { color: var(--danger); }
+        .callout-action h3 { color: var(--primary); }
+        .callout p {
+            margin: 0;
+            font-size: 0.9375rem;
+        }
+        .brief-section {
+            margin: 2rem 0;
+        }
+        .brief-section h2 {
+            font-size: 1.1875rem;
+            font-weight: 700;
+            color: #0f172a;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.4rem;
+            margin-bottom: 0.75rem;
+        }
+        .brief-section p {
+            font-size: 0.9375rem;
+            margin-bottom: 0.75rem;
+        }
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="index.html" class="nav-back">← Back to Evidence Briefs Index</a>
+    <header>
+        <div class="series-label">Realized Press · Public Evidence Brief · OKF v0.3</div>
+        <h1>Generalized Delta Rule and Error Backpropagation (Rumelhart et al. 1986)</h1>
+        <div class="description">Credit assignment in multi-layer feedforward networks can be computed exactly via recursive application of the multivariate chain rule; this guarantees local gradient calculation, not global convergence to optimal minima.</div>
+        <div class="badges-bar">
+            <span class="badge badge-status">Status: STABLE</span>
+            <span class="badge badge-grade">Confidence: HIGH</span>
+            <span class="badge badge-tier">Tier: formal_proof</span>
+            <span class="badge badge-domain">technical</span><span class="badge badge-domain">organizational</span><span class="badge badge-domain">philosophical</span>
+            <a href="rumelhart-1986-backpropagation.pdf" class="download-pill" download>Download 2-Page PDF</a>
+        </div>
+    </header>
+
+    
+        <div class="anchors-box">
+            <div class="anchors-title">Quantitative Anchors</div>
+            <div class="anchors-list"><span class="anchor-pill">generalized delta rule for multi-layer perceptrons</span><span class="anchor-pill">O(W) reverse-mode automatic differentiation time complexity</span><span class="anchor-pill">gradient chain rule across hidden layer activations</span></div>
+        </div>
+        
+
+    
+    <div class="callout callout-know">
+        <h3>What We Know (Narrowest Supported Conclusion)</h3>
+        <p>In layered feedforward neural networks with continuously differentiable activation functions, the gradient of the scalar error function with respect to any intermediate weight can be computed recursively from the output layer back toward the input layer via the multivariate chain rule. This resolves the multi-layer credit assignment problem by computing exact partial derivatives ∂ E / ∂ w_{ij} in time proportional to the number of weights, eliminating the combinatorial barrier described by early perceptron critiques.</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>Evidence and Causal Assessment</h2>
+            <p>Rumelhart, Hinton, and Williams (1986) demonstrated that multi-layer perceptrons trained with gradient descent on continuous sigmoidal activations learn internal representations that solve non-linearly separable tasks (including exclusive-OR, symmetry, and encoding problems) that single-layer perceptrons cannot compute. The backward pass propagates error delta values \deltaⱼ = ∑ₖ \deltaₖ w_{jk} f&#x27;(netⱼ), which assign credit across arbitrary depth. Replications confirm that while gradient descent reliably descends the error surface, convergence speed and final basin quality are sensitive to step size, momentum, weight initialization, and local landscape curvature.</p>
+        </section>
+        
+    
+        <section class="brief-section">
+            <h2>Effect Size and Persistence</h2>
+            <p>Computational complexity of the backward pass scales linearly with the forward pass (O(|W|) where |W| is the number of connection weights), transforming multi-layer optimization from an exponential search (O(K^L)) into a polynomial-time gradient step. Over training epochs, gradients reliably guide parameter updates toward low-loss empirical basins across millions of parameter configurations.</p>
+        </section>
+        
+    
+        <section class="brief-section">
+            <h2>Bias, Heterogeneity, and Confounding</h2>
+            <p>Classified as <code>n/a</code> (formal mathematical derivation and algorithmic runtime property). Heterogeneity arises across loss topologies: saddle points, non-convex plateaus, and ill-conditioned Hessian curvature can stall convergence without invalidating the gradient calculation itself.</p>
+        </section>
+        
+
+    
+    <div class="callout callout-wtdm">
+        <h3>What This Does Not Mean (Strict Boundary Conditions)</h3>
+        <p>This theorem does not guarantee convergence to the global minimum, nor does it imply that biological synapses execute literal symmetric reverse-pass weight transport; backpropagation is an algorithmic optimization procedure, not a psychological or organizational prescription for managing human accountability.</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>What Remains Uncertain</h2>
+            <p>Theoretical guarantees regarding whether stochastic gradient descent reliably finds generalizing rather than memorizing flat minima in overparameterized regimes remain subject to ongoing empirical and statistical learning research.</p>
+        </section>
+        
+
+    
+    <div class="callout callout-action">
+        <h3>What Action Is Reasonably Justified</h3>
+        <p>Systems requiring supervised continuous representation learning should employ reverse-mode automatic differentiation (backpropagation) while incorporating adaptive momentum (such as Adam), weight regularization, and gradient scaling to stabilize convergence across non-convex error surfaces.</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>Epistemic Neighbor Cards (2 linked)</h2>
+            <div class="neighbors-list"><div class="neighbor-item"><span class="neighbor-type neighbor-extends">EXTENDS</span> <a href="rosenblatt-1958-perceptron-convergence-theorem.html" class="neighbor-link">rosenblatt-1958-perceptron-convergence-theorem</a></div><div class="neighbor-item"><span class="neighbor-type neighbor-bounds">BOUNDS</span> <a href="hochreiter-1991-vanishing-gradient.html" class="neighbor-link">hochreiter-1991-vanishing-gradient</a></div></div>
+        </section>
+        
+
+    
+        <section class="brief-section">
+            <h2>Sources</h2>
+            <p>- Rumelhart, D. E., Hinton, G. E., &amp; Williams, R. J. (1986). Learning representations by back-propagating errors. <em>Nature</em>, 323(6088), 533–536. https://doi.org/10.1038/323533a0
+- Werbos, P. J. (1990). Backpropagation through time: what it does and how to do it. <em>Proceedings of the IEEE</em>, 78(10), 1550–1560. https://doi.org/10.1109/5.58337</p>
+        </section>
+        
+
+    <footer>
+        <p>Published by Realized Press · Open Knowledge Format (OKF v0.3) · Verified Academic Citation Lock</p>
+    </footer>
+</div>
+</body>
+</html>

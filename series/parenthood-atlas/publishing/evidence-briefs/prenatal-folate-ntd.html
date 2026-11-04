@@ -89,7 +89,68 @@
         }
         .badge-status { background: #e0e7ff; color: #3730a3; }
         .badge-grade { background: #dcfce7; color: #166534; }
+        .badge-tier { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
         .badge-domain { background: #f1f5f9; color: #475569; }
+        .anchors-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .anchors-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #0369a1;
+            margin-bottom: 0.5rem;
+        }
+        .anchors-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .anchor-pill {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.75rem;
+            background: #e0f2fe;
+            color: #075985;
+            border: 1px solid #7dd3fc;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+        .neighbors-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .neighbor-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+        .neighbor-type {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+        }
+        .neighbor-extends { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        .neighbor-bounds { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+        .neighbor-contrasts { background: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3; }
+        .neighbor-mitigates { background: #cffafe; color: #155e75; border: 1px solid #67e8f9; }
+        .neighbor-bridges-lens { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+        .neighbor-relates { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+        .neighbor-link {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .neighbor-link:hover { text-decoration: underline; }
         .download-pill {
             margin-left: auto;
             font-size: 0.8125rem;
@@ -163,16 +224,24 @@
 <div class="container">
     <a href="index.html" class="nav-back">← Back to Evidence Briefs Index</a>
     <header>
-        <div class="series-label">Realized Press · Public Evidence Brief · OKF v0.2</div>
+        <div class="series-label">Realized Press · Public Evidence Brief · OKF v0.3</div>
         <h1>Periconceptional Folic Acid and Neural-Tube Defects</h1>
         <div class="description">Randomized and systematic-review evidence shows periconceptional folic acid substantially reduces neural-tube-defect risk; this does not generalize to all anomalies or to intelligence.</div>
         <div class="badges-bar">
             <span class="badge badge-status">Status: STABLE</span>
             <span class="badge badge-grade">Confidence: HIGH-NTD; LOW-OTHER-ANOMALIES-COGNITION</span>
+            <span class="badge badge-tier">Tier: robust_&lt;20%</span>
             <span class="badge badge-domain">pregnancy</span><span class="badge badge-domain">nutrition</span>
             <a href="prenatal-folate-ntd.pdf" class="download-pill" download>Download 2-Page PDF</a>
         </div>
     </header>
+
+    
+        <div class="anchors-box">
+            <div class="anchors-title">Quantitative Anchors</div>
+            <div class="anchors-list"><span class="anchor-pill">MRC Vitamin Study (1991) randomized controlled trial (N = 1,817 women at high risk of neural tube defect recurrence)</span><span class="anchor-pill">72% relative risk reduction for neural tube defects with 4mg/day periconceptional folic acid</span><span class="anchor-pill">population-wide grain fortification reduced spina bifida and anencephaly incidence by 28-35% across the United States</span></div>
+        </div>
+        
 
     
     <div class="callout callout-know">
@@ -226,6 +295,13 @@
 
     
         <section class="brief-section">
+            <h2>Epistemic Neighbor Cards (2 linked)</h2>
+            <div class="neighbors-list"><div class="neighbor-item"><span class="neighbor-type neighbor-extends">EXTENDS</span> <a href="prenatal-neural-construction.html" class="neighbor-link">prenatal-neural-construction</a></div><div class="neighbor-item"><span class="neighbor-type neighbor-bounds">BOUNDS</span> <a href="preconception-nutrition-beyond-folate.html" class="neighbor-link">preconception-nutrition-beyond-folate</a></div></div>
+        </section>
+        
+
+    
+        <section class="brief-section">
             <h2>Sources</h2>
             <p>- De-Regil et al. (2015), Cochrane Database of Systematic Reviews
 - MRC Vitamin Study Research Group (1991), <em>Lancet</em>
@@ -234,7 +310,7 @@
         
 
     <footer>
-        <p>Published by Realized Press · Open Knowledge Format (OKF v0.2) · Verified Academic Citation Lock</p>
+        <p>Published by Realized Press · Open Knowledge Format (OKF v0.3) · Verified Academic Citation Lock</p>
     </footer>
 </div>
 </body>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Screen Time and Language Development — Realized Press Evidence Brief</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --success: #15803d;
+            --success-light: #f0fdf4;
+            --warning: #b45309;
+            --warning-light: #fffbeb;
+            --danger: #b91c1c;
+            --danger-light: #fef2f2;
+            --text: #1f2937;
+            --text-muted: #4b5563;
+            --border: #e5e7eb;
+            --border-dark: #cbd5e1;
+            --bg: #ffffff;
+            --surface: #f8fafc;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--surface);
+            margin: 0;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--bg);
+            padding: 2.5rem 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-back:hover { text-decoration: underline; }
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .series-label {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 1.875rem;
+            font-weight: 800;
+            line-height: 1.25;
+            color: #0f172a;
+            margin: 0.25rem 0 0.75rem 0;
+        }
+        .description {
+            font-size: 1.0625rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+        .badges-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+        .badge-status { background: #e0e7ff; color: #3730a3; }
+        .badge-grade { background: #dcfce7; color: #166534; }
+        .badge-tier { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+        .badge-domain { background: #f1f5f9; color: #475569; }
+        .anchors-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .anchors-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #0369a1;
+            margin-bottom: 0.5rem;
+        }
+        .anchors-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .anchor-pill {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.75rem;
+            background: #e0f2fe;
+            color: #075985;
+            border: 1px solid #7dd3fc;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+        .neighbors-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .neighbor-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+        .neighbor-type {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+        }
+        .neighbor-extends { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        .neighbor-bounds { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+        .neighbor-contrasts { background: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3; }
+        .neighbor-mitigates { background: #cffafe; color: #155e75; border: 1px solid #67e8f9; }
+        .neighbor-bridges-lens { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+        .neighbor-relates { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+        .neighbor-link {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .neighbor-link:hover { text-decoration: underline; }
+        .download-pill {
+            margin-left: auto;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: var(--primary-light);
+            border: 1px solid #bfdbfe;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .download-pill:hover { background: #dbeafe; }
+        .callout {
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.75rem 0;
+            border-left: 4px solid;
+        }
+        .callout-know {
+            background: var(--success-light);
+            border-color: var(--success);
+        }
+        .callout-wtdm {
+            background: var(--danger-light);
+            border-color: var(--danger);
+        }
+        .callout-action {
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+        .callout h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.9375rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .callout-know h3 { color: var(--success); }
+        .callout-wtdm h3 { color: var(--danger); }
+        .callout-action h3 { color: var(--primary); }
+        .callout p {
+            margin: 0;
+            font-size: 0.9375rem;
+        }
+        .brief-section {
+            margin: 2rem 0;
+        }
+        .brief-section h2 {
+            font-size: 1.1875rem;
+            font-weight: 700;
+            color: #0f172a;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.4rem;
+            margin-bottom: 0.75rem;
+        }
+        .brief-section p {
+            font-size: 0.9375rem;
+            margin-bottom: 0.75rem;
+        }
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="index.html" class="nav-back">← Back to Evidence Briefs Index</a>
+    <header>
+        <div class="series-label">Realized Press · Public Evidence Brief · OKF v0.3</div>
+        <h1>Screen Time and Language Development</h1>
+        <div class="description">Screen exposure is a decomposable, mostly observational predictor of language: quantity is negatively associated, co-viewing and educational content buffer.</div>
+        <div class="badges-bar">
+            <span class="badge badge-status">Status: DRAFT</span>
+            <span class="badge badge-grade">Confidence: LOW-TO-MODERATE</span>
+            <span class="badge badge-tier">Tier: partially_confounded_20_50%</span>
+            <span class="badge badge-domain">language</span><span class="badge badge-domain">ecology</span><span class="badge badge-domain">parenting</span>
+            <a href="screen-time-language-development.pdf" class="download-pill" download>Download 2-Page PDF</a>
+        </div>
+    </header>
+
+    
+        <div class="anchors-box">
+            <div class="anchors-title">Quantitative Anchors</div>
+            <div class="anchors-list"><span class="anchor-pill">Madigan et al. meta-analysis showing negative correlation (r = -0.12 to -0.18) between screen exposure and child language</span><span class="anchor-pill">dose-response threshold: screen time &gt;2 hours/day in infants under 24 months associated with larger expressive delays</span><span class="anchor-pill">untested in genetically informed sibling designs; observational associations correlate with household chaos and parental education</span></div>
+        </div>
+        
+
+    
+    <div class="callout callout-know">
+        <h3>What We Know (Narrowest Supported Conclusion)</h3>
+        <p>Screen time is not a unitary exposure: total quantity of screen use is negatively associated with language skills in early childhood, but co-viewing with an adult, educational content, and later onset age are each associated with neutral-to-positive language outcomes.</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>Evidence and Causal Assessment</h2>
+            <p>- Madigan et al. (2020) meta-analysis, JAMA Pediatrics (42 studies, N=18,905, ages 0-12): screen time negatively associated with language (r=-0.14); background TV more negatively associated (r=-0.19); educational programs (r=+0.13) and co-viewing (r=+0.16) positively associated; later onset age positively associated (r=+0.17).
+- Danish TRACES survey (N=31,125 toddlers): mobile device screen time &gt;=1hr/day associated with higher odds of language comprehension difficulties (AOR 1.30-1.42) and expressive difficulties (AOR 1.19-1.46); frequent reading partially buffered comprehension effects.
+- A separate meta-analysis (28 studies, ages 0-3, 2024) found screen time negatively related to language, co-viewing and later onset positively associated, educational content non-significant.
+- Jing, Ye, Kirkorian &amp; Mares (2023), <em>Child Development</em> (distinct from Madigan 2020): overall small positive association between screen exposure and vocabulary (r=.23) across 0–6 years, illustrating heterogeneity by outcome/measurement approach. Not a retraction of Madigan 2020.</p>
+        </section>
+        
+    
+        <section class="brief-section">
+            <h2>Effect Size and Persistence</h2>
+            <p>Small effect sizes throughout (r&#x27;s typically 0.10-0.20); dose-response patterns reported (&gt;2h/day associated with larger deficits). Persistence beyond toddlerhood/preschool is not well established in this literature pass.</p>
+        </section>
+        
+    
+        <section class="brief-section">
+            <h2>Bias, Heterogeneity, and Confounding</h2>
+            <p>GI attenuation: <strong>untested-in-GI</strong> (screen exposure observational associations correlate with parental education, household chaos, and shared genetic traits; not yet tested in within-family sibling-comparison or twin designs).</p><p>Almost all evidence is observational; most measurement is parent-reported total duration, which the project&#x27;s own standards classify as weak causal evidence. Reverse causation and confounding by SES/parental engagement are both plausible and largely unaddressed. Content, context, and co-use are decomposed in some but not all studies. Madigan 2020 (language skills, quantity negative) and Jing 2023 (vocabulary, overall positive) are heterogeneous outcome packages, not a failed identification of a single paper.</p>
+        </section>
+        
+
+    
+    <div class="callout callout-wtdm">
+        <h3>What This Does Not Mean (Strict Boundary Conditions)</h3>
+        <p>Does not establish that screens categorically or causally damage language development, nor that any specific duration threshold is a validated causal cutoff.</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>What Remains Uncertain</h2>
+            <p>Genuine causal magnitude (no genetically informed or randomized evidence located in this pass); whether findings reflect screen displacement of caregiver interaction versus a direct effect; long-term persistence.</p>
+        </section>
+        
+
+    
+    <div class="callout callout-action">
+        <h3>What Action Is Reasonably Justified</h3>
+        <p>Given consistent (if weak-to-moderate causally) associations concentrated in passive/solo/background use, and consistent buffering by co-viewing and educational content, proportionate guidance favors decomposing screen exposure over blanket duration limits -- but strong prescriptive claims are not justified by current evidence quality.</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>Epistemic Neighbor Cards (2 linked)</h2>
+            <div class="neighbors-list"><div class="neighbor-item"><span class="neighbor-type neighbor-bounds">BOUNDS</span> <a href="conversational-turns-language.html" class="neighbor-link">conversational-turns-language</a></div><div class="neighbor-item"><span class="neighbor-type neighbor-contrasts">CONTRASTS</span> <a href="parent-implemented-language.html" class="neighbor-link">parent-implemented-language</a></div></div>
+        </section>
+        
+
+    
+        <section class="brief-section">
+            <h2>Sources</h2>
+            <p>- Madigan, McArthur, Anhorn, Eirich &amp; Christakis (2020), <em>JAMA Pediatrics</em> (DOI 10.1001/jamapediatrics.2020.0327; PMC7091394)
+- Jing, Ye, Kirkorian &amp; Mares (2023), <em>Child Development</em> (DOI 10.1111/cdev.13927)
+- TRACES cohort, BMC Public Health (2024)
+- Screen exposure and early language development, meta-analysis (2024)</p>
+        </section>
+        
+
+    <footer>
+        <p>Published by Realized Press · Open Knowledge Format (OKF v0.3) · Verified Academic Citation Lock</p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Early Allergen Introduction and Baby-Led Weaning — Realized Press Evidence Brief</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --success: #15803d;
+            --success-light: #f0fdf4;
+            --warning: #b45309;
+            --warning-light: #fffbeb;
+            --danger: #b91c1c;
+            --danger-light: #fef2f2;
+            --text: #1f2937;
+            --text-muted: #4b5563;
+            --border: #e5e7eb;
+            --border-dark: #cbd5e1;
+            --bg: #ffffff;
+            --surface: #f8fafc;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--surface);
+            margin: 0;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--bg);
+            padding: 2.5rem 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-back:hover { text-decoration: underline; }
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .series-label {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 1.875rem;
+            font-weight: 800;
+            line-height: 1.25;
+            color: #0f172a;
+            margin: 0.25rem 0 0.75rem 0;
+        }
+        .description {
+            font-size: 1.0625rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+        .badges-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+        .badge-status { background: #e0e7ff; color: #3730a3; }
+        .badge-grade { background: #dcfce7; color: #166534; }
+        .badge-tier { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+        .badge-domain { background: #f1f5f9; color: #475569; }
+        .anchors-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .anchors-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #0369a1;
+            margin-bottom: 0.5rem;
+        }
+        .anchors-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .anchor-pill {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.75rem;
+            background: #e0f2fe;
+            color: #075985;
+            border: 1px solid #7dd3fc;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+        .neighbors-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .neighbor-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+        .neighbor-type {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+        }
+        .neighbor-extends { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        .neighbor-bounds { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+        .neighbor-contrasts { background: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3; }
+        .neighbor-mitigates { background: #cffafe; color: #155e75; border: 1px solid #67e8f9; }
+        .neighbor-bridges-lens { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+        .neighbor-relates { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+        .neighbor-link {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .neighbor-link:hover { text-decoration: underline; }
+        .download-pill {
+            margin-left: auto;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: var(--primary-light);
+            border: 1px solid #bfdbfe;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .download-pill:hover { background: #dbeafe; }
+        .callout {
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.75rem 0;
+            border-left: 4px solid;
+        }
+        .callout-know {
+            background: var(--success-light);
+            border-color: var(--success);
+        }
+        .callout-wtdm {
+            background: var(--danger-light);
+            border-color: var(--danger);
+        }
+        .callout-action {
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+        .callout h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.9375rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .callout-know h3 { color: var(--success); }
+        .callout-wtdm h3 { color: var(--danger); }
+        .callout-action h3 { color: var(--primary); }
+        .callout p {
+            margin: 0;
+            font-size: 0.9375rem;
+        }
+        .brief-section {
+            margin: 2rem 0;
+        }
+        .brief-section h2 {
+            font-size: 1.1875rem;
+            font-weight: 700;
+            color: #0f172a;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.4rem;
+            margin-bottom: 0.75rem;
+        }
+        .brief-section p {
+            font-size: 0.9375rem;
+            margin-bottom: 0.75rem;
+        }
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="index.html" class="nav-back">← Back to Evidence Briefs Index</a>
+    <header>
+        <div class="series-label">Realized Press · Public Evidence Brief · OKF v0.3</div>
+        <h1>Early Allergen Introduction and Baby-Led Weaning</h1>
+        <div class="description">Randomized trials show that introducing peanut protein between 4 and 11 months reduces peanut allergy by ~80% in high-risk infants (LEAP), while modified baby-led weaning and traditional spoon-feeding produce similar growth and choking rates (BLISS).</div>
+        <div class="badges-bar">
+            <span class="badge badge-status">Status: DRAFT</span>
+            <span class="badge badge-grade">Confidence: HIGH</span>
+            <span class="badge badge-tier">Tier: robust_&lt;20%</span>
+            <span class="badge badge-domain">feeding</span><span class="badge badge-domain">health</span>
+            <a href="early-allergen-introduction-blw.pdf" class="download-pill" download>Download 2-Page PDF</a>
+        </div>
+    </header>
+
+    
+        <div class="anchors-box">
+            <div class="anchors-title">Quantitative Anchors</div>
+            <div class="anchors-list"><span class="anchor-pill">81% relative risk reduction for peanut allergy at age 5 in LEAP RCT (Du Toit 2015, N = 640)</span><span class="anchor-pill">tolerance maintained after 12 months subsequent dietary peanut cessation (LEAP-On RCT)</span><span class="anchor-pill">no significant difference in choking frequency between baby-led weaning and traditional spoon-feeding in BLISS RCT</span></div>
+        </div>
+        
+
+    
+    <div class="callout callout-know">
+        <h3>What We Know (Narrowest Supported Conclusion)</h3>
+        <p>High-certainty randomized trial evidence (the LEAP trial) shows that introducing age-appropriate peanut protein between 4 and 11 months of age reduces the prevalence of peanut allergy at age five by approximately 81% compared with strict avoidance. Separate randomized evidence on complementary feeding method (the BLISS trial) shows that modified baby-led weaning—where infants self-feed soft finger foods while parents avoid high-risk choking hazards and include iron-rich foods—produces growth trajectories and choking rates comparable to traditional spoon-feeding of purees.</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>Evidence and Causal Assessment</h2>
+            <p>- <strong>LEAP RCT (<code>dutoit-2015-leap</code>, N=640 infants aged 4–11 months with severe eczema and/or egg allergy):</strong> Infants randomly assigned to consume at least 6 grams of peanut protein per week distributed across three or more meals had a 1.9% prevalence of peanut allergy at 60 months in the skin-prick-negative cohort, compared with 13.7% in the avoidance group (an 86% relative reduction, p &lt; 0.001). Across the combined intention-to-treat cohorts, peanut allergy dropped from 17.2% to 3.2% (an 81% relative reduction).
+- <strong>BLISS RCT (<code>fangupo-2016-bliss</code>, N=206 infants randomized to modified baby-led introduction to solids vs. usual care):</strong> No significant differences were observed in the number of choking episodes at 6, 7, 8, 9, or 12 months between groups. Both groups experienced frequent gagging (a normal protective reflex triggered far forward on the tongue) that declined steeply over the second half of the first year.</p>
+        </section>
+        
+    
+        <section class="brief-section">
+            <h2>Effect Size and Persistence</h2>
+            <p>For early peanut introduction, relative risk reduction is ~81% at age 5 (<code>dutoit-2015-leap</code>), and follow-up persistence trials (LEAP-On) demonstrated that tolerance persisted even after 12 months of subsequent peanut cessation. For feeding format (BLW vs. spoon-feeding), differences in BMI z-scores, iron status, and choking incidence are small to null when parents receive basic safety guidance on food texture and iron content.</p>
+        </section>
+        
+    
+        <section class="brief-section">
+            <h2>Bias, Heterogeneity, and Confounding</h2>
+            <p>GI attenuation: <strong>robust (&lt;20%)</strong> (randomized controlled trials directly assign feeding exposure, removing family-level atopic and socioeconomic confounding).</p><p>Observational comparisons of baby-led weaning versus puree feeding are heavily confounded by maternal education, breastfeeding duration, and household income; randomized assignment in BLISS removes this selection bias and shows that feeding philosophy per se is not a major driver of weight or developmental outcomes.</p>
+        </section>
+        
+
+    
+    <div class="callout callout-wtdm">
+        <h3>What This Does Not Mean (Strict Boundary Conditions)</h3>
+        <p>Does not mean infants should ever be given whole peanuts or thick globs of peanut butter (which are severe mechanical airway hazards); peanut protein must be thinned into warm water, breastmilk, formula, or fruit/vegetable puree. It also does not mean parents must choose strictly between purees and finger foods—combining spoon-feeding and soft finger foods is developmentally sound.</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>What Remains Uncertain</h2>
+            <p>How closely population-level compliance outside supervised trials matches LEAP dosing schedules across other allergens (such as tree nuts, sesame, or fish), and whether unmodified baby-led weaning without parent coaching on iron-rich foods risks mild iron depletion in exclusively breastfed infants after 6 months.</p>
+        </section>
+        
+
+    
+    <div class="callout callout-action">
+        <h3>What Action Is Reasonably Justified</h3>
+        <p>Introduce thinned peanut protein and well-cooked egg around 4 to 6 months once the infant shows postural and oral readiness for solids (especially in infants with eczema, after consulting a pediatrician if eczema is severe), and allow infants to explore both mashed/pureed textures and soft, squishable finger foods while strictly avoiding hard, round choking hazards (whole nuts, whole grapes, raw carrot coins, popcorn).</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>Epistemic Neighbor Cards (2 linked)</h2>
+            <div class="neighbors-list"><div class="neighbor-item"><span class="neighbor-type neighbor-extends">EXTENDS</span> <a href="responsive-feeding-as-regulation.html" class="neighbor-link">responsive-feeding-as-regulation</a></div><div class="neighbor-item"><span class="neighbor-type neighbor-bounds">BOUNDS</span> <a href="breastfeeding-cognitive-development.html" class="neighbor-link">breastfeeding-cognitive-development</a></div></div>
+        </section>
+        
+
+    
+        <section class="brief-section">
+            <h2>Sources</h2>
+            <p>- Du Toit et al. (2015), <em>New England Journal of Medicine</em>, LEAP randomized trial (<code>dutoit-2015-leap</code>)
+- Fangupo et al. (2016), <em>Pediatrics</em>, BLISS randomized trial on choking and gagging (<code>fangupo-2016-bliss</code>)</p>
+        </section>
+        
+
+    <footer>
+        <p>Published by Realized Press · Open Knowledge Format (OKF v0.3) · Verified Academic Citation Lock</p>
+    </footer>
+</div>
+</body>
+</html>

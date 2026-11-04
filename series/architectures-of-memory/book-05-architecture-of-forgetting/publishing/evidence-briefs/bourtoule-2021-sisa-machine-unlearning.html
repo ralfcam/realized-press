@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sharded, Isolated, Sliced, and Aggregated (SISA) Exact Machine Unlearning (Bourtoule et al. 2021) — Realized Press Evidence Brief</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --success: #15803d;
+            --success-light: #f0fdf4;
+            --warning: #b45309;
+            --warning-light: #fffbeb;
+            --danger: #b91c1c;
+            --danger-light: #fef2f2;
+            --text: #1f2937;
+            --text-muted: #4b5563;
+            --border: #e5e7eb;
+            --border-dark: #cbd5e1;
+            --bg: #ffffff;
+            --surface: #f8fafc;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--surface);
+            margin: 0;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--bg);
+            padding: 2.5rem 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-back:hover { text-decoration: underline; }
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .series-label {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 1.875rem;
+            font-weight: 800;
+            line-height: 1.25;
+            color: #0f172a;
+            margin: 0.25rem 0 0.75rem 0;
+        }
+        .description {
+            font-size: 1.0625rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+        .badges-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+        .badge-status { background: #e0e7ff; color: #3730a3; }
+        .badge-grade { background: #dcfce7; color: #166534; }
+        .badge-tier { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+        .badge-domain { background: #f1f5f9; color: #475569; }
+        .anchors-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .anchors-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #0369a1;
+            margin-bottom: 0.5rem;
+        }
+        .anchors-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .anchor-pill {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.75rem;
+            background: #e0f2fe;
+            color: #075985;
+            border: 1px solid #7dd3fc;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+        .neighbors-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .neighbor-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+        .neighbor-type {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+        }
+        .neighbor-extends { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        .neighbor-bounds { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+        .neighbor-contrasts { background: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3; }
+        .neighbor-mitigates { background: #cffafe; color: #155e75; border: 1px solid #67e8f9; }
+        .neighbor-bridges-lens { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+        .neighbor-relates { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+        .neighbor-link {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .neighbor-link:hover { text-decoration: underline; }
+        .download-pill {
+            margin-left: auto;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: var(--primary-light);
+            border: 1px solid #bfdbfe;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .download-pill:hover { background: #dbeafe; }
+        .callout {
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.75rem 0;
+            border-left: 4px solid;
+        }
+        .callout-know {
+            background: var(--success-light);
+            border-color: var(--success);
+        }
+        .callout-wtdm {
+            background: var(--danger-light);
+            border-color: var(--danger);
+        }
+        .callout-action {
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+        .callout h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.9375rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .callout-know h3 { color: var(--success); }
+        .callout-wtdm h3 { color: var(--danger); }
+        .callout-action h3 { color: var(--primary); }
+        .callout p {
+            margin: 0;
+            font-size: 0.9375rem;
+        }
+        .brief-section {
+            margin: 2rem 0;
+        }
+        .brief-section h2 {
+            font-size: 1.1875rem;
+            font-weight: 700;
+            color: #0f172a;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.4rem;
+            margin-bottom: 0.75rem;
+        }
+        .brief-section p {
+            font-size: 0.9375rem;
+            margin-bottom: 0.75rem;
+        }
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="index.html" class="nav-back">← Back to Evidence Briefs Index</a>
+    <header>
+        <div class="series-label">Realized Press · Public Evidence Brief · OKF v0.3</div>
+        <h1>Sharded, Isolated, Sliced, and Aggregated (SISA) Exact Machine Unlearning (Bourtoule et al. 2021)</h1>
+        <div class="description">Exact removal of a training point&#x27;s influence from a deep neural network without full retraining requires architectural partitioning (SISA), trading ensemble accuracy and storage overhead for bounded retraining cost.</div>
+        <div class="badges-bar">
+            <span class="badge badge-status">Status: STABLE</span>
+            <span class="badge badge-grade">Confidence: HIGH</span>
+            <span class="badge badge-tier">Tier: robust_&lt;20%</span>
+            <span class="badge badge-domain">technical</span>
+            <a href="bourtoule-2021-sisa-machine-unlearning.pdf" class="download-pill" download>Download 2-Page PDF</a>
+        </div>
+    </header>
+
+    
+        <div class="anchors-box">
+            <div class="anchors-title">Quantitative Anchors</div>
+            <div class="anchors-list"><span class="anchor-pill">Sharded, Isolated, Sliced, Aggregated (SISA) training framework for machine unlearning</span><span class="anchor-pill">up to 4.4x speedup in unlearning requests compared to retraining from scratch</span><span class="anchor-pill">exact unlearning guarantees via certified data partitioning</span></div>
+        </div>
+        
+
+    
+    <div class="callout callout-know">
+        <h3>What We Know (Narrowest Supported Conclusion)</h3>
+        <p>In standard stochastic gradient descent, every training example updates shared parameters across all subsequent batches, making exact post-hoc removal of a single data point equivalent to retraining from scratch unless the training pipeline partitions data into isolated shards and checkpointed slices (SISA).</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>Evidence and Causal Assessment</h2>
+            <p>Bourtoule et al. (2021) prove that partitioning a dataset into S disjoint shards and R sequential slices per shard bounds the retraining work of a single deletion request to one shard from the slice where the point first appeared, yielding exact distributional equivalence to a model trained without that point.</p>
+        </section>
+        
+    
+        <section class="brief-section">
+            <h2>Effect Size and Persistence</h2>
+            <p>On Purchase, SVHN, and ImageNet benchmarks, SISA reduces retraining time per unlearning request by $2.45\timesto $4.63× over naive retraining, but degrades ensemble accuracy when shard count S becomes large or when deletion requests arrive non-uniformly across shards.</p>
+        </section>
+        
+    
+        <section class="brief-section">
+            <h2>Bias, Heterogeneity, and Confounding</h2>
+            <p>Classified as <code>robust (&lt;20%)</code> for exact unlearning under bounded request rates. However, adaptive or adversarial deletion streams that hit every shard collapse SISA&#x27;s speedup back toward full retraining.</p>
+        </section>
+        
+
+    
+    <div class="callout callout-wtdm">
+        <h3>What This Does Not Mean (Strict Boundary Conditions)</h3>
+        <p>Approximate gradient-ascent or representation-editing &quot;unlearning&quot; heuristics on monolithic LLMs do not provide the certified deletion guarantee of SISA or (\varepsilon, \delta)-differential privacy; suppressed facts can often be recovered via rephrasing or few-shot fine-tuning.</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>What Remains Uncertain</h2>
+            <p>For frontier foundation models trained at 10^{25} FLOPs where SISA sharding is prohibitively degradative, approximate parameter-space unlearning methods still lack tight certified guarantees against extraction attacks.</p>
+        </section>
+        
+
+    
+    <div class="callout callout-action">
+        <h3>What Action Is Reasonably Justified</h3>
+        <p>Regulated AI systems subject to statutory deletion mandates (GDPR Art. 17) should separate immutable base representations from partitioned, revocable retrieval indexes or sharded adapters rather than relying on unverified weight-editing heuristics.</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>Epistemic Neighbor Cards (2 linked)</h2>
+            <div class="neighbors-list"><div class="neighbor-item"><span class="neighbor-type neighbor-extends">EXTENDS</span> <a href="abadi-2016-deep-learning-with-differential-privacy.html" class="neighbor-link">abadi-2016-deep-learning-with-differential-privacy</a></div><div class="neighbor-item"><span class="neighbor-type neighbor-bounds">BOUNDS</span> <a href="eldan-2023-whos-harry-potter-approximate-unlearning.html" class="neighbor-link">eldan-2023-whos-harry-potter-approximate-unlearning</a></div></div>
+        </section>
+        
+
+    
+        <section class="brief-section">
+            <h2>Sources</h2>
+            <p>- Bourtoule, L., Chandrasekaran, V., Choquette-Choo, C. A., Jia, H., Travers, A., Zhang, B., Lie, D., &amp; Papernot, N. (2021). Machine Unlearning. <em>2021 IEEE Symposium on Security and Privacy (SP)</em>, 141–159. https://doi.org/10.1109/sp40001.2021.00019
+- Dwork, C., McSherry, F., Nissim, K., &amp; Smith, A. (2006). Calibrating Noise to Sensitivity in Private Data Analysis. <em>Theory of Cryptography (TCC 2006)</em>, LNCS 3876, 265–284. https://doi.org/10.1007/11681878_14</p>
+        </section>
+        
+
+    <footer>
+        <p>Published by Realized Press · Open Knowledge Format (OKF v0.3) · Verified Academic Citation Lock</p>
+    </footer>
+</div>
+</body>
+</html>

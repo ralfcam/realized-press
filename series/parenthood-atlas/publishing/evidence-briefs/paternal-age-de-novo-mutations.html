@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paternal Age and De Novo Mutation Rate — Realized Press Evidence Brief</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --success: #15803d;
+            --success-light: #f0fdf4;
+            --warning: #b45309;
+            --warning-light: #fffbeb;
+            --danger: #b91c1c;
+            --danger-light: #fef2f2;
+            --text: #1f2937;
+            --text-muted: #4b5563;
+            --border: #e5e7eb;
+            --border-dark: #cbd5e1;
+            --bg: #ffffff;
+            --surface: #f8fafc;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--surface);
+            margin: 0;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--bg);
+            padding: 2.5rem 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-back:hover { text-decoration: underline; }
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .series-label {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 1.875rem;
+            font-weight: 800;
+            line-height: 1.25;
+            color: #0f172a;
+            margin: 0.25rem 0 0.75rem 0;
+        }
+        .description {
+            font-size: 1.0625rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+        .badges-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+        .badge-status { background: #e0e7ff; color: #3730a3; }
+        .badge-grade { background: #dcfce7; color: #166534; }
+        .badge-tier { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+        .badge-domain { background: #f1f5f9; color: #475569; }
+        .anchors-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .anchors-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #0369a1;
+            margin-bottom: 0.5rem;
+        }
+        .anchors-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .anchor-pill {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.75rem;
+            background: #e0f2fe;
+            color: #075985;
+            border: 1px solid #7dd3fc;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+        .neighbors-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .neighbor-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+        .neighbor-type {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+        }
+        .neighbor-extends { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        .neighbor-bounds { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+        .neighbor-contrasts { background: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3; }
+        .neighbor-mitigates { background: #cffafe; color: #155e75; border: 1px solid #67e8f9; }
+        .neighbor-bridges-lens { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+        .neighbor-relates { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+        .neighbor-link {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .neighbor-link:hover { text-decoration: underline; }
+        .download-pill {
+            margin-left: auto;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: var(--primary-light);
+            border: 1px solid #bfdbfe;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .download-pill:hover { background: #dbeafe; }
+        .callout {
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.75rem 0;
+            border-left: 4px solid;
+        }
+        .callout-know {
+            background: var(--success-light);
+            border-color: var(--success);
+        }
+        .callout-wtdm {
+            background: var(--danger-light);
+            border-color: var(--danger);
+        }
+        .callout-action {
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+        .callout h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.9375rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .callout-know h3 { color: var(--success); }
+        .callout-wtdm h3 { color: var(--danger); }
+        .callout-action h3 { color: var(--primary); }
+        .callout p {
+            margin: 0;
+            font-size: 0.9375rem;
+        }
+        .brief-section {
+            margin: 2rem 0;
+        }
+        .brief-section h2 {
+            font-size: 1.1875rem;
+            font-weight: 700;
+            color: #0f172a;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.4rem;
+            margin-bottom: 0.75rem;
+        }
+        .brief-section p {
+            font-size: 0.9375rem;
+            margin-bottom: 0.75rem;
+        }
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="index.html" class="nav-back">← Back to Evidence Briefs Index</a>
+    <header>
+        <div class="series-label">Realized Press · Public Evidence Brief · OKF v0.3</div>
+        <h1>Paternal Age and De Novo Mutation Rate</h1>
+        <div class="description">De novo single-nucleotide mutations in offspring increase linearly with paternal age at conception; this establishes a biological germline mutation rate, not an individual psychiatric or cognitive forecast for a child.</div>
+        <div class="badges-bar">
+            <span class="badge badge-status">Status: DRAFT</span>
+            <span class="badge badge-grade">Confidence: HIGH-MUTATION-RATE; LOW-FORECAST</span>
+            <span class="badge badge-tier">Tier: robust_&lt;20%</span>
+            <span class="badge badge-domain">preconception</span><span class="badge badge-domain">pregnancy</span><span class="badge badge-domain">genetics</span>
+            <a href="paternal-age-de-novo-mutations.pdf" class="download-pill" download>Download 2-Page PDF</a>
+        </div>
+    </header>
+
+    
+        <div class="anchors-box">
+            <div class="anchors-title">Quantitative Anchors</div>
+            <div class="anchors-list"><span class="anchor-pill">Kong et al. (2012) Icelandic whole-genome sequencing of 78 parent-offspring trios</span><span class="anchor-pill">1.51 de novo single-nucleotide mutations added per year of paternal age (p = 3.6 x 10^-19)</span><span class="anchor-pill">20-year-old father transmits ~25 de novo mutations compared to ~65 mutations for a 45-year-old father</span></div>
+        </div>
+        
+
+    
+    <div class="callout callout-know">
+        <h3>What We Know (Narrowest Supported Conclusion)</h3>
+        <p>Male spermatogenesis involves continuous germline cell divisions throughout post-pubertal life (approximately 23 divisions per year), in contrast to female oogenesis where mitotic divisions cease prior to birth. In whole-genome sequencing of parent-offspring trios, the number of de novo single-nucleotide mutations transmitted to offspring increases linearly with the father&#x27;s age at conception, adding roughly 1.5 to 2.0 new mutations per year of paternal age. The overwhelming majority of these mutations occur in non-coding or functionally silent genomic regions and produce no clinical phenotype.</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>Evidence and Causal Assessment</h2>
+            <p>Kong et al. (2012), <em>Nature</em>, sequenced 78 Icelandic parent-offspring trios and demonstrated that paternal age at conception accounted for the dominant share of variation in offspring de novo mutation counts, estimating an increase of approximately 2.0 mutations per year of paternal age, while maternal age contributed no significant linear increase.</p><p>Jónsson et al. (2017), <em>Nature</em>, independently replicated and substantially scaled these findings across 1,548 Icelandic trios (identifying 108,778 de novo mutations). The multi-generational analysis established a precise genome-wide paternal increase of 1.51 mutations per year of father&#x27;s age (95% CI [1.45, 1.57]), alongside a smaller maternal effect of 0.37 mutations per year (95% CI [0.32, 0.43]).</p><p>The causal mechanism is biological and well-established: continuous DNA replication errors and progressive replication-independent DNA damage in spermatogonia drive the mutational clock.</p>
+        </section>
+        
+    
+        <section class="brief-section">
+            <h2>Effect Size and Persistence</h2>
+            <p>The quantitative effect is approximately 1.51 de novo single-nucleotide mutations per year of paternal age. Across a 15-year difference in father&#x27;s age (e.g., age 20 vs. age 35), an offspring inherits roughly 23 additional de novo point mutations out of 3.2 billion base pairs. Because over 98% of the human genome is non-coding and only a tiny fraction of coding mutations are deleterious, absolute clinical risk for specific neurodevelopmental conditions remains very low.</p>
+        </section>
+        
+    
+        <section class="brief-section">
+            <h2>Bias, Heterogeneity, and Confounding</h2>
+            <p>GI attenuation: <strong>n/a</strong> for the germline biological mutation rate (measured directly via whole-genome sequence trios).</p><p>In contrast, observational epidemiological associations between advanced paternal age and child psychiatric outcomes (autism, schizophrenia) are <strong>largely confounded (&gt;50%)</strong> by delayed reproductive selection, parental subclinical psychiatric traits, assortative mating, and socioeconomic indicators. Sibling-comparison studies demonstrate that population-level psychiatric risk shrinks substantially when comparing siblings born to the same father at different ages.</p>
+        </section>
+        
+
+    
+    <div class="callout callout-wtdm">
+        <h3>What This Does Not Mean (Strict Boundary Conditions)</h3>
+        <p>Does not mean that men in their late 30s or 40s should avoid having children out of fear of severe genetic disease. Does not mean older fathers produce children with impaired intelligence. A biological fact about germline replication does not license clinical alarmism or eugenic reproductive ranking.</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>What Remains Uncertain</h2>
+            <p>The exact proportion of psychiatric risk variance attributable to rare de novo variants versus inherited polygenic background; and whether paternal lifestyle exposures (smoking, metabolic health) alter germline mutational signatures beyond chronological age.</p>
+        </section>
+        
+
+    
+    <div class="callout callout-action">
+        <h3>What Action Is Reasonably Justified</h3>
+        <p>Clinical genetic counselors should provide accurate absolute risk perspectives rather than inflated relative risk statistics when prospective parents inquire about paternal age. Routine whole-exome or whole-genome screening of asymptomatic children based solely on paternal age is not clinically indicated.</p>
+    </div>
+    
+
+    
+        <section class="brief-section">
+            <h2>Epistemic Neighbor Cards (2 linked)</h2>
+            <div class="neighbors-list"><div class="neighbor-item"><span class="neighbor-type neighbor-bounds">BOUNDS</span> <a href="preterm-cognition-group-risk.html" class="neighbor-link">preterm-cognition-group-risk</a></div><div class="neighbor-item"><span class="neighbor-type neighbor-bridges-lens">BRIDGES_LENS</span> <a href="fetal-growth-not-destiny.html" class="neighbor-link">fetal-growth-not-destiny</a></div></div>
+        </section>
+        
+
+    
+        <section class="brief-section">
+            <h2>Sources</h2>
+            <p>- Kong et al. (2012), <em>Nature</em> (DOI: <a href="https://doi.org/10.1038/nature11396">10.1038/nature11396</a>)
+- Jónsson et al. (2017), <em>Nature</em> (DOI: <a href="https://doi.org/10.1038/nature24018">10.1038/nature24018</a>)</p>
+        </section>
+        
+
+    <footer>
+        <p>Published by Realized Press · Open Knowledge Format (OKF v0.3) · Verified Academic Citation Lock</p>
+    </footer>
+</div>
+</body>
+</html>

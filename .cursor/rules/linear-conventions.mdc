@@ -7,6 +7,27 @@ description: Linear team, project, milestone, and git branch conventions for bot
 
 **Team:** `ARC` — `b507edbe-bdaa-4c47-8bdd-63af48774ebf` (`https://linear.app/realized/team/ARC/projects/all`)
 
+## Master 4-Stage Execution Sequence
+1. **Stage 1 (Immediate Goal — Priority 1: Urgent):** Loop on refinement passes until publish for **`Parenthood: The Atlas — Series` (`P-ARC-17`)** (`https://linear.app/realized/project/parenthood-the-atlas-series-e3ae54ac870d/overview`) — *reflect upon and harden the BWE harness along this phase.*
+2. **Stage 2 (Priority 2: High):** Repeat the hardened loop for the full 5-book series **`Architectures of Memory — Series` (`P-ARC-8`)** (`https://linear.app/realized/project/architectures-of-memory-series-e798843bf9fb/overview`).
+3. **Stage 3 (Priority 3: Medium):** Continue in pillar order of **`Realized Press — Canonical Vision & Book Writing Environment (BWE)` (`P-ARC-18`)** (`https://linear.app/realized/project/realized-press-canonical-vision-and-book-writing-environment-bwe-130eae5e23b7/overview`).
+4. **Stage 4 (Expansion):** Consider new series/books driven by **Marketing Intelligence** (`scripts/marketing_intelligence.py`) and publish the **internally developed marketing & serial-membership site**.
+
+## Antigravity Native Automation Primitives Map
+- **Stages 1–4 Real-Time Guard:** `.agents/hooks.json` $\to$ `.agents/hooks/post_edit_guard.py` (`PostToolUse` & `PostInvocation` checks on chapters, evidence cards, research notes, outlines, and `series.yaml`).
+- **Stage 1 & 2 Iterative Loop:** `/goal` + `.agents/skills/refinement-pass/SKILL.md` (autonomous refinement passes + mandatory BWE harness hardening) and `/teamwork-preview` / `invoke_subagent` (parallel subagents for the 61 `draft` OKF card GI-confounding audits in `ARC-51` and Books 2–5 research).
+- **Stages 1–4 Scheduled Sidecars (`/schedule`):** `parenthood-daily-refinement`, `bwe-nightly-retraction-sentinel`, `bwe-weekly-market-intel`, and `bwe-weekly-kdp-and-reader-build`.
+- **Stage 3 Productization (`ARC-56`):** `/plugin` packaging of `.agents/` + `academic-bib` MCP into `realized-bwe` and `generative_ui` 3-Pane Epistemic IDE.
+
+## Canonical Vision & BWE Platform: `Realized Press — Canonical Vision & Book Writing Environment (BWE)` (`P-ARC-18`)
+- **Project ID:** `fe68af35-3169-4d26-868e-0000a8d07672` (`https://linear.app/realized/project/realized-press-canonical-vision-and-book-writing-environment-bwe-130eae5e23b7`)
+- **Canonical Vision Document ID:** `916947a3-864e-45c2-bc26-2a8b2b1a465f`
+- **Milestones:**
+  - **Pillar 1 — KDP Launch Channel & Owned Marketing/Serial Site:** `11633e7c-51be-4b14-bfbd-5574f5af65c2`
+  - **Pillar 2 — Book Writing Environment (BWE) Software & Agentic Harness:** `f87ccfa9-55a1-4124-ace0-6f514e001ead`
+  - **Pillar 3 — Plug-and-Play Multi-Series Extensibility (`series/<slug>/`):** `beac3251-0a47-4546-9603-a30c9037a64e`
+  - **Pillar 4 — Marketing Intelligence & Data-Driven Topic Selection:** `4ac18540-c439-42d0-a29d-fbd13d4d17dc`
+
 ## Series 1: `Architectures of Memory — Series` (`P-ARC-8`)
 - **Project ID:** `3cae0985-8124-4f85-a959-6216cb041c81`
 - **Directory:** `series/architectures-of-memory/book-01..05-*`
