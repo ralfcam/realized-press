@@ -349,7 +349,7 @@ def run_gemini_review(root: Path, book_path: Path, chapters: list[Path]) -> str:
         return f"_Gemini API call failed: {exc}_"
 
 
-def audit_graph_coherence(root: Path, book_path: Path) -> tuple[list[str], list[str], bool]:
+def audit_graph_coherence(root: Path, book_path: Path, lang: str | None = None) -> tuple[list[str], list[str], bool]:
     """Audit the book against OKF v0.3 Knowledge Graph & Graph RAG rules (ARC-84).
     
     Rules:
@@ -424,7 +424,7 @@ def audit_graph_coherence(root: Path, book_path: Path) -> tuple[list[str], list[
 
     # Rule 7a: Epistemic Verb-to-Card Grade Parity
     v7a: list[str] = []
-    is_spanish = "/i18n/es" in series_slug or "es" in book_path.parts
+    is_spanish = (lang == "es") or ("/i18n/es" in series_slug) or ("es" in book_path.parts)
     for e in cited_edges:
         src_id = e["source_id"]
         if src_id not in card_dict:
@@ -968,7 +968,7 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
     else:
         lines.append("- **Pass:** No unchecked items in `research/fact-checks/`.")
 
-    graph_lines, graph_violations, graph_ok = audit_graph_coherence(root, book_path)
+    graph_lines, graph_violations, graph_ok = audit_graph_coherence(root, book_path, lang=language)
     lines.extend(["", "## 10. OKF v0.3 Knowledge Graph & Graph RAG Coherence Gate (Rules 7a–7e, ARC-84)"])
     lines.extend(graph_lines)
 

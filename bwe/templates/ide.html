@@ -727,6 +727,15 @@
           </div>
           <div class="font-bold text-stone-200 mt-1" x-text="selectedGraphNode?.label"></div>
           <div class="text-stone-400 text-[10px] mt-0.5" x-text="selectedGraphNode?.details"></div>
+          <template x-if="selectedGraphNode?.edges">
+            <div class="text-[10px] text-amber-300 mt-1"><span class="text-stone-400 font-semibold">Causal Edges:</span> <span x-text="selectedGraphNode?.edges"></span></div>
+          </template>
+          <template x-if="selectedGraphNode?.anchors">
+            <div class="text-[10px] text-emerald-400 mt-0.5"><span class="text-stone-400 font-semibold">Quantitative Anchors:</span> <span x-text="selectedGraphNode?.anchors"></span></div>
+          </template>
+          <template x-if="selectedGraphNode?.jaccard">
+            <div class="text-[10px] text-sky-400 mt-0.5"><span class="text-stone-400 font-semibold">Cross-Chapter Jaccard:</span> <span x-text="selectedGraphNode?.jaccard"></span></div>
+          </template>
           <div class="text-[9px] text-stone-400 font-mono mt-1" x-text="selectedGraphNode?.nodeId"></div>
         </div>
         <div id="context-pack-mount" class="flex-1 flex flex-col min-h-0 overflow-hidden">
@@ -860,14 +869,22 @@
     const grade = el.getAttribute('data-grade') || '';
     const lens = el.getAttribute('data-lens') || '';
     const anchors = el.getAttribute('data-anchors') || '';
+    const edges = el.getAttribute('data-edges') || '';
+    const jaccard = el.getAttribute('data-jaccard') || '';
     
     let desc = label;
     if (grade) desc += ` [${grade}] (${lens} lens)`;
-    if (anchors) desc += ` • Anchors: ${anchors}`;
     
     navigator.clipboard.writeText(nodeId);
     if (window.__ideApp) {
-      window.__ideApp.selectedGraphNode = { label: label, details: desc, nodeId: nodeId };
+      window.__ideApp.selectedGraphNode = {
+        label: label,
+        details: desc,
+        nodeId: nodeId,
+        edges: edges,
+        anchors: anchors,
+        jaccard: jaccard
+      };
       window.__ideApp.toastMessage = `Selected: ${desc} (Node ID copied)`;
       setTimeout(() => { if (window.__ideApp) window.__ideApp.toastMessage = ''; }, 3000);
     }

@@ -1631,8 +1631,53 @@ def generate_series_map_svg(conn: sqlite3.Connection, series_slug: str) -> str:
         anchors = cm.get("quantitative_anchors", [])
         anchors_str = "; ".join(anchors[:3]).replace("'", "&apos;").replace('"', "&quot;") if anchors else ""
         escaped_title = clean_lbl.replace("'", "&apos;").replace('"', "&quot;")
+
+        # Query typed causal edges for this card
+        edge_rows = conn.execute(
+            """SELECT edge_type, target_id, metadata_json FROM okf_edges
+               WHERE series_slug = ? AND source_id = ?""",
+            (series_slug, cd["node_id"]),
+        ).fetchall()
+        typed_edges = []
+        for er in edge_rows:
+            em = json.loads(er["metadata_json"]) if er["metadata_json"] else {}
+            st = em.get("edge_subtype")
+            if st and st != "RELATES_TO_CARD":
+                tgt = er["target_id"].split(":")[-1]
+                typed_edges.append(f"{st}:{tgt}")
+            elif er["edge_type"] == "CROSS_BOOK_ESCALATES":
+                tgt = er["target_id"].split(":")[-1]
+                typed_edges.append(f"ESCALATES:{tgt}")
+        edges_str = "; ".join(typed_edges[:3]).replace("'", "&apos;").replace('"', "&quot;")
+
+        # Query citing sentences for Jaccard overlap
+        citing_rows = conn.execute(
+            """SELECT metadata_json FROM okf_edges
+               WHERE series_slug = ? AND source_id = ? AND edge_type = 'CITED_IN_MOVEMENT'""",
+            (series_slug, cd["node_id"]),
+        ).fetchall()
+        max_jaccard = 0.0
+        sentences = []
+        for cr in citing_rows:
+            try:
+                crm = json.loads(cr["metadata_json"])
+                stext = crm.get("sentence_text", "")
+                if stext:
+                    tokens = set(re.findall(r"[a-zA-Z]{3,}", stext.lower()))
+                    sentences.append(tokens)
+            except Exception:
+                pass
+        if len(sentences) >= 2:
+            t1 = sentences[0]
+            for t2 in sentences[1:]:
+                if t1 or t2:
+                    j_score = len(t1 & t2) / len(t1 | t2)
+                    if j_score > max_jaccard:
+                        max_jaccard = j_score
+        jaccard_str = f"{max_jaccard:.2f}" if max_jaccard > 0 else "0.00 (unique)"
+
         svg_parts.append(
-            f"<g class='cursor-pointer group' data-node-id='{cd['node_id']}' data-label='{escaped_title}' data-grade='{grade}' data-lens='{lens}' data-anchors='{anchors_str}' onclick='window.inspectGraphNode ? window.inspectGraphNode(this) : null'>"
+            f"<g class='cursor-pointer group' data-node-id='{cd['node_id']}' data-label='{escaped_title}' data-grade='{grade}' data-lens='{lens}' data-anchors='{anchors_str}' data-edges='{edges_str}' data-jaccard='{jaccard_str}' onclick='window.inspectGraphNode ? window.inspectGraphNode(this) : null'>"
             f"<circle cx='480' cy='{y}' r='5' fill='{color}' class='transition-transform group-hover:scale-125'/>"
             f"<text x='495' y='{y + 4}' fill='#e7e5e4' font-size='10' class='group-hover:fill-amber-300'>{clean_lbl} [{grade}]</text></g>"
         )
