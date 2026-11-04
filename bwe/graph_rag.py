@@ -81,6 +81,9 @@ class ChapterContextPack:
     metaphor_ledger: list[dict[str, Any]] = field(default_factory=list)
     character_state: list[dict[str, Any]] = field(default_factory=list)
     demand_targets: list[dict[str, Any]] = field(default_factory=list)
+    typed_causal_edges: list[dict[str, Any]] = field(default_factory=list)
+    suggested_unlinked_cards: list[dict[str, Any]] = field(default_factory=list)
+    quantitative_anchors: list[dict[str, Any]] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -93,78 +96,29 @@ class ChapterContextPack:
             "",
             "---",
             "",
-            "## 1. Adjacent Handoff Envelope (1-Hop Chapter Neighbors)",
+            "## 1. Tier 1: Direct 1-Hop Cited Cards & Epistemic Contracts",
             "",
         ]
 
-        # Incoming handoff
-        inc = self.incoming_handoff
-        if inc:
-            lines.extend([
-                f"### Incoming Bridge (From Ch.{inc.get('from_ch_num', 'K-1')} Close: *{inc.get('from_title', 'Previous Chapter')}*)",
-                "- **Closing Narrative Anchor:**",
-                f"  > {inc.get('closing_anchor', 'N/A')}",
-                f"- **Takeaway Core Rule:** {inc.get('takeaway_core_rule', 'N/A')}",
-                f"- **Handoff Directive:** Pick up this conceptual thread without repeating the conclusion. Do not re-summarize what Ch.{inc.get('from_ch_num', 'K-1')} already proved.",
-                "",
-            ])
-        else:
-            lines.extend([
-                "### Incoming Bridge: Volume / Series Opening",
-                "- **Opening Directive:** This is Chapter 01. Establish the foundational epistemic contract and sensory hook.",
-                "",
-            ])
-
-        # Outgoing handoff
-        out = self.outgoing_handoff
-        if out:
-            lines.extend([
-                f"### Outgoing Bridge (To Ch.{out.get('to_ch_num', 'K+1')} Open: *{out.get('to_title', 'Next Chapter')}*)",
-                "- **Opening Scene / Question:**",
-                f"  > {out.get('prologue_anchor', 'N/A')}",
-                f"- **Handoff Boundary:** Do not prematurely resolve Ch.{out.get('to_ch_num', 'K+1')}'s central question.",
-                "",
-            ])
-        else:
-            lines.extend([
-                "### Outgoing Bridge: Volume / Series Finale",
-                "- **Closing Directive:** This is the concluding chapter. Synthesize the multi-lens arc without introducing ungrounded new paradigms.",
-                "",
-            ])
-
-        lines.extend([
-            "---",
-            "",
-            "## 2. Progressive Lens Escalation Ledger (2-Hop Card Appearance History)",
-            "",
-        ])
-
         if self.escalation_ledger:
             for item in self.escalation_ledger:
-                ord_val = item.get("appearance_ordinal", 1)
+                b_ord = item.get("book_ordinal", item.get("appearance_ordinal", 1))
+                s_ord = item.get("series_ordinal", b_ord)
                 lines.extend([
                     f"### Card: `{item.get('card_slug')}` — *{item.get('title')}*",
-                    f"- **Certainty Grade:** `{item.get('certainty_grade')}` | **Primary Lens:** `{item.get('primary_lens')}` | **Appearance Ordinal:** `{ord_val}`",
+                    f"- **Certainty Grade:** `{item.get('certainty_grade')}` | **Primary Lens:** `{item.get('primary_lens')}` | **Book Ordinal:** `{b_ord}` | **Series Ordinal:** `{s_ord}`",
+                    f"- **Escalation Instruction:** {item.get('escalation_directive', 'Progressive lens escalation applies.')}",
                 ])
-                if ord_val == 1:
-                    lines.append("- **Escalation Instruction (Lens 1):** First appearance in the series. Establish formal study setup, sample/proof design, and physiological/mathematical mechanism.")
-                elif ord_val == 2:
-                    lines.append(f"- **Escalation Instruction (Lens 2):** Second appearance (previously introduced in {item.get('prior_loc', 'earlier chapter')}). **FORBIDDEN: Do not re-explain study design or methodology.** Escalate directly to organizational, ecological, or systemic boundary conditions.")
-                else:
-                    lines.append(f"- **Escalation Instruction (Lens 3):** Third+ appearance (introduced in {item.get('prior_loc', 'earlier chapter')}). Focus strictly on philosophical judgment, scalability limits, attenuation voltage drop, or fadeout.")
-
                 plan = item.get("escalation_plan", {})
-                if plan and str(ord_val) in plan:
-                    lines.append(f"- **Author Escalation Plan:** {plan[str(ord_val)]}")
+                if plan and str(b_ord) in plan:
+                    lines.append(f"- **Author Escalation Plan:** {plan[str(b_ord)]}")
                 lines.append("")
         else:
             lines.append("*No dedicated OKF evidence cards currently anchored to this chapter.*")
             lines.append("")
 
         lines.extend([
-            "---",
-            "",
-            "## 3. Epistemic Verb & 'Then vs. Now' Set-Piece Contract",
+            "### Epistemic Verb & Claim Boundary Contract",
             "",
         ])
 
@@ -183,6 +137,99 @@ class ChapterContextPack:
             lines.append("")
         else:
             lines.append("*Standard Grade-to-Verb Protocol applies: High -> shows; Moderate -> suggests; Low -> is associated with.*")
+            lines.append("")
+
+        if self.quantitative_anchors:
+            lines.extend([
+                "### Quantitative Anchors & Benchmark Constants",
+                "",
+                "| Card Slug | Verified Quantitative Figures / Empirical Anchors |",
+                "| :--- | :--- |",
+            ])
+            for qa in self.quantitative_anchors:
+                anchors_str = "; ".join(f"`{a}`" for a in qa.get("anchors", []))
+                lines.append(f"| `{qa.get('card_slug')}` | {anchors_str} |")
+            lines.append("")
+
+        lines.extend([
+            "---",
+            "",
+            "## 2. Tier 2: 2-Hop Typed Causal Argument Map & Narrative Handoff Envelope",
+            "",
+        ])
+
+        if self.typed_causal_edges:
+            lines.extend([
+                "### Typed Causal Argument Map (2-Hop Card Neighbors)",
+                "",
+                "| Source Card | Relationship | Related Card | Target Lens & Grade |",
+                "| :--- | :--- | :--- | :--- |",
+            ])
+            for te in self.typed_causal_edges[:10]:
+                lines.append(
+                    f"| `{te.get('source_card')}` | **{te.get('relationship')}** | `{te.get('target_card')}` (*{te.get('target_title', '')[:30]}*) | `{te.get('target_lens', '')}` [{te.get('target_grade', '')}] |"
+                )
+            lines.append("")
+
+        lines.extend([
+            "### Adjacent Handoff Envelope (Sequential 1-Hop Chapter Neighbors)",
+            "",
+        ])
+
+        # Incoming handoff
+        inc = self.incoming_handoff
+        if inc:
+            lines.extend([
+                f"#### Incoming Bridge (From Ch.{inc.get('from_ch_num', 'K-1')} Close: *{inc.get('from_title', 'Previous Chapter')}*)",
+                "- **Closing Narrative Anchor:**",
+                f"  > {inc.get('closing_anchor', 'N/A')}",
+                f"- **Takeaway Core Rule:** {inc.get('takeaway_core_rule', 'N/A')}",
+                f"- **Handoff Directive:** Pick up this conceptual thread without repeating the conclusion. Do not re-summarize what Ch.{inc.get('from_ch_num', 'K-1')} already proved.",
+                "",
+            ])
+        else:
+            lines.extend([
+                "#### Incoming Bridge: Volume / Series Opening",
+                "- **Opening Directive:** This is Chapter 01. Establish the foundational epistemic contract and sensory hook.",
+                "",
+            ])
+
+        # Outgoing handoff
+        out = self.outgoing_handoff
+        if out:
+            lines.extend([
+                f"#### Outgoing Bridge (To Ch.{out.get('to_ch_num', 'K+1')} Open: *{out.get('to_title', 'Next Chapter')}*)",
+                "- **Opening Scene / Question:**",
+                f"  > {out.get('prologue_anchor', 'N/A')}",
+                f"- **Handoff Boundary:** Do not prematurely resolve Ch.{out.get('to_ch_num', 'K+1')}'s central question.",
+                "",
+            ])
+        else:
+            lines.extend([
+                "#### Outgoing Bridge: Volume / Series Finale",
+                "- **Closing Directive:** This is the concluding chapter. Synthesize the multi-lens arc without introducing ungrounded new paradigms.",
+                "",
+            ])
+
+        lines.extend([
+            "---",
+            "",
+            "## 3. Tier 3: Latent Evidence Discovery (Suggested Unlinked Cards)",
+            "",
+        ])
+
+        if self.suggested_unlinked_cards:
+            lines.extend([
+                "| Card Slug | Title | Grade & Lens | BM25 Overlap | Recommendation |",
+                "| :--- | :--- | :--- | :--- | :--- |",
+            ])
+            for su in self.suggested_unlinked_cards:
+                lines.append(
+                    f"| `{su.get('card_slug')}` | *{su.get('title')}* | `{su.get('certainty_grade')}` / `{su.get('primary_lens')}` | `{su.get('bm25_score'):.3f}` | Internal series match: check card before external research. |"
+                )
+            lines.append("")
+        else:
+            lines.append("*Zero unlinked cards with high BM25 overlap; evidentiary coverage is tightly isolated to Tier 1 cited cards.*")
             lines.append("")
 
         lines.extend([
@@ -258,6 +305,8 @@ class ChapterContextPack:
 
     def token_estimate(self) -> int:
         lines = self._build_markdown_lines()
+        raw = "\n".join(lines)
+        return max(1, len(raw) // 4)
         raw = "\n".join(lines)
         return max(1, len(raw) // 4)
 
@@ -374,6 +423,33 @@ def parse_card_file(card_path: Path, series_slug: str, book_slug: str) -> dict[s
     if not isinstance(contradicts_or_bounds, list):
         contradicts_or_bounds = [str(contradicts_or_bounds)]
 
+    # Relates to cards & typed relations (OKF v0.3)
+    raw_relates = fm.get("relates_to_cards") or fm.get("relates_to") or []
+    if not isinstance(raw_relates, list):
+        raw_relates = [str(raw_relates)]
+    typed_relations: list[dict[str, str]] = []
+    for r in raw_relates:
+        r_str = str(r).strip()
+        if not r_str:
+            continue
+        if ":" in r_str:
+            prefix, target = r_str.split(":", 1)
+            prefix_clean = prefix.strip().upper()
+            target_clean = target.strip().removesuffix(".md").split("/")[-1]
+            if prefix_clean in {"EXTENDS", "BOUNDS", "CONTRASTS", "MITIGATES", "BRIDGES_LENS", "CROSS_BOOK_ESCALATES"}:
+                typed_relations.append({"edge_type": prefix_clean, "target_slug": target_clean})
+            else:
+                typed_relations.append({"edge_type": "RELATES_TO_CARD", "target_slug": target_clean})
+        else:
+            target_clean = r_str.removesuffix(".md").split("/")[-1]
+            typed_relations.append({"edge_type": "RELATES_TO_CARD", "target_slug": target_clean})
+
+    # Quantitative anchors (OKF v0.3)
+    raw_anchors = fm.get("quantitative_anchors") or []
+    if not isinstance(raw_anchors, list):
+        raw_anchors = [str(raw_anchors)] if str(raw_anchors).strip() else []
+    quantitative_anchors = [str(a).strip() for a in raw_anchors if str(a).strip()]
+
     # Locked bib keys
     locked_bib_keys = fm.get("locked_bib_keys") or []
     if not locked_bib_keys:
@@ -396,6 +472,9 @@ def parse_card_file(card_path: Path, series_slug: str, book_slug: str) -> dict[s
         "jargon_mappings": jargon_mappings,
         "escalation_plan": escalation_plan,
         "contradicts_or_bounds": [str(c) for c in contradicts_or_bounds],
+        "typed_relations": typed_relations,
+        "quantitative_anchors": quantitative_anchors,
+        "relates_to_cards": [tr["target_slug"] for tr in typed_relations],
         "locked_bib_keys": [str(k) for k in locked_bib_keys],
         "body_preview": body[:400].strip(),
     }
@@ -566,10 +645,11 @@ def parse_chapter_file(ch_path: Path, series_slug: str, book_slug: str) -> dict[
 def extract_footnote_sentences(movement_text: str) -> list[dict[str, Any]]:
     """Extract each [^fn_id] occurrence, its surrounding sentence, and the observed epistemic verb."""
     results: list[dict[str, Any]] = []
-    # Split text into sentences cleanly
+    # Normalize whitespace while preserving sentence boundaries
     cleaned = re.sub(r"\n+", " ", movement_text)
-    # Match sentences roughly by punctuation
-    raw_sentences = re.split(r"(?<=[.!?])\s+", cleaned)
+    # Split sentences on punctuation optionally followed by footnote tags
+    marked = re.sub(r"([.!?](?:\[\^[^\]]+\])*)\s+", r"\1\n", cleaned)
+    raw_sentences = [s.strip() for s in marked.split("\n") if s.strip()]
 
     for sent in raw_sentences:
         fn_matches = INLINE_FN_RE.findall(sent)
@@ -733,9 +813,8 @@ def build_series_knowledge_graph(
         series_slugs_to_build = sorted(discovered_slugs)
 
     for s_slug in series_slugs_to_build:
-        # Clear existing nodes & edges for this series
-        conn.execute("DELETE FROM okf_edges WHERE series_slug = ?", (s_slug,))
-        conn.execute("DELETE FROM okf_nodes WHERE series_slug = ?", (s_slug,))
+        node_rows: list[tuple[str, str, str, str, str, str]] = []
+        edge_rows: list[tuple[str, str, str, str, float, str]] = []
 
         # Locate base directory for this series
         if "/i18n/" in s_slug:
@@ -750,23 +829,13 @@ def build_series_knowledge_graph(
         chars = parse_characters(parent_base_path)
         for c in chars:
             c_node_id = f"char:{s_slug}:{c['person_slug']}"
-            conn.execute(
-                """INSERT OR REPLACE INTO okf_nodes
-                   (node_id, series_slug, book_slug, node_type, label, metadata_json)
-                   VALUES (?, ?, ?, ?, ?, ?)""",
-                (c_node_id, s_slug, "root", "character", c["full_name"], json.dumps(c)),
-            )
+            node_rows.append((c_node_id, s_slug, "root", "character", c["full_name"], json.dumps(c)))
 
         # 2. Parse Jargon Concepts
         jargon_items = parse_jargon(repo_root, s_base_path)
         for j in jargon_items:
             concept_node_id = f"concept:{s_slug}:{j['concept_slug']}"
-            conn.execute(
-                """INSERT OR REPLACE INTO okf_nodes
-                   (node_id, series_slug, book_slug, node_type, label, metadata_json)
-                   VALUES (?, ?, ?, ?, ?, ?)""",
-                (concept_node_id, s_slug, "root", "concept", j["raw_jargon"], json.dumps(j)),
-            )
+            node_rows.append((concept_node_id, s_slug, "root", "concept", j["raw_jargon"], json.dumps(j)))
 
         # 3. Parse BibTeX Sources across all sources.bib files for this series
         bib_sources: dict[str, dict[str, Any]] = {}
@@ -779,15 +848,11 @@ def build_series_knowledge_graph(
             for k, val in parsed_bib.items():
                 bib_sources[k] = val
                 src_node_id = f"bib:{s_slug}:{k}"
-                conn.execute(
-                    """INSERT OR REPLACE INTO okf_nodes
-                       (node_id, series_slug, book_slug, node_type, label, metadata_json)
-                       VALUES (?, ?, ?, ?, ?, ?)""",
-                    (src_node_id, s_slug, "root", "source", val["title"], json.dumps(val)),
-                )
+                node_rows.append((src_node_id, s_slug, "root", "source", val["title"], json.dumps(val)))
 
         # 4. Parse Evidence Cards
         cards: dict[str, dict[str, Any]] = {}
+        cards_by_book_slug: dict[tuple[str, str], dict[str, Any]] = {}
         card_files = list(s_base_path.glob("**/evidence-cards/*.md"))
         if not card_files and parent_base_path != s_base_path:
             card_files = list(parent_base_path.glob("**/evidence-cards/*.md"))
@@ -802,34 +867,27 @@ def build_series_knowledge_graph(
             _, book_slug = resolve_series_and_book_slug(rel_parts)
             card_info = parse_card_file(card_path, s_slug, book_slug)
             cards[card_info["card_slug"]] = card_info
+            cards_by_book_slug[(book_slug, card_info["card_slug"])] = card_info
 
-            card_node_id = f"card:{s_slug}:{card_info['card_slug']}"
-            conn.execute(
-                """INSERT OR REPLACE INTO okf_nodes
-                   (node_id, series_slug, book_slug, node_type, label, metadata_json)
-                   VALUES (?, ?, ?, ?, ?, ?)""",
-                (card_node_id, s_slug, book_slug, "card", card_info["title"], json.dumps(card_info)),
-            )
+            card_node_id = f"card:{s_slug}:{book_slug}:{card_info['card_slug']}" if book_slug != "root" else f"card:{s_slug}:{card_info['card_slug']}"
+            node_rows.append((card_node_id, s_slug, book_slug, "card", card_info["title"], json.dumps(card_info)))
 
             # Edge 1: BACKED_BY_SOURCE (card -> source)
             for bib_key in card_info.get("locked_bib_keys", []):
                 src_node_id = f"bib:{s_slug}:{bib_key}"
-                conn.execute(
-                    """INSERT INTO okf_edges
-                       (series_slug, source_id, target_id, edge_type, weight, metadata_json)
-                       VALUES (?, ?, ?, 'BACKED_BY_SOURCE', 1.0, '{}')""",
-                    (s_slug, card_node_id, src_node_id),
-                )
+                edge_rows.append((s_slug, card_node_id, src_node_id, "BACKED_BY_SOURCE", 1.0, "{}"))
 
             # Edge 3: CONTRADICTS_OR_BOUNDS (card_A -> card_B)
             for bounded_slug in card_info.get("contradicts_or_bounds", []):
-                target_card_id = f"card:{s_slug}:{bounded_slug}"
-                conn.execute(
-                    """INSERT INTO okf_edges
-                       (series_slug, source_id, target_id, edge_type, weight, metadata_json)
-                       VALUES (?, ?, ?, 'CONTRADICTS_OR_BOUNDS', 1.0, ?)""",
-                    (s_slug, card_node_id, target_card_id, json.dumps({"nature": "bounds"})),
-                )
+                found_b = book_slug if (book_slug, bounded_slug) in cards_by_book_slug else next((bk for (bk, cs) in cards_by_book_slug if cs == bounded_slug), "root")
+                target_card_id = f"card:{s_slug}:{found_b}:{bounded_slug}" if found_b != "root" else f"card:{s_slug}:{bounded_slug}"
+                edge_rows.append((s_slug, card_node_id, target_card_id, "CONTRADICTS_OR_BOUNDS", 1.0, json.dumps({"nature": "bounds"})))
+
+            # Typed relations (EXTENDS, BOUNDS, CONTRASTS, MITIGATES, BRIDGES_LENS, RELATES_TO_CARD)
+            for tr in card_info.get("typed_relations", []):
+                found_b = book_slug if (book_slug, tr["target_slug"]) in cards_by_book_slug else next((bk for (bk, cs) in cards_by_book_slug if cs == tr["target_slug"]), "root")
+                target_card_id = f"card:{s_slug}:{found_b}:{tr['target_slug']}" if found_b != "root" else f"card:{s_slug}:{tr['target_slug']}"
+                edge_rows.append((s_slug, card_node_id, target_card_id, tr["edge_type"], 1.0, json.dumps({"nature": tr["edge_type"].lower()})))
 
         # 5. Parse Chapters & Movements
         # Collect and filter only chapters belonging to s_slug
@@ -849,8 +907,10 @@ def build_series_knowledge_graph(
 
         # Group by book for sequential handoffs
         chapters_by_book: dict[str, list[dict[str, Any]]] = {}
-        card_appearance_tracker: dict[str, int] = {}
-        last_movement_for_card: dict[str, str] = {}
+        chapter_node_map: dict[str, str] = {}
+        series_card_tracker: dict[str, int] = {}
+        book_card_tracker: dict[tuple[str, str], int] = {}
+        card_last_seen: dict[str, dict[str, Any]] = {}
         character_appearance_tracker: dict[str, int] = {}
 
         for b_slug, ch_path in matching_chapter_files:
@@ -859,24 +919,18 @@ def build_series_knowledge_graph(
             ch_info["node_id"] = ch_node_id
             ch_info["book_slug"] = b_slug
 
-            conn.execute(
-                """INSERT OR REPLACE INTO okf_nodes
-                   (node_id, series_slug, book_slug, node_type, label, metadata_json)
-                   VALUES (?, ?, ?, ?, ?, ?)""",
-                (ch_node_id, s_slug, b_slug, "chapter", ch_info["title"], json.dumps(ch_info)),
-            )
+            node_rows.append((ch_node_id, s_slug, b_slug, "chapter", ch_info["title"], json.dumps(ch_info)))
+            chapter_node_map[ch_info["chapter_slug"]] = ch_node_id
+            chapter_node_map[ch_info["title"]] = ch_node_id
+            if b_slug != "root":
+                chapter_node_map[f"{b_slug}/{ch_info['chapter_slug']}"] = ch_node_id
 
             chapters_by_book.setdefault(b_slug, []).append(ch_info)
 
             # Movements inside this chapter
             for mv in ch_info["movements"]:
                 mv_node_id = f"mv:{ch_node_id}:{mv['movement_num']}"
-                conn.execute(
-                    """INSERT OR REPLACE INTO okf_nodes
-                       (node_id, series_slug, book_slug, node_type, label, metadata_json)
-                       VALUES (?, ?, ?, ?, ?, ?)""",
-                    (mv_node_id, s_slug, b_slug, "movement", mv["heading"], json.dumps(mv)),
-                )
+                node_rows.append((mv_node_id, s_slug, b_slug, "movement", mv["heading"], json.dumps(mv)))
 
                 # Footnotes & Card citations in this movement
                 fn_sentences = extract_footnote_sentences(mv["text"])
@@ -959,44 +1013,63 @@ def build_series_knowledge_graph(
 
                     for target_card_slug in target_card_slugs:
                         if target_card_slug in cards:
-                            cur_ordinal = card_appearance_tracker.get(target_card_slug, 0) + 1
-                            card_appearance_tracker[target_card_slug] = cur_ordinal
+                            series_ord = series_card_tracker.get(target_card_slug, 0) + 1
+                            series_card_tracker[target_card_slug] = series_ord
 
-                            card_target_node_id = f"card:{s_slug}:{target_card_slug}"
+                            book_ord = book_card_tracker.get((b_slug, target_card_slug), 0) + 1
+                            book_card_tracker[(b_slug, target_card_slug)] = book_ord
+
+                            found_b = b_slug if (b_slug, target_card_slug) in cards_by_book_slug else next((bk for (bk, cs) in cards_by_book_slug if cs == target_card_slug), "root")
+                            card_target_node_id = f"card:{s_slug}:{found_b}:{target_card_slug}" if found_b != "root" else f"card:{s_slug}:{target_card_slug}"
                             citation_meta = {
                                 "footnote_id": fn_id,
                                 "sentence_text": fs["sentence_text"],
                                 "observed_epistemic_verb": fs["observed_verb"],
-                                "appearance_ordinal": cur_ordinal,
+                                "series_ordinal": series_ord,
+                                "book_ordinal": book_ord,
+                                "appearance_ordinal": book_ord,
                                 "chapter_num": ch_info["chapter_num"],
                                 "chapter_slug": ch_info["chapter_slug"],
                                 "movement_num": mv["movement_num"],
                             }
 
                             # Edge 2: CITED_IN_MOVEMENT (card -> movement)
-                            conn.execute(
-                                """INSERT INTO okf_edges
-                                   (series_slug, source_id, target_id, edge_type, weight, metadata_json)
-                                   VALUES (?, ?, ?, 'CITED_IN_MOVEMENT', 1.0, ?)""",
-                                (s_slug, card_target_node_id, mv_node_id, json.dumps(citation_meta)),
-                            )
+                            edge_rows.append((s_slug, card_target_node_id, mv_node_id, "CITED_IN_MOVEMENT", 1.0, json.dumps(citation_meta)))
 
-                            # Edge 7: ESCALATES_TO (mv_prev -> mv_curr) for ordinal >= 2
-                            if cur_ordinal >= 2 and target_card_slug in last_movement_for_card:
-                                prev_mv_id = last_movement_for_card[target_card_slug]
-                                escalates_meta = {
-                                    "card_slug": target_card_slug,
-                                    "from_ordinal": cur_ordinal - 1,
-                                    "to_ordinal": cur_ordinal,
-                                }
-                                conn.execute(
-                                    """INSERT INTO okf_edges
-                                       (series_slug, source_id, target_id, edge_type, weight, metadata_json)
-                                       VALUES (?, ?, ?, 'ESCALATES_TO', 1.0, ?)""",
-                                    (s_slug, prev_mv_id, mv_node_id, json.dumps(escalates_meta)),
-                                )
+                            # Cross-book vs same-book escalation
+                            if series_ord >= 2 and target_card_slug in card_last_seen:
+                                prev = card_last_seen[target_card_slug]
+                                if prev["book_slug"] != b_slug:
+                                    # CROSS_BOOK_ESCALATES
+                                    cross_meta = {
+                                        "card_slug": target_card_slug,
+                                        "from_book": prev["book_slug"],
+                                        "to_book": b_slug,
+                                        "from_ch_num": prev["chapter_num"],
+                                        "to_ch_num": ch_info["chapter_num"],
+                                        "series_ordinal": series_ord,
+                                        "book_ordinal": book_ord,
+                                    }
+                                    edge_rows.append((s_slug, prev["mv_node_id"], mv_node_id, "CROSS_BOOK_ESCALATES", 1.0, json.dumps(cross_meta)))
+                                else:
+                                    # ESCALATES_TO
+                                    escalates_meta = {
+                                        "card_slug": target_card_slug,
+                                        "from_ordinal": prev["book_ordinal"],
+                                        "to_ordinal": book_ord,
+                                        "series_ordinal": series_ord,
+                                    }
+                                    edge_rows.append((s_slug, prev["mv_node_id"], mv_node_id, "ESCALATES_TO", 1.0, json.dumps(escalates_meta)))
 
-                            last_movement_for_card[target_card_slug] = mv_node_id
+                            card_last_seen[target_card_slug] = {
+                                "mv_node_id": mv_node_id,
+                                "book_slug": b_slug,
+                                "chapter_num": ch_info["chapter_num"],
+                                "chapter_slug": ch_info["chapter_slug"],
+                                "movement_num": mv["movement_num"],
+                                "series_ordinal": series_ord,
+                                "book_ordinal": book_ord,
+                            }
 
                 # Character mentions in this movement
                 mv_lower = mv["text"].lower()
@@ -1015,13 +1088,7 @@ def build_series_knowledge_graph(
                             "chapter_num": ch_info["chapter_num"],
                             "movement_num": mv["movement_num"],
                         }
-                        # Edge 5: FEATURES_CHARACTER (char -> movement)
-                        conn.execute(
-                            """INSERT INTO okf_edges
-                               (series_slug, source_id, target_id, edge_type, weight, metadata_json)
-                               VALUES (?, ?, ?, 'FEATURES_CHARACTER', 1.0, ?)""",
-                            (s_slug, char_node_id, mv_node_id, json.dumps(char_meta)),
-                        )
+                        edge_rows.append((s_slug, char_node_id, mv_node_id, "FEATURES_CHARACTER", 1.0, json.dumps(char_meta)))
 
                 # Concept / Jargon translation in this movement
                 for j in jargon_items:
@@ -1034,13 +1101,7 @@ def build_series_knowledge_graph(
                             "plain_english": j["plain_english"],
                             "chapter_num": ch_info["chapter_num"],
                         }
-                        # Edge 4: TRANSLATES_CONCEPT (concept -> movement)
-                        conn.execute(
-                            """INSERT INTO okf_edges
-                               (series_slug, source_id, target_id, edge_type, weight, metadata_json)
-                               VALUES (?, ?, ?, 'TRANSLATES_CONCEPT', 1.0, ?)""",
-                            (s_slug, c_id, mv_node_id, json.dumps(t_meta)),
-                        )
+                        edge_rows.append((s_slug, c_id, mv_node_id, "TRANSLATES_CONCEPT", 1.0, json.dumps(t_meta)))
 
         # Connect consecutive chapter handoffs within each book
         for b_slug, ch_list in chapters_by_book.items():
@@ -1056,13 +1117,7 @@ def build_series_knowledge_graph(
                     "to_ch_num": curr_ch["chapter_num"],
                     "to_title": curr_ch["title"],
                 }
-                # Edge 6: HANDS_OFF_TO (ch_prev -> ch_curr)
-                conn.execute(
-                    """INSERT INTO okf_edges
-                       (series_slug, source_id, target_id, edge_type, weight, metadata_json)
-                       VALUES (?, ?, ?, 'HANDS_OFF_TO', 1.0, ?)""",
-                    (s_slug, prev_ch["node_id"], curr_ch["node_id"], json.dumps(handoff_meta)),
-                )
+                edge_rows.append((s_slug, prev_ch["node_id"], curr_ch["node_id"], "HANDS_OFF_TO", 1.0, json.dumps(handoff_meta)))
 
         # 6. Parse Demand / Keyword Signals from keyword_signals table
         rows = conn.execute(
@@ -1081,28 +1136,42 @@ def build_series_knowledge_graph(
                 "cpc_high_usd": r["cpc_high_usd"],
                 "paa_hook": r["paa_hook"] or "",
             }
-            conn.execute(
-                """INSERT OR REPLACE INTO okf_nodes
-                   (node_id, series_slug, book_slug, node_type, label, metadata_json)
-                   VALUES (?, ?, ?, 'demand', ?, ?)""",
-                (demand_node_id, s_slug, "root", q, json.dumps(d_meta)),
-            )
+            node_rows.append((demand_node_id, s_slug, "root", "demand", q, json.dumps(d_meta)))
 
             # Edge 8: ANSWERS_DEMAND (chapter -> demand)
             target_ch = r["target_chapter"] or r["matched_chapter"]
             if target_ch:
-                ch_row = conn.execute(
-                    """SELECT node_id FROM okf_nodes
-                       WHERE series_slug = ? AND node_type = 'chapter' AND (label LIKE ? OR node_id LIKE ?)""",
-                    (s_slug, f"%{target_ch}%", f"%{target_ch}%"),
-                ).fetchone()
-                if ch_row:
-                    conn.execute(
-                        """INSERT INTO okf_edges
-                           (series_slug, source_id, target_id, edge_type, weight, metadata_json)
-                           VALUES (?, ?, ?, 'ANSWERS_DEMAND', 1.0, ?)""",
-                        (s_slug, ch_row["node_id"], demand_node_id, json.dumps(d_meta)),
-                    )
+                target_node_id = None
+                for k, nid in chapter_node_map.items():
+                    if target_ch in k or k in target_ch:
+                        target_node_id = nid
+                        break
+                if target_node_id:
+                    edge_rows.append((s_slug, target_node_id, demand_node_id, "ANSWERS_DEMAND", 1.0, json.dumps(d_meta)))
+
+        # Batch insert nodes & edges in a single WAL transaction
+        with conn:
+            conn.execute("DELETE FROM okf_edges WHERE series_slug = ?", (s_slug,))
+            conn.execute("DELETE FROM okf_nodes WHERE series_slug = ?", (s_slug,))
+            conn.executemany(
+                """INSERT OR REPLACE INTO okf_nodes
+                   (node_id, series_slug, book_slug, node_type, label, metadata_json)
+                   VALUES (?, ?, ?, ?, ?, ?)""",
+                node_rows,
+            )
+            conn.executemany(
+                """INSERT INTO okf_edges
+                   (series_slug, source_id, target_id, edge_type, weight, metadata_json)
+                   VALUES (?, ?, ?, ?, ?, ?)""",
+                edge_rows,
+            )
+            from bwe.db import compute_series_fingerprint
+            import time
+            current_fp = compute_series_fingerprint(repo_root, s_slug)
+            conn.execute(
+                "INSERT OR REPLACE INTO graph_sync_meta (series_slug, fingerprint_sha256, updated_at) VALUES (?, ?, ?)",
+                (s_slug, current_fp, time.time()),
+            )
 
     conn.commit()
 
@@ -1126,10 +1195,8 @@ def compile_chapter_context_pack(
         should_close = True
 
     try:
-        # Check if okf_nodes has data for series; if not, build graph
-        count = conn.execute("SELECT count(*) FROM okf_nodes WHERE series_slug = ?", (series_slug,)).fetchone()[0]
-        if count == 0:
-            build_series_knowledge_graph(conn, root, series_slug)
+        from bwe.db import ensure_series_graph
+        ensure_series_graph(conn, root, series_slug)
 
         # 1. Find Target Chapter Node
         exact_id = f"ch:{series_slug}:{book_slug or 'root'}:{chapter_slug}"
@@ -1237,9 +1304,10 @@ def compile_chapter_context_pack(
                 continue
             c_data = json.loads(card_row["metadata_json"])
 
-            ord_val = cit.get("appearance_ordinal", 1)
+            book_ord = cit.get("book_ordinal", cit.get("appearance_ordinal", 1))
+            series_ord = cit.get("series_ordinal", book_ord)
             prior_loc = ""
-            if ord_val > 1:
+            if series_ord > 1:
                 # Find earlier appearance in series
                 prior_edge = conn.execute(
                     """SELECT metadata_json FROM okf_edges
@@ -1251,21 +1319,49 @@ def compile_chapter_context_pack(
                     pm = json.loads(prior_edge["metadata_json"])
                     prior_loc = f"Ch.{pm.get('chapter_num', 1)} ({pm.get('chapter_slug')}), Mv.{pm.get('movement_num', 'I')}"
 
+            # Escalation directive
+            if series_ord == 1:
+                esc_directive = "First appearance in the series. Establish formal study setup, sample/proof design, and physiological/mathematical mechanism."
+            elif series_ord >= 2 and book_ord == 1:
+                cb_edge = conn.execute(
+                    """SELECT metadata_json FROM okf_edges
+                       WHERE series_slug = ? AND edge_type = 'CROSS_BOOK_ESCALATES' AND json_extract(metadata_json, '$.card_slug') = ?
+                       ORDER BY edge_id DESC LIMIT 1""",
+                    (series_slug, c_data.get("card_slug")),
+                ).fetchone()
+                prev_b = json.loads(cb_edge["metadata_json"]).get("from_book", "earlier volume") if cb_edge else "earlier volume"
+                esc_directive = f"First appearance in this volume, but series ordinal is {series_ord} (introduced in {prev_b}). Reference foundational baseline in ONE dependent clause; escalate directly to systemic/organizational boundary conditions."
+            elif book_ord == 2:
+                esc_directive = f"Second appearance in volume (previously introduced in {prior_loc or 'earlier chapter'}). FORBIDDEN: Do not re-explain study design or methodology. Escalate directly to organizational, ecological, or systemic boundary conditions."
+            else:
+                esc_directive = f"Third+ appearance (introduced in {prior_loc or 'earlier chapter'}). Focus strictly on philosophical judgment, scalability limits, attenuation voltage drop, or fadeout."
+
             # Check bounds edge
             bounds_row = conn.execute(
                 """SELECT target_id FROM okf_edges
-                   WHERE series_slug = ? AND source_id = ? AND edge_type = 'CONTRADICTS_OR_BOUNDS'""",
+                   WHERE series_slug = ? AND source_id = ? AND edge_type IN ('CONTRADICTS_OR_BOUNDS', 'BOUNDS')""",
                 (series_slug, cid),
             ).fetchone()
             bounds_edge = bounds_row["target_id"].split(":")[-1] if bounds_row else ""
+
+            # Quantitative anchors
+            q_anchors = c_data.get("quantitative_anchors", [])
+            if q_anchors:
+                pack.quantitative_anchors.append({
+                    "card_slug": c_data.get("card_slug"),
+                    "anchors": q_anchors,
+                })
 
             pack.escalation_ledger.append({
                 "card_slug": c_data.get("card_slug"),
                 "title": c_data.get("title"),
                 "primary_lens": c_data.get("primary_lens"),
                 "certainty_grade": c_data.get("certainty_grade"),
-                "appearance_ordinal": ord_val,
+                "appearance_ordinal": book_ord,
+                "book_ordinal": book_ord,
+                "series_ordinal": series_ord,
                 "prior_loc": prior_loc,
+                "escalation_directive": esc_directive,
                 "escalation_plan": c_data.get("escalation_plan", {}),
                 "allowed_verbs": c_data.get("allowed_verbs", []),
             })
@@ -1288,13 +1384,22 @@ def compile_chapter_context_pack(
                 ).fetchone()
                 if card_row:
                     c_data = json.loads(card_row["metadata_json"])
+                    q_anchors = c_data.get("quantitative_anchors", [])
+                    if q_anchors:
+                        pack.quantitative_anchors.append({
+                            "card_slug": c_data.get("card_slug"),
+                            "anchors": q_anchors,
+                        })
                     pack.escalation_ledger.append({
                         "card_slug": c_data.get("card_slug"),
                         "title": c_data.get("title"),
                         "primary_lens": c_data.get("primary_lens"),
                         "certainty_grade": c_data.get("certainty_grade"),
                         "appearance_ordinal": 1,
+                        "book_ordinal": 1,
+                        "series_ordinal": 1,
                         "prior_loc": "",
+                        "escalation_directive": "First appearance in the series. Establish formal study setup, sample/proof design, and mechanism.",
                         "escalation_plan": c_data.get("escalation_plan", {}),
                         "allowed_verbs": c_data.get("allowed_verbs", []),
                     })
@@ -1306,6 +1411,82 @@ def compile_chapter_context_pack(
                         "forbidden_verbs": c_data.get("forbidden_verbs", []),
                         "bounds_edge": "",
                     })
+
+        # 3b. Tier 2: 2-Hop Typed Causal Graph Neighbors
+        all_cited_card_nodes = list(seen_card_ids)
+        if all_cited_card_nodes:
+            placeholders = ", ".join("?" for _ in all_cited_card_nodes)
+            typed_edges = conn.execute(
+                f"""SELECT source_id, target_id, edge_type, metadata_json FROM okf_edges
+                    WHERE series_slug = ? AND (source_id IN ({placeholders}) OR target_id IN ({placeholders}))
+                    AND edge_type IN ('EXTENDS', 'BOUNDS', 'CONTRASTS', 'MITIGATES', 'BRIDGES_LENS', 'CROSS_BOOK_ESCALATES', 'CONTRADICTS_OR_BOUNDS', 'RELATES_TO_CARD')""",
+                (series_slug, *all_cited_card_nodes, *all_cited_card_nodes),
+            ).fetchall()
+            for te in typed_edges:
+                src = te["source_id"]
+                tgt = te["target_id"]
+                etype = te["edge_type"]
+                other_id = tgt if src in seen_card_ids else src
+                t_node = conn.execute("SELECT label, metadata_json FROM okf_nodes WHERE node_id = ?", (other_id,)).fetchone()
+                target_title = t_node["label"] if t_node else other_id.split(":")[-1]
+                target_lens = ""
+                target_grade = ""
+                if t_node:
+                    try:
+                        tmeta = json.loads(t_node["metadata_json"])
+                        target_lens = tmeta.get("primary_lens", "")
+                        target_grade = tmeta.get("certainty_grade", "")
+                    except Exception:
+                        pass
+                pack.typed_causal_edges.append({
+                    "source_card": src.split(":")[-1],
+                    "relationship": etype,
+                    "target_card": other_id.split(":")[-1],
+                    "target_title": target_title,
+                    "target_lens": target_lens,
+                    "target_grade": target_grade,
+                })
+
+        # 3c. Tier 3: FTS5 BM25 Latent Card Discovery
+        ch_text_tokens = re.findall(r"[a-zA-Z0-9]+", f"{pack.chapter_title} {pack.chapter_subtitle}")
+        for mv in ch_meta.get("movements", []):
+            ch_text_tokens.extend(re.findall(r"[a-zA-Z0-9]+", mv.get("heading", "")))
+        distinct_tokens = [t.lower() for t in dict.fromkeys(ch_text_tokens) if len(t) >= 4 and not t.isdigit()][:8]
+
+        if distinct_tokens:
+            fts_query = " OR ".join(f'"{t}"' for t in distinct_tokens)
+            search_slug = series_slug.split("/i18n/")[0] if "/i18n/" in series_slug else series_slug
+            try:
+                fts_rows = conn.execute(
+                    """SELECT card_slug, title, bm25(evidence_cards_fts, 0.0, 0.0, 0.0, 3.0, 1.0) AS s
+                       FROM evidence_cards_fts
+                       WHERE series_slug = ? AND evidence_cards_fts MATCH ?
+                       ORDER BY s LIMIT 10""",
+                    (search_slug, fts_query),
+                ).fetchall()
+                for fr in fts_rows:
+                    c_slug = fr["card_slug"]
+                    if any(c_slug in cid for cid in seen_card_ids):
+                        continue
+                    raw_score = -float(fr["s"]) if fr["s"] is not None else 0.0
+                    norm_score = round(1.0 - math.exp(-max(0.0, raw_score) / 6.0), 3)
+                    if norm_score >= 0.35:
+                        cnode = conn.execute(
+                            "SELECT label, metadata_json FROM okf_nodes WHERE series_slug = ? AND node_type = 'card' AND node_id LIKE ?",
+                            (search_slug, f"%:{c_slug}"),
+                        ).fetchone()
+                        c_meta = json.loads(cnode["metadata_json"]) if cnode else {}
+                        pack.suggested_unlinked_cards.append({
+                            "card_slug": c_slug,
+                            "title": c_meta.get("title", fr["title"]),
+                            "certainty_grade": c_meta.get("certainty_grade", "Moderate"),
+                            "primary_lens": c_meta.get("primary_lens", "technical"),
+                            "bm25_score": norm_score,
+                        })
+                        if len(pack.suggested_unlinked_cards) >= 3:
+                            break
+            except Exception:
+                pass
 
         # 4. Split-Register Metaphors
         concept_rows = conn.execute(
@@ -1431,9 +1612,11 @@ def generate_series_map_svg(conn: sqlite3.Connection, series_slug: str) -> str:
         y = 90 + i * 28
         ch_y[ch["node_id"]] = y
         clean_lbl = ch["label"][:24]
+        escaped_title = clean_lbl.replace("'", "&apos;").replace('"', "&quot;")
         svg_parts.append(
-            f"<g class='cursor-pointer'><circle cx='120' cy='{y}' r='5' fill='#d97706'/>"
-            f"<text x='110' y='{y + 4}' fill='#d6d3d1' font-size='10' text-anchor='end'>{clean_lbl}</text></g>"
+            f"<g class='cursor-pointer group' data-node-id='{ch['node_id']}' data-label='{escaped_title}' data-type='chapter' onclick='window.inspectGraphNode ? window.inspectGraphNode(this) : null'>"
+            f"<circle cx='120' cy='{y}' r='5' fill='#d97706' class='transition-transform group-hover:scale-125'/>"
+            f"<text x='110' y='{y + 4}' fill='#d6d3d1' font-size='10' text-anchor='end' class='group-hover:fill-amber-300'>{clean_lbl}</text></g>"
         )
 
     card_y: dict[str, int] = {}
@@ -1444,9 +1627,14 @@ def generate_series_map_svg(conn: sqlite3.Connection, series_slug: str) -> str:
         grade = cm.get("certainty_grade", "Moderate")
         color = "#10b981" if grade == "High" else ("#f59e0b" if grade == "Moderate" else "#f43f5e")
         clean_lbl = cd["label"][:28]
+        lens = cm.get("primary_lens", "technical")
+        anchors = cm.get("quantitative_anchors", [])
+        anchors_str = "; ".join(anchors[:3]).replace("'", "&apos;").replace('"', "&quot;") if anchors else ""
+        escaped_title = clean_lbl.replace("'", "&apos;").replace('"', "&quot;")
         svg_parts.append(
-            f"<g class='cursor-pointer'><circle cx='480' cy='{y}' r='5' fill='{color}'/>"
-            f"<text x='495' y='{y + 4}' fill='#e7e5e4' font-size='10'>{clean_lbl} [{grade}]</text></g>"
+            f"<g class='cursor-pointer group' data-node-id='{cd['node_id']}' data-label='{escaped_title}' data-grade='{grade}' data-lens='{lens}' data-anchors='{anchors_str}' onclick='window.inspectGraphNode ? window.inspectGraphNode(this) : null'>"
+            f"<circle cx='480' cy='{y}' r='5' fill='{color}' class='transition-transform group-hover:scale-125'/>"
+            f"<text x='495' y='{y + 4}' fill='#e7e5e4' font-size='10' class='group-hover:fill-amber-300'>{clean_lbl} [{grade}]</text></g>"
         )
 
     lens_y: dict[str, int] = {}

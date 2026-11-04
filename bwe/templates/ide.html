@@ -718,6 +718,17 @@
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
           </button>
         </div>
+        <div x-show="selectedGraphNode"
+             x-transition
+             class="p-3 border-b border-amber-500/30 bg-amber-500/10 shrink-0 text-xs font-mono">
+          <div class="flex items-center justify-between">
+            <span class="text-amber-400 font-bold text-[10px] uppercase">Node Inspector</span>
+            <button @click="selectedGraphNode = null" aria-label="Close Node Inspector" class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-stone-400 hover:text-stone-200 text-xs">&times;</button>
+          </div>
+          <div class="font-bold text-stone-200 mt-1" x-text="selectedGraphNode?.label"></div>
+          <div class="text-stone-400 text-[10px] mt-0.5" x-text="selectedGraphNode?.details"></div>
+          <div class="text-[9px] text-stone-400 font-mono mt-1" x-text="selectedGraphNode?.nodeId"></div>
+        </div>
         <div id="context-pack-mount" class="flex-1 flex flex-col min-h-0 overflow-hidden">
           <div class="p-4 text-xs font-mono text-stone-400">Loading context pack...</div>
         </div>
@@ -750,9 +761,11 @@
       currentFilePath: 'series/parenthood-atlas/chapters/01-before-the-child-is-born.md',
       editorContent: `# Chapter 1 — Before the Child Is Born\n*Fertility, Parental Age, Folate, and What Pregnancy Stress Actually Does*\n\nThere is a moment when a child first becomes visible.\n\nIt may be the first ultrasound. A tiny flicker of light pulses on a dark screen, and a heartbeat is suddenly real. Or it may come weeks later: a kick beneath a resting hand, a paper printout curled at the edges, or a first sharp cry in a delivery room. We love these moments because they give life a clean starting line. A date goes onto a chart. A family story can officially begin.\n\nBiology does not wait for that moment. By the time a heartbeat shows up on a screen, cells have already divided dozens of times. Tiny sheets of tissue have folded into early organs, and the beginnings of a brain and heart are already in place. A new organ, the placenta, is already trading oxygen and nutrients between two separate bloodstreams. Meanwhile, the adults who will welcome this baby are changing too—in their hormones, their brains, and their daily lives. The baby has not been born yet, but development is already well underway.\n\n## I. A Map Without Panic: Science, Interpretation, and Art\n\nReading this map clearly takes a shared agreement between writer and reader. Throughout this book, we will hold three different kinds of truth in view without mixing them up: science, interpretation, and art. Science names what researchers can observe, measure, test against control groups, and repeat. When strong trials or genetic studies back a claim, we say the evidence shows it. When several good studies point the same way, we say the evidence suggests it. And when a finding comes from simple surveys where family background blurs the picture, we say one thing is associated with another.`,
       toastMessage: '',
+      selectedGraphNode: null,
       ttsSeries: 'parenthood-atlas',
       ttsChapter: '01-before-the-child-is-born',
       init() {
+        window.__ideApp = this;
         const updateDesktop = () => {
           this.isDesktop = window.innerWidth >= 1024;
         };
@@ -840,5 +853,24 @@
       }
     };
   }
+
+  window.inspectGraphNode = function(el) {
+    const nodeId = el.getAttribute('data-node-id') || '';
+    const label = el.getAttribute('data-label') || '';
+    const grade = el.getAttribute('data-grade') || '';
+    const lens = el.getAttribute('data-lens') || '';
+    const anchors = el.getAttribute('data-anchors') || '';
+    
+    let desc = label;
+    if (grade) desc += ` [${grade}] (${lens} lens)`;
+    if (anchors) desc += ` • Anchors: ${anchors}`;
+    
+    navigator.clipboard.writeText(nodeId);
+    if (window.__ideApp) {
+      window.__ideApp.selectedGraphNode = { label: label, details: desc, nodeId: nodeId };
+      window.__ideApp.toastMessage = `Selected: ${desc} (Node ID copied)`;
+      setTimeout(() => { if (window.__ideApp) window.__ideApp.toastMessage = ''; }, 3000);
+    }
+  };
 </script>
 {% endblock %}

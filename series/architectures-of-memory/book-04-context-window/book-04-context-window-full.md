@@ -1,6 +1,6 @@
 # series/architectures-of-memory/book-04-context-window — Full manuscript
 
-Compiled from `series/architectures-of-memory/book-04-context-window/chapters/*.md` in sorted filename order (2026-11-01).
+Compiled from `series/architectures-of-memory/book-04-context-window/chapters/*.md` in sorted filename order (2026-11-04).
 
 **Footnotes:** Each chapter defines reference-style footnotes locally. Some labels repeat across chapters; in one file, renderers may attach one definition to every use of a label.
 

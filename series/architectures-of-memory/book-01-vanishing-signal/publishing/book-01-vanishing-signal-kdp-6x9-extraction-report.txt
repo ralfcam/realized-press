@@ -3,8 +3,8 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-01-vanishing-signal-kdp-6x9.pdf
-SHA-256: 6ee3cf54c3cd77b6a2255f60d770d88016292148c2e05c1f20fc05f93914e88d
-Bytes: 246,596
+SHA-256: abe52bac561381feb3e301a3235f0ac5f9e3b03356237223033c5233df7f08b7
+Bytes: 246,488
 Pages: 65 (65/65 nonblank)
 
 Chapters:

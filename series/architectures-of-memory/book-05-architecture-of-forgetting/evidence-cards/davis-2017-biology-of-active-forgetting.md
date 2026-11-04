@@ -1,6 +1,6 @@
 ---
 okf_version: '0.3'
-card_id: davis-2017-active-forgetting-drosophila-neurobiology
+card_id: davis-2017-biology-of-active-forgetting
 series: architectures-of-memory
 primary_lens: philosophical
 causal_role: foundation

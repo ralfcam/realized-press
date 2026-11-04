@@ -1,6 +1,6 @@
 # series/architectures-of-memory/book-02-forget-gate — Full manuscript
 
-Compiled from `series/architectures-of-memory/book-02-forget-gate/chapters/*.md` in sorted filename order (2026-11-01).
+Compiled from `series/architectures-of-memory/book-02-forget-gate/chapters/*.md` in sorted filename order (2026-11-04).
 
 **Footnotes:** Each chapter defines reference-style footnotes locally. Some labels repeat across chapters; in one file, renderers may attach one definition to every use of a label.
 
@@ -91,7 +91,7 @@ In July 1991, Sepp Hochreiter submitted his master's thesis in Munich.[^hochreit
 
 Six years passed between that German thesis and the 1997 paper in *Neural Computation*.[^hochreiter1997] In computer science, six years is an epoch. During that window, recurrent networks suffered a deep chill. In 1994, Yoshua Bengio, Patrice Simard, and Paolo Frasconi published an independent proof.[^bengio1994] They showed that gradient descent struggles to link distant inputs across time. Many teams abandoned recurrent models entirely, turning to static classifiers or hidden Markov systems.
 
-The journey from Munich to the Dalle Molle Institute in Lugano was steep. Early drafts of the new recurrent architecture were rejected by major conferences, including NIPS.[^schmidhuber-hist] Reviewers found the equations dense, the wiring baroque, and the goal of training networks across hundreds of steps seemingly hopeless.
+The journey from Munich to the Dalle Molle Institute in Lugano was steep. Schmidhuber had already demonstrated that hierarchical history compression could bridge long delays by chunking predictable patterns,[^schmidhuber1992] but continuous sequence learning required a fundamentally new mechanism. Early drafts of the new recurrent architecture were rejected by major conferences, including NIPS.[^schmidhuber-hist] Reviewers found the equations dense, the wiring baroque, and the goal of training networks across hundreds of steps seemingly hopeless.
 
 This book opens at that six-year impasse because memory systems never arrive in a vacuum. A great proof does not become standard practice on mathematical merit alone. Ideas must survive translation from failure diagnosis to working code. Hochreiter and Schmidhuber had to move from naming what was broken to building an active bridge across time.
 
@@ -149,6 +149,8 @@ The 1997 model showed that constant error flow could preserve credit across time
 
 ## Notes
 
+[^schmidhuber1992]: **Grade: High** for hierarchical history compression and neural sequence chunkers collapsing predictable transitions to preserve temporal credit assignment across extended delays (Schmidhuber 1992). J. Schmidhuber, "Learning Complex, Extended Sequences Using the Principle of History Compression," *Neural Computation* 4, no. 2 (1992): 234–242, https://doi.org/10.1162/neco.1992.4.2.234. Evidence Card: `evidence-cards/schmidhuber-1992-learning-complex-extended-sequences.md`.
+
 [^hochreiter1991]: **Grade: High** for Hochreiter's 1991 Munich thesis proving that gradient descent across recurrent loops either decays exponentially to zero or explodes toward machine limits. S. Hochreiter, *Untersuchungen zu dynamischen neuronalen Netzen*, Diplomarbeit, Institut für Informatik, Technische Universität München (1991). Evidence Card: `evidence-cards/hochreiter-1997-constant-error-carousel.md`.
 
 [^hochreiter1997]: **Grade: High** across synthetic benchmarks that the Constant Error Carousel and input/output gating bridge temporal lags exceeding 1,000 steps without signal loss (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, DOI: 10.1162/neco.1997.9.8.1735. Evidence Card: `evidence-cards/hochreiter-1997-constant-error-carousel.md`.
@@ -173,7 +175,7 @@ Multiply 0.9 by itself fifty times, and you get roughly 0.005. Multiply 1.1 by i
 
 This arithmetic reality was the graveyard of early recurrent neural networks. When an error signal travels backward through time, standard backpropagation multiplies weight matrices at every step.[^bengio1994] If a network tries to bridge fifty or one hundred steps, the credit signal must survive dozens of successive multiplications. It never does. The learning signal either dissolves into floating-point dust or explodes into numerical chaos.
 
-In 1997, Sepp Hochreiter and Jürgen Schmidhuber proposed an alternative that was startling in its simplicity: stop multiplying.[^hochreiter1997] To ensure an error signal survives across arbitrary temporal distance, an architecture must replace repeated multiplication with addition. They named this mechanism the Constant Error Carousel.
+In 1997, Sepp Hochreiter and Jürgen Schmidhuber proposed a simple alternative: stop multiplying.[^hochreiter1997] Hierarchical chunking had tried to bypass the bottleneck through discrete sequence summaries,[^schmidhuber1992] but continuous sequence learning required smooth error flow. To ensure a learning signal survives across long time spans, an architecture must replace repeated multiplication with addition. They named this mechanism the Constant Error Carousel.
 
 ---
 
@@ -224,6 +226,8 @@ The early researchers realized that the carousel could not remain naked. It requ
 </aside>
 
 ## Notes
+
+[^schmidhuber1992]: **Grade: High** for neural sequence chunkers and history compression demonstrating that predictable sequence segments can be collapsed into compressed representations (Schmidhuber 1992). J. Schmidhuber, "Learning Complex, Extended Sequences Using the Principle of History Compression," *Neural Computation* 4, no. 2 (1992): 234–242, https://doi.org/10.1162/neco.1992.4.2.234. Evidence Card: `evidence-cards/schmidhuber-1992-learning-complex-extended-sequences.md`.
 
 [^hochreiter1997]: **Grade: High** for the Constant Error Carousel (CEC) eliminating exponential gradient decay across long temporal lags via an identity self-connection weight of 1.0 (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, DOI: 10.1162/neco.1997.9.8.1735. Evidence Card: `evidence-cards/hochreiter-1997-constant-error-carousel.md`.
 
@@ -708,7 +712,7 @@ In a neural network, knowledge lives in the connection weights between units. If
 
 First is tacit human habit: the informal workarounds, personal experience, and trust networks held inside individual minds.
 
-Second is artifact state: formal operating procedures, code repos, architectural blueprints, and policy binders.
+Second is artifact state: formal operating procedures, code repos, and policy binders. Barbara Levitt and James March established that organizational memory resides in historical routines—practices that survive personnel changes but become vulnerable when operational habits decay.[^levittmarch1988]
 
 When an experienced engineer, nurse, or plant manager leaves, the firm suffers a weight excision. The departing worker takes hundreds of non-linear insights out the door: which server crashes on Sunday nights, who in legal actually approves exceptions, and why an old script uses an obscure flag.
 
@@ -766,6 +770,8 @@ Yet as we will see in Chapter 9, this overreaction creates a pathology that is e
 </aside>
 
 ## Notes
+
+[^levittmarch1988]: **Grade: Moderate** for organizational learning encoding historical experience into routines that persist across personnel turnover, subject to competency traps and superstitious learning (Levitt & March 1988). B. Levitt and J. G. March, "Organizational Learning," *Annual Review of Sociology* 14 (1988): 319–338, https://doi.org/10.1146/annurev.so.14.080188.001535. Evidence Card: `evidence-cards/levitt-march-1988-organizational-learning-routines.md`.
 
 [^argote1990]: **Grade: Moderate** for empirical organizational forgetting rates of 15–25% per month during production shutdowns across industrial plants (Argote, Beckman & Epple 1990). L. Argote, S. L. Beckman, and D. Epple, "The Persistence and Transfer of Learning in Industrial Settings," *Management Science* 36, no. 2 (1990): 140–154, DOI: 10.1287/mnsc.36.2.140. Evidence Card: `evidence-cards/argote-1990-persistence-of-learning-industrial.md`.
 
@@ -996,7 +1002,7 @@ Intake represents new knowledge shaped by an input gate. In a business, this gat
 
 Retention represents history shaped by a forget gate. Managed forgetting is not an accident; it is an active choice. Researchers show that team forgetting splits across two paths: intentional versus accidental, and new versus established knowledge.[^holan2004]
 
-Accidental loss of proven routines is memory decay—a painful breakdown of team skill. But intentional removal of old routines is managed unlearning: the deliberate dismantling of obsolete habits that block change.[^tsang2008]
+Accidental loss of proven routines is memory decay—a painful breakdown of team skill. But intentional removal of old routines is managed unlearning: the deliberate dismantling of obsolete habits that block change.[^tsang2008] Without such unlearning, organizations fall into competency traps where proficiency in outdated routines blocks the adoption of superior practices.[^levittmarch1988]
 
 ---
 
@@ -1040,6 +1046,8 @@ It stays coherent by governing its own decay. A system that cannot forget cannot
 
 ## Notes
 
+[^levittmarch1988]: **Grade: Moderate** for competency traps where accumulated routine proficiency suppresses exploratory adaptation, creating institutional lock-in (Levitt & March 1988). B. Levitt and J. G. March, "Organizational Learning," *Annual Review of Sociology* 14 (1988): 319–338, https://doi.org/10.1146/annurev.so.14.080188.001535. Evidence Card: `evidence-cards/levitt-march-1988-organizational-learning-routines.md`.
+
 [^gers2000]: **Grade: High** for the adaptive forget gate enabling continual prediction without manual state resets, maintaining bounded cell states across unsegmented time series (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, DOI: 10.1162/089976600300015015. Evidence Card: `evidence-cards/gers-2000-forget-gate-continual-prediction.md`.
 
 [^holan2004]: **Grade: Moderate** for the four-mode organizational forgetting taxonomy (memory decay, failure to capture, unlearning, and managed forgetting) across organizational transitions (de Holan & Phillips 2004). P. M. de Holan and N. Phillips, "Remembrance of Things Past? The Dynamics of Organizational Forgetting," *Management Science* 50, no. 11 (2004): 1603–1613, DOI: 10.1287/mnsc.1040.0273. Evidence Card: `evidence-cards/holan-2004-dynamics-of-organizational-forgetting.md`.
@@ -1074,7 +1082,7 @@ Modern version control changed that model. In Git, history is never overwritten 
 
 Yet this append-only rule brings its own tension, mirroring state saturation in memory cells. If every small test, failed debugging probe, and accidental draft remains visible forever, navigation breaks down.
 
-Lehman's laws of software evolution show that as a system evolves, its complexity grows steadily unless teams work to reduce it.[^lehman1980] A messy history full of dead tangents becomes hard for new hires to read.
+Lehman's laws of software evolution show that as a system evolves, its complexity grows steadily unless teams work to reduce it.[^lehman1980] Without conscious routine pruning, organizations fall victim to superstitious learning—maintaining ceremonial logging procedures that yield no causal insight.[^levittmarch1988] A messy history full of dead tangents becomes hard for new hires to read.
 
 ---
 
@@ -1121,6 +1129,8 @@ When an organization issues a change order, it makes an explicit promise to the 
 </aside>
 
 ## Notes
+
+[^levittmarch1988]: **Grade: Moderate** for superstitious learning where ambiguous feedback reinforces ritualistic compliance routines without causal effectiveness (Levitt & March 1988). B. Levitt and J. G. March, "Organizational Learning," *Annual Review of Sociology* 14 (1988): 319–338, https://doi.org/10.1146/annurev.so.14.080188.001535. Evidence Card: `evidence-cards/levitt-march-1988-organizational-learning-routines.md`.
 
 [^lehman1980]: **Grade: High** for Lehman's laws of software evolution documenting monotonic complexity growth in continually modified software systems (Lehman 1980). M. M. Lehman, "Programs, Life Cycles, and Laws of Software Evolution," *Proceedings of the IEEE* 68, no. 9 (1980): 1060–1076, DOI: 10.1109/PROC.1980.11805.
 

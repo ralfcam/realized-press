@@ -82,6 +82,9 @@ sources:
   - id: Sider_2001
     resource: https://doi.org/10.1093/019924443x.001.0001
     title: "Four-Dimensionalism: An Ontology of Persistence and Time (2001)"
+  - id: Block_1962
+    resource: https://doi.org/10.1103/revmodphys.34.123
+    title: "The Perceptron: A Model for Brain Functioning. I (1962)"
 ---
 
 # Master Source Catalog (`book-01-vanishing-signal`)
@@ -111,3 +114,4 @@ sources:
 - **`Bergson_1889`** (1889): Essai sur les donnees immediates de la conscience — <https://doi.org/10.1037/10007-000>
 - **`Hobbes_1655`** (1655): De Corpore — <https://doi.org/10.1093/oseo/instance.00015505>
 - **`Sider_2001`** (2001): Four-Dimensionalism: An Ontology of Persistence and Time — <https://doi.org/10.1093/019924443x.001.0001>
+- **`Block_1962`** (1962): The Perceptron: A Model for Brain Functioning. I — <https://doi.org/10.1103/revmodphys.34.123>

@@ -8,7 +8,7 @@ In July 1991, Sepp Hochreiter submitted his master's thesis in Munich.[^hochreit
 
 Six years passed between that German thesis and the 1997 paper in *Neural Computation*.[^hochreiter1997] In computer science, six years is an epoch. During that window, recurrent networks suffered a deep chill. In 1994, Yoshua Bengio, Patrice Simard, and Paolo Frasconi published an independent proof.[^bengio1994] They showed that gradient descent struggles to link distant inputs across time. Many teams abandoned recurrent models entirely, turning to static classifiers or hidden Markov systems.
 
-The journey from Munich to the Dalle Molle Institute in Lugano was steep. Early drafts of the new recurrent architecture were rejected by major conferences, including NIPS.[^schmidhuber-hist] Reviewers found the equations dense, the wiring baroque, and the goal of training networks across hundreds of steps seemingly hopeless.
+The journey from Munich to the Dalle Molle Institute in Lugano was steep. Schmidhuber had already demonstrated that hierarchical history compression could bridge long delays by chunking predictable patterns,[^schmidhuber1992] but continuous sequence learning required a fundamentally new mechanism. Early drafts of the new recurrent architecture were rejected by major conferences, including NIPS.[^schmidhuber-hist] Reviewers found the equations dense, the wiring baroque, and the goal of training networks across hundreds of steps seemingly hopeless.
 
 This book opens at that six-year impasse because memory systems never arrive in a vacuum. A great proof does not become standard practice on mathematical merit alone. Ideas must survive translation from failure diagnosis to working code. Hochreiter and Schmidhuber had to move from naming what was broken to building an active bridge across time.
 
@@ -65,6 +65,8 @@ The 1997 model showed that constant error flow could preserve credit across time
 </aside>
 
 ## Notes
+
+[^schmidhuber1992]: **Grade: High** for hierarchical history compression and neural sequence chunkers collapsing predictable transitions to preserve temporal credit assignment across extended delays (Schmidhuber 1992). J. Schmidhuber, "Learning Complex, Extended Sequences Using the Principle of History Compression," *Neural Computation* 4, no. 2 (1992): 234–242, https://doi.org/10.1162/neco.1992.4.2.234. Evidence Card: `evidence-cards/schmidhuber-1992-learning-complex-extended-sequences.md`.
 
 [^hochreiter1991]: **Grade: High** for Hochreiter's 1991 Munich thesis proving that gradient descent across recurrent loops either decays exponentially to zero or explodes toward machine limits. S. Hochreiter, *Untersuchungen zu dynamischen neuronalen Netzen*, Diplomarbeit, Institut für Informatik, Technische Universität München (1991). Evidence Card: `evidence-cards/hochreiter-1997-constant-error-carousel.md`.
 

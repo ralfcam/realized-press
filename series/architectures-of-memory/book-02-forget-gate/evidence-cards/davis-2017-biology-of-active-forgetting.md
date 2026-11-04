@@ -34,6 +34,9 @@ sources:
   - id: Davis2017
     resource: https://doi.org/10.1016/j.neuron.2017.05.039
     title: "Davis and Zhong (2017), The Biology of Forgetting—A Perspective"
+  - id: Richards2017
+    resource: https://doi.org/10.1016/j.neuron.2017.04.037
+    title: "Richards and Frankland (2017), The Persistence and Transience of Memory"
 ---
 
 # Active Forgetting via Dedicated Molecular Signaling Pathways

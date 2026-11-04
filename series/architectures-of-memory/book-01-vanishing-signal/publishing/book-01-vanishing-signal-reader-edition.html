@@ -23,7 +23,7 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 .footnote-backref{text-decoration:none;margin-left:0.4rem;color:#888}
 .footnote-backref:hover{color:#8b3a1a}
 </style></head><body>
-<header><h1>The Architectures of Memory</h1><p><em>Realized Press · Reader Edition — Working Slice (2026-11-01)</em></p></header>
+<header><h1>The Architectures of Memory</h1><p><em>Realized Press · Reader Edition — Working Slice (2026-11-04)</em></p></header>
 <nav class='toc'><h2>Contents</h2><ol>
 <li><a href='#front-matter'>How to Use This Atlas: 2:00 AM Quick-Finder</a> <small>(PDF p. 2)</small></li>
 <li><a href='#chapter-01'>Chapter 1 — Rosenblatt&#x27;s Perceptron and the Dream of Learning Machines</a> <small>(PDF p. 5)</small></li>
@@ -215,7 +215,7 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <h2>I. Why Order Is Not Just More Inputs</h2>
 <p>Once backpropagation made hidden layers trainable, computer scientists turned toward time. Human speech, motor movement, sentences, and sensor readings are not random bags of words. They are ordered paths through time. In a sentence, the exact same word takes on completely different meanings depending on what came before it. In the late 1980s, connectionist researchers attacked this challenge using recurrent neural networks. These models carry an internal state forward step by step, updating it as each new input arrives.</p>
 <p>This chapter examines two foundational recurrent designs: Michael Jordan&#x27;s architecture and Jeffrey Elman&#x27;s Simple Recurrent Network. It also explores the learning rule that made recurrence trainable: Backpropagation Through Time (BPTT). This method unrolls a recurrent loop across time steps into a deep feedforward network. The standard calculus chain rule can then flow backward along that unfolded chain. Paul Werbos had formulated this unrolling technique in his 1974 Harvard thesis, publishing a comprehensive guide in 1990.<sup class="footnote-ref"><a href="#fn-04-1" id="fnref-04-1">[1]</a></sup> Rumelhart, Hinton, and Williams popularized the same core mathematics in their widely read 1986 publications.</p>
-<p>The early success was real, but it hid a severe mathematical trap. In 1991, Sepp Hochreiter completed a master&#x27;s thesis at the Technical University of Munich.<sup class="footnote-ref"><a href="#fn-04-2" id="fnref-04-2">[2]</a></sup> He proved that error gradients flowing across many time steps inevitably vanish to zero or explode to infinity. This was not caused by sloppy code. It was an inescapable property of multiplying weight matrices across deep sequence steps.</p>
+<p>The early success was real, but it hid a severe mathematical trap. At the Technical University of Munich, research on recurrent nets revealed why.<sup class="footnote-ref"><a href="#fn-04-2" id="fnref-04-2">[2]</a></sup> Error gradients flowing across long sequences vanish to zero or explode to infinity. This was not caused by sloppy code. It was an inevitable math result of multiplying weight matrices across many steps.</p>
 <p>Chapter 3 compared an error gradient to a financial debt across layers. In this chapter, that same debt stretches across time. Past inputs help cause present errors. As the sequence lengthens, the chain of debt grows longer. The error signal must travel backward through every historical link. Some signals arrive intact. Many others fade away before reaching the early decisions that incurred them.</p>
 <hr>
 <h2>II. From Jordan’s Echo to Elman’s Hidden Memory</h2>

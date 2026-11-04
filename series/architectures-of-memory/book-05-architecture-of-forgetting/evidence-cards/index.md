@@ -20,4 +20,4 @@ OKF v0.2 atomic evidence cards anchoring this closing volume across all three le
 ### Philosophical & Cognitive Lens (Ricoeur, Active Forgetting & Mortality)
 12. [`ricoeur-2004-memory-history-forgetting.md`](ricoeur-2004-memory-history-forgetting.md) — Memory, History, and the Ethics of Forgetting (Grade: High)
 13. [`nader-2000-fear-memories-reconsolidation-amygdala.md`](nader-2000-fear-memories-reconsolidation-amygdala.md) — Memory Reconsolidation and Labile Retrieval States (Grade: High)
-14. [`davis-2017-active-forgetting-drosophila-neurobiology.md`](davis-2017-active-forgetting-drosophila-neurobiology.md) — The Neurobiology of Active Forgetting (Grade: High)
+14. [`davis-2017-biology-of-active-forgetting.md`](davis-2017-biology-of-active-forgetting.md) — Active Forgetting via Dedicated Molecular Signaling Pathways (Grade: High)

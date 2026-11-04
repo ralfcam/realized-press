@@ -1,6 +1,6 @@
 # series/architectures-of-memory/book-01-vanishing-signal — Full manuscript
 
-Compiled from `series/architectures-of-memory/book-01-vanishing-signal/chapters/*.md` in sorted filename order (2026-11-01).
+Compiled from `series/architectures-of-memory/book-01-vanishing-signal/chapters/*.md` in sorted filename order (2026-11-04).
 
 **Footnotes:** Each chapter defines reference-style footnotes locally. Some labels repeat across chapters; in one file, renderers may attach one definition to every use of a label.
 
@@ -303,7 +303,7 @@ Once backpropagation made hidden layers trainable, computer scientists turned to
 
 This chapter examines two foundational recurrent designs: Michael Jordan's architecture and Jeffrey Elman's Simple Recurrent Network. It also explores the learning rule that made recurrence trainable: Backpropagation Through Time (BPTT). This method unrolls a recurrent loop across time steps into a deep feedforward network. The standard calculus chain rule can then flow backward along that unfolded chain. Paul Werbos had formulated this unrolling technique in his 1974 Harvard thesis, publishing a comprehensive guide in 1990.[^ch04-bptt] Rumelhart, Hinton, and Williams popularized the same core mathematics in their widely read 1986 publications.
 
-The early success was real, but it hid a severe mathematical trap. In 1991, Sepp Hochreiter completed a master's thesis at the Technical University of Munich.[^hochreiter1991] He proved that error gradients flowing across many time steps inevitably vanish to zero or explode to infinity. This was not caused by sloppy code. It was an inescapable property of multiplying weight matrices across deep sequence steps.
+The early success was real, but it hid a severe mathematical trap. At the Technical University of Munich, research on recurrent nets revealed why.[^hochreiter1991] Error gradients flowing across long sequences vanish to zero or explode to infinity. This was not caused by sloppy code. It was an inevitable math result of multiplying weight matrices across many steps.
 
 Chapter 3 compared an error gradient to a financial debt across layers. In this chapter, that same debt stretches across time. Past inputs help cause present errors. As the sequence lengthens, the chain of debt grows longer. The error signal must travel backward through every historical link. Some signals arrive intact. Many others fade away before reaching the early decisions that incurred them.
 

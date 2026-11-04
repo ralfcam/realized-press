@@ -50,7 +50,7 @@ Today, attention networks amplify this dilemma to an novel degree.
 
 ## IV. What It Means to Know
 
-The *Meno* reminds us that true understanding is more than looking up facts.
+The *Meno* reminds us that true understanding is more than looking up facts. In cognitive neuropsychology, Endel Tulving established that retrieving an impersonal fact engages purely noetic semantic lookup,[^tulving1985] whereas genuine discovery demands autonoetic mental reconstruction.
 
 The enslaved boy did not merely look at a pre-calculated table of square roots. He experienced the geometric necessity of why the diagonal doubles the area.
 
@@ -69,5 +69,7 @@ We become consumers of answers rather than creators of insight.
 </aside>
 
 ## Notes
+
+[^tulving1985]: **Grade: High** for the neurobiological dissociation between semantic fact retrieval (noetic awareness) and episodic mental time travel (autonoetic recollection) (Tulving 1985). E. Tulving, "Memory and consciousness," *Canadian Psychology* 26, no. 1 (1985): 1–12, https://doi.org/10.1037/h0080017. Evidence Card: `evidence-cards/tulving-1985-episodic-semantic-autonoetic-memory.md`.
 
 [^clark1998]: **Grade: Moderate** for active externalism and the boundary between internal cognition and external retrieval (Clark & Chalmers 1998). A. Clark and D. Chalmers, "The Extended Mind," *Analysis* 58, no. 1 (1998): 7–19. Evidence Card: `evidence-cards/clark-chalmers-1998-extended-mind-external-memory.md`.

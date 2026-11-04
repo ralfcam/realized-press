@@ -106,6 +106,12 @@ sources:
   - id: French_1999
     resource: https://doi.org/10.1016/S1364-6613(99)01294-2
     title: "Catastrophic forgetting in connectionist networks (1999)"
+  - id: Schmidhuber_1992
+    resource: https://doi.org/10.1162/neco.1992.4.2.234
+    title: "Learning Complex, Extended Sequences Using the Principle of History Compression (1992)"
+  - id: Levitt_1988
+    resource: https://doi.org/10.1146/annurev.so.14.080188.001535
+    title: "Organizational Learning (1988)"
 ---
 
 # Master Source Catalog (`book-02-forget-gate`)
@@ -143,3 +149,5 @@ sources:
 - **`chung2014empirical`** (2014): Empirical Evaluation of Gated Recurrent Neural Networks on Sequence Modeling — <https://arxiv.org/abs/1412.3555>
 - **`kirkpatrick2017ewc`** (2017): Overcoming catastrophic forgetting in neural networks — <https://doi.org/10.1073/pnas.1611835114>
 - **`French_1999`** (1999): Catastrophic forgetting in connectionist networks — <https://doi.org/10.1016/S1364-6613(99)01294-2>
+- **`Schmidhuber_1992`** (1992): Learning Complex, Extended Sequences Using the Principle of History Compression — <https://doi.org/10.1162/neco.1992.4.2.234>
+- **`Levitt_1988`** (1988): Organizational Learning — <https://doi.org/10.1146/annurev.so.14.080188.001535>

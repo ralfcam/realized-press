@@ -19,6 +19,6 @@ OKF v0.2 atomic evidence cards anchoring this volume across all three lenses (Te
 12. [`selbst-2018-intuitive-appeal-explainable-machines.md`](selbst-2018-intuitive-appeal-explainable-machines.md) — The Intuitive Appeal of Explainable Machines (Grade: Moderate)
 
 ### Philosophical Lens (Pattern, Semantics & Cognition)
-13. [`searle-1980-minds-brains-programs.md`](searle-1980-minds-brains-programs.md) — The Chinese Room Argument: Syntax Is Not Semantics (Grade: High)
+13. [`searle-1980-minds-brains-programs-chinese-room.md`](searle-1980-minds-brains-programs-chinese-room.md) — The Chinese Room Argument: Syntax Is Not Semantics (Grade: High)
 14. [`bender-2020-climbing-towards-nlu-octopus-test.md`](bender-2020-climbing-towards-nlu-octopus-test.md) — The Octopus Test: Form Does Not Imply Meaning (Grade: High)
 15. [`gopnik-2012-reconstructing-constructivism-bayesian-models.md`](gopnik-2012-reconstructing-constructivism-bayesian-models.md) — Reconstructing Constructivism: Causal Models and Bayesian Cognition (Grade: High)

@@ -204,3 +204,117 @@ def test_web_endpoint_series_map(client: TestClient):
     assert res.status_code == 200
     assert res.headers["content-type"] == "image/svg+xml"
     assert "<svg" in res.text
+
+
+def test_graph_rag_performance_and_warm_cache():
+    """Verify ensure_series_graph warm cache and context pack compilation speed."""
+    import time
+    from bwe.db import ensure_series_graph
+
+    conn = get_db()
+    t0 = time.perf_counter()
+    rebuilt = ensure_series_graph(conn, REPO_ROOT, "architectures-of-memory")
+    t1 = time.perf_counter()
+    warm_ms = (t1 - t0) * 1000
+    assert not rebuilt
+    assert warm_ms < 50.0  # Warm fingerprint check finishes sub-50ms
+
+    t2 = time.perf_counter()
+    pack = compile_chapter_context_pack(
+        series_slug="architectures-of-memory",
+        book_slug="book-01-vanishing-signal",
+        chapter_slug="01-rosenblatt-perceptron",
+        repo_root=REPO_ROOT,
+        conn=conn,
+    )
+    t3 = time.perf_counter()
+    pack_ms = (t3 - t2) * 1000
+    assert pack_ms < 50.0
+    assert pack.token_estimate() < 2500
+
+
+def test_typed_semantic_edges_and_cross_book_escalation():
+    """Verify typed card edges (EXTENDS, BOUNDS) and CROSS_BOOK_ESCALATES edges exist."""
+    conn = get_db()
+    
+    # Check cross-book escalation edges
+    cb_rows = conn.execute(
+        "SELECT COUNT(*) FROM okf_edges WHERE series_slug='architectures-of-memory' AND edge_type='CROSS_BOOK_ESCALATES'"
+    ).fetchone()[0]
+    assert cb_rows >= 10, f"Expected >= 10 CROSS_BOOK_ESCALATES edges in AoM, found {cb_rows}"
+
+    # Check typed card edges
+    typed_rows = conn.execute(
+        "SELECT edge_type, COUNT(*) FROM okf_edges WHERE series_slug='architectures-of-memory' GROUP BY edge_type"
+    ).fetchall()
+    edge_types = {r[0] for r in typed_rows}
+    assert "CROSS_BOOK_ESCALATES" in edge_types
+    assert "ESCALATES_TO" in edge_types
+    assert "CONTRADICTS_OR_BOUNDS" in edge_types or "BOUNDS" in edge_types
+
+
+def test_chapter_context_pack_3_tiers():
+    """Verify 3-Tier Context Pack contains Tier 1, Tier 2, and Tier 3 data structures."""
+    conn = get_db()
+    pack = compile_chapter_context_pack(
+        series_slug="architectures-of-memory",
+        book_slug="book-01-vanishing-signal",
+        chapter_slug="01-rosenblatt-perceptron",
+        repo_root=REPO_ROOT,
+        conn=conn,
+    )
+
+    # Tier 1
+    assert len(pack.epistemic_contract) > 0
+    assert len(pack.quantitative_anchors) > 0
+    assert pack.escalation_ledger[0]["series_ordinal"] >= 1
+    assert pack.escalation_ledger[0]["book_ordinal"] >= 1
+    assert "Escalation Instruction" in pack.to_markdown()
+
+    # Tier 2
+    assert len(pack.typed_causal_edges) > 0
+    assert pack.incoming_handoff is not None
+    assert pack.outgoing_handoff is not None
+    assert "Tier 2: 2-Hop Typed Causal Argument Map" in pack.to_markdown()
+
+    # Tier 3
+    assert len(pack.suggested_unlinked_cards) > 0
+    assert "Tier 3: Latent Evidence Discovery" in pack.to_markdown()
+
+    # Budget
+    assert pack.token_estimate() < 2500
+
+
+def test_graph_coherence_linter_spanish():
+    """Verify scripts/audit_manuscript.py graph coherence audit passes on Spanish Edition."""
+    import sys
+    if str(REPO_ROOT / "scripts") not in sys.path:
+        sys.path.insert(0, str(REPO_ROOT / "scripts"))
+    from audit_manuscript import audit_graph_coherence
+
+    lines, violations, is_ok = audit_graph_coherence(
+        REPO_ROOT, REPO_ROOT / "series" / "parenthood-atlas" / "i18n" / "es"
+    )
+    assert is_ok, f"Graph coherence failed on Spanish edition with violations: {violations}"
+    assert len(violations) == 0
+
+
+def test_graph_coherence_linter_all_aom_books():
+    """Verify graph coherence audit passes across all 5 volumes of Architectures of Memory."""
+    import sys
+    if str(REPO_ROOT / "scripts") not in sys.path:
+        sys.path.insert(0, str(REPO_ROOT / "scripts"))
+    from audit_manuscript import audit_graph_coherence
+
+    for book_slug in [
+        "book-01-vanishing-signal",
+        "book-02-forget-gate",
+        "book-03-weight-of-attention",
+        "book-04-context-window",
+        "book-05-architecture-of-forgetting",
+    ]:
+        book_dir = REPO_ROOT / "series" / "architectures-of-memory" / book_slug
+        lines, violations, is_ok = audit_graph_coherence(REPO_ROOT, book_dir)
+        assert is_ok, f"Graph coherence failed on {book_slug} with violations: {violations}"
+        assert len(violations) == 0
+

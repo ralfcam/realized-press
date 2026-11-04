@@ -424,6 +424,7 @@ def audit_graph_coherence(root: Path, book_path: Path) -> tuple[list[str], list[
 
     # Rule 7a: Epistemic Verb-to-Card Grade Parity
     v7a: list[str] = []
+    is_spanish = "/i18n/es" in series_slug or "es" in book_path.parts
     for e in cited_edges:
         src_id = e["source_id"]
         if src_id not in card_dict:
@@ -439,22 +440,35 @@ def audit_graph_coherence(root: Path, book_path: Path) -> tuple[list[str], list[
         for fv in forbidden:
             fv_clean = fv.replace("_", " ").lower()
             if re.search(r"\b" + re.escape(fv_clean) + r"\b", sent.lower()):
-                # Exclude noun phrases like "the causes of"
-                if re.search(r"\b(?:the|its|their|all|primary|major|direct|root)\s+" + re.escape(fv_clean) + r"\b", sent.lower()):
+                # Exclude noun phrases like "the causes of" or "las causas de"
+                if re.search(r"\b(?:the|its|their|all|primary|major|direct|root|la|las|el|los)\s+" + re.escape(fv_clean) + r"\b", sent.lower()):
                     continue
                 # Exclude negated/hedged claims
-                if not re.search(r"\b(not|never|neither|zero evidence|claims that [^.]+? proves|does not)\b", sent.lower()):
+                if not re.search(r"\b(not|never|neither|zero evidence|claims that [^.]+? proves|does not|no |nunca |tampoco)\b", sent.lower()):
                     v7a.append(f"- `{e_meta.get('chapter_slug')}`: citing sentence uses forbidden verb `{fv}` for card `{src_id.split(':')[-1]}`: \"{sent[:80]}...\"")
 
         # Low certainty unhedged claims
         if "low" in grade or "largely_confounded" in attenuation:
-            strong_verbs = ["proves", "proved", "causes", "caused", "demonstrates", "demonstrated", "establishes", "established"]
-            hedges = ["suggest", "correlat", "associat", "link", "tentative", "preliminary", "might", "may", "could", "unclear", "uncertain", "not ", "never ", "near-zero", "zero link"]
+            if is_spanish:
+                strong_verbs = [
+                    "demuestra", "demuestran", "demostró", "confirma", "confirman", "confirmó",
+                    "establece", "establecen", "estableció", "prueba", "prueban", "probó",
+                    "causa", "causan", "causó", "previene", "previenen", "previno",
+                ]
+                hedges = [
+                    "sugiere", "sugieren", "indica", "indican", "apunta", "se asocia",
+                    "se vincula", "correlaciona", "podría", "puede", "incierto", "no prueba",
+                    "no demuestra", "sin vínculo", "sin evidencia", "tentativo", "no ", "nunca ",
+                    "nulo", "nula", "cero", "sin ventaja", "sin beneficio",
+                ]
+            else:
+                strong_verbs = ["proves", "proved", "causes", "caused", "demonstrates", "demonstrated", "establishes", "established"]
+                hedges = ["suggest", "correlat", "associat", "link", "tentative", "preliminary", "might", "may", "could", "unclear", "uncertain", "not ", "never ", "near-zero", "zero link"]
             has_hedge = any(h in sent.lower() for h in hedges)
             if not has_hedge:
                 for sv in strong_verbs:
                     if re.search(r"\b" + sv + r"\b", sent.lower()):
-                        if re.search(r"\b(?:the|its|their|all|primary|major|direct|root)\s+" + re.escape(sv) + r"\b", sent.lower()):
+                        if re.search(r"\b(?:the|its|their|all|primary|major|direct|root|la|las|el|los)\s+" + re.escape(sv) + r"\b", sent.lower()):
                             continue
                         v7a.append(f"- `{e_meta.get('chapter_slug')}`: unhedged strong verb `{sv}` on Low certainty card `{src_id.split(':')[-1]}`: \"{sent[:80]}...\"")
                         break

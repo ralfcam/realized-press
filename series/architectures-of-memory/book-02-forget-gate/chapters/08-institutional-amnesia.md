@@ -24,7 +24,7 @@ In a neural network, knowledge lives in the connection weights between units. If
 
 First is tacit human habit: the informal workarounds, personal experience, and trust networks held inside individual minds.
 
-Second is artifact state: formal operating procedures, code repos, architectural blueprints, and policy binders.
+Second is artifact state: formal operating procedures, code repos, and policy binders. Barbara Levitt and James March established that organizational memory resides in historical routines—practices that survive personnel changes but become vulnerable when operational habits decay.[^levittmarch1988]
 
 When an experienced engineer, nurse, or plant manager leaves, the firm suffers a weight excision. The departing worker takes hundreds of non-linear insights out the door: which server crashes on Sunday nights, who in legal actually approves exceptions, and why an old script uses an obscure flag.
 
@@ -82,6 +82,8 @@ Yet as we will see in Chapter 9, this overreaction creates a pathology that is e
 </aside>
 
 ## Notes
+
+[^levittmarch1988]: **Grade: Moderate** for organizational learning encoding historical experience into routines that persist across personnel turnover, subject to competency traps and superstitious learning (Levitt & March 1988). B. Levitt and J. G. March, "Organizational Learning," *Annual Review of Sociology* 14 (1988): 319–338, https://doi.org/10.1146/annurev.so.14.080188.001535. Evidence Card: `evidence-cards/levitt-march-1988-organizational-learning-routines.md`.
 
 [^argote1990]: **Grade: Moderate** for empirical organizational forgetting rates of 15–25% per month during production shutdowns across industrial plants (Argote, Beckman & Epple 1990). L. Argote, S. L. Beckman, and D. Epple, "The Persistence and Transfer of Learning in Industrial Settings," *Management Science* 36, no. 2 (1990): 140–154, DOI: 10.1287/mnsc.36.2.140. Evidence Card: `evidence-cards/argote-1990-persistence-of-learning-industrial.md`.
 

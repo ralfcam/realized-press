@@ -10,7 +10,7 @@ Twenty-five years ago. almost every adult carried dozens of phone numbers in bio
 
 Today, our smartphones store every contact. The friction of retrieval has dropped to zero.
 
-In response, human brains executed an efficient cognitive calculation: we stopped memorizing phone numbers.
+In response, human brains executed an efficient cognitive calculation: we stopped memorizing phone numbers. In Endel Tulving's terms, looking up an external record engages factual semantic lookup while bypassing autonoetic recollective memory.[^tulving1985]
 
 This everyday observation was elevated into a formal scientific inquiry in 2011 by psychologist Betsy Sparrow and her colleagues.[^sparrow2011]
 
@@ -67,5 +67,7 @@ Serendipitous insight requires. That ideas collide inside the same mind. If all 
 </aside>
 
 ## Notes
+
+[^tulving1985]: **Grade: High** for double dissociations proving that external or semantic information lookup does not recruit episodic autonoetic re-experiencing (Tulving 1985). E. Tulving, "Memory and consciousness," *Canadian Psychology* 26, no. 1 (1985): 1–12, https://doi.org/10.1037/h0080017. Evidence Card: `evidence-cards/tulving-1985-episodic-semantic-autonoetic-memory.md`.
 
 [^sparrow2011]: **Grade: Moderate** for controlled experiments demonstrating cognitive offloading and the Google Effect in human transactive memory (Sparrow, Liu & Wegner 2011). B. Sparrow, J. Liu, and D. M. Wegner, "Google Effects on Memory: Cognitive Consequences of Having Information at Our Fingertips," *Science* 333, no. 6043 (2011): 776–778, DOI: 10.1126/science.1207745. Evidence Card: `evidence-cards/sparrow-2011-google-effects-on-memory.md`.

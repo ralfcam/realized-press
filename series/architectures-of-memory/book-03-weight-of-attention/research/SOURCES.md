@@ -85,6 +85,9 @@ sources:
   - id: March_1991
     resource: https://doi.org/10.1287/orsc.2.1.71
     title: "Exploration and Exploitation in Organizational Learning (1991)"
+  - id: Tulving_1985
+    resource: https://doi.org/10.1037/h0080017
+    title: "Memory and consciousness. (1985)"
 ---
 
 # Master Source Catalog (`book-03-weight-of-attention`)
@@ -115,3 +118,4 @@ sources:
 - **`Su_2024`** (2024): RoFormer: Enhanced transformer with Rotary Position Embedding — <http://dx.doi.org/10.1016/j.neucom.2023.127063>
 - **`Geva_2021`** (2021): Transformer Feed-Forward Layers Are Key-Value Memories — <http://dx.doi.org/10.18653/v1/2021.emnlp-main.446>
 - **`March_1991`** (1991): Exploration and Exploitation in Organizational Learning — <https://doi.org/10.1287/orsc.2.1.71>
+- **`Tulving_1985`** (1985): Memory and consciousness. — <https://doi.org/10.1037/h0080017>

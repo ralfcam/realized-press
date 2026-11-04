@@ -22,7 +22,7 @@ Intake represents new knowledge shaped by an input gate. In a business, this gat
 
 Retention represents history shaped by a forget gate. Managed forgetting is not an accident; it is an active choice. Researchers show that team forgetting splits across two paths: intentional versus accidental, and new versus established knowledge.[^holan2004]
 
-Accidental loss of proven routines is memory decay—a painful breakdown of team skill. But intentional removal of old routines is managed unlearning: the deliberate dismantling of obsolete habits that block change.[^tsang2008]
+Accidental loss of proven routines is memory decay—a painful breakdown of team skill. But intentional removal of old routines is managed unlearning: the deliberate dismantling of obsolete habits that block change.[^tsang2008] Without such unlearning, organizations fall into competency traps where proficiency in outdated routines blocks the adoption of superior practices.[^levittmarch1988]
 
 ---
 
@@ -65,6 +65,8 @@ It stays coherent by governing its own decay. A system that cannot forget cannot
 </aside>
 
 ## Notes
+
+[^levittmarch1988]: **Grade: Moderate** for competency traps where accumulated routine proficiency suppresses exploratory adaptation, creating institutional lock-in (Levitt & March 1988). B. Levitt and J. G. March, "Organizational Learning," *Annual Review of Sociology* 14 (1988): 319–338, https://doi.org/10.1146/annurev.so.14.080188.001535. Evidence Card: `evidence-cards/levitt-march-1988-organizational-learning-routines.md`.
 
 [^gers2000]: **Grade: High** for the adaptive forget gate enabling continual prediction without manual state resets, maintaining bounded cell states across unsegmented time series (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, DOI: 10.1162/089976600300015015. Evidence Card: `evidence-cards/gers-2000-forget-gate-continual-prediction.md`.
 

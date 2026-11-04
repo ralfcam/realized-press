@@ -1,6 +1,6 @@
 # series/architectures-of-memory/book-05-architecture-of-forgetting — Full manuscript
 
-Compiled from `series/architectures-of-memory/book-05-architecture-of-forgetting/chapters/*.md` in sorted filename order (2026-11-01).
+Compiled from `series/architectures-of-memory/book-05-architecture-of-forgetting/chapters/*.md` in sorted filename order (2026-11-04).
 
 **Footnotes:** Each chapter defines reference-style footnotes locally. Some labels repeat across chapters; in one file, renderers may attach one definition to every use of a label.
 
@@ -803,7 +803,7 @@ In the Santa Fe studio, the painter cleans her palette and looks at the canvas u
 
 # Coda: The Series Closes — Back to the Unread Proof
 
-In a basement archive in Munich, on a grey metal shelf, rests a spiral-bound thesis from 1991. The pages have yellowed at the edges. The cover bears the seal of the Department of Informatics. The author was a young student named Sepp Hochreiter, guided by his advisor Jürgen Schmidhuber. Across dozens of pages of handwritten derivations, the student proved that in any recurrent network trained across time, error signals inevitably decay to zero or explode to infinity. The thesis proved why neural networks could not remember.
+In a basement archive in Munich, on a grey metal shelf, rests a spiral-bound thesis from 1991. The pages have yellowed at the edges. The cover bears the seal of the Department of Informatics. The author was a young student named Sepp Hochreiter, guided by his advisor Jürgen Schmidhuber. Across dozens of pages of handwritten math, the student proved that in any recurrent net trained across time, error signals decay to zero or explode to infinity. The thesis showed why neural networks could not remember.
 
 For years, that work sat on the shelf unread. Connectionist research had fallen out of favor, and few scholars believed the problem mattered. Yet thirty-five years later, that Munich thesis stands as the origin point of a revolution that reshaped modern computing. Across five volumes, we have traced the long arc that began in that quiet archive.
 
@@ -827,7 +827,7 @@ Here, in our final volume, we have arrived at the moral and institutional fronti
 
 The deepest lesson of machine memory mirrors the biology and philosophy of the human mind.
 
-In his study of historical reconciliation, Paul Ricoeur demonstrates that social peace requires forgiveness and the temporal unbinding of past errors.[^ricoeur2004] His philosophical work establishes that human moral agency depends on the freedom to outgrow old mistakes. At the biological level, Ronald L. Davis and Yi Zhong demonstrate that living brains rely on dedicated biochemical pathways for active forgetting.[^davis2017] Living minds do not rot; they spend metabolic energy to prune away the obsolete so they can adapt to tomorrow.
+In his study of historical reconciliation, Paul Ricoeur demonstrates that social peace requires forgiveness and the unbinding of past errors.[^ricoeur2004] His work establishes that human moral agency depends on the freedom to outgrow old mistakes. In biology, research establishes that cellular paths dismantle synaptic traces rather than letting memories passively decay.[^davis2017] Living minds do not rot; they spend energy to prune away the obsolete so they can adapt to tomorrow.
 
 Every architecture of memory is an architecture of release. When we build systems that retain everything without decay, we violate the biological and moral conditions of human life.
 

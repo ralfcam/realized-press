@@ -1,6 +1,6 @@
 # series/architectures-of-memory/book-03-weight-of-attention — Full manuscript
 
-Compiled from `series/architectures-of-memory/book-03-weight-of-attention/chapters/*.md` in sorted filename order (2026-11-01).
+Compiled from `series/architectures-of-memory/book-03-weight-of-attention/chapters/*.md` in sorted filename order (2026-11-04).
 
 **Footnotes:** Each chapter defines reference-style footnotes locally. Some labels repeat across chapters; in one file, renderers may attach one definition to every use of a label.
 
@@ -1016,7 +1016,7 @@ Today, attention networks amplify this dilemma to an novel degree.
 
 ## IV. What It Means to Know
 
-The *Meno* reminds us that true understanding is more than looking up facts.
+The *Meno* reminds us that true understanding is more than looking up facts. In cognitive neuropsychology, Endel Tulving established that retrieving an impersonal fact engages purely noetic semantic lookup,[^tulving1985] whereas genuine discovery demands autonoetic mental reconstruction.
 
 The enslaved boy did not merely look at a pre-calculated table of square roots. He experienced the geometric necessity of why the diagonal doubles the area.
 
@@ -1036,6 +1036,8 @@ We become consumers of answers rather than creators of insight.
 
 ## Notes
 
+[^tulving1985]: **Grade: High** for the neurobiological dissociation between semantic fact retrieval (noetic awareness) and episodic mental time travel (autonoetic recollection) (Tulving 1985). E. Tulving, "Memory and consciousness," *Canadian Psychology* 26, no. 1 (1985): 1–12, https://doi.org/10.1037/h0080017. Evidence Card: `evidence-cards/tulving-1985-episodic-semantic-autonoetic-memory.md`.
+
 [^clark1998]: **Grade: Moderate** for active externalism and the boundary between internal cognition and external retrieval (Clark & Chalmers 1998). A. Clark and D. Chalmers, "The Extended Mind," *Analysis* 58, no. 1 (1998): 7–19. Evidence Card: `evidence-cards/clark-chalmers-1998-extended-mind-external-memory.md`.
 
 ---
@@ -1052,7 +1054,7 @@ Twenty-five years ago. almost every adult carried dozens of phone numbers in bio
 
 Today, our smartphones store every contact. The friction of retrieval has dropped to zero.
 
-In response, human brains executed an efficient cognitive calculation: we stopped memorizing phone numbers.
+In response, human brains executed an efficient cognitive calculation: we stopped memorizing phone numbers. In Endel Tulving's terms, looking up an external record engages factual semantic lookup while bypassing autonoetic recollective memory.[^tulving1985]
 
 This everyday observation was elevated into a formal scientific inquiry in 2011 by psychologist Betsy Sparrow and her colleagues.[^sparrow2011]
 
@@ -1109,6 +1111,8 @@ Serendipitous insight requires. That ideas collide inside the same mind. If all 
 </aside>
 
 ## Notes
+
+[^tulving1985]: **Grade: High** for double dissociations proving that external or semantic information lookup does not recruit episodic autonoetic re-experiencing (Tulving 1985). E. Tulving, "Memory and consciousness," *Canadian Psychology* 26, no. 1 (1985): 1–12, https://doi.org/10.1037/h0080017. Evidence Card: `evidence-cards/tulving-1985-episodic-semantic-autonoetic-memory.md`.
 
 [^sparrow2011]: **Grade: Moderate** for controlled experiments demonstrating cognitive offloading and the Google Effect in human transactive memory (Sparrow, Liu & Wegner 2011). B. Sparrow, J. Liu, and D. M. Wegner, "Google Effects on Memory: Cognitive Consequences of Having Information at Our Fingertips," *Science* 333, no. 6043 (2011): 776–778, DOI: 10.1126/science.1207745. Evidence Card: `evidence-cards/sparrow-2011-google-effects-on-memory.md`.
 
@@ -1279,7 +1283,7 @@ The model analyzes intricate legal contracts. drafts computer code, and composes
 
 Yet the instant the conversation concludes and the context window is cleared, every trace of that interaction vanishes.
 
-The network does not retain memories of what it just wrote. It experiences no lingering thoughts. forms no emotional bonds, and carries no biological engrams into the next prompt.
+The network does not retain memories of what it just wrote. It experiences no lingering thoughts, forms no emotional bonds, and carries no autonoetic engrams into the next prompt.[^tulving1985]
 
 It is an intellect of pure working memory—an intelligence. That lives entirely in the present moment. dissolving into silence between tokens.
 
@@ -1344,6 +1348,8 @@ That journey belongs to the next volume: *The Context Window*.
 </aside>
 
 ## Notes
+
+[^tulving1985]: **Grade: High** for autonoetic consciousness as the defining criterion of episodic memory, distinguishing autobiographical reflection from pure token lookup (Tulving 1985). E. Tulving, "Memory and consciousness," *Canadian Psychology* 26, no. 1 (1985): 1–12, https://doi.org/10.1037/h0080017. Evidence Card: `evidence-cards/tulving-1985-episodic-semantic-autonoetic-memory.md`.
 
 [^radford2019]: **Grade: High** for unsupervised multi-task learning in autoregressive Transformers (Radford et al. 2019). A. Radford, J. Wu, R. Child, D. Luan, D. Amodei, and I. Sutskever, "Language Models are Unsupervised Multitask Learners," *OpenAI Technical Report* (2019). Evidence Card: `evidence-cards/radford-2019-language-models-unsupervised-multitask.md`.
 

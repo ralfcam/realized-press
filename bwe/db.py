@@ -127,6 +127,14 @@ _OKF_GRAPH_DDL = """
     CREATE INDEX IF NOT EXISTS idx_okf_edges_source_type ON okf_edges(source_id, edge_type);
     CREATE INDEX IF NOT EXISTS idx_okf_edges_target_type ON okf_edges(target_id, edge_type);
     CREATE INDEX IF NOT EXISTS idx_okf_edges_series_type ON okf_edges(series_slug, edge_type);
+    CREATE INDEX IF NOT EXISTS idx_okf_edges_src ON okf_edges(series_slug, source_id, edge_type);
+    CREATE INDEX IF NOT EXISTS idx_okf_edges_dst ON okf_edges(series_slug, target_id, edge_type);
+
+    CREATE TABLE IF NOT EXISTS graph_sync_meta (
+        series_slug TEXT PRIMARY KEY,
+        fingerprint_sha256 TEXT NOT NULL,
+        updated_at REAL NOT NULL
+    );
 """
 
 
@@ -239,11 +247,106 @@ def _init_db_conn(conn: sqlite3.Connection, repo_root: Path) -> None:
         reindex_evidence_cards(conn, repo_root)
         reindex_chapters(conn, repo_root)
         try:
-            from bwe.graph_rag import build_series_knowledge_graph
-            build_series_knowledge_graph(conn, repo_root)
+            ensure_series_graph(conn, repo_root)
         except Exception:
             pass
     conn.commit()
+
+
+def compute_series_fingerprint(repo_root: Path, series_slug: str) -> str:
+    """Compute fast SHA-256 manifest fingerprint over file paths + (mtime_ns, size) in a series."""
+    import hashlib
+    series_dir = repo_root / "series"
+    if "/i18n/" in series_slug:
+        parent_name, lang = series_slug.split("/i18n/")
+        base_paths = [series_dir / parent_name / "i18n" / lang, series_dir / parent_name]
+    else:
+        base_paths = [series_dir / series_slug]
+
+    file_entries: list[tuple[str, int, int]] = []
+    seen_paths: set[Path] = set()
+    for bp in base_paths:
+        if not bp.is_dir():
+            continue
+        for pattern in (
+            "**/chapters/*.md",
+            "**/evidence-cards/*.md",
+            "**/sources.bib",
+            "characters.md",
+            "series.yaml",
+            "style/jargon-to-notes.yml",
+            "style/lexicon.yaml",
+        ):
+            for p in bp.glob(pattern):
+                if p.is_file() and p not in seen_paths and "preliminary" not in p.parts and not p.name.startswith("_"):
+                    seen_paths.add(p)
+                    st = p.stat()
+                    file_entries.append((p.relative_to(repo_root).as_posix(), st.st_mtime_ns, st.st_size))
+
+    file_entries.sort()
+    hasher = hashlib.sha256()
+    for path_str, mtime, size in file_entries:
+        hasher.update(f"{path_str}:{mtime}:{size}\n".encode("utf-8"))
+    return hasher.hexdigest()
+
+
+def ensure_series_graph(
+    conn: sqlite3.Connection,
+    repo_root: Path,
+    series_slug: Optional[str] = None,
+    force: bool = False,
+) -> bool:
+    """Ensure OKF property graph is synchronized with disk state.
+
+    Returns False in < 1 ms if series fingerprint matches graph_sync_meta and nodes exist.
+    Rebuilds via build_series_knowledge_graph if fingerprint diverges or nodes are missing.
+    """
+    from bwe.graph_rag import build_series_knowledge_graph
+    import time
+
+    conn.executescript(_OKF_GRAPH_DDL)
+
+    series_dir = repo_root / "series"
+    if not series_dir.is_dir():
+        return False
+
+    if series_slug:
+        slugs = [series_slug]
+    else:
+        discovered: set[str] = set()
+        for ch in series_dir.glob("**/chapters/*.md"):
+            if ch.name.startswith("_") or "preliminary" in ch.parts:
+                continue
+            rel = ch.relative_to(series_dir).parts
+            s_slug, _ = resolve_series_and_book_slug(rel)
+            discovered.add(s_slug)
+        slugs = sorted(discovered)
+
+    rebuilt_any = False
+    for s_slug in slugs:
+        current_fp = compute_series_fingerprint(repo_root, s_slug)
+        if not force:
+            row = conn.execute(
+                "SELECT fingerprint_sha256 FROM graph_sync_meta WHERE series_slug = ?",
+                (s_slug,),
+            ).fetchone()
+            if row and row[0] == current_fp:
+                node_cnt = conn.execute(
+                    "SELECT COUNT(*) FROM okf_nodes WHERE series_slug = ?",
+                    (s_slug,),
+                ).fetchone()[0]
+                if node_cnt > 0:
+                    continue
+
+        build_series_knowledge_graph(conn, repo_root, series_slug=s_slug)
+        conn.execute(
+            "INSERT OR REPLACE INTO graph_sync_meta (series_slug, fingerprint_sha256, updated_at) VALUES (?, ?, ?)",
+            (s_slug, current_fp, time.time()),
+        )
+        conn.commit()
+        rebuilt_any = True
+
+    return rebuilt_any
 
 
 def _extract_card_title(text: str, default: str) -> str:

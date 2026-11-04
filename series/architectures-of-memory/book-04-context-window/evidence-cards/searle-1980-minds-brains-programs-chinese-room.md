@@ -1,6 +1,6 @@
 ---
 okf_version: "0.3"
-card_id: "searle-1980-minds-brains-programs"
+card_id: "searle-1980-minds-brains-programs-chinese-room"
 series: "architectures-of-memory"
 primary_lens: "philosophical"
 causal_role: "boundary"

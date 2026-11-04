@@ -3,9 +3,9 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-03-weight-of-attention-kdp-6x9.pdf
-SHA-256: a70f10118ac815ebbbbbccf844a61d130330e8f4d53ff72ddadcea07c22e9b81
-Bytes: 213,443
-Pages: 58 (58/58 nonblank)
+SHA-256: 8fae224e4aa261cd324f006e10a1190be210c78888cfe70381d728c6e9e928dc
+Bytes: 215,485
+Pages: 59 (59/59 nonblank)
 
 Chapters:
 - PASS · PDF page 2 · How to Use This Atlas: 2:00 AM Quick-Finder

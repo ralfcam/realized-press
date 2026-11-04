@@ -20,7 +20,7 @@ Modern version control changed that model. In Git, history is never overwritten 
 
 Yet this append-only rule brings its own tension, mirroring state saturation in memory cells. If every small test, failed debugging probe, and accidental draft remains visible forever, navigation breaks down.
 
-Lehman's laws of software evolution show that as a system evolves, its complexity grows steadily unless teams work to reduce it.[^lehman1980] A messy history full of dead tangents becomes hard for new hires to read.
+Lehman's laws of software evolution show that as a system evolves, its complexity grows steadily unless teams work to reduce it.[^lehman1980] Without conscious routine pruning, organizations fall victim to superstitious learning—maintaining ceremonial logging procedures that yield no causal insight.[^levittmarch1988] A messy history full of dead tangents becomes hard for new hires to read.
 
 ---
 
@@ -67,6 +67,8 @@ When an organization issues a change order, it makes an explicit promise to the 
 </aside>
 
 ## Notes
+
+[^levittmarch1988]: **Grade: Moderate** for superstitious learning where ambiguous feedback reinforces ritualistic compliance routines without causal effectiveness (Levitt & March 1988). B. Levitt and J. G. March, "Organizational Learning," *Annual Review of Sociology* 14 (1988): 319–338, https://doi.org/10.1146/annurev.so.14.080188.001535. Evidence Card: `evidence-cards/levitt-march-1988-organizational-learning-routines.md`.
 
 [^lehman1980]: **Grade: High** for Lehman's laws of software evolution documenting monotonic complexity growth in continually modified software systems (Lehman 1980). M. M. Lehman, "Programs, Life Cycles, and Laws of Software Evolution," *Proceedings of the IEEE* 68, no. 9 (1980): 1060–1076, DOI: 10.1109/PROC.1980.11805.
 

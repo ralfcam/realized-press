@@ -8,7 +8,7 @@ Multiply 0.9 by itself fifty times, and you get roughly 0.005. Multiply 1.1 by i
 
 This arithmetic reality was the graveyard of early recurrent neural networks. When an error signal travels backward through time, standard backpropagation multiplies weight matrices at every step.[^bengio1994] If a network tries to bridge fifty or one hundred steps, the credit signal must survive dozens of successive multiplications. It never does. The learning signal either dissolves into floating-point dust or explodes into numerical chaos.
 
-In 1997, Sepp Hochreiter and Jürgen Schmidhuber proposed an alternative that was startling in its simplicity: stop multiplying.[^hochreiter1997] To ensure an error signal survives across arbitrary temporal distance, an architecture must replace repeated multiplication with addition. They named this mechanism the Constant Error Carousel.
+In 1997, Sepp Hochreiter and Jürgen Schmidhuber proposed a simple alternative: stop multiplying.[^hochreiter1997] Hierarchical chunking had tried to bypass the bottleneck through discrete sequence summaries,[^schmidhuber1992] but continuous sequence learning required smooth error flow. To ensure a learning signal survives across long time spans, an architecture must replace repeated multiplication with addition. They named this mechanism the Constant Error Carousel.
 
 ---
 
@@ -59,6 +59,8 @@ The early researchers realized that the carousel could not remain naked. It requ
 </aside>
 
 ## Notes
+
+[^schmidhuber1992]: **Grade: High** for neural sequence chunkers and history compression demonstrating that predictable sequence segments can be collapsed into compressed representations (Schmidhuber 1992). J. Schmidhuber, "Learning Complex, Extended Sequences Using the Principle of History Compression," *Neural Computation* 4, no. 2 (1992): 234–242, https://doi.org/10.1162/neco.1992.4.2.234. Evidence Card: `evidence-cards/schmidhuber-1992-learning-complex-extended-sequences.md`.
 
 [^hochreiter1997]: **Grade: High** for the Constant Error Carousel (CEC) eliminating exponential gradient decay across long temporal lags via an identity self-connection weight of 1.0 (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, DOI: 10.1162/neco.1997.9.8.1735. Evidence Card: `evidence-cards/hochreiter-1997-constant-error-carousel.md`.
 

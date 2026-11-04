@@ -12,7 +12,7 @@ The model analyzes intricate legal contracts. drafts computer code, and composes
 
 Yet the instant the conversation concludes and the context window is cleared, every trace of that interaction vanishes.
 
-The network does not retain memories of what it just wrote. It experiences no lingering thoughts. forms no emotional bonds, and carries no biological engrams into the next prompt.
+The network does not retain memories of what it just wrote. It experiences no lingering thoughts, forms no emotional bonds, and carries no autonoetic engrams into the next prompt.[^tulving1985]
 
 It is an intellect of pure working memory—an intelligence. That lives entirely in the present moment. dissolving into silence between tokens.
 
@@ -77,6 +77,8 @@ That journey belongs to the next volume: *The Context Window*.
 </aside>
 
 ## Notes
+
+[^tulving1985]: **Grade: High** for autonoetic consciousness as the defining criterion of episodic memory, distinguishing autobiographical reflection from pure token lookup (Tulving 1985). E. Tulving, "Memory and consciousness," *Canadian Psychology* 26, no. 1 (1985): 1–12, https://doi.org/10.1037/h0080017. Evidence Card: `evidence-cards/tulving-1985-episodic-semantic-autonoetic-memory.md`.
 
 [^radford2019]: **Grade: High** for unsupervised multi-task learning in autoregressive Transformers (Radford et al. 2019). A. Radford, J. Wu, R. Child, D. Luan, D. Amodei, and I. Sutskever, "Language Models are Unsupervised Multitask Learners," *OpenAI Technical Report* (2019). Evidence Card: `evidence-cards/radford-2019-language-models-unsupervised-multitask.md`.
 
