@@ -16,11 +16,11 @@ See **[VISION.md](VISION.md)** for the full product, monetization, and BWE softw
 | Series | Directory & Manifest | Three-Lens Method | Description & Current Release Slice |
 | :--- | :--- | :--- | :--- |
 | **Series 1: *Architectures of Memory*** | [`series/architectures-of-memory/`](series/architectures-of-memory/) ([`series.yaml`](series/architectures-of-memory/series.yaml)) | **Technical $\to$ Organizational $\to$ Philosophical** | Landmark five-book series exploring memory, persistence, and forgetting across artificial neural networks, institutional governance, and philosophy of mind. **Books 1–5 Complete**: Book 1 (*The Vanishing Signal*), Book 2 (*The Forget Gate*), Book 3 (*The Weight of Attention*), Book 4 (*The Context Window*), and Book 5 (*The Architecture of Forgetting*) — 87 chapters (~72k words), 65 OKF v0.3 cards ($\ge 12$ cards/volume floor satisfied across all 5 volumes), 116 locked BibTeX sources, KDP 6"×9" Print Interior, Kindle EPUB 3, and Reader Edition ready. |
-| **Series 2: *Parenthood: The Atlas*** | [`series/parenthood-atlas/`](series/parenthood-atlas/) ([`series.yaml`](series/parenthood-atlas/series.yaml)) | **Science $\to$ Interpretation $\to$ Art** | Developmental science field guide from conception through age 3. **`v1.0-rc3` Bestseller Release Slice**: 15 curated chapters + Quick-Finder front matter (56,952 words), 78 OKF v0.3 `evidence-cards/`, 139 verified BibTeX DOIs, zero retractions. Calibrated to Flesch-Kincaid Grade 8.0–10.0 with 100% clinical jargon isolated to chapter-local `## Notes` and HTMX side-drawer. KDP 6"×9" Print PDF & Reader Edition A4 PDF + EPUB 3 ready. Complete Spanish edition in `series/parenthood-atlas/i18n/es/` (61,981 words, Szigriszt $\ge 50.0$). |
+| **Series 2: *Parenthood: The Atlas*** | [`series/parenthood-atlas/`](series/parenthood-atlas/) ([`series.yaml`](series/parenthood-atlas/series.yaml)) | **Science $\to$ Interpretation $\to$ Art** | Developmental science field guide from conception through age 3. **`v1.0` Gold-Master Release Slice**: 15 curated chapters + Quick-Finder front matter (56,548 words), 78 OKF v0.3 `evidence-cards/`, 141 verified BibTeX DOIs, zero retractions, 1,081/1,081 (`100.0%`) covered search clusters. Calibrated to Flesch-Kincaid Grade 8.0–9.6 with 100% clinical jargon isolated to chapter-local `## Notes` and HTMX side-drawer. KDP 6"×9" Print PDF & Reader Edition A4 PDF + EPUB 3 ready. Complete Spanish edition in `series/parenthood-atlas/i18n/es/` (61,981 words, Szigriszt $\ge 50.0$). |
 
 ---
 
-## 2. The Book Writing Environment (BWE) Harness (`BWE v1.0.5`)
+## 2. The Book Writing Environment (BWE) Harness (`BWE v1.0.6`)
 
 | SDLC / IDE Equivalent | Realized Press BWE Component | Purpose |
 | :--- | :--- | :--- |

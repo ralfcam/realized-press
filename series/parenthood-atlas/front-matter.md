@@ -20,17 +20,17 @@ If you are reading at two in the morning with an upset baby on your shoulder, yo
 **Q: Do I need expensive "methylfolate" instead of folic acid if I have an MTHFR gene variant?**  
 *Chapter 1 (Movement III)* — No. Every global trial proving neural tube defect reduction used standard folic acid, which is safely metabolized regardless of common genetic variants. Expensive methylfolate supplements are commercial marketing without clinical proof of defect prevention.
 
-**Q: How much does a father's age at conception matter?**  
-*Chapter 1 (Movement II)* — Men over 45 pass along slightly more new genetic changes, but the absolute risk of rare conditions remains very low. The vast majority of children born to older fathers are completely healthy.
+**Q: How much does paternal age at conception matter for genetic mutations or autism risk?**  
+*Chapter 1 (Movement II)* — Men over 45 pass along slightly more new spontaneous genetic mutations, yet the absolute risk of rare conditions or autism remains very low. The vast majority of children born to older fathers are completely healthy.
 
 **Q: Can babies hear voices and remember music inside the womb?**  
 *Chapter 2 (Movement I)* — By the third trimester, a baby's hearing is fully functional. Newborns reliably recognize their mother's voice and native language melodies hours after delivery. Ordinary conversation is all the stimulation a fetus needs.
 
-**Q: Does a C-section or missing the first hour hurt bonding?**  
-*Chapter 3 (Movement II)* — Parent-infant attachment is built through thousands of daily interactions across months, not a single golden hour. Babies born by cesarean form secure attachments at the exact same rates as vaginally delivered babies.
+**Q: Does a C-section affect the baby's microbiome or skin-to-skin bonding?**  
+*Chapter 3 (Movement II)* — Parent-infant attachment is built through thousands of daily interactions across months, not a single golden hour, and cesarean-born babies form secure bonds at the exact same rates as vaginally delivered infants. Early microbiome differences narrow rapidly through skin-to-skin holding, everyday home touch, and feeding.
 
-**Q: Is newborn jaundice dangerous, and does my baby need "vaginal seeding" after a C-section?**  
-*Chapter 3 (Movement II)* — Mild jaundice is common and safely treated with hospital blue-light therapy; never expose a newborn to direct sunlight. Unregulated vaginal gauze swabbing carries real neonatal infection risks without proven health benefits.
+**Q: Is newborn jaundice dangerous, and does my baby need a phototherapy lamp or "vaginal seeding" after a C-section?**  
+*Chapter 3 (Movement II)* — Mild newborn jaundice is common and safely treated with hospital blue-light phototherapy lamps; never expose a newborn to direct sunlight. Unregulated vaginal seeding gauze swabbing carries real neonatal infection risks without proven health benefits.
 
 **Q: Does breastfeeding actually boost long-term IQ?**  
 *Chapter 3 (Movement III)* — Large randomized trials and sibling comparisons show that breastfeeding provides real immune protection against infant gut infections, but long-term IQ differences between siblings fed breastmilk versus formula shrink to near zero.
@@ -50,8 +50,8 @@ If you are reading at two in the morning with an upset baby on your shoulder, yo
 **Q: Is white noise safe to use for baby sleep?**  
 *Chapter 4 (Movement IV)* — White noise can help mask sudden household sounds, but machines placed inside the crib or run louder than 50 decibels can strain delicate infant hearing. Keep devices at least seven feet away on a low volume.
 
-**Q: Will sleep training damage my baby's attachment?**  
-*Chapter 4 (Movement II)* — Multiple randomized trials show that behavioral sleep strategies help babies sleep longer without damaging parent-child attachment or elevating long-term stress hormones.
+**Q: Will the Ferber method or gentle sleep training damage my baby's attachment?**  
+*Chapter 4 (Movement II)* — Multiple randomized trials show that graduated extinction (the Ferber method) and gentle sleep coaching help babies sleep longer without damaging parent-child attachment or elevating long-term stress hormones.
 
 **Q: What is happening during the 4-month sleep regression, and what should my baby eat at 6 months?**  
 *Chapter 4 (Movement II & IV)* — Around 4 months, infant sleep permanently reorganizes into adult-like four-stage sleep cycles, requiring independent falling-asleep skills. At 6 months, maternal iron stores deplete, making iron-rich first foods (meat or fortified cereal) vital for brain development.
@@ -62,11 +62,11 @@ If you are reading at two in the morning with an upset baby on your shoulder, yo
 **Q: Why does my baby drop spoons from the high chair on purpose?**  
 *Chapter 6 (Movement IV)* — Dropping objects is not defiance; it is a baby's first physics laboratory. Babies drop spoons to test gravity, bounce trajectories, and see whether objects make different sounds on different surfaces.
 
-**Q: Does my baby's flat head need a $3,000 shaping helmet?**  
-*Chapter 6 (Movement II)* — A landmark randomized controlled trial showed that rigid helmets produce zero added skull-rounding benefit over natural growth and floor play by age two. Once babies roll and sit upright, natural growth reshapes the head on its own.
+**Q: Does my baby's positional plagiocephaly (flat head) need a $3,000 shaping helmet?**  
+*Chapter 6 (Movement II)* — A landmark randomized controlled trial on positional plagiocephaly showed that rigid cranial helmets produce zero added skull-rounding benefit over natural growth and floor play by age two. Once babies roll and sit upright, natural growth reshapes the head on its own.
 
-**Q: How many words should an 18-month-old speak, and when is a speech delay a red flag?**  
-*Chapter 7 (Movement II)* — The median 18-month-old speaks about 50 words, but 10 to 20 words is common. As long as a toddler points to share interest, makes eye contact, and understands directions, language is on track; missing pointing or eye contact warrants prompt evaluation.
+**Q: How many words should an 18-month-old speak, and how do we tell a late talker from early autism signs?**  
+*Chapter 7 (Movement II)* — The median 18-month-old speaks about 50 words, but 10 to 20 words is common for a healthy late talker. As long as a toddler points to share interest, makes eye contact, and understands spoken directions, language is on track; missing pointing, joint attention, or eye contact warrants prompt evaluation.
 
 **Q: Does screen time cause speech delay?**  
 *Chapter 7 (Movement IV)* — Passive television and video apps do not teach words to babies. Speech delays track not with screens themselves, but with the lost back-and-forth conversational turns that screens replace.
@@ -95,11 +95,11 @@ If you are reading at two in the morning with an upset baby on your shoulder, yo
 **Q: Did the Stanford Marshmallow Test really prove preschool willpower determines life success?**  
 *Chapter 11 (Movement III)* — Nationwide replications showed that the famous marshmallow test mostly measured family income, home stability, and adult reliability rather than innate willpower. Kids wait when adults keep their promises.
 
-**Q: Do expensive Montessori toy kits make toddlers smarter?**  
-*Chapter 12 (Movement III)* — Studies show that pretend play and simple household objects exercise the same mental muscles as expensive branded toys. Ordinary play with blocks, pots, and cardboard boxes builds imagination just as well.
+**Q: Do expensive Montessori toy kits or weekly shelf rotations make toddlers smarter?**  
+*Chapter 12 (Movement III & IV)* — Studies show that pretend play and simple household objects exercise the same mental muscles as expensive branded kits. Setting out four to six simple toys on an open shelf rotation prevents visual overload, while ordinary play with blocks, pots, and cardboard boxes builds imagination just as well.
 
-**Q: Why am I experiencing sudden surges of intense anger and irritability (postpartum rage) instead of just feeling sad?**  
-*Chapter 13 (Movement II)* — Severe sleep fragmentation and nervous system overload frequently trigger sudden anger flares that standard depression screens miss; this rage is a biological signal of extreme physical depletion and missing support, not a moral failure or a lack of love for your child.
+**Q: Why am I experiencing sudden surges of intense anger (postpartum rage), and how much does paid parental leave matter?**  
+*Chapter 13 (Movement II & III)* — Severe sleep fragmentation and nervous system overload frequently trigger postpartum rage flares that standard depression screens miss; protected paid parental leave and household rest buffers directly reduce maternal stress and support infant regulatory health.
 
 **Q: Is my child's personality and intelligence locked in by age three?**  
 *Chapter 15 (Movement III)* — Comprehensive longitudinal studies show that roughly ninety percent of where a three-year-old ranks relative to peers remains open to change. The first three years are a launchpad and waypoint, never a final verdict.
