@@ -59,7 +59,7 @@ How much ordinary variation in first-hour adaptation forecasts later health once
 
 ## What This Does Not Mean
 
-A difficult first breath or a temporarily open shunt is not a developmental sentence. A smooth transition is not evidence of superior future cognition or character. Caregivers do not replace the placenta as an organ.
+A difficult first breath or a temporarily open shunt is not a developmental sentence. A smooth transition is not evidence of superior future cognition or character. Caregivers do not replace the placenta as an organ. Furthermore, neonatal cardiopulmonary transition and transient physiological neonatal jaundice (managed routinely when indicated with newborn phototherapy / blue light irradiance to isomerize unconjugated bilirubin) reflect acute physiological adaptation and hepatic enzyme maturation, not cranial deformities, developmental disability, or a temperament forecast.
 
 ## What Action Is Reasonably Justified
 

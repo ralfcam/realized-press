@@ -430,3 +430,43 @@ def test_brief_drawer_okf_v03_markup_and_compliance(client: TestClient):
         # Verify no low contrast classes (stone-500/600/700) or red alert tokens
         assert not re.search(r"\btext-stone-[567]00\b", html), "Found low contrast text-stone class"
         assert not re.search(r"\b(?:text|bg|border)-red-[456]00\b", html), "Found non-compliant red token"
+
+
+# =========================================================================
+# 6. EPISTEMIC DEMAND CARD ROUTING TESTS (ARC-93)
+# =========================================================================
+
+def test_epistemic_demand_card_routing():
+    """Verify term-fraction gating and co-citation weighting prevent false-positive ANSWERS_DEMAND edges."""
+    from bwe.db import get_db, bm25_coverage
+
+    conn = get_db()
+
+    # 1. Daycare / Nanny routing
+    cov_nanny = bm25_coverage(conn, "parenthood-atlas", ["daycare", "or", "nanny"])
+    assert cov_nanny.card != "severe-institutional-deprivation", "Routine childcare must not route to severe-institutional-deprivation"
+    assert cov_nanny.card == "early-childcare-quality", f"Expected early-childcare-quality, got {cov_nanny.card}"
+    assert cov_nanny.card_score > 0.50
+
+    # 2. Daycare cortisol comparison
+    cov_cortisol = bm25_coverage(conn, "parenthood-atlas", ["daycare", "vs", "stay", "at", "home", "mom", "cortisol", "study"])
+    assert cov_cortisol.card == "early-childcare-quality", f"Expected early-childcare-quality, got {cov_cortisol.card}"
+    assert cov_cortisol.card_score > 0.50
+
+    # 3. 18-month vocabulary query cluster
+    for q_tokens in [
+        ["how", "many", "words", "should", "18", "month", "say"],
+        ["how", "many", "words", "18", "months"],
+        ["how", "many", "words", "does", "18", "month", "old", "say"],
+    ]:
+        cov_words = bm25_coverage(conn, "parenthood-atlas", q_tokens)
+        assert cov_words.chapter == "07-the-birth-of-language", f"Expected Ch 07, got {cov_words.chapter}"
+        assert cov_words.card == "conversational-turns-language", f"Expected conversational-turns-language, got {cov_words.card}"
+        assert cov_words.card_score > 0.50
+
+    # 4. Newborn phototherapy out-of-scope routing
+    cov_photo = bm25_coverage(conn, "parenthood-atlas", ["newborn", "photo", "therapy"])
+    assert cov_photo.card != "plagiocephaly-flat-head-helmet-rct", "Newborn phototherapy must not match helmet therapy"
+    assert cov_photo.card is None, f"Expected None card for unmatched phototherapy query, got {cov_photo.card}"
+    assert cov_photo.card_score == 0.0
+    assert cov_photo.combined < 0.45, "Uncorroborated phototherapy query must remain below 0.45 coverage threshold"

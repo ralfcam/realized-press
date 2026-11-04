@@ -137,13 +137,16 @@ def graph(
     if gaps:
         where_kw = "WHERE series_slug = ? AND monthly_volume >= 1000"
         gap_rows = conn.execute(
-            f"""SELECT query, monthly_volume, cpc_high_usd, bm25_coverage_score, matched_card, matched_chapter
+            f"""SELECT query, monthly_volume, cpc_high_usd, bm25_coverage_score, bm25_chapter_score, bm25_card_score, matched_card, matched_chapter
                FROM keyword_signals {where_kw}
                ORDER BY bm25_coverage_score ASC, monthly_volume DESC LIMIT 15""",
             (series,),
         ).fetchall()
 
-        low_coverage = [r for r in gap_rows if (r["bm25_coverage_score"] or 0.0) < 0.45]
+        low_coverage = [
+            r for r in gap_rows
+            if (r["bm25_coverage_score"] or 0.0) < 0.45 or (r["bm25_card_score"] or 0.0) < 0.45
+        ]
         target_display = low_coverage if low_coverage else gap_rows[:10]
 
         if format.lower() == "json":
@@ -155,10 +158,16 @@ def graph(
             else:
                 for idx, r in enumerate(target_display, 1):
                     cov = r["bm25_coverage_score"] or 0.0
-                    flag = " [CRITICAL GAP < 0.45]" if cov < 0.45 else " [Covered]"
+                    card_cov = r["bm25_card_score"] or 0.0
+                    if cov < 0.45:
+                        flag = " [CRITICAL GAP < 0.45]"
+                    elif card_cov < 0.45:
+                        flag = " [Chapter-Covered / Card-Thin]"
+                    else:
+                        flag = " [Covered]"
                     typer.echo(
                         f"  {idx:>2}. '{r['query']}' | Vol: {r['monthly_volume']:,}/mo | "
-                        f"CPC: ${r['cpc_high_usd'] or 0.0:.2f} | Coverage Weight: {cov:.4f}{flag} | "
+                        f"CPC: ${r['cpc_high_usd'] or 0.0:.2f} | Coverage Weight: {cov:.4f} (card: {card_cov:.4f}){flag} | "
                         f"Card: {r['matched_card'] or 'None'}"
                     )
             typer.echo("")

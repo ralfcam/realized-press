@@ -424,6 +424,12 @@ sources:
   - id: ou-hall-2018-postpartum-anger
     resource: https://doi.org/10.1111/birt.12356
     title: "Ou & Hall (2018), Birth, Anger in the context of postnatal depression: An integrative review"
+  - id: vermeer-2006-daycare-cortisol
+    resource: https://doi.org/10.1016/j.ecresq.2006.07.004
+    title: "Vermeer & van IJzendoorn (2006), Early Childhood Research Quarterly, children's elevated cortisol levels at daycare meta-analysis"
+  - id: fenson-2007-cdi
+    resource: https://doi.org/10.1037/t11538-000
+    title: "Fenson et al. (2007), MacArthur-Bates Communicative Development Inventories: User's Guide and Technical Manual (2nd ed.)"
 ---
 
 # Master Source Catalog
@@ -590,6 +596,8 @@ These four live IDs will not acquire a Crossref journal DOI. They already have a
 | `de-weerth-1998-wonder-weeks` | de Weerth & van Geert (1998), British Journal of Developmental Psychology, strictly timed infantile transitions | [https://doi.org/10.1111/j.2044-835X.1998.tb00748.x](https://doi.org/10.1111/j.2044-835X.1998.tb00748.x) | [Chapter 5](chapters/05-becoming-a-mind.md) |
 | `nichd-2000-childcare-types` | NICHD Early Child Care Research Network (2000), Applied Developmental Science, Characteristics and Quality of Child Care | [https://doi.org/10.1207/S1532480XADS0403_2](https://doi.org/10.1207/S1532480XADS0403_2) | [Chapter 8](chapters/08-the-expanding-world.md) |
 | `ou-hall-2018-postpartum-anger` | Ou & Hall (2018), Birth, Anger in the context of postnatal depression: An integrative review | [https://doi.org/10.1111/birt.12356](https://doi.org/10.1111/birt.12356) | [Chapter 13](chapters/13-the-ecology-of-development.md) |
+| `vermeer-2006-daycare-cortisol` | Vermeer & van IJzendoorn (2006), Early Childhood Research Quarterly, children's elevated cortisol levels at daycare meta-analysis | [https://doi.org/10.1016/j.ecresq.2006.07.004](https://doi.org/10.1016/j.ecresq.2006.07.004) | [early-childcare-quality](evidence-cards/early-childcare-quality.md) |
+| `fenson-2007-cdi` | Fenson et al. (2007), MacArthur-Bates Communicative Development Inventories: User's Guide and Technical Manual (2nd ed.) | [https://doi.org/10.1037/t11538-000](https://doi.org/10.1037/t11538-000) | [conversational-turns-language](evidence-cards/conversational-turns-language.md) |
 
 ## Unresolved Citations
 

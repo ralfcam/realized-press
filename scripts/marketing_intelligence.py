@@ -145,6 +145,8 @@ NEGATIVE_TOKENS: set[str] = {
     # Nursing homework, academic slide presentations & forum/brand noise (ARC-79)
     "ppt", "pdf", "define", "definition", "indication", "indications",
     "lil mixins", "mumsnet", "baginal",
+    # Neonatal phototherapy / clinical hospital equipment out-of-scope intent (ARC-93)
+    "phototherapy", "photo therapy",
 }
 
 KDP_STOP_WORDS_ES: set[str] = {

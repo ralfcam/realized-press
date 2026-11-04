@@ -147,7 +147,7 @@ def test_bwe_db_bm25_coverage_in_memory():
     # Populate evidence_cards_fts
     conn.execute(
         "INSERT INTO evidence_cards_fts (series_slug, book_slug, card_slug, title, body) VALUES (?, ?, ?, ?, ?)",
-        ("series-test", "root", "card-leap-peanut", "LEAP Trial", "early peanut consumption prevents peanut allergy oral tolerance induction"),
+        ("series-test", "root", "card-leap-peanut", "LEAP Trial — Allergen Introduction", "early peanut consumption prevents peanut allergy and allergen introduction oral tolerance induction"),
     )
 
     # Search for peanut allergy query

@@ -574,9 +574,25 @@ def _term_fraction(conn: sqlite3.Connection, table: str, rowid: int, terms: list
     return hits / len(terms)
 
 
+STOPWORDS: set[str] = {
+    "a", "an", "the", "and", "or", "in", "on", "at", "to", "for", "of", "with",
+    "by", "from", "is", "are", "was", "were", "be", "been", "being", "have",
+    "has", "had", "do", "does", "did", "will", "would", "should", "could", "can",
+    "may", "might", "must", "vs", "versus", "about", "what", "when", "why", "how",
+    "de", "la", "el", "los", "las", "en", "y", "o", "un", "una", "unos", "unas",
+    "del", "al", "con", "por", "para", "como", "que", "es", "son",
+}
+
+
 def _best_document(
-    conn: sqlite3.Connection, table: str, label_sql: str, series_slug: str, match: str, terms: list[str],
+    conn: sqlite3.Connection,
+    table: str,
+    label_sql: str,
+    series_slug: str,
+    match: str,
+    terms: list[str],
     saturation: float,
+    co_cited_cards: Optional[set[str]] = None,
 ) -> tuple[Optional[sqlite3.Row], float, float]:
     """Return (best row, raw BM25 magnitude, normalised coverage 0..1) for one FTS5 table."""
     rows = conn.execute(
@@ -588,32 +604,56 @@ def _best_document(
     ).fetchall()
     if not rows:
         return None, 0.0, 0.0
+
+    non_stopwords = [t for t in terms if t.lower() not in STOPWORDS]
     best: Optional[tuple[float, int, int, float, sqlite3.Row]] = None
+
     for row in rows:
         rid = int(row["rid"])
         hits = 0
         title_hits = 0
+        matched_terms: list[str] = []
         for term in terms:
             if conn.execute(
                 f"SELECT 1 FROM {table} WHERE rowid = ? AND {table} MATCH ?;",
                 (rid, f'{{title body}} : "{term}"'),
             ).fetchone():
                 hits += 1
+                matched_terms.append(term)
             if conn.execute(
                 f"SELECT 1 FROM {table} WHERE rowid = ? AND {table} MATCH ?;",
                 (rid, f'{{title}} : "{term}"'),
             ).fetchone():
                 title_hits += 1
-        fraction = hits / len(terms)
+
+        fraction = hits / len(terms) if terms else 0.0
+
+        # Term-fraction gating for Evidence Cards (ARC-93)
+        if table == "evidence_cards_fts" and len(non_stopwords) >= 2:
+            matched_non_stopwords = {t for t in matched_terms if t.lower() not in STOPWORDS}
+            if len(matched_non_stopwords) < 2 and fraction < 0.50:
+                continue
+
         # SQLite FTS5 clamps IDF to 1e-6 when a term appears in >=50% of the table across series
         # (e.g. "training", "memory", "model"); adding a per-hit floor preserves multi-term and
         # title/subtitle relevance before scaling by sqrt(term fraction).
         raw = max(0.0, -float(row["s"])) + 1.5 * hits + 2.0 * title_hits
         score = _normalize_bm25(raw, saturation) * math.sqrt(fraction)
+
+        # Co-citation boost for candidate cards directly cited by the winning chapter (ARC-93)
+        if table == "evidence_cards_fts" and co_cited_cards:
+            card_slug = row["card_slug"] if "card_slug" in row.keys() else None
+            if card_slug and card_slug in co_cited_cards:
+                score = min(1.0, score * 1.25)
+                raw = raw * 1.25
+
         cand = (score, hits, title_hits, raw, row)
         if best is None or cand[:4] > best[:4]:
             best = cand
-    assert best is not None
+
+    if best is None:
+        return None, 0.0, 0.0
+
     score, _hits, _title_hits, raw, winner = best
     return winner, raw, score
 
@@ -645,6 +685,26 @@ def bm25_coverage(
         conn, "chapters_fts", "book_slug, chapter_slug", series_slug, match, terms, saturation
     )
 
+    # ARC-93: Extract co-cited cards from the winning chapter in okf_edges
+    co_cited_cards: set[str] = set()
+    if ch:
+        best_ch_slug = ch["chapter_slug"]
+        parent_slug = series_slug.partition("/i18n/")[0] if "/i18n/" in series_slug else series_slug
+        try:
+            cited_rows = conn.execute(
+                """
+                SELECT target_id FROM okf_edges
+                WHERE (series_slug = ? OR series_slug = ?)
+                  AND source_id LIKE ?
+                  AND edge_type = 'CITES_CARD';
+                """,
+                (series_slug, parent_slug, f"%:{best_ch_slug}"),
+            ).fetchall()
+            for cr in cited_rows:
+                co_cited_cards.add(cr[0].split(":")[-1])
+        except Exception:
+            pass
+
     is_i18n_without_cards = False
     if "/i18n/" in series_slug:
         has_local_cards = conn.execute(
@@ -665,15 +725,18 @@ def bm25_coverage(
             card_terms = [t for t in dict.fromkeys(card_terms) if re.fullmatch(r"[a-z0-9]+", t)]
             card_match = _fts_or_query(card_terms)
             card, raw_card, score_card = _best_document(
-                conn, "evidence_cards_fts", "card_slug", parent_slug, card_match, card_terms, saturation
+                conn, "evidence_cards_fts", "card_slug", parent_slug, card_match, card_terms, saturation,
+                co_cited_cards=co_cited_cards,
             )
         else:
             card, raw_card, score_card = _best_document(
-                conn, "evidence_cards_fts", "card_slug", series_slug, match, terms, saturation
+                conn, "evidence_cards_fts", "card_slug", series_slug, match, terms, saturation,
+                co_cited_cards=co_cited_cards,
             )
     else:
         card, raw_card, score_card = _best_document(
-            conn, "evidence_cards_fts", "card_slug", series_slug, match, terms, saturation
+            conn, "evidence_cards_fts", "card_slug", series_slug, match, terms, saturation,
+            co_cited_cards=co_cited_cards,
         )
 
     chapter = None
@@ -688,3 +751,6 @@ def bm25_coverage(
         raw_card_bm25=round(raw_card, 4),
         is_i18n_without_cards=is_i18n_without_cards,
     )
+
+
+compute_coverage_score = bm25_coverage
