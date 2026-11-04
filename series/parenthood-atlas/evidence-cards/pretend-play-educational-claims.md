@@ -2,7 +2,7 @@
 type: Evidence Card
 title: "Educational Claims About Pretend Play Exceed the Evidence"
 description: "Pretend play is a real developmental activity with plausible cognitive demands; evidence does not establish that it uniquely causes intelligence, executive function, theory of mind, or creativity."
-tags: [play, executive-function, evidence-appraisal]
+tags: [play, executive-function, evidence-appraisal, montessori, shelf rotation, toy rotation]
 status: draft
 confidence: high-overclaim; moderate-demands; low-unique-cause
 generated: { by: agent:cursor, at: 2026-09-16T09:00:00Z }
@@ -32,7 +32,7 @@ relates_to_cards:
 
 ## What We Know
 
-Pretend play has been claimed to be crucial for healthy development. Lillard et al. (2013) reviewed experimental and correlational evidence for language, narrative, emotion regulation, theory of mind, social skills, and executive function. They concluded that the evidence does not support strong causal claims about unique importance, and that equifinality—multiple routes to similar outcomes—is a serious alternative. Pretend play can recruit dual representation, inhibition of literal reading, memory, flexibility, and language. Those demands do not prove unique causation.
+Pretend play has been claimed to be crucial for healthy development. Lillard et al. (2013) reviewed experimental and correlational evidence for language, narrative, emotion regulation, theory of mind, social skills, and executive function. They concluded that the evidence does not support strong causal claims about unique importance, and that equifinality—multiple routes to similar outcomes—is a serious alternative. Pretend play can recruit dual representation, inhibition of literal reading, memory, flexibility, and language. Those demands do not prove unique causation. Commercial guidelines such as Montessori shelf rotation or toy rotation systems similarly claim enhanced focus and executive development; while minimizing clutter is practical, randomized trials do not establish that formal shelf rotation schedules causally accelerate cognitive milestones.
 
 ## How Confident We Are
 

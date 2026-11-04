@@ -487,3 +487,36 @@ def test_epistemic_demand_card_routing():
         assert cov_es.card == expected_card, f"Query '{q_text}' expected card {expected_card}, got {cov_es.card}"
         assert cov_es.card_score >= 0.45, f"Query '{q_text}' card_score {cov_es.card_score:.4f} < 0.45"
         assert cov_es.combined >= 0.45
+
+
+# =========================================================================
+# 7. IMPRINT DEMAND COVERAGE FLOORS (ARC-95)
+# =========================================================================
+
+def test_imprint_demand_coverage_floors():
+    """Verify all 3 imprint partitions maintain strict demand coverage floors (ARC-95)."""
+    from bwe.db import get_db
+    from scripts.marketing_intelligence import load_and_score_signals, seed_csv_path, read_seed_csv
+
+    conn = get_db()
+    root = REPO_ROOT
+
+    # 1. architectures-of-memory: 100% (73/73)
+    _, rows_aom = read_seed_csv(seed_csv_path("architectures-of-memory", root))
+    sigs_aom, _ = load_and_score_signals(conn, "architectures-of-memory", rows_aom)
+    assert len(sigs_aom) == 73
+    uncovered_aom = [s.query for s in sigs_aom if not s.covered]
+    assert len(uncovered_aom) == 0, f"AoM uncovered ({len(uncovered_aom)}): {uncovered_aom}"
+
+    # 2. parenthood-atlas/i18n/es: >= 98.0%
+    _, rows_es = read_seed_csv(seed_csv_path("parenthood-atlas/i18n/es", root))
+    sigs_es, _ = load_and_score_signals(conn, "parenthood-atlas/i18n/es", rows_es)
+    cov_pct_es = sum(1 for s in sigs_es if s.covered) / len(sigs_es) * 100
+    assert cov_pct_es >= 98.0, f"ES coverage {cov_pct_es:.1f}% < 98.0%"
+
+    # 3. parenthood-atlas: >= 99.0%
+    _, rows_en = read_seed_csv(seed_csv_path("parenthood-atlas", root))
+    sigs_en, _ = load_and_score_signals(conn, "parenthood-atlas", rows_en)
+    cov_pct_en = sum(1 for s in sigs_en if s.covered) / len(sigs_en) * 100
+    assert cov_pct_en >= 99.0, f"EN coverage {cov_pct_en:.1f}% < 99.0%"
+

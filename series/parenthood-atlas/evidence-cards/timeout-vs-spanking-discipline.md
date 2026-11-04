@@ -2,7 +2,7 @@
 type: Evidence Card
 title: "Discipline and Behavioral Boundaries: Time-Outs, Physical Punishment, and Escalation"
 description: "Physical punishment is associated with increased child aggression, externalizing problems, and antisocial behavior without promoting compliance; calm, brief time-out protocols serve as effective de-escalation tools without damaging attachment."
-tags: [boundaries, discipline, parenting, toddlers]
+tags: [boundaries, discipline, parenting, toddlers, temper tantrums, how to respond to temper tantrums, time-out]
 status: draft
 confidence: moderate-sibling-triangulation; low-technique-alone
 generated: { by: agent:antigravity, at: 2026-10-29T18:00:00Z }
@@ -35,7 +35,7 @@ relates_to_cards:
 
 ## What We Know
 
-When toddlers engage in dysregulated behaviors such as hitting, biting, kicking, or refusing rules, parental responses strongly shape subsequent aggression trajectories. Gershoff & Grogan-Kaylor (2016) synthesized 75 studies (N > 160,000 children) across five decades, finding that physical punishment (spanking) is consistently associated with increased aggressive behavior, externalizing problems, reduced cognitive ability, and weakened moral internalization, with no evidence of superior short- or long-term compliance compared to nonphysical discipline. In contrast, well-implemented brief time-out protocols (1–3 minutes of quiet emotional down-regulation within a warm, responsive relationship) consistently reduce coercive cycles, aggression, and oppositional defiance across randomized controlled trials without adverse effects on attachment security or emotional health (Dadds & Tully 2019).
+When toddlers engage in dysregulated behaviors such as hitting, biting, kicking, or refusing rules, parental responses strongly shape subsequent aggression trajectories. How to respond to temper tantrums is a core operational challenge: pairing calm adult coregulation with brief non-punitive pauses breaks coercive reinforcement cycles far more effectively than shouting or force. Gershoff & Grogan-Kaylor (2016) synthesized 75 studies (N > 160,000 children) across five decades, finding that physical punishment (spanking) is consistently associated with increased aggressive behavior, externalizing problems, reduced cognitive ability, and weakened moral internalization, with no evidence of superior short- or long-term compliance compared to nonphysical discipline. In contrast, well-implemented brief time-out protocols (1–3 minutes of quiet emotional down-regulation within a warm, responsive relationship) consistently reduce coercive cycles, aggression, and oppositional defiance across randomized controlled trials without adverse effects on attachment security or emotional health (Dadds & Tully 2019).
 
 ## How Confident We Are
 

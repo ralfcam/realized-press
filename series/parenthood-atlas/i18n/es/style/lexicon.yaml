@@ -130,3 +130,8 @@ terms:
   frenotomy_surgery:         { en: "neonatal frenotomy tongue-tie ankyloglossia clipping necessary surgery", es: "cortar frenillo lingual bebe cirugia necesaria" }
   breastfeeding_formula_iq:  { en: "breastfeeding formula cognitive development IQ sibling comparison PROBIT", es: "lactancia materna vs formula inteligencia hermanos" }
 
+  # GKP ES Batch-1 Demand Lexicon Bridge (ARC-95)
+  blw_weaning_methods:       { en: "baby led weaning BLW complementary feeding purees choking hazard nutrition quantities start recipes", es: "aplicando aprendiendo blw cantidades comienzo menus oms alimentacion complementaria" }
+  cranial_orthosis_helmet:   { en: "cranial helmet orthosis plagiocephaly flat head skull reshaping", es: "casco corrector ortesis craneal plagiocefalia cabeza plana" }
+  respectful_toilet_limits:  { en: "toilet learning readiness diaper elimination boundaries limits respect", es: "dejar el panal respetuosamente limites respetuosos crianza" }
+

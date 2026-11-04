@@ -2,7 +2,7 @@
 type: Evidence Card
 title: "Positional Plagiocephaly and Cranial Orthotic Helmet Therapy"
 description: "Randomized controlled trial evidence demonstrates that custom cranial orthotic helmets provide no added skull-rounding benefit over natural course for moderate-to-severe infant plagiocephaly by age 2."
-tags: [motor-development, physical-development, plagiocephaly, cranial-remolding, helmet-therapy, rct, infant-health]
+tags: [motor-development, physical-development, plagiocephaly, cranial-remolding, helmet-therapy, rct, infant-health, flat head, flat spot, correcting plagiocephaly, brachycephaly]
 status: draft
 confidence: high-for-lack-of-added-benefit-over-natural-course; low-for-severe-syndromic-craniosynostosis
 generated: { by: agent:antigravity, at: 2026-10-31T00:30:00Z }
@@ -32,7 +32,7 @@ relates_to_cards:
 
 ## What We Know
 
-Rigorous pragmatic randomized controlled trial evidence shows that custom cranial orthotic helmets (costing $2,000 to $3,500) provide no clinically meaningful or statistically significant advantage in skull shape recovery over the natural course (wait-and-see with physical repositioning and tummy time) by age 2 in infants with moderate-to-severe nonsynostotic positional plagiocephaly or brachycephaly. Spontaneous skull re-rounding occurs at statistically indistinguishable rates in both groups once infants achieve independent sitting and upright motor control.
+Rigorous pragmatic randomized controlled trial evidence shows that custom cranial orthotic helmets (costing $2,000 to $3,500) provide no clinically meaningful or statistically significant advantage in skull shape recovery over the natural course (wait-and-see with physical repositioning and tummy time) by age 2 in infants with moderate-to-severe nonsynostotic positional plagiocephaly or brachycephaly. Spontaneous skull re-rounding occurs at statistically indistinguishable rates in both groups once infants achieve independent sitting and upright motor control. Prescribing a helmet for flat spot or for correcting plagiocephaly / brachycephaly routinely addresses parental cosmetic worry rather than underlying neurological risk.
 
 ## How Confident We Are
 

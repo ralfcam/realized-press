@@ -6,7 +6,7 @@ Cold-start orientation map for human collaborators and AI agents working in the 
 
 ## 1. Monorepo & BWE Architecture
 
-This repository unites nonfiction book series under a single **Book Writing Environment (BWE v1.0.4)** governed by **Open Knowledge Format (OKF v0.3)**, **5-Step MCP Tool Routing**, and **Multi-Channel Publishing (Amazon KDP 6"×9" Print PDF + Kindle EPUB 3, Patreon Reader Edition PDF+HTML, and Gemini TTS Audiobook)**:
+This repository unites nonfiction book series under a single **Book Writing Environment (BWE v1.0.5)** governed by **Open Knowledge Format (OKF v0.3)**, **5-Step MCP Tool Routing**, and **Multi-Channel Publishing (Amazon KDP 6"×9" Print PDF + Kindle EPUB 3, Patreon Reader Edition PDF+HTML, and Gemini TTS Audiobook)**:
 
 | Series | Root Path & Manifest | Linear Project (Team `ARC`) | Epistemic Three-Lens Method | Current Status |
 | :--- | :--- | :--- | :--- | :--- |

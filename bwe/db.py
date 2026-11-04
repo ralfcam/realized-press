@@ -423,6 +423,7 @@ def reindex_evidence_cards(conn: sqlite3.Connection, repo_root: Path) -> None:
             "INSERT INTO evidence_cards_fts (series_slug, book_slug, card_slug, title, body) VALUES (?, ?, ?, ?, ?)",
             (series_slug, book_slug, card_path.stem, title, text),
         )
+    conn.commit()
 
 
 def reindex_chapters(conn: sqlite3.Connection, repo_root: Path) -> None:
@@ -441,6 +442,7 @@ def reindex_chapters(conn: sqlite3.Connection, repo_root: Path) -> None:
             "INSERT INTO chapters_fts (series_slug, book_slug, chapter_slug, title, body) VALUES (?, ?, ?, ?, ?)",
             (series_slug, book_slug, ch_path.stem, title, text),
         )
+    conn.commit()
 
 
 # ---------------------------------------------------------------------------

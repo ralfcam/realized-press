@@ -61,6 +61,9 @@ STOPWORDS = {
     "the", "a", "an", "in", "on", "of", "for", "vs", "or", "and", "with", "from",
     "by", "at", "baby", "babies", "toddler", "toddlers", "child", "kids", "old",
     "doesnt", "dont", "isnt", "myth", "debunked", "really", "actually", "study", "versus",
+    # Spanish stopwords & query modifiers (ARC-95)
+    "de", "la", "el", "los", "las", "en", "y", "o", "un", "una", "unos", "unas",
+    "del", "al", "con", "por", "para", "como", "que", "es", "son", "su", "sus", "sin",
 }
 
 # Opportunity = vol x trend x intent / (1 + ALPHA*chapter_cov + BETA*card_cov).
@@ -145,6 +148,9 @@ NEGATIVE_TOKENS: set[str] = {
     # Nursing homework, academic slide presentations & forum/brand noise (ARC-79)
     "ppt", "pdf", "define", "definition", "indication", "indications",
     "lil mixins", "mumsnet", "baginal",
+    # Retail product noise, commercial pricing & third-party author/blog brands (ARC-95)
+    "precio", "opiniones", "plato", "bambu", "lucia mi pediatra", "mami natura", "maminatura",
+    "pottywise", "helmet cost", "nanny cost", "daycare cost",
 }
 
 KDP_STOP_WORDS_ES: set[str] = {
@@ -164,12 +170,13 @@ KDP_STOP_WORDS_FR: set[str] = {
 }
 
 SERIES_DOMAIN_ANCHORS_ES: set[str] = {
-    "bebe", "bebes", "lactante", "lactantes", "recien", "nacido", "nacidos", "nino", "ninos",
+    "bebe", "bebes", "baby", "weaning", "lactante", "lactantes", "recien", "nacido", "nacidos", "nino", "ninos",
     "embarazo", "embarazada", "parto", "cesarea", "lactancia", "sueno", "dormir", "colecho", "blw",
     "rabietas", "berrinches", "apego", "crianza", "pantallas", "bilingue", "padres", "madre", "padre",
-    "guarderia", "escuela", "infantil",
-    "plagiocefalia", "casco", "habla", "palabras", "esfinteres", "panal", "limites", "respetuosa",
-    "ictericia", "fototerapia", "folico", "cacahuate", "alergias", "papillas",
+    "paterna", "paterno", "autismo", "guarderia", "escuela", "infantil", "juego", "juguetes",
+    "montessori", "malvavisco", "autocontrol", "voluntad", "temperamento", "desarrollo", "neurodesarrollo", "personalidad",
+    "plagiocefalia", "casco", "habla", "hablar", "lenguaje", "palabras", "esfinteres", "panal", "panales",
+    "limites", "respetuosa", "frenillo", "ictericia", "fototerapia", "folico", "cacahuate", "alergias", "papillas",
 }
 
 SERIES_DOMAIN_ANCHORS_FR: set[str] = {
@@ -235,7 +242,9 @@ def is_domain_relevant(query: str, series_slug: str, bm25_score: float = 0.0, la
     anchors = get_domain_anchors(series_slug, lang=lang)
     if not anchors:
         return True
-    tokens = set(re.findall(r"[a-z0-9]+", q_lower))
+    norm = unicodedata.normalize("NFD", q_lower)
+    cleaned = "".join(c for c in norm if unicodedata.category(c) != "Mn")
+    tokens = set(re.findall(r"[a-z0-9]+", cleaned))
     return bool(tokens & anchors)
 
 
@@ -360,7 +369,12 @@ def repo_root() -> Path:
 
 
 def _extract_core_tokens(query: str) -> list[str]:
-    cleaned = re.sub(r"\bnew\s+born\b", "newborn", query.lower())
+    # Normalize unicode to strip accents (ñ -> n, á -> a) so tokens match FTS5 ASCII/English index
+    norm = unicodedata.normalize("NFD", query.lower())
+    cleaned = "".join(c for c in norm if unicodedata.category(c) != "Mn")
+    cleaned = re.sub(r"\bnew\s+born\b", "newborn", cleaned)
+    cleaned = re.sub(r"\bmultihead\s*attention\b", "multi head attention", cleaned)
+    cleaned = re.sub(r"\bmultiheadattention\b", "multi head attention", cleaned)
     cleaned = re.sub(r"'s\b", "", cleaned).replace("'", "")
     tokens = [t for t in re.findall(r"[a-z0-9]+", cleaned) if len(t) >= 3]
     core = [t for t in tokens if t not in STOPWORDS]
@@ -552,6 +566,17 @@ def load_and_score_signals(
 
     for q in from_csv:
         _persist_metrics(conn, series_slug, merged[q], histograms.get(q, "[]"))
+
+    lang = detect_series_language(series_slug)
+    filtered_merged: dict[str, KeywordSignal] = {}
+    for q, sig in merged.items():
+        q_lower = sig.query.lower().strip()
+        has_negative = any(re.search(rf"\b{re.escape(neg)}\b", q_lower) for neg in NEGATIVE_TOKENS)
+        if has_negative:
+            conn.execute("DELETE FROM keyword_signals WHERE series_slug = ? AND query = ?", (series_slug, sig.query))
+            continue
+        filtered_merged[q] = sig
+    merged = filtered_merged
 
     signals = list(merged.values())
     for sig in signals:

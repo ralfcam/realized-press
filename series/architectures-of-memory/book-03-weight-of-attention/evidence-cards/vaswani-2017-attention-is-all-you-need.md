@@ -23,7 +23,7 @@ escalation_plan:
 type: Evidence Card
 title: "Self-Attention Parallelization and Recurrence Elimination in Sequence Modeling (Vaswani et al. 2017)"
 description: "Dispensing with recurrent and convolutional operations entirely in favor of multi-head self-attention reduces sequential path length to O(1) and enables full sequence-parallel training."
-tags: [attention, transformer, self-attention, parallelization]
+tags: [attention, transformer, self-attention, parallelization, multiheadattention, multi-head attention, pytorch]
 status: stable
 confidence: high
 generated: { by: agent:antigravity, at: 2026-10-21T21:25:00Z }
@@ -53,7 +53,7 @@ relates_to_cards:
 
 ## What We Know
 
-Eliminating recurrence and convolution in favor of multi-head self-attention enables $O(1)$ sequential operations per layer, allowing full parallelization across the temporal dimension during training and establishing state-of-the-art machine translation with superior computational efficiency.
+Eliminating recurrence and convolution in favor of multi-head self-attention enables $O(1)$ sequential operations per layer, allowing full parallelization across the temporal dimension during training and establishing state-of-the-art machine translation with superior computational efficiency. Standardized across deep learning frameworks as PyTorch `nn.MultiheadAttention` (`multiheadattention`), multi-head projections allow the network to jointly attend to information from different representation subspaces at different positions.
 
 ## How Confident We Are
 

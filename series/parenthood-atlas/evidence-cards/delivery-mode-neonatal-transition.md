@@ -2,7 +2,7 @@
 type: Evidence Card
 title: "Mode of Delivery and Neonatal Physiological Transition"
 description: "Cesarean delivery alters immediate neonatal lung fluid clearance and neuroendocrine stress surges; observational associations with long-term neurodevelopment, autism, and cognitive traits attenuate to null under sibling-comparison designs."
-tags: [birth, physiology, neonatal, methods]
+tags: [birth, physiology, neonatal, methods, cesarean, c-section, vaginal seeding, seeding]
 status: draft
 confidence: high-immediate-physiology; low-long-term-causation
 generated: { by: agent:antigravity, at: 2026-10-21T01:03:00Z }
@@ -35,7 +35,7 @@ relates_to_cards:
 
 ## What We Know
 
-Mode of delivery affects the immediate physiological events of birth. Labor contractions and the accompanying surges of fetal catecholamines and glucocorticoids stimulate epithelial sodium channels (ENaC) in alveolar cells, shifting the fetal lung from fluid secretion to active fluid reabsorption. Cesarean delivery without labor bypasses this endocrine surge, resulting in higher retained lung liquid and elevated rates of transient tachypnea of the newborn (TTN). Similarly, neonatal physiological transition encompasses hepatic bilirubin clearance: transient neonatal jaundice affects over 60 percent of term newborns. Hospital blue-light phototherapy safely photoisomerizes unconjugated bilirubin into water-soluble lumirubin without long-term neurological sequelae. In contrast, observational associations between cesarean delivery and long-term child cognitive, behavioral, and neurodevelopmental outcomes (such as autism or ADHD) reflect indication confounding and family-level background rather than a causal effect of delivery mode itself.
+Mode of delivery affects the immediate physiological events of birth. Labor contractions and the accompanying surges of fetal catecholamines and glucocorticoids stimulate epithelial sodium channels (ENaC) in alveolar cells, shifting the fetal lung from fluid secretion to active fluid reabsorption. Cesarean delivery without labor bypasses this endocrine surge, resulting in higher retained lung liquid and elevated rates of transient tachypnea of the newborn (TTN). Similarly, neonatal physiological transition encompasses hepatic bilirubin clearance: transient neonatal jaundice affects over 60 percent of term newborns. Hospital blue-light phototherapy safely photoisomerizes unconjugated bilirubin into water-soluble lumirubin without long-term neurological sequelae. Furthermore, speculative procedures such as vaginal seeding following cesarean delivery (c-section)—swabbing operative newborns with maternal vaginal microbes to simulate birth canal colonization—currently lack randomized clinical trial evidence of lasting immunological or metabolic benefit. In contrast, observational associations between cesarean delivery and long-term child cognitive, behavioral, and neurodevelopmental outcomes (such as autism or ADHD) reflect indication confounding and family-level background rather than a causal effect of delivery mode itself.
 
 ## How Confident We Are
 

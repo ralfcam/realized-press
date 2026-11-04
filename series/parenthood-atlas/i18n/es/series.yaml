@@ -107,12 +107,12 @@ monetization:
     # after importing a Spanish Keyword Planner export.
     backend_keywords:
       - "dejar panal control ferber sueno llanto baby led"
-      - "colecho seguro muerte esfinteres senales mi hijo"
+      - "esfinteres senales colecho seguro muerte mi hijo"
       - "rabietas berrinches calmar subita lactante dos"
-      - "pegan muerden limites pantallas retraso habla blw"
-      - "disciplina nalgadas turnos conversacionales juego"
-      - "simbolico ficcion juguetes introduccion cacahuate"
-      - "lactancia materna formula guarderia quedarse casa"
+      - "pantallas retraso habla pegan muerden limites blw"
+      - "turnos conversacionales juego simbolico ficcion"
+      - "disciplina nalgadas introduccion cacahuate acido"
+      - "juguetes montessori lactancia materna formula dia"
 
 books:
   - id: book-01-parenthood-atlas

@@ -2,7 +2,7 @@
 type: Evidence Card
 title: "Infant Sleep Training: Graduated Extinction & The Ferber Method"
 description: "RCT and cohort evidence finds no measured attachment or behavioral harm from behavioral sleep training, graduated extinction (the Ferber method), and cry-it-out through age 6."
-tags: [sleep, sleep-training, ferber-method, extinction, attachment, intervention]
+tags: [sleep, sleep-training, ferber-method, extinction, attachment, intervention, gentle sleep coaching]
 status: draft
 confidence: low-to-moderate
 generated: { by: human:jose-campos, at: 2026-09-14T16:11:00Z }
@@ -44,7 +44,7 @@ relates_to_cards:
 
 ## What We Know
 
-Randomized and longitudinal evidence does not find that graduated extinction (the Ferber method), unmodified extinction (Marc Weissbluth / cry it out / CIO), bedtime fading, or related behavioral infant sleep training (applied across nighttime sleep, daytime naps, crib transitions, and pacifier routines, including commercial schedules such as Moms on Call, Taking Cara Babies, Precious Little Sleep, Babywise / Bucknam & Ezzo, Suzy Giordano, Harvey Karp, Craig Canapari, Tracy Hogg, Gina Ford, Penelope Leach, and James McKenna) harms measured infant–parent attachment or increases behavioral/emotional problems through at least age 6, though most trials are underpowered for rare or long-latency harms.
+Randomized and longitudinal evidence does not find that graduated extinction (the Ferber method), unmodified extinction (Marc Weissbluth / cry it out / CIO), gentle sleep coaching, bedtime fading, or related behavioral infant sleep training (applied across nighttime sleep, daytime naps, crib transitions, and pacifier routines, including commercial schedules such as Moms on Call, Taking Cara Babies, Precious Little Sleep, Babywise / Bucknam & Ezzo, Suzy Giordano, Harvey Karp, Craig Canapari, Tracy Hogg, Gina Ford, Penelope Leach, and James McKenna) harms measured infant–parent attachment or increases behavioral/emotional problems through at least age 6, though most trials are underpowered for rare or long-latency harms.
 
 ## How Confident We Are
 

@@ -2,7 +2,7 @@
 type: Evidence Card
 title: "Parental Leave Is a Heterogeneous Package, Not a Unitary Exposure"
 description: "A Norwegian maternity-leave reform is associated with better long-run child outcomes; leave protects maternal physiological recovery, where extreme sleep debt predicts postpartum rage, irritability, and mood disturbance requiring clinical recognition and treatment."
-tags: [leave, employment, ecology, postpartum-rage, maternal-mental-health]
+tags: [leave, employment, ecology, postpartum-rage, maternal-mental-health, ppd rage, post partum anger, post natal rage]
 status: draft
 confidence: moderate-reform; low-to-moderate-0-3; low-unitary-job
 generated: { by: agent:cursor, at: 2026-09-16T14:50:00Z }
@@ -37,7 +37,7 @@ relates_to_cards:
 
 ## What We Know
 
-Carneiro, Løken & Salvanes (2015) studied a Norwegian maternity-leave reform that extended paid leave. Children whose mothers were eligible had better long-run education and earnings outcomes than comparison cohorts. The object is a defined leave *package* in one institutional setting, not “employment” as a single exposure. Maternal physiological and emotional recovery also requires adequate protected time; acute sleep fragmentation, physical exhaustion, and lack of systemic support during the postpartum window frequently manifest as postpartum rage, acute irritability, and anxiety rather than unipolar sadness (Ou & Hall 2018). Clinical treatment and recognition require systematic screening for perinatal irritability and evidence-based interventions (CBT, sleep protection, and partner load-sharing).
+Carneiro, Løken & Salvanes (2015) studied a Norwegian maternity-leave reform that extended paid leave. Children whose mothers were eligible had better long-run education and earnings outcomes than comparison cohorts. The object is a defined leave *package* in one institutional setting, not “employment” as a single exposure. Maternal physiological and emotional recovery also requires adequate protected time; acute sleep fragmentation, physical exhaustion, and lack of systemic support during the postpartum window frequently manifest as postpartum rage (PPD rage), post partum anger, post natal rage, acute irritability, and anxiety rather than unipolar sadness (Ou & Hall 2018). Clinical treatment and recognition require systematic screening for perinatal irritability and evidence-based interventions (CBT, sleep protection, and partner load-sharing).
 
 ## How Confident We Are
 
