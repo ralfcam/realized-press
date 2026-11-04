@@ -37,7 +37,16 @@ sources:
   - id: Davis2017
     resource: https://doi.org/10.1016/j.neuron.2017.05.039
     title: "Davis and Zhong (2017), The Biology of Forgetting—A Perspective"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "neurobiological mechanisms of active forgetting promoting cognitive flexibility and generalization"
+  - "adult hippocampal neurogenesis uncoupling established synaptic potentiations"
+  - "reduction of overfitting in biological neural networks through transience"
+relates_to_cards:
+  - "EXTENDS:davis-2017-biology-of-active-forgetting"
+  - "BRIDGES_LENS:gers-2000-forget-gate-continual-prediction"
 ---
+
 
 # Adaptive Forgetting as Generalization in Biological Memory
 

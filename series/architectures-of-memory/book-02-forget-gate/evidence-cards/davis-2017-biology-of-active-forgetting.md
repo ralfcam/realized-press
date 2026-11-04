@@ -37,7 +37,16 @@ sources:
   - id: Richards2017
     resource: https://doi.org/10.1016/j.neuron.2017.04.037
     title: "Richards and Frankland (2017), The Persistence and Transience of Memory"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "dopamine receptor dDA1 signaling mediating active memory forgetting in Drosophila"
+  - "Rac1 small G-protein activation driving dendritic spine decay"
+  - "distinction between passive decay and regulated molecular erasure"
+relates_to_cards:
+  - "EXTENDS:richards-2017-biology-of-adaptive-forgetting"
+  - "BRIDGES_LENS:gers-2000-forget-gate-continual-prediction"
 ---
+
 
 # Active Forgetting via Dedicated Molecular Signaling Pathways
 

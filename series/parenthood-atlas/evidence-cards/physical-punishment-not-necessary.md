@@ -13,7 +13,16 @@ sources:
   - id: gershoff-2016-spanking
     resource: https://doi.org/10.1037/fam0000191
     title: "Gershoff & Grogan-Kaylor (2016), Journal of Family Psychology, spanking and child outcomes meta-analyses"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Gershoff & Grogan-Kaylor (2016) meta-analysis of 75 studies (N > 160,000 children)"
+  - "effect size d = 0.20 to 0.38 for increased externalizing behavior, aggression, and antisocial conduct"
+  - "within-family twin differences designs (e.g. Burt et al.) show persistent negative associations after genetic control with 20-50% attenuation"
+relates_to_cards:
+  - "CONTRASTS:timeout-vs-spanking-discipline"
+  - "EXTENDS:committed-compliance-not-obedience"
 ---
+
 
 # Physical Punishment Is Not a Developmental Necessity
 

@@ -9,14 +9,6 @@ attenuation_class: "not_applicable"
 allowed_verbs: ["demonstrates", "establishes", "shows", "proves", "compresses"]
 forbidden_verbs: ["solves_all_memory_retrieval", "eliminates_forget_gate_need"]
 locked_bib_keys: ["Schmidhuber_1992", "Hochreiter_1997"]
-relates_to_cards:
-  - "EXTENDS:hochreiter-1991-vanishing-gradient"
-  - "EXTENDS:hochreiter-1997-constant-error-carousel"
-quantitative_anchors:
-  - "predictability threshold P > 0"
-  - "hierarchical clock ticks"
-  - "sequence compression factor"
-  - "multi-timescale temporal abstraction"
 canonical_metaphors:
   body_prose: "a hierarchical executive summarizer where predictable routine sequences compress into single tick-marks while unexpected anomalies trigger higher-level deliberation"
   spoken_tts: "a hierarchical executive summarizer where predictable routine sequences compress into single tick-marks while unexpected anomalies trigger higher-level deliberation"
@@ -46,7 +38,16 @@ sources:
   - id: Hochreiter_1997
     resource: https://doi.org/10.1162/neco.1997.9.8.1735
     title: "Hochreiter and Schmidhuber (1997), Long Short-Term Memory, Neural Computation"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "neural sequence chunker and history-compressing neural predictor hierarchy"
+  - "sub-sampling recurrent state transitions on predictable subsequences"
+  - "logarithmic information compression across multi-timescale sequences"
+relates_to_cards:
+  - "EXTENDS:hochreiter-1991-vanishing-gradient"
+  - "CONTRASTS:hochreiter-1997-constant-error-carousel"
 ---
+
 
 # History Compression and Hierarchical Recurrent Chunkers
 

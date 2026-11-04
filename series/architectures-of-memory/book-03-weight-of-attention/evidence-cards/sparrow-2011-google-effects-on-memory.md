@@ -34,7 +34,16 @@ sources:
   - id: Sparrow_2011
     resource: https://doi.org/10.1126/science.1207745
     title: "Sparrow, Liu, and Wegner (2011), Google Effects on Memory: Cognitive Consequences of Having Information at Our Fingertips"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "transactive memory adaptation in digital information access across 4 experiments"
+  - "higher recall of where information is stored than what information was stored"
+  - "Stroop color-naming latency elevation when primed with search-engine concepts"
+relates_to_cards:
+  - "EXTENDS:simon-1971-designing-organizations-information-rich-world"
+  - "BRIDGES_LENS:clark-chalmers-1998-extended-mind-external-memory"
 ---
+
 
 # Google Effects on Memory: Transactive Memory and Cognitive Offloading
 

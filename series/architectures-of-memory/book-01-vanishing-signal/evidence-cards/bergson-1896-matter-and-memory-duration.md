@@ -37,7 +37,16 @@ sources:
   - id: Bergson_1889
     resource: https://doi.org/10.1037/10007-000
     title: "Bergson (1889), Time and Free Will: An Essay on the Immediate Data of Consciousness"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "distinction between habit-memory (motor mechanism) and pure memory (durée réelle)"
+  - "cone of memory representation mapping onto perceptual action plane"
+  - "spatialized clock-time vs. lived temporal consciousness"
+relates_to_cards:
+  - "CONTRASTS:hobbes-1655-de-corpore-ship-of-theseus"
+  - "BRIDGES_LENS:elman-1990-simple-recurrent-networks"
 ---
+
 
 # Habit-Memory, Pure Recollection, and Lived Duration
 

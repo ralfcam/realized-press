@@ -37,7 +37,16 @@ sources:
   - id: Bengio_1994
     resource: https://doi.org/10.1109/72.279181
     title: "Bengio, Simard, and Frasconi (1994), Learning long-term dependencies with gradient descent is difficult"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "context layer copy operation h_t = sigma(W x_t + U h_{t-1} + b)"
+  - "temporal sequence prediction on artificial grammar"
+  - "fixed context representation without BPTT unrolling limit"
+relates_to_cards:
+  - "EXTENDS:rumelhart-1986-backpropagation"
+  - "BOUNDS:hochreiter-1991-vanishing-gradient"
 ---
+
 
 # Simple Recurrent Networks and Context Unit Dynamics
 

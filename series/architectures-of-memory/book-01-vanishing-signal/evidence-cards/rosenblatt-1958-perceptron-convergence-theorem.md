@@ -9,12 +9,6 @@ attenuation_class: "not_applicable"
 allowed_verbs: ["proves", "demonstrates", "establishes", "shows", "guarantees"]
 forbidden_verbs: ["solves_non_linear_separation", "guarantees_convergence_on_xor"]
 locked_bib_keys: ["Rosenblatt_1958", "Block_1962"]
-relates_to_cards:
-  - "BOUNDS:minsky-papert-1969-perceptrons-xor-locality"
-quantitative_anchors:
-  - "margin gamma > 0"
-  - "radius R"
-  - "finite number of steps"
 canonical_metaphors:
   body_prose: "a rotating decision hyperplane tilting step by step until every training pattern falls on its correct side of the divide"
   spoken_tts: "a rotating decision hyperplane tilting step by step until every training pattern falls on its correct side of the divide"
@@ -42,7 +36,16 @@ sources:
   - id: Block_1962
     resource: https://doi.org/10.1103/revmodphys.34.123
     title: "Block (1962), The Perceptron: A Model for Brain Functioning. I"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "finite error-correction convergence bound k <= (R / gamma)^2"
+  - "linear separability assumption in R^d"
+  - "single-layer threshold logic unit step function"
+relates_to_cards:
+  - "BOUNDS:minsky-papert-1969-perceptrons-xor-locality"
+  - "EXTENDS:rumelhart-1986-backpropagation"
 ---
+
 
 # The Perceptron Convergence Theorem and Linear Separability
 

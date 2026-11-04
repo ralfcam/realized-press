@@ -207,6 +207,112 @@
     </div>
   </div>
 
+  <!-- Epistemic Lineage & Graph Telemetry (OKF v0.3 / ARC-90) -->
+  <div class="bg-stone-900/80 border border-stone-800 rounded-xl p-4 space-y-4">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-stone-800 pb-3">
+      <div>
+        <h2 class="text-sm font-serif font-bold text-stone-100 flex items-center gap-2">
+          <span>Epistemic Lineage Explorer &amp; Causal Reasoning Engine</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">&lt; 2 ms Recursive CTE</span>
+        </h2>
+        <p class="text-[11px] font-mono text-stone-400 mt-0.5">
+          Trace shortest causal, bounding, and taxonomic lineages across 143 OKF v0.3 Evidence Cards.
+        </p>
+      </div>
+
+      <!-- Quick Preset Buttons -->
+      <div class="flex items-center gap-1.5 overflow-x-auto text-[10px] font-mono">
+        <span class="text-stone-400 shrink-0">Presets:</span>
+        {% if data.is_aom %}
+        <button type="button"
+                hx-get="/hx/graph/lineage?series=architectures-of-memory&src=rosenblatt-1958-perceptron-convergence-theorem&dst=vaswani-2017-attention-is-all-you-need"
+                hx-target="#lineage-results"
+                class="min-h-[44px] px-2.5 py-1 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 transition shrink-0 inline-flex items-center">
+          Perceptron → Transformer
+        </button>
+        <button type="button"
+                hx-get="/hx/graph/lineage?series=architectures-of-memory&src=hochreiter-1991-vanishing-gradient&dst=gers-2000-forget-gate-continual-prediction"
+                hx-target="#lineage-results"
+                class="min-h-[44px] px-2.5 py-1 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 transition shrink-0 inline-flex items-center">
+          Vanishing Gradient → Forget Gate
+        </button>
+        <button type="button"
+                hx-get="/hx/graph/lineage?series=architectures-of-memory&src=vaswani-2017-attention-is-all-you-need&dst=liu-2024-lost-in-the-middle-long-context"
+                hx-target="#lineage-results"
+                class="min-h-[44px] px-2.5 py-1 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 transition shrink-0 inline-flex items-center">
+          Attention → Lost in Middle
+        </button>
+        <button type="button"
+                hx-get="/hx/graph/lineage?series=architectures-of-memory&src=dwork-2006-differential-privacy-noise-calibration&dst=eldan-2023-whos-harry-potter-approximate-unlearning"
+                hx-target="#lineage-results"
+                class="min-h-[44px] px-2.5 py-1 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 transition shrink-0 inline-flex items-center">
+          Diff Privacy → Unlearning
+        </button>
+        {% else %}
+        <button type="button"
+                hx-get="/hx/graph/lineage?series=parenthood-atlas&src=infant-perceptual-narrowing&dst=conversational-turns-language"
+                hx-target="#lineage-results"
+                class="min-h-[44px] px-2.5 py-1 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 transition shrink-0 inline-flex items-center">
+          Perceptual Narrowing → Turns
+        </button>
+        <button type="button"
+                hx-get="/hx/graph/lineage?series=parenthood-atlas&src=breastfeeding-cognitive-development&dst=early-allergen-introduction-blw"
+                hx-target="#lineage-results"
+                class="min-h-[44px] px-2.5 py-1 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 transition shrink-0 inline-flex items-center">
+          Breastfeeding → Allergen
+        </button>
+        <button type="button"
+                hx-get="/hx/graph/lineage?series=parenthood-atlas&src=self-regulation-delay-of-gratification&dst=childhood-self-control-gradient"
+                hx-target="#lineage-results"
+                class="min-h-[44px] px-2.5 py-1 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 transition shrink-0 inline-flex items-center">
+          Marshmallow → Self-Control
+        </button>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Lineage Query Form -->
+    <form hx-get="/hx/graph/lineage"
+          hx-target="#lineage-results"
+          class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-end">
+      <input type="hidden" name="series" value="{{ series_slug }}">
+      
+      <div class="sm:col-span-5 space-y-1">
+        <label for="lineage-src" class="text-[10px] font-mono text-stone-400 uppercase">Source Card Slug</label>
+        <input type="text"
+               id="lineage-src"
+               name="src"
+               value="{% if data.is_aom %}rosenblatt-1958-perceptron-convergence-theorem{% else %}infant-perceptual-narrowing{% endif %}"
+               class="w-full min-h-[44px] bg-stone-950 border border-stone-800 rounded-lg px-3 py-2 text-xs font-mono text-stone-200 focus:outline-none focus:ring-1 focus:ring-amber-500">
+      </div>
+
+      <div class="sm:col-span-5 space-y-1">
+        <label for="lineage-dst" class="text-[10px] font-mono text-stone-400 uppercase">Target Card Slug</label>
+        <input type="text"
+               id="lineage-dst"
+               name="dst"
+               value="{% if data.is_aom %}vaswani-2017-attention-is-all-you-need{% else %}conversational-turns-language{% endif %}"
+               class="w-full min-h-[44px] bg-stone-950 border border-stone-800 rounded-lg px-3 py-2 text-xs font-mono text-stone-200 focus:outline-none focus:ring-1 focus:ring-amber-500">
+      </div>
+
+      <div class="sm:col-span-2">
+        <button type="submit"
+                class="w-full min-h-[44px] px-3 inline-flex items-center justify-center gap-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-stone-950 font-mono font-bold text-xs transition shadow-sm">
+          <span>Trace Path</span>
+          <span>→</span>
+        </button>
+      </div>
+    </form>
+
+    <!-- Target Lineage Container with Initial Auto-Load -->
+    <div id="lineage-results"
+         hx-get="/hx/graph/lineage?series={{ series_slug }}&src={% if data.is_aom %}rosenblatt-1958-perceptron-convergence-theorem&dst=vaswani-2017-attention-is-all-you-need{% else %}infant-perceptual-narrowing&dst=conversational-turns-language{% endif %}"
+         hx-trigger="load"
+         class="min-h-[60px]">
+      <div class="p-3 text-center text-xs font-mono text-stone-400">Loading initial epistemic lineage...</div>
+    </div>
+  </div>
+
   <!-- Filterable Demand Signals Table with 12-Month Sparklines -->
   <div class="bg-stone-900/80 border border-stone-800 rounded-xl overflow-hidden" x-data="{ search: '', selectedChapter: 'all', selectedTier: 'all' }">
     

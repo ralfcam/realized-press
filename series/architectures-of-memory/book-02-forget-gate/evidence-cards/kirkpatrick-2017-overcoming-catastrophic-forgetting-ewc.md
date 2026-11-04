@@ -37,7 +37,16 @@ sources:
   - id: French1999
     resource: https://doi.org/10.1016/S1364-6613(99)01294-2
     title: "French (1999), Catastrophic forgetting in connectionist networks, Trends in Cognitive Sciences"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "elastic weight consolidation loss L = L_B + sum_i (F_i / 2) (theta_i - theta_{A,i}^*)^2"
+  - "Fisher information matrix F quantifying parameter importance for task A"
+  - "maintenance of performance across sequential Atari 2600 games without catastrophic forgetting"
+relates_to_cards:
+  - "MITIGATES:hochreiter-1997-constant-error-carousel"
+  - "BOUNDS:davis-2017-biology-of-active-forgetting"
 ---
+
 
 # Overcoming Catastrophic Forgetting via Elastic Weight Consolidation
 

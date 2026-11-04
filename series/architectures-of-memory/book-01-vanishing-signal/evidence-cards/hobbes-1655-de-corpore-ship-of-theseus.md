@@ -37,7 +37,16 @@ sources:
   - id: Sider_2001
     resource: https://doi.org/10.1093/019924443x.001.0001
     title: "Theodore Sider (2001), Four-Dimensionalism: An Ontology of Persistence and Time, Oxford University Press"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "Ship of Theseus material identity paradox across continuous plank substitution"
+  - "formal distinction between formal, material, and functional continuity"
+  - "computational representation of diachronic entity persistence"
+relates_to_cards:
+  - "CONTRASTS:bergson-1896-matter-and-memory-duration"
+  - "BRIDGES_LENS:walsh-ungson-1991-organizational-memory"
 ---
+
 
 # The Ship of Theseus and the Bifurcation of Diachronic Identity
 

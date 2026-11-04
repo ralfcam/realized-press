@@ -13,7 +13,16 @@ sources:
   - id: brownell-2006-peers
     resource: https://doi.org/10.1111/j.1467-8624.2006.00904.x
     title: "Brownell, Ramani & Zerwas (2006), Child Development, becoming a social partner with peers"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Parten social play progression (unoccupied, solitary, onlooker, parallel, associative) across 24 to 48 months"
+  - "parallel play dominates 2-year-old peer interactions with associative cooperative play emerging past 36 months"
+  - "peer interaction quality strongly moderated by adult scaffolding and language competence with substantial family selection confounding"
+relates_to_cards:
+  - "EXTENDS:toddler-physical-aggression-trajectories"
+  - "BOUNDS:outdoor-risky-play-not-0-3-law"
 ---
+
 
 # Toddler Peer Interaction Is Not a Social-Skills Commodity
 

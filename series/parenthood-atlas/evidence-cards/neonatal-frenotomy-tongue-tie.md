@@ -13,7 +13,16 @@ sources:
   - id: oshea-2017-frenotomy
     resource: https://doi.org/10.1002/14651858.CD012538
     title: "O'Shea et al. (2017), Cochrane Database of Systematic Reviews, frenotomy for tongue-tie in newborn infants"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "O'Shea et al. (2017) Cochrane review of 5 randomized trials (N = 302 infants) for anterior ankyloglossia"
+  - "short-term maternal pain visual analog scale reduction of 0.7 to 1.2 points post-frenotomy"
+  - "no statistically significant long-term difference in objective breastfeeding continuation rates beyond 2-4 weeks"
+relates_to_cards:
+  - "BOUNDS:breastfeeding-cognitive-development"
+  - "CONTRASTS:suck-swallow-breathe-coordination"
 ---
+
 
 # Neonatal Tongue-Tie (Ankyloglossia) and Frenotomy
 

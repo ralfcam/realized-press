@@ -13,7 +13,16 @@ sources:
   - id: papageorghiou-2014-intergrowth
     resource: https://doi.org/10.1016/S0140-6736(14)61490-2
     title: "Papageorghiou et al. (2014), Lancet, INTERGROWTH-21st fetal growth standards"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "INTERGROWTH-21st normative fetal growth standards across 8 diverse international urban cohorts"
+  - "centile distribution distinction between constitutional smallness and true placental pathology"
+  - "absence of functional impairment in isolated constitutional 10th percentile fetuses"
+relates_to_cards:
+  - "BOUNDS:placenta-as-mediator"
+  - "CONTRASTS:preterm-cognition-group-risk"
 ---
+
 
 # Fetal Growth Restriction Is a Clinical Outcome, Not a Destiny
 

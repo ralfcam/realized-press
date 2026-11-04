@@ -22,7 +22,16 @@ sources:
   - id: tandfonline-2024
     resource: https://www.tandfonline.com/doi/full/10.1080/03004430.2024.2349622
     title: "Screen exposure and early language development, meta-analysis (2024)"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Madigan et al. meta-analysis showing negative correlation (r = -0.12 to -0.18) between screen exposure and child language"
+  - "dose-response threshold: screen time >2 hours/day in infants under 24 months associated with larger expressive delays"
+  - "untested in genetically informed sibling designs; observational associations correlate with household chaos and parental education"
+relates_to_cards:
+  - "BOUNDS:conversational-turns-language"
+  - "CONTRASTS:parent-implemented-language"
 ---
+
 
 # Screen Time and Language Development
 

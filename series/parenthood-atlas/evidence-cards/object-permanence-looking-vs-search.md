@@ -13,7 +13,16 @@ sources:
   - id: baillargeon-1987-object
     resource: https://doi.org/10.1037/0012-1649.23.5.655
     title: "Baillargeon (1987), Developmental Psychology, object permanence in 3.5- and 4.5-month-olds"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Piagetian stage IV A-not-B manual search error occurring consistently in 8- to 10-month-olds"
+  - "looking-time paradigms (Baillargeon 1987) reveal representation of occluded objects at 3.5 to 4.5 months"
+  - "dissociation between perceptual representation in ventral stream and motor action execution in dorsal stream"
+relates_to_cards:
+  - "EXTENDS:infant-physical-reasoning"
+  - "BOUNDS:working-memory-cognitive-shifting-infancy"
 ---
+
 
 # Object Permanence Is Not a Single Staircase
 

@@ -16,7 +16,16 @@ sources:
   - id: jonsson-2017-mutations
     resource: https://doi.org/10.1038/nature24018
     title: "Jónsson et al. (2017), Nature, parental influence on de novo mutations in 1,548 trios"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Kong et al. (2012) Icelandic whole-genome sequencing of 78 parent-offspring trios"
+  - "1.51 de novo single-nucleotide mutations added per year of paternal age (p = 3.6 x 10^-19)"
+  - "20-year-old father transmits ~25 de novo mutations compared to ~65 mutations for a 45-year-old father"
+relates_to_cards:
+  - "BOUNDS:preterm-cognition-group-risk"
+  - "BRIDGES_LENS:fetal-growth-not-destiny"
 ---
+
 
 # Paternal Age and De Novo Mutation Rate
 

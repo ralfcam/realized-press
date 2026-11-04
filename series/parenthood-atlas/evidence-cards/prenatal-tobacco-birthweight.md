@@ -13,7 +13,16 @@ sources:
   - id: kramer-1987-lbw
     resource: https://iris.who.int/handle/10665/264515
     title: "Kramer (1987), WHO Bulletin, determinants of low birth weight"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "150 to 250 g mean birthweight deficit for active maternal smoking (>10 cigarettes/day) during pregnancy"
+  - "within-family sibling comparisons show partial attenuation (20-50%) due to unmeasured maternal background characteristics"
+  - "Mendelian randomization studies using CHRNA5 genetic variants confirm a causal reduction in fetal growth of ~100-140 g"
+relates_to_cards:
+  - "BOUNDS:fetal-growth-not-destiny"
+  - "CONTRASTS:prenatal-alcohol-fasd"
 ---
+
 
 # Maternal Tobacco Smoke and Fetal Growth
 

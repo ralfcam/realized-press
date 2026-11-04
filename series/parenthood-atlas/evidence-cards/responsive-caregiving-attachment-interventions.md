@@ -19,7 +19,16 @@ sources:
   - id: dewolff-1997
     resource: https://www.marinusvanijzendoorn.nl/wp-content/uploads/2012/07/De-Wolff-Van-IJzendoorn-1997.-Child-Development.-Sensitivity-Attachment-meta-analysis-parental-antecedents.pdf
     title: "De Wolff & van IJzendoorn (1997), Child Development"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Bakermans-Kranenburg et al. (2003) meta-analysis of 70 attachment RCTs (N > 7,000 dyads)"
+  - "interventions successfully increase maternal sensitivity (Cohen's d = 0.33) and infant attachment security (d = 0.20)"
+  - "short-term video-feedback interventions with <5 sessions show higher efficacy (d = 0.44) than long-duration (>16 sessions) psychotherapy"
+relates_to_cards:
+  - "EXTENDS:infant-caregiver-coregulation"
+  - "BOUNDS:infant-multiple-caregiver-attachments"
 ---
+
 
 # Responsive Caregiving and Attachment Interventions
 

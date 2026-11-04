@@ -34,7 +34,17 @@ locked_bib_keys:
 sources:
   - id: carlini2020arxiv
     resource: https://arxiv.org/abs/2012.07805
-    title: Carlini et al. (2020), Extracting Training Data from Large Language Models---
+    title: Carlini et al. (2020), Extracting Training Data from Large Language Models
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "black-box extraction of memorized private training data from GPT-2"
+  - "extraction of 604 verified training examples across verbatim text sequences"
+  - "memorization risk scales with model parameter size and sequence duplication frequency"
+relates_to_cards:
+  - "BOUNDS:eldan-2023-whos-harry-potter-approximate-unlearning"
+  - "MITIGATES:feldman-2020-does-learning-require-memorization"
+---
+
 
 # Verbatim Training Data Extraction Attacks on Autoregressive Language Models
 

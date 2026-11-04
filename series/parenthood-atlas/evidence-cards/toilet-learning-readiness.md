@@ -16,7 +16,16 @@ sources:
   - id: schum-2002-toilet
     resource: https://doi.org/10.1542/peds.109.3.e48
     title: "Schum et al. (2002), Pediatrics, sequential acquisition of toilet-training skills"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Blum et al. (2003) cohort study of 406 toddlers showing negative correlation (r = -0.71) between initiation age and training duration"
+  - "children initiated before 27 months take 10-12 months to complete training vs. 4-5 months for children initiated after 30 months"
+  - "earlier initiation does not advance calendar age of completion (both groups complete at 32-35 months) and increases stool refusal risk"
+relates_to_cards:
+  - "EXTENDS:embodied-perception-action"
+  - "BOUNDS:routines-and-adult-modeling"
 ---
+
 
 # Toilet Learning Readiness and Initiation Timing
 

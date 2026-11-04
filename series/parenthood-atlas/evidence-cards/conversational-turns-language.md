@@ -13,7 +13,17 @@ sources:
   - id: gilkerson-2018-lena
     resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC6192025/
     title: "Gilkerson et al. (2018), Pediatrics, language experience in the second year predicts late-childhood outcomes"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "LENA automated turn-taking accounting for 14-27% of language variance at age 10 in Gilkerson et al. (N = 146)"
+  - "conversational turn counts predict verbal comprehension better than raw adult word counts"
+  - "attenuation under parental educational attainment and genetic communicative drive"
+relates_to_cards:
+  - "EXTENDS:infant-babbling-as-exploration"
+  - "BOUNDS:screen-time-language-development"
+  - "MITIGATES:parent-implemented-language"
 ---
+
 
 # Conversational Turns Predict Later Language Better Than Raw Word Counts
 

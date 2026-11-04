@@ -37,7 +37,16 @@ sources:
   - id: Werbos_1990
     resource: https://doi.org/10.1109/5.58337
     title: "Werbos (1990), Proceedings of the IEEE, Backpropagation through time: what it does and how to do it"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "generalized delta rule for multi-layer perceptrons"
+  - "O(W) reverse-mode automatic differentiation time complexity"
+  - "gradient chain rule across hidden layer activations"
+relates_to_cards:
+  - "EXTENDS:rosenblatt-1958-perceptron-convergence-theorem"
+  - "BOUNDS:hochreiter-1991-vanishing-gradient"
 ---
+
 
 # Generalized Delta Rule and Error Backpropagation
 

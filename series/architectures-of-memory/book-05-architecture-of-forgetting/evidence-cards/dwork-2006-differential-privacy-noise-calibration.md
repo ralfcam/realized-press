@@ -33,7 +33,17 @@ locked_bib_keys:
 sources:
   - id: Dwork_2006
     resource: https://doi.org/10.1007/11681878_14
-    title: Dwork et al. (2006), Calibrating Noise to Sensitivity in Private Data Analysis---
+    title: Dwork et al. (2006), Calibrating Noise to Sensitivity in Private Data Analysis
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "epsilon-differential privacy definition P[M(D) in S] <= exp(epsilon) * P[M(D') in S] + delta"
+  - "Laplace and Gaussian noise addition calibrated to global sensitivity Delta f"
+  - "composition theorems for sequential and parallel privacy loss accumulation"
+relates_to_cards:
+  - "EXTENDS:abadi-2016-deep-learning-with-differential-privacy"
+  - "BOUNDS:feldman-2020-does-learning-require-memorization"
+---
+
 
 # Calibrating Noise to Sensitivity for Differential Privacy
 

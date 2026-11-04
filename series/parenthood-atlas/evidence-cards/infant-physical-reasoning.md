@@ -19,7 +19,16 @@ sources:
   - id: diamond-1985-recall
     resource: https://doi.org/10.2307/1130099
     title: "Diamond (1985), Child Development, recall to guide action in infants' AB performance"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Baillargeon violation-of-expectation (VOE) occlusion and containment displays in 3.5- to 5.5-month-olds"
+  - "looking time differences (d = 0.50 to 0.80) between physically possible and impossible events"
+  - "progressive acquisition of physical variables: height, transparency, and support conditions across 4-8 months"
+relates_to_cards:
+  - "EXTENDS:object-permanence-looking-vs-search"
+  - "BOUNDS:exploration-as-sampling"
 ---
+
 
 # Early Physical Reasoning and Object Permanence: Looking vs. Manual Search
 

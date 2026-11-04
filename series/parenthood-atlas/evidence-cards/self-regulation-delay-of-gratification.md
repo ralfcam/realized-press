@@ -19,7 +19,16 @@ sources:
   - id: mischel-shoda-peake-1990
     resource: https://doi.org/10.1037/0012-1649.26.6.978
     title: "Mischel, Shoda & Peake (1990), Developmental Psychology, delay of gratification"
+attenuation_tier: "largely_confounded_>50%"
+quantitative_anchors:
+  - "Watts, Duncan & Quan (2018) conceptual replication of the marshmallow test in a diverse national sample (N = 918)"
+  - "bivariate association between marshmallow delay time and age 15 achievement drops from r ~ 0.30 to beta = 0.07 after controlling for maternal education and early cognitive ability"
+  - ">50% attenuation demonstrates that delay of gratification is a marker of family socioeconomic security and cognitive baseline rather than a causal driver"
+relates_to_cards:
+  - "BOUNDS:childhood-self-control-gradient"
+  - "CONTRASTS:executive-function-unity-diversity"
 ---
+
 
 # Self-Regulation and Delay of Gratification (Marshmallow Test)
 

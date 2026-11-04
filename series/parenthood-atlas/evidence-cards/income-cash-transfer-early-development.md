@@ -16,7 +16,16 @@ sources:
   - id: noble-2025-bfy-age4
     resource: https://doi.org/10.3386/w33844
     title: "Noble et al. (2025), NBER w33844, Baby’s First Years age-four developmental outcomes"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Baby's First Years randomized controlled cash transfer trial (N = 1,000 low-income mother-infant dyads)"
+  - "infant EEG high-frequency power modest shift at age 1 in $333/month group"
+  - "null effects on standardized cognitive and language batteries at age 4"
+relates_to_cards:
+  - "MITIGATES:household-food-insecurity-health"
+  - "BOUNDS:neighborhood-mobility-age-dependent"
 ---
+
 
 # Income Support Is Not a Guaranteed Cognitive Intervention
 

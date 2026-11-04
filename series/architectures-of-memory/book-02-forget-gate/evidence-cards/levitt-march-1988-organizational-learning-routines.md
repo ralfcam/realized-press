@@ -9,14 +9,6 @@ attenuation_class: "partially_confounded_20_50pct"
 allowed_verbs: ["suggests", "indicates", "conceptualizes", "frames", "points toward"]
 forbidden_verbs: ["proves", "causes", "guarantees", "demonstrates_biologically"]
 locked_bib_keys: ["Levitt_1988", "Argote_1990"]
-relates_to_cards:
-  - "BRIDGES_LENS:holan-2004-dynamics-of-organizational-forgetting"
-  - "CONTRASTS:argote-1990-persistence-of-learning-industrial"
-quantitative_anchors:
-  - "competency trap lock-in"
-  - "routine-based behavioral encoding"
-  - "superstitious learning feedback loop"
-  - "5,500+ academic citations"
 canonical_metaphors:
   body_prose: "a groove worn so deeply into institutional pavement that a carriage cannot steer out of it even when the road ahead has collapsed"
   spoken_tts: "a groove worn so deeply into institutional pavement that a carriage cannot steer out of it even when the road ahead has collapsed"
@@ -46,7 +38,16 @@ sources:
   - id: Argote_1990
     resource: https://doi.org/10.1287/mnsc.36.2.140
     title: "Argote, Beckman, and Epple (1990), The Persistence and Transfer of Learning in Industrial Settings, Management Science"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "competency traps arising from reinforcing familiar organizational routines"
+  - "recording of organizational history into standard operating procedures"
+  - "path dependency and institutional memory retention constraints"
+relates_to_cards:
+  - "EXTENDS:holan-2004-dynamics-of-organizational-forgetting"
+  - "BRIDGES_LENS:kirkpatrick-2017-overcoming-catastrophic-forgetting-ewc"
 ---
+
 
 # Organizational Learning, Routines, and Competency Traps
 

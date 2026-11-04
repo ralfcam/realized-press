@@ -37,7 +37,16 @@ sources:
   - id: Gers2000
     resource: https://doi.org/10.1162/089976600300015015
     title: "Gers et al. (2000), Learning to Forget: Continual Prediction with LSTM, Neural Computation"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "ablation of 8 LSTM components across 5,400 experimental runs"
+  - "forget gate and output activation identified as most critical components"
+  - "no variant significantly outperforms standard vanilla LSTM across diverse benchmarks"
+relates_to_cards:
+  - "BOUNDS:cho-2014-gru-vs-lstm-gating-mechanisms"
+  - "BOUNDS:gers-2000-peephole-connections"
 ---
+
 
 # LSTM Architectural Component Ablation: A Search Space Odyssey
 

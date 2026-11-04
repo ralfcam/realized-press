@@ -20,7 +20,16 @@ sources:
   - id: Gopnik_2012
     resource: https://doi.org/10.1037/a0028044
     title: "Gopnik & Wellman (2012), Reconstructing constructivism: Causal models, Bayesian learning mechanisms, and the theory theory"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Bayesian causal inference models of cognitive development in young children"
+  - "blicket detector experiments demonstrating rapid causal model learning from sparse data"
+  - "integration of structured symbolic representations with probabilistic statistical learning"
+relates_to_cards:
+  - "CONTRASTS:bender-2020-climbing-towards-nlu-octopus-test"
+  - "BRIDGES_LENS:selbst-2018-intuitive-appeal-explainable-machines"
 ---
+
 
 # Reconstructing Constructivism: Causal Models and Bayesian Cognition
 

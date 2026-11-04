@@ -19,7 +19,16 @@ sources:
   - id: manybabies-2020-variability
     resource: https://doi.org/10.1177/2515245919900809
     title: "ManyBabies Consortium / Frank et al. (2020), AMPPS, Quantifying sources of variability in infancy research"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "ManyBabies 1 consortium replication (N = 2,329 infants across 67 laboratories) evaluating infant-directed speech preference"
+  - "infant looking preferences yield robust group-level effects (d = 0.35, 95% CI [0.29, 0.42])"
+  - "high within-session state vulnerability: fatigue, hunger, and posture explain >30% of trial-level variance"
+relates_to_cards:
+  - "BOUNDS:infant-attention-as-gatekeeper"
+  - "BOUNDS:infant-physical-reasoning"
 ---
+
 
 # Looking Time Is a Measurement, Not a Window into Thought
 

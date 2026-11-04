@@ -34,8 +34,17 @@ locked_bib_keys:
 sources:
   - id: feldman2019arxiv
     resource: https://arxiv.org/abs/1906.05271
-    title: Feldman (2020), Does Learning Require Memorization? A Short Tale about a
-    Long Tail---
+    title: "Feldman (2020), Does Learning Require Memorization? A Short Tale about a Long Tail"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "mathematical proof that memorization of rare/atypical examples is necessary for near-optimal generalization"
+  - "long-tailed distribution setting where subpopulation frequencies scale as O(1/k)"
+  - "lower bound on excess error for classifiers that do not memorize atypical instances"
+relates_to_cards:
+  - "EXTENDS:carlini-2021-extracting-training-data-from-large-language-models"
+  - "BOUNDS:dwork-2006-differential-privacy-noise-calibration"
+---
+
 
 # Necessity of Memorization for Generalization in Long-Tailed Distributions
 

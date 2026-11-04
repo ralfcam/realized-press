@@ -16,7 +16,16 @@ sources:
   - id: dadds-2019-discipline
     resource: https://doi.org/10.1111/jcpp.13088
     title: "Dadds & Tully (2019), Journal of Child Psychology and Psychiatry, What is it to be a good parent? The role of discipline, warm parenting, and children's conduct problems"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "randomized parent-training trials (e.g. Incredible Years, PMTO) showing brief predictable time-outs reduce noncompliance (d ~ 0.40-0.60)"
+  - "spanking associated with escalated child aggression (d = 0.25-0.35) and elevated adult mental health risk across 50 years of data"
+  - "twin differences models confirm negative developmental outcomes persist under genetic controls with 20-50% attenuation for child evocative behavior"
+relates_to_cards:
+  - "CONTRASTS:physical-punishment-not-necessary"
+  - "EXTENDS:committed-compliance-not-obedience"
 ---
+
 
 # Discipline and Behavioral Boundaries: Time-Outs, Physical Punishment, and Escalation
 

@@ -20,7 +20,16 @@ sources:
   - id: dao2022arxiv
     resource: https://arxiv.org/abs/2205.14135
     title: "Dao et al. (2022), FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "tiling technique computing exact softmax in SRAM without materializing N x N intermediate matrices"
+  - "IO-awareness reducing high-bandwidth memory (HBM) read/writes by up to 80%"
+  - "2-4x speedup over standard attention and up to 20x memory reduction on long sequences"
+relates_to_cards:
+  - "EXTENDS:vaswani-2017-attention-is-all-you-need"
+  - "BOUNDS:su-2024-roformer-rotary-position-embedding"
 ---
+
 
 # IO-Aware Tiling and Exact Memory-Efficient Attention
 

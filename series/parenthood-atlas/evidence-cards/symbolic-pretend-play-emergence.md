@@ -16,7 +16,16 @@ sources:
   - id: lillard-2013-pretend
     resource: https://doi.org/10.1037/a0029321
     title: "Lillard et al. (2013), Psychological Bulletin, impact of pretend play"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Leslie (1987) cognitive decopuling model and McCune developmental sequence of pretense across 12 to 24 months"
+  - "transition from presymbolic schemes (functional drinking from cup) at 12 months to decentered pretense (feeding teddy bear) at 18 months"
+  - "normative developmental progression replicating across international cultural cohorts without determining later intelligence"
+relates_to_cards:
+  - "EXTENDS:deferred-imitation"
+  - "BOUNDS:pretend-play-educational-claims"
 ---
+
 
 # Symbolic and Pretend Play Emerge Across the Second Year
 

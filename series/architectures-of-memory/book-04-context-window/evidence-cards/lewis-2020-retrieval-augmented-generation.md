@@ -20,7 +20,16 @@ sources:
   - id: lewis2020arxiv
     resource: https://arxiv.org/abs/2005.11401
     title: "Lewis et al. (2020), Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "retrieval-augmented generation combining dense retrieval with parametric seq2seq model"
+  - "RAG-Sequence and RAG-Token marginalization across retrieved passages"
+  - "state-of-the-art results on open-domain QA (Natural Questions, CuratedTREC, WebQuestions)"
+relates_to_cards:
+  - "EXTENDS:karpukhin-2020-dense-passage-retrieval"
+  - "BOUNDS:liu-2024-lost-in-the-middle-long-context"
 ---
+
 
 # Retrieval-Augmented Generation for Parametric and Non-Parametric Memory Synthesis
 

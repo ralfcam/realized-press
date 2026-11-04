@@ -20,7 +20,16 @@ sources:
   - id: su2021arxiv
     resource: https://arxiv.org/abs/2104.09864
     title: "Su et al. (2021), RoFormer: Enhanced Transformer with Rotary Position Embedding"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "rotary position embedding (RoPE) encoding relative position via complex rotation matrix R_{Theta,m}^d"
+  - "preservation of inner-product vector norms across arbitrary relative token offsets"
+  - "linear extrapolation capabilities on sequence lengths exceeding pre-training windows"
+relates_to_cards:
+  - "EXTENDS:dao-2022-flashattention-fast-memory-efficient"
+  - "BOUNDS:press-2022-train-short-test-long-alibi"
 ---
+
 
 # Rotary Position Embedding for Relative Attention Dynamics
 

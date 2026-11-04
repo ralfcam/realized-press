@@ -16,7 +16,16 @@ sources:
   - id: pollatou-2024-hrv
     resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC11140686/
     title: "Pollatou et al. (2024), fetal HRV and newborn brain connectivity"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "DiPietro fetal heart rate variability (FHRV) coupling with gross somatic motor bursts between 24 and 36 gestational weeks"
+  - "parasympathetic tone maturation index showing normative developmental slope"
+  - "contemporaneous autonomic state tracking without deterministic long-term trait forecast"
+relates_to_cards:
+  - "EXTENDS:prenatal-neural-construction"
+  - "BOUNDS:fetal-growth-not-destiny"
 ---
+
 
 # Fetal Autonomic Behavior Indexes Present Maturation
 

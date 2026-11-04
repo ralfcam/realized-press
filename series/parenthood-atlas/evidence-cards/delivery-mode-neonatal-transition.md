@@ -16,7 +16,16 @@ sources:
   - id: jain-dudell-2006-cesarean
     resource: https://doi.org/10.1053/j.semperi.2006.07.011
     title: "Jain & Dudell (2006), Seminars in Perinatology, respiratory transition in infants delivered by cesarean"
+attenuation_tier: "largely_confounded_>50%"
+quantitative_anchors:
+  - "transient tachypnea occurs in 1-3% of planned cesarean vs. <1% vaginal deliveries"
+  - "respiratory stabilization occurs within 48 to 72 hours under standard care"
+  - "observational associations with long-term neurodevelopment attenuate to null (>50%) in sibling designs"
+relates_to_cards:
+  - "BOUNDS:neonatal-cardiopulmonary-transition"
+  - "BRIDGES_LENS:placenta-as-mediator"
 ---
+
 
 # Mode of Delivery and Neonatal Physiological Transition
 

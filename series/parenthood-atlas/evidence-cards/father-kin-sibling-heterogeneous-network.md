@@ -16,7 +16,16 @@ sources:
   - id: dagan-2018-cdp
     resource: https://doi.org/10.1111/cdep.12272
     title: "Dagan & Sagi-Schwartz (2018), Child Development Perspectives, early attachment network with mother and father"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Lamb & Cabrera meta-analytic reviews of paternal sensitivity and toddler emotional regulation"
+  - "small-to-moderate associations (beta ~ 0.10-0.18) with child language and self-regulation"
+  - "attenuation under family socioeconomic resources and shared genetic factors"
+relates_to_cards:
+  - "EXTENDS:infant-multiple-caregiver-attachments"
+  - "BOUNDS:early-childcare-quality"
 ---
+
 
 # Fathers, Kin, and Siblings Are Heterogeneous Network Members
 

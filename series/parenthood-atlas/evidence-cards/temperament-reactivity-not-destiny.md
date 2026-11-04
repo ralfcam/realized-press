@@ -13,7 +13,16 @@ sources:
   - id: gartstein-rothbart-2003
     resource: https://doi.org/10.1016/S0163-6383(02)00169-8
     title: "Gartstein & Rothbart (2003), Infant Behavior and Development, Revised Infant Behavior Questionnaire"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Rothbart & Bates temperament dimensions (Negative Affectivity, Surgency, Effortful Control) with twin heritability h^2 ~ 0.40-0.55"
+  - "differential susceptibility: highly reactive infants show greater vulnerability under harsh caregiving and greater thriving under sensitive caregiving"
+  - "mean-level rank-order stability coefficients average r ~ 0.35 across 12 to 36 months leaving extensive plasticity"
+relates_to_cards:
+  - "EXTENDS:behavioral-inhibition-anxiety-risk"
+  - "BOUNDS:rank-order-continuity-not-destiny"
 ---
+
 
 # Temperament as Reactivity and Control, Not Destiny
 

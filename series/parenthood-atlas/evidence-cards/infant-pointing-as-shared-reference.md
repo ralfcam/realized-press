@@ -16,7 +16,16 @@ sources:
   - id: fitzpatrick-2014-baby-sign
     resource: https://doi.org/10.1177/0142723714562864
     title: "Fitzpatrick et al. (2014), First Language, baby-sign systematic review"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "pointing onset at 11-12 months preceding first spoken multi-word combinations (Tomasello paradigms)"
+  - "Colonnesi meta-analysis showing moderate longitudinal correlation (r ~ 0.35) between declarative pointing and age 2 vocabulary"
+  - "distinction between imperative pointing (requesting objects) and declarative pointing (sharing attention)"
+relates_to_cards:
+  - "EXTENDS:joint-attention-shared-reference"
+  - "BOUNDS:conversational-turns-language"
 ---
+
 
 # Pointing Is Shared Reference, Not a Language Product
 

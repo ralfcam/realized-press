@@ -34,7 +34,16 @@ sources:
   - id: radford2019gpt2
     resource: https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf
     title: "Radford et al. (2019), Language Models are Unsupervised Multitask Learners (GPT-2)"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "autoregressive unidirectional transformer trained on 40GB WebText"
+  - "zero-shot task transfer on reading comprehension, translation, and summarization"
+  - "1.5 billion parameter GPT-2 architecture without task-specific fine-tuning"
+relates_to_cards:
+  - "EXTENDS:vaswani-2017-attention-is-all-you-need"
+  - "BOUNDS:brown-2020-language-models-few-shot-learners"
 ---
+
 
 # Language Models are Unsupervised Multitask Learners
 

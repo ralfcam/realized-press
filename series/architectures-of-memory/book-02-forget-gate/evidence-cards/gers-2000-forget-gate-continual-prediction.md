@@ -37,7 +37,16 @@ sources:
   - id: Gers2000
     resource: https://doi.org/10.1162/089976600300015015
     title: "Gers, Schmidhuber, and Cummins (2000), Learning to Forget: Continual Prediction with LSTM"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "adaptive forget gate f_t = sigma(W_f x_t + U_f h_{t-1} + b_f)"
+  - "state update c_t = f_t * c_{t-1} + i_t * g_t"
+  - "release of obsolete internal cell state on non-segmented continual sequences"
+relates_to_cards:
+  - "EXTENDS:hochreiter-1997-constant-error-carousel"
+  - "BOUNDS:gers-2000-peephole-connections"
 ---
+
 
 # Adaptive Forget Gates in Long Short-Term Memory Networks
 

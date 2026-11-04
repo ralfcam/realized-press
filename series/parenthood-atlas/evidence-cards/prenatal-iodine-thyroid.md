@@ -16,7 +16,16 @@ sources:
   - id: deescobar-2004-thyroid
     resource: https://doi.org/10.1016/j.beem.2004.03.012
     title: "Morreale de Escobar, Obregón & Escobar del Rey (2004), maternal T4 and fetal brain"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "severe endemic iodine deficiency (<20 microg/L urinary iodine) associated with 10-15 IQ point deficit and neurological cretinism"
+  - "universal salt iodization campaigns restored population neonatal thyroid stimulating hormone (TSH) profiles"
+  - "mild-to-moderate deficiency trials in replete areas show inconsistent cognitive improvements"
+relates_to_cards:
+  - "EXTENDS:prenatal-neural-construction"
+  - "BOUNDS:preconception-nutrition-beyond-folate"
 ---
+
 
 # Prenatal Iodine, Maternal T4, and Neurodevelopment
 

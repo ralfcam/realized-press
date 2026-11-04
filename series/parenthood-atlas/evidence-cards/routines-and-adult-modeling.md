@@ -16,7 +16,16 @@ sources:
   - id: mindell-2009-bedtime-routine
     resource: https://doi.org/10.1093/sleep/32.5.599
     title: "Mindell et al. (2009), Sleep, nightly bedtime routine RCT and young child sleep"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Mindell et al. randomized trial of a nightly 3-step bedtime routine (bath, massage, quiet activity)"
+  - "infant sleep onset latency reduced by 37% and night waking frequency halved within 2 weeks"
+  - "broader daytime routine consistency correlates with parental conscientiousness and executive function (20-50% attenuation in sibling designs)"
+relates_to_cards:
+  - "EXTENDS:committed-compliance-not-obedience"
+  - "BOUNDS:infant-sleep-training"
 ---
+
 
 # Family Routines, Predictability, and Adult Modeling
 

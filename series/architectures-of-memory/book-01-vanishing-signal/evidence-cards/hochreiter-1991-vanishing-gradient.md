@@ -37,7 +37,17 @@ sources:
   - id: Rumelhart1986
     resource: https://doi.org/10.1038/323533a0
     title: "Rumelhart, Hinton, and Williams (1986), Learning representations by back-propagating errors"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "Jacobian spectral norm bound ||d h_t / d h_k|| <= (W^T * f')^{t-k}"
+  - "exponential decay factor lambda^{t-k} for lambda < 1"
+  - "vanishing error signals across > 10 time steps"
+relates_to_cards:
+  - "BOUNDS:elman-1990-simple-recurrent-networks"
+  - "MITIGATES:pascanu-2013-exploding-vanishing-gradient-clipping"
+  - "EXTENDS:hochreiter-1997-constant-error-carousel"
 ---
+
 
 # Vanishing and Exploding Gradients in Recurrent Networks
 

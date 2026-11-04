@@ -23,7 +23,16 @@ sources:
   - id: lewis2020arxiv
     resource: https://arxiv.org/abs/2005.11401
     title: "Lewis et al. (2020), Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "U-shaped retrieval accuracy curve across multi-document QA benchmarks"
+  - "performance degradation of over 30% when relevant facts are placed in the middle of context"
+  - "robust replication across open and closed long-context models up to 32k tokens"
+relates_to_cards:
+  - "BOUNDS:press-2022-train-short-test-long-alibi"
+  - "BOUNDS:lewis-2020-retrieval-augmented-generation"
 ---
+
 
 # U-Shaped Positional Retrieval Degradation in Long Context Windows
 

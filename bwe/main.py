@@ -1119,3 +1119,73 @@ async def hx_graph_series_map(series: str = "parenthood-atlas"):
     conn = get_db()
     svg_content = generate_series_map_svg(conn, series)
     return Response(content=svg_content, media_type="image/svg+xml")
+
+
+@app.get("/hx/graph/lineage", response_class=HTMLResponse)
+async def hx_graph_lineage(
+    series: str = "architectures-of-memory",
+    src: str = "rosenblatt-1958-perceptron-convergence-theorem",
+    dst: str = "vaswani-2017-attention-is-all-you-need",
+    max_hops: int = 8,
+):
+    """Trace shortest causal/epistemic path between two cards in < 2 ms (ARC-90)."""
+    from bwe.graph_rag import find_epistemic_lineage
+    conn = get_db()
+    steps = find_epistemic_lineage(conn, series, src, dst, max_hops=max_hops)
+
+    if not steps:
+        return HTMLResponse(
+            '<div class="p-4 rounded-xl bg-stone-900/80 border border-stone-800 text-stone-400 font-mono text-xs text-center">'
+            f'No connecting epistemic path found between <code class="text-amber-400">{src}</code> and <code class="text-amber-400">{dst}</code> within {max_hops} hops.'
+            '</div>'
+        )
+
+    items_html = []
+    for s in steps:
+        rel_color = {
+            "EXTENDS": "bg-sky-500/20 text-sky-300 border-sky-500/30",
+            "BOUNDS": "bg-amber-500/20 text-amber-300 border-amber-500/30",
+            "CONTRASTS": "bg-purple-500/20 text-purple-300 border-purple-500/30",
+            "MITIGATES": "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+            "BRIDGES_LENS": "bg-pink-500/20 text-pink-300 border-pink-500/30",
+            "CONTRADICTS_OR_BOUNDS": "bg-rose-500/20 text-rose-300 border-rose-500/30",
+        }.get(s["relationship"], "bg-stone-800 text-stone-300 border-stone-700")
+
+        dir_icon = "→" if s.get("direction") == "forward" else "←"
+
+        items_html.append(f"""
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-lg bg-stone-950/70 border border-stone-800/80 hover:border-amber-500/40 transition">
+            <div class="flex items-center gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-stone-800 flex items-center justify-center font-mono text-[10px] text-amber-400 font-bold shrink-0">{s['hop']}</span>
+                <div>
+                    <span class="font-mono text-xs font-semibold text-stone-200 block">{s['source_slug']}</span>
+                    <span class="text-[10px] text-stone-400 font-sans">{s['source_title']}</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0 self-center">
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold border {rel_color} flex items-center gap-1">
+                    <span>{s['relationship']}</span>
+                    <span>{dir_icon}</span>
+                </span>
+            </div>
+            <div class="flex items-center gap-2.5 text-right sm:text-left justify-end">
+                <div>
+                    <span class="font-mono text-xs font-semibold text-stone-200 block">{s['target_slug']}</span>
+                    <span class="text-[10px] text-stone-400 font-sans">{s['target_title']}</span>
+                </div>
+            </div>
+        </div>
+        """)
+
+    html = f"""
+    <div class="p-4 rounded-xl bg-stone-900/90 border border-stone-800 space-y-3 font-mono text-xs">
+        <div class="flex items-center justify-between border-b border-stone-800 pb-2">
+            <span class="text-stone-300 font-bold">Lineage Trace: <span class="text-amber-400">{src}</span> → <span class="text-amber-400">{dst}</span></span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">{len(steps)} hops</span>
+        </div>
+        <div class="space-y-2">
+            {''.join(items_html)}
+        </div>
+    </div>
+    """
+    return HTMLResponse(content=html)

@@ -621,6 +621,25 @@ def audit_graph_coherence(root: Path, book_path: Path, lang: str | None = None) 
         if c_id not in cited_card_ids:
             v7e.append(f"- Orphan card (0 citations in manuscript): `{c_id}`")
 
+    # Rule 7f: Quantitative Anchor & Semantic Edge Parity (ARC-90)
+    v7f: list[str] = []
+    ALLOWED_TIERS = ("formal_proof", "robust_<20%", "partially_confounded_20_50%", "largely_confounded_>50%")
+    for c_id, c_meta in card_dict.items():
+        qa = c_meta.get("quantitative_anchors", [])
+        if not isinstance(qa, list) or len(qa) < 2:
+            v7f.append(f"- Card `{c_id.split(':')[-1]}` has fewer than 2 quantitative anchors (found {len(qa) if isinstance(qa, list) else 0})")
+        tier = c_meta.get("attenuation_tier", "")
+        if not tier or tier not in ALLOWED_TIERS:
+            v7f.append(f"- Card `{c_id.split(':')[-1]}` has missing or invalid attenuation_tier: '{tier}'")
+
+    untyped_edges = conn.execute(
+        """SELECT source_id, target_id FROM okf_edges
+           WHERE series_slug = ? AND edge_type = 'RELATES_TO_CARD'""",
+        (series_slug,),
+    ).fetchall()
+    for ue in untyped_edges:
+        v7f.append(f"- Untyped RELATES_TO_CARD edge found: `{ue['source_id']}` -> `{ue['target_id']}` (must use typed semantic prefix: EXTENDS, BOUNDS, CONTRASTS, MITIGATES, or BRIDGES_LENS)")
+
     # Build report lines
     lines.append(f"### 10a. Rule 7a: Epistemic Verb-to-Card Grade Parity ({len(cited_edges)} citations audited)")
     if v7a:
@@ -656,7 +675,14 @@ def audit_graph_coherence(root: Path, book_path: Path, lang: str | None = None) 
     else:
         lines.append(f"- **Pass:** Zero orphan cards ({len(card_dict)}/{len(card_dict)} cited); all chapter footnotes properly mapped to cards or sources.bib.")
 
-    all_violations = v7a + v7b + v7c + v7d + v7e
+    lines.append("")
+    lines.append("### 10f. Rule 7f: Quantitative Anchor & Semantic Edge Parity")
+    if v7f:
+        lines.extend(v7f)
+    else:
+        lines.append(f"- **Pass:** All {len(card_dict)} cards possess valid attenuation tiers and >= 2 quantitative anchors; zero untyped RELATES_TO_CARD edges.")
+
+    all_violations = v7a + v7b + v7c + v7d + v7e + v7f
     return lines, all_violations, len(all_violations) == 0
 
 

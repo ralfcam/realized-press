@@ -13,7 +13,16 @@ sources:
   - id: mundy-newell-2007-ja
     resource: https://doi.org/10.1111/j.1467-8721.2007.00518.x
     title: "Mundy & Newell (2007), Current Directions, joint attention and social cognition"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Mundy Early Social Communication Scales (ESCS) measuring initiating (IJA) vs. responding to (RJA) joint attention"
+  - "longitudinal correlation (r ~ 0.30-0.45) with language competence at 24 and 36 months"
+  - "attenuation under infant communicative motivation and caregiver verbal responsiveness"
+relates_to_cards:
+  - "EXTENDS:infant-pointing-as-shared-reference"
+  - "BOUNDS:conversational-turns-language"
 ---
+
 
 # Joint Attention Is Shared Reference, Not a Language Guarantee
 

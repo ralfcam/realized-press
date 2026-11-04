@@ -34,7 +34,16 @@ sources:
   - id: Searle_1980
     resource: https://doi.org/10.1017/s0140525x00005756
     title: "Searle (1980), Minds, Brains, and Programs, Behavioral and Brain Sciences"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "Chinese Room thought experiment demonstrating syntax is not sufficient for semantics"
+  - "formal refutation of strong AI claim that programmed manipulation constitutes understanding"
+  - "distinction between observer-relative and observer-independent intentionality"
+relates_to_cards:
+  - "CONTRASTS:clark-chalmers-1998-extended-mind-external-memory"
+  - "BRIDGES_LENS:tulving-1985-episodic-semantic-autonoetic-memory"
 ---
+
 
 # The Chinese Room Argument: Syntax, Semantics, and Understanding Without Memory
 

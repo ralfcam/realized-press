@@ -25,7 +25,16 @@ sources:
   - id: colen-ramey-2014
     resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC4077166/
     title: "Colen & Ramey (2014), sibling comparisons of breastfeeding"
+attenuation_tier: "largely_confounded_>50%"
+quantitative_anchors:
+  - "+7.5 verbal IQ at age 6.5 fading to +1.4 non-significant points at age 16 in PROBIT RCT (N = 17,046)"
+  - "sibling-comparison designs attenuate observational IQ differences to null (d < 0.05)"
+  - ">50% attenuation under maternal education and socioeconomic controls"
+relates_to_cards:
+  - "BOUNDS:responsive-feeding-as-regulation"
+  - "CONTRASTS:early-allergen-introduction-blw"
 ---
+
 
 # Breastfeeding and Cognitive Development
 

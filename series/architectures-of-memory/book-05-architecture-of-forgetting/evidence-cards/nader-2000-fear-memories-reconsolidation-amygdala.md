@@ -33,8 +33,17 @@ locked_bib_keys:
 sources:
   - id: Nader_2000
     resource: https://doi.org/10.1038/35021052
-    title: Nader, Schafe & Le Doux (2000), Fear memories require protein synthesis in
-    the amygdala for reconsolidation after retrieval---
+    title: "Nader, Schafe & Le Doux (2000), Fear memories require protein synthesis in the amygdala for reconsolidation after retrieval"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "protein synthesis inhibitor anisomycin infused into basolateral amygdala after memory reactivation"
+  - "erasure of consolidated conditioned fear memory upon retrieval"
+  - "discovery of memory reconsolidation window lasting several hours post-reactivation"
+relates_to_cards:
+  - "EXTENDS:davis-2017-biology-of-active-forgetting"
+  - "BRIDGES_LENS:ricoeur-2004-memory-history-forgetting"
+---
+
 
 # Memory Reconsolidation and Labile Retrieval States
 

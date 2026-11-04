@@ -16,7 +16,16 @@ sources:
   - id: walden-ogan-1988
     resource: https://doi.org/10.1111/j.1467-8624.1988.tb01492.x
     title: "Walden & Ogan (1988), Child Development, development of social referencing"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "visual cliff paradigm under ambiguous 30cm drop depth (Sorce, Emde, Klinnert & Campos 1985)"
+  - "infant crossing rate of 74% when mother poses joyous/encouraging facial expression vs. 0% when posing fearful expression"
+  - "triadic appraisal dynamics: infant checks caregiver face specifically under environmental ambiguity"
+relates_to_cards:
+  - "EXTENDS:infant-caregiver-coregulation"
+  - "BOUNDS:infant-pointing-as-shared-reference"
 ---
+
 
 # Infant Social Referencing Under Uncertainty
 

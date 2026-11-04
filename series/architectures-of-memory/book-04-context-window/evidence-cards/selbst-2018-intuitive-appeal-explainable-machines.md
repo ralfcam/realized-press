@@ -20,7 +20,16 @@ sources:
   - id: Selbst_2018
     resource: https://doi.org/10.2139/ssrn.3126971
     title: "Selbst & Barocas (2018), The Intuitive Appeal of Explainable Machines"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "inscrutability and non-intuitiveness of complex machine learning systems"
+  - "legal limitations of explanation rights under GDPR and algorithmic accountability doctrines"
+  - "distinction between procedural explanations and substantive justification in law"
+relates_to_cards:
+  - "EXTENDS:raji-2020-closing-ai-accountability-gap"
+  - "BRIDGES_LENS:bender-2020-climbing-towards-nlu-octopus-test"
 ---
+
 
 # The Intuitive Appeal of Explainable Machines
 

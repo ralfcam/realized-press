@@ -13,7 +13,16 @@ sources:
   - id: stahl-feigenson-2015
     resource: https://doi.org/10.1126/science.aaa3799
     title: "Stahl & Feigenson (2015), Science, observing the unexpected enhances infants' learning and exploration"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Stahl & Feigenson (2015) VOE tasks showing elevated infant exploration duration (d ~ 0.65) for surprising objects"
+  - "accelerated statistical word learning for labels paired with physical violation events"
+  - "hypothesis testing behavior: banging solid-violating objects and dropping gravity-violating objects"
+relates_to_cards:
+  - "EXTENDS:infant-physical-reasoning"
+  - "BOUNDS:guided-play-efficacy"
 ---
+
 
 # Exploration as Sampling: Why Babies Drop Things from High Chairs and Test Physical Rules
 

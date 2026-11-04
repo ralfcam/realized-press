@@ -25,7 +25,16 @@ sources:
   - id: williamson-mindell-2019
     resource: https://pubmed.ncbi.nlm.nih.gov/31564429/
     title: "Williamson, Mindell, Hiscock & Quach (2019), LSAC sleep-problem trajectories"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Gradisar et al. (2016) randomized trial of graduated extinction and bedtime fading in 6-16 month infants"
+  - "sleep latency reduced by 12-15 minutes and night waking frequency halved within 2 weeks"
+  - "5-year follow-up (Price et al., N = 225) showing null differences in attachment security, emotional health, and cortisol stress response"
+relates_to_cards:
+  - "BOUNDS:safe-sleep-supine-room-sharing"
+  - "MITIGATES:infant-crying-as-signal"
 ---
+
 
 # Infant Sleep Training: Graduated Extinction, The Ferber Method & Cry It Out (CIO)
 

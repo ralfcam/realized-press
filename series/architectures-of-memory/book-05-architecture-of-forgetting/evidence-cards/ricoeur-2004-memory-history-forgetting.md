@@ -33,7 +33,17 @@ locked_bib_keys:
 sources:
   - id: Ricoeur_2004
     resource: https://doi.org/10.7208/chicago/9780226713465.001.0001
-    title: Ricoeur (2004), Memory, History, Forgetting---
+    title: Ricoeur (2004), Memory, History, Forgetting
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "epistemological distinction between happy forgetting and commanded forgetting"
+  - "temporal unbinding of debt from action"
+  - "forgiveness as asymmetrical moral gift"
+relates_to_cards:
+  - "CONTRASTS:floridi-2014-right-to-be-forgotten-epistemic-privacy"
+  - "BRIDGES_LENS:veale-2018-algorithms-that-remember-model-inversion-gdpr"
+---
+
 
 # Memory, History, and the Ethics of Forgetting
 

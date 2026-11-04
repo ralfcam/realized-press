@@ -13,7 +13,16 @@ sources:
   - id: tremblay-2004-aggression
     resource: https://doi.org/10.1542/peds.114.1.e43
     title: "Tremblay et al. (2004), Pediatrics, physical-aggression trajectories in early childhood"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Tremblay et al. longitudinal cohorts tracking physical aggression from 12 to 42 months (N > 2,000 toddlers)"
+  - "physical aggression frequency peaks between 24 and 30 months for >80% of children before declining by age 4"
+  - "chronic high-aggression trajectory observed in only 3-5% of children, predicting persistent conduct problems"
+relates_to_cards:
+  - "EXTENDS:temperament-reactivity-not-destiny"
+  - "BOUNDS:timeout-vs-spanking-discipline"
 ---
+
 
 # Toddler Physical Aggression Usually Peaks and Declines
 

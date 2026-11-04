@@ -218,10 +218,49 @@ def check_card(path: Path, online_retraction: bool = False) -> dict:
     if online_retraction:
         rule2_pass, rule2_notes = check_online_retractions(sources)
 
+    # Rule 7f: Quantitative Anchors, Attenuation Tier & Typed Edges (OKF v0.3)
+    rule7f_pass = True
+    rule7f_notes: list[str] = []
+    ALLOWED_TIERS = ("formal_proof", "robust_<20%", "partially_confounded_20_50%", "largely_confounded_>50%")
+    ALLOWED_PREFIXES = ("EXTENDS:", "BOUNDS:", "CONTRASTS:", "MITIGATES:", "BRIDGES_LENS:", "CROSS_BOOK_ESCALATES:")
+
+    tier = ""
+    qa_list = []
+    rel_list = []
+    if yaml:
+        try:
+            p_dict = yaml.safe_load(fm) or {}
+            if isinstance(p_dict, dict):
+                tier = str(p_dict.get("attenuation_tier", "")).strip()
+                qa_list = p_dict.get("quantitative_anchors", [])
+                rel_list = p_dict.get("relates_to_cards", [])
+        except Exception:
+            pass
+
+    if not tier or tier not in ALLOWED_TIERS:
+        rule7f_pass = False
+        rule7f_notes.append(f"attenuation_tier invalid or missing ('{tier}')")
+    if not isinstance(qa_list, list) or len(qa_list) < 2 or not all(str(a).strip() for a in qa_list):
+        rule7f_pass = False
+        rule7f_notes.append(f"quantitative_anchors must have >= 2 items (found {len(qa_list) if isinstance(qa_list, list) else 0})")
+    if not isinstance(rel_list, list) or not rel_list:
+        rule7f_pass = False
+        rule7f_notes.append("relates_to_cards missing or empty")
+    else:
+        untyped = [str(r) for r in rel_list if not any(str(r).startswith(pfx) for pfx in ALLOWED_PREFIXES)]
+        if untyped:
+            rule7f_pass = False
+            rule7f_notes.append(f"{len(untyped)} untyped relates_to_cards entries ({untyped[:2]})")
+
     return {
         "path": str(path),
         "status": yaml_status(fm),
         "confidence": yaml_confidence(fm),
+        "attenuation_tier": tier,
+        "quantitative_anchors": qa_list if isinstance(qa_list, list) else [],
+        "relates_to_cards": rel_list if isinstance(rel_list, list) else [],
+        "rule7f_pass": rule7f_pass,
+        "rule7f_notes": rule7f_notes,
         "source_count": len(sources),
         "sources": sources,
         "rule1_urls_present": all(u.startswith("http") for _, u in sources) and bool(sources),
@@ -253,6 +292,7 @@ def format_report(r: dict) -> str:
             "- Rule 2 (retraction/EoC): **not checked online** (pass `--online-retraction-check` "
             "to query Crossref `update-to` & OpenAlex `is_retracted`)."
         )
+    r7f_info = "; ".join(r["rule7f_notes"]) if r["rule7f_notes"] else f"tier='{r['attenuation_tier']}', {len(r['quantitative_anchors'])} anchors, {len(r['relates_to_cards'])} typed relations"
     lines = [
         f"Card: `{r['path']}`",
         f"YAML status: `{r['status']}` (script never flips this)",
@@ -267,6 +307,7 @@ def format_report(r: dict) -> str:
         f"- Rule 4 (YAML = in-body grade tokens): **{'pass' if r['rule4_yaml_matches_body_tokens'] else 'fail'}** "
         f"(yaml {r['rule4_yaml_tokens']} vs body {r['rule4_body_tokens']}).",
         f"- Rule 5 (WTDM nonempty): **{'pass' if r['rule5_wtdm_nonempty'] else 'fail'}**.",
+        f"- Rule 7f (Anchors & Typed Edges): **{'pass' if r['rule7f_pass'] else 'FAIL'}** ({r7f_info}).",
     ]
     if r["missing_sections"]:
         lines.append(f"- Missing sections: {', '.join(r['missing_sections'])}")
@@ -338,6 +379,7 @@ def main(argv: list[str]) -> int:
             and not report["missing_sections"]
             and report["confounding_pass"]
             and report["frontmatter_pass"]
+            and report["rule7f_pass"]
         )
         if card_ok:
             passed += 1

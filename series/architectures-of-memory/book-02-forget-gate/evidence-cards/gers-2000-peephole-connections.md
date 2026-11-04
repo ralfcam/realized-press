@@ -37,7 +37,16 @@ sources:
   - id: Greff2017
     resource: https://doi.org/10.1109/tnnls.2016.2582924
     title: "Greff et al. (2017), LSTM: A Search Space Odyssey"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "peephole connections from cell state c_{t-1} into input, forget, and output gates"
+  - "precise timing spike detection and interval counting tasks"
+  - "monotonic clock synchronization in recurrent architectures"
+relates_to_cards:
+  - "EXTENDS:gers-2000-forget-gate-continual-prediction"
+  - "BOUNDS:greff-2017-lstm-search-space-odyssey"
 ---
+
 
 # Peephole Connections in Long Short-Term Memory Networks
 

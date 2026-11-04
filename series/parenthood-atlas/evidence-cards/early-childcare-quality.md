@@ -22,7 +22,16 @@ sources:
   - id: belsky-2007-cd
     resource: https://doi.org/10.1111/j.1467-8624.2007.01021.x
     title: "Belsky et al. (2007), Child Development, long-term effects of early child care"
+attenuation_tier: "largely_confounded_>50%"
+quantitative_anchors:
+  - "NICHD Study of Early Child Care (N = 1,364) tracking children through age 15"
+  - "small effect sizes (beta ~ 0.05-0.12) on cognitive and behavioral outcomes"
+  - ">50% attenuation of childcare quality associations when maternal characteristics and family selection are controlled"
+relates_to_cards:
+  - "BOUNDS:preschool-early-education-rct"
+  - "CONTRASTS:severe-institutional-deprivation"
 ---
+
 
 # Early Childcare Quality and Development
 

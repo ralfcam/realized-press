@@ -9,14 +9,6 @@ attenuation_class: "not_applicable"
 allowed_verbs: ["proves", "demonstrates", "establishes", "bounds", "reveals"]
 forbidden_verbs: ["disproves_all_neural_computation", "proves_multilayer_impossibility"]
 locked_bib_keys: ["Minsky_Papert_1969", "Rumelhart1986"]
-relates_to_cards:
-  - "BOUNDS:rosenblatt-1958-perceptron-convergence-theorem"
-  - "EXTENDS:rumelhart-1986-backpropagation"
-quantitative_anchors:
-  - "order k < |R|"
-  - "XOR parity function"
-  - "topological connectedness predicate"
-  - "15-year funding winter"
 canonical_metaphors:
   body_prose: "a flat architectural wall where a machine restricted to drawing straight geometric lines stumbles before an intertwined checkerboard"
   spoken_tts: "a flat architectural wall where a machine restricted to drawing straight geometric lines stumbles before an intertwined checkerboard"
@@ -46,7 +38,16 @@ sources:
   - id: Rumelhart1986
     resource: https://doi.org/10.1038/323533a0
     title: "Rumelhart, Hinton, and Williams (1986), Learning representations by back-propagating errors"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "order-1 perceptron diameter predicate insolvability"
+  - "XOR parity function requires >= 2 layers"
+  - "diameter-limited predicate connectivity bound"
+relates_to_cards:
+  - "BOUNDS:rosenblatt-1958-perceptron-convergence-theorem"
+  - "MITIGATES:rumelhart-1986-backpropagation"
 ---
+
 
 # Computational Limitations of Linear Perceptrons: XOR, Locality, and the AI Winter
 

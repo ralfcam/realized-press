@@ -34,7 +34,17 @@ sources:
   - id: Zuboff_2019
     resource: https://www.publicaffairsbooks.com/titles/shoshana-zuboff/the-age-of-surveillance-capitalism/9781610395694/
     title: 'Zuboff (2019), The Age of Surveillance Capitalism: The Fight for a Human
-    Future at the New Frontier of Power'---
+    Future at the New Frontier of Power'
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "behavioral surplus extraction mechanism in digital platforms"
+  - "instrumentarian power architecture modifying human behavior at scale"
+  - "asymmetric corporate memory accumulation vs. user surveillance"
+relates_to_cards:
+  - "CONTRASTS:abadi-2016-deep-learning-with-differential-privacy"
+  - "BRIDGES_LENS:veale-2018-algorithms-that-remember-model-inversion-gdpr"
+---
+
 
 # Surveillance Capitalism and Behavioral Memory Asymmetry
 

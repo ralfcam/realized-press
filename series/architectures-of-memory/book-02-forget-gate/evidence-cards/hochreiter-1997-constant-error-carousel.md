@@ -37,7 +37,16 @@ sources:
   - id: Bengio1994
     resource: https://doi.org/10.1109/72.279181
     title: "Bengio, Simard, and Frasconi (1994), Learning long-term dependencies with gradient descent is difficult"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "constant error carousel unit with linear activation f(x) = x and weight 1.0"
+  - "multiplicative input and output gates shielding internal state"
+  - "preservation of error gradient across 1,000+ unrolled time steps"
+relates_to_cards:
+  - "EXTENDS:hochreiter-1991-vanishing-gradient"
+  - "BOUNDS:gers-2000-forget-gate-continual-prediction"
 ---
+
 
 # The Constant Error Carousel in Long Short-Term Memory
 

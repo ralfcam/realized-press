@@ -22,7 +22,16 @@ sources:
   - id: lancet-psych-2018
     resource: https://www.thelancet.com/journals/lanpsy/article/PIIS2215-0366(18)30225-6/fulltext
     title: "The Lancet Psychiatry (2018), children-of-twins design"
+attenuation_tier: "largely_confounded_>50%"
+quantitative_anchors:
+  - "large observational cohorts report small-to-moderate associations (r ~ 0.10-0.15) between prenatal cortisol/stress and child anxiety"
+  - "children-of-twins and IVF ovum donation designs show >50% attenuation of prenatal-specific maternal stress effects"
+  - "postnatal maternal depression and anxiety retain real environmental transmission (r ~ 0.20-0.25) after controlling for prenatal exposure"
+relates_to_cards:
+  - "BOUNDS:placenta-as-mediator"
+  - "CONTRASTS:infant-caregiver-coregulation"
 ---
+
 
 # Prenatal Maternal Stress and Anxiety
 

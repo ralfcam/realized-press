@@ -22,7 +22,16 @@ sources:
   - id: elango-2016-ece
     resource: https://www.nber.org/papers/w21766
     title: "Elango, García, Heckman & Hojman (2016), Early Childhood Education"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "HighScope Perry Preschool Project (N = 123) and Carolina Abecedarian Project (N = 111) randomized trials"
+  - "initial IQ gains of 10-12 points faded by age 8 (fade-out effect)"
+  - "persistent long-term adult gains: 44% higher high school graduation and 3.2x higher rate of savings/homeownership at age 40"
+relates_to_cards:
+  - "EXTENDS:early-childcare-quality"
+  - "BOUNDS:neighborhood-mobility-age-dependent"
 ---
+
 
 # Preschool / Early Childhood Education (Perry, Abecedarian)
 

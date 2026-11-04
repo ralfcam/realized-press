@@ -16,7 +16,16 @@ sources:
   - id: byers-heinlein-2010-bilingual
     resource: https://doi.org/10.1177/0956797609360758
     title: "Byers-Heinlein, Burns & Werker (2010), Psychological Science, roots of bilingualism in newborns"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "total conceptual vocabulary equal or superior in bilingual vs. monolingual toddlers"
+  - "phonetic discrimination maintained across 2 native phonemic systems at 10-12 months"
+  - "cross-language transfer without developmental delay in linguistic milestones"
+relates_to_cards:
+  - "CONTRASTS:infant-perceptual-narrowing"
+  - "EXTENDS:conversational-turns-language"
 ---
+
 
 # Two Languages Do Not Confuse Young Children
 

@@ -16,7 +16,16 @@ sources:
   - id: partanen-2013
     resource: https://doi.org/10.1073/pnas.1302159110
     title: "Partanen et al. (2013), PNAS, neural memory traces of prenatal sound exposure"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "DeCasper & Spence (1986) operant sucking preference in newborns exposed to maternal story reading during third trimester"
+  - "newborns alter inter-burst sucking intervals to select familiar target story over novel story (p < 0.05)"
+  - "fetal auditory cortex evocation (mismatch negativity) to maternal vowels detectable up to 4 months post-birth"
+relates_to_cards:
+  - "EXTENDS:infant-perceptual-narrowing"
+  - "BOUNDS:infant-statistical-speech-segmentation"
 ---
+
 
 # Prenatal Auditory Discrimination and Newborn Preference
 

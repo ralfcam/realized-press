@@ -13,7 +13,16 @@ sources:
   - id: black-aboud-2011-feeding
     resource: https://doi.org/10.3945/jn.110.129973
     title: "Black & Aboud (2011), Journal of Nutrition, responsive feeding in a responsive-parenting framework"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "responsive feeding interventions (e.g. SLOW and INSIGHT trials) promoting maternal satiety recognition"
+  - "20-30% reduction in rapid infant weight gain during first 6 months of life"
+  - "attenuation under maternal feeding anxiety, household food insecurity, and infant negative reactivity"
+relates_to_cards:
+  - "EXTENDS:breastfeeding-cognitive-development"
+  - "BOUNDS:early-allergen-introduction-blw"
 ---
+
 
 # Feeding as Reciprocal Regulation, Not a Transfer of Calories
 

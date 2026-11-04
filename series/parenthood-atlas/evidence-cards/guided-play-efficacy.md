@@ -16,7 +16,16 @@ sources:
   - id: weisberg-2016-guided-play
     resource: https://doi.org/10.1177/0963721416645512
     title: "Weisberg et al. (2016), Current Directions, guided play principles and practices"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Hedges g = 0.24 to 0.63 for domain-specific preschool numeracy and shape learning in Fisher & Hirsh-Pasek trials"
+  - "guided play outperforms didactic instruction on conceptual transfer and exploratory play on targeted learning"
+  - "effects documented immediately post-intervention in preschool and laboratory settings"
+relates_to_cards:
+  - "EXTENDS:exploration-as-sampling"
+  - "BOUNDS:pretend-play-educational-claims"
 ---
+
 
 # Guided Play Efficacy and Pedagogical Scaffolding
 

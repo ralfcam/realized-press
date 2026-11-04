@@ -19,7 +19,16 @@ sources:
   - id: cuevas-2025-contingency
     resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC12354038/
     title: "Cuevas & colleagues (2025), Infant Behavior & Development, quarter-century review of infant contingency learning"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Rovee-Collier conjugate mobile reinforcement paradigm in 2- to 6-month-old infants"
+  - "baseline kick rate doubling within 9-minute acquisition phase"
+  - "retention window extending from 1-2 days at 2 months to over 2 weeks at 6 months under exact retrieval cues"
+relates_to_cards:
+  - "EXTENDS:deferred-imitation"
+  - "BOUNDS:infant-attention-as-gatekeeper"
 ---
+
 
 # Infant Contingency Learning
 

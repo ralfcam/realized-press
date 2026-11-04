@@ -13,7 +13,16 @@ sources:
   - id: moffitt-2011-self-control
     resource: https://doi.org/10.1073/pnas.1010076108
     title: "Moffitt et al. (2011), PNAS, childhood self-control gradient"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Dunedin longitudinal cohort (N = 1,037) followed across 3 decades"
+  - "gradient across adult health, wealth, and criminal conviction outcomes with r ~ 0.20-0.25"
+  - "attenuation under childhood IQ and parental socioeconomic status"
+relates_to_cards:
+  - "BOUNDS:self-regulation-delay-of-gratification"
+  - "EXTENDS:inhibitory-control-toddler"
 ---
+
 
 # Childhood Self-Control Is a Population Gradient, Not a Sentence
 

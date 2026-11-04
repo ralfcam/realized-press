@@ -13,7 +13,16 @@ sources:
   - id: colombo-2001-attention
     resource: https://doi.org/10.1146/annurev.psych.52.1.337
     title: "Colombo (2001), Annual Review of Psychology, visual attention in infancy"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "infant looking duration and habituation slope across visual stimuli (Colombo & Mitchell models)"
+  - "moderate test-retest reliability (r ~ 0.35-0.50) within laboratory sessions"
+  - "looking time reflects state-dependent arousal, posture, and stimulus salience rather than fixed IQ trait"
+relates_to_cards:
+  - "BOUNDS:looking-time-as-measurement"
+  - "EXTENDS:infant-contingency-learning"
 ---
+
 
 # Infant Attention Is a Family of Processes, Not a Trait
 

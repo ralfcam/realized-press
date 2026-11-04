@@ -37,7 +37,16 @@ sources:
   - id: Holtzblatt2010
     resource: https://doi.org/10.1145/1753846.1754208
     title: "Holtzblatt et al. (2010), Evaluating the uses and benefits of an enterprise wiki"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "empirical analysis of 1,000+ open-source software repositories"
+  - "semantic decay rate of source code comments over multi-year commits"
+  - "divergence between natural-language documentation and executable syntax"
+relates_to_cards:
+  - "BOUNDS:walsh-ungson-1991-organizational-memory"
+  - "BRIDGES_LENS:bergson-1896-matter-and-memory-duration"
 ---
+
 
 # Code-Comment Inconsistency and Documentation Rot in Software Repositories
 

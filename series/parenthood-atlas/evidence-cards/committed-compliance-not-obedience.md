@@ -13,7 +13,16 @@ sources:
   - id: kochanska-1995-conscience
     resource: https://doi.org/10.2307/1131908
     title: "Kochanska (1995), Child Development, committed compliance and emerging internalization"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Kochanska observational laboratory paradigm (N = 106 maternal-infant dyads)"
+  - "mutually responsive orientation predicting committed compliance (r ~ 0.35-0.45)"
+  - "situational compliance vs. committed compliance divergence across do and don't contexts"
+relates_to_cards:
+  - "EXTENDS:routines-and-adult-modeling"
+  - "CONTRASTS:timeout-vs-spanking-discipline"
 ---
+
 
 # Committed Compliance Is Not the Same as Obedience
 

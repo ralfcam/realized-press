@@ -37,7 +37,16 @@ sources:
   - id: vaswani2017arxiv
     resource: https://doi.org/10.48550/arXiv.1706.03762
     title: "Vaswani et al. (2017), Attention Is All You Need"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "additive attention mechanism e_{ij} = v_a^T tanh(W_a s_{i-1} + U_a h_j)"
+  - "soft alignment vector generating dynamic context vector c_i"
+  - "BLEU score preservation on long sentences > 30 words in English-to-French translation"
+relates_to_cards:
+  - "EXTENDS:cho-2014-gru-vs-lstm-gating-mechanisms"
+  - "BOUNDS:vaswani-2017-attention-is-all-you-need"
 ---
+
 
 # Fixed-Vector Bottleneck in Sequence-to-Sequence Models and Soft Attention Bypass
 

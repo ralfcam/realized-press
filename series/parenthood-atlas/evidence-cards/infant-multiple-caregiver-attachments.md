@@ -16,7 +16,16 @@ sources:
   - id: dagan-2018-cdp
     resource: https://doi.org/10.1111/cdep.12272
     title: "Dagan & Sagi-Schwartz (2018), Child Development Perspectives, early attachment network with mother and father"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Strange Situation attachment security classifications across multiple primary caregivers (mother, father, professional caregiver)"
+  - "hierarchical vs. network attachment organization models in Israeli kibbutz and Efe hunter-gatherer cohorts"
+  - "relationship-specific concordance (r ~ 0.15-0.25 between mother and father attachment security) demonstrating attachment is relationship-bound"
+relates_to_cards:
+  - "EXTENDS:responsive-caregiving-attachment-interventions"
+  - "BOUNDS:father-kin-sibling-heterogeneous-network"
 ---
+
 
 # Infants Can Form Attachments to More Than One Caregiver
 

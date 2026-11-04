@@ -36,8 +36,17 @@ sources:
     title: Bourtoule et al. (2021), Machine Unlearning (IEEE S&P)
   - id: Dwork_2006
     resource: https://doi.org/10.1007/11681878_14
-    title: Dwork, McSherry, Nissim, and Smith (2006), Calibrating Noise to Sensitivity
-    in Private Data Analysis---
+    title: "Dwork, McSherry, Nissim, and Smith (2006), Calibrating Noise to Sensitivity in Private Data Analysis"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Sharded, Isolated, Sliced, Aggregated (SISA) training framework for machine unlearning"
+  - "up to 4.4x speedup in unlearning requests compared to retraining from scratch"
+  - "exact unlearning guarantees via certified data partitioning"
+relates_to_cards:
+  - "EXTENDS:abadi-2016-deep-learning-with-differential-privacy"
+  - "BOUNDS:eldan-2023-whos-harry-potter-approximate-unlearning"
+---
+
 
 # Sharded, Isolated, Sliced, and Aggregated (SISA) Exact Machine Unlearning
 

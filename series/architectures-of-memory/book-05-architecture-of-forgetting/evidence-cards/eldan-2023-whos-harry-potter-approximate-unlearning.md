@@ -34,8 +34,17 @@ locked_bib_keys:
 sources:
   - id: eldan2023arxiv
     resource: https://arxiv.org/abs/2310.02238
-    title: Eldan & Russinovich (2023), Who's Harry Potter? Approximate Unlearning in
-    LLMs---
+    title: "Eldan & Russinovich (2023), Who's Harry Potter? Approximate Unlearning in LLMs"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "approximate unlearning of copyrighted fiction from Llama-7B via negative target reinforcement"
+  - "prompt completion accuracy reduction from 80%+ to baseline zero on Harry Potter trivia"
+  - "preservation of general benchmark performance on MMLU and ARC"
+relates_to_cards:
+  - "CONTRASTS:bourtoule-2021-sisa-machine-unlearning"
+  - "BOUNDS:carlini-2021-extracting-training-data-from-large-language-models"
+---
+
 
 # Approximate Selective Unlearning in Pre-Trained Language Models
 

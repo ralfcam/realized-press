@@ -37,7 +37,16 @@ sources:
   - id: Argote1990
     resource: https://doi.org/10.1287/mnsc.36.2.140
     title: "Argote, Beckman, and Epple (1990), The Persistence and Transfer of Learning in Industrial Settings"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "4-cell matrix of organizational forgetting (Memory Dissipation, Failure to Capture, Unlearning, Purged Memory)"
+  - "intentional unlearning vs. accidental decay taxonomy"
+  - "empirical case studies across manufacturing and healthcare transitions"
+relates_to_cards:
+  - "EXTENDS:argote-1990-persistence-of-learning-industrial"
+  - "BRIDGES_LENS:levitt-march-1988-organizational-learning-routines"
 ---
+
 
 # The Dynamics of Organizational Forgetting: Accidental vs. Intentional Modes
 

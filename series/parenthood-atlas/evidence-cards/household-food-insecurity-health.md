@@ -13,7 +13,16 @@ sources:
   - id: cook-2004-food-insecurity
     resource: https://doi.org/10.1093/jn/134.6.1432
     title: "Cook et al. (2004), Journal of Nutrition, food insecurity and infant/toddler health"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "elevated odds of fair/poor pediatric health (adjusted OR ~ 1.5-1.9) and hospitalization in Children's HealthWatch cohorts (N > 18,000)"
+  - "co-occurrence with parental economic stress, maternal depression, and housing instability"
+  - "attenuation in sibling and policy-expansion designs"
+relates_to_cards:
+  - "BOUNDS:income-cash-transfer-early-development"
+  - "BRIDGES_LENS:ordinary-resilience-adaptive-systems"
 ---
+
 
 # Household Food Insecurity Is Associated with Infant and Toddler Health, Not Parental Failure
 

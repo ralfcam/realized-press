@@ -16,7 +16,16 @@ sources:
   - id: hillman-2012-transition
     resource: https://doi.org/10.1016/j.clp.2012.09.009
     title: "Hillman, Kallapur & Jobe (2012), Clin Perinatol, physiology of transition from intrauterine to extrauterine life"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "fall in pulmonary vascular resistance (PVR) from >100 mmHg/L/min to <15 mmHg/L/min with first lung aeration"
+  - "reversal of left-to-right transductal shunt through ductus arteriosus within 10-15 minutes of cord clamping"
+  - "functional closure of foramen ovale driven by left atrial pressure exceeding right atrial pressure"
+relates_to_cards:
+  - "EXTENDS:delivery-mode-neonatal-transition"
+  - "BRIDGES_LENS:placenta-as-mediator"
 ---
+
 
 # Neonatal Cardiopulmonary Transition
 

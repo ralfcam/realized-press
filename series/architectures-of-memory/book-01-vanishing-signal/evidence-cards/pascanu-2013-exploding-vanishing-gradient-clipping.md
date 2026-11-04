@@ -37,7 +37,16 @@ sources:
   - id: Bengio1994
     resource: https://doi.org/10.1109/72.279181
     title: "Bengio, Simard, and Frasconi (1994), Learning long-term dependencies with gradient descent is difficult"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "norm clipping threshold g_hat = g * (threshold / ||g||) when ||g|| > threshold"
+  - "geometrical analysis of cliff-like curvature in recurrent loss surfaces"
+  - "Hessian-free and regularization baselines on long-term sequence benchmarks"
+relates_to_cards:
+  - "MITIGATES:hochreiter-1991-vanishing-gradient"
+  - "EXTENDS:hochreiter-1997-constant-error-carousel"
 ---
+
 
 # Exploding and Vanishing Gradients in Recurrent Neural Networks: Geometry and Norm Clipping
 

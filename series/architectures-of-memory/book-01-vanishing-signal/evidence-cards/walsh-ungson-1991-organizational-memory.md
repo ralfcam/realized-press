@@ -37,7 +37,16 @@ sources:
   - id: Eppler_2004
     resource: https://doi.org/10.1080/01972240490507974
     title: "Eppler and Mengis (2004), The Information Society, The Concept of Information Overload"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "5 organizational memory retention bins (Individuals, Culture, Transformations, Structures, Ecology)"
+  - "external archives retention locus"
+  - "retrieval failure costs in post-acquisition mergers"
+relates_to_cards:
+  - "EXTENDS:nonaka-1994-seci-knowledge-conversion"
+  - "BRIDGES_LENS:tan-2023-code-comment-rot"
 ---
+
 
 # Organizational Memory Retention Bins and Retrieval Degradation
 

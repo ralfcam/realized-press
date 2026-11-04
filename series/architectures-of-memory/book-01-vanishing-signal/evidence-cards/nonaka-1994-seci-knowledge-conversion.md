@@ -37,7 +37,16 @@ sources:
   - id: Walsh_1991
     resource: https://doi.org/10.2307/258607
     title: "Walsh and Ungson (1991), Academy of Management Review, Organizational Memory"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "SECI conversion cycle (Socialization, Externalization, Combination, Internalization)"
+  - "ontological knowledge spiral across individual, group, and organizational levels"
+  - "tacit-to-explicit knowledge codification asymmetry"
+relates_to_cards:
+  - "CONTRASTS:walsh-ungson-1991-organizational-memory"
+  - "BRIDGES_LENS:tan-2023-code-comment-rot"
 ---
+
 
 # SECI Knowledge Conversion Model and Tacit Transmission Loss
 

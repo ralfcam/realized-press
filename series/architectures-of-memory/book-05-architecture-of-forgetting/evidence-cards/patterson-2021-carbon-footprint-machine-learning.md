@@ -33,7 +33,17 @@ locked_bib_keys:
 sources:
   - id: patterson2021arxiv
     resource: https://arxiv.org/abs/2104.10350
-    title: Patterson et al. (2021), Carbon Emissions and Large Neural Network Training---
+    title: Patterson et al. (2021), Carbon Emissions and Large Neural Network Training
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "552 metric tons CO2e for GPT-3 training"
+  - "4-M energy efficiency best practices (Model, Machine, Mech, Map)"
+  - "up to 100x emission reduction through datacenter optimization"
+relates_to_cards:
+  - "BOUNDS:mcmahan-2017-federated-learning-communication-efficient"
+  - "BRIDGES_LENS:zuboff-2019-age-of-surveillance-capitalism"
+---
+
 
 # The Carbon and Energy Cost of Memory at Scale
 

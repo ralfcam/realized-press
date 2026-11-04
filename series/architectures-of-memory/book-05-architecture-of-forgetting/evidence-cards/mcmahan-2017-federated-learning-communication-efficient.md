@@ -33,8 +33,17 @@ locked_bib_keys:
 sources:
   - id: mcmahan2016arxiv
     resource: https://arxiv.org/abs/1602.05629
-    title: McMahan et al. (2017), Communication-Efficient Learning of Deep Networks
-    from Decentralized Data---
+    title: "McMahan et al. (2017), Communication-Efficient Learning of Deep Networks from Decentralized Data"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "FederatedAveraging (FedAvg) algorithm aggregating local client SGD updates"
+  - "10-100x reduction in network communication rounds compared to centralized SGD"
+  - "evaluation across non-IID data distributions on mobile device keyboard prediction"
+relates_to_cards:
+  - "EXTENDS:abadi-2016-deep-learning-with-differential-privacy"
+  - "BOUNDS:patterson-2021-carbon-footprint-machine-learning"
+---
+
 
 # Federated Learning and Decentralized Model Aggregation
 

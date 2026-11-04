@@ -20,7 +20,16 @@ sources:
   - id: gu2023arxiv
     resource: https://arxiv.org/abs/2312.00752
     title: "Gu & Dao (2023), Mamba: Linear-Time Sequence Modeling with Selective State Spaces"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "selective state space model (SSM) with input-dependent time-varying parameters B, C, Delta"
+  - "hardware-aware parallel scan computing in linear time O(N) with O(1) inference state"
+  - "5x higher inference throughput than transformers on long sequences up to 1M tokens"
+relates_to_cards:
+  - "CONTRASTS:dao-2022-flashattention-fast-memory-efficient"
+  - "BOUNDS:ji-2023-survey-hallucination-natural-language-generation"
 ---
+
 
 # Selective State Space Models for Linear-Time Sequence Modeling
 

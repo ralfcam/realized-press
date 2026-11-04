@@ -20,7 +20,16 @@ sources:
   - id: Bender_2020
     resource: https://doi.org/10.18653/v1/2020.acl-main.463
     title: "Bender & Koller (2020), Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "Octopus test thought experiment showing form cannot yield meaning without communicative intent"
+  - "formal distinction between linguistic form and communicative meaning"
+  - "critique of evaluating semantic understanding solely via statistical language modeling"
+relates_to_cards:
+  - "CONTRASTS:brown-2020-language-models-few-shot-learners"
+  - "BRIDGES_LENS:gopnik-2012-reconstructing-constructivism-bayesian-models"
 ---
+
 
 # The Octopus Test: Form Does Not Imply Meaning
 

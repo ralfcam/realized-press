@@ -9,14 +9,6 @@ attenuation_class: "robust_under_20pct"
 allowed_verbs: ["demonstrates", "establishes", "shows", "distinguishes", "identifies"]
 forbidden_verbs: ["proves_machines_cannot_feel", "cures_amnesia"]
 locked_bib_keys: ["Tulving_1985", "Clark_1998"]
-relates_to_cards:
-  - "BRIDGES_LENS:sparrow-2011-google-effects-on-memory"
-  - "CONTRASTS:clark-chalmers-1998-extended-mind-external-memory"
-quantitative_anchors:
-  - "tripartite memory hierarchy"
-  - "autonoetic vs noetic vs anoetic consciousness"
-  - "subjective mental time travel"
-  - "3,500+ cognitive citations"
 canonical_metaphors:
   body_prose: "the difference between looking up a coordinate in an atlas and stepping back into the exact cold rain of the street where you first stood"
   spoken_tts: "the difference between looking up a coordinate in an atlas and stepping back into the exact cold rain of the street where you first stood"
@@ -46,7 +38,16 @@ sources:
   - id: Clark_1998
     resource: https://doi.org/10.1093/analys/58.1.7
     title: "Clark and Chalmers (1998), The Extended Mind, Analysis"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "tripartite classification of memory systems (anoetic, noetic, autonoetic)"
+  - "episodic memory as mental time travel enabling subjective self-recollection"
+  - "dissociation of episodic from semantic memory in amnesic patients (e.g. K.C.)"
+relates_to_cards:
+  - "EXTENDS:clark-chalmers-1998-extended-mind-external-memory"
+  - "CONTRASTS:searle-1980-minds-brains-programs-chinese-room"
 ---
+
 
 # Episodic Memory, Semantic Lookup, and Autonoetic Consciousness
 

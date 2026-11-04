@@ -35,7 +35,17 @@ sources:
   - id: Veale_2018
     resource: https://doi.org/10.1098/rsta.2018.0080
     title: 'Veale, Binns & Edwards (2018), Algorithms that Remember: Model Inversion
-    Attacks and Data Protection Law'---
+    Attacks and Data Protection Law'
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "Article 17 GDPR Right to Erasure legal scope applied to machine learning models"
+  - "model weight data retention gap in trained neural networks"
+  - "membership inference attacks classified as personal data disclosures"
+relates_to_cards:
+  - "EXTENDS:bourtoule-2021-sisa-machine-unlearning"
+  - "BRIDGES_LENS:floridi-2014-right-to-be-forgotten-epistemic-privacy"
+---
+
 
 # Algorithms That Remember: Model Inversion and Data Protection Law
 

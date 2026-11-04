@@ -20,7 +20,16 @@ sources:
   - id: Raji_2020
     resource: https://doi.org/10.1145/3351095.3372873
     title: "Raji et al. (2020), Closing the AI accountability gap: defining an end-to-end framework for internal algorithmic auditing"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "end-to-end internal audit framework for algorithmic systems across 5 lifecycle stages"
+  - "SMACTR framework (Scoping, Mapping, Artifact Collection, Testing, Post-deployment)"
+  - "accountability verification gap between vendor documentation and deployed model risks"
+relates_to_cards:
+  - "EXTENDS:selbst-2018-intuitive-appeal-explainable-machines"
+  - "BRIDGES_LENS:ji-2023-survey-hallucination-natural-language-generation"
 ---
+
 
 # Internal Algorithmic Auditing and Accountability Frameworks
 

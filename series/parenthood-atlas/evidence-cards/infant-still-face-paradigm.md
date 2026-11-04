@@ -16,7 +16,16 @@ sources:
   - id: mesman-2009-still-face
     resource: https://doi.org/10.1016/j.dr.2009.02.001
     title: "Mesman, van IJzendoorn & Bakermans-Kranenburg (2009), Developmental Review, still-face meta-analysis"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Tronick still-face paradigm: 2 minutes normal play, 2 minutes maternal frozen face, 2 minutes reunion"
+  - "infant positive affect drops by >60%, gaze aversion increases, and self-soothing behaviors elevate during still face"
+  - "reunion rebound effect: heightened negative affect persists into initial recovery phase before homeostatic regulation returns"
+relates_to_cards:
+  - "EXTENDS:infant-caregiver-coregulation"
+  - "CONTRASTS:severe-institutional-deprivation"
 ---
+
 
 # Still-Face Disruption of Expected Social Contingency
 

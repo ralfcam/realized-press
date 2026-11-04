@@ -34,7 +34,16 @@ sources:
   - id: devlin2018arxiv
     resource: https://arxiv.org/abs/1810.04805
     title: "Devlin et al. (2019), BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "masked language modeling predicting 15% randomly masked tokens"
+  - "next sentence prediction objective across 3,300M words corpus"
+  - "11 state-of-the-art NLP task records with BERT-Base (110M) and BERT-Large (340M)"
+relates_to_cards:
+  - "EXTENDS:vaswani-2017-attention-is-all-you-need"
+  - "CONTRASTS:radford-2019-language-models-unsupervised-multitask"
 ---
+
 
 # Bidirectional Encoder Representations from Transformers
 

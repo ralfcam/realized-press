@@ -34,7 +34,16 @@ sources:
   - id: vaswani2017arxiv
     resource: https://arxiv.org/abs/1706.03762
     title: "Vaswani et al. (2017), Attention Is All You Need"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "scaled dot-product attention Attention(Q,K,V) = softmax(Q K^T / sqrt(d_k)) V"
+  - "multi-head attention projection across h = 8 heads with d_model = 512"
+  - "O(1) sequential path length and O(n^2) computational complexity per layer"
+relates_to_cards:
+  - "EXTENDS:bahdanau-2015-neural-machine-translation-attention"
+  - "BOUNDS:devlin-2019-bert-pretraining-deep-bidirectional"
 ---
+
 
 # Self-Attention Parallelization and Recurrence Elimination in Sequence Modeling
 

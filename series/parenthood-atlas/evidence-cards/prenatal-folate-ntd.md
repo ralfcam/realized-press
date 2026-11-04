@@ -19,7 +19,16 @@ sources:
   - id: czeizel-dudas-1992
     resource: https://doi.org/10.1056/NEJM199212243272602
     title: "Czeizel & Dudás (1992), NEJM, first-occurrence NTD prevention trial"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "MRC Vitamin Study (1991) randomized controlled trial (N = 1,817 women at high risk of neural tube defect recurrence)"
+  - "72% relative risk reduction for neural tube defects with 4mg/day periconceptional folic acid"
+  - "population-wide grain fortification reduced spina bifida and anencephaly incidence by 28-35% across the United States"
+relates_to_cards:
+  - "EXTENDS:prenatal-neural-construction"
+  - "BOUNDS:preconception-nutrition-beyond-folate"
 ---
+
 
 # Periconceptional Folic Acid and Neural-Tube Defects
 

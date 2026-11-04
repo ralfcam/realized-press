@@ -13,7 +13,16 @@ sources:
   - id: zeifman-2017-crying
     resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC5494986/
     title: "Zeifman & St James-Roberts (2017), Current Opinion in Psychology, parenting the crying infant"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "developmental crying curve peaking at 5-6 weeks of age (average 2-3 hours/day) and declining by 12 weeks (Brazelton baseline)"
+  - "acoustic fundamental frequency (F0) shifts from 400-500 Hz typical to >800 Hz during intense pain"
+  - "graded signal dynamics: pitch and acoustic roughness index physiological distress rather than discrete semantic intent"
+relates_to_cards:
+  - "EXTENDS:infant-caregiver-coregulation"
+  - "BOUNDS:infant-sleep-training"
 ---
+
 
 # Infant Crying Is a Graded Signal, Not a Code
 

@@ -13,7 +13,16 @@ sources:
   - id: van-wijk-2014-plagiocephaly
     resource: https://doi.org/10.1136/bmj.g2741
     title: "van Wijk et al. (2014), BMJ, Helmet therapy in infants with positional skull deformation: randomised controlled trial"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "van Wijk et al. (2014) HEADS pragmatic randomized controlled trial (N = 84 infants) of cranial orthotic helmets"
+  - "standardized mean difference on cranial asymmetry at age 2 is essentially zero (d = 0.02, p = 0.86)"
+  - "73% of parents in helmet group reported side effects (skin irritation, sweating, unpleasant odor) without cosmetic advantage"
+relates_to_cards:
+  - "BOUNDS:embodied-perception-action"
+  - "CONTRASTS:neonatal-frenotomy-tongue-tie"
 ---
+
 
 # Positional Plagiocephaly and Cranial Orthotic Helmet Therapy
 

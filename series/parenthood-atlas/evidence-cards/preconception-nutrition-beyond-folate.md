@@ -13,7 +13,16 @@ sources:
   - id: dean-2014-preconception-nutrition
     resource: https://doi.org/10.1186/1742-4755-11-S3-S3
     title: "Dean et al. (2014), Reproductive Health, preconception care: nutritional risks and interventions"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Cochrane systematic reviews on multi-micronutrient, zinc, and vitamin D supplementation during preconception"
+  - "relative risk reduction for low birthweight (RR ~ 0.88) documented in severely undernourished populations"
+  - "absence of significant cognitive or developmental benefit in well-nourished replete populations"
+relates_to_cards:
+  - "BOUNDS:prenatal-folate-ntd"
+  - "EXTENDS:prenatal-iodine-thyroid"
 ---
+
 
 # Preconception Nutrition Beyond Folate Is Not a Second NTD Trial
 

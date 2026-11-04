@@ -16,7 +16,16 @@ sources:
   - id: petitto-1991-manual-babbling
     resource: https://doi.org/10.1126/science.2006424
     title: "Petitto & Marentette (1991), Science, babbling in the manual mode"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "canonical babbling onset milestone between 6 and 10 months across hearing infants"
+  - "consonant-vowel syllabic transitions (e.g. da-da, ba-ba) as vocal tract exploration"
+  - "delayed canonical babbling identifies hearing impairment or motor difference (sensitivity > 80%) without indexing intelligence"
+relates_to_cards:
+  - "EXTENDS:conversational-turns-language"
+  - "BOUNDS:infant-statistical-speech-segmentation"
 ---
+
 
 # Babbling Is Exploration, Not an IQ Test
 

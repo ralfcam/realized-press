@@ -13,7 +13,16 @@ sources:
   - id: brussoni-2015-risky-play
     resource: https://doi.org/10.3390/ijerph120606423
     title: "Brussoni et al. (2015), IJERPH, systematic review of risky outdoor play and health"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Sandseter & Kennair categories of risky play (heights, speed, dangerous tools, rough-and-tumble)"
+  - "moderate associations with physical competence and risk appraisal in preschool and school-age cohorts"
+  - "absence of evidence for a critical 0-3 window requiring specific hazard exposure"
+relates_to_cards:
+  - "EXTENDS:embodied-perception-action"
+  - "BOUNDS:toddler-peer-interaction"
 ---
+
 
 # Risky Outdoor Play Is Not a 0–3 Developmental Law
 

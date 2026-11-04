@@ -13,7 +13,16 @@ sources:
   - id: roberts-delvecchio-2000
     resource: https://doi.org/10.1037/0033-2909.126.1.3
     title: "Roberts & DelVecchio (2000), Psychological Bulletin, rank-order consistency of personality traits"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Roberts & DelVecchio meta-analysis of personality and temperament rank-order stability across life course"
+  - "test-retest stability coefficient r ~ 0.31 during toddlerhood rising to r ~ 0.54 in middle childhood and r ~ 0.64 in adulthood"
+  - "modest early stability leaves over 90% of individual variance open to developmental reallocation across the 0-3 period"
+relates_to_cards:
+  - "BOUNDS:temperament-reactivity-not-destiny"
+  - "EXTENDS:childhood-self-control-gradient"
 ---
+
 
 # Early Rank-Order Continuity Is Modest, Not Destiny
 

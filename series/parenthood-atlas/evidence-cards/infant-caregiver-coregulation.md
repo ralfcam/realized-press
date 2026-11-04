@@ -16,7 +16,16 @@ sources:
   - id: feldman-2012-synchrony
     resource: https://doi.org/10.1080/15295192.2012.683342
     title: "Feldman (2012), Parenting, bio-behavioral synchrony"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "respiratory sinus arrhythmia (RSA) and vagal tone bio-behavioral synchrony in mother-infant dyads"
+  - "dynamic cross-lagged coupling during distress and soothing episodes (r ~ 0.30-0.45)"
+  - "attenuation under maternal postpartum depression and infant autonomic reactivity differences"
+relates_to_cards:
+  - "EXTENDS:infant-still-face-paradigm"
+  - "BRIDGES_LENS:responsive-caregiving-attachment-interventions"
 ---
+
 
 # Infant–Caregiver Co-Regulation Is Bidirectional
 

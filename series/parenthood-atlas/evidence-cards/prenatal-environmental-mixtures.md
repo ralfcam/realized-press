@@ -13,7 +13,16 @@ sources:
   - id: philippat-2024-sepages
     resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC11057944/
     title: "Philippat et al. (2024), SEPAGES phenols/phthalates and placental growth"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "environmental biomarker studies of lead, phthalates, and organophosphates in maternal cord blood"
+  - "placental weight and birthweight shifts of 50-150g in highest exposure quartiles"
+  - "attenuation under neighborhood socioeconomics, maternal smoking, and dietary co-exposures"
+relates_to_cards:
+  - "BOUNDS:prenatal-tobacco-birthweight"
+  - "CONTRASTS:prenatal-alcohol-fasd"
 ---
+
 
 # Prenatal Environmental Mixtures and Placental Markers
 

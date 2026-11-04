@@ -33,7 +33,17 @@ locked_bib_keys:
 sources:
   - id: Davis_2017
     resource: https://doi.org/10.1016/j.neuron.2017.05.039
-    title: Davis & Zhong (2017), The Biology of Forgetting—A Perspective---
+    title: Davis & Zhong (2017), The Biology of Forgetting—A Perspective
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "dopamine receptor dDA1 signaling mediating active memory forgetting in Drosophila"
+  - "Rac1 small G-protein activation driving dendritic spine decay"
+  - "distinction between passive decay and regulated molecular erasure"
+relates_to_cards:
+  - "EXTENDS:richards-2017-biology-of-adaptive-forgetting"
+  - "BRIDGES_LENS:gers-2000-forget-gate-continual-prediction"
+---
+
 
 # The Neurobiology of Active Forgetting
 

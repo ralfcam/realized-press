@@ -37,7 +37,16 @@ sources:
   - id: chung2014empirical
     resource: https://arxiv.org/abs/1412.3555
     title: "Chung, Gulcehre, Cho, and Bengio (2014), Empirical Evaluation of Gated Recurrent Neural Networks on Sequence Modeling"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "gated recurrent unit coupling reset gate r_t and update gate z_t"
+  - "elimination of separate memory cell c_t in favor of hidden state h_t"
+  - "parameter reduction by ~25% compared to standard LSTM"
+relates_to_cards:
+  - "CONTRASTS:gers-2000-forget-gate-continual-prediction"
+  - "BOUNDS:greff-2017-lstm-search-space-odyssey"
 ---
+
 
 # Gated Recurrent Unit (GRU) vs. LSTM: Coupled Gating Mechanisms and Architectural Trade-offs
 

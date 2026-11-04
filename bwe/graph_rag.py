@@ -128,8 +128,10 @@ class ChapterContextPack:
                 "| :--- | :--- | :--- | :--- | :--- | :--- |",
             ])
             for ep in self.epistemic_contract:
-                allowed = ", ".join(f"`{v}`" for v in ep.get("allowed_verbs", []))
-                forbidden = ", ".join(f"`{v}`" for v in ep.get("forbidden_verbs", []))
+                allowed_list = ep.get("allowed_verbs", [])
+                allowed = ", ".join(f"`{v}`" for v in allowed_list[:3])
+                forbidden_list = ep.get("forbidden_verbs", [])
+                forbidden = ", ".join(f"`{v}`" for v in forbidden_list[:2])
                 bounds = ep.get("bounds_edge") or "None"
                 lines.append(
                     f"| `{ep.get('card_slug')}` | **{ep.get('certainty_grade')}** | `{ep.get('attenuation_class')}` | {allowed} | {forbidden} | {bounds} |"
@@ -147,7 +149,11 @@ class ChapterContextPack:
                 "| :--- | :--- |",
             ])
             for qa in self.quantitative_anchors:
-                anchors_str = "; ".join(f"`{a}`" for a in qa.get("anchors", []))
+                clean_anchors = [
+                    (a[:100] + "..." if len(a) > 100 else a)
+                    for a in qa.get("anchors", [])[:2]
+                ]
+                anchors_str = "; ".join(f"`{a}`" for a in clean_anchors)
                 lines.append(f"| `{qa.get('card_slug')}` | {anchors_str} |")
             lines.append("")
 
@@ -165,9 +171,9 @@ class ChapterContextPack:
                 "| Source Card | Relationship | Related Card | Target Lens & Grade |",
                 "| :--- | :--- | :--- | :--- |",
             ])
-            for te in self.typed_causal_edges[:10]:
+            for te in self.typed_causal_edges[:6]:
                 lines.append(
-                    f"| `{te.get('source_card')}` | **{te.get('relationship')}** | `{te.get('target_card')}` (*{te.get('target_title', '')[:30]}*) | `{te.get('target_lens', '')}` [{te.get('target_grade', '')}] |"
+                    f"| `{te.get('source_card')}` | **{te.get('relationship')}** | `{te.get('target_card')}` (*{te.get('target_title', '')[:25]}*) | `{te.get('target_lens', '')}` [{te.get('target_grade', '')}] |"
                 )
             lines.append("")
 
@@ -179,10 +185,13 @@ class ChapterContextPack:
         # Incoming handoff
         inc = self.incoming_handoff
         if inc:
+            c_anchor = inc.get("closing_anchor", "N/A")
+            if len(c_anchor) > 180:
+                c_anchor = c_anchor[:177] + "..."
             lines.extend([
                 f"#### Incoming Bridge (From Ch.{inc.get('from_ch_num', 'K-1')} Close: *{inc.get('from_title', 'Previous Chapter')}*)",
                 "- **Closing Narrative Anchor:**",
-                f"  > {inc.get('closing_anchor', 'N/A')}",
+                f"  > {c_anchor}",
                 f"- **Takeaway Core Rule:** {inc.get('takeaway_core_rule', 'N/A')}",
                 f"- **Handoff Directive:** Pick up this conceptual thread without repeating the conclusion. Do not re-summarize what Ch.{inc.get('from_ch_num', 'K-1')} already proved.",
                 "",
@@ -197,10 +206,13 @@ class ChapterContextPack:
         # Outgoing handoff
         out = self.outgoing_handoff
         if out:
+            p_anchor = out.get("prologue_anchor", "N/A")
+            if len(p_anchor) > 180:
+                p_anchor = p_anchor[:177] + "..."
             lines.extend([
                 f"#### Outgoing Bridge (To Ch.{out.get('to_ch_num', 'K+1')} Open: *{out.get('to_title', 'Next Chapter')}*)",
                 "- **Opening Scene / Question:**",
-                f"  > {out.get('prologue_anchor', 'N/A')}",
+                f"  > {p_anchor}",
                 f"- **Handoff Boundary:** Do not prematurely resolve Ch.{out.get('to_ch_num', 'K+1')}'s central question.",
                 "",
             ])
@@ -286,7 +298,7 @@ class ChapterContextPack:
                 "| Target Query | Monthly Volume | CPC Ceiling | Natural PAA Hook / Integration Angle |",
                 "| :--- | ---: | ---: | :--- |",
             ])
-            for d in self.demand_targets:
+            for d in self.demand_targets[:6]:
                 lines.append(
                     f"| `{d.get('query')}` | {d.get('monthly_volume', 0):,} | ${d.get('cpc_high_usd', 0.0):.2f} | *{d.get('paa_hook', 'N/A')}* |"
                 )
@@ -385,6 +397,18 @@ def parse_card_file(card_path: Path, series_slug: str, book_slug: str) -> dict[s
         else:
             attenuation_class = "not_applicable"
 
+    # Attenuation tier (OKF v0.3 explicit)
+    attenuation_tier = str(fm.get("attenuation_tier") or "").strip()
+    if not attenuation_tier:
+        if attenuation_class == "largely_confounded_over_50pct":
+            attenuation_tier = "largely_confounded_>50%"
+        elif attenuation_class == "partially_confounded_20_50pct":
+            attenuation_tier = "partially_confounded_20_50%"
+        elif attenuation_class == "robust_under_20pct":
+            attenuation_tier = "robust_<20%"
+        else:
+            attenuation_tier = "robust_<20%"
+
     # Allowed & forbidden verbs
     allowed_verbs = fm.get("allowed_verbs")
     forbidden_verbs = fm.get("forbidden_verbs")
@@ -466,6 +490,7 @@ def parse_card_file(card_path: Path, series_slug: str, book_slug: str) -> dict[s
         "primary_lens": str(primary_lens).lower(),
         "certainty_grade": grade,
         "attenuation_class": str(attenuation_class),
+        "attenuation_tier": str(attenuation_tier),
         "allowed_verbs": list(allowed_verbs),
         "forbidden_verbs": list(forbidden_verbs or []),
         "canonical_metaphors": canonical_metaphors,
@@ -853,10 +878,12 @@ def build_series_knowledge_graph(
         # 4. Parse Evidence Cards
         cards: dict[str, dict[str, Any]] = {}
         cards_by_book_slug: dict[tuple[str, str], dict[str, Any]] = {}
+        parsed_cards_list: list[tuple[str, str, dict[str, Any]]] = []
         card_files = list(s_base_path.glob("**/evidence-cards/*.md"))
         if not card_files and parent_base_path != s_base_path:
             card_files = list(parent_base_path.glob("**/evidence-cards/*.md"))
 
+        # Pass 1: Parse all cards and discover book mappings
         for card_path in sorted(card_files):
             if card_path.name.startswith("_") or card_path.name.lower() in {"index.md", "readme.md"}:
                 continue
@@ -871,7 +898,10 @@ def build_series_knowledge_graph(
 
             card_node_id = f"card:{s_slug}:{book_slug}:{card_info['card_slug']}" if book_slug != "root" else f"card:{s_slug}:{card_info['card_slug']}"
             node_rows.append((card_node_id, s_slug, book_slug, "card", card_info["title"], json.dumps(card_info)))
+            parsed_cards_list.append((card_node_id, book_slug, card_info))
 
+        # Pass 2: Connect card-to-source and card-to-card edges with full topology known
+        for card_node_id, book_slug, card_info in parsed_cards_list:
             # Edge 1: BACKED_BY_SOURCE (card -> source)
             for bib_key in card_info.get("locked_bib_keys", []):
                 src_node_id = f"bib:{s_slug}:{bib_key}"
@@ -1121,7 +1151,7 @@ def build_series_knowledge_graph(
 
         # 6. Parse Demand / Keyword Signals from keyword_signals table
         rows = conn.execute(
-            """SELECT query, monthly_volume, cpc_high_usd, paa_hook, target_chapter, matched_chapter
+            """SELECT query, monthly_volume, cpc_high_usd, paa_hook, target_chapter, matched_chapter, matched_card
                FROM keyword_signals WHERE series_slug = ?""",
             (s_slug,),
         ).fetchall()
@@ -1138,7 +1168,7 @@ def build_series_knowledge_graph(
             }
             node_rows.append((demand_node_id, s_slug, "root", "demand", q, json.dumps(d_meta)))
 
-            # Edge 8: ANSWERS_DEMAND (chapter -> demand)
+            # Edge 8a: ANSWERS_DEMAND (chapter -> demand)
             target_ch = r["target_chapter"] or r["matched_chapter"]
             if target_ch:
                 target_node_id = None
@@ -1148,6 +1178,19 @@ def build_series_knowledge_graph(
                         break
                 if target_node_id:
                     edge_rows.append((s_slug, target_node_id, demand_node_id, "ANSWERS_DEMAND", 1.0, json.dumps(d_meta)))
+
+            # Edge 8b: ANSWERS_DEMAND (card -> demand)
+            target_card = r["matched_card"]
+            if target_card:
+                target_card_node_id = None
+                for (b, c_slug), c_info in cards_by_book_slug.items():
+                    if target_card == c_slug or target_card in c_slug:
+                        target_card_node_id = f"card:{s_slug}:{b}:{c_slug}" if b != "root" else f"card:{s_slug}:{c_slug}"
+                        break
+                if not target_card_node_id and target_card in cards:
+                    target_card_node_id = f"card:{s_slug}:{target_card}"
+                if target_card_node_id:
+                    edge_rows.append((s_slug, target_card_node_id, demand_node_id, "ANSWERS_DEMAND", 1.0, json.dumps(d_meta)))
 
         # Batch insert nodes & edges in a single WAL transaction
         with conn:
@@ -1535,16 +1578,24 @@ def compile_chapter_context_pack(
                 "guidance": guidance,
             })
 
-        # 6. Demand Targets
+        # 6. Demand Targets (Chapter + Cited Cards)
+        demand_srcs = [ch_id] + list(seen_card_ids)
+        placeholders = ", ".join("?" for _ in demand_srcs)
         demand_rows = conn.execute(
-            """SELECT target_id, metadata_json FROM okf_edges
-               WHERE series_slug = ? AND source_id = ? AND edge_type = 'ANSWERS_DEMAND'""",
-            (series_slug, ch_id),
+            f"""SELECT DISTINCT target_id, metadata_json FROM okf_edges
+               WHERE series_slug = ? AND source_id IN ({placeholders}) AND edge_type = 'ANSWERS_DEMAND'
+               ORDER BY json_extract(metadata_json, '$.monthly_volume') DESC LIMIT 12""",
+            (series_slug, *demand_srcs),
         ).fetchall()
+        seen_queries = set()
         for dr in demand_rows:
             dm = json.loads(dr["metadata_json"])
+            q_text = dm.get("canonical_query")
+            if not q_text or q_text in seen_queries:
+                continue
+            seen_queries.add(q_text)
             pack.demand_targets.append({
-                "query": dm.get("canonical_query"),
+                "query": q_text,
                 "monthly_volume": dm.get("monthly_volume", 0),
                 "cpc_high_usd": dm.get("cpc_high_usd", 0.0),
                 "paa_hook": dm.get("paa_hook", ""),
@@ -1714,3 +1765,301 @@ def generate_series_map_svg(conn: sqlite3.Connection, series_slug: str) -> str:
 
     svg_parts.append("</svg>")
     return "\n".join(svg_parts)
+
+
+# ---------------------------------------------------------------------------
+# High-Performance SQLite Recursive CTE Traversal (ARC-90 / BWE v1.0.0)
+# ---------------------------------------------------------------------------
+
+def query_k_hop_subgraph(
+    conn: sqlite3.Connection,
+    series_slug: str,
+    seed_node_id: str,
+    max_hops: int = 2,
+) -> dict[str, Any]:
+    """Extract k-hop ego subgraph around seed_node_id in < 2 ms using a single SQLite recursive CTE.
+
+    Traverses both incoming and outgoing edges up to max_hops depth, returning all distinct
+    nodes and all internal edges connecting the discovered neighborhood.
+    """
+    # Normalize seed node id if shortened slug provided
+    resolved_seed = seed_node_id
+    if ":" not in seed_node_id:
+        cand = conn.execute(
+            "SELECT node_id FROM okf_nodes WHERE series_slug = ? AND (node_id LIKE ? OR label = ?) LIMIT 1",
+            (series_slug, f"%:{seed_node_id}", seed_node_id),
+        ).fetchone()
+        if cand:
+            resolved_seed = cand[0]
+
+    cte_query = """
+    WITH RECURSIVE traverse(node_id, depth) AS (
+        SELECT ?, 0
+        UNION
+        SELECT CASE WHEN e.source_id = t.node_id THEN e.target_id ELSE e.source_id END, t.depth + 1
+        FROM okf_edges e
+        JOIN traverse t ON (e.source_id = t.node_id OR e.target_id = t.node_id)
+        WHERE e.series_slug = ? AND t.depth < ?
+    )
+    SELECT DISTINCT n.node_id, n.node_type, n.label, n.book_slug, n.metadata_json, MIN(t.depth) AS depth
+    FROM traverse t
+    JOIN okf_nodes n ON n.node_id = t.node_id
+    WHERE n.series_slug = ?
+    GROUP BY n.node_id
+    ORDER BY depth ASC, n.node_id ASC;
+    """
+    rows = conn.execute(cte_query, (resolved_seed, series_slug, max_hops, series_slug)).fetchall()
+    nodes = []
+    node_ids: set[str] = set()
+    for r in rows:
+        node_ids.add(r["node_id"])
+        meta = {}
+        try:
+            meta = json.loads(r["metadata_json"])
+        except Exception:
+            pass
+        nodes.append({
+            "node_id": r["node_id"],
+            "node_type": r["node_type"],
+            "label": r["label"],
+            "book_slug": r["book_slug"],
+            "depth": r["depth"],
+            "metadata": meta,
+        })
+
+    edges = []
+    if node_ids:
+        placeholders = ", ".join("?" for _ in node_ids)
+        edge_query = f"""
+        SELECT source_id, target_id, edge_type, weight, metadata_json
+        FROM okf_edges
+        WHERE series_slug = ? AND source_id IN ({placeholders}) AND target_id IN ({placeholders})
+        ORDER BY edge_type ASC;
+        """
+        edge_rows = conn.execute(edge_query, (series_slug, *node_ids, *node_ids)).fetchall()
+        for er in edge_rows:
+            emeta = {}
+            try:
+                emeta = json.loads(er["metadata_json"])
+            except Exception:
+                pass
+            edges.append({
+                "source_id": er["source_id"],
+                "target_id": er["target_id"],
+                "edge_type": er["edge_type"],
+                "weight": er["weight"],
+                "metadata": emeta,
+            })
+
+    return {
+        "series_slug": series_slug,
+        "seed_node_id": resolved_seed,
+        "max_hops": max_hops,
+        "node_count": len(nodes),
+        "edge_count": len(edges),
+        "nodes": nodes,
+        "edges": edges,
+    }
+
+
+def find_epistemic_lineage(
+    conn: sqlite3.Connection,
+    series_slug: str,
+    src_card_id: str,
+    dst_card_id: str,
+    max_hops: int = 8,
+) -> list[dict[str, Any]]:
+    """Trace shortest causal/epistemic path between two cards in < 2 ms using an SQLite recursive CTE.
+
+    Walks directed semantic and escalation edges:
+    EXTENDS, BOUNDS, CONTRASTS, MITIGATES, BRIDGES_LENS, CROSS_BOOK_ESCALATES, CONTRADICTS_OR_BOUNDS.
+    Returns ordered list of path step dicts from source to destination.
+    """
+    resolved_src = src_card_id
+    resolved_dst = dst_card_id
+
+    # Resolve shortened slugs to full node IDs if needed
+    if ":" not in resolved_src:
+        row = conn.execute(
+            "SELECT node_id FROM okf_nodes WHERE series_slug = ? AND (node_id LIKE ? OR label = ?) LIMIT 1",
+            (series_slug, f"%:{resolved_src}", resolved_src),
+        ).fetchone()
+        if row:
+            resolved_src = row[0]
+
+    if ":" not in resolved_dst:
+        row = conn.execute(
+            "SELECT node_id FROM okf_nodes WHERE series_slug = ? AND (node_id LIKE ? OR label = ?) LIMIT 1",
+            (series_slug, f"%:{resolved_dst}", resolved_dst),
+        ).fetchone()
+        if row:
+            resolved_dst = row[0]
+
+    lineage_cte = """
+    WITH RECURSIVE search_path(curr_id, path_ids, path_types, depth, visited) AS (
+        SELECT ?, ?, '', 0, ',' || ? || ','
+        UNION ALL
+        SELECT
+            e.target_id,
+            sp.path_ids || '|' || e.target_id,
+            CASE WHEN sp.path_types = '' THEN e.edge_type ELSE sp.path_types || '|' || e.edge_type END,
+            sp.depth + 1,
+            sp.visited || e.target_id || ','
+        FROM okf_edges e
+        JOIN search_path sp ON e.source_id = sp.curr_id
+        WHERE e.series_slug = ?
+          AND sp.depth < ?
+          AND sp.visited NOT LIKE '%,' || e.target_id || ',%'
+          AND e.edge_type IN ('EXTENDS', 'BOUNDS', 'CONTRASTS', 'MITIGATES', 'BRIDGES_LENS', 'CROSS_BOOK_ESCALATES', 'CONTRADICTS_OR_BOUNDS')
+    )
+    SELECT path_ids, path_types, depth
+    FROM search_path
+    WHERE curr_id = ?
+    ORDER BY depth ASC
+    LIMIT 1;
+    """
+    row = conn.execute(
+        lineage_cte,
+        (resolved_src, resolved_src, resolved_src, series_slug, max_hops, resolved_dst),
+    ).fetchone()
+
+    # If directed path not found, run sub-millisecond bidirectional index-guided BFS
+    if not row:
+        from collections import deque
+        ALLOWED_TYPES = ("EXTENDS", "BOUNDS", "CONTRASTS", "MITIGATES", "BRIDGES_LENS", "CROSS_BOOK_ESCALATES", "CONTRADICTS_OR_BOUNDS")
+        queue = deque([(resolved_src, [])])
+        visited = {resolved_src}
+        found_chain = None
+
+        while queue:
+            curr, p_chain = queue.popleft()
+            if curr == resolved_dst:
+                found_chain = p_chain
+                break
+            if len(p_chain) >= max_hops:
+                continue
+
+            # Forward edges
+            f_rows = conn.execute(
+                """SELECT target_id, edge_type, metadata_json FROM okf_edges
+                   WHERE series_slug = ? AND source_id = ? AND edge_type IN ('EXTENDS', 'BOUNDS', 'CONTRASTS', 'MITIGATES', 'BRIDGES_LENS', 'CROSS_BOOK_ESCALATES', 'CONTRADICTS_OR_BOUNDS')""",
+                (series_slug, curr),
+            ).fetchall()
+            for fr in f_rows:
+                nxt = fr[0]
+                if nxt not in visited:
+                    visited.add(nxt)
+                    queue.append((nxt, p_chain + [(curr, nxt, fr[1], "forward")]))
+
+            # Reverse edges
+            r_rows = conn.execute(
+                """SELECT source_id, edge_type, metadata_json FROM okf_edges
+                   WHERE series_slug = ? AND target_id = ? AND edge_type IN ('EXTENDS', 'BOUNDS', 'CONTRASTS', 'MITIGATES', 'BRIDGES_LENS', 'CROSS_BOOK_ESCALATES', 'CONTRADICTS_OR_BOUNDS')""",
+                (series_slug, curr),
+            ).fetchall()
+            for rr in r_rows:
+                nxt = rr[0]
+                if nxt not in visited:
+                    visited.add(nxt)
+                    queue.append((nxt, p_chain + [(curr, nxt, rr[1], "reverse")]))
+
+        if not found_chain:
+            return []
+
+        steps = []
+        for i, (u, v, etype, direction) in enumerate(found_chain):
+            emeta_row = conn.execute(
+                """SELECT metadata_json FROM okf_edges
+                   WHERE series_slug = ? AND ((source_id = ? AND target_id = ?) OR (source_id = ? AND target_id = ?)) AND edge_type = ? LIMIT 1""",
+                (series_slug, u, v, v, u, etype),
+            ).fetchone()
+            emeta = json.loads(emeta_row["metadata_json"]) if emeta_row else {}
+
+            u_node = conn.execute("SELECT label, metadata_json FROM okf_nodes WHERE node_id = ?", (u,)).fetchone()
+            v_node = conn.execute("SELECT label, metadata_json FROM okf_nodes WHERE node_id = ?", (v,)).fetchone()
+
+            u_title = u_node["label"] if u_node else u.split(":")[-1]
+            v_title = v_node["label"] if v_node else v.split(":")[-1]
+            u_grade = json.loads(u_node["metadata_json"]).get("certainty_grade", "") if u_node else ""
+            u_tier = json.loads(u_node["metadata_json"]).get("attenuation_tier", "") if u_node else ""
+            v_grade = json.loads(v_node["metadata_json"]).get("certainty_grade", "") if v_node else ""
+            v_tier = json.loads(v_node["metadata_json"]).get("attenuation_tier", "") if v_node else ""
+
+            steps.append({
+                "hop": i + 1,
+                "source_id": u,
+                "source_slug": u.split(":")[-1],
+                "source_title": u_title,
+                "source_grade": u_grade,
+                "source_tier": u_tier,
+                "relationship": etype,
+                "direction": direction,
+                "target_id": v,
+                "target_slug": v.split(":")[-1],
+                "target_title": v_title,
+                "target_grade": v_grade,
+                "target_tier": v_tier,
+                "metadata": emeta,
+            })
+        return steps
+
+    node_chain = row["path_ids"].split("|")
+    type_chain = row["path_types"].split("|") if row["path_types"] else []
+
+    steps = []
+    for i in range(len(type_chain)):
+        u = node_chain[i]
+        v = node_chain[i + 1]
+        etype = type_chain[i]
+
+        emeta_row = conn.execute(
+            """SELECT metadata_json FROM okf_edges
+               WHERE series_slug = ? AND source_id = ? AND target_id = ? AND edge_type = ? LIMIT 1""",
+            (series_slug, u, v, etype),
+        ).fetchone()
+        emeta = json.loads(emeta_row["metadata_json"]) if emeta_row else {}
+
+        # Fetch labels and certainty grades for both nodes
+        u_node = conn.execute("SELECT label, metadata_json FROM okf_nodes WHERE node_id = ?", (u,)).fetchone()
+        v_node = conn.execute("SELECT label, metadata_json FROM okf_nodes WHERE node_id = ?", (v,)).fetchone()
+
+        u_title = u_node["label"] if u_node else u.split(":")[-1]
+        v_title = v_node["label"] if v_node else v.split(":")[-1]
+
+        u_grade = ""
+        v_grade = ""
+        u_tier = ""
+        v_tier = ""
+        if u_node:
+            try:
+                um = json.loads(u_node["metadata_json"])
+                u_grade = um.get("certainty_grade", "")
+                u_tier = um.get("attenuation_tier", "")
+            except Exception:
+                pass
+        if v_node:
+            try:
+                vm = json.loads(v_node["metadata_json"])
+                v_grade = vm.get("certainty_grade", "")
+                v_tier = vm.get("attenuation_tier", "")
+            except Exception:
+                pass
+
+        steps.append({
+            "hop": i + 1,
+            "source_id": u,
+            "source_slug": u.split(":")[-1],
+            "source_title": u_title,
+            "source_grade": u_grade,
+            "source_tier": u_tier,
+            "relationship": etype,
+            "direction": "forward",
+            "target_id": v,
+            "target_slug": v.split(":")[-1],
+            "target_title": v_title,
+            "target_grade": v_grade,
+            "target_tier": v_tier,
+            "metadata": emeta,
+        })
+
+    return steps

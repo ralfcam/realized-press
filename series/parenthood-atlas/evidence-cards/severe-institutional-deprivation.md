@@ -16,7 +16,16 @@ sources:
   - id: nelson-2024-beip-overview
     resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC10977996/
     title: "Nelson, Fox & Zeanah (2023/2024), Current Directions, Romania’s abandoned children / BEIP overview"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Bucharest Early Intervention Project (BEIP) randomized controlled trial (Nelson, Fox & Zeanah 2007, N = 136)"
+  - "institutionalized children had mean IQ of 73; children randomized to high-quality foster care before 24 months gained 10-15 IQ points by age 8"
+  - "developmental sensitive period: placements before age 2 demonstrated robust EEG alpha recovery while placements after age 2 showed persistent neural blunting"
+relates_to_cards:
+  - "EXTENDS:early-childcare-quality"
+  - "BOUNDS:ordinary-resilience-adaptive-systems"
 ---
+
 
 # Severe Institutional Deprivation Is Not Ordinary Parenting
 

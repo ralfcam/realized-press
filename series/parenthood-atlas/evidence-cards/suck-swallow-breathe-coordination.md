@@ -13,7 +13,16 @@ sources:
   - id: lau-2015-suck-swallow
     resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC4530609/
     title: "Lau (2015), Annals of Nutrition and Metabolism, development of suck and swallow mechanisms in infants"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "pharyngeal swallow reflex execution requiring 1:1:1 suck-swallow-breathe rhythm at 34-36 weeks post-menstrual age"
+  - "laryngeal elevation and epiglottic closure lasting 0.5 to 0.7 seconds preventing aspiration during bolus transit"
+  - "maturational brainstem pattern generator coordination developing between 32 and 36 gestational weeks"
+relates_to_cards:
+  - "EXTENDS:neonatal-cardiopulmonary-transition"
+  - "BOUNDS:neonatal-frenotomy-tongue-tie"
 ---
+
 
 # Oral Feeding Requires Suck–Swallow–Breathe Coordination
 

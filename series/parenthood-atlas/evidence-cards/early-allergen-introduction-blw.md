@@ -16,7 +16,16 @@ sources:
   - id: fangupo-2016-bliss
     resource: https://doi.org/10.1542/peds.2016-0772
     title: "Fangupo et al. (2016), Pediatrics, baby-led approach to eating solids and risk of choking (BLISS RCT)"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "81% relative risk reduction for peanut allergy at age 5 in LEAP RCT (Du Toit 2015, N = 640)"
+  - "tolerance maintained after 12 months subsequent dietary peanut cessation (LEAP-On RCT)"
+  - "no significant difference in choking frequency between baby-led weaning and traditional spoon-feeding in BLISS RCT"
+relates_to_cards:
+  - "EXTENDS:responsive-feeding-as-regulation"
+  - "BOUNDS:breastfeeding-cognitive-development"
 ---
+
 
 # Early Allergen Introduction and Baby-Led Weaning
 

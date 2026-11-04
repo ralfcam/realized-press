@@ -19,7 +19,16 @@ sources:
   - id: gilkerson-2018-lena
     resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC6192025/
     title: "Gilkerson et al. (2018), Pediatrics, conversational turns (prediction, not this intervention)"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Roberts & Kaiser (2011) meta-analysis of 18 randomized parent-implemented language trials"
+  - "Hedges g = 0.35 to 0.81 for child expressive vocabulary and syntax in clinical and late-talking samples"
+  - "parent responsive communicative behaviors (recasts, expansions) double in frequency post-intervention"
+relates_to_cards:
+  - "EXTENDS:conversational-turns-language"
+  - "BOUNDS:screen-time-language-development"
 ---
+
 
 # Parent-Implemented Language Interventions
 

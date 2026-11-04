@@ -16,7 +16,16 @@ sources:
   - id: paul-2017-insight
     resource: https://doi.org/10.1542/peds.2017-0122
     title: "Paul et al. (2017), Pediatrics, mother-infant room-sharing and sleep outcomes in the INSIGHT study"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Back to Sleep campaigns achieved >50% reduction in sudden infant death syndrome (SIDS) mortality across 1992-2000"
+  - "room-sharing without bed-sharing associated with 50% lower SIDS risk in case-control investigations (AAP guidelines)"
+  - "INSIGHT cohort (Paul 2017) shows room-sharing duration >4 months is associated with shorter infant sleep duration (partially confounded by reverse causation)"
+relates_to_cards:
+  - "BOUNDS:infant-sleep-training"
+  - "MITIGATES:delivery-mode-neonatal-transition"
 ---
+
 
 # Supine Safe Sleep, Room-Sharing Duration, and Sleep Environment
 

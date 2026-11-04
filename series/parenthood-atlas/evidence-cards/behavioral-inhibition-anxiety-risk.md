@@ -13,7 +13,16 @@ sources:
   - id: clauss-blackford-2012
     resource: https://doi.org/10.1016/j.jaac.2012.08.002
     title: "Clauss & Blackford (2012), JAACAP, behavioral inhibition and social-anxiety meta-analysis"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "OR = 7.59 (95% CI [2.76, 20.84]) in Clauss & Blackford meta-analysis"
+  - "N = 4,000+ pooled longitudinal subjects across 7 cohorts"
+  - "attenuation under shared familial and genetic anxiety liabilities"
+relates_to_cards:
+  - "EXTENDS:temperament-reactivity-not-destiny"
+  - "BOUNDS:childhood-self-control-gradient"
 ---
+
 
 # Behavioral Inhibition as a Probabilistic Anxiety Marker
 

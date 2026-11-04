@@ -13,7 +13,16 @@ sources:
   - id: hoyme-2016-fasd
     resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC4960726/
     title: "Hoyme et al. (2016), Pediatrics, updated FASD diagnostic guidelines"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "fetal alcohol spectrum disorder (FASD) clinical prevalence of 1-5% in US/European school cohorts"
+  - "high-dose binge exposure (>4-5 drinks/occasion) induces severe craniofacial dysmorphology and corpus callosum hypoplasia"
+  - "absence of documented threshold for microstructural neural injury leading to universal abstention guidelines"
+relates_to_cards:
+  - "BOUNDS:prenatal-tobacco-birthweight"
+  - "CONTRASTS:prenatal-environmental-mixtures"
 ---
+
 
 # Prenatal Alcohol and Fetal Alcohol Spectrum Disorders
 

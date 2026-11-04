@@ -20,7 +20,16 @@ sources:
   - id: Ji_2023
     resource: https://doi.org/10.1145/3571730
     title: "Ji et al. (2023), Survey of Hallucination in Natural Language Generation"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "taxonomy of intrinsic vs. extrinsic hallucinations in NLG systems"
+  - "evaluation of hallucination rates across summarization, dialog, and translation benchmarks"
+  - "survey of factuality verification methods and factual consistency metrics"
+relates_to_cards:
+  - "BOUNDS:lewis-2020-retrieval-augmented-generation"
+  - "BRIDGES_LENS:raji-2020-closing-ai-accountability-gap"
 ---
+
 
 # Taxonomy and Structural Mechanisms of Hallucination in NLG
 

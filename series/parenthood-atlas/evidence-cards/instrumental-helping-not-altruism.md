@@ -13,7 +13,16 @@ sources:
   - id: warneken-tomasello-2006
     resource: https://doi.org/10.1126/science.1121448
     title: "Warneken & Tomasello (2006), Science, altruistic helping in human infants and young chimpanzees"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Warneken & Tomasello (2006) 18-month-olds helping experimenter retrieve dropped clothespins and out-of-reach objects"
+  - "spontaneous helping observed in over 80% of trials within 10 seconds of adult reaching gesture"
+  - "helping rates unaffected by material rewards (and diminished by overjustification in Warneken 2008)"
+relates_to_cards:
+  - "EXTENDS:infant-pointing-as-shared-reference"
+  - "CONTRASTS:committed-compliance-not-obedience"
 ---
+
 
 # Instrumental Helping Is Not Mature Altruism
 

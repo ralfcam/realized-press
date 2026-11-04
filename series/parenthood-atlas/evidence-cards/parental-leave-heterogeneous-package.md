@@ -16,7 +16,16 @@ sources:
   - id: ou-hall-2018-postpartum-anger
     resource: https://doi.org/10.1111/birt.12356
     title: "Ou & Hall (2018), Birth, Anger in the context of postnatal depression: An integrative review"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Carneiro, Løken & Salvanes (2015) reform natural experiment of Norwegian maternity leave introduction (4 months paid)"
+  - "2.7 percentage point drop in high school dropout rate and 5% higher earnings at age 30 for eligible children"
+  - "effects concentrated among children of mothers with less than college education; neutral effects for expansions beyond 6-12 months"
+relates_to_cards:
+  - "EXTENDS:early-childcare-quality"
+  - "BOUNDS:neighborhood-mobility-age-dependent"
 ---
+
 
 # Parental Leave Is a Heterogeneous Package, Not a Unitary Exposure
 

@@ -13,7 +13,16 @@ sources:
   - id: chetty-2016-mto
     resource: https://doi.org/10.1257/aer.20150572
     title: "Chetty, Hendren & Katz (2016), American Economic Review, Moving to Opportunity long-run effects"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Moving to Opportunity (MTO) randomized housing voucher experiment (Chetty, Hendren & Katz 2016)"
+  - "children moving before age 13 earn 31% higher annual income in adulthood ($3,477/year gain) and 16% higher college attendance"
+  - "children moving after age 13 show neutral or slightly negative earnings effects due to disruption of adolescent social networks"
+relates_to_cards:
+  - "EXTENDS:income-cash-transfer-early-development"
+  - "BOUNDS:ordinary-resilience-adaptive-systems"
 ---
+
 
 # Neighborhood Moves Have Age-Dependent Later Effects
 

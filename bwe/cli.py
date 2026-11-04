@@ -115,5 +115,126 @@ def context(
         typer.echo(pack.to_markdown())
 
 
+@cli.command()
+def graph(
+    series: str = typer.Option("architectures-of-memory", "--series", "-s", help="Series slug"),
+    book: str = typer.Option(None, "--book", "-b", help="Book slug filter (e.g. book-01-vanishing-signal)"),
+    stats: bool = typer.Option(False, "--stats", help="Display graph topology and node/edge statistics"),
+    lineage: list[str] = typer.Option(None, "--lineage", "-l", help="Two card slugs to trace shortest epistemic lineage: --lineage <src> <dst>"),
+    subgraph: str = typer.Option(None, "--subgraph", help="Seed card or chapter slug to extract k-hop ego subgraph"),
+    hops: int = typer.Option(2, "--hops", help="Max hops for subgraph or lineage (default: 2 for subgraph, 8 for lineage)"),
+    format: str = typer.Option("table", "--format", "-f", help="Output format: 'table' or 'json'"),
+):
+    """ARC-90: Graph RAG Introspection — topology stats, shortest-path lineage, and k-hop subgraphs."""
+    import json
+    from bwe.db import get_db, ensure_series_graph
+    from bwe.graph_rag import find_epistemic_lineage, query_k_hop_subgraph
+
+    conn = get_db()
+    ensure_series_graph(conn, REPO_ROOT, series)
+
+    if lineage and len(lineage) >= 2:
+        src, dst = lineage[0], lineage[1]
+        max_h = 8 if hops == 2 else hops
+        steps = find_epistemic_lineage(conn, series, src, dst, max_hops=max_h)
+        if format.lower() == "json":
+            typer.echo(json.dumps(steps, indent=2, ensure_ascii=False))
+        else:
+            typer.echo(f"\n[EPISTEMIC LINEAGE] '{src}' -> '{dst}' ({len(steps)} hops)\n" + "=" * 70)
+            if not steps:
+                typer.echo("  No connecting epistemic path found within hop limit.")
+            for s in steps:
+                dir_marker = "->" if s.get("direction") == "forward" else "<-"
+                typer.echo(
+                    f"  Hop {s['hop']}: {s['source_slug']} [{s['source_grade']} | {s['source_tier']}] "
+                    f"--[{s['relationship']} {dir_marker}]--> {s['target_slug']} [{s['target_grade']} | {s['target_tier']}]"
+                )
+            typer.echo("")
+        return
+
+    if subgraph:
+        res = query_k_hop_subgraph(conn, series, subgraph, max_hops=hops)
+        if format.lower() == "json":
+            typer.echo(json.dumps(res, indent=2, ensure_ascii=False))
+        else:
+            typer.echo(f"\n[K-HOP SUBGRAPH] Seed: '{res['seed_node_id']}' (max_hops={hops})\n" + "=" * 70)
+            typer.echo(f"  Discovered: {res['node_count']} nodes, {res['edge_count']} internal edges\n")
+            typer.echo("  Nodes:")
+            for n in res["nodes"][:15]:
+                typer.echo(f"    - [{n['node_type']}] depth {n['depth']}: {n['node_id']} ({n['label']})")
+            if len(res["nodes"]) > 15:
+                typer.echo(f"    ... and {len(res['nodes']) - 15} more nodes.")
+            typer.echo("")
+        return
+
+    # Default to --stats
+    if stats or (not lineage and not subgraph):
+        where_series = "WHERE series_slug = ?"
+        params: tuple = (series,)
+        if book:
+            where_book = "WHERE series_slug = ? AND book_slug = ?"
+            params_book = (series, book)
+        else:
+            where_book = where_series
+            params_book = params
+
+        total_nodes = conn.execute(f"SELECT COUNT(*) FROM okf_nodes {where_book}", params_book).fetchone()[0]
+        total_edges = conn.execute(f"SELECT COUNT(*) FROM okf_edges {where_series}", params).fetchone()[0]
+
+        card_count = conn.execute(
+            f"SELECT COUNT(*) FROM okf_nodes {where_book} AND node_type = 'card'",
+            params_book,
+        ).fetchone()[0]
+        ch_count = conn.execute(
+            f"SELECT COUNT(*) FROM okf_nodes {where_book} AND node_type = 'chapter'",
+            params_book,
+        ).fetchone()[0]
+        mv_count = conn.execute(
+            f"SELECT COUNT(*) FROM okf_nodes {where_book} AND node_type = 'movement'",
+            params_book,
+        ).fetchone()[0]
+        char_count = conn.execute(
+            f"SELECT COUNT(*) FROM okf_nodes {where_series} AND node_type = 'character'",
+            params,
+        ).fetchone()[0]
+        demand_count = conn.execute(
+            f"SELECT COUNT(*) FROM okf_nodes {where_series} AND node_type = 'demand'",
+            params,
+        ).fetchone()[0]
+
+        edge_types = conn.execute(
+            f"SELECT edge_type, COUNT(*) FROM okf_edges {where_series} GROUP BY edge_type ORDER BY COUNT(*) DESC",
+            params,
+        ).fetchall()
+
+        if format.lower() == "json":
+            typer.echo(json.dumps({
+                "series_slug": series,
+                "book_slug": book or "all",
+                "total_nodes": total_nodes,
+                "total_edges": total_edges,
+                "cards": card_count,
+                "chapters": ch_count,
+                "movements": mv_count,
+                "characters": char_count,
+                "demand_nodes": demand_count,
+                "edge_distribution": dict(edge_types),
+            }, indent=2))
+        else:
+            typer.echo(f"\n[OKF v0.3 KNOWLEDGE GRAPH TOPOLOGY] Series: '{series}'" + (f" | Book: '{book}'" if book else ""))
+            typer.echo("=" * 70)
+            typer.echo(f"  Total Nodes:    {total_nodes:,}")
+            typer.echo(f"    - Evidence Cards:     {card_count}")
+            typer.echo(f"    - Chapters:           {ch_count}")
+            typer.echo(f"    - Movements:          {mv_count}")
+            typer.echo(f"    - Characters:         {char_count}")
+            typer.echo(f"    - Demand Clusters:    {demand_count}")
+            typer.echo(f"  Total Edges:    {total_edges:,}")
+            typer.echo("  Edge Distribution:")
+            for etype, cnt in edge_types:
+                typer.echo(f"    - {etype:<25} {cnt:>5}")
+            typer.echo("")
+
+
 if __name__ == "__main__":
     cli()

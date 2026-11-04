@@ -16,7 +16,16 @@ sources:
   - id: zelazo-2006-dccs
     resource: https://doi.org/10.1038/nprot.2006.46
     title: "Zelazo (2006), Nature Protocols, Dimensional Change Card Sort method for EF"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Diamond (1985) A-not-B delay increments: infants succeed with 2-second delay at 7.5 months and 10-second delay at 12 months (d > 0.80)"
+  - "Dimensional Change Card Sort (DCCS) task showing normative shift from shape-only perseveration to color-switching between age 3 and 4"
+  - "rapid age-related normative improvement across infancy and toddlerhood despite modest individual rank-order stability"
+relates_to_cards:
+  - "EXTENDS:executive-function-unity-diversity"
+  - "BOUNDS:object-permanence-looking-vs-search"
 ---
+
 
 # Working Memory and Cognitive Shifting in Infancy and Toddlerhood
 

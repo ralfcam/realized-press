@@ -16,7 +16,16 @@ sources:
   - id: barr-1996-deferred
     resource: https://doi.org/10.1016/s0163-6383(96)90015-6
     title: "Barr, Dowden & Hayne (1996), Infant Behavior and Development, deferred imitation across 6- to 24-month-olds"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Cohen's d > 0.80 for target action reproduction after 1-week delay in 14-month-olds (Meltzoff paradigm)"
+  - "24-hour recall demonstrated in 9-month-olds across multi-step action sequences"
+  - "contextual specificity constraint: visual background alteration attenuates infant recall"
+relates_to_cards:
+  - "EXTENDS:infant-contingency-learning"
+  - "BOUNDS:working-memory-cognitive-shifting-infancy"
 ---
+
 
 # Deferred Imitation After a Delay
 

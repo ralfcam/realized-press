@@ -33,7 +33,17 @@ locked_bib_keys:
 sources:
   - id: abadi2016arxiv
     resource: https://arxiv.org/abs/1607.00133
-    title: Abadi et al. (2016), Deep Learning with Differential Privacy---
+    title: Abadi et al. (2016), Deep Learning with Differential Privacy
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "differentially private stochastic gradient descent (DP-SGD) with per-sample gradient clipping"
+  - "moments accountant technique tracking privacy loss across training epochs"
+  - "certified (epsilon = 1.25, delta = 10^-5) privacy on MNIST and CIFAR-10"
+relates_to_cards:
+  - "EXTENDS:dwork-2006-differential-privacy-noise-calibration"
+  - "BOUNDS:mcmahan-2017-federated-learning-communication-efficient"
+---
+
 
 # Differentially Private Stochastic Gradient Descent
 

@@ -16,7 +16,16 @@ sources:
   - id: kuhl-1992
     resource: https://doi.org/10.1126/science.1736364
     title: "Kuhl, Williams, Lacerda, Stevens & Lindblom (1992), Science, linguistic experience alters phonetic perception in infants by 6 months"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Werker & Tees (1984) phonemic contrast discrimination (Hindi /da/ vs /Da/ and Salish /k'i/ vs /q'i/) in English-learning infants"
+  - "6-8 month infants discriminate non-native contrasts (>85% accuracy) while 10-12 month infants decline to near-chance (<20%)"
+  - "retention and re-opening of discrimination through live social interaction with native speaker (Kuhl 2003)"
+relates_to_cards:
+  - "EXTENDS:infant-statistical-speech-segmentation"
+  - "CONTRASTS:dual-language-does-not-confuse"
 ---
+
 
 # Infant Perceptual Narrowing for Speech Contrasts
 

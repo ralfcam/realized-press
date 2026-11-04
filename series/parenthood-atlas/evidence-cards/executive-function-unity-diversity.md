@@ -16,7 +16,16 @@ sources:
   - id: miyake-2000-unity
     resource: https://doi.org/10.1006/cogp.1999.0734
     title: "Miyake et al. (2000), Cognitive Psychology, unity and diversity of executive functions"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Miyake & Friedman 3-factor latent construct (Inhibition, Updating, Shifting)"
+  - "unity correlation r > 0.90 in early childhood prior to adolescent factor differentiation"
+  - "age-related normative growth across 24 to 60 months with moderate-to-large population gains"
+relates_to_cards:
+  - "EXTENDS:inhibitory-control-toddler"
+  - "BOUNDS:working-memory-cognitive-shifting-infancy"
 ---
+
 
 # Executive Function as Unity and Diversity
 

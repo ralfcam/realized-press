@@ -20,7 +20,16 @@ sources:
   - id: kaplan2020arxiv
     resource: https://arxiv.org/abs/2001.08361
     title: "Kaplan et al. (2020), Scaling Laws for Neural Language Models"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "power-law cross-entropy loss L(N) = (N_c / N)^{alpha_N} with alpha_N ~ 0.076"
+  - "power-law data scaling L(D) = (D_c / D)^{alpha_D} with alpha_D ~ 0.057"
+  - "compute-optimal model scaling showing parameter scaling dominates dataset scaling"
+relates_to_cards:
+  - "EXTENDS:brown-2020-language-models-few-shot-learners"
+  - "BRIDGES_LENS:march-1991-exploration-exploitation-organizational-learning"
 ---
+
 
 # Empirical Scaling Laws for Neural Language Models
 

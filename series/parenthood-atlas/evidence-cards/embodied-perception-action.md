@@ -13,7 +13,16 @@ sources:
   - id: adolph-hoch-2019
     resource: https://doi.org/10.1146/annurev-psych-010418-102836
     title: "Adolph & Hoch (2019), Annual Review of Psychology, motor development embodied, embedded, enculturated, and enabling"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Karen Adolph slope-walking paradigms showing exploratory motor calibration across crawling vs. walking (d ~ 0.50-0.70)"
+  - "posture-specific learning: visual cliff avoidance does not transfer automatically from crawling to cruising"
+  - "perception-action coupling cycles spanning sub-second adjustments to uneven terrain"
+relates_to_cards:
+  - "EXTENDS:infant-physical-reasoning"
+  - "BOUNDS:exploration-as-sampling"
 ---
+
 
 # Motor Development Is Embodied Perception–Action Coupling
 

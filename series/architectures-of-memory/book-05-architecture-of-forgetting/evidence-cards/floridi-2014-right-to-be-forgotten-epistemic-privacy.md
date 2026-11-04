@@ -33,7 +33,17 @@ locked_bib_keys:
 sources:
   - id: Floridi_2021
     resource: https://doi.org/10.2139/ssrn.3853478
-    title: 'Floridi (2021), ''The Right to be Forgotten'': A Philosophical View'---
+    title: 'Floridi (2021), ''The Right to be Forgotten'': A Philosophical View'
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "epistemic privacy framework analyzing Google Spain ECJ ruling (Case C-131/12)"
+  - "ontological distinction between personal data as asset vs. personal data as constituent of identity"
+  - "information ethics analysis of digital forgetting vs. censorship"
+relates_to_cards:
+  - "CONTRASTS:ricoeur-2004-memory-history-forgetting"
+  - "BRIDGES_LENS:veale-2018-algorithms-that-remember-model-inversion-gdpr"
+---
+
 
 # The Right to be Forgotten and Epistemic Privacy
 

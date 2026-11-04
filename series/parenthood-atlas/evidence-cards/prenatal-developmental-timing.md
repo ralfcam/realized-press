@@ -13,7 +13,16 @@ sources:
   - id: ujhazy-2012-teratology
     resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC3600518/
     title: "Ujházy et al. (2012), teratology past, present and future (Wilson principles)"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "classical embryological organogenesis timetable: neural tube closure at 26-28 post-conception days"
+  - "cardiac septation between 4 and 7 weeks gestation; limb bud outgrowth between 4 and 8 weeks gestation"
+  - "teratogenic susceptibility window: identical chemical exposure causes catastrophic anomaly during organogenesis and negligible structural anomaly later in gestation"
+relates_to_cards:
+  - "EXTENDS:prenatal-neural-construction"
+  - "BOUNDS:prenatal-folate-ntd"
 ---
+
 
 # Prenatal Developmental Timing Is Process-Specific
 

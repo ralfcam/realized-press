@@ -13,7 +13,16 @@ sources:
   - id: bystron-2008-cortex
     resource: https://pubmed.ncbi.nlm.nih.gov/18209730/
     title: "Bystron, Blakemore & Rakic (2008), development of the human cerebral cortex"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "neurogenesis rate peaking at ~250,000 new neurons per minute during second trimester"
+  - "inside-out radial migration forming the 6-layer neocortex along radial glial scaffolding"
+  - "synaptogenesis burst continuing after birth to reach >1 million new connections per second in infant visual cortex"
+relates_to_cards:
+  - "EXTENDS:prenatal-developmental-timing"
+  - "BOUNDS:fetal-autonomic-maturation"
 ---
+
 
 # Prenatal Neural Construction Is Unfinished at Birth
 

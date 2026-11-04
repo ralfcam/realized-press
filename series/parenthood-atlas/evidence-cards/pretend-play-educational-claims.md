@@ -13,7 +13,16 @@ sources:
   - id: lillard-2013-pretend
     resource: https://doi.org/10.1037/a0029321
     title: "Lillard et al. (2013), Psychological Bulletin, impact of pretend play"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Lillard et al. (2013) comprehensive empirical review of pretend play and cognitive development"
+  - "observational associations (r ~ 0.20-0.30) between pretense and executive function attenuate when verbal ability and SES are controlled"
+  - "randomized play-training interventions fail to replicate generalized cognitive or social gains over non-pretense adult interaction"
+relates_to_cards:
+  - "BOUNDS:symbolic-pretend-play-emergence"
+  - "CONTRASTS:guided-play-efficacy"
 ---
+
 
 # Educational Claims About Pretend Play Exceed the Evidence
 

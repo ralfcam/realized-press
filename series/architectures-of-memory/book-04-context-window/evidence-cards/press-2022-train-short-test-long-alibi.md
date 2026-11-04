@@ -20,7 +20,16 @@ sources:
   - id: press2021arxiv
     resource: https://arxiv.org/abs/2108.12409
     title: "Press et al. (2021), Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "attention with linear biases (ALiBi) adding static penalty m * (i - j) to attention scores"
+  - "zero trainable positional embeddings enabling zero-shot context extrapolation"
+  - "stable perplexity when testing on sequences up to 8x longer than training length"
+relates_to_cards:
+  - "EXTENDS:su-2024-roformer-rotary-position-embedding"
+  - "BOUNDS:liu-2024-lost-in-the-middle-long-context"
 ---
+
 
 # Attention with Linear Biases for Input Length Extrapolation
 

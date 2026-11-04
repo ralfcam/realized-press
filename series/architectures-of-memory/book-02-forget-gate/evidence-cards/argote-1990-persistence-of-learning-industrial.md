@@ -37,7 +37,16 @@ sources:
   - id: Holan2004
     resource: https://doi.org/10.1287/mnsc.1040.0273
     title: "de Holan and Phillips (2004), Remembrance of Things Past? The Dynamics of Organizational Forgetting"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "organizational learning curves across 16 manufacturing plants"
+  - "depreciation rate of organizational knowledge stock up to 5% per month"
+  - "forgetting rates during production line interruptions and shift turnovers"
+relates_to_cards:
+  - "CONTRASTS:hochreiter-1997-constant-error-carousel"
+  - "BRIDGES_LENS:holan-2004-dynamics-of-organizational-forgetting"
 ---
+
 
 # Depreciation of Organizational Knowledge in Industrial Production
 

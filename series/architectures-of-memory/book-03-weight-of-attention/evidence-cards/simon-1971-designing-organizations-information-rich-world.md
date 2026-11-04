@@ -34,7 +34,16 @@ sources:
   - id: Simon_1971
     resource: https://doi.org/10.5860/choice.9-0097
     title: "Simon (1971), Designing Organizations for an Information-Rich World"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "wealth of information creates a poverty of attention"
+  - "allocation of scarce attention among overabundant information sources"
+  - "organizational design focusing on passive filtering and selective attention"
+relates_to_cards:
+  - "EXTENDS:march-1991-exploration-exploitation-organizational-learning"
+  - "BRIDGES_LENS:sparrow-2011-google-effects-on-memory"
 ---
+
 
 # Attention Scarcity in Information-Rich Organizations
 

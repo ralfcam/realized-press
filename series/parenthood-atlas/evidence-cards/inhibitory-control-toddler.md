@@ -19,7 +19,16 @@ sources:
   - id: carlson-2005-less
     resource: https://doi.org/10.1111/j.1467-9280.2005.01583.x
     title: "Carlson, Davis & Leach (2005), Psychological Science, Less Is More symbolic distancing"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Kochanska multi-task battery (Whisper, Snack Delay, Tower Building, Tongue Task) across 22 to 33 months"
+  - "normative population gains: inhibitory control accuracy rises from ~30% at 22 months to ~70% at 33 months"
+  - "attenuation under maternal scaffolding, child receptive language competence, and task familiarity"
+relates_to_cards:
+  - "EXTENDS:working-memory-cognitive-shifting-infancy"
+  - "BOUNDS:executive-function-unity-diversity"
 ---
+
 
 # Toddler Inhibitory Control Is Context-Bound
 

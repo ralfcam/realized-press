@@ -13,7 +13,16 @@ sources:
   - id: masten-2001-ordinary-magic
     resource: https://doi.org/10.1037/0003-066X.56.3.227
     title: "Masten (2001), American Psychologist, ordinary magic: resilience processes in development"
+attenuation_tier: "partially_confounded_20_50%"
+quantitative_anchors:
+  - "Ann Masten long-term longitudinal studies of children facing severe developmental adversity"
+  - "normative adaptive systems (attachment relationships, cognitive problem-solving, emotional regulation) drive positive adaptation"
+  - "absence of a unique 'resilience trait': resilience reflects protective factor combinations operating across ecological levels"
+relates_to_cards:
+  - "EXTENDS:severe-institutional-deprivation"
+  - "BOUNDS:household-food-insecurity-health"
 ---
+
 
 # Resilience Often Arises from Ordinary Adaptive Systems
 

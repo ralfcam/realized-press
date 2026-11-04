@@ -20,7 +20,16 @@ sources:
   - id: karpukhin2020arxiv
     resource: https://arxiv.org/abs/2004.04906
     title: "Karpukhin et al. (2020), Dense Passage Retrieval for Open-Domain Question Answering"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "dual-encoder architecture mapping questions and passages into 768-dimensional space"
+  - "top-20 retrieval accuracy of 78.4% on Natural Questions compared to 59.1% for BM25"
+  - "in-batch negative sampling technique optimizing dense semantic search"
+relates_to_cards:
+  - "EXTENDS:devlin-2019-bert-pretraining-deep-bidirectional"
+  - "BOUNDS:lewis-2020-retrieval-augmented-generation"
 ---
+
 
 # Dense Passage Retrieval via Dual-Encoder Vector Representations
 

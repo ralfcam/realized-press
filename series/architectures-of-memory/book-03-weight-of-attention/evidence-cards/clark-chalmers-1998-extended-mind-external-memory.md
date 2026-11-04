@@ -34,7 +34,16 @@ sources:
   - id: Clark_1998
     resource: https://doi.org/10.1093/analys/58.1.7
     title: "Clark and Chalmers (1998), The Extended Mind, Analysis"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "parity principle for cognitive processes realized through external artifacts"
+  - "Otto's notebook vs. Inga's biological memory thought experiment"
+  - "epistemic action vs. pragmatic action distinction in embodied cognition"
+relates_to_cards:
+  - "CONTRASTS:searle-1980-minds-brains-programs-chinese-room"
+  - "BRIDGES_LENS:tulving-1985-episodic-semantic-autonoetic-memory"
 ---
+
 
 # The Extended Mind and External Memory: Active Externalism and the Parity Principle
 

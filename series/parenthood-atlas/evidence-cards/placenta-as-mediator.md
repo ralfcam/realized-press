@@ -16,7 +16,16 @@ sources:
   - id: seckl-holmes-2007
     resource: https://doi.org/10.1038/ncpendmet0515
     title: "Seckl & Holmes (2007), placental glucocorticoid metabolism and fetal programming"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "placental 11beta-HSD2 enzyme converts 80-90% of maternal cortisol into inactive cortisone"
+  - "syncytiotrophoblast brush border amino acid transporter system A kinetics regulating fetal nutrient influx"
+  - "placental vascular resistance adaptation maintaining fetal oxygenation under maternal hypoxia"
+relates_to_cards:
+  - "EXTENDS:fetal-autonomic-maturation"
+  - "BOUNDS:prenatal-maternal-stress-anxiety"
 ---
+
 
 # The Placenta Mediates Fetal Dose
 

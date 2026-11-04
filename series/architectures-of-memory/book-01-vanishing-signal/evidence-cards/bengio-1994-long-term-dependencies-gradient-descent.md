@@ -9,14 +9,6 @@ attenuation_class: "not_applicable"
 allowed_verbs: ["proves", "demonstrates", "establishes", "shows", "bounds"]
 forbidden_verbs: ["claims_gradient_descent_never_works", "proves_lstm_fails"]
 locked_bib_keys: ["Bengio_1994", "Hochreiter_1991"]
-relates_to_cards:
-  - "BOUNDS:hochreiter-1991-vanishing-gradient"
-  - "EXTENDS:elman-1990-simple-recurrent-networks"
-quantitative_anchors:
-  - "dependency lag T > 10 time steps"
-  - "spectral radius |lambda| < 1"
-  - "gradient contraction factor (0.25)^T"
-  - "exponential vanishing bound"
 canonical_metaphors:
   body_prose: "a dynamical signal trapped between two catastrophic cliffs: fading into mathematical silence or detonating into computational explosion"
   spoken_tts: "a dynamical signal trapped between two catastrophic cliffs: fading into mathematical silence or detonating into computational explosion"
@@ -46,7 +38,16 @@ sources:
   - id: Hochreiter_1991
     resource: https://www.bioinf.jku.at/publications/older/ch7.pdf
     title: "Hochreiter (1991), Untersuchungen zu dynamischen neuronalen Netzen, TU Munich"
+attenuation_tier: "formal_proof"
+quantitative_anchors:
+  - "trade-off between robust information latching and gradient descent trainability"
+  - "spectral radius of recurrent Jacobian strictly bounded by unity"
+  - "hyperbolic attractor basins inducing zero gradient transmission"
+relates_to_cards:
+  - "EXTENDS:hochreiter-1991-vanishing-gradient"
+  - "BOUNDS:elman-1990-simple-recurrent-networks"
 ---
+
 
 # The Dilemma of Long-Term Dependencies in Gradient Descent
 

@@ -20,7 +20,16 @@ sources:
   - id: brown2020arxiv
     resource: https://arxiv.org/abs/2005.14165
     title: "Brown et al. (2020), Language Models are Few-Shot Learners"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "175 billion parameter GPT-3 architecture with 96 attention layers"
+  - "in-context few-shot learning performance scaling with parameter count"
+  - "zero-shot, one-shot, and few-shot evaluation across 24 language benchmarks"
+relates_to_cards:
+  - "EXTENDS:radford-2019-language-models-unsupervised-multitask"
+  - "BOUNDS:kaplan-2020-scaling-laws-neural-language-models"
 ---
+
 
 # In-Context Few-Shot Learning via Foundation Scale
 

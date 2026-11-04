@@ -16,7 +16,16 @@ sources:
   - id: aslin-saffran-1998
     resource: https://doi.org/10.1111/1467-9280.00063
     title: "Aslin, Saffran & Newport (1998), Psychological Science, conditional-probability statistics in 8-month-olds"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Saffran, Aslin & Newport (1996) 8-month-olds exposed to continuous stream of synthetic speech with transitional probabilities"
+  - "preferential looking time significantly longer for novel part-words than familiar words (p < 0.01, d ~ 0.60)"
+  - "rapid statistical extraction achieved after only 2 minutes of continuous auditory exposure without prosodic or pause cues"
+relates_to_cards:
+  - "EXTENDS:infant-perceptual-narrowing"
+  - "BOUNDS:conversational-turns-language"
 ---
+
 
 # Infant Statistical Speech Segmentation
 

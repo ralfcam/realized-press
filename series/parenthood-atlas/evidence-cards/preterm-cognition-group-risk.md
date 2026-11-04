@@ -13,7 +13,16 @@ sources:
   - id: burstein-2024-preterm
     resource: https://doi.org/10.1037/dev0001844
     title: "Burstein, Aryeh & Geva (2024), Developmental Psychology, neonatal care and outcomes after preterm birth"
+attenuation_tier: "robust_<20%"
+quantitative_anchors:
+  - "Aarnoudse-Moens et al. (2009) meta-analysis of very preterm (<32 weeks) and extremely low birth weight cohorts"
+  - "standardized mean difference of -0.57 SD on cognitive test scores and -0.48 SD on academic achievement at school age"
+  - "70-80% of children born very preterm score within the typical cognitive range despite group-level risk shift"
+relates_to_cards:
+  - "EXTENDS:fetal-growth-not-destiny"
+  - "BOUNDS:neonatal-cardiopulmonary-transition"
 ---
+
 
 # Preterm Birth Raises Group-Level Cognitive Risk, Not a Sentence
 
