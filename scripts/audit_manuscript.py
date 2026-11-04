@@ -640,6 +640,43 @@ def audit_graph_coherence(root: Path, book_path: Path, lang: str | None = None) 
     for ue in untyped_edges:
         v7f.append(f"- Untyped RELATES_TO_CARD edge found: `{ue['source_id']}` -> `{ue['target_id']}` (must use typed semantic prefix: EXTENDS, BOUNDS, CONTRASTS, MITIGATES, or BRIDGES_LENS)")
 
+    # Rule 7g: Zero-Orphaned Cards & Cross-Edition Parity (ARC-91)
+    v7g: list[str] = []
+    for c_id in card_dict:
+        in_degree = conn.execute(
+            """SELECT COUNT(*) FROM okf_edges
+               WHERE series_slug = ? AND target_id = ? AND edge_type = 'CITES_CARD'""",
+            (series_slug, c_id),
+        ).fetchone()[0]
+        if in_degree == 0:
+            # Fallback to CITED_IN_MOVEMENT check
+            mv_cites = conn.execute(
+                """SELECT COUNT(*) FROM okf_edges
+                   WHERE series_slug = ? AND source_id = ? AND edge_type = 'CITED_IN_MOVEMENT'""",
+                (series_slug, c_id),
+            ).fetchone()[0]
+            if mv_cites == 0:
+                v7g.append(f"- Orphaned card (0 CITES_CARD incoming edges): `{c_id.split(':')[-1]}`")
+
+    if series_slug.startswith("parenthood-atlas"):
+        en_cited_cards = set(
+            r[0].split(":")[-1] for r in conn.execute(
+                "SELECT DISTINCT target_id FROM okf_edges WHERE series_slug = 'parenthood-atlas' AND edge_type = 'CITES_CARD'"
+            ).fetchall()
+        )
+        es_cited_cards = set(
+            r[0].split(":")[-1] for r in conn.execute(
+                "SELECT DISTINCT target_id FROM okf_edges WHERE series_slug = 'parenthood-atlas/i18n/es' AND edge_type = 'CITES_CARD'"
+            ).fetchall()
+        )
+        if en_cited_cards and es_cited_cards:
+            missing_in_es = en_cited_cards - es_cited_cards
+            missing_in_en = es_cited_cards - en_cited_cards
+            if missing_in_es:
+                v7g.append(f"- Cross-edition citation mismatch: cards cited in EN but missing in ES: {sorted(missing_in_es)}")
+            if missing_in_en:
+                v7g.append(f"- Cross-edition citation mismatch: cards cited in ES but missing in EN: {sorted(missing_in_en)}")
+
     # Build report lines
     lines.append(f"### 10a. Rule 7a: Epistemic Verb-to-Card Grade Parity ({len(cited_edges)} citations audited)")
     if v7a:
@@ -682,7 +719,14 @@ def audit_graph_coherence(root: Path, book_path: Path, lang: str | None = None) 
     else:
         lines.append(f"- **Pass:** All {len(card_dict)} cards possess valid attenuation tiers and >= 2 quantitative anchors; zero untyped RELATES_TO_CARD edges.")
 
-    all_violations = v7a + v7b + v7c + v7d + v7e + v7f
+    lines.append("")
+    lines.append("### 10g. Rule 7g: Zero-Orphaned Cards & Cross-Edition Parity")
+    if v7g:
+        lines.extend(v7g)
+    else:
+        lines.append(f"- **Pass:** Zero orphaned cards (in_degree >= 1); 100% cross-edition (EN <-> ES) citation parity satisfied.")
+
+    all_violations = v7a + v7b + v7c + v7d + v7e + v7f + v7g
     return lines, all_violations, len(all_violations) == 0
 
 

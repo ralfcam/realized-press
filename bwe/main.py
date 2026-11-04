@@ -385,7 +385,7 @@ async def imprint_site_home(request: Request):
 @app.get("/hx/brief/{series_slug}/{card_slug}", response_class=HTMLResponse)
 async def inspect_evidence_brief(request: Request, series_slug: str, card_slug: str):
     """
-    Renders the OKF v0.2 Public Evidence Brief drawer for /site/ and /ide/.
+    Renders the OKF v0.3 Public Evidence Brief drawer for /site/ and /ide/.
     Loads the card from series/**/evidence-cards/{card_slug}.md, parses frontmatter
     and canonical sections, and renders partials/brief_drawer.html or fallback.
     """
@@ -457,7 +457,7 @@ async def inspect_evidence_brief(request: Request, series_slug: str, card_slug: 
 <div id="brief-drawer" class="p-6 bg-stone-900 border-l border-stone-800 text-stone-100 max-w-xl h-full overflow-y-auto">
     <div class="flex items-center justify-between pb-4 border-b border-stone-800">
         <div>
-            <span class="text-[10px] font-mono uppercase tracking-widest text-amber-500 font-semibold">OKF v0.2 Evidence Brief</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-amber-500 font-semibold">OKF v0.3 Evidence Brief</span>
             <h3 class="text-lg font-serif font-bold text-stone-100 mt-0.5">{escape(title)}</h3>
         </div>
         <span class="px-2.5 py-1 text-xs font-mono rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">Grade: {escape(str(grade))}</span>

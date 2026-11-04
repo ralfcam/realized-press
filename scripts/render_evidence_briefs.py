@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Public Evidence Briefs Generator (HTML + 2-Page PDF + Compendium).
 
-Compiles verified OKF v0.2 Evidence Cards (default: `status: stable`) into:
+Compiles verified OKF v0.3 Evidence Cards (default: `status: stable`) into:
 1. Individual standalone, responsive HTML Public Evidence Briefs.
 2. Individual deterministic 2-page print/distribution PDFs via fpdf2.
 3. A single merged Compendium PDF via pypdf.
@@ -79,7 +79,7 @@ class EvidenceBriefPDF(FPDF):
         self.set_y(10)
         self.set_font("BriefSerif", "B", 7.5)
         self.set_text_color(120, 120, 120)
-        self.cell(0, 4, "REALIZED PRESS  ·  PUBLIC EVIDENCE BRIEF  ·  OPEN KNOWLEDGE FORMAT (OKF v0.2)", align="L")
+        self.cell(0, 4, "REALIZED PRESS  ·  PUBLIC EVIDENCE BRIEF  ·  OPEN KNOWLEDGE FORMAT (OKF v0.3)", align="L")
         self.ln(3)
         self.set_font("BriefSerif", "I", 7.5)
         self.cell(0, 4, f"ID: {self.card_id}  ·  Verified Stable Synthesis", align="R")
@@ -226,8 +226,45 @@ def render_brief_html(
     desc = html.escape(card_data.get("description", ""))
     grade = html.escape(str(card_data.get("confidence", "unrated")).upper())
     status = html.escape(str(card_data.get("status", "draft")).upper())
+    tier = html.escape(str(card_data.get("attenuation_tier", "")))
+    tier_tag = f'<span class="badge badge-tier">Tier: {tier}</span>' if tier else ""
     domains = card_data.get("atlas_domains") or card_data.get("series_domains") or card_data.get("tags") or []
     domain_tags = "".join(f'<span class="badge badge-domain">{html.escape(d)}</span>' for d in domains)
+
+    anchors = card_data.get("quantitative_anchors", [])
+    if anchors:
+        anchors_pills = "".join(f'<span class="anchor-pill">{html.escape(str(a))}</span>' for a in anchors)
+        anchors_html = f'''
+        <div class="anchors-box">
+            <div class="anchors-title">Quantitative Anchors</div>
+            <div class="anchors-list">{anchors_pills}</div>
+        </div>
+        '''
+    else:
+        anchors_html = ""
+
+    relates_to = card_data.get("relates_to_cards", [])
+    if relates_to:
+        neighbor_items = []
+        for rel in relates_to:
+            if ":" in rel:
+                rel_type, target = rel.split(":", 1)
+                rel_type, target = rel_type.strip(), target.strip()
+            else:
+                rel_type, target = "RELATES", rel.strip()
+            cls_suffix = rel_type.lower().replace("_", "-")
+            neighbor_items.append(
+                f'<div class="neighbor-item"><span class="neighbor-type neighbor-{cls_suffix}">{html.escape(rel_type)}</span> '
+                f'<a href="{html.escape(target)}.html" class="neighbor-link">{html.escape(target)}</a></div>'
+            )
+        neighbors_html = f'''
+        <section class="brief-section">
+            <h2>Epistemic Neighbor Cards ({len(relates_to)} linked)</h2>
+            <div class="neighbors-list">{"".join(neighbor_items)}</div>
+        </section>
+        '''
+    else:
+        neighbors_html = ""
 
     def section_html(name: str) -> str:
         text = sections.get(name, "")
@@ -341,7 +378,68 @@ def render_brief_html(
         }}
         .badge-status {{ background: #e0e7ff; color: #3730a3; }}
         .badge-grade {{ background: #dcfce7; color: #166534; }}
+        .badge-tier {{ background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }}
         .badge-domain {{ background: #f1f5f9; color: #475569; }}
+        .anchors-box {{
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }}
+        .anchors-title {{
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #0369a1;
+            margin-bottom: 0.5rem;
+        }}
+        .anchors-list {{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }}
+        .anchor-pill {{
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.75rem;
+            background: #e0f2fe;
+            color: #075985;
+            border: 1px solid #7dd3fc;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }}
+        .neighbors-list {{
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }}
+        .neighbor-item {{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }}
+        .neighbor-type {{
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+        }}
+        .neighbor-extends {{ background: #dcfce7; color: #166534; border: 1px solid #86efac; }}
+        .neighbor-bounds {{ background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }}
+        .neighbor-contrasts {{ background: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3; }}
+        .neighbor-mitigates {{ background: #cffafe; color: #155e75; border: 1px solid #67e8f9; }}
+        .neighbor-bridges-lens {{ background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }}
+        .neighbor-relates {{ background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }}
+        .neighbor-link {{
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: var(--primary);
+            text-decoration: none;
+        }}
+        .neighbor-link:hover {{ text-decoration: underline; }}
         .download-pill {{
             margin-left: auto;
             font-size: 0.8125rem;
@@ -415,16 +513,19 @@ def render_brief_html(
 <div class="container">
     <a href="index.html" class="nav-back">← Back to Evidence Briefs Index</a>
     <header>
-        <div class="series-label">Realized Press · Public Evidence Brief · OKF v0.2</div>
+        <div class="series-label">Realized Press · Public Evidence Brief · OKF v0.3</div>
         <h1>{title}</h1>
         {f'<div class="description">{desc}</div>' if desc else ''}
         <div class="badges-bar">
             <span class="badge badge-status">Status: {status}</span>
             <span class="badge badge-grade">Confidence: {grade}</span>
+            {tier_tag}
             {domain_tags}
             <a href="{slug}.pdf" class="download-pill" download>Download 2-Page PDF</a>
         </div>
     </header>
+
+    {anchors_html}
 
     {f'''
     <div class="callout callout-know">
@@ -453,10 +554,12 @@ def render_brief_html(
     </div>
     ''' if action else ''}
 
+    {neighbors_html}
+
     {section_html("Sources")}
 
     <footer>
-        <p>Published by Realized Press · Open Knowledge Format (OKF v0.2) · Verified Academic Citation Lock</p>
+        <p>Published by Realized Press · Open Knowledge Format (OKF v0.3) · Verified Academic Citation Lock</p>
     </footer>
 </div>
 </body>
@@ -629,7 +732,7 @@ def render_compendium_and_index(
     <header>
         <div class="series-tag">Realized Press · Imprint Release</div>
         <h1>{html.escape(series_title)} — Public Evidence Briefs</h1>
-        <p class="subtitle">Deterministic, peer-audited 2-page synthesis briefs for all stable Open Knowledge Format (OKF v0.2) claims.</p>
+        <p class="subtitle">Deterministic, peer-audited 2-page synthesis briefs for all stable Open Knowledge Format (OKF v0.3) claims.</p>
     </header>
 
     <div class="compendium-banner">
@@ -652,7 +755,7 @@ def render_compendium_and_index(
     </table>
 
     <footer>
-        <p>Realized Press · Book Writing Environment (BWE) · Open Knowledge Format (OKF v0.2)</p>
+        <p>Realized Press · Book Writing Environment (BWE) · Open Knowledge Format (OKF v0.3)</p>
     </footer>
 </div>
 </body>

@@ -120,18 +120,49 @@ def graph(
     series: str = typer.Option("architectures-of-memory", "--series", "-s", help="Series slug"),
     book: str = typer.Option(None, "--book", "-b", help="Book slug filter (e.g. book-01-vanishing-signal)"),
     stats: bool = typer.Option(False, "--stats", help="Display graph topology and node/edge statistics"),
+    gaps: bool = typer.Option(False, "--gaps", help="List high-volume demand clusters (monthly_volume >= 1000) with lowest graph coverage weight"),
     lineage: list[str] = typer.Option(None, "--lineage", "-l", help="Two card slugs to trace shortest epistemic lineage: --lineage <src> <dst>"),
     subgraph: str = typer.Option(None, "--subgraph", help="Seed card or chapter slug to extract k-hop ego subgraph"),
     hops: int = typer.Option(2, "--hops", help="Max hops for subgraph or lineage (default: 2 for subgraph, 8 for lineage)"),
     format: str = typer.Option("table", "--format", "-f", help="Output format: 'table' or 'json'"),
 ):
-    """ARC-90: Graph RAG Introspection — topology stats, shortest-path lineage, and k-hop subgraphs."""
+    """ARC-90 / ARC-91: Graph RAG Introspection — topology stats, shortest-path lineage, k-hop subgraphs, and demand gaps."""
     import json
     from bwe.db import get_db, ensure_series_graph
     from bwe.graph_rag import find_epistemic_lineage, query_k_hop_subgraph
 
     conn = get_db()
     ensure_series_graph(conn, REPO_ROOT, series)
+
+    if gaps:
+        where_kw = "WHERE series_slug = ? AND monthly_volume >= 1000"
+        gap_rows = conn.execute(
+            f"""SELECT query, monthly_volume, cpc_high_usd, bm25_coverage_score, matched_card, matched_chapter
+               FROM keyword_signals {where_kw}
+               ORDER BY bm25_coverage_score ASC, monthly_volume DESC LIMIT 15""",
+            (series,),
+        ).fetchall()
+
+        low_coverage = [r for r in gap_rows if (r["bm25_coverage_score"] or 0.0) < 0.45]
+        target_display = low_coverage if low_coverage else gap_rows[:10]
+
+        if format.lower() == "json":
+            typer.echo(json.dumps([dict(r) for r in target_display], indent=2, ensure_ascii=False))
+        else:
+            typer.echo(f"\n[GRAPH DEMAND GAPS] Series: '{series}' (monthly_volume >= 1,000, ranked by coverage weight)\n" + "=" * 80)
+            if not target_display:
+                typer.echo("  No high-volume demand clusters found.")
+            else:
+                for idx, r in enumerate(target_display, 1):
+                    cov = r["bm25_coverage_score"] or 0.0
+                    flag = " [CRITICAL GAP < 0.45]" if cov < 0.45 else " [Covered]"
+                    typer.echo(
+                        f"  {idx:>2}. '{r['query']}' | Vol: {r['monthly_volume']:,}/mo | "
+                        f"CPC: ${r['cpc_high_usd'] or 0.0:.2f} | Coverage Weight: {cov:.4f}{flag} | "
+                        f"Card: {r['matched_card'] or 'None'}"
+                    )
+            typer.echo("")
+        return
 
     if lineage and len(lineage) >= 2:
         src, dst = lineage[0], lineage[1]
@@ -202,6 +233,19 @@ def graph(
             params,
         ).fetchone()[0]
 
+        # Orphaned cards count (cards with 0 incoming CITES_CARD edges)
+        card_nodes = conn.execute(
+            f"SELECT node_id FROM okf_nodes {where_book} AND node_type = 'card'",
+            params_book,
+        ).fetchall()
+        orphaned_count = sum(
+            1 for c in card_nodes
+            if conn.execute(
+                "SELECT COUNT(*) FROM okf_edges WHERE series_slug = ? AND target_id = ? AND edge_type = 'CITES_CARD'",
+                (series, c["node_id"]),
+            ).fetchone()[0] == 0
+        )
+
         edge_types = conn.execute(
             f"SELECT edge_type, COUNT(*) FROM okf_edges {where_series} GROUP BY edge_type ORDER BY COUNT(*) DESC",
             params,
@@ -214,6 +258,7 @@ def graph(
                 "total_nodes": total_nodes,
                 "total_edges": total_edges,
                 "cards": card_count,
+                "orphaned_cards": orphaned_count,
                 "chapters": ch_count,
                 "movements": mv_count,
                 "characters": char_count,
@@ -224,7 +269,7 @@ def graph(
             typer.echo(f"\n[OKF v0.3 KNOWLEDGE GRAPH TOPOLOGY] Series: '{series}'" + (f" | Book: '{book}'" if book else ""))
             typer.echo("=" * 70)
             typer.echo(f"  Total Nodes:    {total_nodes:,}")
-            typer.echo(f"    - Evidence Cards:     {card_count}")
+            typer.echo(f"    - Evidence Cards:     {card_count} (orphaned_cards: {orphaned_count})")
             typer.echo(f"    - Chapters:           {ch_count}")
             typer.echo(f"    - Movements:          {mv_count}")
             typer.echo(f"    - Characters:         {char_count}")

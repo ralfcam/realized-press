@@ -1066,6 +1066,9 @@ def build_series_knowledge_graph(
                             # Edge 2: CITED_IN_MOVEMENT (card -> movement)
                             edge_rows.append((s_slug, card_target_node_id, mv_node_id, "CITED_IN_MOVEMENT", 1.0, json.dumps(citation_meta)))
 
+                            # Edge 2b: CITES_CARD (chapter -> card)
+                            edge_rows.append((s_slug, ch_node_id, card_target_node_id, "CITES_CARD", 1.0, json.dumps(citation_meta)))
+
                             # Cross-book vs same-book escalation
                             if series_ord >= 2 and target_card_slug in card_last_seen:
                                 prev = card_last_seen[target_card_slug]

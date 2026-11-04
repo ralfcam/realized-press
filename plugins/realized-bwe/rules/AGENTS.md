@@ -11,12 +11,12 @@ All research, evidence card authoring, verification, and drafting tasks MUST fol
 1. **Phase 1 — Broad Historical & Archival Synthesis:** Use `perplexity_research` for chapter-level surveys, multi-paper timelines, and cohort histories; use `perplexity_ask` for targeted 2–3 paper lookups.
 2. **Phase 2 — Methodological, Confounding & Vendor-Statistic Audits:** Use `perplexity_reason` to audit genetically-informed (GI) cohort confounding, sample populations, and citation decay. For pre-DOI print/literary loci, pair `perplexity_search` with Gemini `search_web`.
 3. **Phase 3 — Live Technical Frameworks, Vector Stores & Privacy SDKs:** Run `context7` MCP (`resolve-library-id` → `query-docs`) for authoritative documentation and SDK signatures.
-4. **Phase 4 — Mandatory Bibliographic Lock & OKF v0.2 Evidence Cards:**
+4. **Phase 4 — Mandatory Bibliographic Lock & OKF v0.3 Evidence Cards:**
    - Pass every academic paper through `academic-bib` MCP (`crossref_lookup`, `arxiv_search`, `openalex_work`) to verify DOIs, pagination, and retraction flags (`is_retracted`).
    - Persist to `sources.bib` via `add_bibtex_entry` and synchronize `SOURCES.md` via `python scripts/sync_okf_sources.py`.
-   - Author empirical claims in `evidence-cards/*.md` (9 required sections including `## What This Does Not Mean`).
+   - Author empirical claims in `evidence-cards/*.md` with OKF v0.3 front-matter (`attenuation_tier`, $\ge 2$ `quantitative_anchors`, 100% typed `relates_to_cards` semantic edges, and 9 required sections including `## What This Does Not Mean`).
    - Never commit raw `vertexaisearch.cloud.google.com/grounding-api-redirect/` URLs.
-5. **Phase 5 — Pre-PR Manuscript & OKF Gate:** Run `python scripts/five_rule_check.py <book-dir> --online-retraction-check` and `python scripts/audit_manuscript.py <book-dir> --strict` before any commit.
+5. **Phase 5 — Pre-PR Manuscript & OKF Gate:** Run `python scripts/five_rule_check.py <book-dir> --online-retraction-check` and `python scripts/audit_manuscript.py <book-dir> --strict --graph-strict` before any commit.
 
 ## 3. Narrative & Literary Rigor Directives
 All drafted and edited chapters must adhere strictly to the six core directives:
@@ -27,7 +27,7 @@ All drafted and edited chapters must adhere strictly to the six core directives:
   - *Tier 3:* Actionable operator/parental control and judgment.
 - **Directive III ("Then vs. Now" Landmark Set-Pieces):** One 300–500 word narrative set-piece examining a foundational experiment across 4 beats: The Original Quest, The Historical Orthodoxy, The Replication & Revision, and The Modern Consensus.
 - **Directive IV (Progressive Lens Escalation):** Deduplicate recurrent empirical anchors across chapters: first appearance covers study design and biological mechanism; second appearance shifts to ecological/structural constraints; subsequent appearances focus strictly on scalability, attenuation, or persistence.
-- **Directive V (Balanced Evidentiary Density):** Minimum 12–15 OKF v0.2 Evidence Cards per volume with locked primary DOIs and zero retractions across technical, organizational, and philosophical lenses alike.
+- **Directive V (Balanced Evidentiary Density):** Minimum 12–15 OKF v0.3 Evidence Cards per volume with locked primary DOIs and zero retractions across technical, organizational, and philosophical lenses alike.
 - **Directive VI (Dual-Representation Oral TTS Decoupling):** Maintain dual representation (`display_html` preserving tables/symbols for visual print vs. `spoken_text` converting symbols to spoken prose for zero-drift Gemini TTS).
 
 ## 4. Prose Calibration & Forbidden Phrases

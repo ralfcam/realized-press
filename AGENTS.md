@@ -59,7 +59,7 @@ This repository (**Realized Press**, `https://github.com/ralfcam/realized-press`
 
 Use labels `research`, `draft`, `edit`, `fact-check`, `structure`, and `book-01` … `book-05` as appropriate.
 
-## 4. Citations, OKF v0.2 & Definitive Tool Routing Protocol
+## 4. Citations, OKF v0.3 & Definitive Tool Routing Protocol
 
 **Do not invent dates, quotes, or attributions.** If a claim is not yet sourced, mark it `[citation needed]` and capture the gap in `research/fact-checks/` or a Linear `fact-check` issue.
 
@@ -68,16 +68,16 @@ All research, evidence-card authoring, verification, and drafting tasks MUST fol
 1. **Phase 1 — Broad Historical & Archival Synthesis:** Start with **`perplexity_research`** (`perplexity` MCP) for multi-paper timelines, unpublished technical report numbers, and conference/cohort histories; use **`perplexity_ask`** for targeted 2–3 paper lookups.
 2. **Phase 2 — Methodological, Confounding & Vendor-Statistic Audits:** Run **`perplexity_reason`** (`perplexity` MCP) whenever evaluating secondary vendor statistics, genetically-informed (GI) cohort confounding, sample populations, or contested attributions. For pre-DOI print/literary loci, pair **`perplexity_search`** with **Gemini `search_web`**.
 3. **Phase 3 — Live Technical Frameworks, Vector Stores & Privacy SDKs:** Always run **`context7` MCP** (`resolve-library-id` $\to$ `query-docs`) for technical chapters (RAG, vector databases, differential privacy, unlearning libraries).
-4. **Phase 4 — Mandatory Bibliographic Lock & OKF v0.2 Evidence Cards:**
+4. **Phase 4 — Mandatory Bibliographic Lock & OKF v0.3 Evidence Cards:**
    - Pass every cited academic paper or preprint through **`academic-bib` MCP** (`crossref_lookup`, `arxiv_search`, `openalex_work`) to verify exact DOIs, volume/issue/page numbers, and retraction flags (`is_retracted`), then persist to `sources.bib` via **`add_bibtex_entry`** and sync `SOURCES.md` via `python scripts/sync_okf_sources.py`.
-   - Capture empirical/benchmark claims in `evidence-cards/*.md` (9 required sections including `## What This Does Not Mean`) and verify via `python scripts/five_rule_check.py <book-dir> --online-retraction-check`.
+   - Capture empirical/benchmark claims in `evidence-cards/*.md` with OKF v0.3 front-matter (`attenuation_tier`, $\ge 2$ `quantitative_anchors`, 100% typed `relates_to_cards` semantic edges, and 9 required sections including `## What This Does Not Mean`) and verify via `python scripts/five_rule_check.py <book-dir> --online-retraction-check`.
    - Never paste raw `vertexaisearch.cloud.google.com/grounding-api-redirect/` URLs into notes, cards, or chapters.
-5. **Phase 5 — Pre-PR Manuscript & OKF Gate:** Run `make five-rule BOOK=<dir>` and `make audit BOOK=<dir>` before opening any PR.
+5. **Phase 5 — Pre-PR Manuscript & OKF Gate:** Run `make five-rule BOOK=<dir>` and `make audit BOOK=<dir>` (under `--strict --graph-strict`) before opening any PR.
 
 ## 5. Project Automation (`Makefile` & `scripts/`)
 
-- **OKF v0.2 Five-Rule Gate:** `python scripts/five_rule_check.py <book-dir> [--online-retraction-check]` (`make five-rule BOOK=...`).
-- **Manuscript, Continuity & Style Auditor:** `python scripts/audit_manuscript.py <book-dir> [--strict]` (`make audit BOOK=...`).
+- **OKF v0.3 Five-Rule Gate:** `python scripts/five_rule_check.py <book-dir> [--online-retraction-check]` (`make five-rule BOOK=...`).
+- **Manuscript, Continuity & Style Auditor:** `python scripts/audit_manuscript.py <book-dir> [--strict --graph-strict]` (`make audit BOOK=...`).
 - **Source Catalog Sync (`SOURCES.md` $\leftrightarrow$ `sources.bib`):** `python scripts/sync_okf_sources.py` (`make sync-sources`).
 - **Merged Manuscripts (Print MD + TTS Transcript):** `python scripts/merge_book_chapters.py <book-dir> [--audiobook]` (`make merge BOOK=...`).
 - **Reader Edition PDF + HTML Renderer (Patreon / Review):** `python scripts/render_publishing_pdfs.py <book-dir>` (`make pdf BOOK=...`).
