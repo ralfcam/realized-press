@@ -14,7 +14,9 @@ google-ads.yaml
 **/audiobook/*.mp3
 **/audiobook/stale_*/
 # Build and distribution exports
-dist/
+dist/*
+!dist/*.csv
+!dist/*.md
 
 # Python bytecode & transient hook state
 __pycache__/

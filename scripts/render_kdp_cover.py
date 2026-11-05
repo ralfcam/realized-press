@@ -47,6 +47,7 @@ BLEED_IN = 0.125
 TRIM_WIDTH_IN = 6.0
 TRIM_HEIGHT_IN = 9.0
 IN_TO_MM = 25.4
+MIN_SPINE_TEXT_PAGES = 79  # Amazon KDP threshold: spine text rejected if < 79 pages
 
 ROMAN_NUMERALS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]
 
@@ -217,6 +218,7 @@ def render_kdp_cover(
     cover_spec: CoverArtSpec | None = None,
     art_path: Path | None = None,
     layout_mode_override: str | None = None,
+    force_spine_text: bool = False,
 ) -> None:
     spec = cover_spec or CoverArtSpec()
     if layout_mode_override:
@@ -387,12 +389,16 @@ def render_kdp_cover(
         pdf.cell(fw - 30, 5, "OPEN KNOWLEDGE FORMAT (OKF v0.3)", align="C")
 
     # ---------------- SPINE ----------------
-    # Amazon allows spine text when spine is at least 0.25" (~6.35mm)
-    if sw >= 6.35:
-        pdf.set_draw_color(30, 41, 59)
-        pdf.line(sx, 0, sx, dims["height_mm"])
-        pdf.line(sx + sw, 0, sx + sw, dims["height_mm"])
+    # Amazon KDP allows spine text only on volumes with >= 79 pages.
+    # On slim volumes (< 79 pages), text must be omitted to preserve KDP's 0.0625" (1.59 mm) hinge margin.
+    has_spine_text = (int(dims.get("page_count", 0)) >= MIN_SPINE_TEXT_PAGES) or force_spine_text
 
+    # Draw spine border lines
+    pdf.set_draw_color(30, 41, 59)
+    pdf.line(sx, 0, sx, dims["height_mm"])
+    pdf.line(sx + sw, 0, sx + sw, dims["height_mm"])
+
+    if has_spine_text:
         with pdf.rotation(270, sx + sw / 2, by + fh / 2):
             pdf.set_text_color(txt_r, txt_g, txt_b)
             pdf.set_font(font_family, "B", 9)
@@ -572,6 +578,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--art-path", type=Path, default=None, help="Explicit path to raster cover artwork PNG")
     parser.add_argument("--draft", action="store_true", help="Use fast 1K preview tier when --generate-art is active")
     parser.add_argument("--force-art", action="store_true", help="Force regeneration of Gemini cover art when --generate-art is active")
+    parser.add_argument("--force-spine-text", action="store_true", help="Force spine text even if page count < 79 pages")
+    parser.add_argument("--output", type=Path, default=None, help="Explicit output path for the cover wrap PDF")
     args = parser.parse_args(argv[1:] if argv else None)
 
     book_dir = Path(args.book).resolve()
@@ -604,11 +612,16 @@ def main(argv: list[str] | None = None) -> int:
             print(f"[kdp-cover] Interior PDF not found, defaulting to {page_count} pages")
 
     dims = calculate_dimensions(page_count, args.paper)
-    output_pdf = (
-        pub_dir / f"{base_name}-kdp-cover.pdf"
-        if base_name != book_dir.name
-        else pub_dir / f"{book_dir.name}-kdp-cover.pdf"
-    )
+    suffix = "-cream" if args.paper == "cream" else ""
+    if args.output:
+        output_pdf = args.output.resolve()
+    else:
+        cover_filename = (
+            f"{base_name}-kdp-cover{suffix}.pdf"
+            if base_name != book_dir.name
+            else f"{book_dir.name}-kdp-cover{suffix}.pdf"
+        )
+        output_pdf = pub_dir / cover_filename
     fonts = resolve_serif_fonts()
 
     title, subtitle, author, blurb, publishing_copy, cover_spec = resolve_book_metadata_and_spec(book_dir)
@@ -633,12 +646,14 @@ def main(argv: list[str] | None = None) -> int:
         cover_spec=cover_spec,
         art_path=art_path,
         layout_mode_override=args.layout_mode,
+        force_spine_text=args.force_spine_text,
     )
 
+    has_spine = (int(dims.get("page_count", 0)) >= MIN_SPINE_TEXT_PAGES) or args.force_spine_text
     rel_out = output_pdf.relative_to(ROOT) if output_pdf.is_relative_to(ROOT) else output_pdf
     print(f"[kdp-cover:PASS] Wrote {rel_out} ({output_pdf.stat().st_size:,} bytes)")
     print(f"  Layout mode: {cover_spec.layout_mode.value} (art={'embedded: ' + art_path.name if art_path else 'vector-only'})")
-    print(f"  Spine width: {dims['spine_in']:.4f}\" ({dims['spine_mm']:.2f} mm)")
+    print(f"  Spine width: {dims['spine_in']:.4f}\" ({dims['spine_mm']:.2f} mm) — text: {'included' if has_spine else 'omitted (pages < 79)'}")
     print(f"  Total cover size: {dims['width_in']:.4f}\" x {dims['height_in']:.4f}\" ({dims['width_mm']:.2f} x {dims['height_mm']:.2f} mm)")
     return 0
 

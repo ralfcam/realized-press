@@ -6,7 +6,7 @@ Cold-start orientation map for human collaborators and AI agents working in the 
 
 ## 1. Monorepo & BWE Architecture
 
-This repository unites nonfiction book series under a single **Book Writing Environment (BWE v1.1.0)** governed by **Open Knowledge Format (OKF v0.3)**, **5-Step MCP Tool Routing**, and **Multi-Channel Publishing (Amazon KDP 6"×9" Print PDF + Hybrid Gemini 2K/4K Full-Wrap Cover PDF + Kindle EPUB 3, Patreon Reader Edition PDF+HTML, and Gemini TTS Audiobook)**:
+This repository unites nonfiction book series under a single **Book Writing Environment (BWE v1.1.1)** governed by **Open Knowledge Format (OKF v0.3)**, **5-Step MCP Tool Routing**, and **Multi-Channel Publishing (Amazon KDP 6"×9" Print PDF + Hybrid Gemini 2K/4K Full-Wrap Cover PDF + Kindle EPUB 3, Patreon Reader Edition PDF+HTML, and Gemini TTS Audiobook)**:
 
 | Series | Root Path & Manifest | Linear Project (Team `ARC`) | Epistemic Three-Lens Method | Current Status |
 | :--- | :--- | :--- | :--- | :--- |
@@ -30,7 +30,8 @@ This repository unites nonfiction book series under a single **Book Writing Envi
   - [`scripts/audit_manuscript.py`](scripts/audit_manuscript.py) — Cross-chapter continuity, metaphor collision, footnote integrity, forbidden-phrase, Rule 7a-7g graph coherence (`--graph-strict`), and grade-verb auditor.
   - [`scripts/merge_book_chapters.py`](scripts/merge_book_chapters.py) — Merges book chapters into full print Markdown and TTS-stripped audiobook transcripts.
   - [`scripts/render_publishing_pdfs.py`](scripts/render_publishing_pdfs.py) — Compiles deterministic **Reader Edition (A4 PDF + HTML)**, **Amazon KDP 6"×9" Print Interior PDF** (`--format kdp-6x9`), and **Kindle EPUB 3** (`--epub`).
-  - [`scripts/generate_cover_art.py`](scripts/generate_cover_art.py) & [`scripts/render_kdp_cover.py`](scripts/render_kdp_cover.py) — Synthesizes 300+ DPI Gemini 2K/4K cover illustrations (`gemini-3-pro-image` -> `gemini-3.1-flash-image` -> `gemini-3.1-flash-lite-image`) with Multi-Part Resolution Guard and composites full-wrap KDP covers and 1600×2400 eBook covers (`bwe cover-art`).
+  - [`scripts/generate_cover_art.py`](scripts/generate_cover_art.py) & [`scripts/render_kdp_cover.py`](scripts/render_kdp_cover.py) — Synthesizes 300+ DPI Gemini 2K/4K cover illustrations (`gemini-3-pro-image` -> `gemini-3.1-flash-image` -> `gemini-3.1-flash-lite-image`) with Multi-Part Resolution Guard, composites full-wrap KDP covers with deterministic `MIN_SPINE_TEXT_PAGES = 79` threshold guard, cream/white stock variants, and 1600×2400 eBook covers (`bwe cover-art`).
+  - [`scripts/render_audiobook_player.py`](scripts/render_audiobook_player.py) — Compiles centralized multi-series audiobook player & imprint showcase (`docs/index.html` and `dist/site/index.html`) with cover artwork thumbnails across all 7 volumes (`bwe export-site`).
   - [`scripts/render_evidence_briefs.py`](scripts/render_evidence_briefs.py) — Compiles deterministic **Public Evidence Briefs** (standalone 2-page PDFs + responsive HTML + Compendium PDF) for all `stable` OKF v0.3 cards (`make briefs`).
   - [`scripts/generate_audiobook_tts.py`](scripts/generate_audiobook_tts.py) — Synthesizes chapter audio via Gemini 2.5 Flash TTS.
   - [`scripts/init_series.py`](scripts/init_series.py) — Scaffolds new series (`series/<slug>/series.yaml`) and book volumes in one command.

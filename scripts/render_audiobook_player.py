@@ -168,8 +168,9 @@ def collect_book_data(book_path: Path, series_title: str, series_subtitle: str, 
     audio_dir = book_path / "audiobook"
     book_title = book_path.name.replace("-", " ").title()
     subtitle = series_subtitle
+    book_id = book_path.name
 
-    # Check for series.yaml title if single-volume
+    # Check for series.yaml title if single-volume or localized volume
     s_yaml = book_path / "series.yaml"
     if s_yaml.exists():
         import yaml
@@ -177,6 +178,7 @@ def collect_book_data(book_path: Path, series_title: str, series_subtitle: str, 
             cfg = yaml.safe_load(s_yaml.read_text(encoding="utf-8")) or {}
             book_title = cfg.get("title", book_title)
             subtitle = cfg.get("subtitle", subtitle)
+            book_id = cfg.get("slug", book_id)
         except Exception:
             pass
 
@@ -190,6 +192,23 @@ def collect_book_data(book_path: Path, series_title: str, series_subtitle: str, 
         m_sub = re.search(r"^\*\*Subtitle:\*\*\s*(.+)$", content, flags=re.MULTILINE)
         if m_sub:
             subtitle = m_sub.group(1).strip()
+
+    # Resolve cover art source path (eBook 2:3 portrait preferred, square master fallback)
+    pub_assets = book_path / "publishing" / "assets"
+    cover_source = None
+    for cand in [pub_assets / "front-cover-ebook.png", pub_assets / "cover-art.png"]:
+        if cand.is_file():
+            cover_source = cand
+            break
+
+    if not cover_source and book_path.parent.name == "i18n":
+        parent_assets = book_path.parent.parent / "publishing" / "assets"
+        for cand in [parent_assets / "front-cover-ebook.png", parent_assets / "cover-art.png"]:
+            if cand.is_file():
+                cover_source = cand
+                break
+
+    cover_image_url = f"assets/covers/{book_id}.png" if cover_source else ""
 
     md_files = iter_chapter_files(chapters_dir) if chapters_dir.is_dir() else []
     chapters = []
@@ -223,13 +242,15 @@ def collect_book_data(book_path: Path, series_title: str, series_subtitle: str, 
         })
 
     return {
-        "id": book_path.name,
+        "id": book_id,
         "title": book_title,
         "subtitle": subtitle,
         "seriesTitle": series_title,
         "releaseTag": release_tag,
         "chapters": chapters,
-        "hasAudio": any(c["hasLocalMp3"] or c["hasLocalWav"] for c in chapters) or (release_tag == "v1.0-rc1" and book_path.name == "parenthood-atlas"),
+        "coverImage": cover_image_url,
+        "coverSource": str(cover_source) if cover_source else None,
+        "hasAudio": any(c["hasLocalMp3"] or c["hasLocalWav"] for c in chapters) or (release_tag == "v1.0-rc1" and book_id == "parenthood-atlas"),
     }
 
 
@@ -240,7 +261,9 @@ def scan_all_imprint_books(root: Path, repo: str) -> list[dict]:
     if not series_dir.is_dir():
         return catalog
 
-    for s in sorted(series_dir.iterdir()):
+    # Sort series putting parenthood-atlas first
+    sorted_series = sorted(series_dir.iterdir(), key=lambda p: (p.name != "parenthood-atlas", p.name))
+    for s in sorted_series:
         if not s.is_dir():
             continue
         s_yaml = s / "series.yaml"
@@ -262,6 +285,24 @@ def scan_all_imprint_books(root: Path, repo: str) -> list[dict]:
         else:
             release_tag = "v1.0-rc1" if s.name == "parenthood-atlas" else "v1.0"
             catalog.append(collect_book_data(s, series_title, series_subtitle, release_tag, repo))
+
+        # Check localized editions in i18n/<lang>
+        i18n_dir = s / "i18n"
+        if i18n_dir.is_dir():
+            for loc in sorted(i18n_dir.iterdir()):
+                if not loc.is_dir():
+                    continue
+                loc_yaml = loc / "series.yaml"
+                if loc_yaml.is_file():
+                    loc_cfg = {}
+                    try:
+                        loc_cfg = yaml.safe_load(loc_yaml.read_text(encoding="utf-8")) or {}
+                    except Exception:
+                        pass
+                    loc_series_title = loc_cfg.get("title", f"{series_title} ({loc.name.upper()})")
+                    loc_series_subtitle = loc_cfg.get("subtitle", series_subtitle)
+                    loc_release_tag = "v1.0-rc1" if s.name == "parenthood-atlas" else "v1.0"
+                    catalog.append(collect_book_data(loc, loc_series_title, loc_series_subtitle, loc_release_tag, repo))
 
     return catalog
 
@@ -534,6 +575,36 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       justify-content: space-between;
       align-items: flex-start;
       gap: 20px;
+    }}
+    .hero-meta-wrapper {{
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      flex: 1;
+      min-width: 0;
+    }}
+    .hero-cover-img {{
+      width: 110px;
+      height: 165px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+      flex-shrink: 0;
+    }}
+    .book-nav-thumb {{
+      width: 32px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      flex-shrink: 0;
+    }}
+    .book-nav-content {{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
     }}
     .hero-meta {{
       flex: 1;
@@ -1394,16 +1465,21 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
     <main class="content-area">
       <!-- Book Hero Section -->
       <section class="book-hero">
-        <div class="hero-meta">
-          <div class="hero-badge" id="hero-badge">Series Title</div>
-          <h2 class="hero-title" id="hero-title">Book Title</h2>
-          <p class="hero-subtitle" id="hero-subtitle">Subtitle</p>
-          <div class="hero-tags" id="hero-tags">
-            <span id="hero-stat-chapters">0 chapters</span>
-            <span>•</span>
-            <span id="hero-stat-words">0 words</span>
-            <span>•</span>
-            <span id="hero-stat-audio">Audio available</span>
+        <div class="hero-meta-wrapper">
+          <div id="hero-cover-wrapper" style="display: none;">
+            <img id="hero-cover-img" src="" alt="Book Cover" class="hero-cover-img" loading="lazy">
+          </div>
+          <div class="hero-meta">
+            <div class="hero-badge" id="hero-badge">Series Title</div>
+            <h2 class="hero-title" id="hero-title">Book Title</h2>
+            <p class="hero-subtitle" id="hero-subtitle">Subtitle</p>
+            <div class="hero-tags" id="hero-tags">
+              <span id="hero-stat-chapters">0 chapters</span>
+              <span>•</span>
+              <span id="hero-stat-words">0 words</span>
+              <span>•</span>
+              <span id="hero-stat-audio">Audio available</span>
+            </div>
           </div>
         </div>
         <div class="hero-controls">
@@ -1561,13 +1637,21 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
         btn.className = 'book-nav-item' + (idx === currentBookIdx ? ' active' : '');
         if (idx === currentBookIdx) btn.setAttribute('aria-current', 'page');
         btn.onclick = () => selectBook(idx);
+        const thumbHtml = b.coverImage
+          ? `<img src="${{b.coverImage}}" alt="${{b.title}} Cover" class="book-nav-thumb" loading="lazy">`
+          : '';
         btn.innerHTML = `
-          <span class="book-nav-series">${{b.seriesTitle}}</span>
-          <span class="book-nav-title">${{b.title}}</span>
-          <span class="book-nav-meta">
-            <span>${{b.chapters.length}} ch</span>
-            ${{b.hasAudio ? '<span>• Audio live</span>' : ''}}
-          </span>
+          <div class="book-nav-content">
+            ${{thumbHtml}}
+            <div style="flex: 1; min-width: 0;">
+              <span class="book-nav-series">${{b.seriesTitle}}</span>
+              <span class="book-nav-title">${{b.title}}</span>
+              <span class="book-nav-meta">
+                <span>${{b.chapters.length}} ch</span>
+                ${{b.hasAudio ? '<span>• Audio live</span>' : ''}}
+              </span>
+            </div>
+          </div>
         `;
         navList.appendChild(btn);
       }});
@@ -1603,6 +1687,18 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       const totalWords = book.chapters.reduce((sum, c) => sum + c.words, 0);
       document.getElementById('hero-stat-words').innerText = `${{totalWords.toLocaleString()}} words`;
       document.getElementById('hero-stat-audio').innerText = book.hasAudio ? 'Audio Narration Active' : 'Narration Queued';
+
+      const coverImg = document.getElementById('hero-cover-img');
+      const coverWrap = document.getElementById('hero-cover-wrapper');
+      if (coverImg && coverWrap) {{
+        if (book.coverImage) {{
+          coverImg.src = book.coverImage;
+          coverImg.alt = `${{book.title}} Cover`;
+          coverWrap.style.display = 'block';
+        }} else {{
+          coverWrap.style.display = 'none';
+        }}
+      }}
 
       renderPlaylist();
       if (book.chapters.length > 0) {{
@@ -2017,6 +2113,26 @@ def main() -> None:
         docs_dir.mkdir(parents=True, exist_ok=True)
         docs_file = docs_dir / "index.html"
         docs_file.write_text(portal_html, encoding="utf-8")
+
+        # Copy cover artwork into site, docs, and bwe static assets directories
+        covers_out = out_dir / "assets" / "covers"
+        covers_docs = docs_dir / "assets" / "covers"
+        covers_static = root / "bwe" / "static" / "covers"
+        covers_out.mkdir(parents=True, exist_ok=True)
+        covers_docs.mkdir(parents=True, exist_ok=True)
+        covers_static.mkdir(parents=True, exist_ok=True)
+
+        for b in catalog:
+            src = b.get("coverSource")
+            if src and Path(src).is_file():
+                src_path = Path(src)
+                cover_dest_out = covers_out / f"{b['id']}.png"
+                cover_dest_docs = covers_docs / f"{b['id']}.png"
+                cover_dest_static = covers_static / f"{b['id']}.png"
+                shutil.copy2(src_path, cover_dest_out)
+                shutil.copy2(src_path, cover_dest_docs)
+                shutil.copy2(src_path, cover_dest_static)
+                print(f"[imprint] Synced cover thumbnail: {b['id']} -> assets/covers/")
 
         # Copy any generated audio files into site directory for direct local streaming
         for audio_mp3 in root.glob("series/**/audiobook/*.mp3"):

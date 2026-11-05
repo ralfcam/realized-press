@@ -40,6 +40,12 @@ app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 if (REPO_ROOT / "docs").exists():
     app.mount("/docs-static", StaticFiles(directory=str(REPO_ROOT / "docs")), name="docs")
 
+# Mount static site assets (cover thumbnails, etc.)
+DOCS_ASSETS_DIR = REPO_ROOT / "docs" / "assets"
+DOCS_ASSETS_DIR.mkdir(parents=True, exist_ok=True)
+app.mount("/site/assets", StaticFiles(directory=str(DOCS_ASSETS_DIR)), name="site_assets")
+app.mount("/assets", StaticFiles(directory=str(DOCS_ASSETS_DIR)), name="assets")
+
 # Mount static analytics charts (ARC-80)
 DIST_ANALYTICS_DIR = REPO_ROOT / "dist" / "analytics"
 DIST_ANALYTICS_DIR.mkdir(parents=True, exist_ok=True)

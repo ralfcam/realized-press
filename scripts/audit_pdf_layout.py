@@ -20,6 +20,7 @@ Audits compiled publishing artifacts against Amazon KDP and Reader Edition physi
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -39,6 +40,8 @@ TRIM_HEIGHT_IN = 9.0
 BLEED_IN = 0.125
 IN_TO_MM = 25.4
 MIN_PRINT_DPI = 300.0
+MIN_SPINE_TEXT_PAGES = 79  # Amazon KDP threshold: spine text rejected if < 79 pages
+SPINE_TEXT_PAT = re.compile(r'-\s+(?:Jose Campos|[A-Za-z\s]+)\s+-\s+REALIZED PRESS', re.IGNORECASE)
 
 
 def extract_pdf_page_image_dimensions(page: Any) -> list[tuple[str, int, int]]:
@@ -122,11 +125,19 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
         if (reader_pub_dir / f"{base_name}-reader-edition.pdf").is_file()
         else reader_pub_dir / f"{book_dir.name}-reader-edition.pdf"
     )
-    cover_pdf = (
-        pub_dir / f"{base_name}-kdp-cover.pdf"
-        if (pub_dir / f"{base_name}-kdp-cover.pdf").is_file()
-        else pub_dir / f"{book_dir.name}-kdp-cover.pdf"
-    )
+
+    cover_candidates: list[Path] = []
+    if paper_type == "cream":
+        cover_candidates.extend([
+            pub_dir / f"{base_name}-kdp-cover-cream.pdf",
+            pub_dir / f"{book_dir.name}-kdp-cover-cream.pdf",
+        ])
+    cover_candidates.extend([
+        pub_dir / f"{base_name}-kdp-cover.pdf",
+        pub_dir / f"{book_dir.name}-kdp-cover.pdf",
+    ])
+    cover_pdf = next((p for p in cover_candidates if p.is_file()), cover_candidates[0])
+
     report_file = (
         pub_dir / f"{base_name}-kdp-6x9-extraction-report.txt"
         if (pub_dir / f"{base_name}-kdp-6x9-extraction-report.txt").is_file()
@@ -224,6 +235,27 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
             else:
                 log.append('- [FAIL] Mandatory 2.0" x 1.2" ISBN Barcode Safe Zone missing from cover PDF.')
                 success = False
+
+            # Spine Text Threshold Audit (KDP requires >= 79 pages for spine text)
+            has_spine_text = bool(SPINE_TEXT_PAT.search(cover_text))
+            if kdp_pages < MIN_SPINE_TEXT_PAGES:
+                if has_spine_text:
+                    log.append(
+                        f"- [FAIL] Spine text detected on slim volume ({kdp_pages} pages < {MIN_SPINE_TEXT_PAGES} pages). "
+                        'Violates Amazon KDP 79-page threshold and will fail pre-flight hinge fold check.'
+                    )
+                    success = False
+                else:
+                    log.append(
+                        f'- [PASS] Slim volume ({kdp_pages} pages < {MIN_SPINE_TEXT_PAGES} pages): spine text correctly omitted '
+                        'to preserve KDP 0.0625" (1.59 mm) hinge margin.'
+                    )
+            else:
+                if has_spine_text:
+                    log.append(f"- [PASS] Full spine text verified for {kdp_pages}-page volume (>= {MIN_SPINE_TEXT_PAGES} pages).")
+                else:
+                    log.append(f"- [FAIL] Expected spine text missing for {kdp_pages}-page volume (>= {MIN_SPINE_TEXT_PAGES} pages).")
+                    success = False
 
             # Embedded Raster Image 300-DPI Check
             embedded_images = extract_pdf_page_image_dimensions(c_page)

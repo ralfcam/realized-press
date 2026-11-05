@@ -259,3 +259,90 @@ def test_i18n_inherits_parent_series_cover_art_and_epub_embeds_cover(tmp_path: P
     ok_epub, epub_notes = audit_epub(epub_out)
     assert ok_epub is True, "\n".join(epub_notes)
     assert any("Cover image: item='cover-image'" in n for n in epub_notes)
+
+
+def test_kdp_79_page_spine_text_threshold(tmp_path: Path) -> None:
+    from fpdf import FPDF
+    from scripts.audit_pdf_layout import MIN_SPINE_TEXT_PAGES, SPINE_TEXT_PAT
+
+    book_dir = tmp_path / "spine-test-book"
+    pub_dir = book_dir / "publishing"
+    pub_dir.mkdir(parents=True)
+
+    # 1. Interior with 50 pages (< 79 pages)
+    interior_50 = pub_dir / "spine-test-book-kdp-6x9.pdf"
+    ipdf = FPDF(unit="mm", format=(152.4, 228.6))
+    for p in range(1, 51):
+        ipdf.add_page()
+        ipdf.set_font("Helvetica", size=10)
+        ipdf.cell(0, 10, f"Page {p} content")
+    ipdf.output(str(interior_50))
+
+    dims_50 = calculate_dimensions(50, "white")
+    cover_pdf = pub_dir / "spine-test-book-kdp-cover.pdf"
+
+    # Default rendering for 50 pages: spine text omitted
+    render_kdp_cover(
+        title="Spine Test",
+        subtitle="Verifying 79-Page Rule",
+        author="Jose Campos",
+        blurb_paragraphs=["Test blurb."],
+        dims=dims_50,
+        output_pdf=cover_pdf,
+    )
+    ok_50, log_50 = audit_pdf_layout(book_dir, paper_type="white")
+    assert ok_50 is True, "\n".join(log_50)
+    assert any("Slim volume (50 pages < 79 pages): spine text correctly omitted" in line for line in log_50)
+
+    # 2. Rendering with force_spine_text=True for 50 pages: fails KDP layout audit
+    render_kdp_cover(
+        title="Spine Test",
+        subtitle="Verifying 79-Page Rule",
+        author="Jose Campos",
+        blurb_paragraphs=["Test blurb."],
+        dims=dims_50,
+        output_pdf=cover_pdf,
+        force_spine_text=True,
+    )
+    ok_forced, log_forced = audit_pdf_layout(book_dir, paper_type="white")
+    assert ok_forced is False
+    assert any("Spine text detected on slim volume (50 pages < 79 pages)" in line for line in log_forced)
+
+    # 3. Interior with 80 pages (>= 79 pages): full spine text rendered and passes
+    interior_80 = pub_dir / "spine-test-book-kdp-6x9.pdf"
+    ipdf_80 = FPDF(unit="mm", format=(152.4, 228.6))
+    for p in range(1, 81):
+        ipdf_80.add_page()
+        ipdf_80.set_font("Helvetica", size=10)
+        ipdf_80.cell(0, 10, f"Page {p} content")
+    ipdf_80.output(str(interior_80))
+
+    dims_80 = calculate_dimensions(80, "white")
+    render_kdp_cover(
+        title="Spine Test",
+        subtitle="Verifying 79-Page Rule",
+        author="Jose Campos",
+        blurb_paragraphs=["Test blurb."],
+        dims=dims_80,
+        output_pdf=cover_pdf,
+    )
+    ok_80, log_80 = audit_pdf_layout(book_dir, paper_type="white")
+    assert ok_80 is True, "\n".join(log_80)
+    assert any("Full spine text verified for 80-page volume (>= 79 pages)" in line for line in log_80)
+
+    # 4. Cream stock cover variant (*-kdp-cover-cream.pdf)
+    dims_80_cream = calculate_dimensions(80, "cream")
+    cover_cream = pub_dir / "spine-test-book-kdp-cover-cream.pdf"
+    render_kdp_cover(
+        title="Spine Test",
+        subtitle="Verifying 79-Page Rule",
+        author="Jose Campos",
+        blurb_paragraphs=["Test blurb."],
+        dims=dims_80_cream,
+        output_pdf=cover_cream,
+    )
+    ok_cream, log_cream = audit_pdf_layout(book_dir, paper_type="cream")
+    assert ok_cream is True, "\n".join(log_cream)
+    assert any("Cream" in line and "Paper Stock" in line for line in log_cream)
+    assert any("Full spine text verified for 80-page volume (>= 79 pages)" in line for line in log_cream)
+
