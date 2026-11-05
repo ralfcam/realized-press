@@ -1,11 +1,11 @@
 # series/parenthood-atlas/series.yaml
-# Canonical BWE Series Manifest — Conforms to ARC-57 (series.schema.json)
+# Canonical BWE Series Manifest — Conforms to ARC-57 / ARC-98 (series.schema.json)
 
 slug: parenthood-atlas
 title: "Parenthood: The Atlas"
 subtitle: "What Science Knows, What It Doesn't, and Where Art Begins from Conception to Age Three"
 linear_project_id: P-ARC-17
-version: v1.0-rc3
+version: v1.1.0
 
 epistemic_contract: "Science -> Interpretation -> Art"
 governing_principle: "Continuity without determination: reject both Genesis at visibility and Destiny already written."
@@ -23,10 +23,10 @@ readability_targets:
   max_jargon_density_pct: 1.5
 
 okf_spec:
-  version: "0.2"
-  total_cards: 72
+  version: "0.3"
+  total_cards: 78
   stable_cards: 12
-  locked_dois: 127
+  locked_dois: 132
   retractions: 0
   genetically_informed_triangulation: true
   scaffolding_policy: "Purged harness prose; calibrated verbs in text; all OKF metadata and clinical jargon isolated in chapter-local ## Notes."
@@ -44,11 +44,27 @@ audio_spec:
 
 kdp_print_spec:
   trim_size: "6x9"
-  wrap_cover_dimensions_in: "12.5585x9.2500"
-  spine_width_in: 0.3085
-  spine_width_mm: 7.84
-  interior_pdf: "preliminary/publishing/parenthood-atlas-reader-edition.pdf"
+  wrap_cover_dimensions_in: "12.5923x9.2500"
+  spine_width_in: 0.3423
+  spine_width_mm: 8.69
+  interior_pdf: "publishing/parenthood-atlas-kdp-6x9.pdf"
   cover_pdf: "publishing/parenthood-atlas-kdp-cover.pdf"
+
+cover_art:
+  layout_mode: front_hero_vignette
+  style_preset: editorial-atlas-engraving
+  aspect_ratio: "1:1"
+  image_size: "2K"
+  asset_path: "publishing/assets/cover-art.png"
+  palette_bg_hex: "#111827"
+  palette_accent_hex: "#D97706"
+  palette_text_hex: "#F9FAFB"
+  prompt: >-
+    Fine-line celestial and botanical natural-history atlas engraving in burnished gold (#D97706),
+    warm terracotta, and antique ivory on a deep midnight-slate background (#111827), depicting
+    three concentric developmental rings: intricate cellular and placental roots at the inner core,
+    a luminous relational caregiver-and-infant silhouette in gentle co-regulating motion at the center,
+    and a branching neural and ecological canopy radiating outward like a precision star chart.
 
 marketing_intelligence:
   target_personas:
@@ -103,9 +119,24 @@ books:
     path: "."
     title: "Parenthood: The Atlas (Conception to Age Three)"
     status: rc
-    target_words: 42276
-    min_okf_cards: 72
-    total_footnotes: 117
+    target_words: 56551
+    min_okf_cards: 78
+    total_footnotes: 152
+    cover_art:
+      layout_mode: front_hero_vignette
+      style_preset: editorial-atlas-engraving
+      aspect_ratio: "1:1"
+      image_size: "2K"
+      asset_path: "publishing/assets/cover-art.png"
+      palette_bg_hex: "#111827"
+      palette_accent_hex: "#D97706"
+      palette_text_hex: "#F9FAFB"
+      prompt: >-
+        Fine-line celestial and botanical natural-history atlas engraving in burnished gold (#D97706),
+        warm terracotta, and antique ivory on a deep midnight-slate background (#111827), depicting
+        three concentric developmental rings: intricate cellular and placental roots at the inner core,
+        a luminous relational caregiver-and-infant silhouette in gentle co-regulating motion at the center,
+        and a branching neural and ecological canopy radiating outward like a precision star chart.
     movements:
       - id: movement-1
         title: "Movement I: The Reader's Contract: Three Categories That Must Not Collapse"

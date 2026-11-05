@@ -1,10 +1,10 @@
-Publishing Extraction Verification — The Architectures of Memory
+Publishing Extraction Verification — The Vanishing Signal
 Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-01-vanishing-signal-kdp-6x9.pdf
-SHA-256: abe52bac561381feb3e301a3235f0ac5f9e3b03356237223033c5233df7f08b7
-Bytes: 246,488
+SHA-256: 80743c8be48254c4486e2095ca681ce06bdb54ee52f84e15f303865e754a6d31
+Bytes: 246,691
 Pages: 65 (65/65 nonblank)
 
 Chapters:

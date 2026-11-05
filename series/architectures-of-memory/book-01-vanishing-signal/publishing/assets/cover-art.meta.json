@@ -1,0 +1,17 @@
+{
+  "model_id": "gemini-3-pro-image",
+  "prompt": "Swiss modernist architectural etching and fine scientific diagram in burnished copper-amber (#D97706) and cool silver on a deep obsidian-navy background (#0F172A): concentric wave pulses attenuating exponentially through a multi-layered geometric glass lattice into stillness. Composition: centered symmetrical emblem vignette with clean edges on a uniform #0F172A ground, suitable for framing on a scholarly trade book cover. STRICTLY NO TEXT, NO LETTERS, NO WORDS, NO NUMBERS, NO LABELS, NO TYPOGRAPHY, NO SIGNATURES, NO WATERMARKS, NO BORDERS.",
+  "prompt_hash": "62167a8515932b79cae97065829eccbed790054b7e81bb14d0bca2c46b64828d",
+  "layout_mode": "front_hero_vignette",
+  "style_preset": "swiss-modernist-architectural-etching",
+  "aspect_ratio": "1:1",
+  "image_size": "2K",
+  "width_px": 2048,
+  "height_px": 2048,
+  "placed_width_in": 4.4,
+  "placed_height_in": 4.4,
+  "effective_dpi": 465.5,
+  "cache_path": ".cache\\cover_art\\62167a8515932b79cae97065829eccbed790054b7e81bb14d0bca2c46b64828d.png",
+  "asset_path": "series\\architectures-of-memory\\book-01-vanishing-signal\\publishing\\assets\\cover-art.png",
+  "timestamp": "2026-11-05T13:08:14.154334+00:00"
+}

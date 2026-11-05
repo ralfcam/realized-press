@@ -112,6 +112,7 @@ def audit_epub(epub_path: Path) -> tuple[bool, list[str]]:
         items = manifest_el.findall(".//{*}item")
         manifest_map: dict[str, dict[str, str]] = {}
         nav_id: str | None = None
+        cover_id: str | None = None
 
         for item in items:
             item_id = item.attrib.get("id", "")
@@ -137,11 +138,21 @@ def audit_epub(epub_path: Path) -> tuple[bool, list[str]]:
 
             if "nav" in props.split():
                 nav_id = item_id
+            if "cover-image" in props.split():
+                cover_id = item_id
 
         if not nav_id:
             errors.append("Manifest missing required EPUB 3 navigation document item (properties='nav')")
         else:
             checks_passed.append(f"Manifest: {len(manifest_map)} items verified; nav item='{nav_id}'")
+
+        if cover_id and cover_id in manifest_map:
+            c_arch = manifest_map[cover_id]["archive_path"]
+            c_bytes = z.read(c_arch)
+            if len(c_bytes) < 64:
+                errors.append(f"Cover image '{c_arch}' is empty or truncated ({len(c_bytes)} bytes)")
+            else:
+                checks_passed.append(f"Cover image: item='{cover_id}' ('{c_arch}', {len(c_bytes):,} bytes) verified")
 
         # Spine
         spine_el = opf_tree.find(".//{*}spine")

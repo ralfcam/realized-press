@@ -1,10 +1,10 @@
-Publishing Extraction Verification — The Architectures of Memory
+Publishing Extraction Verification — The Context Window
 Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-04-context-window-kdp-6x9.pdf
-SHA-256: 3b5dd8daafd7551b00a772981d5c36527173f7b1804e8a942bdcfe0a51696a53
-Bytes: 235,114
+SHA-256: 70c82d0f724b04ee4c7c9d8be4868eaf381b738488bbf2d992d90b6744762195
+Bytes: 234,681
 Pages: 63 (63/63 nonblank)
 
 Chapters:

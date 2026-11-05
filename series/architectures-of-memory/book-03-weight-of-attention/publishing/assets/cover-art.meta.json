@@ -1,0 +1,17 @@
+{
+  "model_id": "gemini-3-pro-image",
+  "prompt": "Swiss modernist architectural etching and fine scientific diagram in burnished copper-amber (#D97706) and cool silver on a deep obsidian-navy background (#0F172A): a crystalline prism of intersecting light beams connecting distant geometric nodes across a high-dimensional architectural vault. Composition: centered symmetrical emblem vignette with clean edges on a uniform #0F172A ground, suitable for framing on a scholarly trade book cover. STRICTLY NO TEXT, NO LETTERS, NO WORDS, NO NUMBERS, NO LABELS, NO TYPOGRAPHY, NO SIGNATURES, NO WATERMARKS, NO BORDERS.",
+  "prompt_hash": "f7c40c3afe378df1f39f5a9327e3d9c5830854cfe0dc0e73eb49bc1e2613530f",
+  "layout_mode": "front_hero_vignette",
+  "style_preset": "swiss-modernist-architectural-etching",
+  "aspect_ratio": "1:1",
+  "image_size": "2K",
+  "width_px": 2048,
+  "height_px": 2048,
+  "placed_width_in": 4.4,
+  "placed_height_in": 4.4,
+  "effective_dpi": 465.5,
+  "cache_path": ".cache\\cover_art\\f7c40c3afe378df1f39f5a9327e3d9c5830854cfe0dc0e73eb49bc1e2613530f.png",
+  "asset_path": "series\\architectures-of-memory\\book-03-weight-of-attention\\publishing\\assets\\cover-art.png",
+  "timestamp": "2026-11-05T13:09:17.007979+00:00"
+}

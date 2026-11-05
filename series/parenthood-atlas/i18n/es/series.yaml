@@ -1,7 +1,7 @@
 # series/parenthood-atlas/i18n/es/series.yaml
 # Spanish (neutral international Spanish, tuteo) localization of Parenthood: The Atlas.
 # Canonical evidence layer (evidence-cards/, sources.bib, SOURCES.md) is SHARED with ../../ (parent series).
-# Conforms to ARC-57 (series.schema.json). Linear: ARC-76.
+# Conforms to ARC-57 / ARC-98 (series.schema.json). Linear: ARC-76 / ARC-98.
 
 slug: parenthood-atlas-es
 translation_of: parenthood-atlas
@@ -9,7 +9,7 @@ locale: es
 title: "El atlas de la crianza"
 subtitle: "Lo que demuestra la ciencia, lo que aún ignora y dónde comienza el arte, desde la concepción hasta los tres años"
 linear_project_id: P-ARC-17
-version: v1.0-rc3-es-pilot
+version: v1.1.0
 
 epistemic_contract: "Science -> Interpretation -> Art"
 governing_principle: "Continuidad sin determinación: rechazar tanto el Génesis en el momento en que algo se vuelve visible como el Destino ya escrito."
@@ -28,10 +28,10 @@ readability_targets:
   szigriszt_min: 50.0
 
 okf_spec:
-  version: "0.2"
-  total_cards: 77
+  version: "0.3"
+  total_cards: 78
   stable_cards: 12
-  locked_dois: 127
+  locked_dois: 132
   retractions: 0
   genetically_informed_triangulation: true
   scaffolding_policy: "Prosa limpia de andamiaje; verbos calibrados al grado de certeza; metadatos OKF y jerga clínica aislados en ## Notes de cada capítulo (claves estructurales Grade: y Evidence Card: se conservan en inglés)."
@@ -50,22 +50,41 @@ audio_spec:
 # from publishing/parenthood-atlas-kdp-6x9.pdf and computes spine = N x 0.002252" (white stock).
 kdp_print_spec:
   trim_size: "6x9"
+  wrap_cover_dimensions_in: "12.6238x9.2500"
+  spine_width_in: 0.3738
+  spine_width_mm: 9.50
   interior_pdf: "publishing/parenthood-atlas-kdp-6x9.pdf"
   cover_pdf: "publishing/parenthood-atlas-kdp-cover.pdf"
+
+cover_art:
+  layout_mode: front_hero_vignette
+  style_preset: editorial-atlas-engraving
+  aspect_ratio: "1:1"
+  image_size: "2K"
+  asset_path: "publishing/assets/cover-art.png"
+  palette_bg_hex: "#111827"
+  palette_accent_hex: "#D97706"
+  palette_text_hex: "#F9FAFB"
+  prompt: >-
+    Fine-line celestial and botanical natural-history atlas engraving in burnished gold (#D97706),
+    warm terracotta, and antique ivory on a deep midnight-slate background (#111827), depicting
+    three concentric developmental rings: intricate cellular and placental roots at the inner core,
+    a luminous relational caregiver-and-infant silhouette in gentle co-regulating motion at the center,
+    and a branching neural and ecological canopy radiating outward like a precision star chart.
 
 # Localized cover / store copy consumed by scripts/render_kdp_cover.py when this directory is the target.
 publishing_copy:
   series_header: "REALIZED PRESS  |  VOLUMEN I"
-  badge: "15 capítulos  |  77 fichas de evidencia\nCiencia del desarrollo calibrada con rigor"
+  badge: "15 capítulos  |  78 fichas de evidencia\nCiencia del desarrollo calibrada con rigor"
   category_line: "NO FICCIÓN  /  CIENCIA DEL DESARROLLO  /  CRIANZA"
   back_title: "Un atlas de historia natural de los primeros 1.000 días"
   features_header: "ATRIBUTOS EPISTÉMICOS CLAVE:"
   features:
     - "- 15 capítulos de desarrollo, desde la preconcepción hasta los tres años."
     - "- Verbos de afirmación calibrados al grado de certeza de la evidencia."
-    - "- Auditorías de confusión genética (GI) en las 77 fichas de evidencia."
-    - "- Regido por Open Knowledge Format (OKF v0.2) y DOI verificados."
-  colophon: "Edición en español (piloto)"
+    - "- Auditorías de confusión genética (GI) en las 78 fichas de evidencia."
+    - "- Regido por Open Knowledge Format (OKF v0.3) y DOI verificados."
+  colophon: "Edición en español (Gold-Master)"
   blurb:
     - "El atlas de la crianza es un mapa longitudinal de la evidencia sobre el desarrollo infantil, desde aproximadamente un año antes de la concepción hasta los tres años. Separa tres planos que no deben fundirse: lo que la ciencia puede observar, lo que la interpretación sugiere y lo que el arte relacional del cuidado exige."
     - "En lugar de manuales prescriptivos o alarmas basadas en un solo estudio, esta obra traza un mapa de historia natural a lo largo de quince hitos del desarrollo. Cada afirmación está calibrada al grado de certeza empírica verificado bajo el Open Knowledge Format."
@@ -102,9 +121,6 @@ monetization:
       - "FAM034000"
       - "PSY004000"
       - "SCI049000"
-    # Curated seed boxes (ASCII-folded, <= 49 UTF-8 bytes, no repeated stems, title/subtitle words excluded).
-    # NOT yet demand-optimized: re-run `marketing_intelligence.py --series parenthood-atlas-es --optimize-kdp-boxes`
-    # after importing a Spanish Keyword Planner export.
     backend_keywords:
       - "dejar panal control ferber sueno llanto baby led"
       - "esfinteres senales colecho seguro muerte mi hijo"
@@ -118,9 +134,25 @@ books:
   - id: book-01-parenthood-atlas
     path: "."
     title: "El atlas de la crianza (de la concepción a los tres años)"
-    status: drafting
-    target_words: 50000
-    min_okf_cards: 72
+    status: rc
+    target_words: 59891
+    min_okf_cards: 78
+    total_footnotes: 159
+    cover_art:
+      layout_mode: front_hero_vignette
+      style_preset: editorial-atlas-engraving
+      aspect_ratio: "1:1"
+      image_size: "2K"
+      asset_path: "publishing/assets/cover-art.png"
+      palette_bg_hex: "#111827"
+      palette_accent_hex: "#D97706"
+      palette_text_hex: "#F9FAFB"
+      prompt: >-
+        Fine-line celestial and botanical natural-history atlas engraving in burnished gold (#D97706),
+        warm terracotta, and antique ivory on a deep midnight-slate background (#111827), depicting
+        three concentric developmental rings: intricate cellular and placental roots at the inner core,
+        a luminous relational caregiver-and-infant silhouette in gentle co-regulating motion at the center,
+        and a branching neural and ecological canopy radiating outward like a precision star chart.
     movements:
       - id: movement-1
         title: "Movimiento I: El contrato del lector: tres categorías que no deben fundirse"

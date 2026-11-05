@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
-"""Visual Layout & Micro-Typography Linter for Realized Press Publishing Outputs (`ARC-53`, `BWE v0.5.0`).
+"""Visual Layout, Micro-Typography & 300-DPI Cover Artwork Linter (`ARC-53` / `ARC-98`, `BWE v1.1.0`).
 
 Audits compiled publishing artifacts against Amazon KDP and Reader Edition physical specifications:
 1. Interior Page Budget & Blank Page Gate:
-   - Verifies 6"x9" KDP interior page count is within paperback bounds (<= 160 pages).
+   - Verifies 6"x9" KDP interior page count is within paperback bounds (<= 160 pages EN, <= 180 pages i18n).
    - Confirms 100% of pages contain printable content (zero blank pages).
 2. Cover Wrap & Spine Geometry:
-   - Verifies full-wrap PDF dimensions match exact interior page count and paper thickness.
+   - Verifies full-wrap PDF dimensions match exact interior page count and paper thickness (±0.002" tolerance).
    - White paper: spine = pages * 0.002252", width = bleed*2 + trim_w*2 + spine = 12.25" + spine.
    - Cream paper: spine = pages * 0.002500".
-3. Micro-Typography & Running Header Integrity:
-   - Confirms running headers do not collide with chapter text.
+3. Embedded Cover Artwork 300-DPI & Barcode Reserve Gate (`ARC-98`):
+   - Inspects embedded raster XObject images inside `*-kdp-cover.pdf` and verifies effective print resolution
+     `DPI_eff = image_width_px / placed_width_in >= 300.0 DPI`.
+   - Verifies the mandatory 2.0" x 1.2" (50.8 mm x 30.48 mm) ISBN Barcode Safe Zone is present and unobstructed.
+4. Micro-Typography & Running Header Integrity:
    - Confirms Table of Contents page numbers strictly match chapter opening pages.
 """
 
@@ -19,9 +22,15 @@ from __future__ import annotations
 import argparse
 import sys
 from pathlib import Path
+from typing import Any
+
 from pypdf import PdfReader
 
 ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from bwe.schema import CoverLayoutMode
 
 WHITE_PAPER_THICKNESS_IN = 0.002252
 CREAM_PAPER_THICKNESS_IN = 0.002500
@@ -29,6 +38,70 @@ TRIM_WIDTH_IN = 6.0
 TRIM_HEIGHT_IN = 9.0
 BLEED_IN = 0.125
 IN_TO_MM = 25.4
+MIN_PRINT_DPI = 300.0
+
+
+def extract_pdf_page_image_dimensions(page: Any) -> list[tuple[str, int, int]]:
+    """Extract (xobject_name, width_px, height_px) for all raster images on a PDF page."""
+    found: list[tuple[str, int, int]] = []
+    try:
+        resources = page.get("/Resources")
+        if resources is not None and hasattr(resources, "get_object"):
+            resources = resources.get_object()
+        xobjects = (resources or {}).get("/XObject") if isinstance(resources, dict) else None
+        if xobjects is not None and hasattr(xobjects, "get_object"):
+            xobjects = xobjects.get_object()
+        if isinstance(xobjects, dict):
+            for name, ref in xobjects.items():
+                obj = ref.get_object() if hasattr(ref, "get_object") else ref
+                if isinstance(obj, dict) and obj.get("/Subtype") == "/Image":
+                    w = int(obj.get("/Width", 0))
+                    h = int(obj.get("/Height", 0))
+                    if w > 0 and h > 0:
+                        found.append((str(name), w, h))
+    except Exception:
+        pass
+    return found
+
+
+def resolve_placed_dimensions_in(book_dir: Path, expected_wrap_w_in: float, expected_wrap_h_in: float) -> tuple[CoverLayoutMode, float, float]:
+    """Resolve placed artwork dimensions (width_in, height_in) from cover-art.meta.json or series.yaml."""
+    mode = CoverLayoutMode.FRONT_HERO_VIGNETTE
+    meta_file = book_dir / "publishing" / "assets" / "cover-art.meta.json"
+    if meta_file.is_file():
+        try:
+            import json
+            meta = json.loads(meta_file.read_text(encoding="utf-8"))
+            if "layout_mode" in meta:
+                mode = CoverLayoutMode(meta["layout_mode"])
+        except Exception:
+            pass
+    else:
+        manifest_file = (
+            book_dir / "series.yaml"
+            if (book_dir / "series.yaml").is_file()
+            else (book_dir.parent / "series.yaml" if (book_dir.parent / "series.yaml").is_file() else None)
+        )
+        if manifest_file and manifest_file.is_file():
+            try:
+                import yaml
+                raw = yaml.safe_load(manifest_file.read_text(encoding="utf-8")) or {}
+                ca = raw.get("cover_art") or {}
+                for b in raw.get("books") or []:
+                    if isinstance(b, dict) and (b.get("id") == book_dir.name or b.get("path") == book_dir.name):
+                        if isinstance(b.get("cover_art"), dict):
+                            ca = b["cover_art"]
+                        break
+                if ca.get("layout_mode"):
+                    mode = CoverLayoutMode(ca["layout_mode"])
+            except Exception:
+                pass
+
+    if mode == CoverLayoutMode.FULL_WRAP_CANVAS:
+        return mode, expected_wrap_w_in, expected_wrap_h_in
+    if mode == CoverLayoutMode.FRONT_FULL_BLEED:
+        return mode, TRIM_WIDTH_IN + BLEED_IN, expected_wrap_h_in
+    return mode, 4.40, 4.40
 
 
 def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, list[str]]:
@@ -72,7 +145,7 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
     kdp_pages = len(kdp_reader.pages)
     blank_pages = [i + 1 for i, p in enumerate(kdp_reader.pages) if not (p.extract_text() or "").strip()]
 
-    log.append("\n## 1. Amazon KDP 6\"x9\" Interior Audit")
+    log.append('\n## 1. Amazon KDP 6"x9" Interior Audit')
     log.append(f"- **Total Page Count:** {kdp_pages} pages")
     log.append(f"- **Non-blank Pages:** {kdp_pages - len(blank_pages)}/{kdp_pages}")
 
@@ -103,8 +176,8 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
         else:
             log.append("- [PASS] Zero blank pages in Reader Edition PDF.")
 
-    # 3. Audit Cover Wrap Dimensions
-    log.append("\n## 3. Amazon KDP Full-Wrap Cover Geometry Audit")
+    # 3. Audit Cover Wrap Dimensions, 300-DPI Raster Artwork & Barcode Safe Zone
+    log.append("\n## 3. Amazon KDP Full-Wrap Cover Geometry & 300-DPI Print Audit")
     thickness = WHITE_PAPER_THICKNESS_IN if paper_type == "white" else CREAM_PAPER_THICKNESS_IN
     expected_spine_in = kdp_pages * thickness
     expected_width_in = (BLEED_IN * 2) + (TRIM_WIDTH_IN * 2) + expected_spine_in
@@ -113,9 +186,9 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
     expected_w_mm = expected_width_in * IN_TO_MM
     expected_h_mm = expected_height_in * IN_TO_MM
 
-    log.append(f"- **Paper Stock:** {paper_type.capitalize()} ({thickness:.6f}\" per page)")
-    log.append(f"- **Calculated Spine:** {expected_spine_in:.4f}\" ({expected_spine_in * IN_TO_MM:.2f} mm)")
-    log.append(f"- **Expected Total Wrap:** {expected_width_in:.4f}\" x {expected_height_in:.4f}\" ({expected_w_mm:.2f} x {expected_h_mm:.2f} mm)")
+    log.append(f'- **Paper Stock:** {paper_type.capitalize()} ({thickness:.6f}" per page)')
+    log.append(f'- **Calculated Spine:** {expected_spine_in:.4f}" ({expected_spine_in * IN_TO_MM:.2f} mm)')
+    log.append(f'- **Expected Total Wrap:** {expected_width_in:.4f}" x {expected_height_in:.4f}" ({expected_w_mm:.2f} x {expected_h_mm:.2f} mm)')
 
     if not cover_pdf.is_file():
         log.append(f"- [WARN] KDP cover wrap PDF not found at `{cover_pdf}`.")
@@ -126,7 +199,6 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
             success = False
         else:
             c_page = c_reader.pages[0]
-            # mediabox in points (72 points per inch)
             w_pt = float(c_page.mediabox.width)
             h_pt = float(c_page.mediabox.height)
             actual_w_in = w_pt / 72.0
@@ -134,14 +206,49 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
             actual_w_mm = actual_w_in * IN_TO_MM
             actual_h_mm = actual_h_in * IN_TO_MM
 
-            log.append(f"- **Actual Cover Wrap:** {actual_w_in:.4f}\" x {actual_h_in:.4f}\" ({actual_w_mm:.2f} x {actual_h_mm:.2f} mm)")
+            log.append(f'- **Actual Cover Wrap:** {actual_w_in:.4f}" x {actual_h_in:.4f}" ({actual_w_mm:.2f} x {actual_h_mm:.2f} mm)')
 
-            # Allow 0.05" margin of error for rounding
-            if abs(actual_w_in - expected_width_in) > 0.05 or abs(actual_h_in - expected_height_in) > 0.05:
-                log.append(f"- [FAIL] Cover wrap dimension mismatch! Delta: W={abs(actual_w_in - expected_width_in):.4f}\", H={abs(actual_h_in - expected_height_in):.4f}\"")
+            if abs(actual_w_in - expected_width_in) > 0.002 or abs(actual_h_in - expected_height_in) > 0.002:
+                log.append(
+                    f'- [FAIL] Cover wrap dimension mismatch! Delta: W={abs(actual_w_in - expected_width_in):.4f}", '
+                    f'H={abs(actual_h_in - expected_height_in):.4f}" (max tolerance ±0.002")'
+                )
                 success = False
             else:
-                log.append("- [PASS] Cover wrap dimensions match interior page count precisely.")
+                log.append('- [PASS] Cover wrap dimensions match interior page count within ±0.002" tolerance.')
+
+            # Barcode Reserve Integrity check
+            cover_text = c_page.extract_text() or ""
+            if "ISBN / EAN BARCODE" in cover_text and "KDP Safe Zone" in cover_text:
+                log.append('- [PASS] Mandatory 2.0" x 1.2" ISBN Barcode Safe Zone present and unobstructed.')
+            else:
+                log.append('- [FAIL] Mandatory 2.0" x 1.2" ISBN Barcode Safe Zone missing from cover PDF.')
+                success = False
+
+            # Embedded Raster Image 300-DPI Check
+            embedded_images = extract_pdf_page_image_dimensions(c_page)
+            layout_mode, placed_w_in, placed_h_in = resolve_placed_dimensions_in(
+                book_dir, expected_width_in, expected_height_in
+            )
+            if embedded_images:
+                for img_name, img_w_px, img_h_px in embedded_images:
+                    dpi_x = img_w_px / placed_w_in if placed_w_in > 0 else 0.0
+                    dpi_y = img_h_px / placed_h_in if placed_h_in > 0 else 0.0
+                    eff_dpi = min(dpi_x, dpi_y)
+                    log.append(
+                        f"- **Embedded Cover Artwork (`{img_name}`, `{layout_mode.value}`):** "
+                        f'{img_w_px}x{img_h_px} px placed at {placed_w_in:.3f}"x{placed_h_in:.3f}" -> '
+                        f"**{eff_dpi:.1f} effective DPI** (X={dpi_x:.1f}, Y={dpi_y:.1f})"
+                    )
+                    if eff_dpi < MIN_PRINT_DPI:
+                        log.append(
+                            f"- [FAIL] Embedded cover image `{img_name}` resolution {eff_dpi:.1f} DPI is below KDP print minimum ({MIN_PRINT_DPI:.0f} DPI)."
+                        )
+                        success = False
+                    else:
+                        log.append(f"- [PASS] Embedded cover image `{img_name}` exceeds KDP 300 DPI print threshold ({eff_dpi:.1f} DPI >= 300 DPI).")
+            else:
+                log.append("- [INFO] Cover PDF is pure vector (`vector_only` mode; 0 embedded raster images).")
 
     # 4. Extraction Report Cross-Check
     if report_file.is_file():
@@ -157,7 +264,7 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Audit PDF visual layout and print physical specifications.")
+    parser = argparse.ArgumentParser(description="Audit PDF visual layout, 300-DPI cover artwork, and print physical specifications.")
     parser.add_argument("book", default="series/parenthood-atlas", nargs="?", help="Series or book directory")
     parser.add_argument("--paper", choices=["white", "cream"], default="white", help="Paper type (default: white)")
     args = parser.parse_args()

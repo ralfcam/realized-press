@@ -1,10 +1,10 @@
-Publishing Extraction Verification — The Architectures of Memory
+Publishing Extraction Verification — The Architecture of Forgetting
 Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-05-architecture-of-forgetting-reader-edition.pdf
-SHA-256: 90fd4699d805f92053c8cfe61cd69f5dab812ae090dc08d9e5a8a48032413198
-Bytes: 185,357
+SHA-256: b8a922b5a5c583d56188b7121fe94286539314c917390244849d251b2f96c6cb
+Bytes: 185,351
 Pages: 39 (39/39 nonblank)
 
 Chapters:

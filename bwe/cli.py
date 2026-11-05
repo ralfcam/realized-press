@@ -52,6 +52,34 @@ def export_site(output: str = "dist/site"):
     typer.echo(f"[PASS] Successfully exported standalone static imprint to {output}")
 
 
+@cli.command("cover-art")
+def cover_art(
+    series: str = typer.Option("parenthood-atlas", "--series", "-s", help="Series slug (e.g. parenthood-atlas or architectures-of-memory)"),
+    book: str = typer.Option(None, "--book", "-b", help="Book slug for multi-volume series (e.g. book-01-vanishing-signal)"),
+    layout_mode: str = typer.Option(None, "--layout-mode", help="Override CoverLayoutMode (vector_only, front_hero_vignette, front_full_bleed, full_wrap_canvas)"),
+    dry_run: bool = typer.Option(False, "--dry-run", help="Print synthesized prompt, aspect ratio, target DPI, and cache key without calling API"),
+    draft: bool = typer.Option(False, "--draft", help="Use fast 1K preview tier (gemini-3.1-flash-lite-image)"),
+    force: bool = typer.Option(False, "--force", help="Bypass cache and regenerate artwork via Gemini API"),
+    render_all: bool = typer.Option(False, "--render-all", help="Generate cover art and compile KDP wrap cover + EPUB across all books in series"),
+):
+    """ARC-98 (BWE v1.1.0): Generate 300+ DPI Gemini cover artwork and optionally compile KDP covers & EPUBs."""
+    cmd = [sys.executable, str(REPO_ROOT / "scripts" / "generate_cover_art.py"), "--series", series]
+    if book:
+        cmd.extend(["--book", book])
+    if layout_mode:
+        cmd.extend(["--layout-mode", layout_mode])
+    if dry_run:
+        cmd.append("--dry-run")
+    if draft:
+        cmd.append("--draft")
+    if force:
+        cmd.append("--force")
+    if render_all:
+        cmd.append("--render-all")
+    rc = subprocess.call(cmd)
+    raise typer.Exit(code=rc)
+
+
 @cli.command()
 def intelligence(
     discover: str = typer.Option(None, help="Upstream topic discovery query via OpenAlex"),

@@ -108,6 +108,16 @@
         "readability_targets": {
           "$ref": "#/$defs/ReadabilityTargets"
         },
+        "cover_art": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CoverArtSpec"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "movements": {
           "items": {
             "$ref": "#/$defs/MovementSpec"
@@ -179,6 +189,89 @@
       ],
       "title": "ChapterSpec",
       "type": "object"
+    },
+    "CoverArtSpec": {
+      "description": "ARC-98 (BWE v1.1.0): Declarative Gemini cover art & hybrid vector/raster compositing specification.",
+      "properties": {
+        "layout_mode": {
+          "$ref": "#/$defs/CoverLayoutMode",
+          "default": "front_hero_vignette"
+        },
+        "prompt": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Custom visual prompt; if omitted, synthesized automatically from series/book Three-Lens metadata.",
+          "title": "Prompt"
+        },
+        "style_preset": {
+          "default": "editorial-atlas-engraving",
+          "description": "Visual style preset enforcing brand consistency across volumes.",
+          "title": "Style Preset",
+          "type": "string"
+        },
+        "aspect_ratio": {
+          "default": "1:1",
+          "pattern": "^(1:1|2:3|3:2|3:4|4:3|4:5|5:4|16:9)$",
+          "title": "Aspect Ratio",
+          "type": "string"
+        },
+        "image_size": {
+          "default": "2K",
+          "pattern": "^(1K|2K|4K)$",
+          "title": "Image Size",
+          "type": "string"
+        },
+        "asset_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "publishing/assets/cover-art.png",
+          "description": "Relative path to the locked raster PNG asset.",
+          "title": "Asset Path"
+        },
+        "palette_bg_hex": {
+          "default": "#111827",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "title": "Palette Bg Hex",
+          "type": "string"
+        },
+        "palette_accent_hex": {
+          "default": "#D97706",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "title": "Palette Accent Hex",
+          "type": "string"
+        },
+        "palette_text_hex": {
+          "default": "#F9FAFB",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "title": "Palette Text Hex",
+          "type": "string"
+        }
+      },
+      "title": "CoverArtSpec",
+      "type": "object"
+    },
+    "CoverLayoutMode": {
+      "enum": [
+        "vector_only",
+        "front_hero_vignette",
+        "front_full_bleed",
+        "full_wrap_canvas"
+      ],
+      "title": "CoverLayoutMode",
+      "type": "string"
     },
     "EpistemicLens": {
       "enum": [
@@ -436,7 +529,7 @@
       "type": "object"
     }
   },
-  "description": "ARC-57 / ARC-72 / ARC-76: Unified declarative series.yaml schema for all Realized Press series.",
+  "description": "ARC-57 / ARC-72 / ARC-76 / ARC-98: Unified declarative series.yaml schema for all Realized Press series.",
   "properties": {
     "slug": {
       "pattern": "^[a-z0-9-]+$",
@@ -554,6 +647,9 @@
         }
       ],
       "default": null
+    },
+    "cover_art": {
+      "$ref": "#/$defs/CoverArtSpec"
     },
     "publishing_copy": {
       "anyOf": [

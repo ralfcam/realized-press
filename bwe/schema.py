@@ -117,6 +117,36 @@ class KDPPrintSpec(BaseModel):
     cover_pdf: Optional[str] = None
 
 
+class CoverLayoutMode(str, Enum):
+    VECTOR_ONLY = "vector_only"
+    FRONT_HERO_VIGNETTE = "front_hero_vignette"
+    FRONT_FULL_BLEED = "front_full_bleed"
+    FULL_WRAP_CANVAS = "full_wrap_canvas"
+
+
+class CoverArtSpec(BaseModel):
+    """ARC-98 (BWE v1.1.0): Declarative Gemini cover art & hybrid vector/raster compositing specification."""
+
+    layout_mode: CoverLayoutMode = Field(default=CoverLayoutMode.FRONT_HERO_VIGNETTE)
+    prompt: Optional[str] = Field(
+        default=None,
+        description="Custom visual prompt; if omitted, synthesized automatically from series/book Three-Lens metadata.",
+    )
+    style_preset: str = Field(
+        default="editorial-atlas-engraving",
+        description="Visual style preset enforcing brand consistency across volumes.",
+    )
+    aspect_ratio: str = Field(default="1:1", pattern=r"^(1:1|2:3|3:2|3:4|4:3|4:5|5:4|16:9)$")
+    image_size: str = Field(default="2K", pattern=r"^(1K|2K|4K)$")
+    asset_path: Optional[str] = Field(
+        default="publishing/assets/cover-art.png",
+        description="Relative path to the locked raster PNG asset.",
+    )
+    palette_bg_hex: str = Field(default="#111827", pattern=r"^#[0-9A-Fa-f]{6}$")
+    palette_accent_hex: str = Field(default="#D97706", pattern=r"^#[0-9A-Fa-f]{6}$")
+    palette_text_hex: str = Field(default="#F9FAFB", pattern=r"^#[0-9A-Fa-f]{6}$")
+
+
 class BookSpec(BaseModel):
     id: str = Field(..., pattern=r"^book-\d{2}-[a-z0-9-]+$")
     path: str = Field(
@@ -132,12 +162,13 @@ class BookSpec(BaseModel):
     min_okf_cards: int = Field(default=6, ge=1)
     total_footnotes: Optional[int] = None
     readability_targets: ReadabilityTargets = Field(default_factory=ReadabilityTargets)
+    cover_art: Optional[CoverArtSpec] = Field(default_factory=CoverArtSpec)
     movements: List[MovementSpec] = Field(default_factory=list)
     chapters: List[ChapterSpec] = Field(default_factory=list)
 
 
 class SeriesManifest(BaseModel):
-    """ARC-57 / ARC-72 / ARC-76: Unified declarative series.yaml schema for all Realized Press series."""
+    """ARC-57 / ARC-72 / ARC-76 / ARC-98: Unified declarative series.yaml schema for all Realized Press series."""
 
     slug: str = Field(..., pattern=r"^[a-z0-9-]+$")
     translation_of: Optional[str] = None
@@ -154,6 +185,7 @@ class SeriesManifest(BaseModel):
     readability_targets: ReadabilityTargets = Field(default_factory=ReadabilityTargets)
     kdp_marketing: Optional[KdpMarketingMetadata] = None
     kdp_print_spec: Optional[KDPPrintSpec] = None
+    cover_art: CoverArtSpec = Field(default_factory=CoverArtSpec)
     publishing_copy: Optional[dict] = None
     books: List[BookSpec] = Field(..., min_length=1)
 

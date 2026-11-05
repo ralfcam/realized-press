@@ -1,0 +1,17 @@
+{
+  "model_id": "gemini-3-pro-image",
+  "prompt": "Fine-line celestial and botanical natural-history atlas engraving in burnished gold (#D97706), warm terracotta, and antique ivory on a deep midnight-slate background (#111827), depicting three concentric developmental rings: intricate cellular and placental roots at the inner core, a luminous relational caregiver-and-infant silhouette in gentle co-regulating motion at the center, and a branching neural and ecological canopy radiating outward like a precision star chart. Composition: centered symmetrical emblem vignette with clean edges on a uniform #111827 ground, suitable for framing on a scholarly trade book cover. STRICTLY NO TEXT, NO LETTERS, NO WORDS, NO NUMBERS, NO LABELS, NO TYPOGRAPHY, NO SIGNATURES, NO WATERMARKS, NO BORDERS.",
+  "prompt_hash": "0371cfb36eb31405987b2913f6e80ab5b532c6daa7805177df36fdc4e71be1e3",
+  "layout_mode": "front_hero_vignette",
+  "style_preset": "editorial-atlas-engraving",
+  "aspect_ratio": "1:1",
+  "image_size": "2K",
+  "width_px": 2048,
+  "height_px": 2048,
+  "placed_width_in": 4.4,
+  "placed_height_in": 4.4,
+  "effective_dpi": 465.5,
+  "cache_path": ".cache\\cover_art\\0371cfb36eb31405987b2913f6e80ab5b532c6daa7805177df36fdc4e71be1e3.png",
+  "asset_path": "series\\parenthood-atlas\\publishing\\assets\\cover-art.png",
+  "timestamp": "2026-11-05T13:07:07.526448+00:00"
+}

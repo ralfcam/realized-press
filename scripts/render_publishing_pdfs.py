@@ -588,6 +588,7 @@ def build_reader_html(
     chapter_pages: dict[int, int],
     front_matter_path: Path | None = None,
     language: str = "en",
+    cover_image_rel: str | None = None,
 ) -> str:
     contents_title = "Contenido" if language == "es" else "Contents"
     notes_title = "Notas" if language == "es" else "Notes"
@@ -595,6 +596,13 @@ def build_reader_html(
         "Cómo usar este atlas: Guía rápida de consulta (2:00 AM)"
         if language == "es"
         else "How to Use This Atlas: 2:00 AM Quick-Finder"
+    )
+    cover_block = (
+        f"<figure class='reader-cover' style='margin:1.5rem 0;text-align:center'>"
+        f"<img src='{html.escape(cover_image_rel)}' alt='{html.escape(book_title)} Cover' "
+        f"style='max-width:340px;width:100%;height:auto;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,0.18)'></figure>"
+        if cover_image_rel
+        else ""
     )
 
     out: list[str] = [
@@ -623,7 +631,7 @@ def build_reader_html(
         ".footnote-backref{text-decoration:none;margin-left:0.4rem;color:#888}",
         ".footnote-backref:hover{color:#8b3a1a}",
         "</style></head><body>",
-        f"<header><h1>{html.escape(book_title)}</h1><p><em>Realized Press · {html.escape(edition_label)} ({date.today().isoformat()})</em></p></header>",
+        f"<header><h1>{html.escape(book_title)}</h1><p><em>Realized Press · {html.escape(edition_label)} ({date.today().isoformat()})</em></p>{cover_block}</header>",
         f"<nav class='toc'><h2>{contents_title}</h2><ol>",
     ]
     if front_matter_path and front_matter_path.is_file():
@@ -711,6 +719,7 @@ def build_kdp_epub(
     epub_path: Path,
     front_matter_path: Path | None = None,
     language: str = "en",
+    cover_image_path: Path | None = None,
 ) -> None:
     """Compile a valid, KDP-ready EPUB 3 archive using Python's built-in zipfile module."""
     book_uuid = str(uuid.uuid5(uuid.NAMESPACE_DNS, f"realized-press.{epub_path.stem}"))
@@ -753,6 +762,11 @@ def build_kdp_epub(
         '<item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>',
         '<item id="css" href="style.css" media-type="text/css"/>',
     ]
+    has_cover_img = cover_image_path is not None and cover_image_path.is_file()
+    if has_cover_img:
+        manifest_items.append(
+            '<item id="cover-image" href="images/cover.png" media-type="image/png" properties="cover-image"/>'
+        )
     spine_items = ['<itemref idref="nav"/>']
     nav_links = []
     chapter_xhtmls: list[tuple[str, str]] = []
@@ -861,6 +875,7 @@ def build_kdp_epub(
         + "\n</ol></nav></body></html>\n"
     )
 
+    cover_meta_tag = '    <meta name="cover" content="cover-image"/>\n' if has_cover_img else ""
     content_opf = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="pub-id">\n'
@@ -871,6 +886,7 @@ def build_kdp_epub(
         "    <dc:publisher>Realized Press</dc:publisher>\n"
         f"    <dc:language>{language}</dc:language>\n"
         f'    <meta property="dcterms:modified">{today}T00:00:00Z</meta>\n'
+        f"{cover_meta_tag}"
         "  </metadata>\n"
         "  <manifest>\n    "
         + "\n    ".join(manifest_items)
@@ -888,6 +904,8 @@ def build_kdp_epub(
         zf.writestr("OEBPS/style.css", style_css, compress_type=zipfile.ZIP_DEFLATED)
         zf.writestr("OEBPS/nav.xhtml", nav_xhtml, compress_type=zipfile.ZIP_DEFLATED)
         zf.writestr("OEBPS/content.opf", content_opf, compress_type=zipfile.ZIP_DEFLATED)
+        if has_cover_img and cover_image_path is not None:
+            zf.writestr("OEBPS/images/cover.png", cover_image_path.read_bytes(), compress_type=zipfile.ZIP_DEFLATED)
         for fname, content in chapter_xhtmls:
             zf.writestr(f"OEBPS/{fname}", content, compress_type=zipfile.ZIP_DEFLATED)
 
@@ -987,6 +1005,11 @@ def main() -> int:
             import yaml
             manifest = yaml.safe_load(manifest_file.read_text(encoding="utf-8")) or {}
             book_title = manifest.get("title", book_title)
+            for b in manifest.get("books") or []:
+                if isinstance(b, dict) and (b.get("id") == book_path.name or b.get("path") == book_path.name):
+                    if len(manifest.get("books") or []) > 1:
+                        book_title = b.get("title", book_title)
+                    break
             rt = manifest.get("readability_targets") or {}
             language = rt.get("language") or manifest.get("locale") or ("es" if "es" in book_path.parts else "en")
         except Exception:
@@ -997,6 +1020,45 @@ def main() -> int:
     front_matter_path = book_path / "front-matter.md"
     if not front_matter_path.is_file():
         front_matter_path = None
+
+    # Resolve eBook / Reader cover artwork if present
+    ebook_cover_png = book_path / "publishing" / "assets" / "front-cover-ebook.png"
+    raw_cover_art = book_path / "publishing" / "assets" / "cover-art.png"
+    if not raw_cover_art.is_file() and book_path.parent.name == "i18n":
+        parent_art = book_path.parent.parent / "publishing" / "assets" / "cover-art.png"
+        if parent_art.is_file():
+            raw_cover_art.parent.mkdir(parents=True, exist_ok=True)
+            import shutil as _shutil
+            _shutil.copy2(parent_art, raw_cover_art)
+
+    if raw_cover_art.is_file() and not ebook_cover_png.is_file():
+        try:
+            from render_kdp_cover import export_ebook_front_cover, resolve_book_metadata_and_spec
+            _t, _sub, _auth, _blurb, _copy, _cspec = resolve_book_metadata_and_spec(book_path)
+            _shdr = (_copy or {}).get("series_header", "REALIZED PRESS  |  VOLUME I")
+            _badge = (_copy or {}).get("badge", "")
+            export_ebook_front_cover(
+                title=_t,
+                subtitle=_sub,
+                author=_auth,
+                series_header=_shdr,
+                badge_txt=_badge,
+                art_path=raw_cover_art,
+                output_png=ebook_cover_png,
+                fonts=fonts,
+                cover_spec=_cspec,
+            )
+        except Exception:
+            pass
+
+    cover_for_epub = ebook_cover_png if ebook_cover_png.is_file() else (raw_cover_art if raw_cover_art.is_file() else None)
+    cover_rel_html: str | None = None
+    if html_path:
+        ebook_jpg = book_path / "publishing" / "assets" / "front-cover-ebook.jpg"
+        target_img = ebook_jpg if ebook_jpg.is_file() else cover_for_epub
+        if target_img and target_img.is_file():
+            import os as _os
+            cover_rel_html = Path(_os.path.relpath(target_img, html_path.parent)).as_posix()
 
     pass1_pdf, pass1_pages = build_book_pdf(
         book_title,
@@ -1028,6 +1090,7 @@ def main() -> int:
                 final_pages,
                 front_matter_path=front_matter_path,
                 language=language,
+                cover_image_rel=cover_rel_html,
             ),
             encoding="utf-8",
         )
@@ -1048,6 +1111,7 @@ def main() -> int:
             epub_path,
             front_matter_path=front_matter_path,
             language=language,
+            cover_image_path=cover_for_epub,
         )
         print(f"[epub] Wrote {epub_path.relative_to(root)} ({epub_path.stat().st_size:,} bytes)")
 

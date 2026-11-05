@@ -9,7 +9,7 @@ linear:
   team_id: "b507edbe-bdaa-4c47-8bdd-63af48774ebf"
   project_id: "3cae0985-8124-4f85-a959-6216cb041c81"
 epistemic_contract:
-  okf_version: "0.2"
+  okf_version: "0.3"
   three_lenses:
     - id: "technical"
       label: "Technical"
@@ -67,24 +67,107 @@ monetization:
       - "Public Evidence Briefs & Interactive OKF Explorer (top-of-funnel marketing)"
       - "Chapter Preprints & Annotated Research Notes"
       - "Reader Edition 0.x Slices & Early Audiobook Narration"
+cover_art:
+  layout_mode: front_hero_vignette
+  style_preset: swiss-modernist-architectural-etching
+  aspect_ratio: "1:1"
+  image_size: "2K"
+  asset_path: "publishing/assets/cover-art.png"
+  palette_bg_hex: "#0F172A"
+  palette_accent_hex: "#D97706"
+  palette_text_hex: "#F9FAFB"
+  prompt: >-
+    Swiss modernist architectural etching and precision scientific diagram in burnished copper-amber (#D97706)
+    and cool silver on a deep obsidian-navy background (#0F172A), illustrating mathematical memory architectures,
+    signal propagation, and structural persistence.
 books:
   - id: "book-01-vanishing-signal"
+    path: "book-01-vanishing-signal"
     title: "The Vanishing Signal"
     subtitle: "Why Networks Cannot Remember, and What That Reveals About Mind"
     status: "complete"
+    cover_art:
+      layout_mode: front_hero_vignette
+      style_preset: swiss-modernist-architectural-etching
+      aspect_ratio: "1:1"
+      image_size: "2K"
+      asset_path: "publishing/assets/cover-art.png"
+      palette_bg_hex: "#0F172A"
+      palette_accent_hex: "#D97706"
+      palette_text_hex: "#F9FAFB"
+      prompt: >-
+        Swiss modernist architectural etching and fine scientific diagram in burnished copper-amber (#D97706)
+        and cool silver on a deep obsidian-navy background (#0F172A): concentric wave pulses attenuating
+        exponentially through a multi-layered geometric glass lattice into stillness.
   - id: "book-02-forget-gate"
+    path: "book-02-forget-gate"
     title: "The Forget Gate"
     subtitle: "What Should a Mind Choose to Keep?"
     status: "complete"
+    cover_art:
+      layout_mode: front_hero_vignette
+      style_preset: swiss-modernist-architectural-etching
+      aspect_ratio: "1:1"
+      image_size: "2K"
+      asset_path: "publishing/assets/cover-art.png"
+      palette_bg_hex: "#0F172A"
+      palette_accent_hex: "#D97706"
+      palette_text_hex: "#F9FAFB"
+      prompt: >-
+        Swiss modernist architectural etching and fine scientific diagram in burnished copper-amber (#D97706)
+        and cool silver on a deep obsidian-navy background (#0F172A): precision brass and crystal sluice-gates
+        regulating a luminous continuous stream in a constant error carousel.
   - id: "book-03-weight-of-attention"
+    path: "book-03-weight-of-attention"
     title: "The Weight of Attention"
     subtitle: "Is Retrieval the Same as Memory?"
     status: "complete"
+    cover_art:
+      layout_mode: front_hero_vignette
+      style_preset: swiss-modernist-architectural-etching
+      aspect_ratio: "1:1"
+      image_size: "2K"
+      asset_path: "publishing/assets/cover-art.png"
+      palette_bg_hex: "#0F172A"
+      palette_accent_hex: "#D97706"
+      palette_text_hex: "#F9FAFB"
+      prompt: >-
+        Swiss modernist architectural etching and fine scientific diagram in burnished copper-amber (#D97706)
+        and cool silver on a deep obsidian-navy background (#0F172A): a crystalline prism of intersecting light
+        beams connecting distant geometric nodes across a high-dimensional architectural vault.
   - id: "book-04-context-window"
+    path: "book-04-context-window"
     title: "The Context Window"
     subtitle: "What Does Scale Actually Know?"
     status: "complete"
+    cover_art:
+      layout_mode: front_hero_vignette
+      style_preset: swiss-modernist-architectural-etching
+      aspect_ratio: "1:1"
+      image_size: "2K"
+      asset_path: "publishing/assets/cover-art.png"
+      palette_bg_hex: "#0F172A"
+      palette_accent_hex: "#D97706"
+      palette_text_hex: "#F9FAFB"
+      prompt: >-
+        Swiss modernist architectural etching and fine scientific diagram in burnished copper-amber (#D97706)
+        and cool silver on a deep obsidian-navy background (#0F172A): a precision observatory aperture framing
+        a razor-sharp architectural horizon while outer peripheral structures dissolve into atmospheric mist.
   - id: "book-05-architecture-of-forgetting"
+    path: "book-05-architecture-of-forgetting"
     title: "The Architecture of Forgetting"
     subtitle: "What Memory Costs, and Who Pays"
     status: "complete"
+    cover_art:
+      layout_mode: front_hero_vignette
+      style_preset: swiss-modernist-architectural-etching
+      aspect_ratio: "1:1"
+      image_size: "2K"
+      asset_path: "publishing/assets/cover-art.png"
+      palette_bg_hex: "#0F172A"
+      palette_accent_hex: "#D97706"
+      palette_text_hex: "#F9FAFB"
+      prompt: >-
+        Swiss modernist architectural etching and fine scientific diagram in burnished copper-amber (#D97706)
+        and cool silver on a deep obsidian-navy background (#0F172A): a classical palimpsest of layered stone
+        and geometric neural strata where selective erosion reveals an enduring luminous core structure.

@@ -1,10 +1,10 @@
-Publishing Extraction Verification — The Architectures of Memory
+Publishing Extraction Verification — The Forget Gate
 Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-02-forget-gate-reader-edition.pdf
-SHA-256: 540c0aebd30d9b65c67c6a3758e610bda1fa07d7e500411b135d812719b620fb
-Bytes: 255,323
+SHA-256: 08188a9d04414c32ab45b644d87a620f6ce7dbf8ba7ff00e83200f4cc5860ad4
+Bytes: 254,908
 Pages: 57 (57/57 nonblank)
 
 Chapters:

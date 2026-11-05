@@ -1,0 +1,17 @@
+{
+  "model_id": "gemini-3-pro-image",
+  "prompt": "Swiss modernist architectural etching and fine scientific diagram in burnished copper-amber (#D97706) and cool silver on a deep obsidian-navy background (#0F172A): a precision observatory aperture framing a razor-sharp architectural horizon while outer peripheral structures dissolve into atmospheric mist. Composition: centered symmetrical emblem vignette with clean edges on a uniform #0F172A ground, suitable for framing on a scholarly trade book cover. STRICTLY NO TEXT, NO LETTERS, NO WORDS, NO NUMBERS, NO LABELS, NO TYPOGRAPHY, NO SIGNATURES, NO WATERMARKS, NO BORDERS.",
+  "prompt_hash": "44d565b54a0e1ac70d501e49eabc40737728e7d0cc21ade11ed7e041e706e61f",
+  "layout_mode": "front_hero_vignette",
+  "style_preset": "swiss-modernist-architectural-etching",
+  "aspect_ratio": "1:1",
+  "image_size": "2K",
+  "width_px": 2048,
+  "height_px": 2048,
+  "placed_width_in": 4.4,
+  "placed_height_in": 4.4,
+  "effective_dpi": 465.5,
+  "cache_path": ".cache\\cover_art\\44d565b54a0e1ac70d501e49eabc40737728e7d0cc21ade11ed7e041e706e61f.png",
+  "asset_path": "series\\architectures-of-memory\\book-04-context-window\\publishing\\assets\\cover-art.png",
+  "timestamp": "2026-11-05T13:09:47.498475+00:00"
+}

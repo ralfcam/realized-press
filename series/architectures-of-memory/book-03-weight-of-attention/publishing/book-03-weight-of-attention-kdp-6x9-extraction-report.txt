@@ -1,10 +1,10 @@
-Publishing Extraction Verification — The Architectures of Memory
+Publishing Extraction Verification — The Weight of Attention
 Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-03-weight-of-attention-kdp-6x9.pdf
-SHA-256: 8fae224e4aa261cd324f006e10a1190be210c78888cfe70381d728c6e9e928dc
-Bytes: 215,485
+SHA-256: 859d763259f364381bd7c973b615fb0ec79487c546e5b4b57c217454b144ed68
+Bytes: 215,155
 Pages: 59 (59/59 nonblank)
 
 Chapters:
