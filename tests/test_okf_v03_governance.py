@@ -520,3 +520,59 @@ def test_imprint_demand_coverage_floors():
     cov_pct_en = sum(1 for s in sigs_en if s.covered) / len(sigs_en) * 100
     assert cov_pct_en >= 99.0, f"EN coverage {cov_pct_en:.1f}% < 99.0%"
 
+
+# =========================================================================
+# 8. APPARATUS HYGIENE & SAME-PAGE FOOTNOTE ENGINE TESTS (ARC-100)
+# =========================================================================
+
+def test_sanitize_reader_footnote_text_strips_evidence_cards_and_grades():
+    """Verify sanitize_reader_footnote_text strips Evidence Card and Grade labels while preserving citations & DOIs."""
+    from merge_book_chapters import sanitize_reader_footnote_text
+
+    raw_en = (
+        "MRC Vitamin Study Research Group (1991), Lancet. RCT (N = 1,817 high-risk pregnancies); "
+        "periconceptional folic acid (4 mg/day) reduced neural tube defect recurrence by 72% "
+        "(RR = 0.28, 95% CI: 0.12–0.62). Grade: High. Evidence Card: mrc-folate-neural-tube-rct. "
+        "DOI: 10.1016/0140-6736(91)90133-A."
+    )
+    san_en = sanitize_reader_footnote_text(raw_en)
+    assert "Evidence Card:" not in san_en
+    assert "mrc-folate-neural-tube-rct" not in san_en
+    assert "Grade:" not in san_en
+    assert "doi:10.1016/0140-6736(91)90133-A" in san_en
+    assert "MRC Vitamin Study Research Group (1991)" in san_en
+
+    raw_es = (
+        "**Certeza: Alta** en que el ácido fólico estándar previene los defectos del tubo neural. "
+        "Ficha de evidencia: `evidence-cards/prenatal-folate-ntd.md`."
+    )
+    san_es = sanitize_reader_footnote_text(raw_es)
+    assert "Certeza:" not in san_es
+    assert "Ficha de evidencia:" not in san_es
+    assert "evidence-cards/" not in san_es
+    assert san_es.startswith("El ácido fólico estándar")
+
+
+def test_compiled_pdf_and_epub_zero_leaks_and_same_page_footnotes():
+    """Verify compiled PDFs and EPUBs across all 7 book targets pass audit_pdf_layout with 0 apparatus leaks and 100% same-page footnotes."""
+    from audit_pdf_layout import audit_pdf_layout
+
+    targets = [
+        REPO_ROOT / "series" / "parenthood-atlas",
+        REPO_ROOT / "series" / "parenthood-atlas" / "i18n" / "es",
+        REPO_ROOT / "series" / "architectures-of-memory" / "book-01-vanishing-signal",
+        REPO_ROOT / "series" / "architectures-of-memory" / "book-02-forget-gate",
+        REPO_ROOT / "series" / "architectures-of-memory" / "book-03-weight-of-attention",
+        REPO_ROOT / "series" / "architectures-of-memory" / "book-04-context-window",
+        REPO_ROOT / "series" / "architectures-of-memory" / "book-05-architecture-of-forgetting",
+    ]
+    for target in targets:
+        ok, log = audit_pdf_layout(target, paper_type="white")
+        joined = "\n".join(log)
+        assert ok is True, f"audit_pdf_layout failed for {target.name}:\n{joined}"
+        assert "0 `Evidence Card:` or `Grade:` apparatus leaks" in joined
+        assert "0 chapter-end `Notes` dumps (100% same-page bottom apparatus)" in joined
+        assert "bottom footnotes verified co-located on exact callout page" in joined
+        assert "<aside epub:type=\"footnote\">" in joined
+
+

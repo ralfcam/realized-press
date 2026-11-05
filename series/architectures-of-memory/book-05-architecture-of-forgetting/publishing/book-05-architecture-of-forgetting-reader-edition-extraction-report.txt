@@ -3,8 +3,8 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-05-architecture-of-forgetting-reader-edition.pdf
-SHA-256: b8a922b5a5c583d56188b7121fe94286539314c917390244849d251b2f96c6cb
-Bytes: 185,351
+SHA-256: 4d8e85d33cf9e825c9eb8149aafaf0d9ea6d34e2e95e1df855a6e1d51a38bf2d
+Bytes: 173,839
 Pages: 39 (39/39 nonblank)
 
 Chapters:

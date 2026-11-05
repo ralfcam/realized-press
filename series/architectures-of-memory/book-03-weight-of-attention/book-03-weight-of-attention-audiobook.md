@@ -1,6 +1,6 @@
 # series/architectures-of-memory/book-03-weight-of-attention — Audiobook transcript
 
-Compiled from `series/architectures-of-memory/book-03-weight-of-attention/chapters/*.md` (2026-11-01). YAML frontmatter, *Sources* lines, `## Notes` / `## Sources` sections, and inline `[^footnote]` markers are omitted for text-to-speech.
+Compiled from `series/architectures-of-memory/book-03-weight-of-attention/chapters/*.md` (2026-11-05). YAML frontmatter, *Sources* lines, `## Notes` / `## Sources` sections, and inline `[^footnote]` markers are omitted for text-to-speech.
 
 ---
 
@@ -921,7 +921,7 @@ Today, attention networks amplify this dilemma to an novel degree.
 
 ## IV. What It Means to Know
 
-The *Meno* reminds us that true understanding is more than looking up facts.
+The *Meno* reminds us that true understanding is more than looking up facts. In cognitive neuropsychology, Endel Tulving established that retrieving an impersonal fact engages purely noetic semantic lookup, whereas genuine discovery demands autonoetic mental reconstruction.
 
 The enslaved boy did not merely look at a pre-calculated table of square roots. He experienced the geometric necessity of why the diagonal doubles the area.
 
@@ -953,7 +953,7 @@ Twenty-five years ago. almost every adult carried dozens of phone numbers in bio
 
 Today, our smartphones store every contact. The friction of retrieval has dropped to zero.
 
-In response, human brains executed an efficient cognitive calculation: we stopped memorizing phone numbers.
+In response, human brains executed an efficient cognitive calculation: we stopped memorizing phone numbers. In Endel Tulving's terms, looking up an external record engages factual semantic lookup while bypassing autonoetic recollective memory.
 
 This everyday observation was elevated into a formal scientific inquiry in 2011 by psychologist Betsy Sparrow and her colleagues.
 
@@ -1164,7 +1164,7 @@ The model analyzes intricate legal contracts. drafts computer code, and composes
 
 Yet the instant the conversation concludes and the context window is cleared, every trace of that interaction vanishes.
 
-The network does not retain memories of what it just wrote. It experiences no lingering thoughts. forms no emotional bonds, and carries no biological engrams into the next prompt.
+The network does not retain memories of what it just wrote. It experiences no lingering thoughts, forms no emotional bonds, and carries no autonoetic engrams into the next prompt.
 
 It is an intellect of pure working memory—an intelligence. That lives entirely in the present moment. dissolving into silence between tokens.
 

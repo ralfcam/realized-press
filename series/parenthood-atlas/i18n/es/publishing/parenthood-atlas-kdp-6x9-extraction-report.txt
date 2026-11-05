@@ -3,9 +3,9 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: parenthood-atlas-kdp-6x9.pdf
-SHA-256: 9b4948838b4f5829384e730c46094d96768e8d921b9f3af1e3c866d109a309a8
-Bytes: 589,886
-Pages: 166 (166/166 nonblank)
+SHA-256: 8f88bfe27403da682b9e2597d61e3d54d8f7f2ca7e910b7fd15b1fb2be7d3d40
+Bytes: 504,052
+Pages: 167 (167/167 nonblank)
 
 Chapters:
 - PASS · PDF page 2 · How to Use This Atlas: 2:00 AM Quick-Finder
@@ -13,14 +13,14 @@ Chapters:
 - PASS · PDF page 20 · Capítulo 2 — El primer entorno
 - PASS · PDF page 31 · Capítulo 3 — La gran transición
 - PASS · PDF page 43 · Capítulo 4 — La relación reguladora
-- PASS · PDF page 56 · Capítulo 5 — El nacimiento de una mente
-- PASS · PDF page 67 · Capítulo 6 — La mente en movimiento
-- PASS · PDF page 77 · Capítulo 7 — El nacimiento del lenguaje
-- PASS · PDF page 88 · Capítulo 8 — El mundo que se expande
-- PASS · PDF page 98 · Capítulo 9 — La revolución emocional
-- PASS · PDF page 107 · Capítulo 10 — Límites, conducta y las primeras normas
-- PASS · PDF page 118 · Capítulo 11 — El ejecutivo en desarrollo
-- PASS · PDF page 128 · Capítulo 12 — Juego, imaginación y significado
+- PASS · PDF page 57 · Capítulo 5 — El nacimiento de una mente
+- PASS · PDF page 69 · Capítulo 6 — La mente en movimiento
+- PASS · PDF page 79 · Capítulo 7 — El nacimiento del lenguaje
+- PASS · PDF page 90 · Capítulo 8 — El mundo que se expande
+- PASS · PDF page 100 · Capítulo 9 — La revolución emocional
+- PASS · PDF page 109 · Capítulo 10 — Límites, conducta y las primeras normas
+- PASS · PDF page 119 · Capítulo 11 — El ejecutivo en desarrollo
+- PASS · PDF page 129 · Capítulo 12 — Juego, imaginación y significado
 - PASS · PDF page 138 · Capítulo 13 — La ecología del desarrollo
 - PASS · PDF page 147 · Capítulo 14 — ¿Qué funciona de verdad?
 - PASS · PDF page 157 · Capítulo 15 — Tres años: ¿qué se ha construido?

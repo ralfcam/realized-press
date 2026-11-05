@@ -3,9 +3,9 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-02-forget-gate-reader-edition.pdf
-SHA-256: 08188a9d04414c32ab45b644d87a620f6ce7dbf8ba7ff00e83200f4cc5860ad4
-Bytes: 254,908
-Pages: 57 (57/57 nonblank)
+SHA-256: e60c3dd473ad9344a4fd763694d4aae0c2b311073b6a65270f7494043d097210
+Bytes: 235,723
+Pages: 52 (52/52 nonblank)
 
 Chapters:
 - PASS · PDF page 2 · How to Use This Atlas: 2:00 AM Quick-Finder
@@ -20,10 +20,10 @@ Chapters:
 - PASS · PDF page 30 · Chapter 9 — The Audit Trail Paradox: Documenting Everything Obscures Everything
 - PASS · PDF page 33 · Chapter 10 — Regulated Industries as Extreme Memory Problems
 - PASS · PDF page 36 · Chapter 11 — The Forget Gate as Organizational Design
-- PASS · PDF page 39 · Chapter 12 — Change Orders, Versioning, and the Architecture of Accountability
-- PASS · PDF page 42 · Chapter 13 — AI Memory Tools as Organizational Infrastructure
-- PASS · PDF page 45 · Chapter 14 — Borges's Funes: The Curse of Perfect Memory
-- PASS · PDF page 48 · Chapter 15 — The Neuroscience of Adaptive Forgetting: Erasing to Generalize
-- PASS · PDF page 51 · Chapter 16 — Identity as a Function of Selective Retention
-- PASS · PDF page 53 · Chapter 17 — The Ethics of Machine Memory: Surveillance, Consent, and the Right to Be Forgotten
-- PASS · PDF page 55 · Chapter 18 — What the LSTM Taught Us About Minds We Didn't Build
+- PASS · PDF page 38 · Chapter 12 — Change Orders, Versioning, and the Architecture of Accountability
+- PASS · PDF page 40 · Chapter 13 — AI Memory Tools as Organizational Infrastructure
+- PASS · PDF page 43 · Chapter 14 — Borges's Funes: The Curse of Perfect Memory
+- PASS · PDF page 45 · Chapter 15 — The Neuroscience of Adaptive Forgetting: Erasing to Generalize
+- PASS · PDF page 47 · Chapter 16 — Identity as a Function of Selective Retention
+- PASS · PDF page 49 · Chapter 17 — The Ethics of Machine Memory: Surveillance, Consent, and the Right to Be Forgotten
+- PASS · PDF page 51 · Chapter 18 — What the LSTM Taught Us About Minds We Didn't Build

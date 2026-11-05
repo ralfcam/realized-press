@@ -1,6 +1,6 @@
 # series/architectures-of-memory/book-02-forget-gate — Full manuscript
 
-Compiled from `series/architectures-of-memory/book-02-forget-gate/chapters/*.md` in sorted filename order (2026-11-04).
+Compiled from `series/architectures-of-memory/book-02-forget-gate/chapters/*.md` in sorted filename order (2026-11-05).
 
 **Footnotes:** Each chapter defines reference-style footnotes locally. Some labels repeat across chapters; in one file, renderers may attach one definition to every use of a label.
 
@@ -149,19 +149,19 @@ The 1997 model showed that constant error flow could preserve credit across time
 
 ## Notes
 
-[^schmidhuber1992]: **Grade: High** for hierarchical history compression and neural sequence chunkers collapsing predictable transitions to preserve temporal credit assignment across extended delays (Schmidhuber 1992). J. Schmidhuber, "Learning Complex, Extended Sequences Using the Principle of History Compression," *Neural Computation* 4, no. 2 (1992): 234–242, https://doi.org/10.1162/neco.1992.4.2.234. Evidence Card: `evidence-cards/schmidhuber-1992-learning-complex-extended-sequences.md`.
+[^schmidhuber1992]: Hierarchical history compression and neural sequence chunkers collapsing predictable transitions to preserve temporal credit assignment across extended delays (Schmidhuber 1992). J. Schmidhuber, "Learning Complex, Extended Sequences Using the Principle of History Compression," *Neural Computation* 4, no. 2 (1992): 234–242, https://doi.org/10.1162/neco.1992.4.2.234.
 
-[^hochreiter1991]: **Grade: High** for Hochreiter's 1991 Munich thesis proving that gradient descent across recurrent loops either decays exponentially to zero or explodes toward machine limits. S. Hochreiter, *Untersuchungen zu dynamischen neuronalen Netzen*, Diplomarbeit, Institut für Informatik, Technische Universität München (1991). Evidence Card: `evidence-cards/hochreiter-1997-constant-error-carousel.md`.
+[^hochreiter1991]: Hochreiter's 1991 Munich thesis proving that gradient descent across recurrent loops either decays exponentially to zero or explodes toward machine limits. S. Hochreiter, *Untersuchungen zu dynamischen neuronalen Netzen*, Diplomarbeit, Institut für Informatik, Technische Universität München (1991).
 
-[^hochreiter1997]: **Grade: High** across synthetic benchmarks that the Constant Error Carousel and input/output gating bridge temporal lags exceeding 1,000 steps without signal loss (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, DOI: 10.1162/neco.1997.9.8.1735. Evidence Card: `evidence-cards/hochreiter-1997-constant-error-carousel.md`.
+[^hochreiter1997]: Across synthetic benchmarks that the Constant Error Carousel and input/output gating bridge temporal lags exceeding 1,000 steps without signal loss (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, doi:10.1162/neco.1997.9.8.1735.
 
-[^bengio1994]: **Grade: High** that gradient descent in simple dynamical systems faces a tradeoff between robust latching and efficient gradient propagation across long horizons. Y. Bengio, P. Simard, and P. Frasconi, "Learning Long-Term Dependencies with Gradient Descent is Difficult," *IEEE Transactions on Neural Networks* 5, no. 2 (1994): 157–166, DOI: 10.1109/72.279181.
+[^bengio1994]: Gradient descent in simple dynamical systems faces a tradeoff between robust latching and efficient gradient propagation across long horizons. Y. Bengio, P. Simard, and P. Frasconi, "Learning Long-Term Dependencies with Gradient Descent is Difficult," *IEEE Transactions on Neural Networks* 5, no. 2 (1994): 157–166, doi:10.1109/72.279181.
 
-[^schmidhuber-hist]: Historical rejection and submission logs for early LSTM drafts are documented in J. Schmidhuber, "Deep Learning in Neural Networks: An Overview," *Neural Networks* 61 (2015): 85–117, DOI: 10.1016/j.neunet.2014.09.003.
+[^schmidhuber-hist]: Historical rejection and submission logs for early LSTM drafts are documented in J. Schmidhuber, "Deep Learning in Neural Networks: An Overview," *Neural Networks* 61 (2015): 85–117, doi:10.1016/j.neunet.2014.09.003.
 
 [^hochreiter-math]: **Constant Error Flow Derivation:** In a linear self-connected unit where state updates follow $s(t) = s(t-1) + x(t)$, the partial derivative $\frac{\partial s(t)}{\partial s(t-1)}$ equals 1.0, ensuring error gradients do not vanish over time.
 
-[^richards2017]: **Grade: High** across biological paradigms that memory transience and active neurogenesis support generalization rather than storage failure (Richards & Frankland 2017). B. A. Richards and P. W. Frankland, "The Persistence and Transience of Memory," *Neuron* 94, no. 6 (2017): 1071–1084, DOI: 10.1016/j.neuron.2017.04.037. Evidence Card: `evidence-cards/richards-2017-biology-of-adaptive-forgetting.md`.
+[^richards2017]: Across biological paradigms that memory transience and active neurogenesis support generalization rather than storage failure (Richards & Frankland 2017). B. A. Richards and P. W. Frankland, "The Persistence and Transience of Memory," *Neuron* 94, no. 6 (2017): 1071–1084, doi:10.1016/j.neuron.2017.04.037.
 
 ---
 
@@ -227,15 +227,15 @@ The early researchers realized that the carousel could not remain naked. It requ
 
 ## Notes
 
-[^schmidhuber1992]: **Grade: High** for neural sequence chunkers and history compression demonstrating that predictable sequence segments can be collapsed into compressed representations (Schmidhuber 1992). J. Schmidhuber, "Learning Complex, Extended Sequences Using the Principle of History Compression," *Neural Computation* 4, no. 2 (1992): 234–242, https://doi.org/10.1162/neco.1992.4.2.234. Evidence Card: `evidence-cards/schmidhuber-1992-learning-complex-extended-sequences.md`.
+[^schmidhuber1992]: Neural sequence chunkers and history compression demonstrating that predictable sequence segments can be collapsed into compressed representations (Schmidhuber 1992). J. Schmidhuber, "Learning Complex, Extended Sequences Using the Principle of History Compression," *Neural Computation* 4, no. 2 (1992): 234–242, https://doi.org/10.1162/neco.1992.4.2.234.
 
-[^hochreiter1997]: **Grade: High** for the Constant Error Carousel (CEC) eliminating exponential gradient decay across long temporal lags via an identity self-connection weight of 1.0 (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, DOI: 10.1162/neco.1997.9.8.1735. Evidence Card: `evidence-cards/hochreiter-1997-constant-error-carousel.md`.
+[^hochreiter1997]: The Constant Error Carousel (CEC) eliminating exponential gradient decay across long temporal lags via an identity self-connection weight of 1.0 (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, doi:10.1162/neco.1997.9.8.1735.
 
-[^bengio1994]: **Grade: High** that gradient descent in standard recurrent networks faces an inevitable tradeoff between robust latching and long-term gradient propagation. Y. Bengio, P. Simard, and P. Frasconi, "Learning Long-Term Dependencies with Gradient Descent is Difficult," *IEEE Transactions on Neural Networks* 5, no. 2 (1994): 157–166, DOI: 10.1109/72.279181.
+[^bengio1994]: Gradient descent in standard recurrent networks faces an inevitable tradeoff between robust latching and long-term gradient propagation. Y. Bengio, P. Simard, and P. Frasconi, "Learning Long-Term Dependencies with Gradient Descent is Difficult," *IEEE Transactions on Neural Networks* 5, no. 2 (1994): 157–166, doi:10.1109/72.279181.
 
 [^cec-math]: **Constant Error Flow Equation:** The internal state unit follows $s_j(t) = s_j(t-1) + \text{net}_j(t)$. Because the self-connection weight is $w_{jj} = 1.0$ and no squashing function is applied ($f'(net) = 1.0$), the backward scaling factor $\frac{\partial s_j(t)}{\partial s_j(t-1)}$ remains identically 1.0.
 
-[^bergson1896]: **Grade: High** for Bergson's philosophical distinction between spatialized discrete clock-time and cumulative lived duration (*la durée réelle*). H. Bergson, *Matter and Memory*, trans. N. M. Paul and W. S. Palmer (London: George Allen and Unwin, 1911; orig. French 1896).
+[^bergson1896]: Bergson's philosophical distinction between spatialized discrete clock-time and cumulative lived duration (*la durée réelle*). H. Bergson, *Matter and Memory*, trans. N. M. Paul and W. S. Palmer (London: George Allen and Unwin, 1911; orig. French 1896).
 
 ---
 
@@ -313,9 +313,9 @@ To handle continuous learning, the machine needed one more valve. It needed a ga
 
 ## Notes
 
-[^hochreiter1997]: **Grade: High** across artificial benchmark tasks that input and output gating combined with the Constant Error Carousel eliminate vanishing gradients across lags exceeding 1,000 steps (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, DOI: 10.1162/neco.1997.9.8.1735. Evidence Card: `evidence-cards/hochreiter-1997-constant-error-carousel.md`.
+[^hochreiter1997]: Across artificial benchmark tasks that input and output gating combined with the Constant Error Carousel eliminate vanishing gradients across lags exceeding 1,000 steps (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, doi:10.1162/neco.1997.9.8.1735.
 
-[^greff2017]: **Grade: High** across 5,400 experimental runs demonstrating that gating mechanisms account for the majority of LSTM performance gains across speech, handwriting, and music benchmarks (Greff et al. 2017). K. Greff, R. K. Srivastava, J. Koutník, B. R. Steunebrink, and J. Schmidhuber, "LSTM: A Search Space Odyssey," *IEEE Transactions on Neural Networks and Learning Systems* 28, no. 10 (2017): 2222–2232, DOI: 10.1109/TNNLS.2016.2582924. Evidence Card: `evidence-cards/greff-2017-lstm-search-space-odyssey.md`.
+[^greff2017]: Across 5,400 experimental runs demonstrating that gating mechanisms account for the majority of LSTM performance gains across speech, handwriting, and music benchmarks (Greff et al. 2017). K. Greff, R. K. Srivastava, J. Koutník, B. R. Steunebrink, and J. Schmidhuber, "LSTM: A Search Space Odyssey," *IEEE Transactions on Neural Networks and Learning Systems* 28, no. 10 (2017): 2222–2232, doi:10.1109/TNNLS.2016.2582924.
 
 [^cell-math]: **1997 Memory Cell Equations:** The candidate state is $net_c(t) = \sum_i w_{ci} y_i(t-1)$, and the state updates by $s_c(t) = s_c(t-1) + y^{in}(t) \cdot g(net_c(t))$, where $g$ squashes incoming values. The cell output is $y^c(t) = y^{out}(t) \cdot h(s_c(t))$, with $h$ squashing the cell state for external emission.
 
@@ -395,11 +395,11 @@ Together, these gates protect the central state. But how do these units operate 
 
 ## Notes
 
-[^gers2000]: **Grade: High** for the adaptive forget gate enabling continual prediction without manual state resets, maintaining bounded cell states across unsegmented time series (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, DOI: 10.1162/089976600300015015. Evidence Card: `evidence-cards/gers-2000-forget-gate-continual-prediction.md`.
+[^gers2000]: The adaptive forget gate enabling continual prediction without manual state resets, maintaining bounded cell states across unsegmented time series (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, doi:10.1162/089976600300015015.
 
-[^greff2017]: **Grade: High** across 5,400 experimental runs demonstrating that the forget gate and output activation are the two most critical architectural components of the LSTM (Greff et al. 2017). K. Greff, R. K. Srivastava, J. Koutník, B. R. Steunebrink, and J. Schmidhuber, "LSTM: A Search Space Odyssey," *IEEE Transactions on Neural Networks and Learning Systems* 28, no. 10 (2017): 2222–2232, DOI: 10.1109/TNNLS.2016.2582924. Evidence Card: `evidence-cards/greff-2017-lstm-search-space-odyssey.md`.
+[^greff2017]: Across 5,400 experimental runs demonstrating that the forget gate and output activation are the two most critical architectural components of the LSTM (Greff et al. 2017). K. Greff, R. K. Srivastava, J. Koutník, B. R. Steunebrink, and J. Schmidhuber, "LSTM: A Search Space Odyssey," *IEEE Transactions on Neural Networks and Learning Systems* 28, no. 10 (2017): 2222–2232, doi:10.1109/TNNLS.2016.2582924.
 
-[^holan2004]: **Grade: Moderate** for the four-mode organizational forgetting taxonomy (memory decay, failure to capture, unlearning, and managed forgetting) across organizational transitions (de Holan & Phillips 2004). P. M. de Holan and N. Phillips, "Remembrance of Things Past? The Dynamics of Organizational Forgetting," *Management Science* 50, no. 11 (2004): 1603–1613, DOI: 10.1287/mnsc.1040.0273. Evidence Card: `evidence-cards/holan-2004-dynamics-of-organizational-forgetting.md`.
+[^holan2004]: The four-mode organizational forgetting taxonomy (memory decay, failure to capture, unlearning, and managed forgetting) across organizational transitions (de Holan & Phillips 2004). P. M. de Holan and N. Phillips, "Remembrance of Things Past? The Dynamics of Organizational Forgetting," *Management Science* 50, no. 11 (2004): 1603–1613, doi:10.1287/mnsc.1040.0273.
 
 [^forget-math]: **Canonical State Update Equation:** The state update follows $s_c(t) = y^{forget}(t) \cdot s_c(t-1) + y^{in}(t) \cdot g(net_c(t))$, with $y^{forget}(t) = \sigma(net_{forget}(t))$. Gradients through the state loop scale as $\frac{\partial s_c(t)}{\partial s_c(t-1)} = y^{forget}(t)$.
 
@@ -484,11 +484,11 @@ During the 2000s, while mainstream artificial intelligence remained doubtful of 
 
 ## Notes
 
-[^gers2000]: **Grade: High** for the canonical four-gate formulation combining forget, input, output, and candidate state projections in recurrent neural networks (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, DOI: 10.1162/089976600300015015. Evidence Card: `evidence-cards/gers-2000-forget-gate-continual-prediction.md`.
+[^gers2000]: The canonical four-gate formulation combining forget, input, output, and candidate state projections in recurrent neural networks (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, doi:10.1162/089976600300015015.
 
-[^greff2017]: **Grade: High** across 5,400 experimental runs demonstrating that all eight standard LSTM variants perform comparably on speech, handwriting, and music benchmarks, with the forget gate and output activation being the two most critical components (Greff et al. 2017). K. Greff, R. K. Srivastava, J. Koutník, B. R. Steunebrink, and J. Schmidhuber, "LSTM: A Search Space Odyssey," *IEEE Transactions on Neural Networks and Learning Systems* 28, no. 10 (2017): 2222–2232, DOI: 10.1109/TNNLS.2016.2582924. Evidence Card: `evidence-cards/greff-2017-lstm-search-space-odyssey.md`.
+[^greff2017]: Across 5,400 experimental runs demonstrating that all eight standard LSTM variants perform comparably on speech, handwriting, and music benchmarks, with the forget gate and output activation being the two most critical components (Greff et al. 2017). K. Greff, R. K. Srivastava, J. Koutník, B. R. Steunebrink, and J. Schmidhuber, "LSTM: A Search Space Odyssey," *IEEE Transactions on Neural Networks and Learning Systems* 28, no. 10 (2017): 2222–2232, doi:10.1109/TNNLS.2016.2582924.
 
-[^graves2005]: **Grade: High** for bidirectional LSTM networks outperforming unidirectional RNNs and standard feedforward nets on framewise phoneme classification (Graves & Schmidhuber 2005). A. Graves and J. Schmidhuber, "Framewise Phoneme Classification with Bidirectional LSTM and Other Neural Network Architectures," *Neural Networks* 18, no. 5–6 (2005): 602–610, DOI: 10.1016/j.neunet.2005.06.042.
+[^graves2005]: Bidirectional LSTM networks outperforming unidirectional RNNs and standard feedforward nets on framewise phoneme classification (Graves & Schmidhuber 2005). A. Graves and J. Schmidhuber, "Framewise Phoneme Classification with Bidirectional LSTM and Other Neural Network Architectures," *Neural Networks* 18, no. 5–6 (2005): 602–610, doi:10.1016/j.neunet.2005.06.042.
 
 [^vector-math]: **Concatenated Matrix Projection & State Equations:** The concatenated input is $z_t = [h_{t-1}, x_t]^T$. The four pre-activations $[a_f, a_i, a_{\tilde{c}}, a_o]^T = W z_t + b$ map to $f_t = \sigma(a_f)$, $i_t = \sigma(a_i)$, $\tilde{c}_t = \tanh(a_{\tilde{c}})$, and $o_t = \sigma(a_o)$. The cell updates by $c_t = f_t \odot c_{t-1} + i_t \odot \tilde{c}_t$, with hidden output $h_t = o_t \odot \tanh(c_t)$.
 
@@ -578,23 +578,23 @@ Chapter 7 examines the changes that solved these problems: peephole links, bidir
 
 ## Notes
 
-[^graves2005]: **Grade: High** for bidirectional LSTM networks outperforming unidirectional RNNs and standard feedforward nets on framewise phoneme classification (Graves & Schmidhuber 2005). A. Graves and J. Schmidhuber, "Framewise Phoneme Classification with Bidirectional LSTM and Other Neural Network Architectures," *Neural Networks* 18, no. 5–6 (2005): 602–610, DOI: 10.1016/j.neunet.2005.06.042.
+[^graves2005]: Bidirectional LSTM networks outperforming unidirectional RNNs and standard feedforward nets on framewise phoneme classification (Graves & Schmidhuber 2005). A. Graves and J. Schmidhuber, "Framewise Phoneme Classification with Bidirectional LSTM and Other Neural Network Architectures," *Neural Networks* 18, no. 5–6 (2005): 602–610, doi:10.1016/j.neunet.2005.06.042.
 
-[^hochreiter1997]: **Grade: High** across synthetic benchmarks that the Constant Error Carousel and input/output gating bridge temporal lags exceeding 1,000 steps without signal loss (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, DOI: 10.1162/neco.1997.9.8.1735. Evidence Card: `evidence-cards/hochreiter-1997-constant-error-carousel.md`.
+[^hochreiter1997]: Across synthetic benchmarks that the Constant Error Carousel and input/output gating bridge temporal lags exceeding 1,000 steps without signal loss (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, doi:10.1162/neco.1997.9.8.1735.
 
-[^schmidhuber-hist]: Historical documentation of industrial LSTM deployments at Google, Apple, and Amazon in J. Schmidhuber, "Deep Learning in Neural Networks: An Overview," *Neural Networks* 61 (2015): 85–117, DOI: 10.1016/j.neunet.2014.09.003.
+[^schmidhuber-hist]: Historical documentation of industrial LSTM deployments at Google, Apple, and Amazon in J. Schmidhuber, "Deep Learning in Neural Networks: An Overview," *Neural Networks* 61 (2015): 85–117, doi:10.1016/j.neunet.2014.09.003.
 
-[^graves2006]: **Grade: High** for Connectionist Temporal Classification (CTC) enabling end-to-end sequence learning on unaligned acoustic streams without predefined phonetic segmentations (Graves et al. 2006). A. Graves, S. Fernández, F. Gomez, and J. Schmidhuber, "Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks," *Proceedings of the 23rd International Conference on Machine Learning (ICML '06)*, 2006, pp. 369–376, DOI: 10.1145/1143844.1143891.
+[^graves2006]: Connectionist Temporal Classification (CTC) enabling end-to-end sequence learning on unaligned acoustic streams without predefined phonetic segmentations (Graves et al. 2006). A. Graves, S. Fernández, F. Gomez, and J. Schmidhuber, "Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks," *Proceedings of the 23rd International Conference on Machine Learning (ICML '06)*, 2006, pp. 369–376, doi:10.1145/1143844.1143891.
 
 [^ctc-math]: **CTC Loss Formulation:** The conditional probability of target sequence $Y$ given input audio $X$ sums across all valid alignments: $P(Y|X) = \sum_{\pi \in \mathcal{B}^{-1}(Y)} P(\pi|X)$, where $\mathcal{B}$ drops repeated tokens and blanks.
 
 [^wu2016]: Industrial deployment of deep 8-layer LSTM stacks in Google Neural Machine Translation documented in Y. Wu et al., "Google's Neural Machine Translation System: Bridging the Gap between Human and Machine Translation," *arXiv preprint arXiv:1609.08144* (2016).
 
-[^argote1990]: **Grade: Moderate** for empirical organizational decay and knowledge depreciation across production shifts in manufacturing plants (Argote, Beckman & Epple 1990). L. Argote, S. L. Beckman, and D. Epple, "The Persistence and Transfer of Learning in Industrial Settings," *Management Science* 36, no. 2 (1990): 140–154, DOI: 10.1287/mnsc.36.2.140. Evidence Card: `evidence-cards/argote-1990-persistence-of-learning-industrial.md`.
+[^argote1990]: Empirical organizational decay and knowledge depreciation across production shifts in manufacturing plants (Argote, Beckman & Epple 1990). L. Argote, S. L. Beckman, and D. Epple, "The Persistence and Transfer of Learning in Industrial Settings," *Management Science* 36, no. 2 (1990): 140–154, doi:10.1287/mnsc.36.2.140.
 
 [^chomsky1957]: **Historical Locus:** Noam Chomsky, *Syntactic Structures* (The Hague: Mouton, 1957).
 
-[^elman1990]: **Grade: High** for recurrent neural representations discovering grammatical categories and hierarchical structure from sequential lexical strings (Elman 1990). J. L. Elman, "Finding Structure in Time," *Cognitive Science* 14, no. 2 (1990): 179–211, DOI: 10.1207/s15516709cog1402_1. Evidence Card: `evidence-cards/elman-1990-simple-recurrent-networks.md`.
+[^elman1990]: Recurrent neural representations discovering grammatical categories and hierarchical structure from sequential lexical strings (Elman 1990). J. L. Elman, "Finding Structure in Time," *Cognitive Science* 14, no. 2 (1990): 179–211, doi:10.1207/s15516709cog1402_1.
 
 ---
 
@@ -672,13 +672,13 @@ Part II turns the lens from neural networks to collective human effort. Chapter 
 
 ## Notes
 
-[^gers2000peephole]: **Grade: High** for peephole connections allowing gate units to inspect internal cell states directly, enabling precise interval timing and pulse counting without external clock signals (Gers & Schmidhuber 2000). F. A. Gers and J. Schmidhuber, "Recurrent Nets that Time and Count," *Proceedings of the IEEE-INNS-ENNS International Joint Conference on Neural Networks (IJCNN 2000)* (2000): 189–194, DOI: 10.1109/IJCNN.2000.861302. Evidence Card: `evidence-cards/gers-2000-peephole-connections.md`.
+[^gers2000peephole]: Peephole connections allowing gate units to inspect internal cell states directly, enabling precise interval timing and pulse counting without external clock signals (Gers & Schmidhuber 2000). F. A. Gers and J. Schmidhuber, "Recurrent Nets that Time and Count," *Proceedings of the IEEE-INNS-ENNS International Joint Conference on Neural Networks (IJCNN 2000)* (2000): 189–194, doi:10.1109/IJCNN.2000.861302.
 
-[^schuster1997]: **Grade: High** for bidirectional recurrent neural networks processing full input sequences simultaneously in forward and reverse temporal directions (Schuster & Paliwal 1997). M. Schuster and K. K. Paliwal, "Bidirectional Recurrent Neural Networks," *IEEE Transactions on Signal Processing* 45, no. 11 (1997): 2673–2681, DOI: 10.1109/78.650093.
+[^schuster1997]: Bidirectional recurrent neural networks processing full input sequences simultaneously in forward and reverse temporal directions (Schuster & Paliwal 1997). M. Schuster and K. K. Paliwal, "Bidirectional Recurrent Neural Networks," *IEEE Transactions on Signal Processing* 45, no. 11 (1997): 2673–2681, doi:10.1109/78.650093.
 
-[^cho2014gru]: **Grade: High** for the Gated Recurrent Unit (GRU) coupling input and forget gates into a single update gate without a separate cell state, matching LSTM performance with lower computational parameter count (Cho et al. 2014). K. Cho, B. van Merrienboer, C. Gulcehre, D. Bahdanau, F. Bougares, H. Schwenk, and Y. Bengio, "Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation," *EMNLP 2014* (2014): 1724–1734. Evidence Card: `evidence-cards/cho-2014-gru-vs-lstm-gating-mechanisms.md`.
+[^cho2014gru]: The Gated Recurrent Unit (GRU) coupling input and forget gates into a single update gate without a separate cell state, matching LSTM performance with lower computational parameter count (Cho et al. 2014). K. Cho, B. van Merrienboer, C. Gulcehre, D. Bahdanau, F. Bougares, H. Schwenk, and Y. Bengio, "Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation," *EMNLP 2014* (2014): 1724–1734.
 
-[^greff2017]: **Grade: High** across 5,400 experimental runs demonstrating that none of the eight popular LSTM variants significantly outperforms the standard vanilla model with forget gates (Greff et al. 2017). K. Greff, R. K. Srivastava, J. Koutník, B. R. Steunebrink, and J. Schmidhuber, "LSTM: A Search Space Odyssey," *IEEE Transactions on Neural Networks and Learning Systems* 28, no. 10 (2017): 2222–2232, DOI: 10.1109/TNNLS.2016.2582924. Evidence Card: `evidence-cards/greff-2017-lstm-search-space-odyssey.md`.
+[^greff2017]: Across 5,400 experimental runs demonstrating that none of the eight popular LSTM variants significantly outperforms the standard vanilla model with forget gates (Greff et al. 2017). K. Greff, R. K. Srivastava, J. Koutník, B. R. Steunebrink, and J. Schmidhuber, "LSTM: A Search Space Odyssey," *IEEE Transactions on Neural Networks and Learning Systems* 28, no. 10 (2017): 2222–2232, doi:10.1109/TNNLS.2016.2582924.
 
 [^peephole-math]: **Peephole Gating Equations:** Direct cell-to-gate connections modify activations: $f_t = \sigma(W_f [h_{t-1}, x_t] + p_f \odot c_{t-1} + b_f)$, $i_t = \sigma(W_i [h_{t-1}, x_t] + p_i \odot c_{t-1} + b_i)$, and $o_t = \sigma(W_o [h_{t-1}, x_t] + p_o \odot c_t + b_o)$.
 
@@ -771,9 +771,9 @@ Yet as we will see in Chapter 9, this overreaction creates a pathology that is e
 
 ## Notes
 
-[^levittmarch1988]: **Grade: Moderate** for organizational learning encoding historical experience into routines that persist across personnel turnover, subject to competency traps and superstitious learning (Levitt & March 1988). B. Levitt and J. G. March, "Organizational Learning," *Annual Review of Sociology* 14 (1988): 319–338, https://doi.org/10.1146/annurev.so.14.080188.001535. Evidence Card: `evidence-cards/levitt-march-1988-organizational-learning-routines.md`.
+[^levittmarch1988]: Organizational learning encoding historical experience into routines that persist across personnel turnover, subject to competency traps and superstitious learning (Levitt & March 1988). B. Levitt and J. G. March, "Organizational Learning," *Annual Review of Sociology* 14 (1988): 319–338, https://doi.org/10.1146/annurev.so.14.080188.001535.
 
-[^argote1990]: **Grade: Moderate** for empirical organizational forgetting rates of 15–25% per month during production shutdowns across industrial plants (Argote, Beckman & Epple 1990). L. Argote, S. L. Beckman, and D. Epple, "The Persistence and Transfer of Learning in Industrial Settings," *Management Science* 36, no. 2 (1990): 140–154, DOI: 10.1287/mnsc.36.2.140. Evidence Card: `evidence-cards/argote-1990-persistence-of-learning-industrial.md`.
+[^argote1990]: Empirical organizational forgetting rates of 15–25% per month during production shutdowns across industrial plants (Argote, Beckman & Epple 1990). L. Argote, S. L. Beckman, and D. Epple, "The Persistence and Transfer of Learning in Industrial Settings," *Management Science* 36, no. 2 (1990): 140–154, doi:10.1287/mnsc.36.2.140.
 
 [^wegner1987]: **Historical Locus:** Daniel M. Wegner, "Transactive Memory: A Contemporary Analysis of the Group Mind," in *Theories of Group Behavior*, ed. B. Mullen and G. R. Goethals (New York: Springer-Verlag, 1987), pp. 185–208.
 
@@ -867,7 +867,7 @@ How do organizations manage the tension between dangerous forgetting and suffoca
 
 [^sox2002]: Sarbanes-Oxley Act of 2002, Pub. L. No. 107-204, 116 Stat. 745 (codified as amended in scattered sections of 15 and 18 U.S.C.). Specifically Section 802, "Criminal penalties for altering documents" (18 U.S.C. § 1519).
 
-[^holan2004]: **Grade: Moderate** for the four-mode organizational forgetting taxonomy (memory decay, failure to capture, unlearning, and managed forgetting) across organizational transitions (de Holan & Phillips 2004). P. M. de Holan and N. Phillips, "Remembrance of Things Past? The Dynamics of Organizational Forgetting," *Management Science* 50, no. 11 (2004): 1603–1613, DOI: 10.1287/mnsc.1040.0273. Evidence Card: `evidence-cards/holan-2004-dynamics-of-organizational-forgetting.md`.
+[^holan2004]: The four-mode organizational forgetting taxonomy (memory decay, failure to capture, unlearning, and managed forgetting) across organizational transitions (de Holan & Phillips 2004). P. M. de Holan and N. Phillips, "Remembrance of Things Past? The Dynamics of Organizational Forgetting," *Management Science* 50, no. 11 (2004): 1603–1613, doi:10.1287/mnsc.1040.0273.
 
 [^schneier2003]: **Historical Locus:** Bruce Schneier, *Beyond Fear: Thinking Sensibly About Security in an Uncertain World* (New York: Copernicus Books, 2003).
 
@@ -962,13 +962,13 @@ Chapter 11 explores the forget gate as purposeful organizational design.
 
 [^vaughan1996]: Diane Vaughan, *The Challenger Launch Decision: Risky Technology, Culture, and Deviance at NASA* (Chicago: University of Chicago Press, 1996).
 
-[^holan2004]: **Grade: Moderate** for the four-mode organizational forgetting taxonomy (memory decay, failure to capture, unlearning, and managed forgetting) across organizational transitions (de Holan & Phillips 2004). P. M. de Holan and N. Phillips, "Remembrance of Things Past? The Dynamics of Organizational Forgetting," *Management Science* 50, no. 11 (2004): 1603–1613, DOI: 10.1287/mnsc.1040.0273. Evidence Card: `evidence-cards/holan-2004-dynamics-of-organizational-forgetting.md`.
+[^holan2004]: The four-mode organizational forgetting taxonomy (memory decay, failure to capture, unlearning, and managed forgetting) across organizational transitions (de Holan & Phillips 2004). P. M. de Holan and N. Phillips, "Remembrance of Things Past? The Dynamics of Organizational Forgetting," *Management Science* 50, no. 11 (2004): 1603–1613, doi:10.1287/mnsc.1040.0273.
 
-[^argote1990]: **Grade: Moderate** for empirical organizational forgetting rates of 15–25% per month during production shutdowns across industrial plants (Argote, Beckman & Epple 1990). L. Argote, S. L. Beckman, and D. Epple, "The Persistence and Transfer of Learning in Industrial Settings," *Management Science* 36, no. 2 (1990): 140–154, DOI: 10.1287/mnsc.36.2.140. Evidence Card: `evidence-cards/argote-1990-persistence-of-learning-industrial.md`.
+[^argote1990]: Empirical organizational forgetting rates of 15–25% per month during production shutdowns across industrial plants (Argote, Beckman & Epple 1990). L. Argote, S. L. Beckman, and D. Epple, "The Persistence and Transfer of Learning in Industrial Settings," *Management Science* 36, no. 2 (1990): 140–154, doi:10.1287/mnsc.36.2.140.
 
 [^fda21cfr11]: U.S. Food and Drug Administration, *Title 21, Code of Federal Regulations, Part 11: Electronic Records; Electronic Signatures*, Federal Register 62 (54), March 1997, pp. 13429–13466.
 
-[^weick1993]: Karl E. Weick, "The Collapse of Sensemaking in Organizations: The Mann Gulch Disaster," *Administrative Science Quarterly* 38, no. 4 (1993): 628–652, DOI: 10.2307/2393339.
+[^weick1993]: Karl E. Weick, "The Collapse of Sensemaking in Organizations: The Mann Gulch Disaster," *Administrative Science Quarterly* 38, no. 4 (1993): 628–652, doi:10.2307/2393339.
 
 [^jonas1979]: Hans Jonas, *The Imperative of Responsibility: In Search of an Ethics for the Technological Age* (Chicago: University of Chicago Press, 1984; orig. German 1979).
 
@@ -1046,13 +1046,13 @@ It stays coherent by governing its own decay. A system that cannot forget cannot
 
 ## Notes
 
-[^levittmarch1988]: **Grade: Moderate** for competency traps where accumulated routine proficiency suppresses exploratory adaptation, creating institutional lock-in (Levitt & March 1988). B. Levitt and J. G. March, "Organizational Learning," *Annual Review of Sociology* 14 (1988): 319–338, https://doi.org/10.1146/annurev.so.14.080188.001535. Evidence Card: `evidence-cards/levitt-march-1988-organizational-learning-routines.md`.
+[^levittmarch1988]: Competency traps where accumulated routine proficiency suppresses exploratory adaptation, creating institutional lock-in (Levitt & March 1988). B. Levitt and J. G. March, "Organizational Learning," *Annual Review of Sociology* 14 (1988): 319–338, https://doi.org/10.1146/annurev.so.14.080188.001535.
 
-[^gers2000]: **Grade: High** for the adaptive forget gate enabling continual prediction without manual state resets, maintaining bounded cell states across unsegmented time series (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, DOI: 10.1162/089976600300015015. Evidence Card: `evidence-cards/gers-2000-forget-gate-continual-prediction.md`.
+[^gers2000]: The adaptive forget gate enabling continual prediction without manual state resets, maintaining bounded cell states across unsegmented time series (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, doi:10.1162/089976600300015015.
 
-[^holan2004]: **Grade: Moderate** for the four-mode organizational forgetting taxonomy (memory decay, failure to capture, unlearning, and managed forgetting) across organizational transitions (de Holan & Phillips 2004). P. M. de Holan and N. Phillips, "Remembrance of Things Past? The Dynamics of Organizational Forgetting," *Management Science* 50, no. 11 (2004): 1603–1613, DOI: 10.1287/mnsc.1040.0273. Evidence Card: `evidence-cards/holan-2004-dynamics-of-organizational-forgetting.md`.
+[^holan2004]: The four-mode organizational forgetting taxonomy (memory decay, failure to capture, unlearning, and managed forgetting) across organizational transitions (de Holan & Phillips 2004). P. M. de Holan and N. Phillips, "Remembrance of Things Past? The Dynamics of Organizational Forgetting," *Management Science* 50, no. 11 (2004): 1603–1613, doi:10.1287/mnsc.1040.0273.
 
-[^tsang2008]: **Historical Locus:** Eric W. K. Tsang and Shaker A. Zahra, "Organizational Unlearning," *Human Relations* 61, no. 10 (2008): 1435–1462, DOI: 10.1177/0018726708095710.
+[^tsang2008]: **Historical Locus:** Eric W. K. Tsang and Shaker A. Zahra, "Organizational Unlearning," *Human Relations* 61, no. 10 (2008): 1435–1462, doi:10.1177/0018726708095710.
 
 [^spinoza1677]: **Historical Locus:** Baruch Spinoza, *Ethics* (1677), Part I, and Letter 50 to Jarig Jelles (2 June 1674): "determinatio negatio est."
 
@@ -1130,9 +1130,9 @@ When an organization issues a change order, it makes an explicit promise to the 
 
 ## Notes
 
-[^levittmarch1988]: **Grade: Moderate** for superstitious learning where ambiguous feedback reinforces ritualistic compliance routines without causal effectiveness (Levitt & March 1988). B. Levitt and J. G. March, "Organizational Learning," *Annual Review of Sociology* 14 (1988): 319–338, https://doi.org/10.1146/annurev.so.14.080188.001535. Evidence Card: `evidence-cards/levitt-march-1988-organizational-learning-routines.md`.
+[^levittmarch1988]: Superstitious learning where ambiguous feedback reinforces ritualistic compliance routines without causal effectiveness (Levitt & March 1988). B. Levitt and J. G. March, "Organizational Learning," *Annual Review of Sociology* 14 (1988): 319–338, https://doi.org/10.1146/annurev.so.14.080188.001535.
 
-[^lehman1980]: **Grade: High** for Lehman's laws of software evolution documenting monotonic complexity growth in continually modified software systems (Lehman 1980). M. M. Lehman, "Programs, Life Cycles, and Laws of Software Evolution," *Proceedings of the IEEE* 68, no. 9 (1980): 1060–1076, DOI: 10.1109/PROC.1980.11805.
+[^lehman1980]: Lehman's laws of software evolution documenting monotonic complexity growth in continually modified software systems (Lehman 1980). M. M. Lehman, "Programs, Life Cycles, and Laws of Software Evolution," *Proceedings of the IEEE* 68, no. 9 (1980): 1060–1076, doi:10.1109/PROC.1980.11805.
 
 [^fda21cfr11]: U.S. Food and Drug Administration, *Title 21, Code of Federal Regulations, Part 11: Electronic Records; Electronic Signatures*, Federal Register 62, no. 54 (1997): 13429–13466.
 
@@ -1210,11 +1210,11 @@ An AI tool that cannot prune is not a smart partner. It is an uncurated attic wh
 
 ## Notes
 
-[^lewis2020]: **Grade: High** for Retrieval-Augmented Generation (RAG) combining pre-trained parametric language models with non-parametric dense vector indices for knowledge-intensive NLP tasks (Lewis et al. 2020). P. Lewis et al., "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks," *Advances in Neural Information Processing Systems* 33 (2020): 9459–9474.
+[^lewis2020]: Retrieval-Augmented Generation (RAG) combining pre-trained parametric language models with non-parametric dense vector indices for knowledge-intensive NLP tasks (Lewis et al. 2020). P. Lewis et al., "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks," *Advances in Neural Information Processing Systems* 33 (2020): 9459–9474.
 
-[^abadi2016]: **Grade: High** for differential privacy guarantees in deep learning via differentially private stochastic gradient descent (DP-SGD), bounding the privacy loss of training data (Abadi et al. 2016). M. Abadi et al., "Deep Learning with Differential Privacy," in *Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security* (2016), pp. 308–318, DOI: 10.1145/2976749.2978318.
+[^abadi2016]: Differential privacy guarantees in deep learning via differentially private stochastic gradient descent (DP-SGD), bounding the privacy loss of training data (Abadi et al. 2016). M. Abadi et al., "Deep Learning with Differential Privacy," in *Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security* (2016), pp. 308–318, doi:10.1145/2976749.2978318.
 
-[^kirkpatrick2017]: **Grade: High** for Elastic Weight Consolidation (EWC) demonstrating that continuous neural models can overcome catastrophic forgetting by slowing learning on parameters critical to previously learned tasks (Kirkpatrick et al. 2017). J. Kirkpatrick et al., "Overcoming Catastrophic Forgetting in Neural Networks," *Proceedings of the National Academy of Sciences* 114, no. 13 (2017): 3521–3526, DOI: 10.1073/pnas.1611835114. Evidence Card: `evidence-cards/kirkpatrick-2017-overcoming-catastrophic-forgetting-ewc.md`.
+[^kirkpatrick2017]: Elastic Weight Consolidation (EWC) demonstrating that continuous neural models can overcome catastrophic forgetting by slowing learning on parameters critical to previously learned tasks (Kirkpatrick et al. 2017). J. Kirkpatrick et al., "Overcoming Catastrophic Forgetting in Neural Networks," *Proceedings of the National Academy of Sciences* 114, no. 13 (2017): 3521–3526, doi:10.1073/pnas.1611835114.
 
 [^plato-phaedrus]: **Historical Locus:** Plato, *Phaedrus*, 274c–275b, trans. H. N. Fowler, Loeb Classical Library 36 (Cambridge, MA: Harvard University Press, 1914).
 
@@ -1296,9 +1296,9 @@ Human intelligence is an act of disciplined curation. We think clearly not becau
 
 [^luria1968]: **Clinical Locus:** Alexander R. Luria, *The Mind of a Mnemonist: A Little Book About a Vast Memory*, trans. Lynn Solotaroff (New York: Basic Books, 1968).
 
-[^davis2017]: **Grade: High** for active forgetting as a dedicated biological signaling mechanism mediated by dopamine receptors and Rac1 protein cascades in neural memory circuits (Davis & Zhong 2017). R. L. Davis and Y. Zhong, "The Biology of Forgetting—A Perspective," *Neuron* 95, no. 3 (2017): 490–503, DOI: 10.1016/j.neuron.2017.05.039. Evidence Card: `evidence-cards/davis-2017-biology-of-active-forgetting.md`.
+[^davis2017]: Active forgetting as a dedicated biological signaling mechanism mediated by dopamine receptors and Rac1 protein cascades in neural memory circuits (Davis & Zhong 2017). R. L. Davis and Y. Zhong, "The Biology of Forgetting—A Perspective," *Neuron* 95, no. 3 (2017): 490–503, doi:10.1016/j.neuron.2017.05.039.
 
-[^gers2000]: **Grade: High** for the adaptive forget gate enabling continual prediction without manual state resets, maintaining bounded cell states across unsegmented time series (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, DOI: 10.1162/089976600300015015. Evidence Card: `evidence-cards/gers-2000-forget-gate-continual-prediction.md`.
+[^gers2000]: The adaptive forget gate enabling continual prediction without manual state resets, maintaining bounded cell states across unsegmented time series (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, doi:10.1162/089976600300015015.
 
 [^overfitting-math]: **Overfitting and Empiric Risk:** When capacity is unconstrained, minimizing empiric risk $\min_{\theta} \frac{1}{N} \sum_{i=1}^N \mathcal{L}(f(x_i; \theta), y_i) \to 0$ leads to zero training error but divergence on test loss $E_{\text{test}} \gg 0$ due to lack of regularization and trace decay.
 
@@ -1372,13 +1372,13 @@ Selective decay is the biological way a mind frees itself from what has passed, 
 
 ## Notes
 
-[^richards2017]: **Grade: High** across biological models that memory transience and neurogenesis promote behavioral flexibility and generalization rather than storage failure (Richards & Frankland 2017). B. A. Richards and P. W. Frankland, "The Persistence and Transience of Memory," *Neuron* 94, no. 6 (2017): 1071–1084, DOI: 10.1016/j.neuron.2017.04.037. Evidence Card: `evidence-cards/richards-2017-biology-of-adaptive-forgetting.md`.
+[^richards2017]: Across biological models that memory transience and neurogenesis promote behavioral flexibility and generalization rather than storage failure (Richards & Frankland 2017). B. A. Richards and P. W. Frankland, "The Persistence and Transience of Memory," *Neuron* 94, no. 6 (2017): 1071–1084, doi:10.1016/j.neuron.2017.04.037.
 
-[^davis2017]: **Grade: High** for active forgetting as a dedicated biological signaling mechanism mediated by dopamine receptors and Rac1 protein cascades in neural memory circuits (Davis & Zhong 2017). R. L. Davis and Y. Zhong, "The Biology of Forgetting—A Perspective," *Neuron* 95, no. 3 (2017): 490–503, DOI: 10.1016/j.neuron.2017.05.039. Evidence Card: `evidence-cards/davis-2017-biology-of-active-forgetting.md`.
+[^davis2017]: Active forgetting as a dedicated biological signaling mechanism mediated by dopamine receptors and Rac1 protein cascades in neural memory circuits (Davis & Zhong 2017). R. L. Davis and Y. Zhong, "The Biology of Forgetting—A Perspective," *Neuron* 95, no. 3 (2017): 490–503, doi:10.1016/j.neuron.2017.05.039.
 
-[^hardt2013]: **Grade: High** for regulated AMPA receptor endocytosis (GluA2 internalization) actively dismantling synaptic potentiations in memory decay. O. Hardt, K. Nader, and L. Nadel, "Decay Happens: The Role of Active Forgetting in Memory," *Trends in Cognitive Sciences* 17, no. 3 (2013): 111–120, DOI: 10.1016/j.tics.2013.01.001.
+[^hardt2013]: Regulated AMPA receptor endocytosis (GluA2 internalization) actively dismantling synaptic potentiations in memory decay. O. Hardt, K. Nader, and L. Nadel, "Decay Happens: The Role of Active Forgetting in Memory," *Trends in Cognitive Sciences* 17, no. 3 (2013): 111–120, doi:10.1016/j.tics.2013.01.001.
 
-[^gers2000]: **Grade: High** for the adaptive forget gate enabling continual prediction without manual state resets, maintaining bounded cell states across unsegmented time series (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, DOI: 10.1162/089976600300015015. Evidence Card: `evidence-cards/gers-2000-forget-gate-continual-prediction.md`.
+[^gers2000]: The adaptive forget gate enabling continual prediction without manual state resets, maintaining bounded cell states across unsegmented time series (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, doi:10.1162/089976600300015015.
 
 [^neuro-mechanisms]: **Three Biological Erasure Modes:** 1) Rac1/dopamine-mediated intracellular dismantling; 2) postsynaptic AMPA receptor endocytosis; and 3) adult hippocampal neurogenesis in the dentate gyrus remodeling existing circuits.
 
@@ -1524,7 +1524,7 @@ By teaching machines how to forget, we do not just build cleaner code. We build 
 
 ## Notes
 
-[^mayerschoenberger2009]: **Legal Locus:** Viktor Mayer-Schönberger, *Delete: The Virtue of Forgetting in the Digital Age* (Princeton: Princeton University Press, 2009), DOI: 10.1515/9781400838455.
+[^mayerschoenberger2009]: **Legal Locus:** Viktor Mayer-Schönberger, *Delete: The Virtue of Forgetting in the Digital Age* (Princeton: Princeton University Press, 2009), doi:10.1515/9781400838455.
 
 [^zuboff2019]: **Sociological Locus:** Shoshana Zuboff, *The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power* (New York: PublicAffairs, 2019).
 
@@ -1532,9 +1532,9 @@ By teaching machines how to forget, we do not just build cleaner code. We build 
 
 [^gdpr2016]: **Regulatory Locus:** Regulation (EU) 2016/679 (General Data Protection Regulation), *Official Journal of the European Union* L 119 (2016): 1–88, Article 17 ("Right to Erasure").
 
-[^abadi2016]: **Grade: High** for differential privacy guarantees in deep learning via differentially private stochastic gradient descent (DP-SGD), bounding the privacy loss of training data (Abadi et al. 2016). M. Abadi et al., "Deep Learning with Differential Privacy," in *Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security* (2016), pp. 308–318, DOI: 10.1145/2976749.2978318.
+[^abadi2016]: Differential privacy guarantees in deep learning via differentially private stochastic gradient descent (DP-SGD), bounding the privacy loss of training data (Abadi et al. 2016). M. Abadi et al., "Deep Learning with Differential Privacy," in *Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security* (2016), pp. 308–318, doi:10.1145/2976749.2978318.
 
-[^bourtoule2021]: **Grade: High** for the SISA (Sharded, Isolated, Sliced, Aggregated) machine unlearning framework enabling efficient compliance with data erasure mandates without full retraining (Bourtoule et al. 2021). L. Bourtoule et al., "Machine Unlearning," in *2021 IEEE Symposium on Security and Privacy (SP)* (2021), pp. 141–159, DOI: 10.1109/SP40001.2021.00019.
+[^bourtoule2021]: The SISA (Sharded, Isolated, Sliced, Aggregated) machine unlearning framework enabling efficient compliance with data erasure mandates without full retraining (Bourtoule et al. 2021). L. Bourtoule et al., "Machine Unlearning," in *2021 IEEE Symposium on Security and Privacy (SP)* (2021), pp. 141–159, doi:10.1109/SP40001.2021.00019.
 
 [^unlearning-math]: **Diffused Parametric Storage:** In deep learning optimization $\theta^* = \arg\min_\theta \sum_{i=1}^N \mathcal{L}(f(x_i; \theta), y_i)$, training instances $x_i$ influence continuous weight vectors $\theta^*$ non-linearly, preventing direct row-level deletion without retraining or unlearning approximations.
 
@@ -1615,10 +1615,10 @@ Now the reader understands why.
 
 ## Notes
 
-[^hochreiter1991]: **Grade: High** for Hochreiter's 1991 Munich thesis demonstrating that standard recurrent networks suffer exponential gradient decay over extended time horizons. S. Hochreiter, *Untersuchungen zu dynamischen neuronalen Netzen*, Diplomarbeit, Institut für Informatik, Technische Universität München (1991). Evidence Card: `evidence-cards/hochreiter-1997-constant-error-carousel.md`.
+[^hochreiter1991]: Hochreiter's 1991 Munich thesis demonstrating that standard recurrent networks suffer exponential gradient decay over extended time horizons. S. Hochreiter, *Untersuchungen zu dynamischen neuronalen Netzen*, Diplomarbeit, Institut für Informatik, Technische Universität München (1991).
 
-[^hochreiter1997]: **Grade: High** for the Constant Error Carousel establishing constant error flow across long time lags via unit self-connections (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, DOI: 10.1162/neco.1997.9.8.1735. Evidence Card: `evidence-cards/hochreiter-1997-constant-error-carousel.md`.
+[^hochreiter1997]: The Constant Error Carousel establishing constant error flow across long time lags via unit self-connections (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, doi:10.1162/neco.1997.9.8.1735.
 
-[^gers2000]: **Grade: High** for the adaptive forget gate enabling continual sequence learning without manual state resets (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, DOI: 10.1162/089976600300015015. Evidence Card: `evidence-cards/gers-2000-forget-gate-continual-prediction.md`.
+[^gers2000]: The adaptive forget gate enabling continual sequence learning without manual state resets (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, doi:10.1162/089976600300015015.
 
 [^cell-math]: **Canonical LSTM Update Recapitulation:** The cell state updates via $\mathbf{C}_t = \mathbf{f}_t \odot \mathbf{C}_{t-1} + \mathbf{i}_t \odot \tilde{\mathbf{C}}_t$ and emits output $\mathbf{h}_t = \mathbf{o}_t \odot \tanh(\mathbf{C}_t)$.

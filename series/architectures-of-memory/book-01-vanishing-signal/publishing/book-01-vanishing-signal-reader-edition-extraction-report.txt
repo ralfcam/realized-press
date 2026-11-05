@@ -3,9 +3,9 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-01-vanishing-signal-reader-edition.pdf
-SHA-256: 6edf6a6b511dfb6cac96fefabe9d4217c6464c57048315817f2dce92a078335f
-Bytes: 226,099
-Pages: 45 (45/45 nonblank)
+SHA-256: c759f9108eb29c34def6cf0062a6c654f26396d7502e329383b1cefe28e1c1a8
+Bytes: 209,914
+Pages: 43 (43/43 nonblank)
 
 Chapters:
 - PASS · PDF page 2 · How to Use This Atlas: 2:00 AM Quick-Finder
@@ -21,7 +21,7 @@ Chapters:
 - PASS · PDF page 30 · Chapter 10 — Documentation Without Gating: Knowledge Loss in Runaway Information Systems
 - PASS · PDF page 32 · Chapter 11 — The Regulated Industry as an Extreme Case: Compliance Without Memory
 - PASS · PDF page 34 · Chapter 12 — What Would an Organization Need to Actually Remember?
-- PASS · PDF page 37 · Chapter 13 — Heraclitus and the River: Identity Across Time
-- PASS · PDF page 40 · Chapter 14 — The Ship of Theseus as a Memory Architecture Problem
-- PASS · PDF page 42 · Chapter 15 — Bergson’s Duration: Time as Lived Versus Time as Measured
-- PASS · PDF page 44 · Chapter 16 — The Question the Field Couldn’t Yet Answer
+- PASS · PDF page 36 · Chapter 13 — Heraclitus and the River: Identity Across Time
+- PASS · PDF page 38 · Chapter 14 — The Ship of Theseus as a Memory Architecture Problem
+- PASS · PDF page 40 · Chapter 15 — Bergson’s Duration: Time as Lived Versus Time as Measured
+- PASS · PDF page 42 · Chapter 16 — The Question the Field Couldn’t Yet Answer

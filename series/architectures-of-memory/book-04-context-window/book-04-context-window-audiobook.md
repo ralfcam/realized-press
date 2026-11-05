@@ -1,6 +1,6 @@
 # series/architectures-of-memory/book-04-context-window — Audiobook transcript
 
-Compiled from `series/architectures-of-memory/book-04-context-window/chapters/*.md` (2026-11-01). YAML frontmatter, *Sources* lines, `## Notes` / `## Sources` sections, and inline `[^footnote]` markers are omitted for text-to-speech.
+Compiled from `series/architectures-of-memory/book-04-context-window/chapters/*.md` (2026-11-05). YAML frontmatter, *Sources* lines, `## Notes` / `## Sources` sections, and inline `[^footnote]` markers are omitted for text-to-speech.
 
 ---
 

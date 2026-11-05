@@ -1,55 +1,56 @@
 # Amazon KDP Upload Manifest & Pre-Flight Specifications
 ## *Parenthood: The Atlas* (`series/parenthood-atlas`) & *El atlas de la crianza* (`series/parenthood-atlas/i18n/es`)
-**BWE Version:** `v1.1.1` (`ARC-99`) | **Date:** 2026-11-05 | **Release Status:** Gold-Master (`EN` & `ES`)
+**BWE Version:** `v1.2.0` (`ARC-100`) | **Date:** 2026-11-05 | **Release Status:** Gold-Master (`EN` & `ES`)
 
 ---
 
 ## 1. Deliverables Inventory & SHA-256 Checksums
 
 All interior and cover wrap files are pre-flight validated against Amazon KDP print specifications:
-- Zero blank interior pages (`152/152` EN, `166/166` ES).
+- Zero blank interior pages (`159/159` EN, `167/167` ES).
+- Dynamic same-page bottom footnotes in `8.5pt` (`10.5pt` leading) apparatus register with `0.4pt` partial-width separator rule and zero `Evidence Card:` / `Grade:` leaks.
 - 465.5 Effective DPI cover artwork ($\ge 300\text{ DPI}$ print gate).
 - Mandatory $2.0" \times 1.2"$ ($50.8 \times 30.48\text{ mm}$) ISBN Barcode Reserve Box on lower-right back cover.
 - Rotated spine text enabled ($N \ge 79\text{ pages}$, preserving $0.0625"$ hinge margin).
 
 | Edition | Deliverable Path | File Size | Interior Pages | Format / Stock | SHA-256 Checksum |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **EN** | `series/parenthood-atlas/publishing/parenthood-atlas-kdp-6x9.pdf` | `556,750` bytes | 152 pp. | 6"×9" Interior | `0fb9b9999542125c5677fdaa4dd83a6914c24dbabfd6ca71be002d0574d177e5` |
-| **EN** | `series/parenthood-atlas/publishing/parenthood-atlas-kdp-cover.pdf` | `7,378,284` bytes | 152 pp. | Full Wrap (White) | `bf8514001bb868ed5a7406bf3ed3226648cc7b776a27b69c70ab68e66d21a05f` |
-| **EN** | `series/parenthood-atlas/publishing/parenthood-atlas-kdp-cover-cream.pdf` | `7,378,292` bytes | 152 pp. | Full Wrap (Cream) | `944f210048a7bc3a78577c5c1a99fceb1cff2090b35286aa2de4756167d245da` |
-| **EN** | `series/parenthood-atlas/publishing/parenthood-atlas-kdp.epub` | `2,806,561` bytes | 15 ch. | Kindle EPUB 3.0 | `af381e93e4f0660ac919d6a1b8e98dac590c7ee08b85f057c7e2fcac5f4a685a` |
-| **ES** | `series/parenthood-atlas/i18n/es/publishing/parenthood-atlas-kdp-6x9.pdf` | `589,886` bytes | 166 pp. | 6"×9" Interior | `9b4948838b4f5829384e730c46094d96768e8d921b9f3af1e3c866d109a309a8` |
-| **ES** | `series/parenthood-atlas/i18n/es/publishing/parenthood-atlas-kdp-cover.pdf` | `7,376,384` bytes | 166 pp. | Full Wrap (White) | `76f5aca16b8eda030184355b40102e9171a0bf61bca918c8aefcd37a4c123811` |
-| **ES** | `series/parenthood-atlas/i18n/es/publishing/parenthood-atlas-kdp-cover-cream.pdf` | `7,376,384` bytes | 166 pp. | Full Wrap (Cream) | `35a4270653cdf4cfda2fbc9156cb44fa3a6e29c3cbb47d77f50cf74bb8d9dd44` |
-| **ES** | `series/parenthood-atlas/i18n/es/publishing/parenthood-atlas-kdp.epub` | `2,819,547` bytes | 15 ch. | Kindle EPUB 3.0 | `e37f38645defe61aed985b26425585b4745e98134fe04750ecec98e17efae033` |
+| **EN** | `series/parenthood-atlas/publishing/parenthood-atlas-kdp-6x9.pdf` | `479,979` bytes | 159 pp. | 6"×9" Interior | `4fd9a3ef60cb48fca09fde6bb26417e76ce15876f152939ac72497cc27066ceb` |
+| **EN** | `series/parenthood-atlas/publishing/parenthood-atlas-kdp-cover.pdf` | `7,378,288` bytes | 159 pp. | Full Wrap (White) | `fac5c1745f5147db8e35eb98149b3d4264416fd1e9fb0a416cdeb2dff848ee1b` |
+| **EN** | `series/parenthood-atlas/publishing/parenthood-atlas-kdp-cover-cream.pdf` | `7,378,287` bytes | 159 pp. | Full Wrap (Cream) | `7d09731f52b7a8b9890b82659d861f524dc342309aac83e1922db95e0923234f` |
+| **EN** | `series/parenthood-atlas/publishing/parenthood-atlas-kdp.epub` | `2,804,863` bytes | 15 ch. | Kindle EPUB 3.0 | `c8d60dc7399baaaa9d6df858222983d8974b3002ff79f9a8db72688b3c8952bc` |
+| **ES** | `series/parenthood-atlas/i18n/es/publishing/parenthood-atlas-kdp-6x9.pdf` | `504,052` bytes | 167 pp. | 6"×9" Interior | `8f88bfe27403da682b9e2597d61e3d54d8f7f2ca7e910b7fd15b1fb2be7d3d40` |
+| **ES** | `series/parenthood-atlas/i18n/es/publishing/parenthood-atlas-kdp-cover.pdf` | `7,376,383` bytes | 167 pp. | Full Wrap (White) | `bba3129bd3e919c0c2bac93034d501ec27ff0b4c61296389a846de7fe436a563` |
+| **ES** | `series/parenthood-atlas/i18n/es/publishing/parenthood-atlas-kdp-cover-cream.pdf` | `7,376,375` bytes | 167 pp. | Full Wrap (Cream) | `267e3f05d5bc9b34230bac33654d0dd0f44ebf2342e7c09afbd9d2ddfd23de68` |
+| **ES** | `series/parenthood-atlas/i18n/es/publishing/parenthood-atlas-kdp.epub` | `2,817,638` bytes | 15 ch. | Kindle EPUB 3.0 | `fbfffeaa6e4cb32e2cec928365484bdf5a19af8fc355c4d0db0dc10f347f8265` |
 
 ---
 
 ## 2. Physical Print Specifications (KDP Paperback & Hardcover)
 
-### English Edition (`152` interior pages)
+### English Edition (`159` interior pages)
 - **Trim Size:** 6.00" × 9.00" (152.4 mm × 228.6 mm)
 - **Bleed:** 0.125" (3.175 mm) on top, bottom, and outside edges
 - **Margins:** Inside Gutter 0.787" (20.0 mm), Outside 0.591" (15.0 mm), Top/Bottom 0.709" (18.0 mm)
 - **White Paper Stock (`0.002252"` / page):**
-  - **Spine Width:** $0.3423"$ ($8.69\text{ mm}$)
-  - **Total Wrap Dimensions:** $12.5923" \times 9.2500"$ ($319.84 \times 234.95\text{ mm}$)
+  - **Spine Width:** $0.3581"$ ($9.09\text{ mm}$)
+  - **Total Wrap Dimensions:** $12.6081" \times 9.2500"$ ($320.24 \times 234.95\text{ mm}$)
 - **Cream Paper Stock (`0.002500"` / page):**
-  - **Spine Width:** $0.3800"$ ($9.65\text{ mm}$)
-  - **Total Wrap Dimensions:** $12.6300" \times 9.2500"$ ($320.80 \times 234.95\text{ mm}$)
-- **Spine Text Status:** **Included** ($152 \ge 79\text{ pages}$, centered rotated title, author, and publisher)
+  - **Spine Width:** $0.3975"$ ($10.10\text{ mm}$)
+  - **Total Wrap Dimensions:** $12.6475" \times 9.2500"$ ($321.25 \times 234.95\text{ mm}$)
+- **Spine Text Status:** **Included** ($159 \ge 79\text{ pages}$, centered rotated title, author, and publisher)
 
-### Spanish Edition (`166` interior pages)
+### Spanish Edition (`167` interior pages)
 - **Trim Size:** 6.00" × 9.00" (152.4 mm × 228.6 mm)
 - **Bleed:** 0.125" (3.175 mm) on top, bottom, and outside edges
 - **Margins:** Inside Gutter 0.787" (20.0 mm), Outside 0.591" (15.0 mm), Top/Bottom 0.709" (18.0 mm)
 - **White Paper Stock (`0.002252"` / page):**
-  - **Spine Width:** $0.3738"$ ($9.50\text{ mm}$)
-  - **Total Wrap Dimensions:** $12.6238" \times 9.2500"$ ($320.65 \times 234.95\text{ mm}$)
+  - **Spine Width:** $0.3761"$ ($9.55\text{ mm}$)
+  - **Total Wrap Dimensions:** $12.6261" \times 9.2500"$ ($320.70 \times 234.95\text{ mm}$)
 - **Cream Paper Stock (`0.002500"` / page):**
-  - **Spine Width:** $0.4150"$ ($10.54\text{ mm}$)
-  - **Total Wrap Dimensions:** $12.6650" \times 9.2500"$ ($321.69 \times 234.95\text{ mm}$)
-- **Spine Text Status:** **Included** ($166 \ge 79\text{ pages}$, centered rotated title, author, and publisher)
+  - **Spine Width:** $0.4175"$ ($10.60\text{ mm}$)
+  - **Total Wrap Dimensions:** $12.6675" \times 9.2500"$ ($321.75 \times 234.95\text{ mm}$)
+- **Spine Text Status:** **Included** ($167 \ge 79\text{ pages}$, centered rotated title, author, and publisher)
 
 ---
 

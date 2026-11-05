@@ -3,26 +3,26 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-03-weight-of-attention-kdp-6x9.pdf
-SHA-256: 859d763259f364381bd7c973b615fb0ec79487c546e5b4b57c217454b144ed68
-Bytes: 215,155
-Pages: 59 (59/59 nonblank)
+SHA-256: 7df87c5a84f2aa71dfebd5b999adf45544d0e80c5eaec364286a7c7c1e137319
+Bytes: 199,356
+Pages: 57 (57/57 nonblank)
 
 Chapters:
 - PASS · PDF page 2 · How to Use This Atlas: 2:00 AM Quick-Finder
 - PASS · PDF page 7 · Chapter 1 — The LSTM's Fatal Constraint
-- PASS · PDF page 11 · Chapter 2 — Bahdanau and the First Attention Mechanism
-- PASS · PDF page 14 · Chapter 3 — Attention Is All You Need
-- PASS · PDF page 17 · Chapter 4 — How Dot-Product Attention Works
-- PASS · PDF page 20 · Chapter 5 — Multi-Head Attention as Multiple Interpretations
-- PASS · PDF page 23 · Chapter 6 — Positional Encoding: Injecting Time into Space
-- PASS · PDF page 26 · Chapter 7 — What Transformers Remember (and What They Forget)
-- PASS · PDF page 29 · Chapter 8 — From Memory to Search
-- PASS · PDF page 32 · Chapter 9 — RAG and the Enterprise: Vector Retrieval as Memory
-- PASS · PDF page 35 · Chapter 10 — When Search Replaces Memory
-- PASS · PDF page 38 · Chapter 11 — Attention as ranking: What Leaders Choose to Look At
-- PASS · PDF page 41 · Chapter 12 — Audit and Traceability in the Attention Era
-- PASS · PDF page 44 · Chapter 13 — Plato's Meno: Is Retrieval Actually Discovery?
-- PASS · PDF page 47 · Chapter 14 — Remembering Versus Looking Up
-- PASS · PDF page 50 · Chapter 15 — Andy Clark and the Extended Mind
-- PASS · PDF page 53 · Chapter 16 — Relevance as a Constructed Category
-- PASS · PDF page 56 · Chapter 17 — Understanding Without Memory
+- PASS · PDF page 10 · Chapter 2 — Bahdanau and the First Attention Mechanism
+- PASS · PDF page 13 · Chapter 3 — Attention Is All You Need
+- PASS · PDF page 16 · Chapter 4 — How Dot-Product Attention Works
+- PASS · PDF page 19 · Chapter 5 — Multi-Head Attention as Multiple Interpretations
+- PASS · PDF page 22 · Chapter 6 — Positional Encoding: Injecting Time into Space
+- PASS · PDF page 25 · Chapter 7 — What Transformers Remember (and What They Forget)
+- PASS · PDF page 28 · Chapter 8 — From Memory to Search
+- PASS · PDF page 31 · Chapter 9 — RAG and the Enterprise: Vector Retrieval as Memory
+- PASS · PDF page 34 · Chapter 10 — When Search Replaces Memory
+- PASS · PDF page 37 · Chapter 11 — Attention as ranking: What Leaders Choose to Look At
+- PASS · PDF page 40 · Chapter 12 — Audit and Traceability in the Attention Era
+- PASS · PDF page 43 · Chapter 13 — Plato's Meno: Is Retrieval Actually Discovery?
+- PASS · PDF page 46 · Chapter 14 — Remembering Versus Looking Up
+- PASS · PDF page 49 · Chapter 15 — Andy Clark and the Extended Mind
+- PASS · PDF page 52 · Chapter 16 — Relevance as a Constructed Category
+- PASS · PDF page 55 · Chapter 17 — Understanding Without Memory

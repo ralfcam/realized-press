@@ -292,6 +292,92 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
             log.append("- [FAIL] Extraction report status is NOT PASS.")
             success = False
 
+    # 5. Apparatus Hygiene & Same-Page Footnote Co-Location Gate (`ARC-100`)
+    log.append("\n## 5. Apparatus Hygiene & Same-Page Footnote Co-Location Gate (`ARC-100`)")
+    leak_pat = re.compile(r"\b(?:Evidence Cards?|Fichas? de [Ee]videncia|Grade|Grado|Certainty|Certeza):", re.IGNORECASE)
+    standalone_notes_pat = re.compile(r"^\s*(?:Notes|Notas)\s*$", re.MULTILINE)
+    sup_chars = "\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077\u2078\u2079"
+    sup_to_ascii = str.maketrans(sup_chars, "0123456789")
+    sup_re = re.compile(f"([{sup_chars}]+)")
+
+    # 5a. Check KDP 6x9 PDF & Reader Edition PDF for leaks, standalone Notes headings, and same-page co-location
+    for label, pdf_reader in [("KDP 6x9 PDF", kdp_reader)] + ([("Reader Edition PDF", PdfReader(str(reader_pdf)))] if reader_pdf.is_file() else []):
+        leaks_on_pages: list[int] = []
+        notes_heading_pages: list[int] = []
+        colocation_Verified_count = 0
+        colocation_failures: list[str] = []
+
+        for pg_idx, page in enumerate(pdf_reader.pages, 1):
+            p_txt = page.extract_text() or ""
+            if leak_pat.search(p_txt):
+                leaks_on_pages.append(pg_idx)
+            if standalone_notes_pat.search(p_txt):
+                notes_heading_pages.append(pg_idx)
+
+            # Check superscripts on this page: every bottom footnote ¹..ⁿ must have a matching superscript in the body above it on the same page
+            lines = [ln.strip() for ln in p_txt.splitlines() if ln.strip()]
+            fn_lines_start: list[int] = []
+            body_sups: set[int] = set()
+            for ln in lines:
+                m_start = re.match(f"^([{sup_chars}]+)\\s+\\S+", ln)
+                if m_start:
+                    fn_lines_start.append(int(m_start.group(1).translate(sup_to_ascii)))
+                else:
+                    for m_inline in sup_re.finditer(ln):
+                        body_sups.add(int(m_inline.group(1).translate(sup_to_ascii)))
+
+            for fn_num in fn_lines_start:
+                if fn_num in body_sups:
+                    colocation_Verified_count += 1
+                else:
+                    colocation_failures.append(f"p.{pg_idx}: footnote #{fn_num} missing body callout on same page")
+
+        if leaks_on_pages:
+            log.append(f"- [FAIL] {label} contains internal `Evidence Card:` / `Grade:` leak on pages: {leaks_on_pages}")
+            success = False
+        else:
+            log.append(f"- [PASS] {label}: 0 `Evidence Card:` or `Grade:` apparatus leaks.")
+
+        if notes_heading_pages:
+            log.append(f"- [FAIL] {label} contains standalone chapter-end `Notes`/`Notas` section on pages: {notes_heading_pages}")
+            success = False
+        else:
+            log.append(f"- [PASS] {label}: 0 chapter-end `Notes` dumps (100% same-page bottom apparatus).")
+
+        if colocation_failures:
+            log.append(f"- [FAIL] {label} same-page footnote co-location failures: {colocation_failures[:5]}")
+            success = False
+        else:
+            log.append(f"- [PASS] {label}: {colocation_Verified_count} bottom footnotes verified co-located on exact callout page.")
+
+    # 5b. Check EPUB 3 for zero leaks and semantic epub:type="noteref" / <aside epub:type="footnote">
+    epub_file = (
+        pub_dir / f"{base_name}-kdp.epub"
+        if (pub_dir / f"{base_name}-kdp.epub").is_file()
+        else pub_dir / f"{book_dir.name}-kdp.epub"
+    )
+    if epub_file.is_file():
+        import zipfile
+        with zipfile.ZipFile(epub_file, "r") as zf:
+            epub_leaks: list[str] = []
+            aside_fn_count = 0
+            noteref_count = 0
+            for name in zf.namelist():
+                if name.endswith(".xhtml"):
+                    x_txt = zf.read(name).decode("utf-8", errors="replace")
+                    if leak_pat.search(x_txt):
+                        epub_leaks.append(name)
+                    aside_fn_count += len(re.findall(r'<aside[^>]+epub:type="footnote"', x_txt))
+                    noteref_count += len(re.findall(r'<a[^>]+epub:type="noteref"', x_txt))
+            if epub_leaks:
+                log.append(f"- [FAIL] EPUB `{epub_file.name}` contains `Evidence Card:` / `Grade:` leaks in: {epub_leaks}")
+                success = False
+            else:
+                log.append(
+                    f"- [PASS] EPUB `{epub_file.name}`: 0 apparatus leaks; {noteref_count} `epub:type=\"noteref\"` callouts "
+                    f"and {aside_fn_count} `<aside epub:type=\"footnote\">` pop-up notes verified."
+                )
+
     return success, log
 
 

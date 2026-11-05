@@ -22,9 +22,32 @@ from pathlib import Path
 from fpdf import FPDF, __version__ as FPDF_VERSION
 from pypdf import PdfReader, __version__ as PYPDF_VERSION
 
-from merge_book_chapters import iter_chapter_files, repo_root, resolve_book_path, strip_yaml_frontmatter
+from merge_book_chapters import (
+    iter_chapter_files,
+    repo_root,
+    resolve_book_path,
+    sanitize_reader_footnote_text,
+    strip_yaml_frontmatter,
+)
 
 KDP_6X9_MM = (152.4, 228.6)
+SUP_DIGITS = str.maketrans("0123456789", "\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077\u2078\u2079")
+SUP_TO_ASCII = str.maketrans("\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077\u2078\u2079", "0123456789")
+SUP_CHAR_CLASS = "\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077\u2078\u2079"
+SUP_CALLOUT_RE = re.compile(f"([{SUP_CHAR_CLASS}]+)")
+
+
+def to_superscript(num: int) -> str:
+    return str(num).translate(SUP_DIGITS)
+
+
+def from_superscript(sup_str: str) -> int:
+    return int(sup_str.translate(SUP_TO_ASCII))
+
+
+def make_doi_breakable(text: str) -> str:
+    """Allow clean line-wrapping after slashes or hyphens inside long DOIs/URLs."""
+    return re.sub(r"(doi:10\.\d{4,9}/\S+|https?://\S+)", lambda m: m.group(0).replace("/", "/ "), text)
 
 
 def resolve_serif_fonts() -> dict[str, Path]:
@@ -297,11 +320,11 @@ def parse_chapter_markdown(ch_path: Path, ch_idx: int) -> ChapterContent:
     body_lines_epub: list[str] = []
 
     for line in body_raw_lines:
-        # PDF line with numbered citations [1], [2]
+        # PDF line with raised superscript citations ¹ ²
         def repl_pdf_fn(m: re.Match[str]) -> str:
             k = m.group(1)
             num = fn_map.get(k, 0)
-            return f"[{num}]" if num else f"[{k}]"
+            return to_superscript(num) if num else f"[{k}]"
 
         l_pdf = re.sub(r"\[\^([^\]]+)\]", repl_pdf_fn, line)
         body_lines_pdf.append(l_pdf)
@@ -311,34 +334,35 @@ def parse_chapter_markdown(ch_path: Path, ch_idx: int) -> ChapterContent:
             k = m.group(1)
             num = fn_map.get(k, 0)
             if num:
-                return f'<sup class="footnote-ref"><a href="#fn-{ch_idx:02d}-{num}" id="fnref-{ch_idx:02d}-{num}">[{num}]</a></sup>'
+                return f'<sup class="footnote-ref"><a href="#fn-{ch_idx:02d}-{num}" id="fnref-{ch_idx:02d}-{num}">{num}</a></sup>'
             return f"<sup>[{html.escape(k)}]</sup>"
 
         l_html = re.sub(r"\[\^([^\]]+)\]", repl_html_fn, line)
         body_lines_html.append(l_html)
 
-        # EPUB line with noteref semantics
+        # EPUB line with semantic epub:type="noteref" and <sup>N</sup>
         def repl_epub_fn(m: re.Match[str]) -> str:
             k = m.group(1)
             num = fn_map.get(k, 0)
             if num:
-                return f'<a epub:type="noteref" class="footnote-ref" href="#fn-{ch_idx:02d}-{num}">[{num}]</a>'
-            return f"[{html.escape(k)}]"
+                return f'<a epub:type="noteref" class="footnote-ref" href="#fn-{ch_idx:02d}-{num}"><sup>{num}</sup></a>'
+            return f"<sup>{html.escape(k)}</sup>"
 
         l_epub = re.sub(r"\[\^([^\]]+)\]", repl_epub_fn, line)
         body_lines_epub.append(l_epub)
 
-    # Structured notes in sequential 1..N order
+    # Structured notes in sequential 1..N order (sanitized at compile time)
     notes_pdf: list[tuple[int, str]] = []
     notes_html: list[tuple[int, str]] = []
     notes_epub: list[tuple[int, str]] = []
 
     for k in fn_order:
         num = fn_map[k]
-        text = note_defs.get(k, "")
-        notes_pdf.append((num, text))
-        notes_html.append((num, text))
-        notes_epub.append((num, text))
+        raw_note = note_defs.get(k, "")
+        san_note = sanitize_reader_footnote_text(raw_note)
+        notes_pdf.append((num, san_note))
+        notes_html.append((num, san_note))
+        notes_epub.append((num, san_note))
 
     return ChapterContent(
         title=title,
@@ -365,6 +389,9 @@ class BookEditionPDF(FPDF):
         self.edition_label = edition_label
         self.page_format = page_format
         self.current_chapter_header = book_title
+        self.queued_page_footnotes: list[tuple[int, str]] = []
+        self.queued_page_fn_nums: set[int] = set()
+        self.rendered_chapter_fn_nums: set[int] = set()
         for style, fpath in fonts.items():
             self.add_font("BookSerif", style, str(fpath))
         if page_format == "kdp-6x9":
@@ -373,6 +400,206 @@ class BookEditionPDF(FPDF):
         else:
             self.set_margins(22, 22, 22)
             self.set_auto_page_break(True, margin=22)
+
+    @property
+    def fn_font_pt(self) -> float:
+        return 8.5 if self.page_format == "kdp-6x9" else 9.0
+
+    @property
+    def fn_line_h(self) -> float:
+        # 10.5pt leading on 6x9 (3.704mm), 11.5pt leading on A4 (4.057mm)
+        return 3.704 if self.page_format == "kdp-6x9" else 4.057
+
+    @property
+    def fn_indent_mm(self) -> float:
+        return 4.572  # 0.18" hanging indent
+
+    @property
+    def fn_spacing_mm(self) -> float:
+        return 0.882  # 2.5pt inter-note spacing
+
+    @property
+    def fn_rule_overhead_mm(self) -> float:
+        return 3.528  # 10pt separator rule overhead (6pt above + 4pt below)
+
+    @property
+    def page_bottom_limit(self) -> float:
+        return self.h - (18.0 if self.page_format == "kdp-6x9" else 22.0)
+
+    def measure_note_height(self, note_text: str) -> float:
+        saved_family = self.font_family
+        saved_style = self.font_style
+        saved_size = self.font_size_pt
+        self.set_font("BookSerif", "", self.fn_font_pt)
+        text_w = self.w - self.l_margin - self.r_margin - self.fn_indent_mm
+        lines = self.multi_cell(text_w, self.fn_line_h, note_text, dry_run=True, output="LINES")
+        if saved_family:
+            self.set_font(saved_family, saved_style, saved_size)
+        return max(1, len(lines)) * self.fn_line_h
+
+    def compute_footnotes_reserved_height(self, notes_list: list[tuple[int, str]]) -> float:
+        if not notes_list:
+            return 0.0
+        total = self.fn_rule_overhead_mm
+        for i, (_, txt) in enumerate(notes_list):
+            total += self.measure_note_height(txt)
+            if i < len(notes_list) - 1:
+                total += self.fn_spacing_mm
+        return total
+
+    def flush_page_footnotes(self) -> None:
+        if not self.queued_page_footnotes:
+            return
+        notes_to_draw = list(self.queued_page_footnotes)
+        self.queued_page_footnotes.clear()
+        self.queued_page_fn_nums.clear()
+
+        saved_family = self.font_family
+        saved_style = self.font_style
+        saved_size = self.font_size_pt
+        saved_auto_pb = self.auto_page_break
+        saved_b_margin = self.b_margin
+        self.set_auto_page_break(False)
+
+        reserved_h = self.compute_footnotes_reserved_height(notes_to_draw)
+        start_y = self.page_bottom_limit - reserved_h
+        # Draw 0.4pt (0.141mm) horizontal hairline rule spanning 1.35" (34.29mm)
+        rule_y = start_y + 2.117  # 6pt padding above rule
+        self.set_draw_color(140, 140, 140)
+        self.set_line_width(0.141)
+        self.line(self.l_margin, rule_y, self.l_margin + 34.29, rule_y)
+
+        curr_y = start_y + self.fn_rule_overhead_mm
+        text_w = self.w - self.l_margin - self.r_margin - self.fn_indent_mm
+        for idx, (num, txt) in enumerate(notes_to_draw):
+            self.set_xy(self.l_margin, curr_y)
+            self.set_font("BookSerif", "B", self.fn_font_pt)
+            self.set_text_color(35, 35, 35)
+            self.cell(self.fn_indent_mm, self.fn_line_h, to_superscript(num))
+
+            self.set_xy(self.l_margin + self.fn_indent_mm, curr_y)
+            self.set_font("BookSerif", "", self.fn_font_pt)
+            self.set_text_color(45, 45, 45)
+            self.multi_cell(text_w, self.fn_line_h, txt, new_x="LMARGIN", new_y="NEXT")
+            curr_y = self.get_y() + (self.fn_spacing_mm if idx < len(notes_to_draw) - 1 else 0.0)
+
+        self.set_text_color(20, 20, 20)
+        self.set_auto_page_break(saved_auto_pb, margin=saved_b_margin)
+        if saved_family:
+            self.set_font(saved_family, saved_style, saved_size)
+
+    def render_paragraph_with_footnotes(
+        self,
+        text: str,
+        note_lookup: dict[int, str],
+        font_style: str = "",
+        font_pt: float = 9.5,
+        line_h: float = 4.9,
+        align: str = "L",
+        indent_mm: float = 0.0,
+        text_color: tuple[int, int, int] = (20, 20, 20),
+        space_before: float = 0.0,
+        space_after: float = 0.0,
+    ) -> None:
+        """Render a block/paragraph while dynamically reserving bottom-of-page height for referenced footnotes."""
+        if space_before > 0:
+            self.ln(space_before)
+
+        # Identify footnotes referenced in this block that have not yet been rendered in the current chapter
+        referenced_nums: list[int] = []
+        for m in SUP_CALLOUT_RE.finditer(text):
+            fn_num = from_superscript(m.group(1))
+            if (
+                fn_num in note_lookup
+                and fn_num not in self.rendered_chapter_fn_nums
+                and fn_num not in self.queued_page_fn_nums
+                and fn_num not in referenced_nums
+            ):
+                referenced_nums.append(fn_num)
+
+        new_notes = [(n, note_lookup[n]) for n in referenced_nums]
+        combined_notes = self.queued_page_footnotes + new_notes
+        reserved_h = self.compute_footnotes_reserved_height(combined_notes)
+
+        self.set_font("BookSerif", font_style, font_pt)
+        self.set_text_color(*text_color)
+        avail_w = self.w - self.l_margin - self.r_margin - indent_mm
+        para_lines = self.multi_cell(avail_w, line_h, text, dry_run=True, output="LINES")
+        para_h = max(1, len(para_lines)) * line_h
+
+        # Queue the footnotes for the active page if at least the first line (or full short block) fits with the footnotes
+        min_lines_here = 1 if len(para_lines) <= 2 else 2
+        if self.get_y() + (min_lines_here * line_h) + reserved_h + 0.5 > self.page_bottom_limit:
+            # Not enough room even to start this paragraph + its footnotes on the current page
+            self.flush_page_footnotes()
+            self.add_page()
+            self.set_font("BookSerif", font_style, font_pt)
+            self.set_text_color(*text_color)
+            avail_w = self.w - self.l_margin - self.r_margin - indent_mm
+            reserved_h = self.compute_footnotes_reserved_height(new_notes)
+
+        for n, n_txt in new_notes:
+            if n not in self.queued_page_fn_nums:
+                self.queued_page_footnotes.append((n, n_txt))
+                self.queued_page_fn_nums.add(n)
+                self.rendered_chapter_fn_nums.add(n)
+
+        saved_auto_pb = self.auto_page_break
+        saved_b_margin = self.b_margin
+        self.set_auto_page_break(False)
+
+        if self.get_y() + para_h + reserved_h <= self.page_bottom_limit:
+            # Entire paragraph fits on the current page above the reserved footnote zone
+            if indent_mm > 0:
+                self.set_x(self.l_margin + indent_mm)
+            self.multi_cell(avail_w, line_h, text, align=align, new_x="LMARGIN", new_y="NEXT")
+        else:
+            # Split paragraph cleanly across the page boundary while keeping all callouts on the current page
+            avail_h = max(line_h, self.page_bottom_limit - reserved_h - self.get_y())
+            lines_fit = max(1, min(len(para_lines) - 1, int(avail_h // line_h)))
+            # Ensure every superscript callout in this paragraph lands in the top part (on the current page)
+            last_sup_line_idx = 0
+            for idx_ln, ln_str in enumerate(para_lines):
+                if SUP_CALLOUT_RE.search(ln_str):
+                    last_sup_line_idx = idx_ln
+            if last_sup_line_idx + 1 > lines_fit:
+                lines_fit = last_sup_line_idx + 1
+
+            if self.get_y() + (lines_fit * line_h) + reserved_h > self.page_bottom_limit:
+                # Move the entire paragraph and its newly queued footnotes to the next page
+                for n, _ in new_notes:
+                    self.queued_page_footnotes = [item for item in self.queued_page_footnotes if item[0] != n]
+                    self.queued_page_fn_nums.discard(n)
+                self.flush_page_footnotes()
+                self.add_page()
+                for n, n_txt in new_notes:
+                    self.queued_page_footnotes.append((n, n_txt))
+                    self.queued_page_fn_nums.add(n)
+                self.set_font("BookSerif", font_style, font_pt)
+                self.set_text_color(*text_color)
+                avail_w = self.w - self.l_margin - self.r_margin - indent_mm
+                if indent_mm > 0:
+                    self.set_x(self.l_margin + indent_mm)
+                self.multi_cell(avail_w, line_h, text, align=align, new_x="LMARGIN", new_y="NEXT")
+            else:
+                top_text = " ".join(ln.strip() for ln in para_lines[:lines_fit])
+                rem_text = " ".join(ln.strip() for ln in para_lines[lines_fit:])
+                if indent_mm > 0:
+                    self.set_x(self.l_margin + indent_mm)
+                self.multi_cell(avail_w, line_h, top_text, align=align, new_x="LMARGIN", new_y="NEXT")
+                self.flush_page_footnotes()
+                self.add_page()
+                self.set_font("BookSerif", font_style, font_pt)
+                self.set_text_color(*text_color)
+                avail_w = self.w - self.l_margin - self.r_margin - indent_mm
+                if indent_mm > 0:
+                    self.set_x(self.l_margin + indent_mm)
+                self.multi_cell(avail_w, line_h, rem_text, align=align, new_x="LMARGIN", new_y="NEXT")
+
+        self.set_auto_page_break(saved_auto_pb, margin=saved_b_margin)
+        self.set_text_color(20, 20, 20)
+        if space_after > 0:
+            self.ln(space_after)
 
     def header(self) -> None:
         # Apply mirrored inside/outside gutter margins on KDP 6x9 pages
@@ -499,8 +726,14 @@ def build_book_pdf(
         parsed = parse_chapter_markdown(ch_path, idx)
         title = parsed.title
         pdf.current_chapter_header = f"{book_title} — {title}"
+        pdf.rendered_chapter_fn_nums.clear()
         pdf.add_page()
         recorded_pages[idx] = pdf.page_no()
+
+        note_lookup: dict[int, str] = {
+            num: make_doi_breakable(clean_pdf_line(note_text))
+            for num, note_text in parsed.notes_pdf
+        }
 
         in_takeaway = False
         for line in parsed.body_lines_pdf:
@@ -519,64 +752,94 @@ def build_book_pdf(
 
             if in_takeaway:
                 if s.startswith("### "):
-                    pdf.set_font("BookSerif", "B", 10.2 if page_format == "kdp-6x9" else 10.8)
-                    pdf.set_text_color(120, 80, 20)
-                    pdf.multi_cell(0, 5.2, clean_pdf_line(s[4:].strip()), new_x="LMARGIN", new_y="NEXT")
-                    pdf.set_text_color(20, 20, 20)
-                    pdf.ln(1.0)
+                    pdf.render_paragraph_with_footnotes(
+                        clean_pdf_line(s[4:].strip()),
+                        note_lookup,
+                        font_style="B",
+                        font_pt=10.2 if page_format == "kdp-6x9" else 10.8,
+                        line_h=5.2,
+                        text_color=(120, 80, 20),
+                        space_after=1.0,
+                    )
                 elif s.startswith("- "):
-                    pdf.set_font("BookSerif", "", body_pt - 0.2)
                     b_txt = clean_pdf_line(s[2:].strip())
                     ind = 3.5 if page_format == "kdp-6x9" else 5.0
-                    pdf.set_x(pdf.l_margin + ind)
-                    pdf.multi_cell(pdf.w - pdf.l_margin - pdf.r_margin - ind, line_h - 0.2, f"•  {b_txt}", new_x="LMARGIN", new_y="NEXT")
-                    pdf.ln(0.8)
+                    pdf.render_paragraph_with_footnotes(
+                        f"•  {b_txt}",
+                        note_lookup,
+                        font_style="",
+                        font_pt=body_pt - 0.2,
+                        line_h=line_h - 0.2,
+                        indent_mm=ind,
+                        space_after=0.8,
+                    )
                 continue
 
             if (s.startswith("$$") and s.endswith("$$") and len(s) >= 4) or (s.startswith("\\[") and s.endswith("\\]") and len(s) >= 4):
                 m_content = s[2:-2].strip()
                 m_conv = clean_pdf_line(convert_latex_symbols(m_content, target="pdf"))
-                pdf.ln(2.0)
-                pdf.set_font("BookSerif", "I", body_pt - 0.2)
-                pdf.set_text_color(30, 30, 30)
-                pdf.multi_cell(0, line_h + 0.4, m_conv, align="C", new_x="LMARGIN", new_y="NEXT")
-                pdf.set_text_color(20, 20, 20)
-                pdf.ln(2.0)
+                pdf.render_paragraph_with_footnotes(
+                    m_conv,
+                    note_lookup,
+                    font_style="I",
+                    font_pt=body_pt - 0.2,
+                    line_h=line_h + 0.4,
+                    align="C",
+                    text_color=(30, 30, 30),
+                    space_before=2.0,
+                    space_after=2.0,
+                )
             elif s.startswith("# "):
-                pdf.set_font("BookSerif", "B", 14 if page_format == "kdp-6x9" else 15)
-                pdf.multi_cell(0, 7.5, clean_pdf_line(s[2:].strip()), new_x="LMARGIN", new_y="NEXT")
-                pdf.ln(2.5)
+                pdf.render_paragraph_with_footnotes(
+                    clean_pdf_line(s[2:].strip()),
+                    note_lookup,
+                    font_style="B",
+                    font_pt=14 if page_format == "kdp-6x9" else 15,
+                    line_h=7.5,
+                    space_after=2.5,
+                )
             elif s.startswith("## "):
-                pdf.ln(1.8)
-                pdf.set_font("BookSerif", "B", 11.2 if page_format == "kdp-6x9" else 12)
-                pdf.multi_cell(0, 6.0, clean_pdf_line(s[3:].strip()), new_x="LMARGIN", new_y="NEXT")
-                pdf.ln(1.2)
+                pdf.render_paragraph_with_footnotes(
+                    clean_pdf_line(s[3:].strip()),
+                    note_lookup,
+                    font_style="B",
+                    font_pt=11.2 if page_format == "kdp-6x9" else 12,
+                    line_h=6.0,
+                    space_before=1.8,
+                    space_after=1.2,
+                )
             elif s.startswith("### "):
-                pdf.ln(1.2)
-                pdf.set_font("BookSerif", "BI", 10.0 if page_format == "kdp-6x9" else 10.5)
-                pdf.multi_cell(0, 5.5, clean_pdf_line(s[4:].strip()), new_x="LMARGIN", new_y="NEXT")
-                pdf.ln(1)
+                pdf.render_paragraph_with_footnotes(
+                    clean_pdf_line(s[4:].strip()),
+                    note_lookup,
+                    font_style="BI",
+                    font_pt=10.0 if page_format == "kdp-6x9" else 10.5,
+                    line_h=5.5,
+                    space_before=1.2,
+                    space_after=1.0,
+                )
             elif s.startswith(">"):
-                pdf.set_font("BookSerif", "I", body_pt - 0.5)
-                pdf.set_x(pdf.l_margin + 5)
-                pdf.multi_cell(0, line_h - 0.3, clean_pdf_line(s.lstrip("> ").strip()), new_x="LMARGIN", new_y="NEXT")
+                pdf.render_paragraph_with_footnotes(
+                    clean_pdf_line(s.lstrip("> ").strip()),
+                    note_lookup,
+                    font_style="I",
+                    font_pt=body_pt - 0.5,
+                    line_h=line_h - 0.3,
+                    indent_mm=5.0,
+                )
             elif s == "---":
                 pdf.ln(2)
             else:
-                pdf.set_font("BookSerif", "", body_pt)
-                pdf.multi_cell(0, line_h, clean_pdf_line(s), new_x="LMARGIN", new_y="NEXT")
+                pdf.render_paragraph_with_footnotes(
+                    clean_pdf_line(s),
+                    note_lookup,
+                    font_style="",
+                    font_pt=body_pt,
+                    line_h=line_h,
+                )
 
-        # Render chapter notes if present
-        if parsed.notes_pdf:
-            pdf.ln(2.5)
-            pdf.set_font("BookSerif", "B", 11.2 if page_format == "kdp-6x9" else 12)
-            pdf.multi_cell(0, 6.0, notes_title, new_x="LMARGIN", new_y="NEXT")
-            pdf.ln(1.0)
-            pdf.set_font("BookSerif", "", body_pt - 0.6)
-            for num, note_text in parsed.notes_pdf:
-                note_clean = clean_pdf_line(f"[{num}] {note_text}")
-                pdf.multi_cell(0, line_h - 0.4, note_clean, new_x="LMARGIN", new_y="NEXT")
-                pdf.ln(0.8)
+        # Flush any remaining queued footnotes on the final page of the chapter
+        pdf.flush_page_footnotes()
 
     return pdf, recorded_pages
 
@@ -622,10 +885,11 @@ def build_reader_html(
         "aside.chapter-takeaway ul{margin:0.5rem 0 0;padding-left:1.2rem}",
         "aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}",
         ".formula-block{text-align:center;margin:1.5rem 0;font-style:italic;color:#222}",
-        ".footnotes{border-top:1px solid #e0e0dc;margin-top:2.5rem;padding-top:1rem;font-size:0.9em;color:#444}",
-        ".footnotes ol{padding-left:1.5rem}",
-        ".footnotes li{margin-bottom:0.6rem;line-height:1.45}",
-        ".footnote-ref{font-size:0.75em;vertical-align:super;text-decoration:none;font-weight:600;padding:0 1px}",
+        ".footnotes{border-top:1px solid #d4d4ce;margin-top:2.2rem;padding-top:0.85rem;font-size:0.82rem;line-height:1.4;color:#444}",
+        ".footnotes ol{padding-left:1.35rem;margin:0}",
+        ".footnotes li{margin-bottom:0.45rem;line-height:1.4;padding-left:0.18in;text-indent:-0.18in}",
+        ".footnotes li p{margin:0;display:inline}",
+        ".footnote-ref{font-size:0.65em;vertical-align:super;text-decoration:none;font-weight:600;padding:0 1px}",
         ".footnote-ref a{text-decoration:none;color:#8b3a1a}",
         ".footnote-ref a:hover{text-decoration:underline}",
         ".footnote-backref{text-decoration:none;margin-left:0.4rem;color:#888}",
@@ -752,10 +1016,10 @@ def build_kdp_epub(
         "aside.chapter-takeaway ul { margin: 0.5em 0 0; padding-left: 1.2em; }\n"
         "aside.chapter-takeaway li { margin-bottom: 0.5em; }\n"
         ".formula-block { text-align: center; margin: 1.2em 0; font-style: italic; }\n"
-        ".footnote-ref { font-size: 0.75em; vertical-align: super; text-decoration: none; font-weight: bold; }\n"
-        "section.footnotes { border-top: 1px solid #ccc; margin-top: 2em; padding-top: 1em; font-size: 0.85em; }\n"
-        "section.footnotes ol { padding-left: 1.5em; }\n"
-        "section.footnotes li { margin-bottom: 0.5em; }\n"
+        ".footnote-ref { font-size: 0.65em; vertical-align: super; text-decoration: none; font-weight: bold; }\n"
+        "section.footnotes { border-top: 1px solid #ccc; margin-top: 2em; padding-top: 0.8em; font-size: 0.82em; line-height: 1.35; color: #333; }\n"
+        "aside.footnote-item { font-size: 0.82em; line-height: 1.35; color: #333; margin-bottom: 0.45em; padding-left: 1.1em; text-indent: -1.1em; }\n"
+        "aside.footnote-item p { margin: 0; display: inline; }\n"
     )
 
     manifest_items = [
@@ -848,10 +1112,13 @@ def build_kdp_epub(
                 body_lines.append(f"<p>{md_inline_html(s)}</p>")
 
         if parsed.notes_epub:
-            body_lines.append(f'<section epub:type="footnotes" class="footnotes"><h2>{notes_title}</h2><ol>')
+            body_lines.append(f'<section epub:type="footnotes" class="footnotes"><h2>{notes_title}</h2>')
             for num, note_text in parsed.notes_epub:
-                body_lines.append(f'<li id="fn-{idx:02d}-{num}" epub:type="footnote"><p>{md_inline_html(note_text)}</p></li>')
-            body_lines.append("</ol></section>")
+                body_lines.append(
+                    f'<aside epub:type="footnote" id="fn-{idx:02d}-{num}" class="footnote-item">'
+                    f'<p><strong><sup>{num}</sup></strong> {md_inline_html(note_text)}</p></aside>'
+                )
+            body_lines.append("</section>")
 
         xhtml = (
             '<?xml version="1.0" encoding="UTF-8"?>\n'

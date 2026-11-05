@@ -1,6 +1,6 @@
 # series/architectures-of-memory/book-04-context-window — Full manuscript
 
-Compiled from `series/architectures-of-memory/book-04-context-window/chapters/*.md` in sorted filename order (2026-11-04).
+Compiled from `series/architectures-of-memory/book-04-context-window/chapters/*.md` in sorted filename order (2026-11-05).
 
 **Footnotes:** Each chapter defines reference-style footnotes locally. Some labels repeat across chapters; in one file, renderers may attach one definition to every use of a label.
 
@@ -138,7 +138,7 @@ When scale expands, memory stops being a distinct database table. It becomes dis
 
 ## Notes
 
-[^kaplan2020]: **Grade: High** for empirical power-law scaling governing language model cross-entropy loss across compute, parameter count, and dataset size (Kaplan et al. 2020). J. Kaplan, S. McCandlish, T. Henighan, T. B. Brown, B. Chess, R. Child, ... and D. Amodei, "Scaling Laws for Neural Language Models," *arXiv:2001.08361* (2020). Evidence Card: `evidence-cards/kaplan-2020-scaling-laws-neural-language-models.md`.
+[^kaplan2020]: Empirical power-law scaling governing language model cross-entropy loss across compute, parameter count, and dataset size (Kaplan et al. 2020). J. Kaplan, S. McCandlish, T. Henighan, T. B. Brown, B. Chess, R. Child,. and D. Amodei, "Scaling Laws for Neural Language Models," *arXiv:2001.08361* (2020).
 
 [^scaling-law-math]: **Power-Law Scaling Formulation:** Cross-entropy loss scales smoothly via $L(N) \approx (N_c/N)^{\alpha_N}$, showing that empirical performance improves predictably over multiple orders of magnitude.
 
@@ -204,7 +204,7 @@ When the courthouse locks its iron doors at five in the afternoon, the deed book
 
 ## Notes
 
-[^brown2020]: **Grade: High** for in-context few-shot learning emerging at foundation scale without gradient updates or weight alterations (Brown et al. 2020). T. B. Brown, B. Mann, N. Ryder, M. Subbiah, J. Kaplan, P. Dhariwal, ... and D. Amodei, "Language Models are Few-Shot Learners," *NeurIPS* 33 (2020): 1877–1901, arXiv:2005.14165. Evidence Card: `evidence-cards/brown-2020-language-models-few-shot-learners.md`.
+[^brown2020]: In-context few-shot learning emerging at foundation scale without gradient updates or weight alterations (Brown et al. 2020). T. B. Brown, B. Mann, N. Ryder, M. Subbiah, J. Kaplan, P. Dhariwal,. and D. Amodei, "Language Models are Few-Shot Learners," *NeurIPS* 33 (2020): 1877–1901, arXiv:2005.14165.
 
 [^rome-math]: **Parametric Memory Formulation:** Parametric association updates store factual associations $(s, r, o)$ via rank-one weight adjustments $\Delta W = (v - W k) k^\top / \|k\|^2$, demonstrating that localized factual editing can be achieved without full retrain loops.
 
@@ -264,9 +264,9 @@ The court stenographer folds her paper tape, packs her machine, and slides it in
 
 ## Notes
 
-[^brown2020]: **Grade: High** for few-shot prompt conditioning matching supervised baselines on standardized NLP benchmarks without fine-tuning (Brown et al. 2020). T. B. Brown, B. Mann, N. Ryder, M. Subbiah, J. Kaplan, P. Dhariwal, ... and D. Amodei, "Language Models are Few-Shot Learners," *NeurIPS* 33 (2020): 1877–1901, arXiv:2005.14165. Evidence Card: `evidence-cards/brown-2020-language-models-few-shot-learners.md`.
+[^brown2020]: Few-shot prompt conditioning matching supervised baselines on standardized NLP benchmarks without fine-tuning (Brown et al. 2020). T. B. Brown, B. Mann, N. Ryder, M. Subbiah, J. Kaplan, P. Dhariwal,. and D. Amodei, "Language Models are Few-Shot Learners," *NeurIPS* 33 (2020): 1877–1901, arXiv:2005.14165.
 
-[^dao2022]: **Grade: High** for FlashAttention IO-aware tiling overcoming GPU high-bandwidth memory bottlenecks to scale context windows (Dao et al. 2022). T. Dao, D. Y. Fu, S. Ermon, A. Rudra, and C. Ré, "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness," *NeurIPS* 35 (2022): 16344–16359, arXiv:2205.14135. Evidence Card: `evidence-cards/dao-2022-flashattention-fast-memory-efficient.md`.
+[^dao2022]: FlashAttention IO-aware tiling overcoming GPU high-bandwidth memory bottlenecks to scale context windows (Dao et al. 2022). T. Dao, D. Y. Fu, S. Ermon, A. Rudra, and C. Ré, "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness," *NeurIPS* 35 (2022): 16344–16359, arXiv:2205.14135.
 
 [^icl-math]: **In-Context Optimization Formulation:** Self-attention layers compute implicit meta-gradients $\Delta W_{att} \propto \sum_{i} \nabla_{\theta} \mathcal{L}(x_i)$ within the forward pass, establishing that in-context learning simulates gradient descent without modifying base model weights.
 
@@ -325,7 +325,7 @@ The federal judge in Manhattan penalized the lawyers who filed the fake rulings,
 
 ## Notes
 
-[^ji2023]: **Grade: High** for comprehensive taxonomy and structural mechanisms of intrinsic versus extrinsic hallucination in natural language generation (Ji et al. 2023). Z. Ji, N. Lee, R. Frieske, T. Yu, D. Su, Y. Xu, ... and P. Fung, "Survey of Hallucination in Natural Language Generation," *ACM Computing Surveys* 55, no. 12 (2023): 1–38, DOI: 10.1145/3571730. Evidence Card: `evidence-cards/ji-2023-survey-hallucination-natural-language-generation.md`.
+[^ji2023]: Comprehensive taxonomy and structural mechanisms of intrinsic versus extrinsic hallucination in natural language generation (Ji et al. 2023). Z. Ji, N. Lee, R. Frieske, T. Yu, D. Su, Y. Xu,. and P. Fung, "Survey of Hallucination in Natural Language Generation," *ACM Computing Surveys* 55, no. 12 (2023): 1–38, doi:10.1145/3571730.
 
 [^softmax-math]: **Autoregressive Softmax Formulation:** Next-token generation samples from $P(x_t \mid x_{<t}) = \text{softmax}(W_u h_t)$, demonstrating that generation maximizes conditional probability rather than factual truth-values.
 
@@ -388,9 +388,9 @@ The doctor looks between the microscope and the guideline on her screen, confirm
 
 ## Notes
 
-[^lewis2020]: **Grade: High** for combining parametric sequence-to-sequence generation with non-parametric dense passage retrieval to ground factual generation (Lewis et al. 2020). P. Lewis, E. Perez, A. Piktus, F. Petroni, V. Karpukhin, N. Goyal, ... and W. Yih, "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks," *NeurIPS* 33 (2020): 9459–9474, arXiv:2005.11401. Evidence Card: `evidence-cards/lewis-2020-retrieval-augmented-generation.md`.
+[^lewis2020]: Combining parametric sequence-to-sequence generation with non-parametric dense passage retrieval to ground factual generation (Lewis et al. 2020). P. Lewis, E. Perez, A. Piktus, F. Petroni, V. Karpukhin, N. Goyal,. and W. Yih, "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks," *NeurIPS* 33 (2020): 9459–9474, arXiv:2005.11401.
 
-[^karpukhin2020]: **Grade: High** for dense passage retrieval utilizing dual-encoder vector representations outperforming traditional BM25 keyword matching (Karpukhin et al. 2020). V. Karpukhin, B. Oguz, S. Min, P. Lewis, L. Wu, S. Edunov, D. Chen, and W. Yih, "Dense Passage Retrieval for Open-Domain Question Answering," *EMNLP* (2020): 6769–6781, arXiv:2004.04906. Evidence Card: `evidence-cards/karpukhin-2020-dense-passage-retrieval.md`.
+[^karpukhin2020]: Dense passage retrieval utilizing dual-encoder vector representations outperforming traditional BM25 keyword matching (Karpukhin et al. 2020). V. Karpukhin, B. Oguz, S. Min, P. Lewis, L. Wu, S. Edunov, D. Chen, and W. Yih, "Dense Passage Retrieval for Open-Domain Question Answering," *EMNLP* (2020): 6769–6781, arXiv:2004.04906.
 
 [^rag-math]: **Dense Retrieval Formulation:** Retrieval score $s(q, d) = E_Q(q)^\top E_D(d)$ matches dual-encoder representations in inner-product space, establishing that dense semantic search scales independently of language model parameter count.
 
@@ -448,9 +448,9 @@ The air traffic controller leans forward, pencil in hand, shifting a flight stri
 
 ## Notes
 
-[^liu2024]: **Grade: High** for empirical identification of U-shaped retrieval degradation and positional bias in long-context language models (Liu et al. 2024). N. F. Liu, K. Lin, J. Hewitt, A. Paranjape, M. Bevilacqua, F. Petroni, and P. Liang, "Lost in the Middle: How Language Models Use Long Contexts," *Transactions of the Association for Computational Linguistics* 12 (2024): 157–173, DOI: 10.1162/tacl_a_00638. Evidence Card: `evidence-cards/liu-2024-lost-in-the-middle-long-context.md`.
+[^liu2024]: Empirical identification of U-shaped retrieval degradation and positional bias in long-context language models (Liu et al. 2024). N. F. Liu, K. Lin, J. Hewitt, A. Paranjape, M. Bevilacqua, F. Petroni, and P. Liang, "Lost in the Middle: How Language Models Use Long Contexts," *Transactions of the Association for Computational Linguistics* 12 (2024): 157–173, doi:10.1162/tacl_a_00638.
 
-[^press2021]: **Grade: High** for attention with linear biases enabling sequence length extrapolation beyond training windows (Press et al. 2021). O. Press, N. A. Smith, and M. Lewis, "Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation," *ICLR* (2022), arXiv:2108.12409. Evidence Card: `evidence-cards/press-2022-train-short-test-long-alibi.md`.
+[^press2021]: Attention with linear biases enabling sequence length extrapolation beyond training windows (Press et al. 2021). O. Press, N. A. Smith, and M. Lewis, "Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation," *ICLR* (2022), arXiv:2108.12409.
 
 [^kvcache-math]: **KV Cache Complexity Formulation:** Autoregressive generation requires storing key-value activations with memory footprint $M_{KV} = 2 \times b \times l \times h \times d \times n$, demonstrating that memory demands scale linearly with sequence length $n$ across batch size $b$ and layers $l$.
 
@@ -510,9 +510,9 @@ The sensors at the lab stream their readings into an experimental code kernel. T
 
 ## Notes
 
-[^su2021]: **Grade: High** for Rotary Position Embedding rotating query and key representations in complex space to enable relative attention scaling (Su et al. 2021). J. Su, M. Ahmed, Y. Lu, S. Pan, B. Wen, and Y. Liu, "RoFormer: Enhanced Transformer with Rotary Position Embedding," *Neurocomputing* 568 (2024): 127063, arXiv:2104.09864. Evidence Card: `evidence-cards/su-2024-roformer-rotary-position-embedding.md`.
+[^su2021]: Rotary Position Embedding rotating query and key representations in complex space to enable relative attention scaling (Su et al. 2021). J. Su, M. Ahmed, Y. Lu, S. Pan, B. Wen, and Y. Liu, "RoFormer: Enhanced Transformer with Rotary Position Embedding," *Neurocomputing* 568 (2024): 127063, arXiv:2104.09864.
 
-[^gu2023]: **Grade: High** for selective state space models achieving linear-time sequence modeling and constant-memory inference matching Transformer quality (Gu & Dao 2023). A. Gu and T. Dao, "Mamba: Linear-Time Sequence Modeling with Selective State Spaces," *arXiv:2312.00752* (2023). Evidence Card: `evidence-cards/gu-2023-mamba-linear-time-sequence-modeling.md`.
+[^gu2023]: Selective state space models achieving linear-time sequence modeling and constant-memory inference matching Transformer quality (Gu & Dao 2023). A. Gu and T. Dao, "Mamba: Linear-Time Sequence Modeling with Selective State Spaces," *arXiv:2312.00752* (2023).
 
 [^mamba-math]: **Selective State Space Formulation:** The continuous state-space equation $h'(t) = A h(t) + B x(t)$ discretizes via zero-order hold with input-dependent parameters $\Delta, B, C = \text{Linear}(x_t)$, establishing linear $O(N)$ computational complexity across long sequences.
 
@@ -572,9 +572,9 @@ In the incident room, the database rollback finishes, and clearing accounts bala
 
 ## Notes
 
-[^lewis2020]: **Grade: High** for retrieval-augmented architectures grounding generative language models in external document stores (Lewis et al. 2020). P. Lewis, E. Perez, A. Piktus, F. Petroni, V. Karpukhin, N. Goyal, ... and W. Yih, "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks," *NeurIPS* 33 (2020): 9459–9474, arXiv:2005.11401. Evidence Card: `evidence-cards/lewis-2020-retrieval-augmented-generation.md`.
+[^lewis2020]: Retrieval-augmented architectures grounding generative language models in external document stores (Lewis et al. 2020). P. Lewis, E. Perez, A. Piktus, F. Petroni, V. Karpukhin, N. Goyal,. and W. Yih, "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks," *NeurIPS* 33 (2020): 9459–9474, arXiv:2005.11401.
 
-[^raji2020]: **Grade: High** for internal algorithmic auditing frameworks establishing verifiable lifecycle governance and documentation (Raji et al. 2020). I. D. Raji, A. Smart, R. N. White, M. Mitchell, T. Gebru, B. Hutchinson, ... and P. Barnes, "Closing the AI Accountability Gap: Defining an End-to-End Framework for Internal Algorithmic Auditing," *ACM FAccT* (2020): 33–44, DOI: 10.1145/3351095.3372873. Evidence Card: `evidence-cards/raji-2020-closing-ai-accountability-gap.md`.
+[^raji2020]: Internal algorithmic auditing frameworks establishing verifiable lifecycle governance and documentation (Raji et al. 2020). I. D. Raji, A. Smart, R. N. White, M. Mitchell, T. Gebru, B. Hutchinson,. and P. Barnes, "Closing the AI Accountability Gap: Defining an End-to-End Framework for Internal Algorithmic Auditing," *ACM FAccT* (2020): 33–44, doi:10.1145/3351095.3372873.
 
 [^temporal-math]: **Temporal Validity Weighting Formulation:** Document retrieval score incorporates temporal decay $\lambda(t) = \exp(-\gamma (t_{now} - t_{doc})) \cdot \mathbb{I}(\text{status} = \text{active})$, demonstrating that unweighted semantic retrieval inherently conflates historical and active organizational policy.
 
@@ -631,9 +631,9 @@ On the server rack, the model finishes another run. It writes another polished e
 
 ## Notes
 
-[^selbst2018]: **Grade: High** for legal and epistemological analysis of inscrutability versus non-intuitiveness in machine learning explanations (Selbst & Barocas 2018). A. D. Selbst and S. Barocas, "The Intuitive Appeal of Explainable Machines," *Fordham Law Review* 87, no. 3 (2018): 1085–1139. Evidence Card: `evidence-cards/selbst-2018-intuitive-appeal-explainable-machines.md`.
+[^selbst2018]: Legal and epistemological analysis of inscrutability versus non-intuitiveness in machine learning explanations (Selbst & Barocas 2018). A. D. Selbst and S. Barocas, "The Intuitive Appeal of Explainable Machines," *Fordham Law Review* 87, no. 3 (2018): 1085–1139.
 
-[^raji2020]: **Grade: High** for empirical verification that post-hoc explanations and saliency maps fail to guarantee fair or compliant algorithmic decision-making (Raji et al. 2020). I. D. Raji, A. Smart, R. N. White, M. Mitchell, T. Gebru, B. Hutchinson, ... and P. Barnes, "Closing the AI Accountability Gap: Defining an End-to-End Framework for Internal Algorithmic Auditing," *ACM FAccT* (2020): 33–44, DOI: 10.1145/3351095.3372873. Evidence Card: `evidence-cards/raji-2020-closing-ai-accountability-gap.md`.
+[^raji2020]: Empirical verification that post-hoc explanations and saliency maps fail to guarantee fair or compliant algorithmic decision-making (Raji et al. 2020). I. D. Raji, A. Smart, R. N. White, M. Mitchell, T. Gebru, B. Hutchinson,. and P. Barnes, "Closing the AI Accountability Gap: Defining an End-to-End Framework for Internal Algorithmic Auditing," *ACM FAccT* (2020): 33–44, doi:10.1145/3351095.3372873.
 
 [^xai-math]: **Post-Hoc Saliency Formulation:** Local feature attribution $\phi_i(x) \approx \frac{\partial f(x)}{\partial x_i}$ computes gradient sensitivity rather than causal counterfactual necessity, proving that post-hoc explanations do not guarantee legal compliance.
 

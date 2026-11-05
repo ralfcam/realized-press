@@ -3,24 +3,24 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: parenthood-atlas-kdp-6x9.pdf
-SHA-256: 0fb9b9999542125c5677fdaa4dd83a6914c24dbabfd6ca71be002d0574d177e5
-Bytes: 556,750
-Pages: 152 (152/152 nonblank)
+SHA-256: 4fd9a3ef60cb48fca09fde6bb26417e76ce15876f152939ac72497cc27066ceb
+Bytes: 479,979
+Pages: 159 (159/159 nonblank)
 
 Chapters:
 - PASS · PDF page 2 · How to Use This Atlas: 2:00 AM Quick-Finder
 - PASS · PDF page 8 · Chapter 1 — Before the Child Is Born
 - PASS · PDF page 18 · Chapter 2 — The First Environment
-- PASS · PDF page 28 · Chapter 3 — The Great Transition
-- PASS · PDF page 39 · Chapter 4 — The Regulatory Relationship
-- PASS · PDF page 50 · Chapter 5 — Becoming a Mind
-- PASS · PDF page 60 · Chapter 6 — The Mind in Motion
-- PASS · PDF page 69 · Chapter 7 — The Birth of Language
-- PASS · PDF page 79 · Chapter 8 — The Expanding World
-- PASS · PDF page 88 · Chapter 9 — The Emotional Revolution
-- PASS · PDF page 97 · Chapter 10 — Boundaries, Behavior, and the First Rules
-- PASS · PDF page 107 · Chapter 11 — The Developing Executive
-- PASS · PDF page 116 · Chapter 12 — Play, Imagination, and Meaning
-- PASS · PDF page 125 · Chapter 13 — The Ecology of Development
-- PASS · PDF page 134 · Chapter 14 — What Actually Works?
-- PASS · PDF page 144 · Chapter 15 — Three Years: What Has Been Built?
+- PASS · PDF page 29 · Chapter 3 — The Great Transition
+- PASS · PDF page 41 · Chapter 4 — The Regulatory Relationship
+- PASS · PDF page 52 · Chapter 5 — Becoming a Mind
+- PASS · PDF page 63 · Chapter 6 — The Mind in Motion
+- PASS · PDF page 73 · Chapter 7 — The Birth of Language
+- PASS · PDF page 84 · Chapter 8 — The Expanding World
+- PASS · PDF page 93 · Chapter 9 — The Emotional Revolution
+- PASS · PDF page 102 · Chapter 10 — Boundaries, Behavior, and the First Rules
+- PASS · PDF page 112 · Chapter 11 — The Developing Executive
+- PASS · PDF page 122 · Chapter 12 — Play, Imagination, and Meaning
+- PASS · PDF page 131 · Chapter 13 — The Ecology of Development
+- PASS · PDF page 140 · Chapter 14 — What Actually Works?
+- PASS · PDF page 150 · Chapter 15 — Three Years: What Has Been Built?

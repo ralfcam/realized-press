@@ -11,6 +11,59 @@ from pathlib import Path
 
 INLINE_FOOTNOTE_RE = re.compile(r"\[\^[^^\]]+\]")
 NOTES_HEADING_RE = re.compile(r"^## (?:Notes|Sources|Further Reading|Linked evidence cards)\s*$", re.MULTILINE)
+EVIDENCE_CARD_RE = re.compile(
+    r"(?:\*\*)?\b(?:Evidence Cards?|Fichas? de [Ee]videncia):\s*(?:\*\*)?\s*`?[A-Za-z0-9_./-]+`?(?:\s*,\s*`?[A-Za-z0-9_./-]+`?)*\.?(?=\s|$|[);,])"
+)
+GRADE_RE = re.compile(
+    r"(?:\*\*)?\b(?:Grade|Grado|Certainty|Certeza):\s*(?:Moderate-to-High|Low-to-Moderate|Moderada a alta|High|Moderate|Low|Very Low|Alta|Moderada|Baja|Muy [Bb]aja)\.?(?:\*\*)?\.?(?=\s|$|[;:,)])"
+)
+
+
+def sanitize_reader_footnote_text(text: str) -> str:
+    """Strip internal OKF Evidence Card slugs and Grade labels for reader-facing apparatus."""
+    s = EVIDENCE_CARD_RE.sub("", text)
+    s = GRADE_RE.sub("", s)
+    s = re.sub(r"^\s*(?:that|for|en que|de que)\s+", "", s, flags=re.IGNORECASE)
+    s = re.sub(r"([.;])\s+(?:that|for|en que|de que)\s+", r"\1 ", s, flags=re.IGNORECASE)
+    s = re.sub(r"\bDOI:\s*(10\.\d{4,9}/\S+)", r"doi:\1", s, flags=re.IGNORECASE)
+    s = re.sub(r"\s{2,}", " ", s)
+    s = re.sub(r"\s+([.,;:])", r"\1", s)
+    s = re.sub(r"([.;])\s*\1+", r"\1", s)
+    s = re.sub(r"^\s*[.;:]\s*", "", s)
+    s = s.strip()
+    if s and s[0].islower():
+        s = s[0].upper() + s[1:]
+    return s
+
+
+def sanitize_chapter_notes_block(text: str) -> str:
+    """Sanitize footnote definitions inside a chapter's ## Notes section while stripping ## Linked evidence cards."""
+    stripped = strip_yaml_frontmatter(text)
+    out_lines: list[str] = []
+    state = "body"
+    for line in stripped.splitlines():
+        s = line.strip()
+        if s.startswith("## Notes"):
+            state = "notes"
+            out_lines.append(line)
+            continue
+        elif s.startswith("## Linked evidence cards") or s.startswith("Promotion note:"):
+            state = "discard"
+            continue
+        elif state == "notes" and s.startswith("## "):
+            state = "body"
+
+        if state == "discard":
+            continue
+        elif state == "notes":
+            m = re.match(r"^(\[\^[^\]]+\]:\s*)(.*)$", line)
+            if m:
+                out_lines.append(f"{m.group(1)}{sanitize_reader_footnote_text(m.group(2))}")
+            else:
+                out_lines.append(line)
+        else:
+            out_lines.append(line)
+    return "\n".join(out_lines).rstrip()
 
 
 def repo_root() -> Path:
@@ -153,7 +206,7 @@ def main() -> None:
 
     for i, f in enumerate(md_files):
         raw = f.read_text(encoding="utf-8")
-        body = transform_audiobook(raw) if args.audiobook else strip_yaml_frontmatter(raw).rstrip()
+        body = transform_audiobook(raw) if args.audiobook else sanitize_chapter_notes_block(raw)
         parts.append(body)
         if i < len(md_files) - 1:
             parts.append(sep)

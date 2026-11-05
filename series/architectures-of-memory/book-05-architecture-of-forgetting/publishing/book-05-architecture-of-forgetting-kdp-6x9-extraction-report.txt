@@ -3,8 +3,8 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-05-architecture-of-forgetting-kdp-6x9.pdf
-SHA-256: 9793e08ac4f9c89b7b78d0205fa1cb91c5af09c73679f9b4304f030c7fea36db
-Bytes: 198,110
+SHA-256: 3042dfc75c28c99dda48b28f8df3c3cf0a6e2c669320ea18c2031d0de2f095dd
+Bytes: 185,084
 Pages: 52 (52/52 nonblank)
 
 Chapters:
@@ -16,10 +16,10 @@ Chapters:
 - PASS · PDF page 18 · Chapter 5: The Archaeology of Trained Weights — Forensic Extraction and Unintended Retention
 - PASS · PDF page 21 · Chapter 6: The GDPR and the "Right to Be Forgotten" — When the Law Demands What the Math Forbids
 - PASS · PDF page 24 · Chapter 7: Data Retention Obligations vs. Model Retention — The Compliance Gap No One Has Solved
-- PASS · PDF page 27 · Chapter 8: Surveillance Capitalism as a Memory Business Model
-- PASS · PDF page 29 · Chapter 9: The Asymmetry — What Corporations Remember vs. What Individuals Can Delete
-- PASS · PDF page 32 · Chapter 10: Designing Compliant AI Systems — Memory as a Governance Surface
-- PASS · PDF page 35 · Chapter 11: The RegTech Opportunity — Tools That Make Machine Memory Auditable
+- PASS · PDF page 26 · Chapter 8: Surveillance Capitalism as a Memory Business Model
+- PASS · PDF page 28 · Chapter 9: The Asymmetry — What Corporations Remember vs. What Individuals Can Delete
+- PASS · PDF page 31 · Chapter 10: Designing Compliant AI Systems — Memory as a Governance Surface
+- PASS · PDF page 34 · Chapter 11: The RegTech Opportunity — Tools That Make Machine Memory Auditable
 - PASS · PDF page 37 · Chapter 12: Ricoeur on Memory, Forgetting, and Forgiveness
 - PASS · PDF page 39 · Chapter 13: The Neuroscience of Therapeutic Forgetting — Trauma, PTSD, Reconsolidation
 - PASS · PDF page 42 · Chapter 14: Mortality as the Ultimate Forget Gate — What Death Preserves by Ending

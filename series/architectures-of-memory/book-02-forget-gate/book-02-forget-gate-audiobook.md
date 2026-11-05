@@ -1,6 +1,6 @@
 # series/architectures-of-memory/book-02-forget-gate — Audiobook transcript
 
-Compiled from `series/architectures-of-memory/book-02-forget-gate/chapters/*.md` (2026-11-01). YAML frontmatter, *Sources* lines, `## Notes` / `## Sources` sections, and inline `[^footnote]` markers are omitted for text-to-speech.
+Compiled from `series/architectures-of-memory/book-02-forget-gate/chapters/*.md` (2026-11-05). YAML frontmatter, *Sources* lines, `## Notes` / `## Sources` sections, and inline `[^footnote]` markers are omitted for text-to-speech.
 
 ---
 
@@ -89,7 +89,7 @@ In July 1991, Sepp Hochreiter submitted his master's thesis in Munich. Supervise
 
 Six years passed between that German thesis and the 1997 paper in *Neural Computation*. In computer science, six years is an epoch. During that window, recurrent networks suffered a deep chill. In 1994, Yoshua Bengio, Patrice Simard, and Paolo Frasconi published an independent proof. They showed that gradient descent struggles to link distant inputs across time. Many teams abandoned recurrent models entirely, turning to static classifiers or hidden Markov systems.
 
-The journey from Munich to the Dalle Molle Institute in Lugano was steep. Early drafts of the new recurrent architecture were rejected by major conferences, including NIPS. Reviewers found the equations dense, the wiring baroque, and the goal of training networks across hundreds of steps seemingly hopeless.
+The journey from Munich to the Dalle Molle Institute in Lugano was steep. Schmidhuber had already demonstrated that hierarchical history compression could bridge long delays by chunking predictable patterns, but continuous sequence learning required a fundamentally new mechanism. Early drafts of the new recurrent architecture were rejected by major conferences, including NIPS. Reviewers found the equations dense, the wiring baroque, and the goal of training networks across hundreds of steps seemingly hopeless.
 
 This book opens at that six-year impasse because memory systems never arrive in a vacuum. A great proof does not become standard practice on mathematical merit alone. Ideas must survive translation from failure diagnosis to working code. Hochreiter and Schmidhuber had to move from naming what was broken to building an active bridge across time.
 
@@ -157,7 +157,7 @@ Multiply 0.9 by itself fifty times, and you get roughly 0.005. Multiply 1.1 by i
 
 This arithmetic reality was the graveyard of early recurrent neural networks. When an error signal travels backward through time, standard backpropagation multiplies weight matrices at every step. If a network tries to bridge fifty or one hundred steps, the credit signal must survive dozens of successive multiplications. It never does. The learning signal either dissolves into floating-point dust or explodes into numerical chaos.
 
-In 1997, Sepp Hochreiter and Jürgen Schmidhuber proposed an alternative that was startling in its simplicity: stop multiplying. To ensure an error signal survives across arbitrary temporal distance, an architecture must replace repeated multiplication with addition. They named this mechanism the Constant Error Carousel.
+In 1997, Sepp Hochreiter and Jürgen Schmidhuber proposed a simple alternative: stop multiplying. Hierarchical chunking had tried to bypass the bottleneck through discrete sequence summaries, but continuous sequence learning required smooth error flow. To ensure a learning signal survives across long time spans, an architecture must replace repeated multiplication with addition. They named this mechanism the Constant Error Carousel.
 
 ---
 
@@ -614,7 +614,7 @@ In a neural network, knowledge lives in the connection weights between units. If
 
 First is tacit human habit: the informal workarounds, personal experience, and trust networks held inside individual minds.
 
-Second is artifact state: formal operating procedures, code repos, architectural blueprints, and policy binders.
+Second is artifact state: formal operating procedures, code repos, and policy binders. Barbara Levitt and James March established that organizational memory resides in historical routines—practices that survive personnel changes but become vulnerable when operational habits decay.
 
 When an experienced engineer, nurse, or plant manager leaves, the firm suffers a weight excision. The departing worker takes hundreds of non-linear insights out the door: which server crashes on Sunday nights, who in legal actually approves exceptions, and why an old script uses an obscure flag.
 
@@ -862,7 +862,7 @@ Intake represents new knowledge shaped by an input gate. In a business, this gat
 
 Retention represents history shaped by a forget gate. Managed forgetting is not an accident; it is an active choice. Researchers show that team forgetting splits across two paths: intentional versus accidental, and new versus established knowledge.
 
-Accidental loss of proven routines is memory decay—a painful breakdown of team skill. But intentional removal of old routines is managed unlearning: the deliberate dismantling of obsolete habits that block change.
+Accidental loss of proven routines is memory decay—a painful breakdown of team skill. But intentional removal of old routines is managed unlearning: the deliberate dismantling of obsolete habits that block change. Without such unlearning, organizations fall into competency traps where proficiency in outdated routines blocks the adoption of superior practices.
 
 ---
 
@@ -928,7 +928,7 @@ Modern version control changed that model. In Git, history is never overwritten 
 
 Yet this append-only rule brings its own tension, mirroring state saturation in memory cells. If every small test, failed debugging probe, and accidental draft remains visible forever, navigation breaks down.
 
-Lehman's laws of software evolution show that as a system evolves, its complexity grows steadily unless teams work to reduce it. A messy history full of dead tangents becomes hard for new hires to read.
+Lehman's laws of software evolution show that as a system evolves, its complexity grows steadily unless teams work to reduce it. Without conscious routine pruning, organizations fall victim to superstitious learning—maintaining ceremonial logging procedures that yield no causal insight. A messy history full of dead tangents becomes hard for new hires to read.
 
 ---
 

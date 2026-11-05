@@ -1,6 +1,6 @@
 # series/architectures-of-memory/book-03-weight-of-attention — Full manuscript
 
-Compiled from `series/architectures-of-memory/book-03-weight-of-attention/chapters/*.md` in sorted filename order (2026-11-04).
+Compiled from `series/architectures-of-memory/book-03-weight-of-attention/chapters/*.md` in sorted filename order (2026-11-05).
 
 **Footnotes:** Each chapter defines reference-style footnotes locally. Some labels repeat across chapters; in one file, renderers may attach one definition to every use of a label.
 
@@ -143,15 +143,15 @@ Computing needed an design that would allow a model to look directly across the 
 
 ## Notes
 
-[^hochreiter1997]: **Grade: High** for the Constant Error Carousel establishing constant error flow across long time lags via unit self-connections (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, DOI: 10.1162/neco.1997.9.8.1735. Evidence Card: `evidence-cards/bahdanau-2015-neural-machine-translation-attention.md`.
+[^hochreiter1997]: The Constant Error Carousel establishing constant error flow across long time lags via unit self-connections (Hochreiter & Schmidhuber 1997). S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation* 9, no. 8 (1997): 1735–1780, doi:10.1162/neco.1997.9.8.1735.
 
-[^gers2000]: **Grade: High** for the adaptive forget gate enabling continuous sequence learning without manual state resets (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, DOI: 10.1162/089976600300015015. Evidence Card: `evidence-cards/bahdanau-2015-neural-machine-translation-attention.md`.
+[^gers2000]: The adaptive forget gate enabling continuous sequence learning without manual state resets (Gers, Schmidhuber & Cummins 2000). F. A. Gers, J. Schmidhuber, and F. Cummins, "Learning to Forget: Continual Prediction with LSTM," *Neural Computation* 12, no. 10 (2000): 2451–2471, doi:10.1162/089976600300015015.
 
-[^sutskever2014]: **Grade: High** for sequence-to-sequence neural translation mapping variable sequences to fixed vectors (Sutskever, Vinyals & Le 2014). I. Sutskever, O. Vinyals, and Q. V. Le, "Sequence to Sequence Learning with Neural Networks," *NeurIPS* 27 (2014): 3104–3112.
+[^sutskever2014]: Sequence-to-sequence neural translation mapping variable sequences to fixed vectors (Sutskever, Vinyals & Le 2014). I. Sutskever, O. Vinyals, and Q. V. Le, "Sequence to Sequence Learning with Neural Networks," *NeurIPS* 27 (2014): 3104–3112.
 
-[^cho2014]: **Grade: High** for empirical proof of fixed-vector bottleneck degradation as sentence length exceeds 20–30 words (Cho et al. 2014). K. Cho, B. van Merrienboer, D. Bahdanau, and Y. Bengio, "On the Properties of Neural Machine Translation: Encoder–Decoder Approaches," *SSST-8* (2014): 103–111, DOI: 10.3115/v1/w14-4012.
+[^cho2014]: Empirical proof of fixed-vector bottleneck degradation as sentence length exceeds 20–30 words (Cho et al. 2014). K. Cho, B. van Merrienboer, D. Bahdanau, and Y. Bengio, "On the Properties of Neural Machine Translation: Encoder–Decoder Approaches," *SSST-8* (2014): 103–111, doi:10.3115/v1/w14-4012.
 
-[^bahdanau2015]: **Grade: High** for soft attention bypassing the fixed-length vector bottleneck and maintaining translation accuracy across long sequences (Bahdanau, Cho & Bengio 2015). D. Bahdanau, K. Cho, and Y. Bengio, "Neural Machine Translation by Jointly Learning to Align and Translate," *ICLR* (2015). Evidence Card: `evidence-cards/bahdanau-2015-neural-machine-translation-attention.md`.
+[^bahdanau2015]: Soft attention bypassing the fixed-length vector bottleneck and maintaining translation accuracy across long sequences (Bahdanau, Cho & Bengio 2015). D. Bahdanau, K. Cho, and Y. Bengio, "Neural Machine Translation by Jointly Learning to Align and Translate," *ICLR* (2015).
 
 [^lstm-math]: **Recurrent State Update Equations:** In standard LSTM networks, the cell state updates via $\mathbf{C}_t = \mathbf{f}_t \odot \mathbf{C}_{t-1} + \mathbf{i}_t \odot \tilde{\mathbf{C}}_t$ and emits hidden state $\mathbf{h}_t = \mathbf{o}_t \odot \tanh(\mathbf{C}_t).
 
@@ -219,7 +219,7 @@ To unlock the true power of attention, computing had to take one more radical st
 
 ## Notes
 
-[^bahdanau2014]: **Grade: High** for soft attention eliminating the fixed-vector bottleneck in sequence-to-sequence neural translation (Bahdanau, Cho & Bengio 2015). D. Bahdanau, K. Cho, and Y. Bengio, "Neural Machine Translation by Jointly Learning to Align and Translate," *ICLR* (2015), arXiv:1409.0473. Evidence Card: `evidence-cards/bahdanau-2015-neural-machine-translation-attention.md`.
+[^bahdanau2014]: Soft attention eliminating the fixed-vector bottleneck in sequence-to-sequence neural translation (Bahdanau, Cho & Bengio 2015). D. Bahdanau, K. Cho, and Y. Bengio, "Neural Machine Translation by Jointly Learning to Align and Translate," *ICLR* (2015), arXiv:1409.0473.
 
 [^attention-math]: **Additive Alignment Equations:** The alignment score between decoder state $\mathbf{s}_{i-1}$ and encoder annotation $\mathbf{h}_j$ is given by {ij} = \mathbf{v}_a^\top \tanh(\mathbf{W}_a \mathbf{s}_{i-1} + \mathbf{U}_a \mathbf{h}_j)$, with normalized attention weights $\alpha_{ij} = \exp(e_{ij}) / \sum_k \exp(e_{ik})$ yielding dynamic context $\mathbf{c}_i = \sum_j \alpha_{ij} \mathbf{h}_j$.
 
@@ -291,7 +291,7 @@ The Long Short-Term Memory network had preserved error signals across time. But 
 
 ## Notes
 
-[^vaswani2017]: **Grade: High** for multi-head self-attention replacing recurrence and convolution to achieve state-of-the-art translation with constant sequential operations (Vaswani et al. 2017). A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin, "Attention Is All You Need," *NeurIPS* 30 (2017): 5998–6008, arXiv:1706.03762. Evidence Card: `evidence-cards/vaswani-2017-attention-is-all-you-need.md`.
+[^vaswani2017]: Multi-head self-attention replacing recurrence and convolution to achieve state-of-the-art translation with constant sequential operations (Vaswani et al. 2017). A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin, "Attention Is All You Need," *NeurIPS* 30 (2017): 5998–6008, arXiv:1706.03762.
 
 [^transformer-math]: **Scaled Dot-Product Equation:** The core attention calculation maps queries $\mathbf{Q}$, keys $\mathbf{K}$, and values $\mathbf{V}$ via $\text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{softmax}\left(\frac{\mathbf{Q}\mathbf{K}^\top}{\sqrt{d_k}}\right)\mathbf{V}$, scaling by $\sqrt{d_k}$ to prevent gradient saturation.
 ight)\mathbf{V}$, scaling by $\sqrt{d_k}$ to prevent gradient saturation.
@@ -365,7 +365,7 @@ In a single task, ambiguity is resolved. The word is no longer an abstract token
 
 ## Notes
 
-[^vaswani2017]: **Grade: High** for scaled dot-product attention establishing efficient pairwise routing across sequence positions (Vaswani et al. 2017). A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin, "Attention Is All You Need," *NeurIPS* 30 (2017): 5998–6008, arXiv:1706.03762. Evidence Card: `evidence-cards/vaswani-2017-attention-is-all-you-need.md`.
+[^vaswani2017]: Scaled dot-product attention establishing efficient pairwise routing across sequence positions (Vaswani et al. 2017). A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin, "Attention Is All You Need," *NeurIPS* 30 (2017): 5998–6008, arXiv:1706.03762.
 
 [^qkv-math]: **Attention Formulation:** Given packed matrices $\mathbf{Q}, \mathbf{K}, \mathbf{V}$, attention computes $\text{softmax}(\mathbf{Q}\mathbf{K}^\top / \sqrt{d_k})\mathbf{V}$. Each output row is a convex combination of values weighted by query-key affinity.
 
@@ -436,11 +436,11 @@ Multi-head attention proved. That grasp is not a monolithic scalar calculation. 
 
 ## Notes
 
-[^vaswani2017]: **Grade: High** for multi-head attention enabling simultaneous projection into distinct representation subspaces (Vaswani et al. 2017). A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin, "Attention Is All You Need," *NeurIPS* 30 (2017): 5998–6008, arXiv:1706.03762. Evidence Card: `evidence-cards/vaswani-2017-attention-is-all-you-need.md`.
+[^vaswani2017]: Multi-head attention enabling simultaneous projection into distinct representation subspaces (Vaswani et al. 2017). A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin, "Attention Is All You Need," *NeurIPS* 30 (2017): 5998–6008, arXiv:1706.03762.
 
-[^devlin2018]: **Grade: High** for deep bidirectional Transformer representations outperforming unidirectional language models across diverse language understanding benchmarks (Devlin et al. 2019). J. Devlin, M. W. Chang, K. Lee, and K. Toutanova, "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding," *NAACL-HLT* (2019): 4171–4186, arXiv:1810.04805. Evidence Card: `evidence-cards/devlin-2019-bert-pretraining-deep-bidirectional.md`.
+[^devlin2018]: Deep bidirectional Transformer representations outperforming unidirectional language models across diverse language understanding benchmarks (Devlin et al. 2019). J. Devlin, M. W. Chang, K. Lee, and K. Toutanova, "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding," *NAACL-HLT* (2019): 4171–4186, arXiv:1810.04805.
 
-[^voita2019]: **Grade: High** for empirical identification of specialized linguistic roles (syntactic, positional, rare-token) across Transformer attention heads. E. Voita, D. Talbot, F. Moiseev, R. Sennrich, and I. Titov, "Analyzing Multi-Head Self-Attention: Specialized Heads Do the Heavy Lifting, the Rest Can Be Pruned," *ACL* (2019): 5797–5808.
+[^voita2019]: Empirical identification of specialized linguistic roles (syntactic, positional, rare-token) across Transformer attention heads. E. Voita, D. Talbot, F. Moiseev, R. Sennrich, and I. Titov, "Analyzing Multi-Head Self-Attention: Specialized Heads Do the Heavy Lifting, the Rest Can Be Pruned," *ACL* (2019): 5797–5808.
 
 [^mha-math]: **Multi-Head Projection:** $\text{MultiHead}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{Concat}(\text{head}_1, \dots, \text{head}_h)\mathbf{W}^O$, where each $\text{head}_i = \text{Attention}(\mathbf{Q}\mathbf{W}_i^Q, \mathbf{K}\mathbf{W}_i^K, \mathbf{V}\mathbf{W}_i^V)$.
 
@@ -509,13 +509,13 @@ Time is not lost. it is mapped. The machine does not wait for history to unfold.
 
 ## Notes
 
-[^vaswani2017]: **Grade: High** for sinusoidal positional encodings injecting sequence order into permutation-invariant self-attention (Vaswani et al. 2017). A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin, "Attention Is All You Need," *NeurIPS* 30 (2017): 5998–6008, arXiv:1706.03762. Evidence Card: `evidence-cards/vaswani-2017-attention-is-all-you-need.md`.
+[^vaswani2017]: Sinusoidal positional encodings injecting sequence order into permutation-invariant self-attention (Vaswani et al. 2017). A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin, "Attention Is All You Need," *NeurIPS* 30 (2017): 5998–6008, arXiv:1706.03762.
 
-[^devlin2018]: **Grade: High** for learned positional encodings in bidirectional Transformer pre-training (Devlin et al. 2019). J. Devlin, M. W. Chang, K. Lee, and K. Toutanova, "BERT," *NAACL-HLT* (2019): 4171–4186. Evidence Card: `evidence-cards/devlin-2019-bert-pretraining-deep-bidirectional.md`.
+[^devlin2018]: Learned positional encodings in bidirectional Transformer pre-training (Devlin et al. 2019). J. Devlin, M. W. Chang, K. Lee, and K. Toutanova, "BERT," *NAACL-HLT* (2019): 4171–4186.
 
-[^shaw2018]: **Grade: High** for relative position representations in self-attention models. P. Shaw, J. Uszkoreit, and A. Vaswani, "Self-Attention with Relative Position Representations," *NAACL-HLT* (2018): 464–468.
+[^shaw2018]: Relative position representations in self-attention models. P. Shaw, J. Uszkoreit, and A. Vaswani, "Self-Attention with Relative Position Representations," *NAACL-HLT* (2018): 464–468.
 
-[^su2024]: **Grade: High** for Rotary Position Embedding (RoPE) unifying absolute and relative positional encoding via complex rotation. J. Su, M. Ahmed, Y. Lu, S. Pan, W. Bo, and Y. Liu, "RoFormer: Enhanced Transformer with Rotary Position Embedding," *Neurocomputing* 568 (2024): 127063.
+[^su2024]: Rotary Position Embedding (RoPE) unifying absolute and relative positional encoding via complex rotation. J. Su, M. Ahmed, Y. Lu, S. Pan, W. Bo, and Y. Liu, "RoFormer: Enhanced Transformer with Rotary Position Embedding," *Neurocomputing* 568 (2024): 127063.
 
 [^pe-math]: **Sinusoidal Position Formulation:** $PE_{(pos, 2i)} = \sin(pos / 10000^{2i/d_{model}})$ and $PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{model}})$, establishing fixed geometric progressions across channels.
 
@@ -589,9 +589,9 @@ Part II turns from machine learning design to collective human systems. Chapter 
 
 ## Notes
 
-[^vaswani2017]: **Grade: High** for Transformer self-attention providing temporary in-context working memory across token positions (Vaswani et al. 2017). A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin, "Attention Is All You Need," *NeurIPS* 30 (2017): 5998–6008, arXiv:1706.03762. Evidence Card: `evidence-cards/vaswani-2017-attention-is-all-you-need.md`.
+[^vaswani2017]: Transformer self-attention providing temporary in-context working memory across token positions (Vaswani et al. 2017). A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin, "Attention Is All You Need," *NeurIPS* 30 (2017): 5998–6008, arXiv:1706.03762.
 
-[^kaplan2020]: **Grade: High** for empirical power-law scaling governing language model performance across parameters, dataset size, and compute budget (Kaplan et al. 2020). J. Kaplan, S. McCandlish, T. Henighan, T. B. Brown, B. Chess, R. Child, ... and D. Amodei, "Scaling Laws for Neural Language Models," *arXiv:2001.08361* (2020). Evidence Card: `evidence-cards/kaplan-2020-scaling-laws-neural-language-models.md`.
+[^kaplan2020]: Empirical power-law scaling governing language model performance across parameters, dataset size, and compute budget (Kaplan et al. 2020). J. Kaplan, S. McCandlish, T. Henighan, T. B. Brown, B. Chess, R. Child,. and D. Amodei, "Scaling Laws for Neural Language Models," *arXiv:2001.08361* (2020).
 
 [^scaling-math]: **Power-Law Scaling Formulation:** Cross-entropy test loss scales smoothly via (N) \approx (N_c/N)^{\alpha_N}$, (D) \approx (D_c/D)^{\alpha_D}$, and (C) \approx (C_c/C)^{\alpha_C}$, showing predictable loss reductions over multiple orders of magnitude.
 
@@ -664,9 +664,9 @@ An company composed entirely of searchers excels at localized answers. But strug
 
 ## Notes
 
-[^simon1971]: **Grade: Moderate** for attention scarcity in information-rich environments (Simon 1971). H. A. Simon, "Designing Organizations for an Information-Rich World," in M. Greenberger (ed.), *Computers, Communications, and the Public Interest* (Baltimore: Johns Hopkins Press, 1971), pp. 37–72. Evidence Card: `evidence-cards/simon-1971-designing-organizations-information-rich-world.md`.
+[^simon1971]: Attention scarcity in information-rich environments (Simon 1971). H. A. Simon, "Designing Organizations for an Information-Rich World," in M. Greenberger (ed.), *Computers, Communications, and the Public Interest* (Baltimore: Johns Hopkins Press, 1971), pp. 37–72.
 
-[^vaswani2017]: **Grade: High** for self-attention replacing internal sequential storage with dynamic pairwise routing (Vaswani et al. 2017). A. Vaswani et al., "Attention Is All You Need," *NeurIPS* 30 (2017): 5998–6008. Evidence Card: `evidence-cards/vaswani-2017-attention-is-all-you-need.md`.
+[^vaswani2017]: Self-attention replacing internal sequential storage with dynamic pairwise routing (Vaswani et al. 2017). A. Vaswani et al., "Attention Is All You Need," *NeurIPS* 30 (2017): 5998–6008.
 
 ---
 
@@ -734,11 +734,11 @@ If an company's internal wikis are full of contradictory. obsolete memos. the ve
 
 ## Notes
 
-[^karpukhin2020]: **Grade: High** for dense passage retrieval outperforming traditional sparse BM25 retrieval for open-domain question answering (Karpukhin et al. 2020). V. Karpukhin, B. Oğuz, S. Min, P. Lewis, L. Wu, S. Edunov, D. Chen, and W. Yih, "Dense Passage Retrieval for Open-Domain Question Answering," *EMNLP* (2020): 6769–6781.
+[^karpukhin2020]: Dense passage retrieval outperforming traditional sparse BM25 retrieval for open-domain question answering (Karpukhin et al. 2020). V. Karpukhin, B. Oğuz, S. Min, P. Lewis, L. Wu, S. Edunov, D. Chen, and W. Yih, "Dense Passage Retrieval for Open-Domain Question Answering," *EMNLP* (2020): 6769–6781.
 
-[^devlin2018]: **Grade: High** for deep bidirectional representations in semantic text retrieval (Devlin et al. 2019). J. Devlin, M. W. Chang, K. Lee, and K. Toutanova, "BERT," *NAACL-HLT* (2019): 4171–4186. Evidence Card: `evidence-cards/devlin-2019-bert-pretraining-deep-bidirectional.md`.
+[^devlin2018]: Deep bidirectional representations in semantic text retrieval (Devlin et al. 2019). J. Devlin, M. W. Chang, K. Lee, and K. Toutanova, "BERT," *NAACL-HLT* (2019): 4171–4186.
 
-[^simon1971]: **Grade: Moderate** for attention allocation constraints in high-volume information systems (Simon 1971). H. A. Simon, "Designing Organizations for an Information-Rich World," *Johns Hopkins Press* (1971): 37–72. Evidence Card: `evidence-cards/simon-1971-designing-organizations-information-rich-world.md`.
+[^simon1971]: Attention allocation constraints in high-volume information systems (Simon 1971). H. A. Simon, "Designing Organizations for an Information-Rich World," *Johns Hopkins Press* (1971): 37–72.
 
 ---
 
@@ -810,7 +810,7 @@ True skill is not the speed at which you look things up. It is the structured me
 
 ## Notes
 
-[^march1991]: **Grade: High** for the computational model of exploration versus exploitation and the risks of rapid socialization in organizational memory (March 1991). J. G. March, "Exploration and Exploitation in Organizational Learning," *Organization Science* 2, no. 1 (1991): 71–87, DOI: 10.1287/orsc.2.1.71. Evidence Card: `evidence-cards/march-1991-exploration-exploitation-organizational-learning.md`.
+[^march1991]: The computational model of exploration versus exploitation and the risks of rapid socialization in organizational memory (March 1991). J. G. March, "Exploration and Exploitation in Organizational Learning," *Organization Science* 2, no. 1 (1991): 71–87, doi:10.1287/orsc.2.1.71.
 
 ---
 
@@ -883,9 +883,9 @@ Leaders must decide what not to look at. In an age of infinite data. the most cr
 
 ## Notes
 
-[^simon1971]: **Grade: Moderate** for attention scarcity and bounded rationality in executive organizational design (Simon 1971). H. A. Simon, "Designing Organizations for an Information-Rich World," *Johns Hopkins Press* (1971): 37–72. Evidence Card: `evidence-cards/simon-1971-designing-organizations-information-rich-world.md`.
+[^simon1971]: Attention scarcity and bounded rationality in executive organizational design (Simon 1971). H. A. Simon, "Designing Organizations for an Information-Rich World," *Johns Hopkins Press* (1971): 37–72.
 
-[^march1991]: **Grade: High** for organizational learning dynamics and the tendency of short-term metrics to crowd out exploration (March 1991). J. G. March, "Exploration and Exploitation in Organizational Learning," *Organization Science* 2, no. 1 (1991): 71–87. Evidence Card: `evidence-cards/march-1991-exploration-exploitation-organizational-learning.md`.
+[^march1991]: Organizational learning dynamics and the tendency of short-term metrics to crowd out exploration (March 1991). J. G. March, "Exploration and Exploitation in Organizational Learning," *Organization Science* 2, no. 1 (1991): 71–87.
 
 ---
 
@@ -958,9 +958,9 @@ The technology that eliminated sequential bottlenecks must not be allowed to eli
 
 ## Notes
 
-[^march1991]: **Grade: High** for organizational code preservation and formal knowledge transmission (March 1991). J. G. March, "Exploration and Exploitation in Organizational Learning," *Organization Science* 2, no. 1 (1991): 71–87. Evidence Card: `evidence-cards/march-1991-exploration-exploitation-organizational-learning.md`.
+[^march1991]: Organizational code preservation and formal knowledge transmission (March 1991). J. G. March, "Exploration and Exploitation in Organizational Learning," *Organization Science* 2, no. 1 (1991): 71–87.
 
-[^simon1971]: **Grade: Moderate** for designing auditable decision-making filters in information-rich organizations (Simon 1971). H. A. Simon, "Designing Organizations for an Information-Rich World," *Johns Hopkins Press* (1971): 37–72. Evidence Card: `evidence-cards/simon-1971-designing-organizations-information-rich-world.md`.
+[^simon1971]: Designing auditable decision-making filters in information-rich organizations (Simon 1971). H. A. Simon, "Designing Organizations for an Information-Rich World," *Johns Hopkins Press* (1971): 37–72.
 
 ---
 
@@ -1036,9 +1036,9 @@ We become consumers of answers rather than creators of insight.
 
 ## Notes
 
-[^tulving1985]: **Grade: High** for the neurobiological dissociation between semantic fact retrieval (noetic awareness) and episodic mental time travel (autonoetic recollection) (Tulving 1985). E. Tulving, "Memory and consciousness," *Canadian Psychology* 26, no. 1 (1985): 1–12, https://doi.org/10.1037/h0080017. Evidence Card: `evidence-cards/tulving-1985-episodic-semantic-autonoetic-memory.md`.
+[^tulving1985]: The neurobiological dissociation between semantic fact retrieval (noetic awareness) and episodic mental time travel (autonoetic recollection) (Tulving 1985). E. Tulving, "Memory and consciousness," *Canadian Psychology* 26, no. 1 (1985): 1–12, https://doi.org/10.1037/h0080017.
 
-[^clark1998]: **Grade: Moderate** for active externalism and the boundary between internal cognition and external retrieval (Clark & Chalmers 1998). A. Clark and D. Chalmers, "The Extended Mind," *Analysis* 58, no. 1 (1998): 7–19. Evidence Card: `evidence-cards/clark-chalmers-1998-extended-mind-external-memory.md`.
+[^clark1998]: Active externalism and the boundary between internal cognition and external retrieval (Clark & Chalmers 1998). A. Clark and D. Chalmers, "The Extended Mind," *Analysis* 58, no. 1 (1998): 7–19.
 
 ---
 
@@ -1112,9 +1112,9 @@ Serendipitous insight requires. That ideas collide inside the same mind. If all 
 
 ## Notes
 
-[^tulving1985]: **Grade: High** for double dissociations proving that external or semantic information lookup does not recruit episodic autonoetic re-experiencing (Tulving 1985). E. Tulving, "Memory and consciousness," *Canadian Psychology* 26, no. 1 (1985): 1–12, https://doi.org/10.1037/h0080017. Evidence Card: `evidence-cards/tulving-1985-episodic-semantic-autonoetic-memory.md`.
+[^tulving1985]: Double dissociations proving that external or semantic information lookup does not recruit episodic autonoetic re-experiencing (Tulving 1985). E. Tulving, "Memory and consciousness," *Canadian Psychology* 26, no. 1 (1985): 1–12, https://doi.org/10.1037/h0080017.
 
-[^sparrow2011]: **Grade: Moderate** for controlled experiments demonstrating cognitive offloading and the Google Effect in human transactive memory (Sparrow, Liu & Wegner 2011). B. Sparrow, J. Liu, and D. M. Wegner, "Google Effects on Memory: Cognitive Consequences of Having Information at Our Fingertips," *Science* 333, no. 6043 (2011): 776–778, DOI: 10.1126/science.1207745. Evidence Card: `evidence-cards/sparrow-2011-google-effects-on-memory.md`.
+[^sparrow2011]: Controlled experiments demonstrating cognitive offloading and the Google Effect in human transactive memory (Sparrow, Liu & Wegner 2011). B. Sparrow, J. Liu, and D. M. Wegner, "Google Effects on Memory: Cognitive Consequences of Having Information at Our Fingertips," *Science* 333, no. 6043 (2011): 776–778, doi:10.1126/science.1207745.
 
 ---
 
@@ -1185,9 +1185,9 @@ It is the quality of the coupling between human judgment and external memory sys
 
 ## Notes
 
-[^clark1998]: **Grade: Moderate** for active externalism and the Parity Principle in philosophy of mind (Clark & Chalmers 1998). A. Clark and D. Chalmers, "The Extended Mind," *Analysis* 58, no. 1 (1998): 7–19, DOI: 10.1093/analys/58.1.7. Evidence Card: `evidence-cards/clark-chalmers-1998-extended-mind-external-memory.md`.
+[^clark1998]: Active externalism and the Parity Principle in philosophy of mind (Clark & Chalmers 1998). A. Clark and D. Chalmers, "The Extended Mind," *Analysis* 58, no. 1 (1998): 7–19, doi:10.1093/analys/58.1.7.
 
-[^sparrow2011]: **Grade: Moderate** for empirical verification of cognitive offloading to accessible digital devices (Sparrow et al. 2011). B. Sparrow, J. Liu, and D. M. Wegner, "Google Effects on Memory," *Science* 333 (2011): 776–778. Evidence Card: `evidence-cards/sparrow-2011-google-effects-on-memory.md`.
+[^sparrow2011]: Empirical verification of cognitive offloading to accessible digital devices (Sparrow et al. 2011). B. Sparrow, J. Liu, and D. M. Wegner, "Google Effects on Memory," *Science* 333 (2011): 776–778.
 
 ---
 
@@ -1263,9 +1263,9 @@ We must never surrender the definition of relevance to uncurated statistical mod
 
 ## Notes
 
-[^sparrow2011]: **Grade: Moderate** for the selective distortion of memory and attention in search-mediated environments (Sparrow et al. 2011). B. Sparrow, J. Liu, and D. M. Wegner, "Google Effects on Memory," *Science* 333 (2011): 776–778. Evidence Card: `evidence-cards/sparrow-2011-google-effects-on-memory.md`.
+[^sparrow2011]: The selective distortion of memory and attention in search-mediated environments (Sparrow et al. 2011). B. Sparrow, J. Liu, and D. M. Wegner, "Google Effects on Memory," *Science* 333 (2011): 776–778.
 
-[^searle1980]: **Grade: Moderate** for the distinction between syntactic manipulation and genuine semantic intentionality in the Chinese Room argument (Searle 1980). J. R. Searle, "Minds, Brains, and Programs," *Behavioral and Brain Sciences* 3, no. 3 (1980): 417–424, DOI: 10.1017/s0140525x00005756. Evidence Card: `evidence-cards/searle-1980-minds-brains-programs-chinese-room.md`.
+[^searle1980]: The distinction between syntactic manipulation and genuine semantic intentionality in the Chinese Room argument (Searle 1980). J. R. Searle, "Minds, Brains, and Programs," *Behavioral and Brain Sciences* 3, no. 3 (1980): 417–424, doi:10.1017/s0140525x00005756.
 
 ---
 
@@ -1349,10 +1349,10 @@ That journey belongs to the next volume: *The Context Window*.
 
 ## Notes
 
-[^tulving1985]: **Grade: High** for autonoetic consciousness as the defining criterion of episodic memory, distinguishing autobiographical reflection from pure token lookup (Tulving 1985). E. Tulving, "Memory and consciousness," *Canadian Psychology* 26, no. 1 (1985): 1–12, https://doi.org/10.1037/h0080017. Evidence Card: `evidence-cards/tulving-1985-episodic-semantic-autonoetic-memory.md`.
+[^tulving1985]: Autonoetic consciousness as the defining criterion of episodic memory, distinguishing autobiographical reflection from pure token lookup (Tulving 1985). E. Tulving, "Memory and consciousness," *Canadian Psychology* 26, no. 1 (1985): 1–12, https://doi.org/10.1037/h0080017.
 
-[^radford2019]: **Grade: High** for unsupervised multi-task learning in autoregressive Transformers (Radford et al. 2019). A. Radford, J. Wu, R. Child, D. Luan, D. Amodei, and I. Sutskever, "Language Models are Unsupervised Multitask Learners," *OpenAI Technical Report* (2019). Evidence Card: `evidence-cards/radford-2019-language-models-unsupervised-multitask.md`.
+[^radford2019]: Unsupervised multi-task learning in autoregressive Transformers (Radford et al. 2019). A. Radford, J. Wu, R. Child, D. Luan, D. Amodei, and I. Sutskever, "Language Models are Unsupervised Multitask Learners," *OpenAI Technical Report* (2019).
 
-[^brown2020]: **Grade: High** for in-context few-shot learning emerging from scaled autoregressive Transformers without parameter fine-tuning (Brown et al. 2020). T. Brown et al., "Language Models are Few-Shot Learners," *NeurIPS* 33 (2020): 1877–1901. Evidence Card: `evidence-cards/brown-2020-language-models-few-shot-learners.md`.
+[^brown2020]: In-context few-shot learning emerging from scaled autoregressive Transformers without parameter fine-tuning (Brown et al. 2020). T. Brown et al., "Language Models are Few-Shot Learners," *NeurIPS* 33 (2020): 1877–1901.
 
-[^searle1980]: **Grade: Moderate** for the Chinese Room argument establishing the permanent distinction between syntactic manipulation and semantic understanding (Searle 1980). J. R. Searle, "Minds, Brains, and Programs," *Behavioral and Brain Sciences* 3, no. 3 (1980): 417–424. Evidence Card: `evidence-cards/searle-1980-minds-brains-programs-chinese-room.md`.
+[^searle1980]: The Chinese Room argument establishing the permanent distinction between syntactic manipulation and semantic understanding (Searle 1980). J. R. Searle, "Minds, Brains, and Programs," *Behavioral and Brain Sciences* 3, no. 3 (1980): 417–424.

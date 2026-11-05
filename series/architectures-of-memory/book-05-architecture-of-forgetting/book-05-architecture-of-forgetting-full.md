@@ -1,6 +1,6 @@
 # series/architectures-of-memory/book-05-architecture-of-forgetting — Full manuscript
 
-Compiled from `series/architectures-of-memory/book-05-architecture-of-forgetting/chapters/*.md` in sorted filename order (2026-11-04).
+Compiled from `series/architectures-of-memory/book-05-architecture-of-forgetting/chapters/*.md` in sorted filename order (2026-11-05).
 
 **Footnotes:** Each chapter defines reference-style footnotes locally. Some labels repeat across chapters; in one file, renderers may attach one definition to every use of a label.
 
