@@ -20,17 +20,17 @@ Si estás leyendo a las dos de la madrugada con tu bebé intranquilo en brazos, 
 **P: ¿Necesito «metilfolato» en vez de ácido fólico si tengo una variante del gen MTHFR?**  
 *Capítulo 1 (Movimiento III)* — No. Todos los ensayos clínicos internacionales que demostraron la prevención de defectos del tubo neural utilizaron ácido fólico estándar, que el organismo metaboliza de forma segura al margen de variantes genéticas habituales. Los costosos suplementos de metilfolato responden al marketing comercial sin respaldo clínico en prevención de anomalías.
 
-**P: ¿Cuánto influye la edad del padre en el momento de la concepción?**  
-*Capítulo 1 (Movimiento II)* — Los hombres mayores de 45 años transmiten un número ligeramente mayor de variaciones genéticas nuevas, pero el riesgo absoluto de afecciones infrecuentes continúa siendo muy bajo. La inmensa mayoría de los niños de padres mayores nacen completamente sanos.
+**P: ¿Cuánto influye la edad del padre en la concepción sobre las mutaciones genéticas o el riesgo de autismo?**  
+*Capítulo 1 (Movimiento II)* — Los hombres mayores de 45 años transmiten un número ligeramente mayor de mutaciones genéticas espontáneas nuevas, pero el riesgo absoluto de afecciones infrecuentes o de autismo continúa siendo muy bajo. La inmensa mayoría de los niños de padres mayores nacen completamente sanos.
 
 **P: ¿Los bebés pueden oír voces y recordar música dentro del útero?**  
 *Capítulo 2 (Movimiento I)* — Hacia el tercer trimestre, el sistema auditivo del feto ya es plenamente funcional. Los recién nacidos reconocen la voz materna y la melodía de su lengua natal pocas horas después de nacer. La conversación ordinaria del entorno es todo el estímulo que un feto necesita.
 
-**P: ¿Un parto por cesárea o perderse la primera hora perjudica el vínculo de apego?**  
-*Capítulo 3 (Movimiento II)* — El apego filial se construye mediante miles de interacciones cotidianas a lo largo de meses, no en una hora mágica irrepetible. Los bebés nacidos por cesárea desarrollan apego seguro en proporciones idénticas a los nacidos por vía vaginal.
+**P: ¿Un parto por cesárea afecta a la microbiota del bebé o al vínculo del contacto piel con piel?**  
+*Capítulo 3 (Movimiento II)* — El apego filial se construye mediante miles de interacciones cotidianas a lo largo de meses, no en una hora mágica irrepetible, y los bebés nacidos por cesárea desarrollan un vínculo seguro en proporciones idénticas a los nacidos por vía vaginal. Las diferencias iniciales en la microbiota intestinal se reducen con rapidez gracias al contacto piel con piel, las caricias cotidianas en casa y la alimentación.
 
-**P: ¿Es peligrosa la ictericia neonatal y necesita mi bebé «siembra vaginal» tras una cesárea?**  
-*Capítulo 3 (Movimiento II)* — La ictericia leve es frecuente y se trata con seguridad mediante fototerapia hospitalaria; jamás expongas al recién nacido a la luz solar directa. Frotar gasas vaginales sin control médico entraña riesgos reales de infección neonatal sin beneficios probados.
+**P: ¿Es peligrosa la ictericia neonatal y necesita mi bebé una lámpara de fototerapia o «siembra vaginal» tras una cesárea?**  
+*Capítulo 3 (Movimiento II)* — La ictericia neonatal leve es frecuente y se trata con total seguridad mediante lámparas hospitalarias de fototerapia con luz azul; jamás expongas al recién nacido a la luz solar directa. Frotar gasas con fluidos vaginales sin control médico (siembra vaginal) entraña riesgos reales de infección neonatal sin beneficios probados para la salud.
 
 **P: ¿La lactancia materna aumenta realmente el cociente intelectual a largo plazo?**  
 *Capítulo 3 (Movimiento III)* — Ensayos aleatorizados amplios y comparaciones entre hermanos demuestran que amamantar confiere una protección inmunitaria real frente a infecciones digestivas del lactante, pero las diferencias de cociente intelectual entre hermanos alimentados con leche materna o de fórmula se reducen prácticamente a cero.
@@ -50,23 +50,23 @@ Si estás leyendo a las dos de la madrugada con tu bebé intranquilo en brazos, 
 **P: ¿El ruido blanco es seguro para el sueño del bebé?**  
 *Capítulo 4 (Movimiento IV)* — El ruido blanco puede ayudar a atenuar sonidos domésticos repentinos, pero los aparatos colocados dentro de la cuna o a más de 50 decibelios pueden sobrecargar el delicado sistema auditivo del lactante. Mantén los dispositivos a unos dos metros de distancia y a volumen moderado.
 
-**P: ¿El entrenamiento del sueño daña el apego del bebé?**  
-*Capítulo 4 (Movimiento II)* — Múltiples ensayos aleatorizados demuestran que las estrategias conductuales de sueño ayudan a los bebés a consolidar descansos más prolongados sin alterar la seguridad del apego ni elevar las hormonas de estrés a largo plazo.
+**P: ¿El método Ferber o el entrenamiento suave del sueño dañarán el apego de mi bebé?**  
+*Capítulo 4 (Movimiento II)* — Múltiples ensayos aleatorizados demuestran que la extinción gradual (el método Ferber) y el acompañamiento suave del sueño ayudan a los bebés a consolidar descansos más prolongados sin alterar la seguridad del apego ni elevar las hormonas de estrés a largo plazo.
 
 **P: ¿Qué ocurre en la regresión del sueño de los cuatro meses y qué debe comer a los seis meses?**  
 *Capítulo 4 (Movimientos II y IV)* — Hacia los cuatro meses, el sueño del lactante se reorganiza de forma permanente en ciclos de cuatro fases similares a los del adulto, lo que exige aprender a conciliar el descanso de manera autónoma. A los seis meses, las reservas de hierro se agotan, por lo que los primeros alimentos ricos en hierro (carne o cereales fortificados) resultan fundamentales para el neurodesarrollo.
 
 **P: ¿Mi bebé está pasando por un «salto mental» de las Wonder Weeks según el calendario, o por qué se puso irritable este martes?**  
-*Capítulo 5 (Movimiento III)* — Los ensayos de replicación demuestran que los picos de llanto e irritabilidad no se sincronizan con semanas fijas del calendario; las fases difíciles responden a ritmos biológicos individuales, cansancio o habilidades motoras emergentes, no a un reloj rígido.
+*Capítulo 5 (Movimiento III)* — Los ensayos de replicación longitudinales demuestran que los picos de llanto e irritabilidad no se sincronizan con semanas gestacionales fijas por encima del azar; las fases difíciles responden a ritmos biológicos individuales, habilidades emergentes o cansancio, no al reloj preprogramado de una aplicación.
 
 **P: ¿Por qué mi bebé tira cucharas al suelo desde la trona a propósito?**  
 *Capítulo 6 (Movimiento IV)* — Arrojar objetos no es un acto de desafío; es el primer laboratorio de física del bebé. Los lactantes tiran cucharas para poner a prueba la gravedad, la trayectoria del rebote y comprobar si los objetos suenan de forma distinta en superficies diferentes.
 
-**P: ¿La cabeza plana de mi bebé necesita un casco ortopédico de tres mil dólares?**  
-*Capítulo 6 (Movimiento II)* — Un histórico ensayo aleatorizado demostró que los cascos rígidos aportan un beneficio añadido nulo frente al crecimiento natural y el juego en el suelo hacia los dos años. En cuanto el bebé rueda y se sienta erguido, el desarrollo natural redondea el cráneo por sí solo.
+**P: ¿La plagiocefalia postural (cabeza plana) de mi bebé necesita un casco ortopédico de tres mil dólares?**  
+*Capítulo 6 (Movimiento II)* — Un histórico ensayo controlado aleatorizado sobre plagiocefalia postural demostró que los cascos craneales rígidos aportan un beneficio añadido nulo en el redondeo del cráneo frente al crecimiento natural y el juego en el suelo hacia los dos años. En cuanto el bebé rueda y se sienta erguido, el propio crecimiento remodela la cabeza por sí solo.
 
-**P: ¿Cuántas palabras debe decir a los dieciocho meses y cuándo un retraso en el habla es una señal de alarma?**  
-*Capítulo 7 (Movimiento II)* — La media a los dieciocho meses ronda las cincuenta palabras, pero decir entre diez y veinte es frecuente. Mientras la criatura señale con entusiasmo para compartir interés, mantenga contacto visual y comprenda indicaciones, la comunicación progresa bien; la falta de gestos para señalar o de mirada compartida justifica una valoración temprana.
+**P: ¿Cuántas palabras debe decir a los dieciocho meses y cómo distinguimos a un hablante tardío de las primeras señales de autismo?**  
+*Capítulo 7 (Movimiento II)* — La mediana a los dieciocho meses ronda las cincuenta palabras, pero decir entre diez y veinte es habitual en un hablante tardío sano. Mientras el niño señale para compartir interés, mantenga contacto visual y comprenda indicaciones habladas, el lenguaje va por buen camino; la ausencia de señalamiento, de atención conjunta o de contacto visual justifica una evaluación temprana.
 
 **P: ¿El uso de pantallas provoca retrasos en el habla?**  
 *Capítulo 7 (Movimiento IV)* — La televisión pasiva y las aplicaciones de vídeo no enseñan palabras a los bebés. El retraso en el lenguaje no se vincula a las pantallas en sí, sino a la pérdida de los turnos de conversación recíproca que las pantallas desplazan.
@@ -77,8 +77,8 @@ Si estás leyendo a las dos de la madrugada con tu bebé intranquilo en brazos, 
 **P: ¿Llevar al lactante a la escuela infantil eleva su estrés o perjudica el vínculo?**  
 *Capítulo 8 (Movimiento II)* — Amplios estudios nacionales demuestran que la atención en escuelas infantiles acreditadas no deteriora el apego seguro. Lo que impulsa el desarrollo temprano es la calidez cotidiana y la calidad de las interacciones en el aula, con independencia de que el cuidado tenga lugar en el hogar o en un centro.
 
-**P: ¿Conviene contratar una niñera en casa o elegir una escuela infantil para nuestro pequeño?**  
-*Capítulo 8 (Movimiento IV)* — El seguimiento longitudinal del NICHD demuestra que el desarrollo cognitivo y emocional no depende del entorno en sí; la calidez constante de quien cuida, las conversaciones ricas y la baja rotación del personal importan mucho más que si el cuidado ocurre en el salón o en un aula.
+**P: ¿Conviene contratar una niñera en casa o elegir una escuela infantil acreditada para nuestro pequeño?**  
+*Capítulo 8 (Movimiento IV)* — Décadas de seguimiento longitudinal del NICHD demuestran que el desarrollo cognitivo y emocional no depende del entorno por sí solo; la calidez constante de quien cuida, la conversación recíproca y la baja rotación del personal importan mucho más que si el cuidado ocurre en el salón o en un aula.
 
 **P: ¿Por qué decir «cálmate» no funciona durante una rabieta de un niño pequeño?**  
 *Capítulo 9 (Movimiento IV)* — Una rabieta comienza con un pico de enfado de alta intensidad que desconecta temporalmente los circuitos verbales del niño pequeño. Hablar durante ese momento cumbre añade ruido; aguarda con calma hasta que la cresta de la ira dé paso al llanto de tristeza antes de ofrecer consuelo.
@@ -95,11 +95,11 @@ Si estás leyendo a las dos de la madrugada con tu bebé intranquilo en brazos, 
 **P: ¿El test de la golosina de Stanford demostró que la fuerza de voluntad en preescolar determina el éxito vital?**  
 *Capítulo 11 (Movimiento III)* — Replicaciones a escala nacional demostraron que el célebre experimento medía ante todo los ingresos familiares, la estabilidad del hogar y la fiabilidad de los adultos, más que una fuerza de voluntad innata. Los niños esperan cuando los adultos cumplen sus promesas.
 
-**P: ¿Los juguetes de pedagogías específicas y precio elevado hacen más listos a los niños pequeños?**  
-*Capítulo 12 (Movimiento III)* — Las investigaciones sugieren que el juego simbólico y los objetos cotidianos ejercitan los mismos procesos cognitivos que los juguetes comerciales costosos. El juego ordinario con bloques, recipientes y cajas de cartón estimula la imaginación con igual eficacia.
+**P: ¿Los kits de juguetes Montessori costosos o la rotación semanal de estanterías hacen más listos a los niños pequeños?**  
+*Capítulo 12 (Movimientos III y IV)* — Los estudios demuestran que el juego simbólico y los objetos domésticos sencillos ejercitan los mismos procesos mentales que los kits de marca costosos. Disponer de cuatro a seis juguetes sencillos en una estantería baja mediante rotación evita la saturación visual, mientras que el juego ordinario con bloques, ollas y cajas de cartón estimula la imaginación con igual eficacia.
 
-**P: ¿Por qué siento accesos repentinos de ira e irritabilidad intensa (rabia posparto) en lugar de tristeza?**  
-*Capítulo 13 (Movimiento II)* — La falta crónica de sueño y la sobrecarga del sistema nervioso provocan con frecuencia brotes de ira que los cuestionarios de depresión suelen pasar por alto; esta rabia es una señal biológica de agotamiento extremo, no un fallo moral ni una falta de cariño hacia tu bebé.
+**P: ¿Por qué siento accesos repentinos de ira intensa (rabia posparto) y cuánto importan los permisos parentales remunerados?**  
+*Capítulo 13 (Movimientos II y III)* — La fragmentación grave del sueño y la sobrecarga del sistema nervioso disparan con frecuencia brotes de rabia posparto que los cribados de depresión habituales pasan por alto; contar con permisos parentales remunerados y relevos de descanso en el hogar reduce directamente el estrés materno y protege la regulación del bebé.
 
 **P: ¿La personalidad y la inteligencia de mi hijo quedan fijadas definitivamente a los tres años?**  
 *Capítulo 15 (Movimiento III)* — Estudios longitudinales exhaustivos demuestran que alrededor del noventa por ciento de la posición relativa de un niño de tres años frente a sus compañeros permanece abierta al cambio. Los primeros tres años son una pista de despegue y un punto de paso, nunca un veredicto definitivo.

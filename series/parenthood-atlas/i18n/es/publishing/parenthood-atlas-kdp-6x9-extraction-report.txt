@@ -3,9 +3,9 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: parenthood-atlas-kdp-6x9.pdf
-SHA-256: ff95f092aa59d4592861b6c8ea5be47d0f7e5afd3347e003884c9649b82ae55f
-Bytes: 597,976
-Pages: 168 (168/168 nonblank)
+SHA-256: 9462bc66fc5a5f64b95c66487e3ae4feb409284b6f2ced734c80a81bf86c32c3
+Bytes: 589,886
+Pages: 166 (166/166 nonblank)
 
 Chapters:
 - PASS · PDF page 2 · How to Use This Atlas: 2:00 AM Quick-Finder
@@ -22,5 +22,5 @@ Chapters:
 - PASS · PDF page 118 · Capítulo 11 — El ejecutivo en desarrollo
 - PASS · PDF page 128 · Capítulo 12 — Juego, imaginación y significado
 - PASS · PDF page 138 · Capítulo 13 — La ecología del desarrollo
-- PASS · PDF page 148 · Capítulo 14 — ¿Qué funciona de verdad?
-- PASS · PDF page 159 · Capítulo 15 — Tres años: ¿qué se ha construido?
+- PASS · PDF page 147 · Capítulo 14 — ¿Qué funciona de verdad?
+- PASS · PDF page 157 · Capítulo 15 — Tres años: ¿qué se ha construido?
