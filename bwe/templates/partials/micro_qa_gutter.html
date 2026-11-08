@@ -1,0 +1,109 @@
+<!-- bwe/templates/partials/micro_qa_gutter.html: ARC-101 Micro-QA Paragraph & Sentence Diagnostics -->
+<div class="space-y-4" role="region" aria-label="Micro-QA Diagnostics">
+  <!-- Chapter Header & Aggregate Badges -->
+  <div class="p-4 rounded-xl bg-stone-900/80 border border-stone-800 space-y-3">
+    <div class="flex items-center justify-between">
+      <h3 class="text-xs font-semibold uppercase tracking-wider text-amber-400 font-mono">
+        Micro-QA Diagnostics (Rules 8a–8d)
+      </h3>
+      <span class="px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold {{ 'bg-rose-950 border border-rose-700 text-rose-300' if hard_errors else ('bg-amber-950 border border-amber-700 text-amber-300' if warnings else 'bg-emerald-950 border border-emerald-700 text-emerald-300') }}">
+        {{ 'FAIL (' ~ hard_errors|length ~ ' errors)' if hard_errors else ('NOTICES (' ~ warnings|length ~ ')' if warnings else 'PASS (0 errors)') }}
+      </span>
+    </div>
+    <div class="text-xs text-stone-300 font-mono">
+      Chapter: <span class="text-stone-100 font-semibold">{{ chapter_slug }}</span> ({{ language|upper }})
+    </div>
+
+    <!-- Summary Metrics Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs font-mono">
+      <div class="p-2 rounded bg-stone-950/60 border border-stone-800/80">
+        <div class="text-[10px] text-stone-400 uppercase">Over-Breath Sents</div>
+        <div class="text-sm font-bold {{ 'text-rose-400' if metrics.over_breath_sents > 0 else 'text-emerald-400' }}">
+          {{ metrics.over_breath_sents }}
+        </div>
+      </div>
+      <div class="p-2 rounded bg-stone-950/60 border border-stone-800/80">
+        <div class="text-[10px] text-stone-400 uppercase">Dense Paras</div>
+        <div class="text-sm font-bold {{ 'text-amber-400' if (metrics.wall_of_text_paras + metrics.density_paras) > 0 else 'text-stone-300' }}">
+          {{ metrics.wall_of_text_paras + metrics.density_paras }}
+        </div>
+      </div>
+      <div class="p-2 rounded bg-stone-950/60 border border-stone-800/80">
+        <div class="text-[10px] text-stone-400 uppercase">Empirical Gaps</div>
+        <div class="text-sm font-bold {{ 'text-rose-400' if metrics.empirical_errors > 0 else 'text-emerald-400' }}">
+          {{ metrics.empirical_errors }}
+        </div>
+      </div>
+      <div class="p-2 rounded bg-stone-950/60 border border-stone-800/80">
+        <div class="text-[10px] text-stone-400 uppercase">Cadence Notices</div>
+        <div class="text-sm font-bold {{ 'text-amber-400' if (metrics.cadence_warnings + metrics.defeatist_closings) > 0 else 'text-stone-300' }}">
+          {{ metrics.cadence_warnings + metrics.defeatist_closings }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paragraph-by-Paragraph Breakdown -->
+  <div class="space-y-3">
+    <div class="text-[11px] font-mono text-stone-400 uppercase tracking-wider px-1">
+      Paragraph Diagnostics ({{ paragraphs|length }} body paragraphs audited)
+    </div>
+
+    {% for p in paragraphs %}
+    <div class="p-3 rounded-lg border text-xs font-mono transition {{ 'bg-rose-950/30 border-rose-800/60' if p.hard_errors else ('bg-amber-950/20 border-amber-800/40' if p.warnings else 'bg-stone-900/40 border-stone-800/60') }}">
+      <div class="flex items-center justify-between mb-2">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold {{ 'bg-rose-900 text-rose-200' if p.hard_errors else ('bg-amber-900 text-amber-200' if p.warnings else 'bg-stone-800 text-stone-300') }}">
+            &para; {{ p.idx }}
+          </span>
+          <span class="text-stone-400 text-[11px] truncate max-w-[200px]" title="{{ p.section }}">
+            {{ p.section }}
+          </span>
+        </div>
+        <div class="flex items-center gap-1.5 text-[10px]">
+          <span class="px-1.5 py-0.5 rounded bg-stone-950/80 text-stone-300">{{ p.words }}w</span>
+          <span class="px-1.5 py-0.5 rounded bg-stone-950/80 text-stone-300">{{ p.sents }}s</span>
+          {% if language == 'es' %}
+          <span class="px-1.5 py-0.5 rounded bg-stone-950/80 {{ 'text-rose-300' if p.readability < 28.0 else ('text-amber-300' if p.readability < 42.0 else 'text-emerald-300') }}">
+            Szig {{ "%.1f"|format(p.readability) }}
+          </span>
+          {% else %}
+          <span class="px-1.5 py-0.5 rounded bg-stone-950/80 {{ 'text-rose-300' if p.readability > 16.0 else ('text-amber-300' if p.readability > 12.0 else 'text-emerald-300') }}">
+            FK {{ "%.1f"|format(p.readability) }}
+          </span>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Paragraph Excerpt -->
+      <p class="text-stone-300 font-serif text-[11px] leading-relaxed italic border-l-2 border-stone-700 pl-2 my-1.5">
+        "{{ p.excerpt }}"
+      </p>
+
+      <!-- Paragraph Errors -->
+      {% if p.hard_errors %}
+      <div class="mt-2 space-y-1">
+        {% for err in p.hard_errors %}
+        <div class="flex items-start gap-1.5 text-rose-300 text-[11px]">
+          <span class="font-bold text-rose-400">&times;</span>
+          <span>{{ err }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- Paragraph Warnings -->
+      {% if p.warnings %}
+      <div class="mt-2 space-y-1">
+        {% for warn in p.warnings %}
+        <div class="flex items-start gap-1.5 text-amber-300 text-[11px]">
+          <span class="font-bold text-amber-400">&bull;</span>
+          <span>{{ warn }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>

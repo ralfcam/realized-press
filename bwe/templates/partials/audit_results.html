@@ -10,6 +10,20 @@
     </span>
   </div>
 
+  {% if stdout and "8. Micro-Level Prose & Paragraph QA Gate" in stdout %}
+  <div class="p-3 rounded-lg bg-stone-900 border border-stone-800 text-xs font-mono space-y-2">
+    <div class="flex items-center justify-between text-stone-200">
+      <span class="font-semibold text-amber-400">Rule 8 Micro-QA Gate (ARC-101)</span>
+      <span class="text-[11px] px-2 py-0.5 rounded {{ 'bg-emerald-950 text-emerald-300 border border-emerald-700' if returncode == 0 else 'bg-amber-950 text-amber-300 border border-amber-700' }}">
+        {{ 'Verified Active' if returncode == 0 else 'Gate Warning' }}
+      </span>
+    </div>
+    <p class="text-stone-400 text-[11px] leading-relaxed">
+      Enforces sentence spoken breath ceiling (&le;35w EN / &le;38w ES), paragraph visual geometry (&le;135w, &le;6s), uncited empirical claim markers, and cadence monotony across chapters.
+    </p>
+  </div>
+  {% endif %}
+
   {% if stdout %}
   <div class="space-y-1">
     <span class="text-[10px] uppercase tracking-wider text-stone-400 font-mono">Standard Output</span>

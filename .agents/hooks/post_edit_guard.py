@@ -239,7 +239,12 @@ def _check_chapter_gates(path: Path, text: str) -> list[str]:
 
     # ARC-71 / ARC-72: Anti-Leakage & Bestseller Readability Gate
     try:
-        from audit_manuscript import ANTI_LEAKAGE_PATTERNS, compute_readability_metrics, load_jargon_dictionary
+        from audit_manuscript import (
+            ANTI_LEAKAGE_PATTERNS,
+            compute_readability_metrics,
+            load_jargon_dictionary,
+            audit_micro_qa,
+        )
 
         for leak_label, leak_pat in ANTI_LEAKAGE_PATTERNS.items():
             m = leak_pat.search(body_before_notes)
@@ -268,6 +273,11 @@ def _check_chapter_gates(path: Path, text: str) -> list[str]:
                     f"Bestseller Readability Gate (`ARC-71`): `{path.name}` Flesch-Kincaid Grade is {rm['fk_grade']} "
                     f"(target <= 10.5, avg sentence {rm['avg_sentence_words']}w)."
                 )
+
+        # ARC-101: Sentence & Paragraph Micro-QA Gate (Rules 8a–8d)
+        micro_errs, micro_warns, _ = audit_micro_qa(body_before_notes, language=lang, chapter_slug=path.name)
+        for err in micro_errs:
+            notices.append(f"Micro-QA Hard Gate (`ARC-101`): {err.lstrip('- ')}")
     except Exception:
         pass
 

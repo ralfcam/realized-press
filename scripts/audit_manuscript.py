@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import re
 import sys
@@ -81,7 +82,46 @@ ANTI_LEAKAGE_PATTERNS: dict[str, re.Pattern[str]] = {
     ),
 }
 
-ABBREV_RE = re.compile(r"\b(vs|et al|e\.g|i\.e|Dr|Mr|Mrs|Ms|St|U\.S|U\.K|No|Fig|Ch)\.", re.IGNORECASE)
+ABBREV_RE = re.compile(
+    r"\b(vs|et al|e\.g|i\.e|Dr|Mr|Mrs|Ms|Prof|Sr|Sra|St|U\.S|U\.K|Fig|Figs|Ch|p|pp|vol|vols|Inc|Univ|approx|SEGO|ACOG|cf|ed|eds)\.|\b(?:No|Nos)\.\s*\d+",
+    re.IGNORECASE,
+)
+DECIMAL_RE = re.compile(r"\b\d+[,.]\d+\b")
+SENTENCE_TERMINAL_RE = re.compile(
+    r"[.!?]+(?:[\"\'\u201c\u201d\u2018\u2019*_`~\]\)]*)(?:\s+|$)"
+)
+EMPIRICAL_STUDY_PATTERNS: dict[str, re.Pattern[str]] = {
+    "en": re.compile(
+        r"\b(?:(?:in|a|the|large|landmark|recent|two|several)\s+)?(?:randomized(?:\s+controlled)?\s+trials?|double-blind\s+trials?|(?:cohort|longitudinal|twin|sibling-comparison)\s+stud(?:y|ies)|meta-analys(?:is|es))\b",
+        re.IGNORECASE,
+    ),
+    "es": re.compile(
+        r"\b(?:(?:en|un|el|los|diversos|dos)\s+)?(?:ensayos?\s+controlados?\s+aleatorizados?|ensayos?\s+aleatorizados?|estudios?\s+(?:de\s+cohortes|longitudinales?|de\s+gemelos|de\s+comparaci[oó]n\s+entre\s+hermanos)|metaan[aá]lisis|meta-an[aá]lisis)\b",
+        re.IGNORECASE,
+    ),
+    "fr": re.compile(
+        r"\b(?:(?:dans|un|le|les|deux)\s+)?(?:essais?\s+contr[oô]l[eé]s?\s+randomis[eé]s?|essais?\s+randomis[eé]s?|double\s+aveugle|[eé]tudes?\s+de\s+cohortes?|m[eé]ta-analyses?)\b",
+        re.IGNORECASE,
+    ),
+}
+EMPIRICAL_EXCLUSIONS_RE = re.compile(
+    r"\b(?:like a clinical trial|in clinical trials, (?:software|systems|it)|como un ensayo cl[ií]nico)\b",
+    re.IGNORECASE,
+)
+DEFEATIST_PATTERNS: dict[str, re.Pattern[str]] = {
+    "en": re.compile(
+        r"\b(?:cannot tell us anything|completely uninformative|leaves us with nothing|no conclusion can be drawn|tells us nothing)\b",
+        re.IGNORECASE,
+    ),
+    "es": re.compile(
+        r"\b(?:es completamente in[uú]til|no nos dice nada|no aporta nada|no se puede concluir nada)\b",
+        re.IGNORECASE,
+    ),
+    "fr": re.compile(
+        r"\b(?:ne peut rien nous dire|compl[eè]tement inutile|ne nous apprend rien)\b",
+        re.IGNORECASE,
+    ),
+}
 
 
 def count_syllables(word: str) -> int:
@@ -296,6 +336,218 @@ def strip_quoted_spans(text: str) -> str:
     """Remove blockquotes and double-quoted dialogue before checking instructional phrases."""
     no_bq = "\n".join(line for line in text.splitlines() if not line.lstrip().startswith(">"))
     return re.sub(r'"[^"\n]{1,300}"|\u201c[^\u201d\n]{1,300}\u201d', '""', no_bq)
+
+
+def tokenize_sentences(text: str, language: str = "en") -> list[dict[str, Any]]:
+    """Tokenize paragraph into sentences with robust abbreviation, decimal, and quote protection."""
+    t = ABBREV_RE.sub(lambda m: m.group(0).replace(".", "@DOT@"), text)
+    t = DECIMAL_RE.sub(lambda m: m.group(0).replace(".", "@DOT@").replace(",", "@COMMA@"), t)
+    t = INLINE_FN_RE.sub("", t)
+    raw_splits = SENTENCE_TERMINAL_RE.split(t)
+    results: list[dict[str, Any]] = []
+    word_regex = (
+        r"[A-Za-z0-9áéíóúüñÁÉÍÓÚÜÑ']+"
+        if language == "es"
+        else (r"[A-Za-z0-9àâéèêëîïôùûüœæçÀÂÉÈÊËÎÏÔÙÛÜŒÆÇ']+" if language == "fr" else r"[A-Za-z0-9']+")
+    )
+    for raw in raw_splits:
+        s = raw.replace("@DOT@", ".").replace("@COMMA@", ",").strip()
+        s = s.strip("*_`~ \"'\u201c\u201d\u2018\u2019()[]")
+        if not s:
+            continue
+        words = re.findall(word_regex, s)
+        word_count = len(words)
+        if word_count == 0:
+            continue
+        semi_count = s.count(";")
+        dash_count = len(re.findall(r"—|–|--", s))
+        has_internal_punct = bool(re.search(r"[,;:—–()\-]", s))
+        first_word = words[0].lower() if words else ""
+        results.append({
+            "text": s,
+            "words": word_count,
+            "semicolons": semi_count,
+            "dashes": dash_count,
+            "has_internal_punct": has_internal_punct,
+            "spoken_duration_s": round(word_count / 2.5, 1),
+            "starts_with": first_word,
+        })
+    return results
+
+
+def audit_micro_qa(
+    body_before_notes: str,
+    language: str = "en",
+    chapter_slug: str = "",
+    card_dict: dict[str, Any] | None = None,
+) -> tuple[list[str], list[str], dict[str, int]]:
+    """Audit body prose for sentence & paragraph micro-QA rules (Rules 8a-8d, ARC-101).
+
+    Returns:
+        (hard_errors, advisory_warnings, metrics_dict)
+    """
+    hard_errors: list[str] = []
+    warnings: list[str] = []
+    max_sent_words = 38 if language in ("es", "fr") else 35
+
+    # Strip callout aside blocks from narrative body prose
+    body_before_notes = re.sub(r"<aside[\s\S]*?</aside>", "", body_before_notes)
+
+    sections = split_sections(body_before_notes)
+    p_global_idx = 0
+
+    metrics = {
+        "over_breath_sents": 0,
+        "wall_of_text_paras": 0,
+        "density_paras": 0,
+        "cadence_warnings": 0,
+        "empirical_errors": 0,
+        "defeatist_closings": 0,
+    }
+
+    for sec_title, sec_body in sections:
+        if sec_title.lower().startswith(("notes", "sources", "further reading", "linked evidence cards")):
+            continue
+        raw_paras = [pr.strip() for pr in sec_body.split("\n\n") if pr.strip()]
+        body_paras: list[str] = []
+        for pr in raw_paras:
+            if pr.startswith(("#", ">", "|", "```", "---", "<aside", "<div", "<!--", "$$")):
+                continue
+            lines = [ln.strip() for ln in pr.splitlines() if ln.strip()]
+            if all(ln.startswith(("-", "*", "1.", "2.", "3.", "4.", "5.")) for ln in lines):
+                continue
+            body_paras.append(pr)
+
+        for p_local_idx, p_text in enumerate(body_paras):
+            p_global_idx += 1
+            is_movement_end = (p_local_idx == len(body_paras) - 1)
+            para_fns = INLINE_FN_RE.findall(p_text)
+            clean_p = INLINE_FN_RE.sub("", p_text)
+            clean_p = re.sub(r"<[^>]+>", " ", clean_p)
+            clean_p = re.sub(r"\$[^$]+\$", " formula ", clean_p)
+
+            sents = tokenize_sentences(p_text, language=language)
+            if not sents:
+                continue
+
+            word_regex = (
+                r"[A-Za-z0-9áéíóúüñÁÉÍÓÚÜÑ']+"
+                if language == "es"
+                else (r"[A-Za-z0-9àâéèêëîïôùûüœæçÀÂÉÈÊËÎÏÔÙÛÜŒÆÇ']+" if language == "fr" else r"[A-Za-z0-9']+")
+            )
+            all_words = re.findall(word_regex, clean_p)
+            total_para_words = len(all_words)
+            total_para_sents = len(sents)
+
+            # Rule 8a: Sentence Breath & Clause Outlier Cap
+            for s_idx, s_info in enumerate(sents):
+                sw = s_info["words"]
+                if sw > max_sent_words:
+                    metrics["over_breath_sents"] += 1
+                    hard_errors.append(
+                        f"- `{chapter_slug}` [p.{p_global_idx} s.{s_idx+1}]: Sentence breath ceiling exceeded: {sw}w (target ≤ {max_sent_words}w): \"{s_info['text'][:80]}...\""
+                    )
+                if s_info["semicolons"] > 2:
+                    hard_errors.append(
+                        f"- `{chapter_slug}` [p.{p_global_idx} s.{s_idx+1}]: Clause bloat (>2 semicolons in single sentence): \"{s_info['text'][:80]}...\""
+                    )
+                if sw > 30 and not s_info["has_internal_punct"]:
+                    hard_errors.append(
+                        f"- `{chapter_slug}` [p.{p_global_idx} s.{s_idx+1}]: Oral breath strain ({sw}w without internal punctuation break, ~{s_info['spoken_duration_s']}s phonation): \"{s_info['text'][:80]}...\""
+                    )
+
+            # Rule 8b: Paragraph Rolling Readability & Visual Geometry Cap
+            if total_para_words > 135:
+                metrics["wall_of_text_paras"] += 1
+                warnings.append(
+                    f"- `{chapter_slug}` [p.{p_global_idx}]: Visual geometry wall-of-text: {total_para_words} words (recommended ≤ 135w)."
+                )
+            if total_para_sents > 6:
+                warnings.append(
+                    f"- `{chapter_slug}` [p.{p_global_idx}]: Visual paragraph density: {total_para_sents} sentences (recommended ≤ 6 sentences)."
+                )
+
+            if total_para_sents >= 3 or total_para_words >= 40:
+                rm = compute_readability_metrics(clean_p, language=language)
+                if language == "es":
+                    szig = float(rm["szigriszt"])
+                    if szig < 28.0:
+                        metrics["density_paras"] += 1
+                        hard_errors.append(
+                            f"- `{chapter_slug}` [p.{p_global_idx}]: Extreme local readability density outlier: Szigriszt {szig:.1f} (target ≥ 28.0): \"{clean_p[:80]}...\""
+                        )
+                    elif szig < 42.0:
+                        metrics["density_paras"] += 1
+                        warnings.append(
+                            f"- `{chapter_slug}` [p.{p_global_idx}]: Elevated local readability density: Szigriszt {szig:.1f} (recommended ≥ 42.0): \"{clean_p[:80]}...\""
+                        )
+                elif language == "fr":
+                    kandel = float(rm["kandel"])
+                    if kandel < 40.0:
+                        metrics["density_paras"] += 1
+                        hard_errors.append(
+                            f"- `{chapter_slug}` [p.{p_global_idx}]: Extreme local readability density outlier: Kandel {kandel:.1f} (target ≥ 40.0): \"{clean_p[:80]}...\""
+                        )
+                    elif kandel < 50.0:
+                        metrics["density_paras"] += 1
+                        warnings.append(
+                            f"- `{chapter_slug}` [p.{p_global_idx}]: Elevated local readability density: Kandel {kandel:.1f} (recommended ≥ 50.0): \"{clean_p[:80]}...\""
+                        )
+                else:
+                    fk = float(rm["fk_grade"])
+                    if fk > 16.0:
+                        metrics["density_paras"] += 1
+                        hard_errors.append(
+                            f"- `{chapter_slug}` [p.{p_global_idx}]: Extreme local academic density outlier: FK Grade {fk:.1f} (target ≤ 12.0): \"{clean_p[:80]}...\""
+                        )
+                    elif fk > 12.0:
+                        metrics["density_paras"] += 1
+                        warnings.append(
+                            f"- `{chapter_slug}` [p.{p_global_idx}]: Elevated local academic density: FK Grade {fk:.1f} (recommended ≤ 12.0): \"{clean_p[:80]}...\""
+                        )
+
+            # Rule 8c: Sentence-to-Card Quantitative Anchor & Uncited Empirical Claim Check
+            emp_pat = EMPIRICAL_STUDY_PATTERNS.get(language, EMPIRICAL_STUDY_PATTERNS["en"])
+            m_emp = emp_pat.search(p_text)
+            if m_emp and not EMPIRICAL_EXCLUSIONS_RE.search(p_text):
+                if not para_fns:
+                    metrics["empirical_errors"] += 1
+                    hard_errors.append(
+                        f"- `{chapter_slug}` [p.{p_global_idx}]: Uncited empirical claim marker `{m_emp.group(0)}` in body paragraph without footnote citation: \"{p_text[:80]}...\""
+                    )
+
+            # Rule 8d: Paragraph Cadence & Movement Closing Check
+            if total_para_sents >= 3:
+                starters = [s["starts_with"] for s in sents]
+                for i in range(len(starters) - 2):
+                    if starters[i] and starters[i] == starters[i+1] == starters[i+2]:
+                        metrics["cadence_warnings"] += 1
+                        warnings.append(
+                            f"- `{chapter_slug}` [p.{p_global_idx}]: Sentence starter monotony (3+ consecutive sentences starting with '{starters[i]}'): \"{sents[i]['text'][:60]}...\""
+                        )
+                        break
+
+            if total_para_sents >= 4:
+                lengths = [s["words"] for s in sents]
+                mean_l = sum(lengths) / len(lengths)
+                var = sum((l - mean_l) ** 2 for l in lengths) / len(lengths)
+                sigma = math.sqrt(var)
+                if sigma < 2.0:
+                    metrics["cadence_warnings"] += 1
+                    warnings.append(
+                        f"- `{chapter_slug}` [p.{p_global_idx}]: Low sentence cadence variance (σ = {sigma:.2f}w < 2.0w, lengths: {lengths}): \"{clean_p[:60]}...\""
+                    )
+
+            if is_movement_end:
+                def_pat = DEFEATIST_PATTERNS.get(language, DEFEATIST_PATTERNS["en"])
+                m_def = def_pat.search(clean_p)
+                if m_def:
+                    metrics["defeatist_closings"] += 1
+                    hard_errors.append(
+                        f"- `{chapter_slug}` [p.{p_global_idx}]: Defeatist movement closing terminates on negative disclaimer `{m_def.group(0)}` without 3-tier causal resolution: \"{clean_p[-100:]}\""
+                    )
+
+    return hard_errors, warnings, metrics
 
 
 def run_gemini_review(root: Path, book_path: Path, chapters: list[Path]) -> str:
@@ -730,7 +982,7 @@ def audit_graph_coherence(root: Path, book_path: Path, lang: str | None = None) 
     return lines, all_violations, len(all_violations) == 0
 
 
-def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: bool = False, graph_strict: bool = False, lang_override: str | None = None) -> tuple[str, bool]:
+def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: bool = False, graph_strict: bool = False, micro_strict: bool = False, lang_override: str | None = None) -> tuple[str, bool]:
     root = repo_root()
     chapters_dir = book_path / "chapters"
     chapters = iter_chapter_files(chapters_dir)
@@ -789,6 +1041,9 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
 
     chapter_rows: list[str] = []
     readability_rows: list[str] = []
+    micro_qa_rows: list[str] = []
+    micro_qa_hard_errors: list[str] = []
+    micro_qa_warnings: list[str] = []
     metaphor_collisions: list[str] = []
     fn_issues: list[str] = []
     forbidden_hits: list[str] = []
@@ -891,6 +1146,23 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
             readability_rows.append(
                 f"| `{ch.name}` | {fk:.1f} | {avg_s:.1f}w | {long_35} | {len(ch_jargon_found)} | {status_badge} |"
             )
+
+        ch_hard_errs, ch_warns, ch_metrics = audit_micro_qa(
+            body_before_notes,
+            language=language,
+            chapter_slug=ch.name,
+            card_dict=None,
+        )
+        micro_qa_hard_errors.extend(ch_hard_errs)
+        micro_qa_warnings.extend(ch_warns)
+        sents_over = ch_metrics["over_breath_sents"]
+        dense_p = ch_metrics["wall_of_text_paras"] + ch_metrics["density_paras"]
+        emp_errs = ch_metrics["empirical_errors"]
+        cad_flags = ch_metrics["cadence_warnings"] + ch_metrics["defeatist_closings"]
+        ch_status = "FAIL" if ch_hard_errs else ("NOTICES" if (dense_p > 0 or cad_flags > 0) else "PASS")
+        micro_qa_rows.append(
+            f"| `{ch.name}` | {sents_over} | {dense_p} | {emp_errs} | {cad_flags} | {ch_status} |"
+        )
 
         for full_name, surname in characters:
             if re.search(rf"\b{re.escape(surname)}\b", body_before_notes):
@@ -1032,7 +1304,61 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
             if chs:
                 lines.append(f"| {full_name} | Ch.{chs[0]} | {', '.join(f'Ch.{c}' for c in chs)} |")
 
-    lines.extend(["", "## 8. Residual Fact-Check Action Items (`research/fact-checks/*.md`)"])
+    lines.extend(
+        [
+            "",
+            "## 8. Micro-Level Prose & Paragraph QA Gate (Rules 8a–8d, ARC-101)",
+            "| Chapter | Outlier Sents (>35w/38w) | Dense Paras (>135w / >6s) | Empirical Gaps | Cadence Flags | Micro-QA Gate |",
+            "| :--- | ---: | ---: | ---: | ---: | :--- |",
+            *micro_qa_rows,
+            "",
+            "### 8a. Sentence Breath & Clause Outlier Cap (Rule 8a)",
+        ]
+    )
+    errs_8a = [e for e in micro_qa_hard_errors if any(k in e for k in ("Sentence breath", "Clause bloat", "Oral breath strain"))]
+    if errs_8a:
+        lines.extend(errs_8a)
+    else:
+        lines.append("- **Pass:** All sentences meet spoken breath ceiling (≤ 35w EN / ≤ 38w ES/FR) and clause limits.")
+
+    lines.extend(["", "### 8b. Paragraph Rolling Readability & Visual Geometry Cap (Rule 8b)"])
+    warns_8b = [w for w in micro_qa_warnings if any(k in w for k in ("Visual geometry", "Visual paragraph", "readability density", "academic density"))]
+    errs_8b = [e for e in micro_qa_hard_errors if any(k in e for k in ("readability density", "academic density"))]
+    if errs_8b or warns_8b:
+        if errs_8b:
+            lines.extend(errs_8b)
+        if warns_8b:
+            lines.append(f"- **Notice ({len(warns_8b)} advisory visual/density observations):**")
+            for w in warns_8b[:10]:
+                lines.append(f"  {w}")
+            if len(warns_8b) > 10:
+                lines.append(f"  - ... and {len(warns_8b) - 10} more advisory observations.")
+    else:
+        lines.append("- **Pass:** All paragraphs adhere to visual geometry limits (≤ 135 words, ≤ 6 sentences) and rolling readability targets.")
+
+    lines.extend(["", "### 8c. Uncited Empirical Claim & Quantitative Anchor Gate (Rule 8c)"])
+    errs_8c = [e for e in micro_qa_hard_errors if "Uncited empirical claim" in e]
+    if errs_8c:
+        lines.extend(errs_8c)
+    else:
+        lines.append("- **Pass:** Zero uncited empirical claim markers in body prose; all study references bound to footnotes.")
+
+    lines.extend(["", "### 8d. Paragraph Cadence & Non-Defeatist Movement Closings (Rule 8d)"])
+    errs_8d = [e for e in micro_qa_hard_errors if "Defeatist movement closing" in e]
+    warns_8d = [w for w in micro_qa_warnings if any(k in w for k in ("monotony", "cadence variance"))]
+    if errs_8d or warns_8d:
+        if errs_8d:
+            lines.extend(errs_8d)
+        if warns_8d:
+            lines.append(f"- **Notice ({len(warns_8d)} advisory cadence observations):**")
+            for w in warns_8d[:10]:
+                lines.append(f"  {w}")
+            if len(warns_8d) > 10:
+                lines.append(f"  - ... and {len(warns_8d) - 10} more advisory observations.")
+    else:
+        lines.append("- **Pass:** Sentence starter variety and cadence variance maintained; all movement closings provide 3-tier causal resolution.")
+
+    lines.extend(["", "## 9. Residual Fact-Check Action Items (`research/fact-checks/*.md`)"])
     if open_fc_items:
         lines.extend(open_fc_items)
     else:
@@ -1043,7 +1369,7 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
     lines.extend(graph_lines)
 
     if use_gemini:
-        lines.extend(["", "## 9. Long-Context Gemini 2.5 Pro Editorial Review", ""])
+        lines.extend(["", "## 11. Long-Context Gemini 2.5 Pro Editorial Review", ""])
         lines.append(run_gemini_review(root, book_path, chapters))
 
     strict_ok = (
@@ -1056,7 +1382,9 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
         and citation_needed_total == 0
     )
     if bestseller_strict:
-        strict_ok = strict_ok and not jargon_hits and not readability_flags
+        strict_ok = strict_ok and not jargon_hits and not readability_flags and not micro_qa_hard_errors
+    if micro_strict:
+        strict_ok = strict_ok and not micro_qa_hard_errors and not micro_qa_warnings
     if graph_strict:
         strict_ok = strict_ok and graph_ok
 
@@ -1069,8 +1397,9 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=None, help="Optional file path to write markdown report")
     parser.add_argument("--gemini", action="store_true", help="Run long-context Gemini 2.5 Pro holistic review")
     parser.add_argument("--strict", action="store_true", help="Exit with code 1 if any core audit or anti-leakage gate fails")
-    parser.add_argument("--bestseller-strict", action="store_true", help="Also fail if any chapter exceeds FK Grade 10.5 or contains body jargon")
+    parser.add_argument("--bestseller-strict", action="store_true", help="Also fail if any chapter exceeds FK Grade 10.5 or contains body jargon or sentence breath strain")
     parser.add_argument("--graph-strict", action="store_true", help="Fail if any OKF v0.3 knowledge graph coherence gate (Rules 7a–7e) fails")
+    parser.add_argument("--micro-strict", action="store_true", help="Fail if any micro-QA rule (Rules 8a–8d) has hard errors or advisory notices")
     parser.add_argument("--lang", choices=["en", "es", "fr"], default=None, help="Explicit language override (en, es, fr)")
     args = parser.parse_args()
 
@@ -1085,6 +1414,7 @@ def main() -> None:
         use_gemini=args.gemini,
         bestseller_strict=args.bestseller_strict,
         graph_strict=args.graph_strict,
+        micro_strict=args.micro_strict,
         lang_override=args.lang,
     )
     if args.output:
@@ -1094,7 +1424,7 @@ def main() -> None:
     else:
         sys.stdout.buffer.write(report.encode("utf-8"))
 
-    if (args.strict or args.bestseller_strict or args.graph_strict) and not strict_ok:
+    if (args.strict or args.bestseller_strict or args.graph_strict or args.micro_strict) and not strict_ok:
         sys.exit(1)
 
 

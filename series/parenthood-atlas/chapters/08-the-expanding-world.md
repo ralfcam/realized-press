@@ -43,7 +43,7 @@ In modern parenting culture, "socializing" is often sold like a competitive spor
 
 ## IV. Inside the Classroom: The NICHD Study and the Science of Childcare
 
-When a child's wider circle includes a family home daycare, a neighborhood nursery, or a childcare center, questions about multiple caregivers run straight into one of the biggest guilt trips in modern family life: *daycare versus staying at home*.
+When a child's wider circle includes a family home daycare or childcare center, questions about multiple caregivers run straight into a major guilt trip. That debate is the classic tension: *daycare versus staying at home*.
 
 To see how child science moved past shouting matches to measure the real effects of daycare, look at the landmark **NICHD Study of Early Child Care and Youth Development (`SECCYD`)**, launched in 1991. During the 1970s and 1980s, millions of mothers of babies and toddlers joined the paid workforce. Public debate split into two loud camps. Critics warned that daily daycare separation would break mother-child attachment and make children aggressive. Defenders claimed that all daycare was equally harmless regardless of classroom conditions.
 

@@ -83,7 +83,7 @@ The child in those hands has not changed because we have mapped how heart valves
 ### Chapter 3 Takeaways: What the Evidence Shows vs. What to Let Go Of
 
 - **What the Evidence Shows:** The shift to air breathing and adult circulation clears lung fluid in minutes. Breastfeeding provides real immune protection against infant gut infections, but long-term IQ differences largely disappear when comparing siblings raised in the same home.
-- **What You Can Let Go Of:** Having an unplanned C-section or missing immediate skin-to-skin contact does not harm parent-child attachment; bonding develops through thousands of daily interactions over months, not a single golden hour. Surgical clipping for mild tongue-tie rarely changes feeding success and is heavily overdiagnosed.
+- **What You Can Let Go Of:** Having an unplanned C-section or missing immediate skin-to-skin contact does not harm attachment. Bonding develops through thousands of daily interactions over months, not a single golden hour. Surgical clipping for mild tongue-tie rarely changes feeding success and is heavily overdiagnosed.
 - **The Core Rule:** Birth transition is a robust biological crossing; attachment is built through ongoing responsive care, not delivery mode or feeding method.
 </aside>
 

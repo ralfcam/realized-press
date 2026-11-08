@@ -23,7 +23,7 @@ Como vimos en el Capítulo 4, la evidencia de certeza moderada **indica** que la
 
 Para comprobar hasta qué punto los sentimientos infantiles están ligados a los demás, basta recordar el **paradigma del rostro inmóvil** de Edward Tronick del Capítulo 4.
 
-Cuando un adulto congela de pronto su sonrisa durante dos minutos, un bebé de cinco meses pasa al instante de los gorjeos alegres a la protesta, el desvío de la mirada y el llanto. El metaanálisis de Judi Mesman, Marinus van IJzendoorn y Marian Bakermans-Kranenburg (2009) sobre más de ochenta estudios **demostró** con certeza alta que esta protesta ante la desconexión es uno de los resultados más sólidos de la psicología infantil.[^ch09-still-face]
+Cuando un adulto congela de pronto su sonrisa durante dos minutos, un bebé de cinco meses pasa al instante de los gorjeos alegres a la protesta, el desvío de la mirada y el llanto. El metaanálisis de Judi Mesman y colaboradores (2009) sobre más de ochenta estudios **demostró** con certeza alta que esta protesta ante la desconexión es uno de los resultados más sólidos de la psicología infantil.[^ch09-still-face]
 
 ¿Por qué enseña tanto esta prueba sobre las emociones tempranas? Porque demuestra que a los seis meses el bebé no reacciona solo ante el hambre o un pañal mojado. Sus sentimientos se organizan en torno a la **expectativa de que los demás respondan**. Notemos la diferencia frente al abismo visual del Capítulo 8. Allí, el niño de un año mira a su madre buscando *pistas* para decidir si cruzar un desnivel es seguro. En el rostro inmóvil, el bebé protesta porque su interlocutor *ha dejado de alternar turnos*. Ambas situaciones implican mirar a los ojos del adulto, pero movilizan emociones distintas.
 

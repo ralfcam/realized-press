@@ -81,7 +81,7 @@ Birth has changed her surroundings completely. It has not started her from zero.
 ### Chapter 2 Takeaways: What the Evidence Shows vs. What to Let Go Of
 
 - **What the Evidence Shows:** The fetus hears and remembers voices by the third trimester, recognizing familiar speech rhythms hours after birth. Heavy alcohol exposure is a genuine developmental hazard with no safe threshold.
-- **What You Can Let Go Of:** You do not need to play classical music to your belly or buy fetal sound gadgets; ordinary daily speech and household sounds provide all the sensory input a growing brain requires.
+- **What You Can Let Go Of:** You do not need to play classical music to your belly or buy sound gadgets. Ordinary daily speech and household sounds provide all the sensory input a growing brain requires.
 - **The Core Rule:** The womb is an active sensory environment protected by biological buffers, not a prenatal classroom that needs commercial acceleration.
 </aside>
 

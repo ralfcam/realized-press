@@ -837,15 +837,16 @@ async def run_epistemic_audit(
     and swaps the structured audit output directly into the IDE panel.
     """
     allowed_scripts = {
-        "five_rule_check": SCRIPTS_DIR / "five_rule_check.py",
-        "audit_manuscript": SCRIPTS_DIR / "audit_manuscript.py",
-        "audit_epub": SCRIPTS_DIR / "audit_epub.py",
+        "five_rule_check": [sys.executable, str(SCRIPTS_DIR / "five_rule_check.py"), target_path],
+        "audit_manuscript": [sys.executable, str(SCRIPTS_DIR / "audit_manuscript.py"), target_path],
+        "audit_manuscript_bestseller": [sys.executable, str(SCRIPTS_DIR / "audit_manuscript.py"), target_path, "--bestseller-strict", "--graph-strict"],
+        "audit_epub": [sys.executable, str(SCRIPTS_DIR / "audit_epub.py"), target_path],
     }
     if script_name not in allowed_scripts:
         raise HTTPException(status_code=400, detail="Unsupported audit script")
 
     proc = subprocess.run(
-        [sys.executable, str(allowed_scripts[script_name]), target_path],
+        allowed_scripts[script_name],
         cwd=str(REPO_ROOT),
         capture_output=True,
         text=True,
@@ -860,6 +861,104 @@ async def run_epistemic_audit(
             "returncode": proc.returncode,
             "stdout": proc.stdout,
             "stderr": proc.stderr,
+        },
+    )
+
+
+@app.get("/hx/micro-qa/{series_slug}/{chapter_slug}", response_class=HTMLResponse)
+async def get_chapter_micro_qa(
+    request: Request,
+    series_slug: str,
+    chapter_slug: str,
+    book_slug: Optional[str] = None,
+):
+    """
+    ARC-101: Returns granular paragraph-by-paragraph diagnostics (Rules 8a–8d)
+    for editor gutter display and micro-QA inspection.
+    """
+    from audit_manuscript import (
+        audit_micro_qa,
+        split_sections,
+        tokenize_sentences,
+        compute_readability_metrics,
+        INLINE_FN_RE,
+    )
+
+    if book_slug:
+        base_dir = SERIES_DIR / series_slug / book_slug
+    else:
+        base_dir = SERIES_DIR / series_slug
+
+    if not base_dir.exists():
+        raise HTTPException(status_code=404, detail="Series or book directory not found")
+
+    md_candidates = list(base_dir.glob(f"**/chapters/{chapter_slug}.md"))
+    if not md_candidates:
+        md_candidates = list(base_dir.glob(f"**/{chapter_slug}.md"))
+    if not md_candidates:
+        raise HTTPException(status_code=404, detail=f"Chapter {chapter_slug} not found")
+
+    md_path = md_candidates[0]
+    raw_md = md_path.read_text(encoding="utf-8")
+    body_before_notes = raw_md.split("## Notes")[0] if "## Notes" in raw_md else raw_md
+
+    lang = "es" if ("es" in series_slug or "es" in md_path.parts) else "en"
+    hard_errs, warns, metrics = audit_micro_qa(
+        body_before_notes,
+        language=lang,
+        chapter_slug=chapter_slug,
+    )
+
+    sections = split_sections(body_before_notes)
+    paragraphs = []
+    p_global = 0
+
+    for sec_title, sec_body in sections:
+        if sec_title.lower().startswith(("notes", "sources", "further reading", "linked evidence cards")):
+            continue
+        raw_paras = [pr.strip() for pr in sec_body.split("\n\n") if pr.strip()]
+        for pr in raw_paras:
+            if pr.startswith(("#", ">", "|", "```", "---", "<aside", "<div", "<!--", "$$")):
+                continue
+            lines = [ln.strip() for ln in pr.splitlines() if ln.strip()]
+            if all(ln.startswith(("-", "*", "1.", "2.", "3.", "4.", "5.")) for ln in lines):
+                continue
+            p_global += 1
+            clean_p = INLINE_FN_RE.sub("", pr)
+            clean_p = re.sub(r"<[^>]+>", " ", clean_p)
+            sents = tokenize_sentences(pr, language=lang)
+            w_regex = r"[A-Za-z0-9áéíóúüñÁÉÍÓÚÜÑ']+" if lang == "es" else r"[A-Za-z0-9']+"
+            words = re.findall(w_regex, clean_p)
+            rm = compute_readability_metrics(clean_p, language=lang) if (len(sents) >= 3 or len(words) >= 40) else {}
+            readability_val = float(rm.get("szigriszt", 55.0) if lang == "es" else rm.get("fk_grade", 8.5))
+
+            prefix = f"[p.{p_global}"
+            p_errs = [e for e in hard_errs if prefix in e]
+            p_warns = [w for w in warns if prefix in w]
+
+            paragraphs.append({
+                "idx": p_global,
+                "section": sec_title,
+                "words": len(words),
+                "sents": len(sents),
+                "readability": readability_val,
+                "excerpt": clean_p[:120].strip() + ("..." if len(clean_p) > 120 else ""),
+                "hard_errors": p_errs,
+                "warnings": p_warns,
+            })
+
+    return templates.TemplateResponse(
+        request,
+        "partials/micro_qa_gutter.html",
+        {
+            "request": request,
+            "series_slug": series_slug,
+            "chapter_slug": chapter_slug,
+            "language": lang,
+            "hard_errors": hard_errs,
+            "warnings": warns,
+            "metrics": metrics,
+            "paragraphs": paragraphs,
         },
     )
 
