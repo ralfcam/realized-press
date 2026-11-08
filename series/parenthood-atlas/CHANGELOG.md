@@ -9,6 +9,21 @@ Entry types:
 - `Retracted` - claims withdrawn or downgraded due to failed replication or new genetically informed evidence
 - `Structure` - changes to templates, methodology, or repository organization
 
+## [v1.0-gold-master] - 2026-11-08
+
+### SotA Phrasal Poetics, Micro-QA, Co-Located Bottom Footnotes & Multilingual Gold-Master (`ARC-100` – `ARC-105`)
+- **Apparatus Sanitization & Same-Page Co-Located Footnotes (`ARC-100`):**
+  - Decoupled build-time graph binding (`Evidence Card: <slug>`, `Grade: <grade>`, `Tarjeta de evidencia:`, `Certeza:`) from reader-facing typography across `scripts/render_publishing_pdfs.py`, `scripts/merge_book_chapters.py`, and `scripts/audit_pdf_layout.py`.
+  - Replaced chapter-end note dumps with true same-page bottom footnote reservoirs (`141/141` co-located footnotes across `154` KDP 6"×9" pages in EN; `148/148` co-located footnotes across `165` KDP 6"×9" pages in ES) and interactive `<aside epub:type="footnote">` pop-up notes in Kindle EPUB 3.0.
+- **Sentence & Paragraph Micro-QA Gates (`ARC-101` & `ARC-102`):**
+  - Added `--micro-strict` (Rules 8a–8d: spoken-breath ceiling $\le 35\text{w}$ EN / $\le 38\text{w}$ ES, dense paragraph visual geometry cap $\le 135\text{w}$ and $\le 6$ sentences, uncited empirical claim detector, and sentence-starter cadence linter) to `scripts/audit_manuscript.py`.
+- **Frozen-Skeleton Phrasal-Sculpting Pass (`ARC-102`, `ARC-103`, `ARC-104`):**
+  - Implemented `style/phrasal-poetics.yml` and `bwe/style_sculptor.py` (`--poetics`, Rule 8e) enforcing kinetic verb density, copula ratio $\le 38\%$, zero nominalization bloat, zero participial tail-drags, and paragraph poetics $\ge 82.0$.
+  - Executed the 15-chapter English phrasal-sculpting pass (`FK Grade 8.2–9.4`, `Avg Sent 16.4w–18.4w`, `0` dense paragraphs, `0` cadence flags, `Poetics Score 98.4–99.7`).
+- **Spanish Posterior Phrasal-Sculpting Pass & Two-Pass Translation Standard (`ARC-105`):**
+  - Codified Directive IX (Mandatory Two-Pass Translation & Posterior Phrasal-Sculpting Standard) across `.agents/rules/narrative-rigor.md` and `series/parenthood-atlas/i18n/es/style/translation-brief.md`.
+  - Executed the 15-chapter posterior phrasal-sculpting pass on *El atlas de la crianza* (`Szigriszt 55.6–70.9`, `Avg Sent 16.7w–19.7w`, `0` dense paragraphs reduced from `140`, `0` cadence flags reduced from `7`, `Poetics Score 97.6–99.2`, `100%` EN $\leftrightarrow$ ES citation parity + `7` Spanish regional health anchors).
+
 ## [v1.0-rc1] - 2026-10-21
 
 ### Commercial Publishing Pipeline & Release Candidate
