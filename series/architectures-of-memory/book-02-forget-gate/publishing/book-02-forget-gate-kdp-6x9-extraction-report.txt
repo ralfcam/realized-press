@@ -3,8 +3,8 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-02-forget-gate-kdp-6x9.pdf
-SHA-256: b0650e710ccf1ff13aec100ee58de0c3688773aaa67706b637e57efddb30f920
-Bytes: 255,237
+SHA-256: 812a199b45469684b1b7bc835b123d5ede6f8369da14a65f57768c966b17072a
+Bytes: 254,532
 Pages: 72 (72/72 nonblank)
 
 Chapters:

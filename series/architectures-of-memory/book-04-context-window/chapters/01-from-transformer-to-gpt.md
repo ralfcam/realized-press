@@ -40,7 +40,7 @@ To evaluate foundation scale in production systems, engineers must separate aver
 2. **The Mechanistic Constraint:** At runtime, lower average loss does not prevent sudden failure. An autoregressive network has no scratchpad outside its activations. Every token is sampled from a probability distribution shaped by static weights and recent context.
 3. **The Operator's Actionable Judgment:** Architects cannot treat statistical scaling laws as promises of factual accuracy. Scale delivers fluency and association. Factual correctness requires external verification and structured retrieval.
 
-When scale expands, memory stops being a distinct database table. It becomes distributed across billions of numerical weights. The data center hums quietly into the desert night. Petabytes of human text remain compressed into high-dimensional geometry.
+When scale expands, memory stops acting like a neat database table and spreads across billions of numerical weights. Out in the desert night, the data center hums quietly while petabytes of human text sit compressed inside high-dimensional geometry.
 
 <aside class="chapter-takeaway">
 ### Chapter 1 Takeaways: Parameters, Parallelism, and Scaling Laws.

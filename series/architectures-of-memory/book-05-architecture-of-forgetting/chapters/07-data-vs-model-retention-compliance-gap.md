@@ -22,13 +22,15 @@ That assumption failed in commercial courtrooms. Litigants began demanding the p
 
 This discovery risk matches technical research on neural memory.
 
-Empirical and legal analysis by Michael Veale and colleagues demonstrates that neural network parameters function as discoverable personal records when models internalize private training communications.[^veale2018] Their work establishes that training a model on mixed corporate communications turns weight checkpoints into legal liabilities under both securities retention rules and privacy erasure mandates. If a bank keeps the checkpoint to satisfy financial audits, it violates privacy laws. If it destroys the checkpoint, it risks penalties for destroying evidence.
+Legal and technical work by Michael Veale and his team shows that neural weights act as legal records whenever models soak up private chats during training.[^veale2018] Training one big model on mixed firm emails turns every weight file into a legal trap between finance rules and privacy laws. Keep the file for banking audits, and the firm breaks privacy law; wipe the file, and it faces fines for shredding evidence.
 
 ## IV. The Architecture of Statutory Isolation
 
 Solving this regulatory trap requires strict architectural boundaries.
 
-First, firms must recognize the danger of training monolithic models on operational communications. Never fine-tune base models on raw customer records. Second, keep foundation models stateless. Treat them as reasoning tools rather than permanent archives. Third, store all sensitive records in external knowledge bases. There, financial files can follow legal retention locks. Personal customer records follow automated deletion schedules.
+First, firms must recognize the danger of training monolithic models on operational communications. Never fine-tune base models on raw customer records. Second, keep foundation models stateless. Treat them as reasoning tools rather than permanent archives.
+
+Third, store all sensitive records in external knowledge bases. There, financial files can follow legal retention locks. Personal customer records follow automated deletion schedules.
 
 <aside class="chapter-takeaway">
 <header>Chapter Takeaway: The Retention Crossfire</header>

@@ -46,7 +46,7 @@ Yet this fluency remains ungrounded.
 
 The model does not know what a river feels like. it knows. That the token "river" has high dot-product affinity with "bank," "water," and "flow".
 
-It understands language as a closed. self-referential web of symbols. It possesses syntax at scale. But lacks the embodied, biological vulnerability. That gives meaning to human words.
+The model maps language as a closed web of symbols. It commands syntax at vast scale, yet it lacks the mortal flesh and risk that give human words their weight.
 
 ---
 

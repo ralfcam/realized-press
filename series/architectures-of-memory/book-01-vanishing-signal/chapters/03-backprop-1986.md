@@ -18,17 +18,21 @@ Backpropagation is often introduced as pure calculus. In this book, we view it a
 
 Rumelhart, Hinton, and Williams proved that hidden units could learn non-linearly separable tasks like XOR.[^nature1986] The engineering consequence was immediate. Researchers could now stack multiple layers in theory. Yet as we will see, building deep networks in theory does not mean gradients will behave across time.
 
-Think of an error gradient as a financial audit. The error at the output layer is an unpaid bill. Backpropagation inspects each upstream weight and asks how much it contributed to the loss. Weights that caused the error must change their values. Weights that had no effect pay nothing. The accounting is exact. But when an architecture grows very deep, that backward message can diminish until it completely disappears.
+Think of an error gradient as a financial audit. The error at the output layer is an unpaid bill. Backpropagation inspects each upstream weight and asks how much it contributed to the loss.
+
+Weights that caused the error must change their values. Weights that had no effect pay nothing. The accounting is exact. But when an architecture grows very deep, that backward message can diminish until it completely disappears.
 
 ---
 
 ## III. Werbos and the Decade-Long Latency
 
-Paul Werbos developed the core mathematics of neural backpropagation in his 1974 Harvard doctoral thesis.[^werbos] Yet he struggled to publish his findings in mainstream journals, which favored symbolic models. By 1986, many practitioners assumed Rumelhart, Hinton, and Williams had invented the technique from scratch. Today, historians credit Werbos with original priority, and the PDP group with successful institutionalization.
+Paul Werbos built the core math of error backflow in his 1974 Harvard thesis.[^werbos] Yet he struggled to publish his proofs in journals that favored rigid logic rules. Twelve years passed. By 1986, most researchers assumed Rumelhart, Hinton, and Williams had built the method from scratch, so historians now credit Werbos with first discovery and the PDP group with broad adoption.
 
 This gap is an organizational lesson. A valid error-correction method existed in 1974. What was missing was the social infrastructure to carry that insight to teams ready to act. Werbos’s twelve-year latency mirrors modern corporations. Vital technical solutions often languish in forgotten internal memos while leadership doubles down on familiar tools.
 
-History shows three independent derivations of the method. In 1970, Seppo Linnainmaa introduced reverse-mode automatic differentiation for discrete graphs. In 1974, Werbos applied the chain rule to multi-layer neural networks. Around 1982, Rumelhart derived the procedure independently, unaware of the earlier work. David Parker at MIT also explored similar ideas in a 1985 technical report.[^precursors] Scientific credit often flows to the team embedded in a strong working coalition. The PDP group at UC San Diego had the reach, the students, and the narrative momentum to make the idea stick.
+History shows three independent derivations of the method. In 1970, Seppo Linnainmaa introduced reverse-mode automatic differentiation for discrete graphs. In 1974, Werbos applied the chain rule to multi-layer neural networks.
+
+Around 1982, Rumelhart derived the procedure independently, unaware of the earlier work. David Parker at MIT also explored similar ideas in a 1985 technical report.[^precursors] Scientific credit often flows to the team embedded in a strong working coalition. The PDP group at UC San Diego had the reach, the students, and the narrative momentum to make the idea stick.
 
 The PDP volumes were themselves a model of team research. The project involved a collaborative ensemble including Rumelhart, James McClelland, Hinton, Williams, Michael Jordan, and Terrence Sejnowski.[^pdp] If the human brain is a distributed network, the PDP team mirrored its subject.
 

@@ -3,9 +3,9 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-05-architecture-of-forgetting-kdp-6x9.pdf
-SHA-256: 3042dfc75c28c99dda48b28f8df3c3cf0a6e2c669320ea18c2031d0de2f095dd
-Bytes: 185,084
-Pages: 52 (52/52 nonblank)
+SHA-256: bfdd08ae828c472dcfba0e0dc3ac1e183b82021dce117240dc54f2357e95479c
+Bytes: 181,979
+Pages: 51 (51/51 nonblank)
 
 Chapters:
 - PASS · PDF page 2 · How to Use This Atlas: 2:00 AM Quick-Finder

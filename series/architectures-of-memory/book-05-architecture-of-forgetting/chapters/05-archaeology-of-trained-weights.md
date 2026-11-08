@@ -1,8 +1,12 @@
 # Chapter 5: The Archaeology of Trained Weights — Forensic Extraction and Unintended Retention
 
-In a security lab in Massachusetts, a researcher tests an open-source language model. She does not test logic or translation. She probes the hidden edges of its memory. By feeding the model specific prompt starts, she nudges it to complete long text strings. Within an hour, the screen displays verbatim text. It shows lines of private code, a personal phone number, and a home address. The data came from a public forum thread scraped years earlier.
+In a security lab in Massachusetts, a researcher tests an open-source language model. She does not test logic or translation. She probes the hidden edges of its memory.
 
-The test exposes a troubling property of foundation scale. Models do not just learn rules. They memorize raw training examples. In traditional software, databases store records while code executes logic. In deep learning, the model is both code and database. Floating-point numbers hold abstract syntax and verbatim quotes in the same shared web of weights. Once a secret enters the training set, it becomes part of the permanent artifact.
+By feeding the model specific prompt starts, she nudges it to complete long text strings. Within an hour, the screen displays verbatim text. It shows lines of private code, a personal phone number, and a home address. The data came from a public forum thread scraped years earlier.
+
+The test exposes a troubling property of foundation scale. Models do not just learn rules. They memorize raw training examples.
+
+In traditional software, databases store records while code executes logic. In deep learning, the model is both code and database. Floating-point numbers hold abstract syntax and verbatim quotes in the same shared web of weights. Once a secret enters the training set, it becomes part of the permanent artifact.
 
 ## I. The Forensic Probe in Cambridge
 
@@ -14,26 +18,26 @@ The researcher does not need the original training logs. She queries the model v
 
 For years, advocates argued that deep networks learn general concepts rather than rote details.
 
-Empirical security research by Nicholas Carlini and colleagues demonstrates that autoregressive language models memorize and emit verbatim training sequences when prompted with specific adversarial prefixes.[^carlini2021] Their extraction attacks prove that larger models memorize a strictly larger fraction of their training data than smaller networks. As parameter counts scale up, the capacity for unintended retention grows faster than generalization.
+Security studies by Nicholas Carlini and his team show that large language models lock in and spit out word-for-word training text when probed with clever prompts.[^carlini2021] Their tests prove that bigger models memorize a much larger share of their training files than smaller nets. As weight counts climb, raw copying grows faster than true learning.
 
 ## III. The Long-Tail Necessity of Memorization
 
-This memorization is not simply an engineering error. It is deeply tied to how models learn.
+This memorization stems not from a simple coding slip, but from how networks learn.
 
-Theoretical analysis by Vitaly Feldman establishes that memorization of rare examples is mathematically necessary for near-optimal generalization in long-tailed data distributions.[^feldman2020] His proof shows that an algorithm cannot achieve high accuracy on natural distributions without memorizing sub-populations that appear only once or twice. If a model forgets the rare tail, its accuracy drops on atypical edge cases.
+Math by Vitaly Feldman shows that keeping rare examples is needed to learn well across long-tailed data.[^feldman2020] His proof shows that no code can reach high accuracy on real data without locking in small groups that show up only once or twice. If a model drops the rare tail, its score plunges on odd edge cases.
 
 ## IV. The Dilemma of Unintended Retention
 
-These findings create a fundamental engineering dilemma. Feldman shows that memorization is required for accuracy. Meanwhile, Carlini shows that memorization creates severe privacy leaks.
+These findings spark a stark engineering clash: Feldman shows that accuracy demands memorization, whereas Carlini shows that memorization leaks private secrets.
 
-First, engineers must abandon the belief that models are pure conceptual learners. They are also verbatim storage devices. Second, protecting privacy requires filtering training sets before training begins. Scrub personal phone numbers, keys, and private names before feeding documents to the cluster. Third, where privacy is vital, teams must use differential privacy to bound memorization. This holds true even if tail accuracy drops.
+First, builders must drop the myth that models act as pure abstract learners; they also serve as word-for-word vaults. Second, guarding privacy takes scrubbing phone numbers, keys, and private names before files ever reach the cluster. Third, where privacy matters most, teams must add random noise to cap memorization, even when tail scores dip.
 
 <aside class="chapter-takeaway">
 <header>Chapter Takeaway: The Memorization Dilemma</header>
 Language models memorize rare training examples verbatim, creating severe privacy risks under extraction attacks. Yet theoretical analysis proves memorization is necessary to generalize across long-tailed distributions. Resolving this tension requires aggressive pretraining data curation and cryptographic privacy bounds.
 </aside>
 
-The researcher saves her terminal session and powers down the display. In the silent room, the workstation fans slow to a stop. The model file rests on the disk. Billions of numbers hold the traces of millions of forgotten web pages. They wait for the right prompt to bring them back to light.
+The researcher saves her terminal log and switches off the screen. In the quiet room, the cooling fans spin down to a halt while the model file sits on the drive. Billions of weights hold the ghosts of millions of old web pages, waiting for the right prompt to call them back into the light.
 
 ## Notes
 

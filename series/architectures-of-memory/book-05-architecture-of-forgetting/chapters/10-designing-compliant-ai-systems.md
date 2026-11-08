@@ -1,8 +1,12 @@
 # Chapter 10: Designing Compliant AI Systems — Memory as a Governance Surface
 
-In a quiet cleanroom in Munich, a software engineer tests an automated flight controller. Every software module sits inside a strict safety zone. Between the radio bus and the flight path engine sits a memory management unit. If a navigation routine tries to read memory from another module, the hardware halts the task instantly. It switches to a safe backup system. In aerospace design, memory is never an unmanaged pool. It is a strictly governed safety surface.
+In a quiet cleanroom in Munich, a software engineer tests an automated flight controller. Every software module sits inside a strict safety zone. Between the radio bus and the flight path engine sits a memory management unit.
 
-When software teams build systems with artificial intelligence, they often abandon this care. Machine learning models are treated as black boxes. Teams feed vast streams of raw data into training clusters. They connect fine-tuned models directly to corporate records. Memory becomes an invisible byproduct of model scale. To survive regulatory audits and legal inquiries, architects must change their perspective. Memory in machine learning must become an explicit, auditable governance surface.
+If a navigation routine tries to read memory from another module, the hardware halts the task instantly. It switches to a safe backup system. In aerospace design, memory is never an unmanaged pool. It is a strictly governed safety surface.
+
+When software teams build systems with artificial intelligence, they often abandon this care. Machine learning models are treated as black boxes.
+
+Teams feed vast streams of raw data into training clusters. They connect fine-tuned models directly to corporate records. Memory becomes an invisible byproduct of model scale. To survive regulatory audits and legal inquiries, architects must change their perspective. Memory in machine learning must become an explicit, auditable governance surface.
 
 ## I. The Failure of Monolithic Design
 
@@ -14,7 +18,7 @@ That shortcuts failed as new rules took effect. Regulators demanded clear answer
 
 Fixing this vulnerability requires modular data partitioning.
 
-Empirical research by Lucas Bourtoule and colleagues demonstrates that the Sharded, Isolated, Sliced, and Aggregated framework enables efficient machine unlearning without full retraining.[^bourtoule2021] Their benchmark results prove that dividing training data into isolated shards allows an organization to retrain only the affected shard when an erasure request arrives. By isolating data into separate components, teams slash the compute cost of legal compliance.
+Tests by Lucas Bourtoule and his team show that the SISA setup—where data is split into walled-off shards and slices—makes machine unlearning fast without full retraining.[^bourtoule2021] Splitting files into separate shards lets a team retrain only the single touched shard when a delete order arrives. By walling data into small slices, builders slash the compute cost of legal rules.
 
 This sharding method transforms how systems retain information. Instead of a single massive weight file, the system becomes an ensemble of smaller models. When a customer demands deletion, only one small partition is retrained. The rest of the network remains untouched.
 
@@ -28,7 +32,7 @@ First, foundation models must remain stateless. They should be trained on public
 
 True data governance must be enforced through continuous deployment pipelines.
 
-Every model update must pass automated verification checks before reaching users. These pipelines test for data leakage and privacy bounds. If a model generates personal identifiers from test prompts, the deployment is blocked. Memory must be checked with the same rigor applied to code compilation.
+Every model update must pass automated checks before reaching users. Test pipelines probe for data leaks and privacy bounds, blocking any build that spits out personal names or numbers under stress prompts. Teams must test machine memory with the same strict gates they use for code builds.
 
 <aside class="chapter-takeaway">
 <header>Chapter Takeaway: Memory as Governance</header>

@@ -22,7 +22,7 @@ Every attention mechanism embodies an implicit editorial policy.[^sparrow2011]
 
 When a Transformer evaluates a prompt, its attention heads prioritize tokens based on patterns learned during pre-training.
 
-If the training corpus was dominated by technical documentation. the attention heads will prioritize formal vocabulary and code syntax. If the corpus was dominated by forum arguments. the heads will attend to conflict markers and emotional phrasing.
+When technical manuals dominate the training set, attention heads lock onto formal terms and code syntax. Feed the same network forum fights, and those heads will lock onto anger and conflict cues instead.
 
 The weights do not discover universal relevance. They reproduce the statistical biases of the humans who authored the training data.
 
@@ -54,7 +54,7 @@ Because attention defines what enters awareness, designing attention filters is 
 
 What an company chooses to attend to determines what it values, what it protects, and what it ignores.
 
-If an company designs algorithms. That attend purely to engagement. it will harvest rage. If it designs systems. That attend purely to efficiency. it will harvest burnout.
+When a firm builds algorithms that chase clicks alone, it harvests rage. If it builds tools that measure only raw speed, it harvests burnout.
 
 Human wisdom consists in the conscious choice of criteria.
 

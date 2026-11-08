@@ -16,19 +16,19 @@ This incident highlights the hidden danger of treating a language model as insti
 
 When a company deploys an internal model, the system seems to fix this problem overnight. It summarizes dense policies. It answers technical questions with the calm tone of an experienced manager. 
 
-Yet corporate leaders often overlook a core truth. A language model does not remember company policy. It writes phrases that look statistically similar to past text. It blurs the line between active policy, obsolete drafts, and informal chat.
+Yet corporate leaders often miss a core truth: a language model never remembers company rules. Instead, it strings together words that look like past text, blurring active policy, dead drafts, and casual chat into one voice.
 
 ---
 
 ## II. Deprecated Policies with Equal Dignity
 
-In 1991, James Walsh and Gerardo Ungson described organizational memory across five distinct structures: individuals, culture, processes, structures, and work settings. Classic management held that memory lived through human relationships and formal documentation. Intranets failed because people disliked writing records.
+In 1991, James Walsh and Gerardo Ungson mapped corporate memory across five places: people, culture, habits, team charts, and work floors. Classic management held that memory lived in human ties and signed files. Early intranets failed because staff hated writing notes.
 
 When foundation models showed they could read uncurated files, a new belief spread. Leaders assumed that semantic search would erase documentation debt.[^lewis2020] Feeding chat logs, emails, and notes into a prompt would make collective intelligence instantly searchable.
 
 Recent audits reveal the flaw in that dream. When firms feed raw archives into retrieval systems, the model inherits every past mistake.[^raji2020] 
 
-Unlike humans, who apply seniority and context to decide which rule applies, a model treats an old 2018 policy and a 2024 rule with equal weight.[^temporal-math] If the older file is longer, the model will confidently tell staff to follow expired rules, turning old confusion into standard practice.
+People use rank and dates to judge which rule applies today. By contrast, a model gives an old 2018 memo and a 2024 rule the exact same weight.[^temporal-math] If the older file runs longer, the model will tell staff to follow dead rules, turning past confusion into daily habit.
 
 ---
 
@@ -40,7 +40,7 @@ Deploying language models within corporate infrastructure requires three clear g
 2. **The Mechanistic Blind Spot:** A foundation model cannot assess the legal validity or seniority of text without strict upstream filters.
 3. **The Operator's Actionable Judgment:** Organizations must never treat a model as an autonomous knowledge store. Authoritative memory must stay in version-controlled, human-signed records. The model must serve only as a search interface tied strictly to current files.
 
-In the incident room, the database rollback finishes, and clearing accounts balance before markets open. On the senior engineer’s whiteboard, a new rule appears in red marker: *Every rollover command must be verified against the signed manual, not the chat window.* The model waits for its next prompt, ready to summarize any text, unaware whether its advice will protect a company or break it.
+In the war room, the database rollback finishes. Clearing accounts balance before markets open. On the lead engineer’s whiteboard, a new rule appears in red marker: *Every rollover command must be verified against the signed manual, not the chat window.* The model waits for its next prompt, ready to sum up any text, blind to whether its output saves a firm or wrecks it.
 
 <aside class="chapter-takeaway">
 ### Chapter 8 Takeaways: Institutional Memory, Drift, and Authority.

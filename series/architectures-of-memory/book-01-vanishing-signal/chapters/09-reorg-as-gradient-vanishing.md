@@ -4,7 +4,9 @@
 
 ## I. A Reset in the Middle of Training
 
-Picture a recurrent network that has been learning well. Its connection weights hold complex patterns that the loss function has begun to resolve. Now imagine zeroing the recurrent weight matrix midstream. The past is not forgotten in a human sense. It is detached from the math that carries signals backward. Whatever signal might have traveled along that matrix vanishes. The physical path for carrying meaning was wiped away.
+Picture a recurrent network that has been learning well. Its connection weights hold complex patterns that the loss function has begun to resolve. Now imagine zeroing the recurrent weight matrix midstream. The past is not forgotten in a human sense.
+
+It is detached from the math that carries signals backward. Whatever signal might have traveled along that matrix vanishes. The physical path for carrying meaning was wiped away.
 
 A company reorg is often sold as a simple administrative tune-up. Leaders present cleaner reporting lines, balanced spans of control, and strategic alignment. But in the reality of team memory, a reorg is far more destructive: it shatters the informal networks where real work occurs.
 
@@ -18,7 +20,7 @@ When people, tasks, and tools change all at once, the drop in skill is steep. Da
 
 In 1987, psychologist Daniel M. Wegner showed that working groups hold knowledge as a group memory system.[^wegner1987] In a mature team, each member specializes in specific areas. At the same time, the group maintains a shared map: an accurate sense of who knows what, and how to reach them.
 
-This setup acts as a shared routing directory rather than a central database. Shuffling engineers across departments does not erase their personal technical skills. But it wipes out the team's shared directory of who to ask. The new team exists on paper, but it has lost its addressing layer. The productivity drop that follows a reorg is the time needed to rebuild that index. It is not a sudden loss of individual talent; it is the reboot of a router.
+This setup works as a shared routing map rather than a single vault. Shuffling engineers across divisions never erases the code they know in their own heads, yet it shatters the shared map of who knows what across the floor. On paper, the new chart looks neat. In practice, the team has lost its address book. The slump that follows a reorg measures the weeks spent rebuilding that directory—not a loss of talent, but the slow reboot of a router.
 
 This disruption mirrors how modern neural networks route signals. Before a system can absorb new facts, its routing paths must work. Gradient descent does not care that a team once knew how to solve a problem under an old chart. It only measures whether signals can flow through the wiring that exists today.
 
@@ -28,7 +30,7 @@ This disruption mirrors how modern neural networks route signals. Before a syste
 
 In 1991, James P. Walsh and Gerardo R. Ungson introduced a classic spatial model of institutional memory.[^walsh1991] They identified five retention bins where knowledge resides: individuals, culture, work routines, formal structure, and physical workspace.
 
-Formal structure is the main target of reorgs. Yet in the Walsh-Ungson model, structure serves as the vital channel for relational memory, shaping escalation paths and daily habits. Culture moves slowly and outlasts reorgs. But keeping bold slogans while dismantling work routines breaks the machinery that actually ships products on time.
+Formal structure is the main target of reorgs. Yet in the Walsh-Ungson model, structure channels relational memory and guides daily escalation paths. Culture moves slowly and outlasts reorgs. But keeping bold slogans while dismantling work routines breaks the machinery that actually ships products on time.
 
 Modern firms often hope enterprise software can compress all five bins into a single database. Eric W. Stein and Vladimir Zwass showed that IT systems serve key memory functions, including storage, search, and retrieval.[^stein1995] Yet as Walsh and Ungson's framework predicts, databases capture only what can be written down. Trust and tacit judgment cannot be saved by a rushed documentation sprint before a reorg takes effect.
 
@@ -38,7 +40,7 @@ Modern firms often hope enterprise software can compress all five bins into a si
 
 In *The Tacit Dimension*, Michael Polanyi shared a lasting truth: we can know more than we can tell.[^polanyi1966] Complex craft, engineering judgment, and situational context pass down through shared work, not through text alone.
 
-In 1994, Ikujiro Nonaka described how knowledge grows through four modes: Socialization, Externalization, Combination, and Internalization.[^nonaka1994] Later expanded with Hirotaka Takeuchi in *The Knowledge-Creating Company*, this model shows how tacit skill and written facts interact.[^nonaka1995]
+In 1994, Ikujiro Nonaka traced how teams build knowledge across four steps.[^nonaka1994] First, staff share tacit habits side by side. Next, they turn craft into words, link written guides, and practice the new skill. Later expanded with Hirotaka Takeuchi in *The Knowledge-Creating Company*, this SECI cycle shows how unspoken craft and written records feed each other.[^nonaka1995]
 
 A reorg is usually a paper exercise: leaders redraw charts and write new role descriptions. But it destroys the social web—stable teams, mutual trust, and shared history—that makes skill transfer possible. Leaders often order a documentation push, demanding that staff write everything down before teams scatter. But Nonaka’s model shows why this effort always fails. Writing text captures only explicit facts. The relational paths needed to turn those facts into skilled action are completely cut.
 

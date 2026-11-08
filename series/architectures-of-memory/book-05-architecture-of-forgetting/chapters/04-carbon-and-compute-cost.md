@@ -20,7 +20,7 @@ This growth created an unsustainable path. Scientists realized that scaling up m
 
 Disciplined software choices can cut the environmental cost of machine learning.
 
-Empirical analysis by David Patterson and colleagues demonstrates that model architecture, processor efficiency, datacenter power usage, and grid carbon intensity reduce machine learning energy footprints by up to a factor of a hundred.[^patterson2021] Their 4M framework establishes that algorithmic choices directly dictate the physical environmental costs of training large models. Picking green energy grids and efficient chips shrinks the footprint without hurting performance.
+Empirical work by David Patterson and his team shows that smart model design, fast chips, lean server halls, and clean power grids can cut training energy use by a hundredfold.[^patterson2021] Their 4M study proves that engineering choices set the real carbon cost of giant models. Choosing green power grids and sparse models shrinks the footprint without losing accuracy.
 
 ## IV. The Physics of Retention
 

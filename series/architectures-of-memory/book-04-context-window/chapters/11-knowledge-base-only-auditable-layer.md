@@ -20,20 +20,24 @@ That vision failed when it met real regulatory demands. When teams tried to upda
 
 To solve this dilemma, engineering moved toward a clean separation of concerns. The language model serves as an ephemeral reasoning engine. All durable corporate memory remains in external databases.
 
-Foundational research by Patrick Lewis and colleagues demonstrates how retrieval-augmented generation decouples parametric reasoning from nonparametric knowledge storage.[^lewis2020] Their work establishes that combining an external, mutable document index with a generative model maintains factual accuracy while allowing continuous, auditable updates to the underlying factual corpus. Organizations can verify facts before the model ever sees them.
+Foundational research by Patrick Lewis and his team shows how retrieval-augmented generation splits reasoning weights from outside fact storage.[^lewis2020] Pairing a live, editable file index with a text model keeps answers accurate while letting staff update the source facts at any time. Teams can check every record before the model ever reads it.
 
 ## IV. Cryptographic Immutability and Verification
 
 Building auditable systems requires strict operational boundaries between reasoning and storage.
 
-First, treat the language model as a stateless processor. Never rely on model weights to store corporate policy. Second, ensure that every generated answer includes direct pointers to source documents. Each sentence must link to a specific document version and author signature. Third, maintain cryptographic version control across the knowledge base. When laws change, teams update the external documents directly. The model reflects the change on its next query.
+First, treat the language model as a stateless processor. Never rely on model weights to store corporate policy. Second, ensure that every generated answer includes direct pointers to source documents.
+
+Every claim must link to a signed file version. Third, teams must lock the knowledge base under strict version control, so when laws change, staff update the outside files and the model reflects the new rule on its very next run.
 
 <aside class="chapter-takeaway">
 <header>Chapter Takeaway: The Single Source of Truth</header>
 Parametric model weights cannot provide an auditable chain of custody or satisfy legal deletion mandates. In dependable enterprise architectures, reasoning is decoupled from storage. The external, version-controlled knowledge base remains the only legally verifiable and auditable layer.
 </aside>
 
-Deep beneath the Kansas prairie, the archivist slides box 412 back onto its steel rail. She clicks the barcode scanner and logs the access timestamp. Three hundred feet above, the sun shines over golden wheat fields. In a nearby datacenter, an automated retrieval pipeline fetches a signed markdown file. It passes the text into a prompt window and answers a regulatory inquiry with exact citations. The model remains a mirror. It reflects truth because the records behind it are set in stone.
+Deep beneath the Kansas prairie, the archivist slides box 412 back onto its steel rail and clicks the barcode scanner to log the timestamp. Three hundred feet above, sun warms the wheat fields. In a nearby server hall, a search pipeline pulls a signed markdown file, feeds the text into a prompt window, and answers a legal query with exact citations.
+
+The model acts as a clean mirror. It reflects truth because the records behind it stand carved in stone.
 
 ## Notes
 

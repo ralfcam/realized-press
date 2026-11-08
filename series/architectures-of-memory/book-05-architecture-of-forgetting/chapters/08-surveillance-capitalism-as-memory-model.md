@@ -1,14 +1,18 @@
 # Chapter 8: Surveillance Capitalism as a Memory Business Model
 
-On a bright morning, a commuter taps her phone screen. She heads out onto the highway. The map app guides her around a wreck. Yet the software tracks far more than her path. It logs how fast she speeds up. It marks every stop at a red light. It logs each pause of her hand on the glass. To the driver, the app is just a helpful tool. But inside the platform's cloud stack, that ride never ends. It is saved in flash memory. It stays there for years.
+On a bright morning, a commuter taps her phone screen. She heads out onto the highway. The map app guides her around a wreck. Yet the software tracks far more than her path. It logs how fast she speeds up.
 
-This economic logic marks a clean break from old software. In old factories, profit came from raw materials turned into physical goods. In the modern web, the raw material is human life. Every online search, pause, and trip is saved as surplus behavioral data. These logs train models to guess what people will do next. In this business model, total memory is not an accident. It is the financial core of the firm.
+It marks every stop at a red light and logs each pause of her hand on the glass. To the driver, the app feels like a simple helper, yet inside the platform's cloud stack that ride never ends; flash drives lock the trace away for years.
+
+This economic logic breaks cleanly with older software. Where industrial factories turned raw ore into physical goods, the modern web mines human life itself.
+
+Every online search, pause, and trip feeds a vault of surplus behavioral data. These logs train models to guess what people will do next; in this business model, total memory never happens by chance—it drives the financial core of the firm.
 
 ## I. The Commuter on the Interstate
 
 The modern web grew on a simple bargain. Users got free search, free chat, and fast maps. In return, platforms showed small ads beside search results.
 
-Over two decades, that simple deal became an extraction machine. Platform teams realized that quiet behavioral signals were worth more than user queries. Data once dumped as server trash became the main asset on corporate books. Every user action was saved to train predictive networks. The user was no longer just a customer. The user became the raw mine from which predictive wealth was dug.
+Over two decades, that simple trade turned into an extraction engine. Platform teams saw that quiet click trails held more gold than direct search words, so logs once dumped as server trash became the top asset on the balance sheet. Firms hoarded every tap to train prediction nets. Users stopped being customers; they became the raw mine from which platforms dug behavioral wealth.
 
 ## II. The Discovery of Behavioral Surplus
 
@@ -26,14 +30,16 @@ When a driver stops at a shop or stays late at work, the model updates risk scor
 
 Breaking this economic trap requires engineers to see that memory design is political economy.
 
-First, technical leaders must reject total data capture. Systems must process data on the user's device. Raw personal records must never cross public networks. Second, teams must stop selling predictive behavioral surplus. Products must earn revenue through clear paid subscriptions. Forgetting is not an engineering flaw. It is the necessary base for human freedom.
+First, technical leaders must reject total data capture by processing inputs directly on the user's device, so raw personal records never cross public networks.
+
+Second, teams must stop selling predictive behavioral surplus and earn revenue through honest paid subscriptions. Forgetting never marks an engineering flaw; it forms the necessary bedrock of human freedom.
 
 <aside class="chapter-takeaway">
 <header>Chapter Takeaway: The Cost of Permanent Retention</header>
 Surveillance capitalism monetizes human experience as behavioral surplus, turning total digital memory into a core financial requirement. For platform business models, forgetting represents lost prediction capital. Restoring digital privacy requires client-side data minimization and business models independent of behavioral futures markets.
 </aside>
 
-The commuter parks her car in a garage. She turns off the engine. She slips her phone into her pocket. The glass screen goes dark. But two hundred miles away, in a Nevada datacenter, the trace of her morning commute joins millions of other trips on disk drives. By afternoon, the driver has forgotten every lane change. The servers never forget. They hold each moment in quiet reserve, pricing her tomorrow from the unbending memory of today.
+The commuter parks her car in a garage, kills the engine, and slips her phone into her pocket as the glass screen goes dark. Yet two hundred miles away in a Nevada datacenter, the trace of her morning drive joins millions of other trips on spinning disks. By afternoon, she has forgotten every lane change, but the servers hold each moment in quiet reserve, pricing her tomorrow from the unbending memory of today.
 
 ## Notes
 

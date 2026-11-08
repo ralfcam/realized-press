@@ -40,7 +40,7 @@ Documentation hubs fill with thousands of stale pages containing conflicting gui
 
 This buildup leads directly to institutional gridlock. Decision-making slows down. Employees cannot tell which rules are binding and which are dead. Legal discovery costs explode, requiring armies of reviewers to sift through mountains of digital clutter.
 
-The organizational forget gate is managed deprecation.[^holan2004] Smart teams do not just celebrate new launches; they build structured sunset routines: expiring policies on fixed dates, enforcing data retention limits, and running intentional unlearning exercises during strategic pivots. An organization that cannot forget cannot change direction.
+The corporate forget gate works through planned retirement.[^holan2004] Smart teams do more than cheer new launches. They also build clear sunset habits: expiring old rules on fixed dates, enforcing file limits, and pruning dead habits during major shifts. A company that cannot forget cannot turn the ship.
 
 ---
 

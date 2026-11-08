@@ -6,7 +6,9 @@
 
 A recurrent network is designed to remember what just happened. In Jeffrey Elman’s Simple Recurrent Network, a vector of context units stores a copy of the previous hidden state.[^ch06-elman1990] The copy connections use fixed weights of 1.0, while the weights from the context units back into the hidden layer are learned through gradient descent. At every tick of the clock, the machine carries forward a compressed trace of the previous step.
 
-This design mirrors how many human organizations operate. Teams rely on daily standups, weekly summaries, and project reviews. They capture yesterday’s status with great care. Yet that single mechanism does not preserve the deep reasons behind decisions made a year ago. The network features only one explicit step of recurrence. Every older memory must squeeze into what that single lagged vector can still hold. When the backward gradient to early time steps shrinks to zero, this limitation stops being a loose metaphor. It becomes rigorous algebra.
+This design mirrors how many human organizations operate. Teams rely on daily standups, weekly summaries, and project reviews. They capture yesterday’s status with great care. Yet that single mechanism does not preserve the deep reasons behind decisions made a year ago.
+
+The network features only one explicit step of recurrence. Every older memory must squeeze into what that single lagged vector can still hold. When the backward gradient to early time steps shrinks to zero, this limitation stops being a loose metaphor. It becomes rigorous algebra.
 
 ---
 
@@ -32,7 +34,7 @@ The network’s hidden state looks like a rich historical record. But standard g
 
 ## IV. The Missing Retrospective: Corporate Accountability Chains
 
-Procedurally, Backpropagation Through Time is the closest software parallel to a thorough after-action review. You cannot assign blame on day fifty to a mistake made on day one without unrolling the entire timeline and calculating derivatives through every intermediate step.
+In software terms, Backpropagation Through Time works just like a deep post-incident review. You cannot trace blame on day fifty back to a slip made on day one unless you unroll the whole timeline and check every step along the way.
 
 Most companies run only a forward pass. They celebrate revenue milestones and track quarterly metrics. But they rarely perform the backward pass required to trace systemic flaws. When that backward analysis is omitted, institutional learning breaks down completely.
 

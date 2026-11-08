@@ -9,10 +9,9 @@ By the early 2000s, the structure of Long Short-Term Memory had settled into an 
 When an input arrives, the system does not step through a slow tree of if-then rules. Instead, it starts a quick four-way exchange across its current input and its recent hidden state.
 
 Four learned layers fire in parallel:
-1. One layer decides what old information to discard (the forget gate).
-2. One layer decides what new information to admit (the input gate).
-3. One layer creates a new candidate update vector (the cell candidate).
-4. One layer decides what internal state to reveal (the output gate).
+1. One layer decides what old information to discard (the forget gate). 2. One layer decides what new information to admit (the input gate).
+
+3. One layer creates a new candidate update vector (the cell candidate). 4. One layer decides what internal state to reveal (the output gate).
 
 None of these layers acts as a master over the others. They operate as parallel learned filters, balancing each other through point-wise vector multiplications. This chapter examines that interaction: how four linear steps and simple products turned recurrent memory into a reliable tool.
 
@@ -34,7 +33,9 @@ The internal state and visible output update through element-wise products. The 
 
 This four-gate flow offers a sharp contrast to the bottlenecks of corporate work.
 
-When a struggling team tries to control risk, it often sets up serial reviews. A plan must first pass an architecture board. If approved, it moves to security. Next comes budget review, followed by legal compliance. Each group acts as a sequential choke point. If any group delays, the entire pipeline stops. Wait times grow with every approval tier, creating severe drag.
+When a struggling team tries to control risk, it often sets up serial reviews. A plan must first pass an architecture board. If approved, it moves to security. Next comes budget review, followed by legal compliance.
+
+Each group acts as a sequential choke point. If any group delays, the entire pipeline stops. Wait times grow with every approval tier, creating severe drag.
 
 The memory cell shows how parallel gating resolves this delay. Rather than passing plans down a line, smart teams build cross-functional groups where all four views evaluate the state at once:
 
@@ -49,7 +50,7 @@ By evaluating all four questions at the same time against shared context, the te
 
 ## IV. Leibniz’s Mill and Judgment Without a Judge
 
-For centuries, thinkers struggled with the idea of the homunculus: the hypothetical "little person" inside the brain who reads senses, chooses what to remember, and guides actions. Whenever a model proposed an inner executive, critics spotted a loop: who directs the inner director?
+For centuries, thinkers wrestled with the puzzle of the homunculus: the tiny person imagined inside the skull who watches the senses, picks what to keep, and steers action. Whenever a theory named an inner boss, critics spotted a trap: who steers the inner boss?
 
 Gottfried Wilhelm Leibniz anticipated this puzzle in his famous mill argument in the *Monadology*.[^leibniz1714] He imagined a machine capable of thought enlarged to the size of a mill. Entering it, one would find only gears, levers, and moving parts pushing against each other, but never a conscious soul explaining thought.
 
@@ -63,7 +64,7 @@ Yet out of these simple interactions emerges judgment without a judge. The netwo
 
 The math of the four-gate cell was elegant, but machine learning is an empirical craft. Equations do not win over an industry until they solve problems that defeated every rival.
 
-During the 2000s, while mainstream artificial intelligence remained doubtful of neural networks, researchers began applying the four-gate model to the messiest signal in human experience: continuous speech. Chapter 6 traces how the architecture moved from synthetic benchmarks to real-world acoustic breakthroughs.
+During the 2000s, while mainstream AI doubted neural nets, small labs began testing the four-gate design on the messiest signal in human life: live speech. Chapter 6 traces how this design moved from toy tests to real acoustic breakthroughs.
 
 <aside class="chapter-takeaway">
 ### Chapter 5 Takeaways: Architecture, Signal, and Retained Memory

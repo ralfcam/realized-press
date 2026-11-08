@@ -36,11 +36,12 @@ Even more striking was the second half of the experiment: when asked where facts
 
 Sparrow's findings showed that human memory is deeply transactive.[^sparrow2011]
 
-We do not treat our brains as self-contained encyclopedias. We treat them as index catalogs. That point to external storage partners: books. colleagues, and now digital search engines.
+We never treat our own brains as sealed vaults. Instead, we use them as index cards that point to outside partners: books, friends, and modern search engines.
 
-The modern mind is becoming a directory mind:
-- We do not retain the text of the legal statute; we remember that it sits in Section 404 of the compliance handbook.
-- We do not memorize the database schema; we remember where the documentation wiki is hosted.
+Modern habits train a directory mind:
+
+- We never memorize the text of a legal statute; we recall that it sits in Section 404 of the compliance handbook.
+- We never memorize the database schema; we recall where the team hosts the wiki.
 
 This cognitive adaptation frees working memory for high-level synthesis and problem solving.
 
@@ -54,9 +55,9 @@ An index is useless if the external storage partner becomes unavailable, corrupt
 
 If an engineer only remembers where the documentation lives. But has never internalized the engineering concepts. they cannot reason when the network goes down.
 
-also. when memory becomes purely directional, we lose the spontaneous, unconscious connections. That occur when diverse concepts reside together in biological neural tissue.
+Also, when memory turns into pure lookup, we lose the surprise sparks that fire when different ideas live side by side in living brain tissue.
 
-Serendipitous insight requires. That ideas collide inside the same mind. If all ideas remain external on servers. the spark of creative synthesis is extinguished.
+Sudden insight needs more than a search bar. Diverse ideas must collide inside the same head, and if every fact stays parked on a distant server, creative synthesis dies out.
 
 <aside class="chapter-takeaway">
 ### Chapter 14 Takeaways: Transactive Memory, Offloading, and Fragility.

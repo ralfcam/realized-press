@@ -3,9 +3,9 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-04-context-window-kdp-6x9.pdf
-SHA-256: ab30ed31084df620bcd1a39ae4ff153dee7c2125d69499ab89e4fda6d44a6531
-Bytes: 215,653
-Pages: 62 (62/62 nonblank)
+SHA-256: 9966cd7e895f44bb507ebaf7058cbcd6cbe47f0503921bf5dbc59e76f256cbe9
+Bytes: 214,684
+Pages: 63 (63/63 nonblank)
 
 Chapters:
 - PASS · PDF page 3 · How to Use This Atlas: 2:00 AM Quick-Finder
@@ -21,10 +21,10 @@ Chapters:
 - PASS · PDF page 35 · Chapter 10: PropTech and FinTech as Case Studies — Where Memory Failures Become Regulatory Failures
 - PASS · PDF page 38 · Chapter 11: The Knowledge Base as the Only Auditable Layer
 - PASS · PDF page 41 · Chapter 12: Designing AI Systems for Regulated Environments — What Architects Get Wrong
-- PASS · PDF page 43 · Chapter 13: The GRC Implication — Governance of Systems That Cannot Explain What They Know
-- PASS · PDF page 46 · Chapter 14: Searle’s Chinese Room, Revisited at Scale
-- PASS · PDF page 49 · Chapter 15: The Difference Between Compression and Comprehension
-- PASS · PDF page 52 · Chapter 16: What It Would Mean for a Model to Truly Know Something
-- PASS · PDF page 55 · Chapter 17: Epistemic Humility at the Frontier — What Researchers Admit They Don’t Understand
-- PASS · PDF page 58 · Chapter 18: The Child and the Model — Developmental Cognition vs. Statistical Learning
-- PASS · PDF page 61 · Coda: The Window Closes
+- PASS · PDF page 44 · Chapter 13: The GRC Implication — Governance of Systems That Cannot Explain What They Know
+- PASS · PDF page 47 · Chapter 14: Searle’s Chinese Room, Revisited at Scale
+- PASS · PDF page 50 · Chapter 15: The Difference Between Compression and Comprehension
+- PASS · PDF page 53 · Chapter 16: What It Would Mean for a Model to Truly Know Something
+- PASS · PDF page 56 · Chapter 17: Epistemic Humility at the Frontier — What Researchers Admit They Don’t Understand
+- PASS · PDF page 59 · Chapter 18: The Child and the Model — Developmental Cognition vs. Statistical Learning
+- PASS · PDF page 62 · Coda: The Window Closes

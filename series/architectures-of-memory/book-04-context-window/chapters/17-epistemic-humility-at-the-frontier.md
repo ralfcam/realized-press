@@ -1,8 +1,12 @@
 # Chapter 17: Epistemic Humility at the Frontier — What Researchers Admit They Don’t Understand
 
-In an optics lab in Pasadena, California, a physicist adjusts a laser table on air legs. The table isolates sensitive mirrors from highway traffic two miles away. In physics, when a sensor records a strange shift, researchers spend months finding the cause. They isolate noise. They clean mirror coatings. They re-check formulas until the physics is clear down to the quantum limit. No physicist publishes an unverified anomaly. None would claim to build a bridge with a tool whose basic mechanism remains unknown.
+In an optics lab in Pasadena, California, a physicist adjusts a laser table on air legs. The table isolates sensitive mirrors from highway traffic two miles away. In physics, when a sensor records a strange shift, researchers spend months finding the cause. They isolate noise.
 
-Yet in modern artificial intelligence, that condition is the daily reality. Frontier models with hundreds of billions of parameters serve hundreds of millions of users. They write code. They analyze contracts. They summarize medical reports. Meanwhile, the scientists who trained them admit they do not fully understand what happens inside the weights. In classical engineering, design begins with formal theory and proofs. In deep learning, the order is flipped. We have created systems whose abilities outpace our tools to explain them.
+They clean mirror coatings. They re-check formulas until the physics is clear down to the quantum limit. No physicist publishes an unverified anomaly. None would claim to build a bridge with a tool whose basic mechanism remains unknown.
+
+Yet in modern artificial intelligence, that condition is the daily reality. Frontier models with hundreds of billions of parameters serve hundreds of millions of users. They write code. They analyze contracts.
+
+They summarize medical reports. Meanwhile, the scientists who trained them admit they do not fully understand what happens inside the weights. In classical engineering, design begins with formal theory and proofs. In deep learning, the order is flipped. We have created systems whose abilities outpace our tools to explain them.
 
 ## I. The Optics Lab in Pasadena
 
@@ -14,15 +18,17 @@ In contrast, deep learning relies on empirical exploration. Teams train models b
 
 The field has discovered remarkable statistical regularities at scale.
 
-Empirical research by Jared Kaplan and colleagues demonstrates that cross-entropy test loss scales as a power law with compute, dataset size, and parameter count.[^kaplan2020] Yet their findings establish that while average performance scales predictably, specific emergent skills remain unpredictable before training. A team can forecast the exact loss value of a large model months before the run completes. Yet they cannot predict whether that model will master multi-step arithmetic. They cannot tell if it will fail on basic word puzzles. The broad curve is smooth. The specific skills arrive in sudden jumps.
+Empirical research by Jared Kaplan and colleagues demonstrates that cross-entropy test loss scales as a power law with compute, dataset size, and parameter count.[^kaplan2020] Yet their findings establish that while average performance scales predictably, specific emergent skills remain unpredictable before training. A team can forecast the exact loss value of a large model months before the run completes. Yet they cannot predict whether that model will master multi-step arithmetic. They cannot tell if it will fail on basic word puzzles.
+
+The broad curve is smooth. The specific skills arrive in sudden jumps.
 
 ## III. The Hallucination Frontier
 
 Understanding why models fabricate facts has become a central challenge of modern research.
 
-A comprehensive survey by Ziwei Ji and colleagues establishes that factual hallucinations stem from intrinsic trade-offs between representation capacity, training data noise, and decoding choices.[^ji2023] Their taxonomy proves that hallucination is an inherent feature of autoregressive generation across long contexts. Because models predict words based on probabilities rather than verified facts, fluency often decouples from truth.
+A broad survey by Ziwei Ji and colleagues shows that false claims spring from built-in trade-offs between model size, noisy training text, and token sampling.[^ji2023] Their study proves that making up facts is a baked-in trait of next-word prediction across long prompts. Because networks pick words by odds rather than checked facts, smooth prose easily drifts from truth.
 
-Inside the networks, researchers find further mystery. Individual neurons do not map cleanly to human concepts. Instead, single neurons respond to completely unrelated ideas. The network crams thousands of concepts into shared spaces. This creates an intricate interference pattern that resists simple explanation.
+Inside the weights, researchers find even deeper puzzles. Single neurons rarely map to one clean human idea; instead, each unit fires on many unrelated topics at once, cramming thousands of concepts into shared space and tangling simple explanations.
 
 ## IV. Disciplined Engineering Without Full Theory
 

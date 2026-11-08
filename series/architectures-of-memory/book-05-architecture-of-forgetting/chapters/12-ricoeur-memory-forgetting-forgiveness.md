@@ -1,8 +1,12 @@
 # Chapter 12: Ricoeur on Memory, Forgetting, and Forgiveness
 
-On a grey afternoon in France, dry leaves scatter across the grave of Paul Ricoeur. For sixty years, the thinker lived through the harsh traumas of Europe. He saw total war. He saw the grief of prison camps. He watched nations rebuild after bitter conflict. In his major book, *Memory, History, Forgetting*, Ricoeur explored a vital truth. He showed that the human ability to forget is the bedrock of moral life.
+On a grey afternoon in France, dry leaves scatter across the grave of Paul Ricoeur. For sixty years, the thinker lived through the harsh traumas of Europe. He saw total war.
 
-At the heart of his work lies a warning against total recall. When memory never fades, it turns into an engine of endless blame. A culture that cannot let go of past injury stays trapped in old fights. Ricoeur found deep flaws in unmanaged memory. Trauma repeats when it cannot heal. Rulers twist history to keep power. People turn moral duty into lifelong debt. To live in peace, humans must set down the heavy load of the past.
+He saw the grief of prison camps. He watched nations rebuild after bitter conflict. In his major book, *Memory, History, Forgetting*, Ricoeur explored a vital truth. He showed that the human ability to forget is the bedrock of moral life.
+
+At the heart of his work lies a warning against total recall. When memory never fades, it turns into an engine of endless blame. A culture that cannot let go of past injury stays trapped in old fights. Ricoeur found deep flaws in unmanaged memory.
+
+Trauma repeats when it cannot heal. Rulers twist history to keep power. People turn moral duty into lifelong debt. To live in peace, humans must set down the heavy load of the past.
 
 ## I. The Burden of Inflexible History
 
@@ -28,7 +32,7 @@ When modern credit scoring tools ingest public web logs, they treat old missteps
 
 Restoring human dignity in automated tools requires clear memory limits.
 
-System architects must build automatic decay into behavioral models. Personal records must carry fixed end dates. When a person pays a fine, the data must leave active tables. True engineering maturity does not mean saving every bit forever. It means having the wisdom to let the past fade away.
+System builders must wire automatic decay into behavioral models and stamp personal files with fixed end dates. Once a citizen pays a fine, that record must leave live tables. True engineering craft never means hoarding every bit forever; it means holding the wisdom to let the past fade.
 
 <aside class="chapter-takeaway">
 <header>Chapter Takeaway: Forgiveness and Decay</header>

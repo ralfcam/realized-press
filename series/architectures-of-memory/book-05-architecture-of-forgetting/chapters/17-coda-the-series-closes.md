@@ -1,45 +1,45 @@
 # Coda: The Series Closes — Back to the Unread Proof
 
-In a basement archive in Munich, on a grey metal shelf, rests a spiral-bound thesis from 1991. The pages have yellowed at the edges. The cover bears the seal of the Department of Informatics. The author was a young student named Sepp Hochreiter, guided by his advisor Jürgen Schmidhuber. Across dozens of pages of handwritten math, the student proved that in any recurrent net trained across time, error signals decay to zero or explode to infinity. The thesis showed why neural networks could not remember.
+In a basement archive in Munich, on a grey metal shelf, rests a spiral-bound thesis from 1991 with yellowed edges and the seal of the school. Written by a young student named Sepp Hochreiter under his mentor Jürgen Schmidhuber, its pages proved a hard law. In any recurrent net trained across time, error signals either shrink to zero or blow up, showing why early nets could not remember.
 
-For years, that work sat on the shelf unread. Connectionist research had fallen out of favor, and few scholars believed the problem mattered. Yet thirty-five years later, that Munich thesis stands as the origin point of a revolution that reshaped modern computing. Across five volumes, we have traced the long arc that began in that quiet archive.
+For years, that work sat on the shelf unread while neural net research fell out of fashion and few scholars cared. Yet thirty-five years later, that Munich paper marks the starting point of a wave that remade modern computing. Across five books, we have traced the long arc that began in that quiet room.
 
 ## I. The Unread Proof in Munich
 
-Artificial intelligence began with a simple desire: to make machines remember.
+Artificial intelligence began with a simple hunger: to make machines remember.
 
-In the first volume of this series, we stood with Frank Rosenblatt at Cornell, watching early perceptrons struggle with geometry. We traced Marvin Minsky and Seymour Papert’s critique, the parallel distributed processing movement, and the difficult mathematics of temporal decay. Early pioneers discovered that as signals pass through successive layers, information dissolves into numerical noise.
+In the first book of this series, we stood with Frank Rosenblatt at Cornell, watching early perceptrons wrestle with basic shapes. We traced Marvin Minsky and Seymour Papert's critique, the rise of parallel nets, and the harsh math of time decay. Early pioneers watched signals fade into noise across deep layers.
 
-To overcome that barrier, engineers in Switzerland designed targeted gating mechanisms. In the second volume, we saw how Hochreiter and Schmidhuber realized that preserving a signal across time requires continuous pruning. A mind cannot retain everything. To keep important memories alive, a network must possess the capacity to discard historical clutter.
+To cross that wall, engineers in Switzerland built targeted gating valves. In the second book, we saw how Hochreiter and Schmidhuber realized that keeping a signal alive across time takes active pruning. A mind cannot hold every detail, so a net must drop old clutter to guard what matters.
 
 ## II. The Five Movements of Artificial Memory
 
-The search for scalable memory soon broke free from serial recurrence.
+The quest for large memory soon broke free from step-by-step loops.
 
-In our third volume, we traced the revolution of 2017, when Ashish Vaswani and his team introduced dot-product attention. By allowing every token to connect directly with every other token, attention turned memory into a parallel geometric space. In our fourth volume, we examined foundation scale, where language models process trillions of words while remaining bounded by finite prompt windows.
+In our third book, we traced the leap of 2017, when Ashish Vaswani and his team built dot-product attention to link every word directly in a shared space. In our fourth book, we explored giant scale, where language models digest trillions of words yet stay fenced inside finite prompt windows.
 
-Here, in our final volume, we have arrived at the moral and institutional frontier. Having conquered the vanishing signal, humanity built systems that can scrape the digital output of human history and preserve it forever. But total retention is not a triumph of mind. It is a curse. Unyielding memory turns software into an engine of continuous punishment and freezes culture into an unchangeable museum.
+Here, in our final book, we reach the moral and legal frontier. Having beaten the fading signal, builders made systems that scrape the output of human history and lock it in weights forever. Yet total recall brings a curse, turning software into an engine of endless blame and freezing culture into a cold museum.
 
 ## III. Active Forgetting as the Human Condition
 
-The deepest lesson of machine memory mirrors the biology and philosophy of the human mind.
+The deepest lesson of machine memory echoes the biology and ethics of the human mind.
 
-In his study of historical reconciliation, Paul Ricoeur demonstrates that social peace requires forgiveness and the unbinding of past errors.[^ricoeur2004] His work establishes that human moral agency depends on the freedom to outgrow old mistakes. In biology, research establishes that cellular paths dismantle synaptic traces rather than letting memories passively decay.[^davis2017] Living minds do not rot; they spend energy to prune away the obsolete so they can adapt to tomorrow.
+In his study of social healing, Paul Ricoeur shows that peace demands forgiveness and the release of past wrongs.[^ricoeur2004] His work proves that moral growth rests on the freedom to outgrow old mistakes, while brain science shows that cells actively clear out old synapse links instead of letting them rot.[^davis2017] Living minds burn energy to prune away the past so they can meet tomorrow.
 
-Every architecture of memory is an architecture of release. When we build systems that retain everything without decay, we violate the biological and moral conditions of human life.
+Every architecture of memory relies on an architecture of release. When we build machines that hold every trace without decay, we break the living and moral rules of human life.
 
 ## IV. The Circle Closes
 
-The journey of artificial intelligence closes where it began.
+The long arc of artificial intelligence closes right where it began.
 
-The field spent seventy years teaching networks to hold the past. Having succeeded, our greatest challenge is learning how to teach machines to let go. We must build systems that respect human mortality and leave room for new beginnings. Memory is not a stone tablet meant to preserve every grievance forever. It is a living fire that warms only because it consumes its fuel, and endures only because the smoke is allowed to drift into the sky.
+The field spent seventy years teaching networks to hold the past; having succeeded, our hardest task now lies in teaching machines how to let go. Memory never works like a stone tablet carved to keep every grudge forever. It burns like a living fire that warms us only by eating its fuel, and lasts only because the smoke can drift into the open sky.
 
 <aside class="chapter-takeaway">
 <header>Chapter Takeaway: The Architecture of Release</header>
 Every architecture of memory is fundamentally an architecture of forgetting. Artificial intelligence began by solving the vanishing signal, but its highest maturity lies in learning how to let go. True wisdom requires computational systems that honor human finitude, moral renewal, and the life-giving grace of biological release.
 </aside>
 
-In the Munich archive, the librarian turns off the fluorescent light and locks the metal door. The spiral-bound thesis rests in the quiet darkness of the stack, complete and at peace. Its proof has been read. The lesson has been learned. And out in the world, the work of building a wise, forgiving, and truly human future is ready to begin.
+In the Munich archive, the librarian switches off the overhead light and locks the metal door, leaving the bound thesis at peace in the dark stack. Its proof has been read, its lesson learned, and out in the living world the work of building a wise, forgiving human future begins.
 
 ## Notes
 

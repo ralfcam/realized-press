@@ -3,8 +3,8 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-03-weight-of-attention-kdp-6x9.pdf
-SHA-256: 7df87c5a84f2aa71dfebd5b999adf45544d0e80c5eaec364286a7c7c1e137319
-Bytes: 199,356
+SHA-256: c52b93ea33e6e3a19d76df206b798fa86596b2ed47ddc15c2556127482aa2f92
+Bytes: 199,200
 Pages: 57 (57/57 nonblank)
 
 Chapters:

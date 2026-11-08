@@ -40,7 +40,7 @@ Evaluating these new models requires looking at three clear points:
 2. **The Mechanistic Trade-off:** State space models compress history into a compact vector. While this removes the heavy memory cache, exact copying of long random sequences remains harder for a state space model than for full attention.
 3. **The Operator's Actionable Judgment:** Teams building live systems should deploy tiled attention for exact document reviews, while testing state space models for continuous sensor feeds, audio, and streaming tasks.
 
-The sensors at the lab stream their readings into an experimental code kernel. The numbers flow in a continuous river, filtered into state vectors in real time, without filling chip memory. The rigid frame of the context window has begun to soften, opening toward tools that process, retain, and let go.
+Lab sensors stream their live readings into an experimental code kernel. Numbers flow in a steady river, filtered into state vectors in real time without filling chip memory. Slowly, the rigid frame of the context window softens toward tools that process, keep, and let go.
 
 <aside class="chapter-takeaway">
 ### Chapter 7 Takeaways: State Spaces, Linear Complexity, and Hybrid Models.

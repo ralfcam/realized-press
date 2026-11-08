@@ -30,13 +30,13 @@ This separation between storage and expression changed everything. A cell can ca
 
 The three-piece structure of the 1997 architecture mirrors the access controls that complex organizations build to survive in volatile environments.
 
-In an undisciplined company, communication is un-gated. Every urgent email or chat message immediately shifts the team's priorities. This is organizational simple recurrence: extreme vulnerability to immediate noise, and zero long-term strategic retention. Leadership spends its days fighting fires.
+In a noisy company, messages flow without gates. Every urgent email or chat ping hijacks the team's focus on the spot. Simple recurrence rules the floor: raw noise sweeps the room, while long-term plans vanish. Leaders spend their days fighting fires.
 
 To protect long-term work, resilient enterprises create institutional equivalents of the input and output gates:
 
 First is intake governance, the institutional input gate. In clinical trials, software architecture, or defense programs, new work cannot be dropped straight into production. Requests must pass through formal review boards and intake triage. The input gate asks whether the proposal matches the charter. If the gate remains shut, the engineering team works undisturbed.
 
-Second is disclosure governance, the institutional output gate. Companies hold sensitive internal states, such as trade secrets, draft patent filings, and preliminary financial audits. These records must not leak into premature activation. Legal compliance acts as an output valve, holding internal records until regulatory clearance triggers a public release.
+Second comes the corporate output gate: release control. Firms hold private facts like trade secrets, draft patents, and early audit numbers. Those records must never leak out too soon. Legal review acts as an output valve, holding inner drafts back until sign-off clears them for public release.
 
 Organizational survival requires bidirectional isolation. If a company cannot gate what enters its memory, it drowns in triviality. If it cannot gate what leaves, it destroys its own security.
 
@@ -44,9 +44,9 @@ Organizational survival requires bidirectional isolation. If a company cannot ga
 
 ## IV. Locke and the Architecture of Discernment
 
-In his *Essay Concerning Human Understanding*, philosopher John Locke divided the mind's operations into retention and discernment.[^locke1689] Locke noted that holding ideas in memory is useless without the ability to separate them and deploy them at the proper moment.
+In his *Essay Concerning Human Understanding*, John Locke split mental work into keeping ideas and telling them apart.[^locke1689] Locke noted that storing facts in memory helps no one unless the mind can sort them and call them up at the right moment.
 
-The 1997 architecture turned Locke's distinction into working code. The Constant Error Carousel provides retention: the preservation of a trace across time. But retention alone is blind. Discernment is provided by the gates. The input gate discerns what is worth recording. The output gate discerns when a recorded trace is relevant to action.
+The 1997 design turned Locke's split into working code. While the Constant Error Carousel locks a trace across time, raw keeping remains blind on its own. Learned gates supply the judgment: the input gate filters what deserves recording, and the output gate decides when that stored trace should drive action.
 
 By separating the container from its regulators, the architecture affirmed that memory is not a single passive storehouse. Memory is an active relationship between an invariant trace and learned boundaries.
 

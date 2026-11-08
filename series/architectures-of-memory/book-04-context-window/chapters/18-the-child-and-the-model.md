@@ -1,6 +1,8 @@
 # Chapter 18: The Child and the Model — Developmental Cognition vs. Statistical Learning
 
-A two-year-old child sits on a foam playmat in an early childhood lab in Berkeley. On the wooden table before her sits an opaque box known as a blicket detector. When certain wooden blocks touch its top, the box flashes red lights and plays a chime. Other blocks leave it silent. An experimenter places two blocks on the box at once—a blue cylinder and a yellow cube. The box chimes. The researcher takes away the yellow cube. The box goes dark. The researcher hands both blocks to the child and smiles: "Can you make the box light up?"
+A two-year-old child sits on a foam playmat in an early childhood lab in Berkeley. On the wooden table before her sits an opaque box known as a blicket detector. When certain wooden blocks touch its top, the box flashes red lights and plays a chime. Other blocks leave it silent.
+
+An experimenter places two blocks on the box at once—a blue cylinder and a yellow cube. The box chimes. The researcher takes away the yellow cube. The box goes dark. The researcher hands both blocks to the child and smiles: "Can you make the box light up?"
 
 The toddler pauses for two seconds. She ignores the yellow cube. She picks up the blue cylinder with small fingers and sets it on the plastic surface. The red lights flash, the chime sounds, and the child laughs with joy. She saw only two examples. From those two data points, her mind isolated the cause, discarded the yellow cube, and solved the puzzle.
 
@@ -20,13 +22,15 @@ It requires billions of examples to learn simple common-sense facts that a toddl
 
 For decades, connectionists argued that children learn purely through passive pattern matching. They claimed that given enough input, common sense would emerge spontaneously from statistical associations.
 
-Empirical developmental research by Alison Gopnik and Henry Wellman demonstrates that young children learn causal world models through active Bayesian hypothesis testing rather than passive statistical association.[^gopnik2012] Their findings establish that children formulate abstract causal theories, screen off spurious correlations from minimal data, and actively design physical interventions to explore latent environmental dynamics. A child is not a passive sponge. Through play—dropping toys, building towers, testing boundaries—children run active experiments on reality. They seek the causal rules behind the world.
+Developmental studies by Alison Gopnik and Henry Wellman show that young children build causal models of the world by actively testing hunches rather than passively soaking up patterns.[^gopnik2012] Children frame bold theories, rule out false links from tiny samples, and run hands-on tests to see how things work. A toddler is never a passive sponge. By dropping spoons, stacking blocks, and pushing limits, children run live experiments to uncover the causal rules of their world.
 
 ## IV. Beyond Passive Token Prediction
 
 Contrasting human developmental growth with neural scale clarifies the true nature of machine intelligence.
 
-First, large language models excel at passive correlational learning. Across vast text corpora, they find stylistic links that no single human could ever read. Second, autoregressive models lack the active, embodied loop of childhood. A model cannot play, drop a block, or test gravity. It can only predict words based on prior text. Third, developers must respect the line between fluency and causal understanding. Never assume that because a system speaks like an adult, it reasons about physics like a child.
+First, large language models excel at passive correlational learning. Across vast text corpora, they find stylistic links that no single human could ever read. Second, autoregressive models lack the active, embodied loop of childhood.
+
+A model cannot play, drop a block, or test gravity. It can only predict words based on prior text. Third, developers must respect the line between fluency and causal understanding. Never assume that because a system speaks like an adult, it reasons about physics like a child.
 
 <aside class="chapter-takeaway">
 <header>Chapter Takeaway: Causal Play Versus Passive Correlation</header>

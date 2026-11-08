@@ -18,9 +18,10 @@ Once a response is emitted and the prompt cleared. the model returns instantly t
 
 ## II. Parametric Weights and In-Context Workspace
 
-To understand the Transformer, we must distinguish between two completely different forms of memory:
-- **Parametric Memory:** The static weights stored in the network's matrices. These weights are frozen during training. They do not store specific text files; they store statistical associations, linguistic grammar, and conceptual coordinates.
-- **In-Context Working Memory:** The dynamic activations generated across the context window while processing a specific prompt.[^vaswani2017]
+To grasp how the Transformer works, we must separate two distinct kinds of memory:
+
+- **Parametric Memory:** The frozen weights locked inside the network's matrices during training. These weights never save raw text files; instead, they hold word links, grammar rules, and concept maps.
+- **In-Context Working Memory:** The live activations built across the context window while reading a specific prompt.[^vaswani2017]
 
 When an engineer supplies five documents in a prompt. the Transformer does not learn them permanently. It holds them in its temporary attention switchboard.
 
@@ -48,7 +49,7 @@ Yet Kaplan's scaling laws revealed a core trade-off: parametric memory is extrao
 
 With the Transformer, computing achieved a clean separation between static intelligence and dynamic search.
 
-The weights provide the reasoning engine. the grammar, and the associative index. The context window provides the active workspace.
+Trained weights supply the reasoning engine, the grammar, and the lookup map, while the context window holds the live workbench.
 
 Yet this technical split mirrors an ancient company dilemma:
 - A corporation cannot retrain all its employees whenever a new contract is signed.

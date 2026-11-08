@@ -1,6 +1,8 @@
 # Chapter 3: Federated Learning — Decentralized Training and the Geometry of Aggregation
 
-In millions of pockets across the globe, mobile phones rest on nightstands. They charge on home wireless networks during the quiet hours before dawn. Inside each phone, a local client wakes up. It reviews words typed and voice notes recorded over the previous day. Yet it does not upload a single private message to a cloud server. Instead, it computes a small mathematical update directly on the device. It discards the raw text right away. Then it sends only an encrypted numerical update back to the main server.
+In millions of pockets across the globe, mobile phones rest on nightstands. They charge on home wireless networks during the quiet hours before dawn. Inside each phone, a local client wakes up.
+
+It reviews words typed and voice notes recorded over the previous day. Yet it does not upload a single private message to a cloud server. Instead, it computes a small mathematical update directly on the device. It discards the raw text right away. Then it sends only an encrypted numerical update back to the main server.
 
 This shift marks a major change in computer architecture. For years, machine learning followed a simple rule: collect all data into a central lake. Companies gathered billions of photos, emails, and search queries onto central storage drives. But centralized data lakes became prime targets for hackers and state surveillance. Gathering all personal memory in one place created an unacceptable liability. To protect privacy, engineering had to invert the flow: move the computation to the data, rather than moving the data to the machine.
 
@@ -14,19 +16,19 @@ This local training respects physical boundaries. A hospital system can train di
 
 Centralizing raw data creates severe security and regulatory risks. Under modern privacy laws, storing user communications on central servers requires explicit consent and costly protection.
 
-Decentralized training replaces raw data collection with mathematical coordination. The central server acts as an orchestrator rather than a surveillance vault. It distributes a base model to thousands of edge devices. Each device trains on local data for a few steps. The devices send back only the weight changes. The server combines these updates to improve the global model.
+Decentralized training swaps raw data hoarding for clean math. Instead of acting as a dragnet vault, the central server sends a base model out to thousands of phones. Each phone trains on its own local text for a few steps, then ships back only the weight shifts so the server can merge them into a sharper global model.
 
 ## III. Federated Averaging and Secure Aggregation
 
 Coordinating updates from millions of unreliable devices required a new mathematical framework.
 
-Empirical research by Brendan McMahan and colleagues demonstrates that federated averaging trains deep neural networks across decentralized edge devices using minimal communication rounds.[^mcmahan2017] Their framework establishes that aggregating model updates locally preserves user privacy without requiring raw training data to leave individual hardware. The algorithm handles devices that drop offline, connect over slow networks, or possess skewed local data.
+Empirical work by Brendan McMahan and his team shows that federated averaging trains deep nets across remote devices in far fewer sync rounds.[^mcmahan2017] Merging weight updates locally shields user privacy because raw text never leaves the phone. Even when devices drop offline or run on slow links, the shared model still converges.
 
 ## IV. The Geometry of Decentralized Memory
 
 Decentralized training introduces unique systems challenges. First, user data is non-identical. One person writes business emails, while another writes teenage slang. The global model must synthesize these diverse streams without erasing minority patterns.
 
-Second, raw updates can still leak information through gradient inversion attacks. If an adversary inspects raw parameter deltas, they can sometimes reconstruct the text that produced them. To prevent this, teams combine federated learning with secure aggregation and differential privacy. The server sees only the sum of updates, never an individual user’s change.
+Second, raw weight updates can still leak secrets when attackers invert gradients. If a snoop inspects a single phone's weight shift, math tricks can rebuild the private text that caused it. To block that leak, engineers pair federated runs with secure sums and noise so the server sees only the crowd total, never one person's step.
 
 <aside class="chapter-takeaway">
 <header>Chapter Takeaway: Decentralized Memory</header>

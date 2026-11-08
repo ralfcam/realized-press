@@ -18,8 +18,9 @@ Because looking up data carried a high cost in time and effort. companies placed
 
 By 1971, economist and cognitive scientist Herbert Simon foresaw the inevitable inversion of this world.
 
-In a prophetic essay titled "Designing companies for a data-Rich World," Simon formulated the economic law of digital systems:
-> "In a data-rich world. the wealth of data means a dearth of something else: a scarcity of whatever it is. That data consumes. What data consumes is rather obvious: it consumes the attention of its recipients. Hence a wealth of data creates a poverty of attention."[^simon1971]
+In a classic essay on designing firms for a data-rich world, Simon stated the core law of digital systems:
+
+> "In a data-rich world, the wealth of data means a dearth of something else: a scarcity of whatever it is that data consumes. What data consumes is rather obvious: it consumes the attention of its recipients. Hence a wealth of data creates a poverty of attention."[^simon1971]
 
 Simon recognized that as computing made data generation virtually free, storage would cease to be the bottleneck.
 
@@ -51,7 +52,7 @@ Yet this transition carries hidden hazards.
 
 When looking up data becomes frictionless. people stop building deep internal models. If you know you can search a formula in two seconds, your brain expends no energy consolidating it into biological memory.
 
-Knowledge becomes transactional. Workers develop agile search heuristics. But lose the structural intuition. That connects disparate concepts across domains.
+Knowledge turns into a quick lookup trade. Staff build fast search habits, yet they lose the deep gut feel that links distant ideas across fields.
 
 An company composed entirely of searchers excels at localized answers. But struggles with systemic foresight.
 

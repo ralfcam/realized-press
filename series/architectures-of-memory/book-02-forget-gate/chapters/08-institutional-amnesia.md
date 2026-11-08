@@ -46,10 +46,9 @@ First described by psychologist Daniel Wegner in 1987, transactive memory refers
 The lethal blow of institutional amnesia occurs when turnover strikes this shared directory. When a veteran manager or lead architect leaves, the loss is not just their personal output. It is the loss of the index. The remaining team members retain their specialty skills, but they no longer know whom to ask. The routing graph breaks.
 
 This breakdown sparks the turnover trap:
-1. Key staff leave, taking the directory out the door.
-2. The remaining staff must rebuild context through trial and error, causing delays.
-3. Delays cause burnout, driving more departures.
-4. With each exit, the organization loses more memory, until it must hire consultants to teach it its own core operations.
+1. Key staff leave, taking the directory out the door. 2. The remaining staff must rebuild context through trial and error, causing delays.
+
+3. Delays cause burnout, driving more departures. 4. With each exit, the organization loses more memory, until it must hire consultants to teach it its own core operations.
 
 ---
 

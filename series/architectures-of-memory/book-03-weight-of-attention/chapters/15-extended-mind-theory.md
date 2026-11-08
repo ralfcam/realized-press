@@ -8,9 +8,13 @@ In 1998. philosophers Andy Clark and David Chalmers published an essay in *Analy
 
 Titled "The Extended Mind," the paper opened with a famous thought experiment comparing two people: Inga and Otto.
 
-Inga hears. That an exhibition is open at the Museum of Modern Art in New York. She pauses. consults her biological memory. recalls. That the museum is on 53rd Street. and walks there.
+Inga hears. That an exhibition is open at the Museum of Modern Art in New York. She pauses.
 
-Otto has Alzheimer's disease. To manage his condition. he carries a notebook everywhere. When Otto hears about the exhibition. he opens his notebook. looks up the address. reads. That the museum is on 53rd Street. and walks there.
+consults her biological memory. recalls. That the museum is on 53rd Street. and walks there.
+
+Otto has Alzheimer's disease. To manage his condition. he carries a notebook everywhere.
+
+When Otto hears about the show, he flips open his notebook and checks the street number. He reads that the museum sits on 53rd Street, then walks right over.
 
 Clark and Chalmers posed a radical question: why should Inga's recollection count as memory. Meanwhile. Otto's consultation does not?
 
@@ -39,7 +43,7 @@ When an engineer uses an AI assistant to write software or analyze financial dat
 
 The biological brain handles intentionality. goal setting. and verification. The attention network handles high-speed pattern matching. syntax generation. and multi-hop retrieval.
 
-The mind does not stop at the fingertips. It extends through the keyboard. across the network fiber. and into the GPU cluster.
+The mind never stops at the fingertips. Instead, it reaches through the keyboard, races across fiber lines, and thinks inside the GPU cluster.
 
 ---
 

@@ -1,6 +1,8 @@
 # Chapter 16: What It Would Mean for a Model to Truly Know Something
 
-A master carpenter in a boatyard on the coast of Maine runs his palm along the oak stem of a lobster boat. He does not use a digital gauge. Through decades of working timber, his fingers detect a tiny hollow where the grain runs against the bevel. If asked why the stem requires that curve, he explains how waves strike the hull in a heavy storm. He knows how green timber swells in brine and how fastenings shear if planks seat unevenly. His knowledge is an integrated, causal grasp of wood, salt, and ocean swells. Hand him cedar instead of oak, and he adapts right away. He alters his chisel angle for the softer fiber.
+A master carpenter in a boatyard on the coast of Maine runs his palm along the oak stem of a lobster boat. He does not use a digital gauge. Through decades of working timber, his fingers detect a tiny hollow where the grain runs against the bevel. If asked why the stem requires that curve, he explains how waves strike the hull in a heavy storm.
+
+He knows how green timber swells in brine and how fastenings shear if planks seat unevenly. His knowledge is an integrated, causal grasp of wood, salt, and ocean swells. Hand him cedar instead of oak, and he adapts right away. He alters his chisel angle for the softer fiber.
 
 When a benchmark reports that a foundation model scores high on academic tests, industry releases claim the system knows law, medicine, or physics. In philosophy, however, knowledge requires more than producing correct answers on a multiple-choice exam. Since ancient Greece, thinkers have defined knowledge as justified true belief. To know a fact, one must believe it, it must be true, and one must possess valid justification. In modern thought, this belief must stem from a reliable process that holds up under changing conditions.
 
@@ -20,7 +22,7 @@ Adversarial research exposed the fragility of these scores. When scientists made
 
 This distinction returns us to the core limits of symbol manipulation.
 
-John Searle's classic critique demonstrates that syntactic manipulation of tokens cannot produce genuine semantic intentionality.[^searle1980] Building on this foundation, Emily Bender and Alexander Koller establish that models trained exclusively on textual form lack access to the causal, physical world to which language refers.[^bender2020] When an autoregressive system samples the next token, it executes vector arithmetic over strings. It does not reflect upon truth, doubt its conclusions, or observe physical evidence.
+John Searle's classic critique shows that shuffling word tokens never sparks real intent.[^searle1980] Building on that proof, Emily Bender and Alexander Koller show that models trained only on text form have no link to the physical world that words name.[^bender2020] When a model picks the next token, it runs matrix math over strings. It never weighs truth, doubts its own guess, or checks the outside world.
 
 ## IV. The Epistemic Boundary
 

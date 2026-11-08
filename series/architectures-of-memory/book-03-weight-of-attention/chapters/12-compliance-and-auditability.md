@@ -23,10 +23,9 @@ To satisfy legal mandates like GDPR, SOX, and healthcare privacy laws, companies
 The primary mechanism for traceability in attention designs is the retrieval trace.[^simon1971]
 
 In a properly designed RAG pipeline, the system logs every step of the attentional step:
-1. The exact query submitted by the user.
-2. The specific vector chunks retrieved from the database, along with their cosine similarity scores.
-3. The exact prompt injected into the language model.
-4. The attention scores that linked specific generated assertions to source paragraphs.
+1. The exact query submitted by the user. 2. The specific vector chunks retrieved from the database, along with their cosine similarity scores.
+
+3. The exact prompt injected into the language model. 4. The attention scores that linked specific generated assertions to source paragraphs.
 
 If an auditor questions a generated recommendation. the audit officer does not need to inspect neural weights. They inspect the attention trace: the model based its conclusion on Paragraph B of Document 104.
 

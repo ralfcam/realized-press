@@ -26,7 +26,7 @@ A second leap came from bidirectional processing. Standard models assume that ti
 
 By 2014, researchers sought to simplify this multi-gate machinery. Kyunghyun Cho and colleagues introduced the Gated Recurrent Unit, or GRU.[^cho2014gru] The GRU eliminated the separate cell state and coupled the input and forget gates into a single update gate. In the GRU, remembering and forgetting are tied: adding new information forces the model to drop an equal portion of past state.
 
-In 2017, Klaus Greff and colleagues ran a definitive audit of recurrent models, testing eight variants across 5,400 runs on speech, music, and handwriting.[^greff2017] Their findings brought rare clarity to the field: none of the modified variants significantly outperformed the standard LSTM with forget gates. Peepholes helped on precise timing tasks, and the GRU ran faster with fewer parameters, but the core 2000-era design remained the durable baseline.
+In 2017, Klaus Greff and his team ran a massive audit of recurrent nets, testing eight designs across 5,400 runs on speech, music, and script.[^greff2017] Their results brought rare clarity. None of the new variants beat the standard LSTM with forget gates across the board. Peepholes helped on strict timing tasks, and the GRU ran faster with fewer weights, yet the core 2000 design held firm as the gold standard.
 
 ---
 
@@ -38,7 +38,7 @@ When corporate review systems become complex—crowded with committees and audit
 - Merging risk review and delivery teams into a single checkpoint.
 - Removing specialized verification steps to speed up feature delivery.
 
-In routine environments, the streamlined governance model works fine, just as the GRU matches LSTM performance on standard text tasks. But when an organization faces an extreme shock—a sudden regulatory audit, a critical supply failure, or a product recall—the missing gates reveal why they were created in the first place.
+In calm times, a stripped-down process works fine, much as the GRU matches the LSTM on everyday text. Yet when a sudden shock hits a firm—a surprise audit, a supply crash, or a product recall—the missing gates show why engineers built them in the first place.
 
 A coupled gate cannot preserve a historical record while absorbing a massive external shock; it must trade one for the other. Organizations that stripped away internal checks find that their lean process sacrificed the exact insulation needed to survive non-linear crises. Every gate was paid for by a previous failure.
 

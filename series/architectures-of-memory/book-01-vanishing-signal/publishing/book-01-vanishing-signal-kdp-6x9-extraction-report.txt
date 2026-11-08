@@ -3,25 +3,25 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-01-vanishing-signal-kdp-6x9.pdf
-SHA-256: 4311e31e1d968802f5a71794c4cd436578e89e5de814e4db61cc46219d3b731f
-Bytes: 228,421
-Pages: 62 (62/62 nonblank)
+SHA-256: 8da7f60d2cab54b6e74225485daaf8378fc868a1b36522b1cac0fcc9dce44c2c
+Bytes: 228,714
+Pages: 63 (63/63 nonblank)
 
 Chapters:
 - PASS · PDF page 2 · How to Use This Atlas: 2:00 AM Quick-Finder
 - PASS · PDF page 7 · Chapter 1 — Rosenblatt's Perceptron and the Dream of Learning Machines
-- PASS · PDF page 11 · Chapter 2 — The First AI Winter: Why Connectionism Failed and What Was Lost
-- PASS · PDF page 15 · Chapter 3 — The Return: Rumelhart, Hinton, and Backpropagation (1986)
-- PASS · PDF page 19 · Chapter 4 — Sequence as the Unsolved Problem: Language, Time, and Order
-- PASS · PDF page 23 · Chapter 5 — How Backpropagation Works: The Chain Rule as Accumulating Debt
-- PASS · PDF page 27 · Chapter 6 — Recurrent Networks and the Illusion of Memory
-- PASS · PDF page 31 · Chapter 7 — Hochreiter’s 1991 Thesis: A Student Proves the Paradigm Is Broken
-- PASS · PDF page 34 · Chapter 8 — The Vanishing Gradient Problem in Neural Networks: A Theorem, Not a Bug
-- PASS · PDF page 37 · Chapter 9 — The Reorg as Gradient Vanishing: Knowledge That Cannot Survive Change
-- PASS · PDF page 41 · Chapter 10 — Documentation Without Gating: Knowledge Loss in Runaway Information Systems
-- PASS · PDF page 45 · Chapter 11 — The Regulated Industry as an Extreme Case: Compliance Without Memory
-- PASS · PDF page 48 · Chapter 12 — What Would an Organization Need to Actually Remember?
-- PASS · PDF page 51 · Chapter 13 — Heraclitus and the River: Identity Across Time
-- PASS · PDF page 54 · Chapter 14 — The Ship of Theseus as a Memory Architecture Problem
-- PASS · PDF page 57 · Chapter 15 — Bergson’s Duration: Time as Lived Versus Time as Measured
-- PASS · PDF page 60 · Chapter 16 — The Question the Field Couldn’t Yet Answer
+- PASS · PDF page 12 · Chapter 2 — The First AI Winter: Why Connectionism Failed and What Was Lost
+- PASS · PDF page 16 · Chapter 3 — The Return: Rumelhart, Hinton, and Backpropagation (1986)
+- PASS · PDF page 20 · Chapter 4 — Sequence as the Unsolved Problem: Language, Time, and Order
+- PASS · PDF page 24 · Chapter 5 — How Backpropagation Works: The Chain Rule as Accumulating Debt
+- PASS · PDF page 28 · Chapter 6 — Recurrent Networks and the Illusion of Memory
+- PASS · PDF page 32 · Chapter 7 — Hochreiter’s 1991 Thesis: A Student Proves the Paradigm Is Broken
+- PASS · PDF page 35 · Chapter 8 — The Vanishing Gradient Problem in Neural Networks: A Theorem, Not a Bug
+- PASS · PDF page 38 · Chapter 9 — The Reorg as Gradient Vanishing: Knowledge That Cannot Survive Change
+- PASS · PDF page 42 · Chapter 10 — Documentation Without Gating: Knowledge Loss in Runaway Information Systems
+- PASS · PDF page 46 · Chapter 11 — The Regulated Industry as an Extreme Case: Compliance Without Memory
+- PASS · PDF page 49 · Chapter 12 — What Would an Organization Need to Actually Remember?
+- PASS · PDF page 52 · Chapter 13 — Heraclitus and the River: Identity Across Time
+- PASS · PDF page 55 · Chapter 14 — The Ship of Theseus as a Memory Architecture Problem
+- PASS · PDF page 58 · Chapter 15 — Bergson’s Duration: Time as Lived Versus Time as Measured
+- PASS · PDF page 61 · Chapter 16 — The Question the Field Couldn’t Yet Answer

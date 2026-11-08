@@ -22,6 +22,7 @@ The solution arrived through Retrieval-Augmented Generation, widely known as RAG
 
 RAG splits the problem of artificial intelligence into two distinct systems:
 1. **The External Index:** Corporate documents are broken into text chunks and converted into dense vector embeddings using bidirectional models like BERT.[^devlin2018] These embeddings are stored in a vector database.
+
 2. **The Contextual Reasoner:** When a user submits a query. the vector database searches for the most relevant document chunks based on geometric similarity. Those chunks are injected directly into the language model's prompt.
 
 The language model is not asked to recall the answer from its parametric weights. It is instructed to act as an attentive reader: read the retrieved chunks in your context window. synthesize the answer. and cite the source paragraphs.
@@ -34,7 +35,7 @@ Building an effective enterprise RAG system requires navigating severe data bott
 
 First. document chunking is perilous. If chunks are too small. cross-sentence context is severed. If chunks are too large, irrelevant text dilutes semantic similarity.
 
-Second. vector embeddings map meaning into mathematical space. But semantic similarity is not identical to logical relevance. A query asking "Why did Project Titan fail?" may retrieve documents describing Titan's initial success because they share technical terminology.
+Second, vector maps turn word meaning into geometry, yet closeness in vector space never guarantees logical truth. A query asking "Why did Project Titan fail?" can easily pull up early memos praising Titan's launch just because both share the same project words.
 
 Third, Herbert Simon's law of attention scarcity applies directly to the context window.[^simon1971]
 
@@ -50,7 +51,7 @@ The enterprise no longer attempts to train all corporate knowledge into neural w
 
 Yet RAG also exposes an daily reality: an automated retrieval system is only as good as the underlying documentation.
 
-If an company's internal wikis are full of contradictory. obsolete memos. the vector database will faithfully retrieve contradictory, obsolete chunks. The machine amplifies company amnesia if the source archives lack active curation.
+If a firm's wikis hold clashing, stale memos, the vector index will faithfully pull those dead chunks into the prompt. Search tools only amplify confusion when no one prunes the archive.
 
 <aside class="chapter-takeaway">
 ### Chapter 9 Takeaways: Grounding, Vector Search, and Evidence.

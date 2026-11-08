@@ -4,53 +4,53 @@
 
 ## I. The Inversion of the Default
 
-For thousands of years, forgetting was the natural default of life.
+For thousands of years, human societies forgot by default.
 
-Recording events took huge effort: carving stone, writing on clay, or binding books. Because recording was costly, societies kept only what seemed historic: laws, treaties, and sacred texts. Daily life—casual remarks, childhood errors, and tavern debates—faded into the air.
+Recording events took hard labor: chiseling stone, pressing wet clay, or binding vellum books. High costs forced scribes to save only laws, treaties, and sacred texts. Daily life—casual remarks, youthful blunders, and tavern arguments—faded into thin air.
 
-In his book *Delete*, legal scholar Viktor Mayer-Schönberger showed how digital tools flipped this norm.[^mayerschoenberger2009] Cheap disks and the web made remembering easy. Deleting files became hard and costly. Society shifted from default forgetting to default permanent storage.
+In his book *Delete*, legal scholar Viktor Mayer-Schönberger showed how digital tools flipped this norm.[^mayerschoenberger2009] Cheap disks and web crawlers made saving everything effortless, while deleting records grew costly and rare. Society slid from default forgetting into permanent capture.
 
 ---
 
 ## II. Surveillance Capitalism and Permanent Records
 
-In surveillance capitalism, this endless storage became a business model.[^zuboff2019] Platforms tracked every click, search pause, and location pin into permanent files.
+Under surveillance capitalism, endless retention became a core business model.[^zuboff2019] Platforms swept every click, search pause, and location pin into permanent vaults.
 
-People lost the buffer of time that once let humans outgrow their past. A foolish post made at age seventeen stayed indexed and searchable at age thirty-five like a formal statement.
+People lost the grace of time that once let citizens outgrow their past. A foolish remark posted at age seventeen stayed indexed at age thirty-five like a sworn affidavit.
 
 ---
 
 ## III. The Right to Erasure and the Unlearning Challenge
 
-The realization that permanent storage threatens freedom led to the 2014 European ruling in *Google Spain*, establishing the Right to be Forgotten.[^googlespain2014]
+Recognizing that total recall threatens human freedom led to the 2014 European ruling in *Google Spain*, which established the Right to be Forgotten.[^googlespain2014]
 
-This rule was codified in Article 17 of the General Data Protection Regulation as the Right to Erasure.[^gdpr2016] Under Article 17, a person can ask firms to erase personal data that is no longer needed.
+Lawmakers codified this principle in Article 17 of the General Data Protection Regulation as the Right to Erasure.[^gdpr2016] Under Article 17, citizens can demand that firms purge personal data once its purpose expires.
 
-Yet this legal right met a mathematical wall: neural networks do not store facts as neat rows in a table.[^unlearning-math]
+Yet this legal mandate hit a mathematical wall: neural networks never store facts as neat rows in a table.[^unlearning-math]
 
-When a neural network trains on text, examples are not stored in neat folders. No simple delete command exists. Instead, the imprint of each text spreads across millions of weights.
+When a network trains on text, it never files examples into separate folders or offers a clean delete key. Instead, the training pass blends each record across millions of shared weights.
 
-If a citizen asks to be forgotten, deleting a web page does not clear its trace from trained model weights. As privacy researchers have shown, large models can memorize unique numbers or leak personal histories through direct queries.[^abadi2016]
+If a citizen demands erasure, dropping a row from a database leaves its echo inside the trained weights. Privacy audits show that large models memorize rare numbers and leak private histories when probed.[^abadi2016]
 
 ---
 
 ## IV. Machine Unlearning and SISA Architectures
 
-To resolve this clash between legal rules and neural networks, computer science created machine unlearning.[^bourtoule2021]
+To bridge this gap between legal erasure and shared weights, computer scientists built machine unlearning.[^bourtoule2021]
 
-In 2021, Lucas Bourtoule and his team introduced the SISA framework: Sharded, Isolated, Sliced, Aggregated models.[^bourtoule2021] Instead of retraining a huge model from scratch for each request, SISA splits training data into isolated shards. When an erasure request arrives, only the affected shard is retrained, lowering the cost of compliance.
+In 2021, Lucas Bourtoule and his team introduced the SISA design: Sharded, Isolated, Sliced, Aggregated models.[^bourtoule2021] Instead of retraining a massive network from scratch for each deletion request, SISA splits training data into separate shards. When an erasure order arrives, engineers retrain only the single shard that held that record, slashing the compute cost of compliance.
 
 ---
 
 ## V. The Moral Necessity of Redemption
 
-Yet the deeper question is not technical; it is ethical. Why is the right to be forgotten vital to human dignity?
+Yet the deepest stakes reach beyond code into ethics. Why does human dignity demand the right to be forgotten?
 
-The answer lies in the moral need for redemption. If human identity were tied to a permanent record of every past mistake, growth would freeze. Anyone who knows every poor choice is saved becomes timid.
+The answer rests on our need for second chances. Tying a person to an unyielding log of every past mistake freezes moral growth, and anyone watched by an eternal archive soon grows timid.
 
-Forgetting is the social forget gate that makes forgiveness, rehabilitation, and second chances possible.
+Forgetting acts as the social gate that lets communities forgive, heal, and start fresh.
 
-By teaching machines how to forget, we do not just build cleaner code. We build systems that respect human life: that we are beings capable of growth, whose future must never be held hostage by the past.
+By teaching machines how to forget, we do far more than tidy up server racks. We build tools that honor human life—recognizing that people grow, and that yesterday's error must never hold tomorrow hostage.
 
 <aside class="chapter-takeaway">
 ### Chapter 17 Takeaways: Architecture, Signal, and Retained Memory

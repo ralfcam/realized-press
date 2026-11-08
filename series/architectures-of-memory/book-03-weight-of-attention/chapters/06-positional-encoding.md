@@ -34,12 +34,13 @@ Because every position in the sequence receives a unique combination of wave hei
 
 The mathematical beauty of sinusoidal waves is that they allow the model to learn relative distances easily.
 
-Through simple trigonometric identities. the encoding for position $k + p$ can be expressed as a linear function of the encoding for position $k$. This enables the attention heads to determine whether two words are adjacent or separated by ten tokens simply by taking the dot product of their positional patterns.
+Through simple wave rules, the code for spot $k + p$ works as a linear shift of the code for spot $k$. Attention heads can then tell whether two words sit side by side or ten steps apart just by taking the dot product of their wave patterns.
 
-Subsequent models explored alternative approaches:
-- **Learned Absolute Encodings:** Models like BERT assigned a dedicated trainable vector to each position from one to 512.[^devlin2018]
-- **Relative Position Encodings:** designs like Shaw et al. and T5 modulated attention scores based directly on the signed distance between tokens.[^shaw2018]
-- **Rotary Position Encodings (RoPE):** Modern designs like LLaMA rotate query and key vectors in the complex plane, providing superior learning to long contexts.[^su2024]
+Later models tested three new paths:
+
+- **Learned Absolute Encodings:** Models like BERT gave a dedicated trainable vector to each slot from one to 512.[^devlin2018]
+- **Relative Position Encodings:** Designs like Shaw et al. and T5 scaled attention scores by the direct step gap between words.[^shaw2018]
+- **Rotary Position Encodings (RoPE):** Modern designs like LLaMA spin query and key vectors in the complex plane, which scales cleanly to long texts.[^su2024]
 
 ---
 

@@ -51,7 +51,7 @@ Earlier models like GPT-1 processed language strictly from left to right. Devlin
 
 By training the network to fill in masked words using clues from both directions. BERT set new records across eleven natural language benchmarks.
 
-Multi-head attention proved. That grasp is not a monolithic scalar calculation. It is a chorus of parallel interpretations. each attending to a different dimension of structure.
+Multi-head attention proved a vital truth: grasping language never reduces to a single flat number. Instead, it works as a chorus of parallel readings, where each head tracks a distinct layer of structure across the sentence.
 
 <aside class="chapter-takeaway">
 ### Chapter 5 Takeaways: Multiple Perspectives, focus, and Synthesis.

@@ -10,7 +10,7 @@ Companies panicked. Across major enterprises, legal counsels issued a blanket ru
 
 Over the next twenty years, storage vendors sold petabytes of write-once hardware to house billions of corporate files. Every email, calendar invite, software ticket, and database log was funneled into permanent storage.
 
-By 2020, an ordinary financial firm was generating tens of millions of audit events each day. Yet when regulators or investigators tried to see how a trading loss or compliance breach occurred, they faced an ironic truth: the sheer volume of records made the truth harder to find, not easier.[^holan2004]
+By 2020, a typical bank logged tens of millions of audit events every single day. Yet when auditors tried to trace how a trading loss or rule breach happened, they hit an ironic wall: the sheer flood of logs hid the truth instead of exposing it.[^holan2004]
 
 This is the audit trail paradox. An organization that hoards every signal without a filter creates an archive so noisy that it becomes functionally equivalent to total amnesia.
 
@@ -56,7 +56,7 @@ The archive did not stop the disaster; it only recorded the firm's blindness. Th
 
 In *Simulacra and Simulation*, French philosopher Jean Baudrillard described hyperreality: a state where the copy of a thing becomes more authoritative than the real thing itself.[^baudrillard1981]
 
-The modern audit trail is a classic hyperreal creation. The firm builds an exhaustive digital twin of its activities: millions of transactions, signed forms, and compliance workflows. Executives end up managing the audit trail rather than the business. They review dashboard statuses that show whether logs are green, mistaking the paper trail for operational health.
+The modern audit trail is a classic hyperreal creation. The firm builds a vast digital mirror of its daily work across millions of trades, signed forms, and checkoff steps. Leaders end up managing the logbook instead of the business. They watch green dashboard lights and mistake the paper trail for real safety.
 
 Baudrillard warned that an excess of signs creates a black hole of meaning: when information multiplies without bounds, it devours its own content.
 

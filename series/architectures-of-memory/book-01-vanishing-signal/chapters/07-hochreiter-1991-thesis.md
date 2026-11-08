@@ -6,7 +6,7 @@
 
 On June 15, 1991, Sepp Hochreiter submitted a master's thesis in Munich.[^thesis] His supervisor was Jürgen Schmidhuber. The German text ran over seventy pages of detailed math.[^thesis-pages] It was a deep study, not a brief student essay.
 
-Hochreiter studied how errors move backward through unrolled recurrent nets during backpropagation. The gradient reaching early layers takes the form of a product of matrices. For standard weights and squashing functions, this product does not stay stable. It vanishes toward zero or explodes toward infinity. A young student had turned an elusive bug into a proven mathematical limit.[^lstm1997]
+Hochreiter tracked how error signals travel backward through unrolled recurrent nets during training. At each step, the gradient reaching early layers multiplies a long chain of weight matrices. Under standard weights and squashing curves, that product never stays flat. It either shrinks to zero or blows up. A young student had turned a baffling software bug into a strict mathematical law.[^lstm1997]
 
 ---
 
@@ -22,7 +22,7 @@ This breakthrough was found twice. In 1994, Yoshua Bengio, Patrice Simard, and P
 
 A thesis often has an audience of one. But Hochreiter had Schmidhuber. Schmidhuber saw the power of the idea and spoke about it in talks, papers, and lab meetings.
 
-Yet a thesis written in German in 1991 faced a high wall. The wider computing world in the United States rarely looked at German university archives. This was a gap in communication, not a flaw in the math. Broad global notice came only after the 1997 English paper in *Neural Computation*.[^availability]
+Yet a thesis written in German in 1991 faced a high wall. Most labs in the United States never checked German university stacks, so the proof sat unseen for years. Language, not math, blocked the signal. Global notice arrived only after the 1997 English paper in *Neural Computation*.[^availability]
 
 ---
 

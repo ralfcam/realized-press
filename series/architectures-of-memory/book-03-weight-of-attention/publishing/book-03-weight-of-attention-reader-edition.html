@@ -24,7 +24,7 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 .footnote-backref{text-decoration:none;margin-left:0.4rem;color:#888}
 .footnote-backref:hover{color:#8b3a1a}
 </style></head><body>
-<header><h1>The Weight of Attention</h1><p><em>Realized Press · Reader Edition — Working Slice (2026-11-05)</em></p><figure class='reader-cover' style='margin:1.5rem 0;text-align:center'><img src='assets/front-cover-ebook.jpg' alt='The Weight of Attention Cover' style='max-width:340px;width:100%;height:auto;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,0.18)'></figure></header>
+<header><h1>The Weight of Attention</h1><p><em>Realized Press · Reader Edition — Working Slice (2026-11-08)</em></p><figure class='reader-cover' style='margin:1.5rem 0;text-align:center'><img src='assets/front-cover-ebook.jpg' alt='The Weight of Attention Cover' style='max-width:340px;width:100%;height:auto;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,0.18)'></figure></header>
 <nav class='toc'><h2>Contents</h2><ol>
 <li><a href='#front-matter'>How to Use This Atlas: 2:00 AM Quick-Finder</a> <small>(PDF p. 2)</small></li>
 <li><a href='#chapter-01'>Chapter 1 — The LSTM&#x27;s Fatal Constraint</a> <small>(PDF p. 6)</small></li>
@@ -101,11 +101,10 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <p>Yet at the exact moment of its industrial victory, the memory cell struck an fatal barrier: the fixed-vector bottleneck.</p>
 <hr>
 <h2>II. The Fixed-Vector Bottleneck</h2>
-<p>The crisis arrived when researchers applied recurrent networks to translation between human languages. In 2014, two papers established modern neural translation: Ilya Sutskever introduced sequence-to-sequence learning at Google, while Kyunghyun Cho and Yoshua Bengio developed the recurrent encoder-decoder in Montreal.<sup class="footnote-ref"><a href="#fn-01-3" id="fnref-01-3">3</a></sup><sup class="footnote-ref"><a href="#fn-01-4" id="fnref-01-4">4</a></sup></p>
+<p>The crisis broke when teams tried to translate human speech with recurrent nets. In 2014, two papers launched modern neural translation: Ilya Sutskever built sequence-to-sequence learning at Google, while Kyunghyun Cho and Yoshua Bengio built the recurrent encoder-decoder in Montreal.<sup class="footnote-ref"><a href="#fn-01-3" id="fnref-01-3">3</a></sup><sup class="footnote-ref"><a href="#fn-01-4" id="fnref-01-4">4</a></sup></p>
 <p>Both systems operated under the same structural plan:</p>
-<p>1. An encoder network reads an input sentence word by word, updating its internal state at each step.</p>
-<p>2. When the final word arrives, the encoder halts. Its final hidden vector is treated as a complete summary of the whole sentence.</p>
-<p>3. A decoder network takes this solitary summary vector as its starting point. It then unpacks the vector into the target language, emitting one word at a time.</p>
+<p>1. An encoder network reads an input sentence word by word, updating its internal state at each step. 2. When the final word arrives, the encoder halts.</p>
+<p>Its final hidden vector is treated as a complete summary of the whole sentence. 3. A decoder network takes this solitary summary vector as its starting point. It then unpacks the vector into the target language, emitting one word at a time.</p>
 <p>The limitation of this pipeline became obvious on longer sentences. A smooth vector of standard size—say, one thousand numbers—has a finite data capacity.</p>
 <p>When a sentence contains ten words, a thousand numbers can easily preserve its meaning. But when a sentence contains forty words with multiple clauses, the channel capacity is overwhelmed.</p>
 <p>Kyunghyun Cho showed this collapse through systematic benchmark tests.<sup class="footnote-ref"><a href="#fn-01-4" id="fnref-01-4">4</a></sup> When his team plotted translation quality against sentence length, performance remained high for sentences under twenty words. Around twenty-five words, accuracy degraded. Beyond thirty words, the score plunged.</p>
@@ -114,12 +113,12 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <p>This failure did not stem from vanishing gradients, small training sets, or limited computer chips. The flaw was structural. The recurrent cell was a sequential compressor: it forced every historical detail through the eye of a needle.</p>
 <p>To translate the final word of a long passage, the decoder had to rely on a feature that had been rewritten forty times in succession. Even with the protection of an adaptive forget gate, the memory cell updates its contents by addition.<sup class="footnote-ref"><a href="#fn-01-5" id="fnref-01-5">5</a></sup> Every new token introduces competing signals into the same fixed coordinates.</p>
 <p>By the time the network reached the end of a long sentence, the feature of the opening subject had become fatally blurred.</p>
-<p>Human translators do not work by memorizing a whole paragraph, closing their eyes, and reciting the translation from memory. A translator reads the text, keeps an active workspace of grammatical context, and repeatedly glances back at the source page to verify specific phrases.</p>
+<p>Human translators never work by memorizing a whole page, shutting their eyes, and reciting the new text from memory. Instead, a translator reads a line, holds the grammar in mind, and glances back at the source page to check each phrase.</p>
 <p>The classical memory cell denied the computer this ability to look back. It demanded that the network store everything in a single vector, or lose it entirely.</p>
 <hr>
 <h2>IV. The Epistemic Boundary of Recurrence</h2>
 <p>The fixed-vector bottleneck revealed the core dogma that had shaped deep learning since 1986: the assumption that memory must be internal, smooth, and sequential.</p>
-<p>Under this recurrent doctrine, to understand time is to carry an internal state that continuously compresses the past. The state moves forward like a traveler with a single suitcase: every new experience requires packing another item, which forces the traveler to compress or discard what came before.</p>
+<p>Under this recurrent view, grasping time means carrying an inner state that squeezes the past into one box. That state moves forward like a traveler with a single small bag: packing each new item forces the traveler to crush or toss out what came before.</p>
 <p>The field had reached the limit of what compression could deliver. To move forward, artificial intelligence did not need a larger suitcase. It had to abandon the suitcase altogether.</p>
 <p>Computing needed an design that would allow a model to look directly across the landscape of the past, inspecting any historical moment without passing through a sequential bottleneck.<sup class="footnote-ref"><a href="#fn-01-6" id="fnref-01-6">6</a></sup> It needed the mechanism of attention.</p>
 <aside class="chapter-takeaway">
@@ -156,7 +155,7 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <p>The practical impact of Bahdanau&#x27;s mechanism was immediate. When his team tested the model on long sentences, the sharp drop in translation accuracy disappeared.<sup class="footnote-ref"><a href="#fn-02-1" id="fnref-02-1">1</a></sup> Sentences of thirty, forty, and fifty words were translated with sustained fidelity.</p>
 <p>Even more striking was the clarity of the learned weights. When Bahdanau plotted the attention scores as a two-dimensional grid—with English words along the top and French words down the side—the model produced an interpretable alignment map.</p>
 <p>Consider the phrase &quot;European Economic Area&quot;. In English, adjectives sit before nouns. In French, adjectives follow nouns: &quot;zone économique européenne&quot;.</p>
-<p>Without receiving any programmed grammar rules, parse trees, or dictionaries, the attention scores dynamically adjusted order. While translating &quot;zone,&quot; the network focused on &quot;Area&quot;. While translating &quot;économique,&quot; its focus shifted back to &quot;Economic&quot;. While translating &quot;européenne,&quot; it focused on &quot;European&quot;.</p>
+<p>Without any hand-coded grammar rules, parse trees, or word lists, the attention scores flipped the word order on the fly. For &quot;zone,&quot; the network locked onto &quot;Area&quot;. Next, as it wrote &quot;économique,&quot; its gaze jumped back to &quot;Economic,&quot; and on &quot;européenne,&quot; it locked onto &quot;European&quot;.</p>
 <p>The network had discovered grammatical inversion purely through gradient descent.</p>
 <hr>
 <h2>IV. The Unfinished Revolution</h2>
@@ -286,7 +285,7 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <p>The power of multi-head attention culminated in 2018 with Jacob Devlin&#x27;s introduction of BERT at Google.<sup class="footnote-ref"><a href="#fn-05-4" id="fnref-05-4">4</a></sup></p>
 <p>Earlier models like GPT-1 processed language strictly from left to right. Devlin showed. That deep bidirectional attention—allowing every head to look both forward and backward across the entire sentence—unlocked far greater grasp.<sup class="footnote-ref"><a href="#fn-05-4" id="fnref-05-4">4</a></sup></p>
 <p>By training the network to fill in masked words using clues from both directions. BERT set new records across eleven natural language benchmarks.</p>
-<p>Multi-head attention proved. That grasp is not a monolithic scalar calculation. It is a chorus of parallel interpretations. each attending to a different dimension of structure.</p>
+<p>Multi-head attention proved a vital truth: grasping language never reduces to a single flat number. Instead, it works as a chorus of parallel readings, where each head tracks a distinct layer of structure across the sentence.</p>
 <aside class="chapter-takeaway">
 <h3>Chapter 5 Takeaways: Multiple Perspectives, focus, and Synthesis.</h3>
 <ul><li><strong>The Technical Signal:</strong> Multi-head attention projects vectors into multiple subspaces, allowing independent heads to attend at once to syntax, semantics, and reference.</li></ul>
@@ -319,11 +318,11 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <hr>
 <h2>III. Learned and Relative Position Encodings</h2>
 <p>The mathematical beauty of sinusoidal waves is that they allow the model to learn relative distances easily.</p>
-<p>Through simple trigonometric identities. the encoding for position k + p can be expressed as a linear function of the encoding for position k. This enables the attention heads to determine whether two words are adjacent or separated by ten tokens simply by taking the dot product of their positional patterns.</p>
-<p>Subsequent models explored alternative approaches:</p>
-<ul><li><strong>Learned Absolute Encodings:</strong> Models like BERT assigned a dedicated trainable vector to each position from one to 512.<sup class="footnote-ref"><a href="#fn-06-3" id="fnref-06-3">3</a></sup></li></ul>
-<ul><li><strong>Relative Position Encodings:</strong> designs like Shaw et al. and T5 modulated attention scores based directly on the signed distance between tokens.<sup class="footnote-ref"><a href="#fn-06-4" id="fnref-06-4">4</a></sup></li></ul>
-<ul><li><strong>Rotary Position Encodings (RoPE):</strong> Modern designs like LLaMA rotate query and key vectors in the complex plane, providing superior learning to long contexts.<sup class="footnote-ref"><a href="#fn-06-5" id="fnref-06-5">5</a></sup></li></ul>
+<p>Through simple wave rules, the code for spot k + p works as a linear shift of the code for spot k. Attention heads can then tell whether two words sit side by side or ten steps apart just by taking the dot product of their wave patterns.</p>
+<p>Later models tested three new paths:</p>
+<ul><li><strong>Learned Absolute Encodings:</strong> Models like BERT gave a dedicated trainable vector to each slot from one to 512.<sup class="footnote-ref"><a href="#fn-06-3" id="fnref-06-3">3</a></sup></li></ul>
+<ul><li><strong>Relative Position Encodings:</strong> Designs like Shaw et al. and T5 scaled attention scores by the direct step gap between words.<sup class="footnote-ref"><a href="#fn-06-4" id="fnref-06-4">4</a></sup></li></ul>
+<ul><li><strong>Rotary Position Encodings (RoPE):</strong> Modern designs like LLaMA spin query and key vectors in the complex plane, which scales cleanly to long texts.<sup class="footnote-ref"><a href="#fn-06-5" id="fnref-06-5">5</a></sup></li></ul>
 <hr>
 <h2>IV. Time Restored to the Spatial Matrix</h2>
 <p>Positional encoding accomplished something profound in computing history. It proved. That time does not need to be processed sequentially to be understood.</p>
@@ -354,9 +353,9 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <p>Once a response is emitted and the prompt cleared. the model returns instantly to its initial state. The machine. That seems to remember everything actually retains nothing at all.</p>
 <hr>
 <h2>II. Parametric Weights and In-Context Workspace</h2>
-<p>To understand the Transformer, we must distinguish between two completely different forms of memory:</p>
-<ul><li><strong>Parametric Memory:</strong> The static weights stored in the network&#x27;s matrices. These weights are frozen during training. They do not store specific text files; they store statistical associations, linguistic grammar, and conceptual coordinates.</li></ul>
-<ul><li><strong>In-Context Working Memory:</strong> The dynamic activations generated across the context window while processing a specific prompt.<sup class="footnote-ref"><a href="#fn-07-1" id="fnref-07-1">1</a></sup></li></ul>
+<p>To grasp how the Transformer works, we must separate two distinct kinds of memory:</p>
+<ul><li><strong>Parametric Memory:</strong> The frozen weights locked inside the network&#x27;s matrices during training. These weights never save raw text files; instead, they hold word links, grammar rules, and concept maps.</li></ul>
+<ul><li><strong>In-Context Working Memory:</strong> The live activations built across the context window while reading a specific prompt.<sup class="footnote-ref"><a href="#fn-07-1" id="fnref-07-1">1</a></sup></li></ul>
 <p>When an engineer supplies five documents in a prompt. the Transformer does not learn them permanently. It holds them in its temporary attention switchboard.</p>
 <p>Every token in the context window can attend to every other token. The model reads its working memory in real time. reasoning across facts. That exist only within that single execution pass.</p>
 <p>The moment the inference run concludes, that working memory dissolves completely.</p>
@@ -370,7 +369,7 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <hr>
 <h2>IV. The Handoff to the company</h2>
 <p>With the Transformer, computing achieved a clean separation between static intelligence and dynamic search.</p>
-<p>The weights provide the reasoning engine. the grammar, and the associative index. The context window provides the active workspace.</p>
+<p>Trained weights supply the reasoning engine, the grammar, and the lookup map, while the context window holds the live workbench.</p>
 <p>Yet this technical split mirrors an ancient company dilemma:</p>
 <ul><li>A corporation cannot retrain all its employees whenever a new contract is signed.</li></ul>
 <ul><li>Instead, the company relies on general competencies stored in human habits, coupled with external records retrieved as needed.</li></ul>
@@ -398,8 +397,8 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <hr>
 <h2>II. Herbert Simon on Attention Scarcity</h2>
 <p>By 1971, economist and cognitive scientist Herbert Simon foresaw the inevitable inversion of this world.</p>
-<p>In a prophetic essay titled &quot;Designing companies for a data-Rich World,&quot; Simon formulated the economic law of digital systems:</p>
-<blockquote>&quot;In a data-rich world. the wealth of data means a dearth of something else: a scarcity of whatever it is. That data consumes. What data consumes is rather obvious: it consumes the attention of its recipients. Hence a wealth of data creates a poverty of attention.&quot;<sup class="footnote-ref"><a href="#fn-08-1" id="fnref-08-1">1</a></sup></blockquote>
+<p>In a classic essay on designing firms for a data-rich world, Simon stated the core law of digital systems:</p>
+<blockquote>&quot;In a data-rich world, the wealth of data means a dearth of something else: a scarcity of whatever it is that data consumes. What data consumes is rather obvious: it consumes the attention of its recipients. Hence a wealth of data creates a poverty of attention.&quot;<sup class="footnote-ref"><a href="#fn-08-1" id="fnref-08-1">1</a></sup></blockquote>
 <p>Simon recognized that as computing made data generation virtually free, storage would cease to be the bottleneck.</p>
 <p>The scarce resource was no longer data. The scarce resource was human attention.</p>
 <p>An company. That merely hoards documents without building attentional filters does not become wiser. It drowns in its own noise.</p>
@@ -416,7 +415,7 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <h2>IV. The Cost of Instant Retrieval</h2>
 <p>Yet this transition carries hidden hazards.</p>
 <p>When looking up data becomes frictionless. people stop building deep internal models. If you know you can search a formula in two seconds, your brain expends no energy consolidating it into biological memory.</p>
-<p>Knowledge becomes transactional. Workers develop agile search heuristics. But lose the structural intuition. That connects disparate concepts across domains.</p>
+<p>Knowledge turns into a quick lookup trade. Staff build fast search habits, yet they lose the deep gut feel that links distant ideas across fields.</p>
 <p>An company composed entirely of searchers excels at localized answers. But struggles with systemic foresight.</p>
 <aside class="chapter-takeaway">
 <h3>Chapter 8 Takeaways: Attention Scarcity, Search, and Retention.</h3>
@@ -449,7 +448,7 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <h2>III. Chunking, Embeddings, and the Context Window</h2>
 <p>Building an effective enterprise RAG system requires navigating severe data bottlenecks.</p>
 <p>First. document chunking is perilous. If chunks are too small. cross-sentence context is severed. If chunks are too large, irrelevant text dilutes semantic similarity.</p>
-<p>Second. vector embeddings map meaning into mathematical space. But semantic similarity is not identical to logical relevance. A query asking &quot;Why did Project Titan fail?&quot; may retrieve documents describing Titan&#x27;s initial success because they share technical terminology.</p>
+<p>Second, vector maps turn word meaning into geometry, yet closeness in vector space never guarantees logical truth. A query asking &quot;Why did Project Titan fail?&quot; can easily pull up early memos praising Titan&#x27;s launch just because both share the same project words.</p>
 <p>Third, Herbert Simon&#x27;s law of attention scarcity applies directly to the context window.<sup class="footnote-ref"><a href="#fn-09-3" id="fnref-09-3">3</a></sup></p>
 <p>Stuffing twenty pages of retrieved text into a prompt overwhelms the model&#x27;s attention heads. Models exhibit the &quot;lost in the middle&quot; effect: they attend reliably to the beginning and end of the context. Meanwhile. missing critical facts placed in the center.</p>
 <hr>
@@ -457,7 +456,7 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <p>RAG transforms the language model into an externalized cognitive assistant.</p>
 <p>The enterprise no longer attempts to train all corporate knowledge into neural weights. It maintains clean. version-controlled documentation. relying on dynamic attention to bridge the gap between static archives and live questions.</p>
 <p>Yet RAG also exposes an daily reality: an automated retrieval system is only as good as the underlying documentation.</p>
-<p>If an company&#x27;s internal wikis are full of contradictory. obsolete memos. the vector database will faithfully retrieve contradictory, obsolete chunks. The machine amplifies company amnesia if the source archives lack active curation.</p>
+<p>If a firm&#x27;s wikis hold clashing, stale memos, the vector index will faithfully pull those dead chunks into the prompt. Search tools only amplify confusion when no one prunes the archive.</p>
 <aside class="chapter-takeaway">
 <h3>Chapter 9 Takeaways: Grounding, Vector Search, and Evidence.</h3>
 <ul><li><strong>The Technical Signal:</strong> Retrieval-Augmented Generation pairs external vector search with in-context synthesis, grounding generative fluency in verifiable source documents.</li></ul>
@@ -534,7 +533,7 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <p>Dashboards are designed to measure current daily execution: daily active users. support ticket resolution times. and quarterly revenue margins.</p>
 <p>These are all metrics of routine. They measure how efficiently the company executes its existing routines.</p>
 <p>Search. by contrast. is notoriously difficult to capture on a weekly chart. You cannot easily graph the nascent customer insight. the unproven structural experiment. or the speculative research prototype.</p>
-<p>Because leaders attend to what is measured. leader attention flows overwhelmingly toward optimizing current routines. starving exploratory initiatives of resources and sponsorship.<sup class="footnote-ref"><a href="#fn-11-2" id="fnref-11-2">2</a></sup></p>
+<p>Because bosses watch what they can count, their focus pours into tuning today&#x27;s routine work. Bold new ideas starve for cash and backing.<sup class="footnote-ref"><a href="#fn-11-2" id="fnref-11-2">2</a></sup></p>
 <hr>
 <h2>IV. The Disciplined Curation of Focus</h2>
 <p>In the attention era, leadership is no longer defined by data gathering. Leadership is defined by attention allocation.</p>
@@ -568,10 +567,8 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <p>To satisfy legal mandates like GDPR, SOX, and healthcare privacy laws, companies must restore trust to chance-based systems.</p>
 <p>The primary mechanism for traceability in attention designs is the retrieval trace.<sup class="footnote-ref"><a href="#fn-12-1" id="fnref-12-1">1</a></sup></p>
 <p>In a properly designed RAG pipeline, the system logs every step of the attentional step:</p>
-<p>1. The exact query submitted by the user.</p>
-<p>2. The specific vector chunks retrieved from the database, along with their cosine similarity scores.</p>
-<p>3. The exact prompt injected into the language model.</p>
-<p>4. The attention scores that linked specific generated assertions to source paragraphs.</p>
+<p>1. The exact query submitted by the user. 2. The specific vector chunks retrieved from the database, along with their cosine similarity scores.</p>
+<p>3. The exact prompt injected into the language model. 4. The attention scores that linked specific generated assertions to source paragraphs.</p>
 <p>If an auditor questions a generated recommendation. the audit officer does not need to inspect neural weights. They inspect the attention trace: the model based its conclusion on Paragraph B of Document 104.</p>
 <hr>
 <h2>III. company Codes and Audit Trails</h2>
@@ -663,18 +660,18 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <hr>
 <h2>III. The Directory Mind</h2>
 <p>Sparrow&#x27;s findings showed that human memory is deeply transactive.<sup class="footnote-ref"><a href="#fn-14-2" id="fnref-14-2">2</a></sup></p>
-<p>We do not treat our brains as self-contained encyclopedias. We treat them as index catalogs. That point to external storage partners: books. colleagues, and now digital search engines.</p>
-<p>The modern mind is becoming a directory mind:</p>
-<ul><li>We do not retain the text of the legal statute; we remember that it sits in Section 404 of the compliance handbook.</li></ul>
-<ul><li>We do not memorize the database schema; we remember where the documentation wiki is hosted.</li></ul>
+<p>We never treat our own brains as sealed vaults. Instead, we use them as index cards that point to outside partners: books, friends, and modern search engines.</p>
+<p>Modern habits train a directory mind:</p>
+<ul><li>We never memorize the text of a legal statute; we recall that it sits in Section 404 of the compliance handbook.</li></ul>
+<ul><li>We never memorize the database schema; we recall where the team hosts the wiki.</li></ul>
 <p>This cognitive adaptation frees working memory for high-level synthesis and problem solving.</p>
 <hr>
 <h2>IV. The Fragility of Externalized Retention</h2>
 <p>Yet the directory mind introduces an unrecognized systemic vulnerability.</p>
 <p>An index is useless if the external storage partner becomes unavailable, corrupted, or outdated.</p>
 <p>If an engineer only remembers where the documentation lives. But has never internalized the engineering concepts. they cannot reason when the network goes down.</p>
-<p>also. when memory becomes purely directional, we lose the spontaneous, unconscious connections. That occur when diverse concepts reside together in biological neural tissue.</p>
-<p>Serendipitous insight requires. That ideas collide inside the same mind. If all ideas remain external on servers. the spark of creative synthesis is extinguished.</p>
+<p>Also, when memory turns into pure lookup, we lose the surprise sparks that fire when different ideas live side by side in living brain tissue.</p>
+<p>Sudden insight needs more than a search bar. Diverse ideas must collide inside the same head, and if every fact stays parked on a distant server, creative synthesis dies out.</p>
 <aside class="chapter-takeaway">
 <h3>Chapter 14 Takeaways: Transactive Memory, Offloading, and Fragility.</h3>
 <ul><li><strong>The Technical Signal:</strong> Anticipating future external search access causes human memory to reallocate bandwidth from storing facts to indexing storage locations.</li></ul>
@@ -692,8 +689,10 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <h2>I. Otto&#x27;s Notebook and Inga&#x27;s Brain</h2>
 <p>In 1998. philosophers Andy Clark and David Chalmers published an essay in <em>Analysis</em>. That overturned the traditional geography of cognition.<sup class="footnote-ref"><a href="#fn-15-1" id="fnref-15-1">1</a></sup></p>
 <p>Titled &quot;The Extended Mind,&quot; the paper opened with a famous thought experiment comparing two people: Inga and Otto.</p>
-<p>Inga hears. That an exhibition is open at the Museum of Modern Art in New York. She pauses. consults her biological memory. recalls. That the museum is on 53rd Street. and walks there.</p>
-<p>Otto has Alzheimer&#x27;s disease. To manage his condition. he carries a notebook everywhere. When Otto hears about the exhibition. he opens his notebook. looks up the address. reads. That the museum is on 53rd Street. and walks there.</p>
+<p>Inga hears. That an exhibition is open at the Museum of Modern Art in New York. She pauses.</p>
+<p>consults her biological memory. recalls. That the museum is on 53rd Street. and walks there.</p>
+<p>Otto has Alzheimer&#x27;s disease. To manage his condition. he carries a notebook everywhere.</p>
+<p>When Otto hears about the show, he flips open his notebook and checks the street number. He reads that the museum sits on 53rd Street, then walks right over.</p>
 <p>Clark and Chalmers posed a radical question: why should Inga&#x27;s recollection count as memory. Meanwhile. Otto&#x27;s consultation does not?</p>
 <hr>
 <h2>II. The Parity Principle in Modern Computing</h2>
@@ -708,7 +707,7 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <p>Today, Otto&#x27;s notebook is an iPhone, a vector database, an enterprise Slack channel, and an LLM context window.<sup class="footnote-ref"><a href="#fn-15-2" id="fnref-15-2">2</a></sup></p>
 <p>When an engineer uses an AI assistant to write software or analyze financial data. they are not a biological brain using a passive tool. They form a coupled cognitive system.</p>
 <p>The biological brain handles intentionality. goal setting. and verification. The attention network handles high-speed pattern matching. syntax generation. and multi-hop retrieval.</p>
-<p>The mind does not stop at the fingertips. It extends through the keyboard. across the network fiber. and into the GPU cluster.</p>
+<p>The mind never stops at the fingertips. Instead, it reaches through the keyboard, races across fiber lines, and thinks inside the GPU cluster.</p>
 <hr>
 <h2>IV. Dissolving the Skull Boundary</h2>
 <p>Active externalism changes how we judge digital tools.</p>
@@ -739,7 +738,7 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <h2>II. Attention Filters as Value Judgments</h2>
 <p>Every attention mechanism embodies an implicit editorial policy.<sup class="footnote-ref"><a href="#fn-16-1" id="fnref-16-1">1</a></sup></p>
 <p>When a Transformer evaluates a prompt, its attention heads prioritize tokens based on patterns learned during pre-training.</p>
-<p>If the training corpus was dominated by technical documentation. the attention heads will prioritize formal vocabulary and code syntax. If the corpus was dominated by forum arguments. the heads will attend to conflict markers and emotional phrasing.</p>
+<p>When technical manuals dominate the training set, attention heads lock onto formal terms and code syntax. Feed the same network forum fights, and those heads will lock onto anger and conflict cues instead.</p>
 <p>The weights do not discover universal relevance. They reproduce the statistical biases of the humans who authored the training data.</p>
 <p>In enterprise search, this subjective dimension becomes acute:</p>
 <ul><li>Does an executive dashboard prioritize short-term quarterly revenue or long-term product quality?</li></ul>
@@ -756,7 +755,7 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <h2>IV. The Moral design of Focus</h2>
 <p>Because attention defines what enters awareness, designing attention filters is a moral act.</p>
 <p>What an company chooses to attend to determines what it values, what it protects, and what it ignores.</p>
-<p>If an company designs algorithms. That attend purely to engagement. it will harvest rage. If it designs systems. That attend purely to efficiency. it will harvest burnout.</p>
+<p>When a firm builds algorithms that chase clicks alone, it harvests rage. If it builds tools that measure only raw speed, it harvests burnout.</p>
 <p>Human wisdom consists in the conscious choice of criteria.</p>
 <p>We must never surrender the definition of relevance to uncurated statistical models. We must decide what is worthy of our attention.</p>
 <aside class="chapter-takeaway">
@@ -795,7 +794,7 @@ aside.chapter-takeaway li{margin-bottom:0.6rem;line-height:1.5}
 <p>When the model processes a prompt. its attention heads trace these geometric pathways, synthesizing answers. That mirror human insight.</p>
 <p>Yet this fluency remains ungrounded.</p>
 <p>The model does not know what a river feels like. it knows. That the token &quot;river&quot; has high dot-product affinity with &quot;bank,&quot; &quot;water,&quot; and &quot;flow&quot;.</p>
-<p>It understands language as a closed. self-referential web of symbols. It possesses syntax at scale. But lacks the embodied, biological vulnerability. That gives meaning to human words.</p>
+<p>The model maps language as a closed web of symbols. It commands syntax at vast scale, yet it lacks the mortal flesh and risk that give human words their weight.</p>
 <hr>
 <h2>IV. The Threshold of the Context Window</h2>
 <p>In Book 1. we traced the vanishing signal: the mathematical failure. That occurred when error gradients multiplied across time steps, blinding recurrent networks to the past.</p>

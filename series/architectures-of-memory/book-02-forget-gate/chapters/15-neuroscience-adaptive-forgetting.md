@@ -6,45 +6,45 @@
 
 For more than a century, classical brain science treated forgetting as a flaw of biological hardware.
 
-Beginning with Hermann Ebbinghaus's early memory tests in 1885, memory was viewed as a physical trace—an engram—carved into brain synapses. When an animal could no longer recall a learned task, science called it decay: the chemical fading of a trace over time, or the clutter of competing memories. Under this view, an ideal brain would keep every trace forever. Forgetting was seen as a biological defect.
+Starting with Hermann Ebbinghaus's memory trials in 1885, researchers viewed memory as a physical trace—an engram—carved into brain synapses. When an animal failed a learned task, scientists blamed passive decay or competing clutter. Under that old model, an ideal brain would hold every trace forever, and forgetting marked a hardware failure.
 
 Over the past decade, molecular biology has overturned that view.
 
-Reviews by Blake Richards and Paul Frankland, along with Ronald Davis and Yi Zhong, proved that brains do not merely suffer passive loss.[^richards2017][^davis2017] Instead, nervous systems invest valuable energy into active molecular tools whose sole job is to dismantle memory traces.[^hardt2013]
+Reviews by Blake Richards and Paul Frankland, along with Ronald Davis and Yi Zhong, proved that brains do far more than suffer passive fade.[^richards2017][^davis2017] Instead, living nervous systems spend real energy on molecular tools built to tear down old memory traces.[^hardt2013]
 
 ---
 
 ## II. Three Biological Engines of Active Erasure
 
-Living systems use three main methods to clear memory traces:[^neuro-mechanisms]
+Living brains run three main engines to clear memory traces:[^neuro-mechanisms]
 
-First is active molecular dismantling. In fruit flies and rodents, researchers found signaling pathways that actively drive trace loss.[^davis2017] Blocking these signals does not make animals smarter; it lengthens memory retention while leaving animals unable to adapt when tasks shift.
+First comes active molecular teardown. In fruit flies and rodents, researchers found signaling paths that actively clear trace proteins.[^davis2017] Blocking these signals never makes animals smarter; it stretches retention while leaving animals stuck when rules shift.
 
-Second is receptor removal at the synapse. Learning strengthens connections by adding receptors to receiving neurons. Researchers showed that active forgetting physically pulls these receptors back out of the synapse.[^hardt2013] The brain spends energy to dial back synaptic strength.
+Second comes receptor pull-back at the synapse. Learning strengthens links by slotting new receptors into receiving neurons. Researchers showed that active forgetting physically pulls those receptors back out of the gap.[^hardt2013] The brain burns energy to dial synaptic weight back down.
 
-Third is the growth of new brain cells. In the adult hippocampus, thousands of new neurons form each day. As these cells wire into existing circuits, they remodel older pathways, clearing older traces as knowledge is abstracted and moved to the cortex.[^richards2017] Adult neurogenesis acts as a biological reset button.
+Third comes the birth of new brain cells. In the adult hippocampus, thousands of fresh neurons sprout each day. As these young cells wire into old circuits, they overwrite old paths and clear stale traces while the cortex extracts broad rules.[^richards2017] Adult cell growth works as a physical reset gate.
 
 ---
 
 ## III. Overfitting and Behavioral Flexibility
 
-Why would evolution favor organisms that spend precious metabolic energy to erase their own memories?
+Why would evolution favor brains that burn scarce energy to erase their own past?
 
-Richards and Frankland argue that the goal of biological memory is not to be an infallible historical log.[^richards2017] Its goal is to guide smart choices in a shifting world. An animal that keeps exact sensory memories of a single predator encounter faces two hazards:
+Richards and Frankland show that living memory never evolved to serve as a dead archive.[^richards2017] Memory exists to guide fast choices in a changing world. An animal that keeps every detail of a single predator ambush faces two traps:
 
-First is overfitting. If the exact light, angle, and scent of an encounter are remembered without decay, the animal fails to spot the same threat under new conditions. Active erasure clears high-frequency noise, leaving the broad structure needed to generalize.
+First, it overfits. If an animal locks in the exact light, angle, and scent of one attack without decay, it fails to spot the same predator in new brush. Active erasure strips away fine noise and leaves the core pattern needed to generalize.
 
-Second is behavioral rigidity. When food patches move or seasons turn, a brain with permanent engrams stays stuck in the past. Active decay clears the working register, allowing the animal to adapt.
+Second, it freezes up. When food moves or winter arrives, a brain locked into permanent traces stays trapped in last season. Active decay clears the working buffer so the animal can adapt.
 
 ---
 
 ## IV. The Biological Convergence with the Forget Gate
 
-The convergence between the biology of the brain and the mathematics of the LSTM is profound.[^forget-math]
+Brain biology and LSTM math converge on the exact same principle.[^forget-math]
 
-When Felix Gers added the forget gate to the Constant Error Carousel, he was not modeling biological neurons.[^gers2000] He was solving an engineering breakdown in sequence learning.
+When Felix Gers bolted the forget gate onto the Constant Error Carousel, he never tried to copy brain cells.[^gers2000] He simply fixed a crash in sequence learning.
 
-Yet both evolution and machine learning arrived at the same operational truth: intelligence is not defined by storage volume. It is defined by the regulation of transience.
+Yet both living evolution and deep learning uncovered the same law: raw storage volume never defines a mind. Smart systems thrive by governing what they let go.
 
 ---
 

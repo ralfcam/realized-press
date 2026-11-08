@@ -1,8 +1,12 @@
 # Chapter 6: The GDPR and the "Right to Be Forgotten" — When the Law Demands What the Math Forbids
 
-In an office in Paris, a data regulator reviews a file against a tech firm. On the desk lies a formal complaint under European privacy law. A citizen asks that their credit history and past legal records be erased. Corporate lawyers submit proof that the user's row was deleted from the main database. But the regulator's expert turns the page. The user's records were used to train a model. That model continues to score credit across Europe.
+In an office in Paris, a data regulator reviews a file against a tech firm. On the desk lies a formal complaint under European privacy law. A citizen asks that their credit history and past legal records be erased.
 
-This case exposes the clash between legal rights and machine learning math. In traditional computing, deleting a record is simple. You run a delete command. The system clears the storage blocks. But European privacy law does not just govern databases. It covers any system that retains personal data. If a neural network memorizes personal facts in its weights, those weights fall under legal rules. When the law demands complete erasure, engineers find that weights cannot simply forget on command.
+Corporate lawyers submit proof that the user's row was deleted from the main database. But the regulator's expert turns the page. The user's records were used to train a model. That model continues to score credit across Europe.
+
+This case exposes the clash between legal rights and machine learning math. In traditional computing, deleting a record is simple. You run a delete command. The system clears the storage blocks.
+
+But European privacy law does not just govern databases. It covers any system that retains personal data. If a neural network memorizes personal facts in its weights, those weights fall under legal rules. When the law demands complete erasure, engineers find that weights cannot simply forget on command.
 
 ## I. The Hearing Room on Place de Fontenoy
 
@@ -14,19 +18,21 @@ Digital networks ended this natural friction. Search engines and apps keep every
 
 The deeper foundation of the right to be forgotten goes beyond simple secrecy.
 
-Philosophical and legal analysis by Luciano Floridi establishes that the right to be forgotten protects epistemic privacy by restoring ontological friction to digital memory.[^floridi2014] His framework demonstrates that human identity requires the fading of past records, protecting individuals from being indefinitely frozen in obsolete historical snapshots. Without forgetting, personal change becomes impossible. A past debt defines a person forever.
+Legal and philosophical work by Luciano Floridi shows that the right to be forgotten shields human privacy by putting healthy friction back into digital memory.[^floridi2014] His work proves that personal growth needs old records to fade, so people are never trapped forever inside stale snapshots. Without forgetting, no one can start over; a single past debt brands a citizen for life.
 
 ## III. Algorithms That Remember
 
 Regulators quickly saw that neural networks do not grant automatic immunity from privacy laws.
 
-Empirical and legal research by Michael Veale and colleagues demonstrates that trained model weights fall under data protection law whenever model inversion can reconstruct personal training records.[^veale2018] Their work establishes that neural network parameters constitute personal data under the GDPR, turning model training into an active data processing and retention liability. If an attacker can probe a model to extract a user's health history, the model is legally equivalent to a database of personal files.
+Legal and technical work by Michael Veale and his team shows that trained model weights fall under privacy law whenever inversion attacks can rebuild personal files.[^veale2018] Under the GDPR, neural weights count as personal data if an attacker can probe a model to pull out a user's health log. In the eyes of the law, that model is just another database of private files.
 
 ## IV. When Law Demands What Math Forbids
 
 This legal reality forces a total redesign of enterprise AI systems.
 
-First, firms must recognize that model weights are legally accountable data stores. You cannot bypass privacy rules by claiming that weights are merely math. Second, sensitive personal records must stay out of pretraining weights. Keep personal data in external lookup databases. There, row deletions are fast. They are complete and easy to audit. Third, where models must train on personal data, teams must use verified unlearning frameworks or differential privacy to prove compliance.
+First, firms must recognize that model weights are legally accountable data stores. You cannot bypass privacy rules by claiming that weights are merely math. Second, sensitive personal records must stay out of pretraining weights.
+
+Keep personal data in external lookup databases. There, row deletions are fast. They are complete and easy to audit. Third, where models must train on personal data, teams must use verified unlearning frameworks or differential privacy to prove compliance.
 
 <aside class="chapter-takeaway">
 <header>Chapter Takeaway: The Legal Mandate of Forgetting</header>

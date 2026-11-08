@@ -6,7 +6,7 @@
 
 Chapters 9 through 11 traced how institutional knowledge vanishes during reorganizations, dilutes in runaway wikis, and stagnates in compliance archives. This chapter outlines what a true organizational learning loop requires. You can read these principles as direct parallels to gradients, weight updates, and forget gates. They form an architectural specification rather than a vendor software catalog.
 
-Peter Senge’s classic 1990 work, *The Fifth Discipline*, remains the foundation of this discussion.[^senge1990] Senge defined a learning organization as a place where people continuously expand their capacity to achieve real results, where new thinking is nurtured, and where teams learn together. His five disciplines—personal mastery, mental models, shared vision, team learning, and systems thinking—represent a theory of structural coupling. They describe what must remain connected for an institution to bridge the gap between an observed failure and revised behavior.
+Peter Senge’s classic 1990 book, *The Fifth Discipline*, anchors this debate.[^senge1990] Senge described a learning firm as a place where people build the skill to get real results, test fresh ideas, and learn together. His five pillars—personal craft, mental models, shared goals, team learning, and systems thinking—explain how parts of a firm stay linked. They show what must hold together so a team can turn an honest mistake into better daily work.
 
 Mental models—the implicit assumptions that guide how people interpret reality—function as an organization’s weight matrix. They govern how new evidence is processed long before it turns into policy.
 
@@ -14,11 +14,11 @@ Mental models—the implicit assumptions that guide how people interpret reality
 
 ## II. Single-Loop Versus Double-Loop Learning
 
-In *Organizational Learning*, Chris Argyris and Donald A. Schön drew a vital distinction between single-loop and double-loop learning.[^argyris1978] Single-loop learning detects and corrects errors within existing rules and norms. Double-loop learning questions and revises those underlying rules and goals.
+In *Organizational Learning*, Chris Argyris and Donald A. Schön separated single-loop from double-loop learning.[^argyris1978] Single-loop fixes spot and patch errors inside current rules. Double-loop learning goes deeper, questioning and rewriting the core rules themselves when the old goals fail.
 
 A compliance bureaucracy that only asks whether employees followed the rules is a single-loop engine. It flags deviations from existing procedures, but it never asks whether those procedures still match reality.
 
-In subsequent studies, Argyris showed how corporate defensive routines short-circuit double-loop learning.[^argyris1985][^argyris1990] Defensive routines are ingrained habits that shield individuals and leadership from embarrassment or conflict. When an organization cannot openly examine its core assumptions, true institutional learning stops.
+In later studies, Argyris showed how defensive habits block double-loop learning.[^argyris1985][^argyris1990] Defensive routines are quiet habits that shield staff and bosses from blame or conflict. When a team cannot question its own core beliefs in the open, real learning stops cold.
 
 ---
 
@@ -30,7 +30,7 @@ Current military doctrine formalizes this process in TC 7-0.1 and FM 7-0.[^tc701
 
 In *Harvard Business Review*, David A. Garvin defined a learning organization by its actions: creating, acquiring, and transferring knowledge—and critically, *modifying its behavior to reflect new insights*.[^garvin1993] If behavior does not change, learning did not take place.
 
-NASA’s institutional history provides a sobering test case.[^nasa] The 1986 *Challenger* disaster spurred management reforms that focused on individual project management training—a single-loop response. But seventeen years later, the *Columbia* investigation revealed that the agency had repeated the exact cultural mistakes of the *Challenger* era. NASA had to build deeper knowledge-sharing infrastructure to institutionalize double-loop learning across mission teams.
+NASA’s history offers a stark test case.[^nasa] The 1986 *Challenger* loss sparked training classes for individual managers—a classic single-loop fix. Seventeen years later, the *Columbia* inquiry found that the agency had repeated the exact cultural blind spots of the *Challenger* era. NASA had to build new channels across mission teams so engineers could challenge core safety assumptions before launch.
 
 ---
 
@@ -38,12 +38,9 @@ NASA’s institutional history provides a sobering test case.[^nasa] The 1986 *C
 
 Drawing on Senge, Argyris, Garvin, and field reviews gives six clear rules:
 
-1. **Speed:** Capture lessons right after an event, while the signal is fresh.
-2. **Safety:** Give staff the trust to name errors without fear of blame.
-3. **Power to change:** Put someone in charge of changing rules, not just filing notes.
-4. **Action tests:** Check that real work changed, not just that a file exists.
-5. **Pruning:** Delete old rules so the team is not buried in paper.
-6. **True goals:** Grade real quality rather than paper counts.
+1. **Speed:** Capture lessons right after an event, while the signal is fresh. 2. **Safety:** Give staff the trust to name errors without fear of blame. 3. **Power to change:** Put someone in charge of changing rules, not just filing notes.
+
+4. **Action tests:** Check that real work changed, not just that a file exists. 5. **Pruning:** Delete old rules so the team is not buried in paper. 6. **True goals:** Grade real quality rather than paper counts.
 
 ---
 

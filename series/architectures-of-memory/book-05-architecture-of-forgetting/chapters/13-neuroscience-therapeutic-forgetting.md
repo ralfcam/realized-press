@@ -2,7 +2,9 @@
 
 In a quiet clinic in Montreal, a doctor sits with a combat veteran. For seven years, sudden loud sounds have triggered severe panic in the former soldier. A car backfiring on a city avenue sets off cold sweats, chest pains, and terror. The memory of an ambush in a desert war feels like a live event. The past is not a closed story. It is an unyielding assault in the present.
 
-The doctor offers the patient a small tablet of propranolol. He asks the veteran to wait one hour. Then, in a safe room, the patient reads aloud a written account of the ambush. As he reads, his voice trembles. Yet as the session ends and he walks into the autumn rain, a biological shift begins inside his brain. Over the coming months, the overwhelming terror fades. The soldier still remembers the facts of that day. He remembers who was there. But the paralyzing fear is gone.
+The doctor offers the patient a small tablet of propranolol. He asks the veteran to wait one hour. Then, in a safe room, the patient reads aloud a written account of the ambush. As he reads, his voice trembles.
+
+Yet as the session ends and he walks into the autumn rain, a biological shift begins inside his brain. Over the coming months, the overwhelming terror fades. The soldier still remembers the facts of that day. He remembers who was there. But the paralyzing fear is gone.
 
 ## I. The Old Myth of Frozen Memory
 
@@ -14,7 +16,7 @@ Under this old view, forgetting was seen as a search failure. The brain still he
 
 That century-old dogma collapsed in a laboratory in New York.
 
-In their landmark study on fear conditioning, Karim Nader, Glenn Schafe, and Joseph LeDoux demonstrate that memory retrieval unlocks stored traces into a chemically labile state requiring new protein synthesis for reconsolidation.[^nader2000] Their experiments prove that blocking protein synthesis immediately after retrieval permanently erases conditioned fear responses in the amygdala. Retrieval is not a passive read operation. Every time a living brain recalls an event, the memory unlocks. It becomes soft, plastic, and open to change before locking back into place.
+In their landmark study on fear memories, Karim Nader, Glenn Schafe, and Joseph LeDoux show that recalling a memory unlocks the trace into a soft chemical state that needs fresh proteins to harden again.[^nader2000] Blocking protein building right after recall wipes out learned fear in the amygdala for good. Recall is never a passive read step. Every time a living brain pulls up an old event, the trace softens, opens to change, and rewires before locking back into place.
 
 This discovery transformed psychiatric medicine. When the Montreal patient took medication and recalled his trauma, the drug blocked the emotional circuit from relocking. The facts remained, but the emotional sting was washed away.
 
@@ -28,14 +30,18 @@ In their influential analysis of neural plasticity, Ronald L. Davis and Yi Zhong
 
 These biological discoveries offer a vital lesson for artificial intelligence.
 
-Engineers often build neural networks to remember every scrap of data. Models retain millions of training facts without an active cleanup engine. This design causes catastrophic interference and rigid associations. To build adaptable artificial systems, architects must follow the brain. Networks need active pruning routines. They must let old associations unlock and soften during use. True intelligence is not total retention. It is the ability to prune the past so that a mind can learn tomorrow.
+Engineers often build neural networks to remember every scrap of data. Models retain millions of training facts without an active cleanup engine. This design causes catastrophic interference and rigid associations.
+
+To build adaptable artificial systems, architects must follow the brain. Networks need active pruning routines. They must let old associations unlock and soften during use. True intelligence is not total retention. It is the ability to prune the past so that a mind can learn tomorrow.
 
 <aside class="chapter-takeaway">
 <header>Chapter Takeaway: Active Forgetting</header>
 Biological memory is neither static nor indelible. Through reconsolidation and dopamine-mediated active pruning, living brains continuously update, soften, and erase synaptic traces to preserve mental health. Artificial intelligence architectures require similar active pruning mechanisms to avoid computational rigidity.
 </aside>
 
-Six months later, the veteran returns to the Montreal office. He sits in the same chair. He reads the same paper describing the desert explosion. His pulse stays calm at seventy beats per minute. He looks out at the green trees outside the window. He remembers the day clearly, but the fear has lost its grip. Deep in his brain cells, active forgetting has done its healing work. The past is finally just a memory.
+Six months later, the veteran returns to the Montreal office, sits in the same chair, and reads the page describing the desert blast. His pulse stays calm at seventy beats per minute.
+
+Looking out at the green trees beyond the glass, he recalls the day clearly, yet the terror has lost its grip. Deep inside his brain cells, active forgetting has finished its healing work, leaving the past as a quiet memory.
 
 ## Notes
 

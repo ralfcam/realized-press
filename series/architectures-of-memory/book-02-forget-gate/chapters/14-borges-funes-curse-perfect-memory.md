@@ -48,7 +48,7 @@ In the original design, the Constant Error Carousel kept its state indefinitely.
 
 As the input stream ran on, the cell accumulated historical numbers without erasure. The state drifted toward extreme values, saturating activation curves and leaving the network blind to new context.
 
-The introduction of the forget gate was connectionism's realization of Borges's insight.[^gers2000] The gate is not a compromise with hardware limits. It is the condition that makes abstraction possible. By scaling past states by a learned valve, the network learns which differences matter and which must be discarded.
+Adding the forget gate brought Borges's insight into connectionist code.[^gers2000] Far from bowing to hardware limits, the gate makes real abstraction possible. By scaling past states through a learned valve, the network learns which details matter and which clutter to release.
 
 ---
 

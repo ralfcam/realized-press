@@ -1,6 +1,8 @@
 # Coda: The Window Closes
 
-In an empty computer lab at midnight, a student closes her laptop and turns off the lights. In the darkness, cooling fans on a workstation wind down to silence. On the monitor, the cursor blinks three times and vanishes into dark glass. The session is closed. The memory buffer has been reclaimed by the operating system kernel. Whatever tokens were active in that prompt window have not been saved to disk. They have simply ceased to exist. In the logic of the context window, what falls outside the frame was never there.
+In an empty computer lab at midnight, a student closes her laptop and turns off the lights. In the darkness, cooling fans on a workstation wind down to silence. On the monitor, the cursor blinks three times and vanishes into dark glass. The session is closed.
+
+The memory buffer has been reclaimed by the operating system kernel. Whatever tokens were active in that prompt window have not been saved to disk. They have simply ceased to exist. In the logic of the context window, what falls outside the frame was never there.
 
 ## I. Midnight in the Computer Lab
 
@@ -12,13 +14,13 @@ Yet that retention was purely temporary. The neural network did not choose to re
 
 This journey through computational memory has traced a remarkable technological arc across four volumes.
 
-We began with the fragile dawn of connectionism: Frank Rosenblatt’s Perceptron and Sepp Hochreiter’s proof on vanishing gradients. We moved in the second volume into the engineering of recurrent memory: Jürgen Schmidhuber and Felix Gers discovering that to remember, a network must master the disciplined pruning of historical cell state. In the third volume, we witnessed the rupture of 2017: Ashish Vaswani and the Google Brain team replacing recurrence with scaled dot-product attention. And in this fourth volume, we explored the frontier of foundation scale, where billions of parameters support in-context learning and retrieval-augmented systems.
+We began with the fragile dawn of connectionism: Frank Rosenblatt’s Perceptron and Sepp Hochreiter’s proof on vanishing gradients. In our second book, we traced recurrent memory, as Jürgen Schmidhuber and Felix Gers showed that keeping a signal alive requires pruning stale state. Our third book followed the 2017 shift when Ashish Vaswani and the Google Brain team replaced recurrence with dot-product attention. And in this fourth volume, we explored giant models where billions of weights power live prompt learning and outside search.
 
 ## III. The Mechanics of Ephemeral Attention
 
 Even at massive scale, modern architectures remain bound by structural constraints.
 
-Nelson Liu and colleagues demonstrate that even within expanded context windows, retrieval accuracy degrades sharply for information placed in the middle of long prompts.[^liu2024] Furthermore, John Searle's enduring critique establishes that fluent token manipulation remains fundamentally decoupled from intentional comprehension.[^searle1980] The model processes high-dimensional vector spaces. Yet it possesses no durable awareness or permanent memory outside the active buffer. It remains a statistical mirror reflecting the contours of human discourse.
+Nelson Liu and his team show that even inside huge context windows, recall drops sharply for facts buried in the middle of long prompts.[^liu2024] At the same time, John Searle's classic critique proves that smooth token shuffling stays cut off from real understanding.[^searle1980] The model sweeps across vast vector spaces, yet it holds no lasting awareness outside the live buffer. It remains a statistical mirror reflecting human words back to us.
 
 ## IV. The Question of Trust and Human Memory
 

@@ -10,7 +10,7 @@ Heraclitus of Ephesus lived around 500 BCE, leaving behind roughly 130 surviving
 - **Fragment B49a:** We step and do not step into the river; we are and are not. This fragment adds a crucial insight: the observer changes alongside the world.
 - **Fragment B91:** You cannot step twice into the same river. Later traditions seized on this negative line, treating it as a doctrine of pure chaos. Yet Fragment B12 affirms that the river maintains its continuous identity.
 
-The popular Greek phrase *panta rhei* ("all things flow") was coined centuries later by writers like Simplicius.[^panta-simplicius] Plato also helped shape this reputation in the *Cratylus*, framing Heraclitus as the thinker of constant flux.[^cratylus-fowler] But reading the fragments together reveals a deeper truth: memory and identity rely on stable patterns of change rather than frozen material substance.[^kahn-river]
+The famous Greek phrase *panta rhei* ("all things flow") was coined centuries later by writers like Simplicius.[^panta-simplicius] Plato also shaped this view in the *Cratylus*, painting Heraclitus as the philosopher of constant change.[^cratylus-fowler] Yet reading the fragments together reveals a deeper point: memory and selfhood rest on steady patterns of flow, not frozen stone.[^kahn-river]
 
 ---
 
@@ -50,7 +50,7 @@ The popular telephone game—from Fragment B12 through Plato to modern business 
 
 ## V. Identity Across Continual Change
 
-Fragment B12 offers a hopeful lesson: identity does not require frozen stasis. A river endures precisely because it allows fresh water to flow through its banks. A living organization and an artificial intelligence both preserve their identity through structured, continuous renewal.
+Fragment B12 offers a clear lesson: staying whole never requires freezing still. A river endures because fresh water keeps running between its banks. In the same way, a human team and a neural network both hold their shape through steady, disciplined renewal.
 
 The next chapter turns from rivers to ships. We examine the classic paradox of the Ship of Theseus, exploring what happens when every single plank of a machine is replaced over time.
 

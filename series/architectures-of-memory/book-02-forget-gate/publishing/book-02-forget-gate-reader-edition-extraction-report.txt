@@ -3,8 +3,8 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-02-forget-gate-reader-edition.pdf
-SHA-256: e60c3dd473ad9344a4fd763694d4aae0c2b311073b6a65270f7494043d097210
-Bytes: 235,723
+SHA-256: 6b946adbb6104757b1cef1cf365ddeab509d9a8ac53222d48c6f659492f69fda
+Bytes: 235,073
 Pages: 52 (52/52 nonblank)
 
 Chapters:

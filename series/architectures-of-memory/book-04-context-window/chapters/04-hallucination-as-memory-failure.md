@@ -20,7 +20,7 @@ If a true historical fact is weakly supported in its weights, the model does not
 
 ## II. The Anatomy of Factual Drift
 
-When large models first emerged, an optimistic industry belief took hold. Many assumed that factual drift was merely a temporary tuning flaw. Observers argued that scaling models to trillions of parameters would eliminate factual errors, leaving a reliable electronic oracle.
+When large models first appeared, a rosy belief took hold across the tech world. Many assumed that making up facts was just a brief tuning glitch. Builders argued that scaling models to trillions of weights would wipe out errors and leave a pure oracle.
 
 In 2023, Ziwei Ji and an academic team published a thorough study analyzing these errors.[^ji2023] Their review outlined two main errors:
 

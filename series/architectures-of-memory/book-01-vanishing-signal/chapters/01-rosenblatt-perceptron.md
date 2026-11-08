@@ -4,11 +4,15 @@
 
 ## I. A Machine That Learns to See
 
-In January 1957, the Cornell Aeronautical Laboratory circulated a modest technical report. Titled *The Perceptron: A Perceiving and Recognizing Automaton (Project PARA)*, it was Frank Rosenblatt’s first formal description of an artificial neural network.[^tr1957] Nearly two years later, in November 1958, the *Psychological Review* published his canonical paper.[^rosenblatt1958] Rosenblatt, a research psychologist in Buffalo, proposed a radical model. Information in living minds is not stored as discrete symbols in fixed memory bins. Instead, memory lives as variable connection strengths across simple networked units. The perceptron was not born as a cultural icon. It was an argument about where knowledge lives.
+In January 1957, the Cornell Aeronautical Laboratory circulated a modest technical report. Titled *The Perceptron: A Perceiving and Recognizing Automaton (Project PARA)*, it was Frank Rosenblatt’s first formal description of an artificial neural network.[^tr1957]
+
+Nearly two years later, in November 1958, the *Psychological Review* published his canonical paper.[^rosenblatt1958] Rosenblatt, a research psychologist in Buffalo, proposed a radical model. Information in living minds is not stored as discrete symbols in fixed memory bins. Instead, memory lives as variable connection strengths across simple networked units. The perceptron was not born as a cultural icon. It was an argument about where knowledge lives.
 
 Rosenblatt took an explicitly connectionist stance. Knowledge is distributed across network weights, not filed away into localized codes. That view set him directly against the symbolic school that dominated mid-century artificial intelligence. His first simulations ran on an IBM 704 vacuum-tube computer. The machine was slow and expensive. Yet it proved that distributed learning could move from paper theory into working software.
 
-On June 23, 1960, the laboratory unveiled physical hardware: the Mark I Perceptron.[^mark1] Funded by the Office of Naval Research and the Rome Air Development Center, it occupied several equipment racks. Four hundred photocells in a twenty-by-twenty grid served as an artificial retina. Five hundred twelve association units and eight response units completed the stack. Rosenblatt insisted on random wiring between sensory units and association units. He believed that biological brains do not emerge from neat, pre-planned grids. Today the device rests in the Smithsonian. It stands as a physical monument to the era when a learning machine was steel and wire you could touch.
+On June 23, 1960, the laboratory unveiled physical hardware: the Mark I Perceptron.[^mark1] Funded by the Office of Naval Research and the Rome Air Development Center, it occupied several equipment racks. Four hundred photocells in a twenty-by-twenty grid served as an artificial retina. Five hundred twelve association units and eight response units completed the stack.
+
+Rosenblatt insisted on random wiring between sensory units and association units. He believed that biological brains do not emerge from neat, pre-planned grids. Today the device rests in the Smithsonian. It stands as a physical monument to the era when a learning machine was steel and wire you could touch.
 
 This chapter begins with that early optimism because the rest of our story examines what optimism cannot guarantee. The perceptron learned effectively within its strict mathematical bounds. But public expectations quickly outran those boundaries. That early gap reveals a recurring pattern across computing history: the vital signal that fails to arrive where it is needed most.
 
@@ -28,9 +32,13 @@ The physical Mark I proved that principle in steel and light. Its design was an 
 
 Research funding proposals are rarely modest. In 1957, the original Cornell proposal envisioned machines that would soon master abstract concepts, automatic translation, and inductive logic.[^proposal-open] Whether those claims were sober projections or sales talk, they set expectations high. Future disappointments would be measured against those bold claims.
 
-At a Navy press conference in July 1958, the narrative grew quickly. *The New York Times* reported that the Navy expected the embryo machine would eventually walk, talk, see, write, reproduce itself, and become conscious.[^nyt1958] Rosenblatt called it the first machine capable of having an original idea. Those quotes became famous. More importantly, they compressed decades of difficult research into sensational headlines. Funding bodies, rival labs, and the popular press rarely wait for mathematical proofs. They move on stories that fit their immediate goals.
+At a Navy press conference in July 1958, the narrative grew quickly. *The New York Times* reported that the Navy expected the embryo machine would eventually walk, talk, see, write, reproduce itself, and become conscious.[^nyt1958] Rosenblatt called it the first machine capable of having an original idea.
 
-Institutional attention acts as a valuation filter. A government committee or newsroom cannot evaluate technical claims in infinite detail. They assign limited attention to a few memorable promises. Once the perceptron became a public symbol, that story stuck faster than any technical caveat. This pattern is not unique to early computing. It reflects how group memory works. Institutions build shared lore around vivid stories long before they verify the basic mechanics. Later corrections struggle to regain that lost ground.
+Those quotes became famous. More importantly, they compressed decades of difficult research into sensational headlines. Funding bodies, rival labs, and the popular press rarely wait for mathematical proofs. They move on stories that fit their immediate goals.
+
+Institutional attention acts as a valuation filter. A government committee or newsroom cannot evaluate technical claims in infinite detail. They assign limited attention to a few memorable promises. Once the perceptron became a public symbol, that story stuck faster than any technical caveat.
+
+This pattern is not unique to early computing. It reflects how group memory works. Institutions build shared lore around vivid stories long before they verify the basic mechanics. Later corrections struggle to regain that lost ground.
 
 ---
 
@@ -44,9 +52,11 @@ Beneath the early publicity lay a profound insight: distributed storage challeng
 
 ## V. Death Before the Spring
 
-Rosenblatt was born in New York in 1928, finished his doctorate at Cornell in 1956, and died in a Chesapeake Bay boating accident in 1971.[^bio] He passed away before the backpropagation revival, before the invention of the LSTM, and long before the Transformer. The historical question is not just whether his ideas eventually won. The deeper question is how his voice might have shaped the field had he lived to defend his work.
+Born in New York in 1928, Rosenblatt earned his doctorate at Cornell in 1956 and drowned in a Chesapeake Bay boating accident on his forty-third birthday in 1971.[^bio] He died before the backpropagation revival, before the invention of the LSTM, and long before the Transformer. History asks more than whether his core ideas won out. We must also ask how his voice might have anchored the field had he lived to defend his work.
 
-The public excitement he sparked soon met sharp mathematical critique. In 1969, Marvin Minsky and Seymour Papert published *Perceptrons*. Their book proved that single-layer networks cannot solve non-linearly separable problems like exclusive-OR. Their proof was mathematically exact for single layers. Yet the field interpreted it as a fatal verdict on all neural networks. That historic misunderstanding is our first example of a vanishing signal. The formal proof arrived intact, but the necessary nuance was lost along the way.
+The public excitement he sparked soon met sharp mathematical critique. In 1969, Marvin Minsky and Seymour Papert published *Perceptrons*. Their book proved that single-layer networks cannot solve non-linearly separable problems like exclusive-OR.
+
+Their proof held fast for single layers alone. Yet the wider field misread that narrow bound as a death sentence for all neural networks, giving us our first true vanishing signal. The formal theorem arrived intact, while its crucial nuance slipped through the cracks.
 
 <aside class="chapter-takeaway">
 ### Chapter 1 Takeaways: Architecture, Signal, and Retained Memory

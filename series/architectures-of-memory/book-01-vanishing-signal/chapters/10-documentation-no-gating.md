@@ -30,7 +30,7 @@ What looks helpful at launch rots fast. Software research shows how quickly code
 
 In a study of wiki use at MITRE, Lester J. Holtzblatt, Laurie E. Damianos, and Daniel Weiss mapped the social walls to internal writing.[^holtzblatt2010] Engineers feared sharing half-done work, worried about leaks, and returned to old habits. The breakdown came from weak curation and poor ownership, not from simple laziness.
 
-When junior staff find they cannot trust the wiki, they stop reading it. Instead, they book time with senior staff to ask basic questions. This turns high-value engineering time into repetitive tour-guide time. The firm skips its costly wiki tools and falls back on asking around.
+When junior staff find they cannot trust the wiki, they stop reading it altogether. Instead, they book calendar slots with senior engineers just to ask basic setup questions, turning deep build hours into tour-guide duty. The firm abandons its costly wiki and falls back on word of mouth.
 
 ---
 

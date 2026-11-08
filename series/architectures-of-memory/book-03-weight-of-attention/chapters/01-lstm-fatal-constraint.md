@@ -14,12 +14,12 @@ Yet at the exact moment of its industrial victory, the memory cell struck an fat
 
 ## II. The Fixed-Vector Bottleneck
 
-The crisis arrived when researchers applied recurrent networks to translation between human languages. In 2014, two papers established modern neural translation: Ilya Sutskever introduced sequence-to-sequence learning at Google, while Kyunghyun Cho and Yoshua Bengio developed the recurrent encoder-decoder in Montreal.[^sutskever2014][^cho2014]
+The crisis broke when teams tried to translate human speech with recurrent nets. In 2014, two papers launched modern neural translation: Ilya Sutskever built sequence-to-sequence learning at Google, while Kyunghyun Cho and Yoshua Bengio built the recurrent encoder-decoder in Montreal.[^sutskever2014][^cho2014]
 
 Both systems operated under the same structural plan:
-1. An encoder network reads an input sentence word by word, updating its internal state at each step.
-2. When the final word arrives, the encoder halts. Its final hidden vector is treated as a complete summary of the whole sentence.
-3. A decoder network takes this solitary summary vector as its starting point. It then unpacks the vector into the target language, emitting one word at a time.
+1. An encoder network reads an input sentence word by word, updating its internal state at each step. 2. When the final word arrives, the encoder halts.
+
+Its final hidden vector is treated as a complete summary of the whole sentence. 3. A decoder network takes this solitary summary vector as its starting point. It then unpacks the vector into the target language, emitting one word at a time.
 
 The limitation of this pipeline became obvious on longer sentences. A smooth vector of standard size—say, one thousand numbers—has a finite data capacity.
 
@@ -37,7 +37,7 @@ To translate the final word of a long passage, the decoder had to rely on a feat
 
 By the time the network reached the end of a long sentence, the feature of the opening subject had become fatally blurred.
 
-Human translators do not work by memorizing a whole paragraph, closing their eyes, and reciting the translation from memory. A translator reads the text, keeps an active workspace of grammatical context, and repeatedly glances back at the source page to verify specific phrases.
+Human translators never work by memorizing a whole page, shutting their eyes, and reciting the new text from memory. Instead, a translator reads a line, holds the grammar in mind, and glances back at the source page to check each phrase.
 
 The classical memory cell denied the computer this ability to look back. It demanded that the network store everything in a single vector, or lose it entirely.
 
@@ -47,7 +47,7 @@ The classical memory cell denied the computer this ability to look back. It dema
 
 The fixed-vector bottleneck revealed the core dogma that had shaped deep learning since 1986: the assumption that memory must be internal, smooth, and sequential.
 
-Under this recurrent doctrine, to understand time is to carry an internal state that continuously compresses the past. The state moves forward like a traveler with a single suitcase: every new experience requires packing another item, which forces the traveler to compress or discard what came before.
+Under this recurrent view, grasping time means carrying an inner state that squeezes the past into one box. That state moves forward like a traveler with a single small bag: packing each new item forces the traveler to crush or toss out what came before.
 
 The field had reached the limit of what compression could deliver. To move forward, artificial intelligence did not need a larger suitcase. It had to abandon the suitcase altogether.
 

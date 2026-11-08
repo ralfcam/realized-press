@@ -4,11 +4,11 @@
 
 ## I. The Write-Only Archive
 
-The Sarbanes–Oxley Act of 2002 followed corporate accounting scandals.[^sox] It placed heavy penalties on business records. Federal law made altering or deleting audit papers a crime. SEC rules also force auditors to keep work records for seven years.[^sec2-06]
+The Sarbanes–Oxley Act of 2002 followed major accounting scandals.[^sox] Congress imposed strict rules on corporate records and made altering or shredding audit files a federal crime, while SEC rules forced auditors to lock work papers away for seven full years.[^sec2-06]
 
 To meet these rules, modern firms store records in sealed vaults. This makes sense for regulators who need court proof. But it harms daily learning. Learning needs teams to update notes with fresh facts after near-misses.
 
-This creates the reverse flaw of vanishing gradients. Vanishing gradients mean a learning signal fades out. Compliance archives mean saving files forever without learning. The firm builds a write-only vault that never updates daily work.
+This triggers the opposite flaw of vanishing gradients. Where vanishing gradients let a learning signal fade to zero, compliance vaults lock every file in stone without changing how anyone works. The firm builds a write-only tomb.
 
 ---
 
@@ -18,7 +18,7 @@ Audit logs answer the regulator’s main test: can you prove what took place? Bu
 
 In 2003, Bruce Schneier popularized the phrase "security theater" in *Beyond Fear*.[^schneier2003] He showed how some measures create a feeling of safety without reducing real risk.[^theater-caveat] The corporate world coined the term "compliance theater" for checklist rituals that satisfy rules without fixing core flaws.
 
-Goodhart’s Law warns that when a measure becomes a target, it stops being a good measure. When incident notes are written to shield a firm in court, they fail as honest learning tools. Modern rules like DORA in Europe and SEC cyber rules mandate fast incident reports.[^dora][^sec8k] Yet meeting a quick filing deadline and learning a real engineering lesson remain two different goals.
+Goodhart’s Law warns that when a measure becomes a target, it ceases to work as a good measure. Incident notes drafted mainly to shield a firm in court fail as honest learning tools. Modern rules like DORA in Europe and SEC cyber mandates demand fast outage reports.[^dora][^sec8k] Meeting a filing clock is one thing; fixing a broken system is another.
 
 ---
 

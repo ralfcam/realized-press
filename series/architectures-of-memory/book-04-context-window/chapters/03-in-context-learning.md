@@ -10,7 +10,7 @@ When the trial ends and the stenographer clears the buffer, that working context
 
 ## I. Adaptation Without Gradient Descent
 
-In modern foundation models, the context window functions as this temporary workspace. Before large autoregressive Transformers arrived, adapting a network required fine-tuning. Engineers ran backpropagation passes, computed loss gradients, and permanently updated the model’s weights. 
+In modern large models, the context window acts as this live workbench. Before giant Transformers arrived, teaching a network a new task meant fine-tuning. Engineers had to run error passes, compute loss slopes, and rewrite the model’s weights for good. 
 
 With larger context windows, a different behavior emerged. By providing three or four examples inside the prompt, the model solves the task without training steps.[^brown2020] 
 
@@ -26,7 +26,7 @@ The idea that a frozen network could solve novel translation or reasoning purely
 
 On the SuperGLUE benchmark, few-shot accuracy rose from 41.5% at small scales to 71.8% at 175 billion parameters, without altering a single weight. The context window had ceased to be a simple text buffer. It had become a dynamic runtime workspace.
 
-Later mechanistic studies clarified how this works. Self-attention layers can implement an implicit form of optimization inside the forward pass activations.[^icl-math] The prompt tokens serve as temporary training data. The attention matrices compute updates that adjust representations across the sequence.
+Later mechanistic studies clarified how this works. Self-attention layers run an implicit search step right inside the forward pass.[^icl-math] The prompt tokens act as temporary training data, and the attention matrices compute weight-like updates across the sequence.
 
 ---
 

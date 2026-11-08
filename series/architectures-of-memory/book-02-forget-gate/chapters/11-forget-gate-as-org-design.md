@@ -22,7 +22,7 @@ Intake represents new knowledge shaped by an input gate. In a business, this gat
 
 Retention represents history shaped by a forget gate. Managed forgetting is not an accident; it is an active choice. Researchers show that team forgetting splits across two paths: intentional versus accidental, and new versus established knowledge.[^holan2004]
 
-Accidental loss of proven routines is memory decay—a painful breakdown of team skill. But intentional removal of old routines is managed unlearning: the deliberate dismantling of obsolete habits that block change.[^tsang2008] Without such unlearning, organizations fall into competency traps where proficiency in outdated routines blocks the adoption of superior practices.[^levittmarch1988]
+Losing proven skills by accident is memory decay—a costly breakdown of team craft. By contrast, clearing out old routines on purpose is managed unlearning: dismantling stale habits that block growth.[^tsang2008] Without planned pruning, firms fall into skill traps where comfort with old tools blocks better ways of working.[^levittmarch1988]
 
 ---
 

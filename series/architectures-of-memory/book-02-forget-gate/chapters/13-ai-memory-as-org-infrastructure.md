@@ -32,7 +32,7 @@ First is intake gating. Document intake must not be careless. Raw chat logs and 
 
 Second is temporal decay and gated retention. Vector retrieval cannot rely solely on raw similarity scores. Older documents must be penalized by age and checked against active rules. When a policy is retired, its retrieval weight must drop to zero.
 
-Third is output gating and access control. Differential privacy methods must protect sensitive employee records from leaking into generated responses.[^abadi2016] Just as a memory cell's output gate keeps internal state apart from external emissions, an enterprise AI must separate confidential archives from public chat screens.
+Third comes output gating and access control. Differential privacy tools must shield private staff files so they never leak into chat answers.[^abadi2016] Just as a cell's output gate walls off inner state from public answers, a company model must wall off private vaults from open screens.
 
 ---
 

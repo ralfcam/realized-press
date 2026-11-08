@@ -1,8 +1,12 @@
 # Chapter 2: Differential Privacy — The Mathematical Boundary Between Pattern and Identity
 
-In a federal office in Maryland, an analyst prepares census tables for public release. On her screen, rows show income and health counts across counties. Years ago, protecting privacy meant removing names, addresses, and ID numbers. Officials believed that scrubbing labels made data safe. But computer science proved that view wrong. By linking scrubbed records with public voting lists, researchers found personal medical files. Simple redaction could not protect citizens.
+In a federal office in Maryland, an analyst prepares census tables for public release. On her screen, rows show income and health counts across counties. Years ago, protecting privacy meant removing names, addresses, and ID numbers.
 
-This failure revealed a basic truth. Any useful summary leaks information about its inputs. If a system answers enough questions about a database, an attacker can reconstruct the original records. In deep neural networks, this risk is severe. Large models memorize rare phrases, credit cards, and private emails during training. When prompted, they reproduce those words verbatim. Protecting privacy requires a mathematical test that holds up against any future attack.
+Officials believed that scrubbing labels made data safe. But computer science proved that view wrong. By linking scrubbed records with public voting lists, researchers found personal medical files. Simple redaction could not protect citizens.
+
+This failure revealed a basic truth. Any useful summary leaks information about its inputs. If a system answers enough questions about a database, an attacker can reconstruct the original records.
+
+In deep neural networks, this risk is severe. Large models memorize rare phrases, credit cards, and private emails during training. When prompted, they reproduce those words verbatim. Protecting privacy requires a mathematical test that holds up against any future attack.
 
 ## I. The Illusion of Anonymization
 
@@ -14,17 +18,17 @@ Scientists proved that this defense fails. In modern societies, demographic trai
 
 In 2006, researchers formulated a revolutionary alternative: differential privacy.
 
-Foundational mathematical work by Cynthia Dwork and colleagues shows that differential privacy provides a rigorous guarantee against individual identification.[^dwork2006] Their framework proves that calibrating random noise to query sensitivity ensures that the presence or absence of any single person in a database cannot be inferred from computational outputs. Privacy is not a static file. It is a mathematical bound on what an observer can learn about a person from an algorithm.
+Foundational math by Cynthia Dwork and her team shows that differential privacy gives a strict shield against singling out any person.[^dwork2006] By scaling random noise to match query sensitivity, their method ensures that no observer can tell whether a given person sat in the dataset. Privacy is never a locked folder; it acts as a hard mathematical bound on what an outsider can learn from an output.
 
 ## III. Private Deep Learning
 
 Applying differential privacy to deep neural networks required changing the core training steps.
 
-Martin Abadi and co-authors demonstrate that bounding per-sample gradient norms and adding calibrated Gaussian noise during training guarantees provable differential privacy for deep neural networks.[^abadi2016] Their Moments Accountant establishes tight privacy bounds over thousands of training steps. By clipping gradients, the algorithm limits the influence of any single training example. By adding noise, it masks the contribution of individual users within each batch.
+Tests by Martin Abadi and his team show that capping per-sample step sizes and adding tuned random noise during training gives strict privacy for deep nets.[^abadi2016] Their Moments Accountant sets tight privacy bounds over thousands of steps. Clipping steps caps any single record's sway, while added noise masks each user's trace inside a batch.
 
 ## IV. The Price of Mathematical Forgetting
 
-Differential privacy forces a clear trade-off between privacy and utility. The parameter epsilon measures the privacy loss budget. A smaller epsilon provides stronger mathematical protection. Yet it requires adding more noise.
+Differential privacy forces a hard trade-off between secrecy and utility. The parameter epsilon tracks the privacy loss budget; a smaller epsilon yields stronger mathematical armor, yet it demands heavier random noise.
 
 This noise hits rare examples hardest. Because small groups produce smaller updates, clipping can reduce model accuracy on rare classes. Engineers must balance the societal need for strict privacy against the requirement for broad model fairness.
 

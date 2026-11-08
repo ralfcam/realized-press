@@ -57,7 +57,7 @@ Consider nuclear waste disposal at the Waste Isolation Pilot Plant in New Mexico
 
 How can a human institution build a forget gate across ten millennia? How do you warn a human being ten thousand years from now that a patch of desert must never be dug up?
 
-The Department of Energy brought together linguists and artists to design nuclear warning markers: granite stones and earthworks built to survive deep time.[^wipp1993] It is the ultimate extreme memory puzzle: building a warning channel that preserves signal across civilizational change.
+The Department of Energy gathered linguists and artists to design nuclear warning markers: granite slabs and earthworks built to last ten thousand years.[^wipp1993] It posed the ultimate memory test—carving a warning channel that keeps its signal alive after whole empires fall.
 
 ---
 

@@ -24,7 +24,7 @@ The field needed a real architectural bypass. It needed a circuit designed to pr
 
 ## III. Parallel Frustrations in Business Reengineering
 
-The 1990s brought parallel frustrations to business management. Michael Hammer and James Champy launched Business Process Reengineering in 1993. Ikujiro Nonaka and Hirotaka Takeuchi published *The Knowledge-Creating Company* in 1995. Thomas Stewart followed with *Intellectual Capital* in 1997.
+The 1990s brought similar stress to corporate management. Michael Hammer and James Champy launched process reengineering in 1993. Two years later, Ikujiro Nonaka and Hirotaka Takeuchi published *The Knowledge-Creating Company*, and Thomas Stewart soon followed with *Intellectual Capital* in 1997.
 
 The parallel is striking. Both fields saw the loss of institutional memory. Both diagnosed the breakdown of tacit knowledge with clarity. Yet neither had the tools to close the loop. Companies dumped documents into shared drives and hoped workers would learn. Just like naive recurrent networks, these firms lacked a mechanism to keep past lessons alive.
 

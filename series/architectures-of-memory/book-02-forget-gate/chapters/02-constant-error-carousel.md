@@ -16,21 +16,25 @@ In 1997, Sepp Hochreiter and Jürgen Schmidhuber proposed a simple alternative: 
 
 The core of the Constant Error Carousel is a single internal state unit with a fixed linear self-connection. Its self-weight is fixed at exactly 1.0.[^cec-math]
 
-Unlike ordinary hidden units, this internal unit applies no squashing function to its own self-loop. Its response is purely linear, with a derivative that remains exactly 1.0 at every point. When an error gradient flows backward through this unit, the scaling factor neither shrinks nor grows. Whether the time span is ten steps or one thousand steps, the error circulates without decaying by a single percent.[^hochreiter1997]
+Unlike ordinary hidden units, this inner cell applies no squashing curve to its self-loop. Its response stays linear, holding a slope of 1.0 at every point, so when an error signal travels backward through this cell, the scale never shrinks or swells. Ten steps or a thousand: the error spins on without losing a single percent.[^hochreiter1997]
 
-This is why addition beats multiplication in the architecture of memory. Addition accumulates; it does not scale. When new information arrives, the unit adds it to the existing state rather than multiplying over it. In the forward pass, data survives by linear combination. In the backward pass, gradients survive through constant flow. The vanishing gradient problem was not solved by clever tuning. It was solved by replacing a geometric series with an arithmetic constant.
+This is why addition beats multiplication in the architecture of memory. Addition accumulates; it does not scale.
+
+When new information arrives, the unit adds it to the existing state rather than multiplying over it. In the forward pass, data survives by linear combination. In the backward pass, gradients survive through constant flow. The vanishing gradient problem was not solved by clever tuning. It was solved by replacing a geometric series with an arithmetic constant.
 
 ---
 
 ## III. Cumulative Ledgers and Executive Summaries
 
-The difference between addition and multiplication governs human institutions with the same severity.
+Adding versus multiplying shapes human teams with the same force.
 
-Consider how knowledge travels up an enterprise hierarchy or across project handoffs. When an engineer discovers a critical system failure, they write a detailed incident report. If the organization relies on multiplicative transmission, that report is compressed by a lead, condensed into a slide deck by a director, and boiled down to a bullet point by a vice president.
+Watch how facts travel up a company ladder or across project handoffs. When an engineer spots a major outage, she writes a full fault report. If the firm passes news by multiplying losses, a lead trims that report, a director squeezes it into a slide deck, and a vice president boils it down to a single bullet point.
 
 At each handoff, the signal is scaled down to fit busy executive schedules. Nuance and boundary warnings vanish. By the fourth managerial layer, the original warning has disappeared. Leadership sees a green dashboard for a system that is failing in the field.
 
-In contrast, an additive memory operates like an append-only ledger. In double-entry bookkeeping, flight data recorders, and signed engineering change orders, new events are added to the permanent record. They do not overwrite past entries. Regulated safety relies on additive recording. When investigators review an airframe failure, they do not read executive summaries. They inspect raw maintenance logs signed across decades of service. Where addition rules, accountability survives. Where multiplication rules, history is rewritten at every handoff.
+In contrast, an additive memory operates like an append-only ledger. In double-entry bookkeeping, flight data recorders, and signed engineering change orders, new events are added to the permanent record.
+
+They do not overwrite past entries. Regulated safety relies on additive recording. When investigators review an airframe failure, they do not read executive summaries. They inspect raw maintenance logs signed across decades of service. Where addition rules, accountability survives. Where multiplication rules, history is rewritten at every handoff.
 
 ---
 
@@ -40,7 +44,7 @@ In *Matter and Memory*, philosopher Henri Bergson argued that real duration is a
 
 Bergson rejected the notion of memory as an external filing drawer where facts are stored and retrieved on demand. The Constant Error Carousel reflects this intuition. It rejects the classical model of memory as an addressable database. Instead, the internal state carries a cumulative duration, preserving the weight of past inputs across time.
 
-Yet Bergson's view faces an inescapable engineering wall. If duration preserves everything without loss, the accumulation eventually suffocates the system. An accumulator that keeps every signal forever cannot adapt when circumstances shift.
+Yet Bergson's view hits a hard engineering wall. If duration saves every trace without loss, the pileup soon chokes the system. A vault that keeps every old signal forever cannot adapt when the world shifts.
 
 ---
 

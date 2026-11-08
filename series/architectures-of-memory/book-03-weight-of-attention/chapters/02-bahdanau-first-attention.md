@@ -34,7 +34,7 @@ Even more striking was the clarity of the learned weights. When Bahdanau plotted
 
 Consider the phrase "European Economic Area". In English, adjectives sit before nouns. In French, adjectives follow nouns: "zone économique européenne".
 
-Without receiving any programmed grammar rules, parse trees, or dictionaries, the attention scores dynamically adjusted order. While translating "zone," the network focused on "Area". While translating "économique," its focus shifted back to "Economic". While translating "européenne," it focused on "European".
+Without any hand-coded grammar rules, parse trees, or word lists, the attention scores flipped the word order on the fly. For "zone," the network locked onto "Area". Next, as it wrote "économique," its gaze jumped back to "Economic," and on "européenne," it locked onto "European".
 
 The network had discovered grammatical inversion purely through gradient descent.
 

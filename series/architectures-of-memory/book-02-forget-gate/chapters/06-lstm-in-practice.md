@@ -37,10 +37,10 @@ By 2015, Google replaced its voice search pipeline with CTC-trained LSTMs, cutti
 The quick rise of the LSTM inside big tech firms shows the disruption of replacing legacy systems.
 
 Before 2015, speech recognition systems in large firms were massive, multi-part towers:
-- A sound model managed by phoneticians.
-- A word dictionary kept by linguists.
-- A statistical transition model managed by signal teams.
-- A language model maintained by search teams.
+- Phoneticians tuned the sound model.
+- Linguists curated the word dictionary.
+- Signal teams built the transition math.
+- Search engineers ran the language model.
 
 Each piece belonged to a different group with its own codebase and goals. Making gains required slow handoffs across four silos.
 

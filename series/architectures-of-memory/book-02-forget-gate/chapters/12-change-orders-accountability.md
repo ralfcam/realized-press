@@ -16,11 +16,11 @@ The change order keeps changes separate from erasing the past. It ensures that e
 
 Software teams learned this lesson through hard failures. Early tools treated code as mutable text files edited on shared disks. When two engineers saved the same file, the earlier work vanished without a trace.
 
-Modern version control changed that model. In Git, history is never overwritten in place. Every commit is a fixed snapshot identified by a cryptographic hash. Modifying software means adding a new node to the graph.
+Modern version control flipped that model. In Git, no one overwrites history in place; instead, every commit locks a fixed snapshot behind a cryptographic hash, and changing code adds a fresh node to the graph.
 
 Yet this append-only rule brings its own tension, mirroring state saturation in memory cells. If every small test, failed debugging probe, and accidental draft remains visible forever, navigation breaks down.
 
-Lehman's laws of software evolution show that as a system evolves, its complexity grows steadily unless teams work to reduce it.[^lehman1980] Without conscious routine pruning, organizations fall victim to superstitious learning—maintaining ceremonial logging procedures that yield no causal insight.[^levittmarch1988] A messy history full of dead tangents becomes hard for new hires to read.
+Lehman's laws of software growth show that as a codebase ages, its tangles grow unless engineers prune them back.[^lehman1980] Without steady cleanup, teams fall into ritual habits—keeping hollow sign-off steps that teach nothing about why bugs happen.[^levittmarch1988] A cluttered log full of dead branches soon baffles new hires.
 
 ---
 
@@ -50,7 +50,7 @@ Under FDA rules for clinical trials, regulators do not ask researchers to keep e
 
 ## V. Ricoeur and Ethical Selfhood in Systems
 
-Philosophically, accountability connects to Paul Ricoeur's distinction between two kinds of identity: *idem* (physical sameness over time) and *ipse* (ethical selfhood kept through promises).[^ricoeur2004]
+In philosophy, holding teams accountable links to how Paul Ricoeur split selfhood into two parts: *idem* (staying the same object over time) and *ipse* (keeping one's word across change).[^ricoeur2004]
 
 An institution does not stay itself by remaining physically identical. Staff rotate, software gets rewritten, and offices move.
 

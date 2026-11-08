@@ -42,7 +42,7 @@ These are all metrics of routine. They measure how efficiently the company execu
 
 Search. by contrast. is notoriously difficult to capture on a weekly chart. You cannot easily graph the nascent customer insight. the unproven structural experiment. or the speculative research prototype.
 
-Because leaders attend to what is measured. leader attention flows overwhelmingly toward optimizing current routines. starving exploratory initiatives of resources and sponsorship.[^march1991]
+Because bosses watch what they can count, their focus pours into tuning today's routine work. Bold new ideas starve for cash and backing.[^march1991]
 
 ---
 

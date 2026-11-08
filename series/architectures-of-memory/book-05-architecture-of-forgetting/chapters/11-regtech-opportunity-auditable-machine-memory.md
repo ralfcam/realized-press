@@ -1,6 +1,8 @@
 # Chapter 11: The RegTech Opportunity — Tools That Make Machine Memory Auditable
 
-In an audit office in Zurich, an auditor looks at two screens. On the left is the old method: a four-hundred-page spreadsheet signed by a vice president. It claims the bank's loan algorithm is fair, safe, and lawful. On the right is the new method: an automated testing tool firing queries at the live model API. Within two minutes, the automated test extracts private account details from the model weights. The spreadsheet promised full compliance. The automated probe proved continuous data leakage.
+In an audit office in Zurich, an auditor looks at two screens. On the left is the old method: a four-hundred-page spreadsheet signed by a vice president. It claims the bank's loan algorithm is fair, safe, and lawful.
+
+On the right is the new method: an automated testing tool firing queries at the live model API. Within two minutes, the automated test extracts private account details from the model weights. The spreadsheet promised full compliance. The automated probe proved continuous data leakage.
 
 This clash defines the frontier of regulatory technology, or RegTech. For decades, corporate audits relied on paperwork. Consultants held interviews, checked boxes on forms, and stamped annual binders. But when software models make thousands of decisions every minute, manual reviews collapse. An annual spreadsheet cannot audit a neural model that updates its state continuously. To govern machine memory, compliance tools must become as automated as the models themselves.
 
@@ -14,9 +16,9 @@ That manual process fails in the era of deep learning. Neural networks do not st
 
 Replacing manual reviews requires mathematical limits on memory.
 
-In their foundational work on secure machine learning, Martin Abadi and colleagues demonstrate that training models with differential privacy guarantees strict privacy loss bounds through the moments accountant.[^abadi2016] Their research establishes that clipping gradient updates and adding calibrated noise prevents the network from memorizing individual training records. Instead of trusting an executive signature, auditors can measure the exact privacy parameter of the system.
+In their foundational work on secure learning, Martin Abadi and his team show that differential privacy locks in strict loss bounds through the moments accountant.[^abadi2016] Clipping gradient steps and adding tuned noise stops the network from memorizing single user files. Instead of trusting a boss's promise, auditors can measure the exact privacy number of the build.
 
-This math framework turns compliance into an engineering metric. Auditors no longer ask whether an engineer tried to protect privacy. They inspect the privacy budget. If the noise meets legal thresholds, the model passes. If the budget is exceeded, the deployment stops.
+This math turns legal compliance into a hard engineering metric. Auditors no longer ask whether a team tried to guard privacy; they check the privacy budget directly. Meet the noise bound, and the model ships; blow the budget, and the build stops cold.
 
 ## III. Continuous Probing and Forensic Lineage
 

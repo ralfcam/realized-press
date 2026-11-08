@@ -18,7 +18,7 @@ The historical arc of the memory cell offers three core lessons for intelligence
 
 On the technical level, representation requires regulation. A network cannot learn simply by tweaking weights with gradient descent. It needs structural inductive biases that protect internal states from runaway loops.
 
-The three gates—intake, forget, and output—are not separate systems. They are learned filters that compute values in real time. They decide what enters, what decays, and what surfaces to the decision layer.[^cell-math] The capacity to forget is the exact mathematical prerequisite for the capacity to remember.
+The three gates—intake, forget, and output—never work in isolation. Learned filters compute their values in real time, deciding what enters, what fades, and what reaches the next layer.[^cell-math] Forgetting stands as the strict mathematical price of remembering.
 
 ---
 
@@ -28,7 +28,7 @@ On the organizational level, the memory cell exposes the central pathology of mo
 
 Human teams are recurrent systems processing continuous streams of work. When an enterprise believes that more storage equals greater wisdom, it repeats the flaw of the early carousel.
 
-Documentation turns into unsearchable data lakes. Legacy procedures fossilize into red tape. AI tools suffer vector contamination from dead files.
+Old wikis turn into dark data swamps. Stale rules harden into red tape, and AI search tools choke on dead files.
 
 A healthy organization needs clear administrative forget gates: managed unlearning, disciplined change orders, sunset clauses, and decay rules. Without active curation, an institution becomes trapped in its past, unable to adapt.
 
@@ -38,7 +38,7 @@ A healthy organization needs clear administrative forget gates: managed unlearni
 
 On the philosophical level, the memory cell disproves the Cartesian myth of mind as a transparent mirror.
 
-From Borges's Ireneo Funes to clinical cases like Solomon Shereshevsky, history shows that total recall is not superhuman intelligence—it is cognitive paralysis. To see every detail without decay is to lose the power to generalize or think in metaphors.
+From Borges's Ireneo Funes to clinical cases like Luria's patient S., history shows that total recall brings mental gridlock rather than genius. Seeing every leaf in full detail robs a mind of the power to group ideas or think in metaphors.
 
 In human biology, active molecular cascades and adult neurogenesis spend energy to clear engrams. These processes keep our mental models flexible. In law and ethics, the Right to be Forgotten and machine unlearning protect human dignity. They preserve space for second chances and growth.
 
@@ -59,7 +59,7 @@ In the opening pages of this volume, the reader met a riddle:
 > The question is never how much to remember.  
 > It is always: what is worth keeping."
 
-We have traced the Constant Error Carousel, the saturation of the un-gated cell, the audit trail paradox, and the biology of active forgetting. The riddle is no longer poetic. It is an engineering theorem. It is an organizational law. It is the definition of a mind.
+We have traced the Constant Error Carousel, the saturation of the un-gated cell, the audit trail paradox, and the biology of active forgetting. The riddle is no longer poetic. In code, it stands as an engineering theorem; in human firms, it acts as an organizational law. Together, they define what it means to have a mind.
 
 Now the reader understands why.
 

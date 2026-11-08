@@ -1,6 +1,8 @@
 # Chapter 15: The Ethics of AI Systems That Outlive Their Creators
 
-In an unmarked datacenter near Baltimore, a server rack runs an old bail model. The software was commissioned in 2004 by a state legal panel. It was written by two engineers who have both been dead for nearly ten years. The design notes are lost. The firm that held the support contract closed years ago. Yet every morning at eight o'clock, the code ingests fresh arrest logs. It calculates a risk score and sends the result to eighteen court desks. Nobody in the courthouse knows how the math works. Nobody has the authority to retrain the network. Nobody knows how to turn it off.
+In an unmarked datacenter near Baltimore, a server rack runs an old bail model. The software was commissioned in 2004 by a state legal panel. It was written by two engineers who have both been dead for nearly ten years. The design notes are lost. The firm that held the support contract closed years ago.
+
+Yet every morning at eight o'clock, the code ingests fresh arrest logs. It calculates a risk score and sends the result to eighteen court desks. Nobody in the courthouse knows how the math works. Nobody has the authority to retrain the network. Nobody knows how to turn it off.
 
 This bureaucracy reveals the danger of orphaned intelligence: software models that outlive the people who built them. In human history, tools broke when their makers died. When a blacksmith died, his forge grew cold unless an apprentice took the tongs. When a captain died, the ship stayed in harbor. But digital tools decouple automated choices from human life. A neural model in the cloud can evaluate loans, screen job seekers, and score citizens long after its creators have passed away.
 
@@ -14,7 +16,7 @@ The economic conditions, personal biases, and shortcuts of the original team sta
 
 This loss of accountability reflects the deep risks of automated control.
 
-In her foundational analysis of institutional power, Shoshana Zuboff demonstrates that instrumentarian power operates through an automated architecture that bypasses human reciprocity and democratic oversight.[^zuboff2019] Her research establishes that when digital systems automate behavior modification at scale, they reduce citizens to behavioral targets. When these systems run without living stewards, the apparatus becomes a rigid machine of administrative discipline.
+In her landmark study of digital power, Shoshana Zuboff shows that automated tracking systems bypass human give-and-take and public oversight.[^zuboff2019] When software steers human habits at scale, it treats citizens as mere targets to herd. Left running without living stewards, that machinery hardens into blind bureaucratic rule.
 
 The risk is not that machines become self-aware. The risk is that human institutions surrender judgment to automated systems that cannot empathize or repent. When software runs with no living author, institutional power becomes totally anonymous.
 
@@ -22,7 +24,9 @@ The risk is not that machines become self-aware. The risk is that human institut
 
 In judicial and public services, orphaned code creates a constitutional crisis.
 
-Under basic rules of due process, a citizen has the right to confront evidence. When a judge uses an automated score to set bail, the accused has a right to examine the witness. Yet with orphaned systems, there is no witness to call. The software firm is out of business. The engineers are dead. The algorithm becomes an untouchable oracle. It hands down life-altering choices with zero human responsibility.
+Under basic rules of due process, a citizen has the right to confront evidence. When a judge uses an automated score to set bail, the accused has a right to examine the witness. Yet with orphaned systems, there is no witness to call. The software firm is out of business.
+
+The engineers are dead. The algorithm becomes an untouchable oracle. It hands down life-altering choices with zero human responsibility.
 
 ## IV. Mandatory Sunsets and Accountable Stewards
 
@@ -35,7 +39,7 @@ First, every production model must have a named living human steward. If the eng
 Automated systems that outlive their creators freeze obsolete assumptions into institutional rules while eliminating human accountability. Governing machine intelligence requires designated living stewards, strict operational sunset clauses, and the legal prohibition of orphaned decision models in public life.
 </aside>
 
-In the Baltimore courtroom, a defense lawyer stands before the bench, holding the printed score. "Your Honor," she asks, "who can I call to the witness stand to explain this number?" The room stays silent. On the desk monitor, the green number blinks in cold indifference. Thirty miles away, cooling fans hum inside the dark server cage. They execute lines written by ghosts, showing that intelligence without living responsibility is an abdication of human justice.
+In the Baltimore courtroom, a defense lawyer stands before the bench, holding the printed score. "Your Honor," she asks, "who can I call to the witness stand to explain this number?" The room stays silent. On the desk monitor, the green number blinks in cold indifference. Thirty miles away, cooling fans hum inside the dark server cage, running dead code written by ghosts and proving that a machine without a living steward betrays human justice.
 
 ## Notes
 

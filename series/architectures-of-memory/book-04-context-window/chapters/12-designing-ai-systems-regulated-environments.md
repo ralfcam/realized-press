@@ -1,6 +1,8 @@
 # Chapter 12: Designing AI Systems for Regulated Environments — What Architects Get Wrong
 
-An enterprise architect sketches a diagram on a whiteboard in Chicago. At the center sits a large blue box labeled "Foundation Model." Green arrows show patient health records flowing straight into the prompt window. A thin purple line above the box represents a safety prompt. The architect explains the plan. He says that instructing the model to behave as a compliant assistant makes it safe for clinical use. Across the table, the chief risk officer and clinical director watch in silence.
+An enterprise architect sketches a diagram on a whiteboard in Chicago. At the center sits a large blue box labeled "Foundation Model." Green arrows show patient health records flowing straight into the prompt window.
+
+A thin purple line above the box represents a safety prompt. The architect explains the plan. He says that instructing the model to behave as a compliant assistant makes it safe for clinical use. Across the table, the chief risk officer and clinical director watch in silence.
 
 The sketch shows a common mistake in modern software design. It treats probabilistic words as hard security barriers. In standard computer systems, security relies on memory isolation and strict access lists. When working with generative models, engineers often mistake polite responses for robust protection. They forget that a language model has no concept of a perimeter. It knows only token odds and the drive to sample the next word.
 
@@ -20,7 +22,7 @@ Adversarial testing shattered this assumption within months. Security researcher
 
 Regulators frequently demand that automated systems explain their choices. In response, teams often ask models to generate step-by-step rationales.
 
-Legal and computational analysis by Andrew Selbst and Solon Barocas suggests that the intuitive appeal of explainable machine learning often obscures technical realities.[^selbst2018] Their work indicates that attempting to extract explanations from opaque models cannot substitute for deterministic system boundaries. A generated explanation is merely another statistical completion. It does not prove what causal pathway the weights followed during inference.
+Legal and technical studies by Andrew Selbst and Solon Barocas suggest that the charm of explainable AI often hides hard limits.[^selbst2018] Pulling post-hoc stories from a black-box model can never replace strict rule bounds. Any excuse a model writes is just another word guess, proving nothing about which weights fired during the run.
 
 ## IV. Deterministic Envelopes and External Isolation
 
@@ -33,7 +35,9 @@ First, quarantine the model in an isolated execution sandbox. Strip it of direct
 Natural language prompts cannot function as security boundaries or access controls. Autoregressive models are susceptible to prompt injection and adversarial manipulation. Dependable architectures in regulated environments enforce security through external, deterministic wrappers, schema validation, and zero-trust data access layers.
 </aside>
 
-The clinical director in Chicago turns off the whiteboard. She places the hospital's clinical validation protocol on the table. "If the system cannot prove where it got the dose from," she says quietly, "it does not prescribe the drug." In the server room, an API gateway receives a clinical inquiry. It strips extra tokens and queries an encrypted database. It wraps the lab values in a rigid schema envelope. The model does its work inside the cage. It remains fast and useful. Yet it cannot break the steel bars of the deterministic code that holds it.
+The clinical director in Chicago switches off the whiteboard and sets the hospital's safety rulebook on the table. "If the system cannot prove where it got the dose from," she says quietly, "it does not prescribe the drug."
+
+Down in the server room, an API gateway catches a clinical query, strips stray tokens, and checks an encrypted database before wrapping the lab numbers in a strict schema. Inside that cage, the model works fast, yet it can never bend the steel bars of the code that holds it.
 
 ## Notes
 

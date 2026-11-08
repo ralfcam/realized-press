@@ -3,8 +3,8 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-03-weight-of-attention-reader-edition.pdf
-SHA-256: 8b877eb43bdb4bca526678ff0fcc0c3c4e7e47118542d36c49fb0a1c0c3ce1c9
-Bytes: 184,087
+SHA-256: 9fcedc0e0cc4fa57b67e09f9289d47f9516c4eaa6b2d879e3592b5acd7b43aa6
+Bytes: 184,030
 Pages: 39 (39/39 nonblank)
 
 Chapters:

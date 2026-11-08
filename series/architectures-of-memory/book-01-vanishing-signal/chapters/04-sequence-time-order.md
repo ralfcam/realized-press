@@ -6,11 +6,13 @@
 
 Once backpropagation made hidden layers trainable, computer scientists turned toward time. Human speech, motor movement, sentences, and sensor readings are not random bags of words. They are ordered paths through time. In a sentence, the exact same word takes on completely different meanings depending on what came before it. In the late 1980s, connectionist researchers attacked this challenge using recurrent neural networks. These models carry an internal state forward step by step, updating it as each new input arrives.
 
-This chapter examines two foundational recurrent designs: Michael Jordan's architecture and Jeffrey Elman's Simple Recurrent Network. It also explores the learning rule that made recurrence trainable: Backpropagation Through Time (BPTT). This method unrolls a recurrent loop across time steps into a deep feedforward network. The standard calculus chain rule can then flow backward along that unfolded chain. Paul Werbos had formulated this unrolling technique in his 1974 Harvard thesis, publishing a comprehensive guide in 1990.[^ch04-bptt] Rumelhart, Hinton, and Williams popularized the same core mathematics in their widely read 1986 publications.
+This chapter traces two classic recurrent designs: Michael Jordan's loop and Jeffrey Elman's Simple Recurrent Network. It also examines the rule that made those loops learn: Backpropagation Through Time (BPTT). That method unrolls a time loop into a long chain of layers so the calculus chain rule can flow backward step by step. Paul Werbos had framed this unrolling math in his 1974 Harvard thesis and published a full guide in 1990.[^ch04-bptt] Rumelhart, Hinton, and Williams brought the same core math to a wide audience in 1986.
 
 The early success was real, but it hid a severe mathematical trap. At the Technical University of Munich, research on recurrent nets revealed why.[^hochreiter1991] Error gradients flowing across long sequences vanish to zero or explode to infinity. This was not caused by sloppy code. It was an inevitable math result of multiplying weight matrices across many steps.
 
-Chapter 3 compared an error gradient to a financial debt across layers. In this chapter, that same debt stretches across time. Past inputs help cause present errors. As the sequence lengthens, the chain of debt grows longer. The error signal must travel backward through every historical link. Some signals arrive intact. Many others fade away before reaching the early decisions that incurred them.
+Chapter 3 compared an error gradient to a financial debt across layers. In this chapter, that same debt stretches across time. Past inputs help cause present errors.
+
+As the sequence lengthens, the chain of debt grows longer. The error signal must travel backward through every historical link. Some signals arrive intact. Many others fade away before reaching the early decisions that incurred them.
 
 ---
 
@@ -20,9 +22,11 @@ In May 1986, Michael I. Jordan proposed a recurrent network designed for sequent
 
 Think of an organization that circulates meeting minutes from last quarter, but never changes how those minutes are evaluated. The past remains present, but it is completely frozen. It is a passive transcript rather than an active interpretation.
 
-In 1990, cognitive scientist Jeffrey Elman published a landmark paper titled “Finding Structure in Time.”[^ch04-elman1990] Elman changed the feedback loop. Instead of copying outputs, his network copied the previous hidden layer into context units with fixed weights of 1.0. The weights from the context units back into the hidden layer were then trained by gradient descent. Hidden activations are far richer than final outputs because they reflect the internal problem-solving state. Feeding hidden states back into the network made memory an active part of current thinking. Elman proved that his network could discover grammatical categories and word boundaries without explicit grammar rules.
+In 1990, cognitive scientist Jeffrey Elman published a landmark paper titled “Finding Structure in Time.”[^ch04-elman1990] Elman changed the feedback loop. Instead of copying outputs, his network copied the previous hidden layer into context units with fixed weights of 1.0. The weights from the context units back into the hidden layer were then trained by gradient descent. Hidden activations are far richer than final outputs because they reflect the internal problem-solving state.
 
-Picture an executive team that records yesterday’s internal debate word for word, and then learns through experience how much weight to give that debate in today's decisions. The storage mechanism is fixed, but the interpretation of that memory is continuously refined.
+Feeding hidden states back into the network made memory an active part of current thinking. Elman proved that his network could discover grammatical categories and word boundaries without explicit grammar rules.
+
+Picture a leadership team that writes down yesterday’s debate word for word. Over time, the team learns how much weight to give that record in today's choices. The log stays fixed, while the way the team reads that memory sharpens each week.
 
 Moving from Jordan's model to Elman's network seemed like a minor wiring tweak. Yet philosophically, it represented a major shift. It marked the difference between simply archiving outward actions and preserving the internal reasoning that produced them.
 

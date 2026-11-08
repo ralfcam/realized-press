@@ -3,8 +3,8 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: book-04-context-window-reader-edition.pdf
-SHA-256: b2297e96050e3afe401bf526ac2c6b2b9440d0fc16d80d88c88c36ab4d97acdc
-Bytes: 199,467
+SHA-256: 7f6709ac09eaac0e2ed8745b1e82e4ecc8c51ba84e57228c91744c407bf95f21
+Bytes: 198,492
 Pages: 43 (43/43 nonblank)
 
 Chapters:

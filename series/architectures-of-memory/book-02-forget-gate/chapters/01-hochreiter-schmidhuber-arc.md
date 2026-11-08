@@ -8,7 +8,7 @@ In July 1991, Sepp Hochreiter submitted his master's thesis in Munich.[^hochreit
 
 Six years passed between that German thesis and the 1997 paper in *Neural Computation*.[^hochreiter1997] In computer science, six years is an epoch. During that window, recurrent networks suffered a deep chill. In 1994, Yoshua Bengio, Patrice Simard, and Paolo Frasconi published an independent proof.[^bengio1994] They showed that gradient descent struggles to link distant inputs across time. Many teams abandoned recurrent models entirely, turning to static classifiers or hidden Markov systems.
 
-The journey from Munich to the Dalle Molle Institute in Lugano was steep. Schmidhuber had already demonstrated that hierarchical history compression could bridge long delays by chunking predictable patterns,[^schmidhuber1992] but continuous sequence learning required a fundamentally new mechanism. Early drafts of the new recurrent architecture were rejected by major conferences, including NIPS.[^schmidhuber-hist] Reviewers found the equations dense, the wiring baroque, and the goal of training networks across hundreds of steps seemingly hopeless.
+The climb from Munich to the Dalle Molle lab in Lugano was steep. Schmidhuber had already shown that chunking history could bridge long delays.[^schmidhuber1992] Still, learning across smooth time streams needed a brand-new engine. Major venues like NIPS rejected early drafts of the new design.[^schmidhuber-hist] Reviewers found the math dense, the wiring strange, and the goal of training networks across hundreds of steps hopeless.
 
 This book opens at that six-year impasse because memory systems never arrive in a vacuum. A great proof does not become standard practice on mathematical merit alone. Ideas must survive translation from failure diagnosis to working code. Hochreiter and Schmidhuber had to move from naming what was broken to building an active bridge across time.
 
@@ -20,7 +20,7 @@ Book 1 closed on the vanishing gradient theorem. When an error signal travels ba
 
 Hochreiter’s core insight was simple: to stop decay, an engineering design must maintain constant error flow.[^hochreiter1991] If a storage unit adds incoming signals to its existing state without squashing them, its derivative across time equals exactly one.[^hochreiter-math] Multiplication scales; addition preserves.
 
-Yet an open linear integrator carries a fatal risk. Left exposed to incoming noise, its internal state either drifts or explodes. It behaves like an unmuted microphone in a tile hall. To make constant flow practical, the integrator needs protective shields.
+Yet an open linear loop carries a fatal flaw. Left exposed to raw input noise, its internal state drifts or blows up like an open microphone in a tile hall. Constant flow needs protective gates.
 
 Between 1995 and 1997, the researchers built those shields into the Constant Error Carousel.[^hochreiter1997] They placed the linear loop behind two multiplicative valves: an input gate to admit new data and an output gate to release the stored value. This composite unit became the memory cell.
 

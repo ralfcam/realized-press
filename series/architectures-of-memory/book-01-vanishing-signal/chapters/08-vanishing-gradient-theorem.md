@@ -14,7 +14,7 @@ A short sketch appeared at ICNN 1993. The 1994 journal paper remains the full pr
 
 ## II. The Latch Task and Attractor Basins
 
-In Section III of their paper, the authors tested a network on sequence classification.[^latch] The correct label depended only on the first few inputs of a long sequence. The total sequence length could grow, while the useful signal stayed short. The paper does not point to a single step count where learning fails. Instead, it proves the core trend: as sequence length grows, gradient descent becomes exponentially weaker.
+In Section III of their paper, the authors tested a network on sequence tasks.[^latch] Correct labels depended only on the first few inputs of a long stream, even as the total stream grew much longer. No single step count marked the exact spot where learning broke. Instead, their proof revealed a harsh law: as a sequence lengthens, the error gradient fades exponentially toward zero.
 
 The authors connected this failure to attractor dynamics. To store a memory against noise, a recurrent network pushes activations into stable resting states. But that contracting pull causes backpropagated error gradients to shrink toward zero. The paper exposed an inescapable trade-off: fast first-order gradient learning and durable memory storage cannot both be maximized in simple recurrent nets.
 
