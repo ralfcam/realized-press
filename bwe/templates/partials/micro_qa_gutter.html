@@ -50,7 +50,13 @@
     </div>
 
     {% for p in paragraphs %}
-    <div class="p-3 rounded-lg border text-xs font-mono transition {{ 'bg-rose-950/30 border-rose-800/60' if p.hard_errors else ('bg-amber-950/20 border-amber-800/40' if p.warnings else 'bg-stone-900/40 border-stone-800/60') }}">
+    <div id="qa-card-{{ p.idx }}"
+         role="button"
+         tabindex="0"
+         onclick="const target = document.getElementById('p-block-{{ p.idx }}'); if (target) { target.scrollIntoView({behavior: 'smooth', block: 'center'}); target.classList.add('ring-2', 'ring-amber-400', 'bg-amber-500/20'); setTimeout(() => target.classList.remove('ring-2', 'ring-amber-400', 'bg-amber-500/20'), 2500); }"
+         onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); this.click(); }"
+         class="p-3 rounded-lg border text-xs font-mono transition cursor-pointer hover:border-amber-500/50 focus:outline-none focus:ring-1 focus:ring-amber-400 {{ 'bg-rose-950/30 border-rose-800/60' if p.hard_errors else ('bg-amber-950/20 border-amber-800/40' if p.warnings else 'bg-stone-900/40 border-stone-800/60') }}"
+         title="Click to highlight and jump to paragraph {{ p.idx }} in preview pane">
       <div class="flex items-center justify-between mb-2">
         <div class="flex items-center gap-2">
           <span class="px-2 py-0.5 rounded text-[10px] font-bold {{ 'bg-rose-900 text-rose-200' if p.hard_errors else ('bg-amber-900 text-amber-200' if p.warnings else 'bg-stone-800 text-stone-300') }}">

@@ -769,6 +769,23 @@ async def get_ide_file_content(
     except Exception:
         preview_html = markdown.markdown(raw_text)
 
+    # ARC-101: Annotate preview paragraphs with #p-block-XX IDs for IDE gutter jumping & diagnostics
+    try:
+        from bs4 import BeautifulSoup
+        soup = BeautifulSoup(preview_html, "html.parser")
+        p_idx = 0
+        for p_tag in soup.find_all("p"):
+            if p_tag.parent and p_tag.parent.get("class") == ["footnote"]:
+                continue
+            p_idx += 1
+            p_tag["id"] = f"p-block-{p_idx}"
+            classes = p_tag.get("class") or []
+            if "transition-colors" not in classes:
+                p_tag["class"] = classes + ["transition-colors", "duration-500"]
+        preview_html = str(soup)
+    except Exception:
+        pass
+
     rel_path = file_path.relative_to(REPO_ROOT).as_posix()
     title = file_path.stem.replace("-", " ").replace("_", " ").title()
 
