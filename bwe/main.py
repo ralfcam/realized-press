@@ -897,11 +897,13 @@ async def get_chapter_micro_qa(
     """
     from audit_manuscript import (
         audit_micro_qa,
+        compute_phrasal_poetics,
         split_sections,
         tokenize_sentences,
         compute_readability_metrics,
         INLINE_FN_RE,
     )
+    from bwe.style_sculptor import build_sculptor_prompt
 
     if book_slug:
         base_dir = SERIES_DIR / series_slug / book_slug
@@ -927,6 +929,14 @@ async def get_chapter_micro_qa(
         language=lang,
         chapter_slug=chapter_slug,
     )
+    poetics = compute_phrasal_poetics(
+        body_before_notes,
+        language=lang,
+        chapter_slug=chapter_slug,
+        root=REPO_ROOT,
+        book_path=base_dir,
+    )
+    poetics_by_idx = {p["index"]: p for p in poetics.get("paragraphs", [])}
 
     clean_body = re.sub(r"<aside[\s\S]*?</aside>", "", body_before_notes, flags=re.IGNORECASE)
     sections = split_sections(clean_body)
@@ -954,7 +964,14 @@ async def get_chapter_micro_qa(
 
             prefix = f"[p.{p_global}"
             p_errs = [e for e in hard_errs if prefix in e]
-            p_warns = [w for w in warns if prefix in w]
+            p_warns = [w for w in warns if prefix in w] + [w for w in poetics.get("warnings", []) if prefix in w]
+            p_poetics = poetics_by_idx.get(p_global, {})
+            sculpt_prompt = build_sculptor_prompt(
+                pr,
+                section_title=sec_title,
+                language=lang,
+                reasons=p_poetics.get("reasons", []),
+            )
 
             paragraphs.append({
                 "idx": p_global,
@@ -962,6 +979,10 @@ async def get_chapter_micro_qa(
                 "words": len(words),
                 "sents": len(sents),
                 "readability": readability_val,
+                "poetics_score": p_poetics.get("poetics_score", 100.0),
+                "copula_ratio": p_poetics.get("copula_ratio", 0.0),
+                "cadence_sigma": p_poetics.get("cadence_sigma", 3.5),
+                "sculpt_prompt": sculpt_prompt,
                 "excerpt": clean_p[:120].strip() + ("..." if len(clean_p) > 120 else ""),
                 "hard_errors": p_errs,
                 "warnings": p_warns,
@@ -978,6 +999,7 @@ async def get_chapter_micro_qa(
             "hard_errors": hard_errs,
             "warnings": warns,
             "metrics": metrics,
+            "poetics": poetics,
             "paragraphs": paragraphs,
         },
     )

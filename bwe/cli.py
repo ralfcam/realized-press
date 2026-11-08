@@ -144,6 +144,47 @@ def context(
 
 
 @cli.command()
+def sculpt(
+    series: str = typer.Option("parenthood-atlas", "--series", "-s", help="Series slug (e.g. parenthood-atlas or architectures-of-memory)"),
+    chapter: str = typer.Option(..., "--chapter", "-c", help="Chapter slug (e.g. 04-regulatory-relationship)"),
+    book: str = typer.Option(None, "--book", "-b", help="Book slug for multi-volume series (e.g. book-01-vanishing-signal)"),
+    lang: str = typer.Option("en", "--lang", help="Edition language ('en', 'es', 'fr')"),
+    top_k: int = typer.Option(5, "--top-k", help="Number of priority paragraphs to include in sculpt pack"),
+    dry_run: bool = typer.Option(False, "--dry-run", help="Print telemetry and frozen-skeleton sculpt prompts without modifying files"),
+    format: str = typer.Option("md", "--format", "-f", help="Output format: 'md' or 'json'"),
+):
+    """ARC-104 (BWE v1.3.1): Generate Frozen-Skeleton Phrasal-Sculpting Pack & Poetics Telemetry for a chapter."""
+    import json
+    from bwe.style_sculptor import generate_chapter_sculpt_pack
+
+    pack = generate_chapter_sculpt_pack(
+        series_slug=series,
+        chapter_slug=chapter,
+        book_slug=book,
+        lang=lang,
+        top_k=top_k,
+    )
+    if format.lower() == "json":
+        typer.echo(json.dumps(pack, indent=2, ensure_ascii=False))
+        return
+
+    typer.echo(f"# Frozen-Skeleton Phrasal-Sculpting Pack — `{pack['chapter_slug']}` ({pack['series_slug']})")
+    typer.echo(
+        f"- **Phrasal Poetics Score:** `{pack['chapter_poetics_score']}/100` | "
+        f"**Copula Ratio:** `{pack['copula_ratio']:.1%}` | "
+        f"**Nominalization Clusters:** `{pack['nominalization_clusters']}` | "
+        f"**Tail Drags:** `{pack['participial_tail_drags']}` | "
+        f"**Avg Cadence σ:** `{pack['avg_cadence_sigma']}w`"
+    )
+    if pack["canonical_metaphors"]:
+        typer.echo(f"- **OKF v0.3 Canonical Metaphors:** {', '.join(f'`{m}`' for m in pack['canonical_metaphors'])}")
+    typer.echo(f"- **Priority Paragraphs Queued:** `{pack['target_count']}`\n")
+    for idx, t in enumerate(pack["targets"], 1):
+        typer.echo(f"---\n### Target {idx}: Paragraph `[p.{t['paragraph_index']}]` ({t['words']}w, {t['sentences']}s, Score `{t['poetics_score']}`)")
+        typer.echo(t["sculpt_prompt"])
+
+
+@cli.command()
 def graph(
     series: str = typer.Option("architectures-of-memory", "--series", "-s", help="Series slug"),
     book: str = typer.Option(None, "--book", "-b", help="Book slug filter (e.g. book-01-vanishing-signal)"),

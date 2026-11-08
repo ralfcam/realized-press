@@ -572,6 +572,319 @@ def audit_micro_qa(
     return hard_errors, warnings, metrics
 
 
+def load_phrasal_poetics_spec(root: Path, book_path: Path | None = None, language: str = "en") -> dict:
+    """Load style/phrasal-poetics.yml (or i18n/<lang>/style/phrasal-poetics.yml) with safe fallbacks."""
+    import yaml
+
+    candidates: list[Path] = []
+    if book_path is not None:
+        candidates.append(book_path / "style" / "phrasal-poetics.yml")
+    if language == "es":
+        candidates.append(root / "series" / "parenthood-atlas" / "i18n" / "es" / "style" / "phrasal-poetics.yml")
+    candidates.append(root / "style" / "phrasal-poetics.yml")
+
+    for cand in candidates:
+        if cand.is_file():
+            try:
+                data = yaml.safe_load(cand.read_text(encoding="utf-8"))
+                if isinstance(data, dict):
+                    return data
+            except Exception:
+                pass
+
+    return {
+        "version": "1.3.1",
+        "language": language,
+        "thresholds": {
+            "max_copula_ratio": 0.38 if language == "en" else 0.40,
+            "max_nominalizations_per_sentence": 2 if language == "en" else 3,
+            "max_participial_tail_drags_per_chapter": 2,
+            "max_negation_pivots_per_chapter": 3,
+            "min_cadence_sigma_words": 2.0,
+            "target_cadence_sigma_words": 3.5,
+            "min_poetics_score": 75.0,
+        },
+        "patterns": {
+            "participial_tail_drag_regex": r",\s+(?:highlighting|underscoring|demonstrating|illustrating|shaping|reflecting|ensuring|fostering|cultivating|facilitating|emphasizing|reinforcing|revealing|showcasing)\b[^.?!]*(?:[.?!]|$)",
+            "negation_pivot_regex": r"\b(?:not\s+(?:merely|simply|just|only)\s+[^,;.?!]{3,45},?\s+but\s+(?:rather|instead|also)?|less\s+about\s+[^,;.?!]{3,40}\s+and\s+more\s+about)\b",
+            "copula_predicate_regex": r"\b(?:is|are|was|were|be|been|being|becomes|became|provides|provide|provided|serves\s+as|served\s+as|acts\s+as|acted\s+as|represents|represented|constitutes|constituted)\b",
+            "nominalization_suffix_regex": r"\b[a-z]{5,}(?:tion|tions|ment|ments|ity|ities|ance|ances|ence|ences|ness|nesses)\b",
+        },
+        "nominalization_whitelist": [],
+        "kinetic_verb_lexicon": {},
+    }
+
+
+def compute_phrasal_poetics(
+    body_before_notes: str,
+    language: str = "en",
+    chapter_slug: str = "",
+    root: Path | None = None,
+    book_path: Path | None = None,
+) -> dict:
+    """Evaluate SotA LLM Phrasal Poetics & Kinetic Style metrics (Rule 8e, ARC-104).
+
+    Returns a dictionary containing:
+    - chapter_poetics_score (0.0 - 100.0)
+    - copula_ratio (0.0 - 1.0)
+    - nominalization_clusters (int)
+    - participial_tail_drags (int)
+    - negation_pivots (int)
+    - avg_cadence_sigma (float)
+    - paragraphs (list of per-paragraph poetics telemetry dicts)
+    - flattest_paragraphs (top 5 lowest-scoring paragraphs with >= 40 words)
+    - warnings (list of markdown warning strings)
+    """
+    resolved_root = root or repo_root()
+    spec = load_phrasal_poetics_spec(resolved_root, book_path=book_path, language=language)
+    thresholds = spec.get("thresholds") or {}
+    patterns = spec.get("patterns") or {}
+    whitelist = {str(w).lower() for w in (spec.get("nominalization_whitelist") or [])}
+
+    kinetic_verbs: set[str] = set()
+    for _group, vlist in (spec.get("kinetic_verb_lexicon") or {}).items():
+        if isinstance(vlist, list):
+            for v in vlist:
+                v_str = str(v).lower().strip()
+                if v_str:
+                    kinetic_verbs.add(v_str)
+                    # Add common inflections for English/Spanish stem matching
+                    if language == "en":
+                        kinetic_verbs.update({f"{v_str}s", f"{v_str}ed", f"{v_str}ing"})
+                        if v_str.endswith("e"):
+                            kinetic_verbs.update({f"{v_str[:-1]}ed", f"{v_str[:-1]}ing"})
+                        if v_str.endswith("y") and len(v_str) > 2 and v_str[-2] not in "aeiou":
+                            kinetic_verbs.update({f"{v_str[:-1]}ies", f"{v_str[:-1]}ied"})
+
+    tail_re = re.compile(
+        patterns.get(
+            "participial_tail_drag_regex",
+            r",\s+(?:highlighting|underscoring|demonstrating|illustrating|shaping|reflecting|ensuring)\b[^.?!]+[.?!]",
+        ),
+        re.IGNORECASE,
+    )
+    neg_pivot_re = re.compile(
+        patterns.get(
+            "negation_pivot_regex",
+            r"\b(?:not\s+(?:merely|simply|just|only)\s+[^,;.?!]{3,45},?\s+but\s+(?:rather|instead|also)?)\b",
+        ),
+        re.IGNORECASE,
+    )
+    copula_re = re.compile(
+        patterns.get(
+            "copula_predicate_regex",
+            r"\b(?:is|are|was|were|be|been|being|becomes|became|provides|provide|provided|serves\s+as|acts\s+as)\b",
+        ),
+        re.IGNORECASE,
+    )
+    nom_re = re.compile(
+        patterns.get(
+            "nominalization_suffix_regex",
+            r"\b[a-z]{5,}(?:tion|tions|ment|ments|ity|ities|ance|ances|ence|ences|ness|nesses)\b",
+        ),
+        re.IGNORECASE,
+    )
+
+    max_copula_ratio = float(thresholds.get("max_copula_ratio", 0.38))
+    max_nom_per_sent = int(thresholds.get("max_nominalizations_per_sentence", 2))
+    max_tail_drags = int(thresholds.get("max_participial_tail_drags_per_chapter", 2))
+    max_neg_pivots = int(thresholds.get("max_negation_pivots_per_chapter", 3))
+    min_poetics_score = float(thresholds.get("min_poetics_score", 75.0))
+
+    cleaned_body = re.sub(r"<aside[\s\S]*?</aside>", "", body_before_notes)
+    sections = split_sections(cleaned_body)
+
+    p_global_idx = 0
+    total_sents_ch = 0
+    total_copula_sents_ch = 0
+    total_nom_clusters_ch = 0
+    total_tail_drags_ch = 0
+    total_neg_pivots_ch = 0
+    sigma_values: list[float] = []
+    para_records: list[dict] = []
+    warnings: list[str] = []
+
+    for sec_title, sec_body in sections:
+        if sec_title.lower().startswith(("notes", "sources", "further reading", "linked evidence cards")):
+            continue
+        raw_paras = [pr.strip() for pr in sec_body.split("\n\n") if pr.strip()]
+        body_paras: list[str] = []
+        for pr in raw_paras:
+            if pr.startswith(("#", ">", "|", "```", "---", "<aside", "<div", "<!--", "$$")):
+                continue
+            lines = [ln.strip() for ln in pr.splitlines() if ln.strip()]
+            if all(ln.startswith(("-", "*", "1.", "2.", "3.", "4.", "5.")) for ln in lines):
+                continue
+            body_paras.append(pr)
+
+        for p_text in body_paras:
+            p_global_idx += 1
+            clean_p = INLINE_FN_RE.sub("", p_text)
+            clean_p = re.sub(r"<[^>]+>", " ", clean_p)
+            clean_p = re.sub(r"\$[^$]+\$", " formula ", clean_p)
+
+            sents = tokenize_sentences(p_text, language=language)
+            if not sents:
+                continue
+
+            word_regex = (
+                r"[A-Za-z0-9áéíóúüñÁÉÍÓÚÜÑ']+"
+                if language == "es"
+                else (r"[A-Za-z0-9àâéèêëîïôùûüœæçÀÂÉÈÊËÎÏÔÙÛÜŒÆÇ']+" if language == "fr" else r"[A-Za-z0-9']+")
+            )
+            all_words = re.findall(word_regex, clean_p)
+            total_para_words = len(all_words)
+            total_para_sents = len(sents)
+
+            para_copula_sents = 0
+            para_nom_clusters = 0
+            para_nom_examples: list[str] = []
+            para_tail_drags = 0
+            para_kinetic_hits = 0
+
+            for s_idx, s_info in enumerate(sents):
+                s_text = s_info["text"]
+                s_words_lower = [w.lower() for w in re.findall(word_regex, s_text)]
+                has_kinetic = any(w in kinetic_verbs for w in s_words_lower)
+                if has_kinetic:
+                    para_kinetic_hits += 1
+
+                # Exclude locked bold epistemic verbs (**is associated with**) from copula penalty
+                s_without_epistemic = re.sub(
+                    r"\*\*(?:is\s+associated\s+with|are\s+associated\s+with|se\s+asocia\s+con)\*\*",
+                    "",
+                    s_text,
+                    flags=re.IGNORECASE,
+                )
+                if copula_re.search(s_without_epistemic) and not has_kinetic:
+                    para_copula_sents += 1
+
+                noms = [
+                    m.group(0).lower()
+                    for m in nom_re.finditer(s_text)
+                    if m.group(0).lower() not in whitelist
+                ]
+                if len(noms) > max_nom_per_sent:
+                    para_nom_clusters += 1
+                    para_nom_examples.extend(noms[:3])
+                    warnings.append(
+                        f"- `{chapter_slug}` [p.{p_global_idx} s.{s_idx+1}]: Abstract nominalization cluster ({len(noms)} nominalizations: {', '.join(noms[:4])}): \"{s_text[:75]}...\""
+                    )
+
+                if tail_re.search(s_text):
+                    para_tail_drags += 1
+                    warnings.append(
+                        f"- `{chapter_slug}` [p.{p_global_idx} s.{s_idx+1}]: Formulaic participial tail-drag clause: \"{s_text[-80:]}\""
+                    )
+
+            para_neg_pivots = len(neg_pivot_re.findall(clean_p))
+            total_sents_ch += total_para_sents
+            total_copula_sents_ch += para_copula_sents
+            total_nom_clusters_ch += para_nom_clusters
+            total_tail_drags_ch += para_tail_drags
+            total_neg_pivots_ch += para_neg_pivots
+
+            lengths = [s["words"] for s in sents]
+            if total_para_sents >= 2:
+                mean_l = sum(lengths) / len(lengths)
+                sigma = math.sqrt(sum((l - mean_l) ** 2 for l in lengths) / len(lengths))
+            else:
+                sigma = 3.5
+            if total_para_sents >= 4:
+                sigma_values.append(sigma)
+
+            has_hinge = any(4 <= l <= 9 for l in lengths) and any(l >= 16 for l in lengths)
+            para_copula_ratio = para_copula_sents / max(1, total_para_sents)
+
+            # Compute Paragraph Phrasal Poetics Score (0-100)
+            score = 100.0
+            if para_copula_ratio > 0.25:
+                score -= (para_copula_ratio - 0.25) * 40.0
+            score -= para_nom_clusters * 9.0
+            score -= para_tail_drags * 12.0
+            if para_neg_pivots > 1:
+                score -= (para_neg_pivots - 1) * 6.0
+            if total_para_sents >= 4 and sigma < 2.5:
+                score -= (2.5 - sigma) * 8.0
+            score += min(6.0, para_kinetic_hits * 1.5)
+            if has_hinge:
+                score += 3.0
+            score = round(max(0.0, min(100.0, score)), 1)
+
+            reasons: list[str] = []
+            if para_copula_ratio > max_copula_ratio:
+                reasons.append(f"high copula density ({para_copula_ratio:.0%})")
+            if para_nom_clusters > 0:
+                reasons.append(f"{para_nom_clusters} nominalization cluster(s) ({', '.join(para_nom_examples[:3])})")
+            if para_tail_drags > 0:
+                reasons.append(f"{para_tail_drags} participial tail-drag(s)")
+            if total_para_sents >= 4 and sigma < 2.5:
+                reasons.append(f"flat sentence cadence (σ={sigma:.2f}w)")
+            if para_kinetic_hits == 0 and total_para_sents >= 3:
+                reasons.append("0 kinetic lexicon verbs")
+
+            para_records.append(
+                {
+                    "index": p_global_idx,
+                    "section": sec_title,
+                    "words": total_para_words,
+                    "sentences": total_para_sents,
+                    "poetics_score": score,
+                    "copula_ratio": round(para_copula_ratio, 3),
+                    "nominalization_clusters": para_nom_clusters,
+                    "participial_tail_drags": para_tail_drags,
+                    "negation_pivots": para_neg_pivots,
+                    "kinetic_hits": para_kinetic_hits,
+                    "cadence_sigma": round(sigma, 2),
+                    "has_hinge": has_hinge,
+                    "reasons": reasons,
+                    "snippet": clean_p[:110] + ("..." if len(clean_p) > 110 else ""),
+                    "raw_text": p_text,
+                }
+            )
+
+    total_words_weighted = sum(p["words"] for p in para_records) or 1
+    chapter_poetics_score = round(
+        sum(p["poetics_score"] * p["words"] for p in para_records) / total_words_weighted,
+        1,
+    )
+    chapter_copula_ratio = round(total_copula_sents_ch / max(1, total_sents_ch), 3)
+    avg_sigma = round(sum(sigma_values) / len(sigma_values), 2) if sigma_values else 3.5
+
+    if chapter_copula_ratio > max_copula_ratio:
+        warnings.append(
+            f"- `{chapter_slug}`: Chapter copula density `{chapter_copula_ratio:.1%}` exceeds target (≤ {max_copula_ratio:.0%})."
+        )
+    if total_tail_drags_ch > max_tail_drags:
+        warnings.append(
+            f"- `{chapter_slug}`: Participial tail-drag count `{total_tail_drags_ch}` exceeds chapter cap (≤ {max_tail_drags})."
+        )
+    if total_neg_pivots_ch > max_neg_pivots:
+        warnings.append(
+            f"- `{chapter_slug}`: Formulaic negation-pivot count `{total_neg_pivots_ch}` (`not merely X, but Y`) exceeds chapter cap (≤ {max_neg_pivots})."
+        )
+    if chapter_poetics_score < min_poetics_score:
+        warnings.append(
+            f"- `{chapter_slug}`: Chapter Phrasal Poetics Score `{chapter_poetics_score}` below target (≥ {min_poetics_score})."
+        )
+
+    substantial_paras = [p for p in para_records if p["words"] >= 40]
+    flattest = sorted(substantial_paras, key=lambda x: (x["poetics_score"], -x["copula_ratio"]))[:5]
+
+    return {
+        "chapter_slug": chapter_slug,
+        "chapter_poetics_score": chapter_poetics_score,
+        "copula_ratio": chapter_copula_ratio,
+        "nominalization_clusters": total_nom_clusters_ch,
+        "participial_tail_drags": total_tail_drags_ch,
+        "negation_pivots": total_neg_pivots_ch,
+        "avg_cadence_sigma": avg_sigma,
+        "paragraphs": para_records,
+        "flattest_paragraphs": flattest,
+        "warnings": warnings,
+    }
+
+
 def run_gemini_review(root: Path, book_path: Path, chapters: list[Path]) -> str:
     api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
     if not api_key:
@@ -1004,7 +1317,7 @@ def audit_graph_coherence(root: Path, book_path: Path, lang: str | None = None) 
     return lines, all_violations, len(all_violations) == 0
 
 
-def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: bool = False, graph_strict: bool = False, micro_strict: bool = False, lang_override: str | None = None) -> tuple[str, bool]:
+def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: bool = False, graph_strict: bool = False, micro_strict: bool = False, use_poetics: bool = False, lang_override: str | None = None) -> tuple[str, bool]:
     root = repo_root()
     chapters_dir = book_path / "chapters"
     chapters = iter_chapter_files(chapters_dir)
@@ -1066,6 +1379,9 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
     micro_qa_rows: list[str] = []
     micro_qa_hard_errors: list[str] = []
     micro_qa_warnings: list[str] = []
+    poetics_rows: list[str] = []
+    poetics_warnings: list[str] = []
+    poetics_flattest_queue: list[str] = []
     metaphor_collisions: list[str] = []
     fn_issues: list[str] = []
     forbidden_hits: list[str] = []
@@ -1185,6 +1501,31 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
         micro_qa_rows.append(
             f"| `{ch.name}` | {sents_over} | {dense_p} | {emp_errs} | {cad_flags} | {ch_status} |"
         )
+
+        if use_poetics:
+            poetics_res = compute_phrasal_poetics(
+                body_before_notes,
+                language=language,
+                chapter_slug=ch.name,
+                root=root,
+                book_path=book_path,
+            )
+            poetics_warnings.extend(poetics_res["warnings"])
+            p_score = poetics_res["chapter_poetics_score"]
+            p_copula = poetics_res["copula_ratio"]
+            p_noms = poetics_res["nominalization_clusters"]
+            p_tails = poetics_res["participial_tail_drags"]
+            p_negs = poetics_res["negation_pivots"]
+            p_sigma = poetics_res["avg_cadence_sigma"]
+            p_status = "PASS" if not poetics_res["warnings"] else "SCULPT"
+            poetics_rows.append(
+                f"| `{ch.name}` | {p_score:.1f} | {p_copula:.1%} | {p_noms} | {p_tails} | {p_negs} | {p_sigma:.2f}w | {p_status} |"
+            )
+            for fp in poetics_res["flattest_paragraphs"]:
+                if fp["poetics_score"] < 82.0 and fp["reasons"]:
+                    poetics_flattest_queue.append(
+                        f"- `{ch.name}` [p.{fp['index']}] (Score `{fp['poetics_score']}`, {', '.join(fp['reasons'])}): \"{fp['snippet']}\""
+                    )
 
         for full_name, surname in characters:
             if re.search(rf"\b{re.escape(surname)}\b", body_before_notes):
@@ -1380,6 +1721,29 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
     else:
         lines.append("- **Pass:** Sentence starter variety and cadence variance maintained; all movement closings provide 3-tier causal resolution.")
 
+    if use_poetics:
+        lines.extend(
+            [
+                "",
+                "### 8e. SotA LLM Phrasal Poetics & Kinetic Style Audit (`style/phrasal-poetics.yml`, ARC-104)",
+                "| Chapter | Poetics Score (≥75.0) | Copula Ratio (≤38%) | Nom. Clusters | Tail Drags (≤2) | Neg. Pivots (≤3) | Avg σ (w) | Status |",
+                "| :--- | ---: | ---: | ---: | ---: | ---: | ---: | :--- |",
+                *poetics_rows,
+            ]
+        )
+        if poetics_warnings:
+            lines.append(f"- **Notice ({len(poetics_warnings)} phrasal poetics observations):**")
+            for pw in poetics_warnings[:12]:
+                lines.append(f"  {pw}")
+            if len(poetics_warnings) > 12:
+                lines.append(f"  - ... and {len(poetics_warnings) - 12} more observations.")
+        else:
+            lines.append("- **Pass:** All chapters meet SotA phrasal poetics thresholds (kinetic verbs, low copula ratio, zero nominalization bloat, zero participial tail-drags).")
+        if poetics_flattest_queue:
+            lines.append("- **Top Priority Paragraphs for Frozen-Skeleton Sculpting (`score < 82.0`):**")
+            for fq in poetics_flattest_queue[:10]:
+                lines.append(f"  {fq}")
+
     lines.extend(["", "## 9. Residual Fact-Check Action Items (`research/fact-checks/*.md`)"])
     if open_fc_items:
         lines.extend(open_fc_items)
@@ -1422,6 +1786,7 @@ def main() -> None:
     parser.add_argument("--bestseller-strict", action="store_true", help="Also fail if any chapter exceeds FK Grade 10.5 or contains body jargon or sentence breath strain")
     parser.add_argument("--graph-strict", action="store_true", help="Fail if any OKF v0.3 knowledge graph coherence gate (Rules 7a–7e) fails")
     parser.add_argument("--micro-strict", action="store_true", help="Fail if any micro-QA rule (Rules 8a–8d) has hard errors or advisory notices")
+    parser.add_argument("--poetics", action="store_true", help="Run SotA LLM Phrasal Poetics & Kinetic Style audit (Rule 8e, style/phrasal-poetics.yml)")
     parser.add_argument("--lang", choices=["en", "es", "fr"], default=None, help="Explicit language override (en, es, fr)")
     args = parser.parse_args()
 
@@ -1437,6 +1802,7 @@ def main() -> None:
         bestseller_strict=args.bestseller_strict,
         graph_strict=args.graph_strict,
         micro_strict=args.micro_strict,
+        use_poetics=args.poetics,
         lang_override=args.lang,
     )
     if args.output:

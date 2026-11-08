@@ -1,0 +1,245 @@
+# Realized Press — SotA LLM Phrasal Poetics & Kinetic Style Specification (BWE v1.3.1, ARC-104)
+# Governs "--poetics" auditing in scripts/audit_manuscript.py and frozen-skeleton sculpting in bwe/style_sculptor.py.
+
+version: "1.3.1"
+language: "en"
+
+thresholds:
+  # Maximum ratio of sentences dominated by weak copulas/state-of-being verbs (is, are, was, were, has, have, becomes, provides, serves as)
+  max_copula_ratio: 0.38
+  # Maximum abstract Latinate nominalizations (-tion, -ment, -ity, -ance, -ence) in a single sentence (excluding whitelist)
+  max_nominalizations_per_sentence: 2
+  # Maximum formulaic LLM participial tail clauses (", highlighting...", ", underscoring...") per chapter
+  max_participial_tail_drags_per_chapter: 2
+  # Maximum formulaic LLM negation-pivot contrasts ("not only X, but Y" / "not merely X, but Y") per chapter
+  max_negation_pivots_per_chapter: 3
+  # Minimum sentence-length standard deviation (words) for paragraphs with >= 4 sentences
+  min_cadence_sigma_words: 2.0
+  # Optimal sentence-length standard deviation (words) rewarded by the poetics score
+  target_cadence_sigma_words: 3.5
+  # Minimum composite chapter Phrasal Poetics Score (0-100)
+  min_poetics_score: 75.0
+
+patterns:
+  # Formulaic LLM participial tail drags at the end of a sentence
+  participial_tail_drag_regex: ",\\s+(?:highlighting|underscoring|demonstrating|illustrating|shaping|reflecting|ensuring|fostering|cultivating|facilitating|emphasizing|reinforcing|revealing|showcasing)\\b[^.?!]*(?:[.?!]|$)"
+  # Formulaic LLM negation-pivot ("not X, but Y" / "not merely X, but Y" / "less about X and more about Y")
+  negation_pivot_regex: "\\b(?:not\\s+(?:merely|simply|just|only)\\s+[^,;.?!]{3,45},?\\s+but\\s+(?:rather|instead|also)?|less\\s+about\\s+[^,;.?!]{3,40}\\s+and\\s+more\\s+about)\\b"
+  # Weak copula / state-of-being verb predicates
+  copula_predicate_regex: "\\b(?:is|are|was|were|be|been|being|becomes|became|provides|provide|provided|serves\\s+as|served\\s+as|acts\\s+as|acted\\s+as|represents|represented|constitutes|constituted)\\b"
+  # Abstract nominalization suffixes (evaluated on words >= 8 characters not in nominalization_whitelist)
+  nominalization_suffix_regex: "\\b[a-z]{5,}(?:tion|tions|ment|ments|ity|ities|ance|ances|ence|ences|ness|nesses)\\b"
+
+nominalization_whitelist:
+  - action
+  - actions
+  - attention
+  - caution
+  - condition
+  - conditions
+  - connection
+  - connections
+  - conversation
+  - conversations
+  - cushion
+  - decision
+  - decisions
+  - department
+  - direction
+  - directions
+  - distance
+  - document
+  - documents
+  - duration
+  - education
+  - element
+  - elements
+  - emotion
+  - emotions
+  - environment
+  - environments
+  - evidence
+  - experience
+  - experiences
+  - experiment
+  - experiments
+  - foundation
+  - foundations
+  - fraction
+  - fragment
+  - fragments
+  - function
+  - functions
+  - generation
+  - generations
+  - gestation
+  - government
+  - governments
+  - importance
+  - infection
+  - infections
+  - information
+  - instance
+  - instrument
+  - instruments
+  - instruction
+  - instructions
+  - location
+  - locations
+  - mention
+  - mission
+  - moment
+  - moments
+  - motion
+  - motions
+  - nutrition
+  - option
+  - options
+  - parents
+  - patience
+  - patients
+  - performance
+  - population
+  - populations
+  - position
+  - positions
+  - portion
+  - presence
+  - question
+  - questions
+  - reaction
+  - reactions
+  - reference
+  - references
+  - relation
+  - relations
+  - relationship
+  - relationships
+  - science
+  - sciences
+  - section
+  - sections
+  - segment
+  - segments
+  - sentence
+  - sentences
+  - sequence
+  - sequences
+  - session
+  - sessions
+  - silence
+  - situation
+  - situations
+  - solution
+  - solutions
+  - station
+  - stations
+  - substance
+  - substances
+  - tension
+  - tensions
+  - tradition
+  - traditions
+  - transition
+  - transitions
+  - treatment
+  - treatments
+  - version
+  - versions
+  - violence
+  - vision
+  - witness
+
+kinetic_verb_lexicon:
+  checkpoint_and_boundary:
+    - anchor
+    - bar
+    - block
+    - catch
+    - check
+    - clear
+    - confiscate
+    - disarm
+    - filter
+    - guard
+    - hold
+    - inspect
+    - lock
+    - open
+    - screen
+    - seal
+    - shield
+    - intercept
+    - wave
+  mechanical_and_structural:
+    - bear
+    - bend
+    - bind
+    - brace
+    - build
+    - carve
+    - clamp
+    - forge
+    - frame
+    - grip
+    - hinge
+    - link
+    - lift
+    - load
+    - pry
+    - pull
+    - push
+    - reset
+    - shift
+    - snap
+    - split
+    - spring
+    - steer
+    - stretch
+    - switch
+    - tether
+    - tune
+    - weave
+    - wedge
+    - wire
+  fluid_and_signal:
+    - broadcast
+    - carry
+    - channel
+    - cool
+    - dampen
+    - drain
+    - echo
+    - fade
+    - feed
+    - flood
+    - flow
+    - flush
+    - spark
+    - spill
+    - stream
+    - surge
+    - sweep
+    - wash
+  somatic_and_relational:
+    - breathe
+    - calm
+    - cradle
+    - cry
+    - flinch
+    - gaze
+    - grasp
+    - listen
+    - look
+    - match
+    - meet
+    - mirror
+    - point
+    - reach
+    - rest
+    - settle
+    - steady
+    - soothe
+    - touch
+    - turn
+    - watch

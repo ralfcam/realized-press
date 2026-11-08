@@ -1,0 +1,178 @@
+# Realized Press — Especificación de Poética Frasal y Estilo Cinético (BWE v1.3.1, ARC-104)
+# Gobierna la auditoría "--poetics" en scripts/audit_manuscript.py y el esculpido en bwe/style_sculptor.py para español (ES).
+
+version: "1.3.1"
+language: "es"
+
+thresholds:
+  max_copula_ratio: 0.40
+  max_nominalizations_per_sentence: 3
+  max_participial_tail_drags_per_chapter: 2
+  max_negation_pivots_per_chapter: 3
+  min_cadence_sigma_words: 2.0
+  target_cadence_sigma_words: 3.5
+  min_poetics_score: 75.0
+
+patterns:
+  participial_tail_drag_regex: ",\\s+(?:destacando|subrayando|demostrando|ilustrando|reflejando|asegurando|fomentando|facilitando|enfatizando|revelando|evidenciando)\\b[^.?!]*(?:[.?!]|$)"
+  negation_pivot_regex: "\\b(?:no\\s+(?:solo|solamente|meramente|únicamente|simplemente)\\s+[^,;.?!]{3,45},?\\s+sino\\s+(?:también|más\\s+bien|además)?|menos\\s+de\\s+[^,;.?!]{3,40}\\s+y\\s+más\\s+de)\\b"
+  copula_predicate_regex: "\\b(?:es|son|era|eran|fue|fueron|sea|sean|sido|siendo|está|están|estaba|estaban|constituye|constituyen|representa|representan|sirve\\s+como|actúa\\s+como)\\b"
+  nominalization_suffix_regex: "\\b[a-záéíóúñ]{6,}(?:ción|ciones|miento|mientos|dad|dades|ancia|ancias|encia|encias)\\b"
+
+nominalization_whitelist:
+  - acción
+  - acciones
+  - alimentación
+  - atención
+  - canción
+  - condición
+  - condiciones
+  - conexión
+  - conexiones
+  - conversación
+  - conversaciones
+  - cuestión
+  - cuestiones
+  - decisión
+  - decisiones
+  - dirección
+  - direcciones
+  - distancia
+  - duración
+  - edad
+  - edades
+  - educación
+  - emoción
+  - emociones
+  - enfermedad
+  - enfermedades
+  - estación
+  - evidencia
+  - experiencia
+  - experiencias
+  - explicación
+  - fundación
+  - función
+  - funciones
+  - generación
+  - generaciones
+  - gestación
+  - habitación
+  - habilidad
+  - habilidades
+  - importancia
+  - infancia
+  - infección
+  - infecciones
+  - información
+  - instrucción
+  - instrucciones
+  - investigación
+  - investigaciones
+  - momento
+  - momentos
+  - movimiento
+  - movimientos
+  - nacimiento
+  - nutrición
+  - opción
+  - opciones
+  - paciencia
+  - pensamiento
+  - pensamientos
+  - población
+  - poblaciones
+  - posición
+  - posiciones
+  - presencia
+  - protección
+  - reacción
+  - reacciones
+  - relación
+  - relaciones
+  - sección
+  - secciones
+  - seguimiento
+  - sentimiento
+  - sentimientos
+  - sesión
+  - sesiones
+  - situación
+  - situaciones
+  - solución
+  - soluciones
+  - sustancia
+  - sustancias
+  - tensión
+  - tensiones
+  - tradición
+  - transición
+  - tratamiento
+  - tratamientos
+  - verdad
+  - versión
+  - violencia
+  - visión
+
+kinetic_verb_lexicon:
+  checkpoint_and_boundary:
+    - abrir
+    - anclar
+    - bloquear
+    - cerrar
+    - confiscar
+    - desarmar
+    - escortar
+    - filtrar
+    - frenar
+    - guardar
+    - interceptar
+    - sellar
+    - vigilar
+  mechanical_and_structural:
+    - ajustar
+    - alzar
+    - armar
+    - cargar
+    - doblar
+    - empujar
+    - encajar
+    - enlazar
+    - forjar
+    - girar
+    - levantar
+    - moldear
+    - sostener
+    - tejer
+    - tensar
+    - tirar
+    - trazar
+  fluid_and_signal:
+    - apagar
+    - arrastrar
+    - canalizar
+    - correr
+    - drenar
+    - emitir
+    - enfriar
+    - fluir
+    - inundar
+    - limpiar
+    - llenar
+    - resonar
+    - transmitir
+    - vaciar
+  somatic_and_relational:
+    - abrazar
+    - acunar
+    - calmar
+    - escuchar
+    - llorar
+    - mirar
+    - mostrar
+    - apuntar
+    - respirar
+    - responder
+    - señalar
+    - sostener
+    - tocar

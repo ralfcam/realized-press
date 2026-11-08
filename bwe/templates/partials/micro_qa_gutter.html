@@ -41,6 +41,30 @@
         </div>
       </div>
     </div>
+
+    {% if poetics %}
+    <!-- Phrasal Poetics Summary Bar (ARC-104) -->
+    <div class="grid grid-cols-3 gap-2 text-center text-xs font-mono pt-1 border-t border-stone-800/80">
+      <div class="p-1.5 rounded bg-stone-950/60 border border-stone-800/60">
+        <div class="text-[9px] text-stone-400 uppercase">Poetics Score</div>
+        <div class="text-xs font-bold {{ 'text-emerald-400' if poetics.chapter_poetics_score >= 85.0 else 'text-amber-400' }}">
+          {{ "%.1f"|format(poetics.chapter_poetics_score) }}/100
+        </div>
+      </div>
+      <div class="p-1.5 rounded bg-stone-950/60 border border-stone-800/60">
+        <div class="text-[9px] text-stone-400 uppercase">Copula Ratio</div>
+        <div class="text-xs font-bold {{ 'text-emerald-400' if poetics.copula_ratio <= 0.38 else 'text-amber-400' }}">
+          {{ "%.1f"|format(poetics.copula_ratio * 100) }}%
+        </div>
+      </div>
+      <div class="p-1.5 rounded bg-stone-950/60 border border-stone-800/60">
+        <div class="text-[9px] text-stone-400 uppercase">Cadence &sigma;</div>
+        <div class="text-xs font-bold text-sky-300">
+          {{ "%.2f"|format(poetics.avg_cadence_sigma) }}w
+        </div>
+      </div>
+    </div>
+    {% endif %}
   </div>
 
   <!-- Paragraph-by-Paragraph Breakdown -->
@@ -77,6 +101,20 @@
           <span class="px-1.5 py-0.5 rounded bg-stone-950/80 {{ 'text-rose-300' if p.readability > 16.0 else ('text-amber-300' if p.readability > 12.0 else 'text-emerald-300') }}">
             FK {{ "%.1f"|format(p.readability) }}
           </span>
+          {% endif %}
+          {% if p.poetics_score is defined %}
+          <span class="px-1.5 py-0.5 rounded bg-stone-950/80 {{ 'text-amber-300' if p.poetics_score < 82.0 else 'text-sky-300' }}" title="Phrasal Poetics Score (Copula: {{ '%.0f'|format((p.copula_ratio or 0) * 100) }}%, σ: {{ p.cadence_sigma }}w)">
+            Poetics {{ "%.0f"|format(p.poetics_score) }}
+          </span>
+          {% endif %}
+          {% if p.sculpt_prompt is defined %}
+          <button type="button"
+                  data-sculpt-prompt="{{ p.sculpt_prompt|e }}"
+                  onclick="event.stopPropagation(); navigator.clipboard.writeText(this.getAttribute('data-sculpt-prompt')); this.textContent = 'Copied!'; setTimeout(() => this.textContent = 'Sculpt', 1500);"
+                  class="px-1.5 py-0.5 rounded bg-amber-950/80 hover:bg-amber-900 border border-amber-700/60 text-amber-200 font-semibold transition"
+                  title="Copy Frozen-Skeleton Phrasal-Sculpting Prompt to clipboard">
+            Sculpt
+          </button>
           {% endif %}
         </div>
       </div>
