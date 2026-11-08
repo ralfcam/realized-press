@@ -186,7 +186,9 @@ def compute_readability_metrics(body_before_notes: str, language: str = "en") ->
     lines = [
         line.strip()
         for line in body_no_aside.splitlines()
-        if line.strip() and not line.lstrip().startswith(("#", ">", "|", "```", "---", "- ", "* "))
+        if line.strip()
+        and not line.lstrip().startswith(("#", ">", "|", "```", "---", "- ", "* "))
+        and not re.fullmatch(r"\*[^*]+\*", line.strip())
     ]
     clean = " ".join(lines)
     clean = INLINE_FN_RE.sub("", clean)
@@ -461,11 +463,11 @@ def audit_micro_qa(
             if total_para_words > 135:
                 metrics["wall_of_text_paras"] += 1
                 warnings.append(
-                    f"- `{chapter_slug}` [p.{p_global_idx}]: Visual geometry wall-of-text: {total_para_words} words (recommended ≤ 135w)."
+                    f"- `{chapter_slug}` [p.{p_global_idx}]: Visual geometry wall-of-text: {total_para_words} words (recommended ≤ 135w): \"{clean_p[:65]}...\""
                 )
             if total_para_sents > 6:
                 warnings.append(
-                    f"- `{chapter_slug}` [p.{p_global_idx}]: Visual paragraph density: {total_para_sents} sentences (recommended ≤ 6 sentences)."
+                    f"- `{chapter_slug}` [p.{p_global_idx}]: Visual paragraph density: {total_para_sents} sentences (recommended ≤ 6 sentences): \"{clean_p[:65]}...\""
                 )
 
             if total_para_sents >= 3 or total_para_words >= 40:
