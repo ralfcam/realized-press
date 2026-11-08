@@ -116,7 +116,7 @@ def test_rule_8a_semicolon_bloat():
     bloated = "Clause one; clause two; clause three; clause four."
     body = f"## I. Test\n\n{bloated}\n"
     hard_errors, _, _ = audit_micro_qa(body, language="en", chapter_slug="ch01")
-    assert any("Clause bloat (>2 semicolons in single sentence)" in e for e in hard_errors)
+    assert any("Clause bloat (>2 semicolons or >2 em-dash parentheticals in single sentence)" in e for e in hard_errors)
 
 
 def test_rule_8a_oral_breath_strain():
@@ -261,6 +261,27 @@ def test_aside_callouts_stripped_from_body_audit():
 # -------------------------------------------------------------------------
 # 7. FastAPI Endpoint Diagnostics Conformance (/hx/micro-qa/...)
 # -------------------------------------------------------------------------
+
+
+def test_rule_8a_em_dash_bloat():
+    # Sentence with >4 em-dashes (>2 parenthetical pairs) should be flagged in hard_errors
+    dash_sent = "The fetus—while growing—adapts to cortisol—even when muted—and calibrates—for survival—before birth."
+    body = f"## I. Test\n\n{dash_sent}\n"
+    hard_errors, _, _ = audit_micro_qa(body, language="en", chapter_slug="ch01")
+    assert any("Clause bloat (>2 semicolons or >2 em-dash parentheticals in single sentence)" in e for e in hard_errors)
+
+
+def test_rule_8c_card_dict_anchor_mismatch_warning():
+    # Cited paragraph with N = 9,999 not matching card_dict quantitative_anchors
+    cited = "In a randomized controlled trial of N = 9,999 infants, outcomes shifted.[^ch01-mrc]"
+    body = f"## I. Test\n\n{cited}\n"
+    card_dict = {
+        "ch01-mrc": {
+            "quantitative_anchors": ["N = 1,817 high-risk pregnancies", "RR = 0.28"]
+        }
+    }
+    _, warnings, _ = audit_micro_qa(body, language="en", chapter_slug="ch01", card_dict=card_dict)
+    assert any("Quantitative anchor token" in w for w in warnings)
 
 
 def test_hx_micro_qa_endpoint():

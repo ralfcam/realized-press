@@ -777,6 +777,8 @@ async def get_ide_file_content(
         for p_tag in soup.find_all("p"):
             if p_tag.parent and p_tag.parent.get("class") == ["footnote"]:
                 continue
+            if p_tag.find_parent(["aside", "blockquote"]):
+                continue
             p_idx += 1
             p_tag["id"] = f"p-block-{p_idx}"
             classes = p_tag.get("class") or []
@@ -926,7 +928,8 @@ async def get_chapter_micro_qa(
         chapter_slug=chapter_slug,
     )
 
-    sections = split_sections(body_before_notes)
+    clean_body = re.sub(r"<aside[\s\S]*?</aside>", "", body_before_notes, flags=re.IGNORECASE)
+    sections = split_sections(clean_body)
     paragraphs = []
     p_global = 0
 

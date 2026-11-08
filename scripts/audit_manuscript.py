@@ -181,20 +181,21 @@ def count_syllables_fr(word: str) -> int:
 
 def compute_readability_metrics(body_before_notes: str, language: str = "en") -> dict[str, float | int]:
     """Compute Flesch-Kincaid / Flesch-Szigriszt, avg sentence length, and long-sentence count on body prose."""
-    # Remove headings, inline footnotes, markdown emphasis, and math tokens
+    # Remove callout asides, headings, tables, inline footnotes, markdown emphasis, and math tokens
+    body_no_aside = re.sub(r"<aside[\s\S]*?</aside>", "", body_before_notes)
     lines = [
         line.strip()
-        for line in body_before_notes.splitlines()
-        if line.strip() and not line.lstrip().startswith("#")
+        for line in body_no_aside.splitlines()
+        if line.strip() and not line.lstrip().startswith(("#", ">", "|", "```", "---", "- ", "* "))
     ]
     clean = " ".join(lines)
     clean = INLINE_FN_RE.sub("", clean)
     clean = re.sub(r"<[^>]+>", " ", clean)
     clean = re.sub(r"\$[^$]+\$", " formula ", clean)
-    clean = re.sub(r"[*_`~]", "", clean)
-    clean_no_abbrev = ABBREV_RE.sub(r"\1", clean)
+    clean_no_abbrev = ABBREV_RE.sub(lambda m: m.group(0).replace(".", ""), clean)
+    clean_no_abbrev = DECIMAL_RE.sub(lambda m: m.group(0).replace(".", "").replace(",", ""), clean_no_abbrev)
 
-    raw_sentences = [s.strip() for s in re.split(r"[.!?]+(?:\s+|$)", clean_no_abbrev) if s.strip()]
+    raw_sentences = [s.strip() for s in SENTENCE_TERMINAL_RE.split(clean_no_abbrev) if s.strip()]
     sentence_word_counts: list[int] = []
     all_words: list[str] = []
 
@@ -447,9 +448,9 @@ def audit_micro_qa(
                     hard_errors.append(
                         f"- `{chapter_slug}` [p.{p_global_idx} s.{s_idx+1}]: Sentence breath ceiling exceeded: {sw}w (target ≤ {max_sent_words}w): \"{s_info['text'][:80]}...\""
                     )
-                if s_info["semicolons"] > 2:
+                if s_info["semicolons"] > 2 or s_info["dashes"] > 4:
                     hard_errors.append(
-                        f"- `{chapter_slug}` [p.{p_global_idx} s.{s_idx+1}]: Clause bloat (>2 semicolons in single sentence): \"{s_info['text'][:80]}...\""
+                        f"- `{chapter_slug}` [p.{p_global_idx} s.{s_idx+1}]: Clause bloat (>2 semicolons or >2 em-dash parentheticals in single sentence): \"{s_info['text'][:80]}...\""
                     )
                 if sw > 30 and not s_info["has_internal_punct"]:
                     hard_errors.append(
@@ -515,6 +516,27 @@ def audit_micro_qa(
                     hard_errors.append(
                         f"- `{chapter_slug}` [p.{p_global_idx}]: Uncited empirical claim marker `{m_emp.group(0)}` in body paragraph without footnote citation: \"{p_text[:80]}...\""
                     )
+            if card_dict and para_fns:
+                stat_tokens = re.findall(r"\b(?:N|RR|OR|d|r)\s*=\s*([0-9][0-9.,]*)", p_text)
+                if stat_tokens:
+                    matched_anchors = []
+                    for fn_key in para_fns:
+                        c_meta = card_dict.get(fn_key) or card_dict.get(f"card:{fn_key}")
+                        if not c_meta:
+                            for cid, cm in card_dict.items():
+                                if cid.endswith(f":{fn_key}") or fn_key.endswith(cid.split(":")[-1]):
+                                    c_meta = cm
+                                    break
+                        if c_meta:
+                            matched_anchors.extend(str(a) for a in (c_meta.get("quantitative_anchors") or []))
+                    if matched_anchors:
+                        anchor_blob = " ".join(matched_anchors).replace(",", "")
+                        for st in stat_tokens:
+                            st_norm = st.replace(",", "")
+                            if st_norm not in anchor_blob and st not in " ".join(matched_anchors):
+                                warnings.append(
+                                    f"- `{chapter_slug}` [p.{p_global_idx}]: Quantitative anchor token `{st}` in prose not verbatim in linked card `quantitative_anchors`."
+                                )
 
             # Rule 8d: Paragraph Cadence & Movement Closing Check
             if total_para_sents >= 3:
