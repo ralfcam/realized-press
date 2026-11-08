@@ -294,7 +294,11 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
 
     # 5. Apparatus Hygiene & Same-Page Footnote Co-Location Gate (`ARC-100`)
     log.append("\n## 5. Apparatus Hygiene & Same-Page Footnote Co-Location Gate (`ARC-100`)")
-    leak_pat = re.compile(r"\b(?:Evidence Cards?|Fichas? de [Ee]videncia|Grade|Grado|Certainty|Certeza):", re.IGNORECASE)
+    leak_pat = re.compile(
+        r"\b(?:Evidence Cards?|Fichas? de [Ee]videncia|Tarjeta de evidencia):\s*|"
+        r"\b(?:Grade|Grado|Certainty|Certeza):\s*(?:Moderate-to-High|Low-to-Moderate|Moderada a alta|Baja a moderada|High|Moderate|Low|Very Low|Alta|Moderada|Baja|Muy [Bb]aja|Alto|Moderado|Bajo)\b",
+        re.IGNORECASE,
+    )
     standalone_notes_pat = re.compile(r"^\s*(?:Notes|Notas)\s*$", re.MULTILINE)
     sup_chars = "\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077\u2078\u2079"
     sup_to_ascii = str.maketrans(sup_chars, "0123456789")

@@ -40,3 +40,19 @@ In Realized Press, literary style elevation must **never** alter scientific cert
    python scripts/render_publishing_pdfs.py series/parenthood-atlas --format kdp-6x9 --epub
    python scripts/audit_pdf_layout.py series/parenthood-atlas
    ```
+
+## Two-Pass Localization & Posterior Native Phrasal-Sculpting (`ARC-105`)
+
+Every localized edition (`i18n/es`, and `i18n/fr` when unpaused) requires a mandatory **Pass 2 Posterior Phrasal-Sculpting Pass** after **Pass 1 Epistemic & Regional Transfer**:
+
+1. **Frozen Multilingual Skeleton:** Preserve 100% of canonical `[^chXX-...]` keys, target-market regional footnotes (`[^chXX-es-...]`), grade-calibrated bold claim verbs (`**muestra/demuestra**`, `**sugiere/indica**`, `**se asocia con**`), quantitative anchors, and `i18n/<lang>/style/lexicon.yaml` search-intent weaves.
+2. **Five Target-Language Sculpting Operations (`--lang es`):**
+   - Replace `ser/estar/haber/tener` copula inflation and passive calques with active pronominal/kinetic verbs from `i18n/es/style/phrasal-poetics.yml` (`intercepta`, `desactiva`, `blinda`, `sella`, `amortigua`, `encarrila`, `desborda`).
+   - Prune Romance `de + sustantivo` genitive chains and `-ción/-miento/-dad` nominalization clusters (`0` clusters).
+   - Purge trailing gerund tail-drags (`gerundio de posterioridad`: `, destacando...`, `, subrayando...`, `, facilitando...`) and cap `"no es X, sino Y"` pivots at $\le 3$ per chapter.
+   - Engineer native Castilian clausal counterpoint ($\sigma \ge 3.0\text{w}$, `0` cadence flags).
+   - De-wall all expanded translated paragraphs to $\le 135$ words, $\le 6$ sentences, and local Szigriszt $\ge 42.0$ (chapter Szigriszt $\ge 52.0$, avg sentence $\le 20.5\text{w}$, `0` sentences $>38\text{w}$, `Poetics Score >= 95.0`).
+3. **Localized Audit Command:**
+   ```powershell
+   python scripts/audit_manuscript.py series/parenthood-atlas/i18n/es --bestseller-strict --graph-strict --micro-strict --poetics --lang es
+   ```

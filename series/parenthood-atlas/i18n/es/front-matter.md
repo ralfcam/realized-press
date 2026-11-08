@@ -12,7 +12,7 @@ Si estás leyendo a las dos de la madrugada con tu bebé intranquilo en brazos, 
 ### Guía de consulta rápida (2:00 AM)
 
 **P: ¿Una semana de mucho estrés en el trabajo puede haber dañado a mi bebé?**  
-*Capítulo 1 (Movimiento IV)* — La evidencia de alta certeza demuestra que la placenta actúa como un escudo químico, neutralizando la mayor parte del cortisol activo antes de que alcance la sangre fetal. El estrés cotidiano no es un tóxico.
+*Capítulo 1 (Movimiento IV)* — La evidencia de alta certeza demuestra que la placenta actúa como un agente de aduanas molecular que intercepta y neutraliza la mayor parte del cortisol activo antes de que alcance la sangre fetal. El estrés cotidiano jamás intoxica al feto.
 
 **P: ¿Por qué necesito tomar ácido fólico antes de saber que estoy embarazada?**  
 *Capítulo 1 (Movimiento III)* — El tubo neural se cierra hacia el vigésimo octavo día tras la concepción, antes de que la mayoría de las mujeres noten una falta en el ciclo. Tomar 400 microgramos al día cubre una ventana biológica estrecha y previene aproximadamente el 70 por ciento de los defectos del tubo neural.

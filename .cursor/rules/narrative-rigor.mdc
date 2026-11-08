@@ -96,3 +96,16 @@ These guidelines codify the high-leverage narrative, structural, and epistemic p
 * **The Harness Rule:**
   1. Pair every literary chapter title with a scannable **high-intent search subtitle** (`ChapterSpec.subtitle` in `series.yaml` and chapter H1/H2 headers).
   2. Run `python scripts/marketing_intelligence.py --keywords <gkp_csv>` (`bwe intelligence --keywords`) to audit search volume and YoY trend velocity against the SQLite FTS5 index (`evidence_cards_fts`) and surface missing high-demand content gaps and "People Also Ask" question hooks.
+
+---
+
+## Directive IX: Two-Pass Translation & Mandatory Posterior Phrasal-Sculpting Standard (`ARC-105`)
+
+* **The Principle:** No book translation is complete after semantic and epistemic transfer alone. Even when a first-pass translation passes readability, jargon isolation, and citation parity gates, direct translation introduces structural "translationese"—syntactic calques, copula inflation (`ser / estar / haber / tener`), Romance `de + noun` nominalization chains, unidiomatic trailing gerunds (`gerundio de posterioridad`), and 15–20% paragraph expansion over the 135-word visual geometry ceiling.
+* **The Harness Rule:** Every localized edition (`i18n/es`, and `i18n/fr` when unpaused) MUST execute in two distinct passes:
+  1. **Pass 1 — Epistemic, Lexical & Regional Apparatus Transfer:**
+     * Lock 100% of canonical inline `[^chXX-...]` citation keys and inject target-market regional guideline footnotes (`[^chXX-es-...]`).
+     * Isolate all clinical/technical terms inside `## Notes` via `i18n/<lang>/style/jargon-to-notes.yml` and weave localized search-intent vocabulary via `i18n/<lang>/style/lexicon.yaml`.
+  2. **Pass 2 — Posterior Native Phrasal-Sculpting (`--micro-strict --poetics --lang <lang>`):**
+     * Run `bwe/style_sculptor.py` and `python scripts/audit_manuscript.py <i18n-dir> --bestseller-strict --graph-strict --micro-strict --poetics --lang <lang>` with the **Epistemic Skeleton frozen** (citation keys, grade-calibrated claim verbs, quantitative anchors, and regional footnotes untouched).
+     * Replace static copulas and passive calques with active pronominal/kinetic target-language verbs (`style/phrasal-poetics.yml`), prune nominalization clusters (`0`) and trailing gerunds (`0`), align physical metaphors with the sculpted source edition, and de-wall every paragraph to $\le 135$ words and $\le 6$ sentences with `0` cadence notices and `Poetics Score >= 95.0`.

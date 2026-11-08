@@ -12,10 +12,12 @@ from pathlib import Path
 INLINE_FOOTNOTE_RE = re.compile(r"\[\^[^^\]]+\]")
 NOTES_HEADING_RE = re.compile(r"^## (?:Notes|Sources|Further Reading|Linked evidence cards)\s*$", re.MULTILINE)
 EVIDENCE_CARD_RE = re.compile(
-    r"(?:\*\*)?\b(?:Evidence Cards?|Fichas? de [Ee]videncia):\s*(?:\*\*)?\s*`?[A-Za-z0-9_./-]+`?(?:\s*,\s*`?[A-Za-z0-9_./-]+`?)*\.?(?=\s|$|[);,])"
+    r"(?:\*\*)?\b(?:Evidence Cards?|Fichas? de [Ee]videncia|Tarjeta de evidencia):\s*(?:\*\*)?\s*`?[A-Za-z0-9_./-]+`?(?:\s*,\s*`?[A-Za-z0-9_./-]+`?)*\.?(?=\s|$|[);,])",
+    re.IGNORECASE,
 )
 GRADE_RE = re.compile(
-    r"(?:\*\*)?\b(?:Grade|Grado|Certainty|Certeza):\s*(?:Moderate-to-High|Low-to-Moderate|Moderada a alta|High|Moderate|Low|Very Low|Alta|Moderada|Baja|Muy [Bb]aja)\.?(?:\*\*)?\.?(?=\s|$|[;:,)])"
+    r"(?:\*\*)?\b(?:Grade|Grado|Certainty|Certeza):\s*(?:Moderate-to-High|Low-to-Moderate|Moderada a alta|Baja a moderada|High|Moderate|Low|Very Low|Alta|Moderada|Baja|Muy [Bb]aja|Alto|Moderado|Bajo|Muy [Bb]ajo)\.?(?:\*\*)?\.?(?=\s|$|[;:,)])",
+    re.IGNORECASE,
 )
 
 

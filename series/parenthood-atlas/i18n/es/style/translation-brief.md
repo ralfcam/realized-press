@@ -65,7 +65,12 @@ Body prose stays universal. For Chapters 1, 3 and 4 add the extra footnote(s) wh
 `[^key]` at the sentence indicated and put the definition in `## Notes` in order of first appearance. **Do not write any other
 regional or institutional claim; do not invent dates, quotes, guideline names, or numbers.**
 
-## 10. Finish
+## 10. Two-Pass Localization & Mandatory Posterior Phrasal-Sculpting (`ARC-105`)
+No book translation is complete after Pass-1 semantic and epistemic transfer alone. Every localized edition must complete two distinct passes:
+- **Pass 1 — Epistemic, Lexical & Regional Apparatus Transfer:** Locks canonical `[^chNN-...]` keys, injects target-market regional footnotes (`[^chNN-es-...]`), isolates clinical terms via `style/jargon-to-notes.yml`, and weaves localized search-intent terms via `style/lexicon.yaml`.
+- **Pass 2 — Posterior Native Phrasal-Sculpting (`--micro-strict --poetics --lang es`):** Runs Frozen-Skeleton sculpting (`style/phrasal-poetics.yml`) with the epistemic skeleton frozen to eliminate translationese (copula inflation `<= 38%`, `de + sustantivo` nominalization clusters `= 0`, trailing gerunds `= 0`, formulaic negation pivots `<= 3`), synchronize physical metaphors with the sculpted source edition, and de-wall every paragraph to `<= 135 words`, `<= 6 sentences`, and local Szigriszt `>= 42.0` (`Poetics Score >= 95.0`, `0` cadence notices).
+
+## 11. Finish
 Write only the target file(s). Do not edit English sources, scripts, or other languages' files. Do not run git. When finished, reply with:
 word counts (EN vs ES body above Notes), list of footnote keys in ES, any place where you deliberately deviated from the source and why,
 and any direct quotation you translated (so provenance can be checked).
