@@ -407,24 +407,47 @@ def resolve_series_and_book_slug(rel_parts: tuple[str, ...]) -> tuple[str, str]:
     return series_slug, book_slug
 
 
-def resolve_edition_dir(series_slug: str, lang: str = "en", repo_root: Path | None = None) -> Path:
+def normalize_series_and_lang(series_slug: str, lang: str | None = None) -> tuple[str, str]:
+    """Normalize series_slug (e.g. 'parenthood-atlas-es' or 'parenthood-atlas/i18n/es')
+    into (canonical_series_slug, effective_lang).
+    """
+    raw = series_slug.strip("/\\")
+    slug_lang = "en"
+    if "/i18n/" in raw:
+        parts = raw.split("/i18n/")
+        clean_series = parts[0].strip("/\\")
+        slug_lang = parts[1].split("/")[0].strip() or "en"
+    elif raw.endswith("-es"):
+        clean_series = raw[:-3]
+        slug_lang = "es"
+    elif raw.endswith("-fr"):
+        clean_series = raw[:-3]
+        slug_lang = "fr"
+    else:
+        clean_series = raw
+
+    effective_lang = lang if lang is not None else slug_lang
+    return clean_series, effective_lang
+
+
+def resolve_edition_dir(series_slug: str, lang: str | None = None, repo_root: Path | None = None) -> Path:
     """Resolve the filesystem directory for a series edition and language.
 
     - If lang == 'en' (or series_slug already ends with /i18n/{lang}):
-      resolve to series_dir / series_slug (stripping /i18n/* if lang == 'en').
-    - If lang in ('es', 'fr'):
+      resolve to series_dir / clean_slug (stripping /i18n/* and -es/-fr suffixes).
+    - If lang in ('es', 'fr') (or inferred from series_slug when lang is None):
       resolve to series_dir / clean_slug / 'i18n' / lang when it exists.
     """
     root = repo_root or Path(__file__).resolve().parent.parent
     series_dir = root / "series"
-    clean_series = series_slug.split("/i18n/")[0].strip("/\\")
+    clean_series, effective_lang = normalize_series_and_lang(series_slug, lang)
 
-    if lang in ("es", "fr"):
-        candidate = series_dir / clean_series / "i18n" / lang
+    if effective_lang in ("es", "fr"):
+        candidate = series_dir / clean_series / "i18n" / effective_lang
         if candidate.is_dir():
             return candidate
 
-    if "i18n" in series_slug and lang != "en":
+    if "i18n" in series_slug and effective_lang != "en":
         target = series_dir / series_slug.strip("/\\")
         if target.is_dir():
             return target

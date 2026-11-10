@@ -200,3 +200,15 @@ def test_standalone_players_compiled_artifacts() -> None:
     assert '<html lang="fr">' in fr_text
     assert 'class="lang-switcher"' in fr_text
     assert "L'Atlas de la parentalité" in fr_text
+
+
+def test_site_hub_localized_links_and_audio(client: TestClient) -> None:
+    '''Regression: /site/ must route ES/FR editions to localized reader and audio, never root English assets.'''
+    html = client.get('/site/').text
+    assert 'function readerHref' in html and '?lang=' in html
+    assert '/audio/' in html and 'bookSeriesSlug' in html
+    assert 'href="/read/${book.id}/${ch.stem}"' not in html
+    from bwe.db import normalize_series_and_lang
+    assert normalize_series_and_lang('parenthood-atlas-es') == ('parenthood-atlas', 'es')
+    assert normalize_series_and_lang('parenthood-atlas/i18n/fr') == ('parenthood-atlas', 'fr')
+    assert normalize_series_and_lang('parenthood-atlas', 'en') == ('parenthood-atlas', 'en')

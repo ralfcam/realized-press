@@ -15,7 +15,7 @@ from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, Redirect
 from fastapi.staticfiles import StaticFiles
 from jinja2_fragments.fastapi import Jinja2Blocks
 
-from bwe.db import get_db, init_db, resolve_edition_dir
+from bwe.db import get_db, init_db, normalize_series_and_lang, resolve_edition_dir
 from bwe.schema import validate_series_yaml
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -51,14 +51,14 @@ DIST_ANALYTICS_DIR = REPO_ROOT / "dist" / "analytics"
 DIST_ANALYTICS_DIR.mkdir(parents=True, exist_ok=True)
 app.mount("/dist/analytics", StaticFiles(directory=str(DIST_ANALYTICS_DIR)), name="analytics_dist")
 
-def resolve_series_edition_dir(series_slug: str, lang: str = "en") -> Path:
+def resolve_series_edition_dir(series_slug: str, lang: Optional[str] = None) -> Path:
     """Canonical path resolver delegating to bwe.db.resolve_edition_dir."""
     return resolve_edition_dir(series_slug, lang=lang, repo_root=REPO_ROOT)
 
 
 def get_available_languages(series_slug: str) -> list[str]:
     """Detect available languages for a series ('en', 'es', 'fr')."""
-    clean_slug = series_slug.split("/i18n/")[0]
+    clean_slug, _ = normalize_series_and_lang(series_slug, None)
     base_dir = SERIES_DIR / clean_slug
     langs = ["en"]
     i18n_dir = base_dir / "i18n"
@@ -411,13 +411,14 @@ async def imprint_site_redirect():
 
 
 @app.get("/site/", response_class=HTMLResponse)
-async def imprint_site_home(request: Request):
+async def imprint_site_home(request: Request, lang: str = "en"):
     """
     ARC-55: Serves the Imprint Audiobook Portal & Marketing Hub under the
     unified FastAPI + HTMX stack with aligned navigation and live catalog data.
     """
     catalog = scan_all_imprint_books(REPO_ROOT, DEFAULT_GITHUB_REPO)
-    catalog_json = json.dumps(catalog)
+    catalog_json = json.dumps(catalog, ensure_ascii=False)
+    ui_strings_json = json.dumps(UI_STRINGS, ensure_ascii=False)
 
     # Query stable OKF cards for public briefs showcase
     evidence_briefs = []
@@ -459,6 +460,8 @@ async def imprint_site_home(request: Request):
             "request": request,
             "catalog": catalog,
             "catalog_json": catalog_json,
+            "ui_strings_json": ui_strings_json,
+            "lang": lang,
             "evidence_briefs": evidence_briefs,
             "server_info": get_server_info(request),
             "active_tab": "site",

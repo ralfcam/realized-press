@@ -390,6 +390,21 @@
   const timeTotal = document.getElementById('time-total');
   const barFill = document.getElementById('bar-fill');
 
+  // Language-isolated helpers: never resolve ES/FR editions to root English assets.
+  function bookLang(book) {
+    return (book && book.lang) || 'en';
+  }
+  function bookSeriesSlug(book) {
+    return String((book && book.id) || '').replace(/-(es|fr)$/, '');
+  }
+  function readerHref(book, ch) {
+    return `/read/${bookSeriesSlug(book)}/${ch.stem}?lang=${bookLang(book)}`;
+  }
+  function localAudioUrl(book, ch) {
+    const ext = ch.hasLocalMp3 ? 'mp3' : (ch.hasLocalWav ? 'wav' : 'mp3');
+    return `/audio/${bookSeriesSlug(book)}/${bookLang(book)}/${ch.stem}.${ext}?v=${ch.mtime || ''}`;
+  }
+
   function init() {
     const isLocalHost = ['localhost', '127.0.0.1'].includes(window.location.hostname) ||
                         window.location.hostname.startsWith('192.168.') ||
@@ -532,7 +547,9 @@
     }
 
     book.chapters.forEach((ch, idx) => {
-      const isAvailable = streamMode === 'online' ? (ch.stem === '01-before-the-child-is-born' || ch.hasLocalMp3) : (ch.hasLocalMp3 || ch.hasLocalWav);
+      const isAvailable = bookLang(book) !== 'en'
+        ? (ch.hasLocalMp3 || ch.hasLocalWav)
+        : (streamMode === 'online' ? (ch.stem === '01-before-the-child-is-born' || ch.hasLocalMp3) : (ch.hasLocalMp3 || ch.hasLocalWav));
       const isPlaying = idx === currentChapterIdx && !audio.paused;
       const isSelected = idx === currentChapterIdx;
 
@@ -575,7 +592,7 @@
           </div>
         </div>
         <div class="flex items-center gap-2 shrink-0 self-end sm:self-center">
-          <a href="/read/${book.id}/${ch.stem}"
+          <a href="${readerHref(book, ch)}"
              onclick="event.stopPropagation();"
              title="Open in 2-Pane Epistemic Reader"
              aria-label="Open Chapter ${ch.num} in Reader"
@@ -613,13 +630,16 @@
     if (!ch) return;
 
     if (dockTitle) dockTitle.innerText = `${String(ch.num).padStart(2, '0')}. ${ch.title}`;
-    let url = streamMode === 'online' ? ch.onlineUrl : ch.localUrl;
-    if (streamMode === 'local' && url && !url.startsWith('/') && !url.startsWith('http')) {
-      if (window.location.pathname.startsWith('/site')) {
-        url = '/site/' + url;
-      }
+    let url;
+    if (bookLang(book) !== 'en') {
+      // ES/FR: only localized audio; never the English online release or root file.
+      url = (ch.hasLocalMp3 || ch.hasLocalWav) ? localAudioUrl(book, ch) : '';
+    } else if (streamMode === 'online') {
+      url = ch.onlineUrl;
+    } else {
+      url = (ch.hasLocalMp3 || ch.hasLocalWav) ? localAudioUrl(book, ch) : ch.localUrl;
     }
-    audio.src = url || '';
+    if (!url) audio.removeAttribute('src'); else audio.src = url;
     if (dockSub) {
       dockSub.innerText = streamMode === 'online'
         ? `${book.title} · Online Stream`
@@ -732,7 +752,7 @@
           <span>${ch.words ? ch.words.toLocaleString() : 0} words</span>
           <span>•</span>
           <span>~${ch.minutes || 0} min narration</span>
-          ${ch.hasLocalMp3 || ch.stem === '01-before-the-child-is-born' ? '<span>• 🎧 Narration Live (Tap text to jump audio)</span>' : ''}
+          ${ch.hasLocalMp3 || (bookLang(book) === 'en' && ch.stem === '01-before-the-child-is-born') ? '<span>• 🎧 Narration Live (Tap text to jump audio)</span>' : ''}
         </div>
       `;
     }
