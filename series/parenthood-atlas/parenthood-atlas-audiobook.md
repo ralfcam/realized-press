@@ -1,6 +1,6 @@
 # series/parenthood-atlas — Audiobook transcript
 
-Compiled from `series/parenthood-atlas/chapters/*.md` (2026-11-08). YAML frontmatter, *Sources* lines, `## Notes` / `## Sources` sections, and inline `[^footnote]` markers are omitted for text-to-speech.
+Compiled from `series/parenthood-atlas/chapters/*.md` (2026-11-10). YAML frontmatter, *Sources* lines, `## Notes` / `## Sources` sections, and inline `[^footnote]` markers are omitted for text-to-speech.
 
 ---
 
@@ -1221,9 +1221,9 @@ Hot games ask a child to stop her hand when facing an exciting reward she badly 
 
 Even more fascinating is how changing **how a treat looks** changes what a young child's brain can handle. In a brilliant 2005 study called **Less Is More**, Stephanie Carlson, Angela Davis, and Jamie Leach played a reverse-reward game with three-year-olds. They set two trays of treats on a table: one tray held five candies, and the other held two candies. The child was told that whichever tray she pointed to would go to a hungry stuffed monkey. Meanwhile, she would get to keep the *other* tray, so winning five candies meant pointing to the small pile instead.
 
-When real, shiny candies sat open on the trays, three-year-olds failed over and over. The pull of the five real candies hijacked their pointing finger every time. Next, the researchers swapped the real candies on the trays for **stand-in symbols**. First they used piles of stones, and then picture cards of a mouse versus an elephant. Right away, three-year-olds' scores jumped up! Putting a layer of **symbolic distance** between the child's eyes and the real candy cooled down the hot urge, giving the young brain just enough breathing room to follow the rule.
+When real, shiny candies sat open on the trays, three-year-olds failed over and over. The pull of the five real candies hijacked their pointing finger every time. Next, the researchers swapped the real candies on the trays for **stand-in symbols**. First they used piles of stones, and then picture cards of a mouse versus an elephant. Right away, three-year-olds' scores jumped up! Putting a layer of **symbolic distance** between the child's eyes and the real candy dampened the immediate urge, giving the young brain just enough breathing room to follow the rule.
 
-That simple lab trick changes how we see the red crayon at the start of this chapter. When a thirty-month-old fails to wait in front of a bright, open temptation six inches from her fingers, she is not showing a character flaw. She is facing a hot visual pull that is stronger than her current brakes.
+That simple lab experiment changes how we understand the red crayon at the start of this chapter. When a two-year-old struggles to wait in front of a bright, attractive object right next to her hand, she is not showing a character flaw. She is facing an immediate sensory signal that easily overpowers her early neural brakes.
 
 ## III. The Marshmallow Reconsidered: Confounding, Trust, and Replication
 

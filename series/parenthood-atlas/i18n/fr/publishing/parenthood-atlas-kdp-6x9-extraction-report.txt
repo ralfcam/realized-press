@@ -1,0 +1,26 @@
+Publishing Extraction Verification — L'Atlas de la parentalité
+Status: PASS
+Edition: Reader Edition — Working Slice
+Renderer: fpdf2 2.8.9 / pypdf 6.0.0
+PDF: parenthood-atlas-kdp-6x9.pdf
+SHA-256: c71ddd2c978d9889cf0c3184be7d3eff34a8e9ea0f1edf7d9066e7c471ae8edf
+Bytes: 511,611
+Pages: 166 (166/166 nonblank)
+
+Chapters:
+- PASS · PDF page 2 · How to Use This Atlas: 2:00 AM Quick-Finder
+- PASS · PDF page 8 · Chapitre 1 — Avant que l'enfant ne vienne au monde
+- PASS · PDF page 19 · Chapitre 2 — Le premier environnement
+- PASS · PDF page 30 · Chapitre 3 — La grande transition
+- PASS · PDF page 42 · Chapitre 4 — La relation régulatrice
+- PASS · PDF page 54 · Chapitre 5 — L'éveil de l'esprit
+- PASS · PDF page 64 · Chapitre 6 — L'esprit en mouvement
+- PASS · PDF page 74 · Chapitre 7 — La naissance du langage
+- PASS · PDF page 86 · Chapitre 8 — L'élargissement du monde
+- PASS · PDF page 96 · Chapitre 9 — La révolution émotionnelle
+- PASS · PDF page 106 · Chapitre 10 — Limites, comportements et premières règles
+- PASS · PDF page 116 · Chapitre 11 — Les fonctions exécutives en construction
+- PASS · PDF page 126 · Chapitre 12 — Jeu, imagination et sens
+- PASS · PDF page 136 · Chapitre 13 — L'écologie du développement
+- PASS · PDF page 146 · Chapitre 14 — Qu'est-ce qui fonctionne vraiment ?
+- PASS · PDF page 157 · Chapitre 15 — Trois ans : qu'avons-nous construit ?

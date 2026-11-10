@@ -32,7 +32,7 @@ HEADING_PAUSE_WORDS = {
 }
 
 
-def clean_spoken_text(text: str) -> str:
+def clean_spoken_text(text: str, lang: str = "en") -> str:
     """Clean markdown formatting remnants, HTML tags, and mathematical symbols for natural vocal cadence."""
     # Strip HTML tags (e.g. <aside>, </aside>, <div>) so raw tags are never vocalized
     t = re.sub(r"</?[a-zA-Z][^>]*>", " ", text)
@@ -42,23 +42,49 @@ def clean_spoken_text(text: str) -> str:
     t = re.sub(r"`([^`]+)`", r"\1", t)
     t = re.sub(r"\[\^[^^\]]+\]", "", t)
 
-    # Normalize mathematical symbols and causal arrows for natural spoken narration
-    t = t.replace("→", " leads to ").replace("->", " leads to ")
-    t = t.replace("←", " from ").replace("<-", " from ")
-    t = t.replace("≈", " approximately ")
-    t = t.replace("≤", " less than or equal to ")
-    t = t.replace("≥", " greater than or equal to ")
-    t = t.replace("≠", " not equal to ")
-    t = t.replace("×", " times ")
-    t = t.replace(r"\approx", " approximately ")
-    t = t.replace(r"\to", " leads to ")
-    t = t.replace(r"\rightarrow", " leads to ")
+    lang_lower = (lang or "en").lower()
+    if lang_lower.startswith("es"):
+        t = t.replace("11β-HSD2", " once beta H S D dos ").replace("11b-HSD2", " once beta H S D dos ")
+        t = t.replace("→", " conduce a ").replace("->", " conduce a ")
+        t = t.replace("←", " a partir de ").replace("<-", " a partir de ")
+        t = t.replace("≈", " aproximadamente ").replace(r"\approx", " aproximadamente ")
+        t = t.replace("≤", " menor o igual que ")
+        t = t.replace("≥", " mayor o igual que ")
+        t = t.replace("≠", " no es igual a ")
+        t = t.replace("×", " por ")
+        t = re.sub(r"(?<=\d)%(?=\s|$|[.,;])", " por ciento", t)
+        t = t.replace("%", " por ciento ")
+        t = t.replace(r"\to", " conduce a ").replace(r"\rightarrow", " conduce a ")
+    elif lang_lower.startswith("fr"):
+        t = t.replace("11β-HSD2", " onze bêta H S D deux ").replace("11b-HSD2", " onze bêta H S D deux ")
+        t = t.replace("→", " mène à ").replace("->", " mène à ")
+        t = t.replace("←", " issu de ").replace("<-", " issu de ")
+        t = t.replace("≈", " environ ").replace(r"\approx", " environ ")
+        t = t.replace("≤", " inférieur ou égal à ")
+        t = t.replace("≥", " supérieur ou égal à ")
+        t = t.replace("≠", " différent de ")
+        t = t.replace("×", " fois ")
+        t = re.sub(r"(?<=\d)%(?=\s|$|[.,;])", " pour cent", t)
+        t = t.replace("%", " pour cent ")
+        t = t.replace(r"\to", " mène à ").replace(r"\rightarrow", " mène à ")
+    else:
+        t = t.replace("11β-HSD2", " eleven beta H S D two ").replace("11b-HSD2", " eleven beta H S D two ")
+        t = t.replace("→", " leads to ").replace("->", " leads to ")
+        t = t.replace("←", " from ").replace("<-", " from ")
+        t = t.replace("≈", " approximately ").replace(r"\approx", " approximately ")
+        t = t.replace("≤", " less than or equal to ")
+        t = t.replace("≥", " greater than or equal to ")
+        t = t.replace("≠", " not equal to ")
+        t = t.replace("×", " times ")
+        t = re.sub(r"(?<=\d)%(?=\s|$|[.,;])", " percent", t)
+        t = t.replace("%", " percent ")
+        t = t.replace(r"\to", " leads to ").replace(r"\rightarrow", " leads to ")
 
     t = re.sub(r"\s+", " ", t).strip()
     return t
 
 
-def extract_semantic_blocks(md_content: str) -> list[dict[str, Any]]:
+def extract_semantic_blocks(md_content: str, lang: str = "en") -> list[dict[str, Any]]:
     """Extract ordered sequence of discrete semantic blocks from chapter markdown."""
     spoken_body = transform_audiobook(md_content)
     html_raw = markdown.markdown(spoken_body, extensions=["extra", "smarty", "sane_lists"])
@@ -78,7 +104,7 @@ def extract_semantic_blocks(md_content: str) -> list[dict[str, Any]]:
             continue
 
         if el.name in ["h1", "h2", "h3", "p"]:
-            txt = clean_spoken_text(el.get_text())
+            txt = clean_spoken_text(el.get_text(), lang=lang)
             if not txt:
                 continue
             # Ensure title and headings have a closing period for vocal cadence
@@ -97,7 +123,7 @@ def extract_semantic_blocks(md_content: str) -> list[dict[str, Any]]:
 
         elif el.name in ["ul", "ol"]:
             for li in el.find_all("li", recursive=False):
-                txt = clean_spoken_text(li.get_text())
+                txt = clean_spoken_text(li.get_text(), lang=lang)
                 if not txt:
                     continue
                 spoken = txt if txt.endswith((".", "!", "?", ":", ";", "—")) else f"{txt}."
@@ -114,10 +140,10 @@ def extract_semantic_blocks(md_content: str) -> list[dict[str, Any]]:
                 idx += 1
 
         elif el.name == "table":
-            headers = [clean_spoken_text(th.get_text()) for th in el.find_all("th")]
+            headers = [clean_spoken_text(th.get_text(), lang=lang) for th in el.find_all("th")]
             row_sentences = []
             for tr in el.find_all("tr"):
-                cells = [clean_spoken_text(td.get_text()) for td in tr.find_all("td")]
+                cells = [clean_spoken_text(td.get_text(), lang=lang) for td in tr.find_all("td")]
                 if cells:
                     row_parts = []
                     for h, c in zip(headers, cells):
@@ -142,7 +168,7 @@ def extract_semantic_blocks(md_content: str) -> list[dict[str, Any]]:
 
         elif el.name == "blockquote":
             for p_tag in el.find_all("p"):
-                txt = clean_spoken_text(p_tag.get_text())
+                txt = clean_spoken_text(p_tag.get_text(), lang=lang)
                 if not txt:
                     continue
                 spoken = txt if txt.endswith((".", "!", "?", ":", ";", "—")) else f"{txt}."

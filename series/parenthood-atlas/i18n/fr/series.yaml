@@ -1,0 +1,213 @@
+# series/parenthood-atlas/i18n/fr/series.yaml
+# French (neutral international French, vouvoiement) localization of Parenthood: The Atlas.
+# Canonical evidence layer (evidence-cards/, sources.bib, SOURCES.md) is SHARED with ../../ (parent series).
+# Conforms to ARC-57 / ARC-98 (series.schema.json). Linear: ARC-108 / ARC-109.
+
+slug: parenthood-atlas-fr
+translation_of: parenthood-atlas
+locale: fr
+title: "L'Atlas de la parentalité"
+subtitle: "Ce que démontre la science, ce qu'elle ignore encore et où commence l'art, de la conception à trois ans"
+linear_project_id: P-ARC-17
+version: v1.0.0
+
+epistemic_contract: "Science -> Interpretation -> Art"
+governing_principle: "Continuité sans détermination : rejeter à la fois la Genèse au moment où quelque chose devient visible et le Destin déjà scellé."
+
+lenses:
+  - biological
+  - ecological
+  - philosophical
+
+readability_targets:
+  language: fr
+  max_avg_sentence_words: 20.5
+  max_single_sentence_words: 38
+  max_jargon_density_pct: 1.5
+  kandel_min: 50.0
+  kandel_moles_min: 50.0
+
+okf_spec:
+  version: "0.3"
+  total_cards: 78
+  stable_cards: 12
+  locked_dois: 132
+  retractions: 0
+  genetically_informed_triangulation: true
+  scaffolding_policy: "Prose épurée de tout échafaudage ; verbes calibrés au degré de certitude ; métadonnées OKF et jargon clinique isolés dans les ## Notes de chaque chapitre (clés structurelles Grade: et Evidence Card: conservées en anglais)."
+
+audio_spec:
+  sample_rate_bytes_per_sec: 48000
+  pcm_cache_dir: ".cache/tts_pcm"
+  auto_scroll_grace_timer_ms: 5000
+  tts_model_chain:
+    - gemini-2.5-pro-preview-tts
+    - gemini-3.8-flash-tts
+    - gemini-3.1-flash-tts-preview
+    - gemini-2.5-flash-preview-tts
+
+kdp_print_spec:
+  trim_size: "6x9"
+  wrap_cover_dimensions_in: "12.6216x9.2500"
+  spine_width_in: 0.3716
+  spine_width_mm: 9.44
+  interior_pdf: "publishing/parenthood-atlas-kdp-6x9.pdf"
+  cover_pdf: "publishing/parenthood-atlas-kdp-cover.pdf"
+
+cover_art:
+  layout_mode: front_hero_vignette
+  style_preset: editorial-atlas-engraving
+  aspect_ratio: "1:1"
+  image_size: "2K"
+  asset_path: "publishing/assets/cover-art.png"
+  palette_bg_hex: "#111827"
+  palette_accent_hex: "#D97706"
+  palette_text_hex: "#F9FAFB"
+  prompt: >-
+    Fine-line celestial and botanical natural-history atlas engraving in burnished gold (#D97706),
+    warm terracotta, and antique ivory on a deep midnight-slate background (#111827), depicting
+    three concentric developmental rings: intricate cellular and placental roots at the inner core,
+    a luminous relational caregiver-and-infant silhouette in gentle co-regulating motion at the center,
+    and a branching neural and ecological canopy radiating outward like a precision star chart.
+
+publishing_copy:
+  series_header: "REALIZED PRESS  |  VOLUME I"
+  badge: "15 chapitres  |  78 fiches de preuves\nScience du développement rigoureusement calibrée"
+  category_line: "NON-FICTION  /  SCIENCE DU DÉVELOPPEMENT  /  PARENTALITÉ"
+  back_title: "Un atlas d'histoire naturelle des 1 000 premiers jours"
+  features_header: "ATTRIBUTS ÉPISTÉMIQUES CLÉS :"
+  features:
+    - "- 15 chapitres de développement, de la préconception à trois ans."
+    - "- Verbes d'affirmation calibrés selon le degré de certitude des preuves."
+    - "- Audits de confusion génétique (GI) sur les 78 fiches de preuves."
+    - "- Régulé par l'Open Knowledge Format (OKF v0.3) et DOIs verrouillés."
+  colophon: "Édition française (Gold-Master)"
+  blurb:
+    - "L'Atlas de la parentalité est une cartographie longitudinale des preuves scientifiques sur le développement de l'enfant, depuis environ un an avant la conception jusqu'à l'âge de trois ans. Il distingue trois registres qu'il ne faut jamais confondre : ce que la science peut observer, ce que l'interprétation suggère et ce que l'art relationnel du soin exige."
+    - "Loin des manuels prescriptifs ou des alertes sensationnalistes fondées sur une seule étude, cet ouvrage dresse une carte d'histoire naturelle à travers quinze jalons développementaux. Chaque affirmation est calibrée selon le degré de certitude empirique vérifié sous l'Open Knowledge Format."
+    - "Du filtre placentaire du cortisol maternel à l'émergence des tours de parole, de la physiologie de la transition néonatale à la mécanique fragile de l'autorégulation du jeune enfant, L'Atlas offre aux mères, pères et professionnels un socle rigoureux, ancré dans les données probantes."
+
+marketing_intelligence:
+  target_personas:
+    - "Futurs et jeunes parents (0–36 mois) lassés des dogmes contradictoires et des affirmations non calibrées"
+    - "Pédiatres, psychologues du développement, professionnels de la petite enfance et éducateurs en quête de repères causaux vérifiés"
+    - "Lecteurs d'Alison Gopnik et d'Emily Oster recherchant des audits méthodologiques explicites de confusion génétique et de réplication"
+  high_intent_topic_clusters:
+    - "Sommeil du nourrisson, méthode 5-10-15, cortisol et attachement"
+    - "Diversification alimentaire menée par l'enfant (DME), allergènes et arachide"
+    - "Écrans avant 3 ans, tours de parole et développement du langage"
+    - "Modes d'accueil, crèche collective ou assistante maternelle, colères et corégulation"
+  comp_title_gaps:
+    - "Les manuels de parentalité idéologiques présentent des corrélations observationnelles comme des vérités déterministes culpabilisantes."
+    - "Les guides pragmatiques omettent d'auditer la confusion génétique (conceptions avec frères et sœurs, jumeaux, adoption)."
+    - "Les traités universitaires manquent d'une synthèse vivante distinguant Science, Interprétation et Art clinique parental."
+  telemetry_signals:
+    - "Demande de recherche en français (France, Belgique, Suisse, Québec) validée sur Google Keyword Planner"
+    - "Retours des lecteurs de l'Édition de lecture pour les chapitres 01–15"
+
+monetization:
+  kdp:
+    role: "regional-edition-fr"
+    marketplaces: ["amazon.fr", "amazon.ca", "amazon.com"]
+    trim_size: "6x9"
+    inside_gutter_mm: 20.0
+    outside_margin_mm: 15.0
+    top_bottom_margin_mm: 18.0
+    formats: ["paperback-pdf", "kindle-epub", "audiobook-wav"]
+    bisac_categories:
+      - "FAM034000"
+      - "PSY004000"
+      - "SCI049000"
+    backend_keywords:
+      - "sommeil bebe rgo dme diversification autonome"
+      - "crise de colere 2 ans caprice morsure regles"
+      - "creche assistante maternelle attachement pmi"
+      - "langage retard parole ecrans tours de parole"
+      - "montessori motricite libre jeux d imitation"
+      - "conge paternite maternite reprise travail cafe"
+      - "folates acide folique alcool grossesse stress"
+
+books:
+  - id: book-01-parenthood-atlas
+    path: "."
+    title: "L'Atlas de la parentalité (de la conception à trois ans)"
+    status: rc
+    target_words: 61500
+    min_okf_cards: 78
+    total_footnotes: 160
+    cover_art:
+      layout_mode: front_hero_vignette
+      style_preset: editorial-atlas-engraving
+      aspect_ratio: "1:1"
+      image_size: "2K"
+      asset_path: "publishing/assets/cover-art.png"
+      palette_bg_hex: "#111827"
+      palette_accent_hex: "#D97706"
+      palette_text_hex: "#F9FAFB"
+      prompt: >-
+        Fine-line celestial and botanical natural-history atlas engraving in burnished gold (#D97706),
+        warm terracotta, and antique ivory on a deep midnight-slate background (#111827), depicting
+        three concentric developmental rings: intricate cellular and placental roots at the inner core,
+        a luminous relational caregiver-and-infant silhouette in gentle co-regulating motion at the center,
+        and a branching neural and ecological canopy radiating outward like a precision star chart.
+    chapters:
+      - slug: 01-before-the-child-is-born
+        title: "Avant la naissance de l'enfant"
+        subtitle: "Fertilité, âge parental, folates et ce que fait réellement le stress gestationnel"
+        footnotes_migrated: true
+      - slug: 02-first-environment
+        title: "Le premier environnement"
+        subtitle: "Dans l'utérus : croissance cérébrale fœtale, nutrition, alcool et expositions quotidiennes"
+        footnotes_migrated: true
+      - slug: 03-the-great-transition
+        title: "La grande transition"
+        subtitle: "Accouchement, césariennes, peau à peau, pleurs et première alimentation"
+        footnotes_migrated: true
+      - slug: 04-regulatory-relationship
+        title: "La relation qui régule"
+        subtitle: "Sommeil du nourrisson, endormissement autonome, réveils nocturnes, alimentation réactive et attachement"
+        footnotes_migrated: true
+      - slug: 05-becoming-a-mind
+        title: "Devenir un esprit"
+        subtitle: "Comment les bébés voient, se souviennent, focalisent leur attention et apprennent avant de parler"
+        footnotes_migrated: true
+      - slug: 06-the-mind-in-motion
+        title: "L'esprit en mouvement"
+        subtitle: "Se retourner, ramper, marcher et pourquoi les bébés jettent les objets au sol"
+        footnotes_migrated: true
+      - slug: 07-the-birth-of-language
+        title: "La naissance du langage"
+        subtitle: "Premiers mots, parleurs tardifs, langue des signes bébé, écrans et bilinguisme précoce"
+        footnotes_migrated: true
+      - slug: 08-the-world-expands
+        title: "Le monde s'élargit"
+        subtitle: "Crèche collective ou assistante maternelle, pères, grands-parents et socialisation précoce"
+        footnotes_migrated: true
+      - slug: 09-the-emotional-revolution
+        title: "La révolution émotionnelle"
+        subtitle: "Colères, timidité, tempêtes affectives et pourquoi dire « calme-toi » ne fonctionne pas"
+        footnotes_migrated: true
+      - slug: 10-boundaries-behavior
+        title: "Limites, comportements et premières règles"
+        subtitle: "Taper, mordre, dire « non », temps calme et pourquoi les fessées aggravent tout"
+        footnotes_migrated: true
+      - slug: 11-the-developing-executive
+        title: "L'exécutif en développement"
+        subtitle: "Contrôle des impulsions, attente, test du marshmallow et mythe des jouets stimulants"
+        footnotes_migrated: true
+      - slug: 12-play-imagination
+        title: "Jeu, imagination et sens"
+        subtitle: "Jeu libre, jeu symbolique, Montessori, jeu guidé et choix des jouets"
+        footnotes_migrated: true
+      - slug: 13-the-ecology-of-development
+        title: "L'écologie du développement"
+        subtitle: "Congés parentaux, rythmes de travail, coût de la garde et influence du quartier"
+        footnotes_migrated: true
+      - slug: 14-what-actually-works
+        title: "Ce qui fonctionne vraiment"
+        subtitle: "Quelles interventions précoces durent, lesquelles s'estompent et où investir son énergie"
+        footnotes_migrated: true
+      - slug: 15-three-years
+        title: "Trois ans : qu'avons-nous bâti ?"
+        subtitle: "Pourquoi l'âge de trois ans est une étape charnière et non un verdict définitif"
+        footnotes_migrated: true

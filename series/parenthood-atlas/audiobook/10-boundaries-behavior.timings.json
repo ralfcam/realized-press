@@ -1,0 +1,1091 @@
+{
+  "chapter": "10-boundaries-behavior",
+  "total_duration_sec": 1197.555,
+  "sample_rate": 24000,
+  "bytes_per_second": 48000,
+  "chunks": [
+    {
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 5.341,
+      "duration_sec": 5.341,
+      "pcm_bytes": 256366,
+      "block_range": [
+        "b-000",
+        "b-000"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "start_sec": 5.341,
+      "end_sec": 12.412,
+      "duration_sec": 7.071,
+      "pcm_bytes": 339406,
+      "block_range": [
+        "b-001",
+        "b-001"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "start_sec": 12.412,
+      "end_sec": 37.043,
+      "duration_sec": 24.631,
+      "pcm_bytes": 1182286,
+      "block_range": [
+        "b-002",
+        "b-002"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "start_sec": 37.043,
+      "end_sec": 51.754,
+      "duration_sec": 14.711,
+      "pcm_bytes": 706126,
+      "block_range": [
+        "b-003",
+        "b-003"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "start_sec": 51.754,
+      "end_sec": 80.745,
+      "duration_sec": 28.991,
+      "pcm_bytes": 1391566,
+      "block_range": [
+        "b-004",
+        "b-004"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "start_sec": 80.745,
+      "end_sec": 122.696,
+      "duration_sec": 41.951,
+      "pcm_bytes": 2013646,
+      "block_range": [
+        "b-005",
+        "b-005"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "start_sec": 122.696,
+      "end_sec": 129.317,
+      "duration_sec": 6.621,
+      "pcm_bytes": 317806,
+      "block_range": [
+        "b-006",
+        "b-006"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "start_sec": 129.317,
+      "end_sec": 155.548,
+      "duration_sec": 26.231,
+      "pcm_bytes": 1259086,
+      "block_range": [
+        "b-007",
+        "b-007"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "start_sec": 155.548,
+      "end_sec": 192.219,
+      "duration_sec": 36.671,
+      "pcm_bytes": 1760206,
+      "block_range": [
+        "b-008",
+        "b-008"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "start_sec": 192.219,
+      "end_sec": 212.77,
+      "duration_sec": 20.551,
+      "pcm_bytes": 986446,
+      "block_range": [
+        "b-009",
+        "b-009"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "start_sec": 212.77,
+      "end_sec": 238.041,
+      "duration_sec": 25.271,
+      "pcm_bytes": 1213006,
+      "block_range": [
+        "b-010",
+        "b-010"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "start_sec": 238.041,
+      "end_sec": 243.181,
+      "duration_sec": 5.141,
+      "pcm_bytes": 246766,
+      "block_range": [
+        "b-011",
+        "b-011"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "start_sec": 243.181,
+      "end_sec": 255.332,
+      "duration_sec": 12.151,
+      "pcm_bytes": 583246,
+      "block_range": [
+        "b-012",
+        "b-012"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "start_sec": 255.332,
+      "end_sec": 297.563,
+      "duration_sec": 42.231,
+      "pcm_bytes": 2027086,
+      "block_range": [
+        "b-013",
+        "b-013"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "start_sec": 297.563,
+      "end_sec": 337.154,
+      "duration_sec": 39.591,
+      "pcm_bytes": 1900366,
+      "block_range": [
+        "b-014",
+        "b-014"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "start_sec": 337.154,
+      "end_sec": 374.385,
+      "duration_sec": 37.231,
+      "pcm_bytes": 1787086,
+      "block_range": [
+        "b-015",
+        "b-015"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "start_sec": 374.385,
+      "end_sec": 394.096,
+      "duration_sec": 19.711,
+      "pcm_bytes": 946126,
+      "block_range": [
+        "b-016",
+        "b-016"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "start_sec": 394.096,
+      "end_sec": 420.167,
+      "duration_sec": 26.071,
+      "pcm_bytes": 1251406,
+      "block_range": [
+        "b-017",
+        "b-017"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "start_sec": 420.167,
+      "end_sec": 457.718,
+      "duration_sec": 37.551,
+      "pcm_bytes": 1802446,
+      "block_range": [
+        "b-018",
+        "b-018"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "start_sec": 457.718,
+      "end_sec": 463.539,
+      "duration_sec": 5.821,
+      "pcm_bytes": 279406,
+      "block_range": [
+        "b-019",
+        "b-019"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "start_sec": 463.539,
+      "end_sec": 480.13,
+      "duration_sec": 16.591,
+      "pcm_bytes": 796366,
+      "block_range": [
+        "b-020",
+        "b-020"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "start_sec": 480.13,
+      "end_sec": 520.721,
+      "duration_sec": 40.591,
+      "pcm_bytes": 1948366,
+      "block_range": [
+        "b-021",
+        "b-021"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "start_sec": 520.721,
+      "end_sec": 548.632,
+      "duration_sec": 27.911,
+      "pcm_bytes": 1339726,
+      "block_range": [
+        "b-022",
+        "b-022"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "start_sec": 548.632,
+      "end_sec": 590.223,
+      "duration_sec": 41.591,
+      "pcm_bytes": 1996366,
+      "block_range": [
+        "b-023",
+        "b-023"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "start_sec": 590.223,
+      "end_sec": 619.494,
+      "duration_sec": 29.271,
+      "pcm_bytes": 1405006,
+      "block_range": [
+        "b-024",
+        "b-024"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "start_sec": 619.494,
+      "end_sec": 652.485,
+      "duration_sec": 32.991,
+      "pcm_bytes": 1583566,
+      "block_range": [
+        "b-025",
+        "b-025"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "start_sec": 652.485,
+      "end_sec": 657.746,
+      "duration_sec": 5.261,
+      "pcm_bytes": 252526,
+      "block_range": [
+        "b-026",
+        "b-026"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "start_sec": 657.746,
+      "end_sec": 678.137,
+      "duration_sec": 20.391,
+      "pcm_bytes": 978766,
+      "block_range": [
+        "b-027",
+        "b-027"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "start_sec": 678.137,
+      "end_sec": 714.448,
+      "duration_sec": 36.311,
+      "pcm_bytes": 1742926,
+      "block_range": [
+        "b-028",
+        "b-028"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "start_sec": 714.448,
+      "end_sec": 740.519,
+      "duration_sec": 26.071,
+      "pcm_bytes": 1251406,
+      "block_range": [
+        "b-029",
+        "b-029"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "start_sec": 740.519,
+      "end_sec": 766.03,
+      "duration_sec": 25.511,
+      "pcm_bytes": 1224526,
+      "block_range": [
+        "b-030",
+        "b-030"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "start_sec": 766.03,
+      "end_sec": 807.621,
+      "duration_sec": 41.591,
+      "pcm_bytes": 1996366,
+      "block_range": [
+        "b-031",
+        "b-031"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "start_sec": 807.621,
+      "end_sec": 813.362,
+      "duration_sec": 5.741,
+      "pcm_bytes": 275566,
+      "block_range": [
+        "b-032",
+        "b-032"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "start_sec": 813.362,
+      "end_sec": 827.953,
+      "duration_sec": 14.591,
+      "pcm_bytes": 700366,
+      "block_range": [
+        "b-033",
+        "b-033"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "start_sec": 827.953,
+      "end_sec": 858.744,
+      "duration_sec": 30.791,
+      "pcm_bytes": 1477966,
+      "block_range": [
+        "b-034",
+        "b-034"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "start_sec": 858.744,
+      "end_sec": 889.054,
+      "duration_sec": 30.311,
+      "pcm_bytes": 1454926,
+      "block_range": [
+        "b-035",
+        "b-035"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "start_sec": 889.054,
+      "end_sec": 922.285,
+      "duration_sec": 33.231,
+      "pcm_bytes": 1595086,
+      "block_range": [
+        "b-036",
+        "b-036"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "start_sec": 922.285,
+      "end_sec": 943.036,
+      "duration_sec": 20.751,
+      "pcm_bytes": 996046,
+      "block_range": [
+        "b-037",
+        "b-037"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "start_sec": 943.036,
+      "end_sec": 970.387,
+      "duration_sec": 27.351,
+      "pcm_bytes": 1312846,
+      "block_range": [
+        "b-038",
+        "b-038"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "start_sec": 970.387,
+      "end_sec": 1000.058,
+      "duration_sec": 29.671,
+      "pcm_bytes": 1424206,
+      "block_range": [
+        "b-039",
+        "b-039"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "start_sec": 1000.058,
+      "end_sec": 1026.769,
+      "duration_sec": 26.711,
+      "pcm_bytes": 1282126,
+      "block_range": [
+        "b-040",
+        "b-040"
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "start_sec": 1026.769,
+      "end_sec": 1067.6,
+      "duration_sec": 40.831,
+      "pcm_bytes": 1959886,
+      "block_range": [
+        "b-041",
+        "b-041"
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "start_sec": 1067.6,
+      "end_sec": 1107.831,
+      "duration_sec": 40.231,
+      "pcm_bytes": 1931086,
+      "block_range": [
+        "b-042",
+        "b-042"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "start_sec": 1107.831,
+      "end_sec": 1146.342,
+      "duration_sec": 38.511,
+      "pcm_bytes": 1848526,
+      "block_range": [
+        "b-043",
+        "b-043"
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "start_sec": 1146.342,
+      "end_sec": 1166.413,
+      "duration_sec": 20.071,
+      "pcm_bytes": 963406,
+      "block_range": [
+        "b-044",
+        "b-044"
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "start_sec": 1166.413,
+      "end_sec": 1174.364,
+      "duration_sec": 7.951,
+      "pcm_bytes": 381646,
+      "block_range": [
+        "b-045",
+        "b-045"
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "start_sec": 1174.364,
+      "end_sec": 1197.555,
+      "duration_sec": 23.191,
+      "pcm_bytes": 1113166,
+      "block_range": [
+        "b-046",
+        "b-046"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "b-000",
+      "tag": "h1",
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 5.341,
+      "words": 9,
+      "weight": 12,
+      "text": "Chapter 10 — Boundaries, Behavior, and the First Rules",
+      "start_ratio": 0.0,
+      "end_ratio": 0.0045
+    },
+    {
+      "id": "b-001",
+      "tag": "p",
+      "chunk_id": 2,
+      "start_sec": 5.341,
+      "end_sec": 12.412,
+      "words": 9,
+      "weight": 9,
+      "text": "Hitting, Biting, Saying ‘No,’ Time-Outs, and Why Spanking Backfires",
+      "start_ratio": 0.0045,
+      "end_ratio": 0.0104
+    },
+    {
+      "id": "b-002",
+      "tag": "p",
+      "chunk_id": 3,
+      "start_sec": 12.412,
+      "end_sec": 37.043,
+      "words": 67,
+      "weight": 67,
+      "text": "A twenty-month-old crawls across the living room rug toward an uncovered wall outlet. Her parent says firmly, “No, don’t touch.” The toddler stops and looks back at her parent. Then she stretches her index finger straight toward the plastic slots anyway. The adult steps across the rug and lifts her away. The toddler arches her back, screams in protest, and tries to scramble back to the wall.",
+      "start_ratio": 0.0104,
+      "end_ratio": 0.0309
+    },
+    {
+      "id": "b-003",
+      "tag": "p",
+      "chunk_id": 4,
+      "start_sec": 37.043,
+      "end_sec": 51.754,
+      "words": 40,
+      "weight": 40,
+      "text": "Two hours later, that exact same child watches her older brother drop wooden blocks into a cleanup basket. She toddles over with two blocks of her own and drops them proudly into the basket without anyone asking her to help.",
+      "start_ratio": 0.0309,
+      "end_ratio": 0.0432
+    },
+    {
+      "id": "b-004",
+      "tag": "p",
+      "chunk_id": 5,
+      "start_sec": 51.754,
+      "end_sec": 80.745,
+      "words": 73,
+      "weight": 73,
+      "text": "Both moments happen in the same afternoon, inside the same child. Both are easy to misread. If a twenty-month-old were already a finished moral thinker, reaching toward the outlet after hearing “no” would look like cold defiance. On the other hand, if a parent were a mechanical programmer of behavior, the afternoon cleanup would look like proof that the morning’s discipline had installed a conscience. Neither story survives a look at child science.",
+      "start_ratio": 0.0432,
+      "end_ratio": 0.0674
+    },
+    {
+      "id": "b-005",
+      "tag": "p",
+      "chunk_id": 6,
+      "start_sec": 80.745,
+      "end_sec": 122.696,
+      "words": 102,
+      "weight": 102,
+      "text": "Chapter 9 traced how big feelings and frustration build inside relationships across years two and three. Chapter 11 will look inside the brain’s control center as a child slowly learns to stop an impulse. This chapter sits right between them, where a toddler’s growing freedom to move bumps into household safety rules and other people’s bodies. Our question is not “what punishment trick makes a toddler obey?” We ask what kind of rule-user a toddler really is. What happens when an active, curious child meets a human “no”? And what claims can early obeying, refusing, hitting, potty learning, and helping honestly support?",
+      "start_ratio": 0.0674,
+      "end_ratio": 0.1025
+    },
+    {
+      "id": "b-006",
+      "tag": "h2",
+      "chunk_id": 7,
+      "start_sec": 122.696,
+      "end_sec": 129.317,
+      "words": 12,
+      "weight": 14,
+      "text": "I. The Gap Between Knowing and Stopping: What a First Rule Is",
+      "start_ratio": 0.1025,
+      "end_ratio": 0.108
+    },
+    {
+      "id": "b-007",
+      "tag": "p",
+      "chunk_id": 8,
+      "start_sec": 129.317,
+      "end_sec": 155.548,
+      "words": 61,
+      "weight": 61,
+      "text": "In a home with a one- or two-year-old, a “rule” never acts as an abstract moral law. Instead, adults draw a repeated safety line by stopping, guiding, or naming unsafe moves. Yet when a toddler hears “no” and reaches anyway, adults often lump two completely different brain skills into one: understanding what the words mean and physically braking a moving hand.",
+      "start_ratio": 0.108,
+      "end_ratio": 0.1299
+    },
+    {
+      "id": "b-008",
+      "tag": "p",
+      "chunk_id": 9,
+      "start_sec": 155.548,
+      "end_sec": 192.219,
+      "words": 95,
+      "weight": 95,
+      "text": "Moderate-to-high-certainty brain and behavior studies show that the ability to stop a physical impulse grows steadily across toddlerhood and preschool. Still, those brakes stay wobbly and slow throughout the first three years. A sixteen- or twenty-month-old can truly understand the words “hot” or “no touch.” In fact, some toddlers softly whisper “no, no” out loud to themselves even while their fingers keep creeping toward the forbidden lamp cord! Reaching for the outlet isn’t calculated defiance; the part of the brain that remembers “no touch” already works, while the physical braking system is still under construction.",
+      "start_ratio": 0.1299,
+      "end_ratio": 0.1605
+    },
+    {
+      "id": "b-009",
+      "tag": "p",
+      "chunk_id": 10,
+      "start_sec": 192.219,
+      "end_sec": 212.77,
+      "words": 58,
+      "weight": 58,
+      "text": "At the same time, toddlers are constantly learning by watching the people around them. Moderate-certainty studies suggest that watching others and getting clear, calm feedback shape everyday toddler actions. When a toddler sees an older brother drop blocks into a basket or watches a parent wipe up spilled milk with a sponge, she wants to join the club.",
+      "start_ratio": 0.1605,
+      "end_ratio": 0.1777
+    },
+    {
+      "id": "b-010",
+      "tag": "p",
+      "chunk_id": 11,
+      "start_sec": 212.77,
+      "end_sec": 238.041,
+      "words": 77,
+      "weight": 77,
+      "text": "Still, whether a toddler carries that lesson from one room to the next changes from hour to hour. A toddler who happily plays the cleanup game in the living room at four o’clock may refuse to pick up a single crayon at five o’clock. Hunger, tiredness, or a new toy easily tips the balance. Neither the failed brake at the wall outlet nor the happy copying at the toy basket is a permanent verdict on her character.",
+      "start_ratio": 0.1777,
+      "end_ratio": 0.1988
+    },
+    {
+      "id": "b-011",
+      "tag": "h2",
+      "chunk_id": 12,
+      "start_sec": 238.041,
+      "end_sec": 243.181,
+      "words": 6,
+      "weight": 8,
+      "text": "II. Willing Cooperation Versus Situational Obedience",
+      "start_ratio": 0.1988,
+      "end_ratio": 0.2031
+    },
+    {
+      "id": "b-012",
+      "tag": "p",
+      "chunk_id": 13,
+      "start_sec": 243.181,
+      "end_sec": 255.332,
+      "words": 28,
+      "weight": 28,
+      "text": "Once we separate weak brakes from bad intentions, a deeper question opens up. When a toddler does follow a parent’s request, what is actually happening inside the relationship?",
+      "start_ratio": 0.2031,
+      "end_ratio": 0.2132
+    },
+    {
+      "id": "b-013",
+      "tag": "p",
+      "chunk_id": 14,
+      "start_sec": 255.332,
+      "end_sec": 297.563,
+      "words": 101,
+      "weight": 101,
+      "text": "In a landmark series of long-term studies starting in the 1990s, psychologist Grazyna Kochanska proved that not all toddler obeying is the same. Her team watched mothers and toddlers at home and in lab playrooms across two kinds of jobs. The first was “do” jobs, like asking a toddler to pick up spilled toys (which takes keeping a boring chore going). The second was “don’t” jobs, like asking a toddler not to touch a low shelf packed with shiny, spinning toys (which takes braking a strong urge to grab). Across both settings, Kochanska spotted two completely different styles of following rules.",
+      "start_ratio": 0.2132,
+      "end_ratio": 0.2485
+    },
+    {
+      "id": "b-014",
+      "tag": "p",
+      "chunk_id": 15,
+      "start_sec": 297.563,
+      "end_sec": 337.154,
+      "words": 105,
+      "weight": 105,
+      "text": "The first style is pressured obedience (situational compliance). Here the toddler follows the rule, stays back from the shiny shelf, or drops a block into the bin, but only while the adult watches closely with non-stop reminders or stern looks. As soon as the adult steps out of the room, the child goes right back to grabbing the toys. The second style is willing cooperation (committed compliance), where the toddler treats the parent’s goal as her own. She stays mostly cheerful or calm, holds her own hand back near the forbidden shelf with minimal reminding, and keeps following the rule even when left briefly alone.",
+      "start_ratio": 0.2485,
+      "end_ratio": 0.2815
+    },
+    {
+      "id": "b-015",
+      "tag": "p",
+      "chunk_id": 16,
+      "start_sec": 337.154,
+      "end_sec": 374.385,
+      "words": 83,
+      "weight": 83,
+      "text": "Across multi-year studies, moderate-certainty evidence suggests a clear trend. Willing teamwork at age two predicts taking home rules to heart later on far better than forced obeying. Better yet, Kochanska showed that willing teamwork grows inside a warm bond of two-way give-and-take. There, parent and child answer each other with warmth. Her work also showed that “do” chores—like picking up fifty blocks—feel much harder for a two-year-old than “don’t” safety lines. That stays true unless the adult turns cleanup into a shared game.",
+      "start_ratio": 0.2815,
+      "end_ratio": 0.3126
+    },
+    {
+      "id": "b-016",
+      "tag": "p",
+      "chunk_id": 17,
+      "start_sec": 374.385,
+      "end_sec": 394.096,
+      "words": 47,
+      "weight": 47,
+      "text": "Good science draws two clear borders around this finding. First, family studies track a two-way street between a child’s built-in temperament and a parent’s warmth rather than a magic script. So low-certainty claims that a specific parenting phrase or sticker chart installs instant cooperation go too far.",
+      "start_ratio": 0.3126,
+      "end_ratio": 0.3291
+    },
+    {
+      "id": "b-017",
+      "tag": "p",
+      "chunk_id": 18,
+      "start_sec": 394.096,
+      "end_sec": 420.167,
+      "words": 59,
+      "weight": 59,
+      "text": "Second, a silent toddler frozen by fear is showing pressured obedience, not moral growth. Meanwhile, a two-year-old who sighs, bargains (“one more block!”), or needs a gentle reminder is actively practicing how to share a rule. And no matter how warm your bond is, relationship trust never replaces physical childproofing today: the wall outlet still needs a plastic cover.",
+      "start_ratio": 0.3291,
+      "end_ratio": 0.3509
+    },
+    {
+      "id": "b-018",
+      "tag": "p",
+      "chunk_id": 19,
+      "start_sec": 420.167,
+      "end_sec": 457.718,
+      "words": 96,
+      "weight": 96,
+      "text": "This distinction also clears up the common mix-up between gentle parenting and permissive parenting. Popular advice often mistakes warmth for an absence of rules, urging parents to bargain endlessly with a tired toddler or drop firm limits to avoid tears. Decades of family cohorts show that warm, steady leadership pairs deep kindness with clear, firm limits. Empathy belongs to the child’s feelings, while safety and decisions belong to the adult. A parent can warmly hug a sad toddler while still calmly buckling the car seat, giving small children the safe walls they need while self-control grows.",
+      "start_ratio": 0.3509,
+      "end_ratio": 0.3822
+    },
+    {
+      "id": "b-019",
+      "tag": "h2",
+      "chunk_id": 20,
+      "start_sec": 457.718,
+      "end_sec": 463.539,
+      "words": 9,
+      "weight": 11,
+      "text": "III. The Arc of Physical Aggression: Richard Tremblay’s Discovery",
+      "start_ratio": 0.3822,
+      "end_ratio": 0.3871
+    },
+    {
+      "id": "b-020",
+      "tag": "p",
+      "chunk_id": 21,
+      "start_sec": 463.539,
+      "end_sec": 480.13,
+      "words": 40,
+      "weight": 40,
+      "text": "If reaching for outlets tests a parent’s patience, nothing sparks deeper parent panic than a toddler who hits. A two-year-old balls up a fist and hits a playmate, shoves a baby sibling, or bites another child over a dump truck.",
+      "start_ratio": 0.3871,
+      "end_ratio": 0.4009
+    },
+    {
+      "id": "b-021",
+      "tag": "p",
+      "chunk_id": 22,
+      "start_sec": 480.13,
+      "end_sec": 520.721,
+      "words": 109,
+      "weight": 109,
+      "text": "To see why toddler hitting shocks modern adults, look at the landmark studies led by psychologist Richard Tremblay. For most of the twentieth century, psychology textbooks taught social learning theory, made famous by Albert Bandura’s Bobo doll studies in the 1960s. Four-year-olds who watched an adult punch an inflatable clown doll copied those punches. So experts assumed that human beings are born peaceful and learn how to hit as they grow older by watching violent adults or TV shows. Under that old theory, if a two-year-old hit or bit playmates at the park, worried adults assumed the child had seen violence at home or was headed toward teen crime.",
+      "start_ratio": 0.4009,
+      "end_ratio": 0.4348
+    },
+    {
+      "id": "b-022",
+      "tag": "p",
+      "chunk_id": 23,
+      "start_sec": 520.721,
+      "end_sec": 548.632,
+      "words": 57,
+      "weight": 57,
+      "text": "In the 1990s and early 2000s, Richard Tremblay noticed a glaring gap. Scientists had rarely tracked when hitting actually starts across thousands of ordinary babies followed from birth. Launching massive birth-cohort studies in Montreal, across Canada, and around the world (2004), Tremblay’s team tracked hitting, biting, kicking, shoving, and grabbing toys from age one through high school.",
+      "start_ratio": 0.4348,
+      "end_ratio": 0.4581
+    },
+    {
+      "id": "b-023",
+      "tag": "p",
+      "chunk_id": 24,
+      "start_sec": 548.632,
+      "end_sec": 590.223,
+      "words": 106,
+      "weight": 106,
+      "text": "The data turned the old textbook story upside down. Physical hitting does not start in late childhood or the teen years. It starts late in the first year, climbs steeply during year two as muscle strength comes online, and hits its lifetime peak between ages two and three. Most ordinary toddlers hit, bite, grab, or shove at least occasionally when angry or defending a toy. Even more important, after peaking between ages two and three, physical aggression drops steadily across preschool and grade school for almost every child. It falls as spoken words (Chapter 7), emotion recovery (Chapter 9), and brain brakes (Chapter 11) grow stronger.",
+      "start_ratio": 0.4581,
+      "end_ratio": 0.4929
+    },
+    {
+      "id": "b-024",
+      "tag": "p",
+      "chunk_id": 25,
+      "start_sec": 590.223,
+      "end_sec": 619.494,
+      "words": 84,
+      "weight": 84,
+      "text": "As Tremblay famously summed it up, human toddlers do not need anyone to teach them how to hit when another kid grabs their truck. Hitting is what an angry creature with strong hands and very few words does naturally. What children spend the first five years of life learning — through patient adults, words, and practice — is how not to hit. They learn how to stop the fist, ask for a turn with words, wait thirty seconds, or call a grown-up for help.",
+      "start_ratio": 0.4929,
+      "end_ratio": 0.5173
+    },
+    {
+      "id": "b-025",
+      "tag": "p",
+      "chunk_id": 26,
+      "start_sec": 619.494,
+      "end_sec": 652.485,
+      "words": 93,
+      "weight": 93,
+      "text": "Tremblay’s data did spot a small group of kids (about 4 to 10 percent) who stay on a high-hitting track across childhood and benefit greatly from early family support. Still, moderate-to-high-certainty evidence shows that ordinary hitting at age two is a normal season of development, not a forecast of teen violence. When a two-year-old grabs a truck and shoves a friend, she does not need a bad label. She needs a calm adult to step between the two kids, keep both bodies safe, and lend her the words her hands could not find.",
+      "start_ratio": 0.5173,
+      "end_ratio": 0.5448
+    },
+    {
+      "id": "b-026",
+      "tag": "h2",
+      "chunk_id": 27,
+      "start_sec": 652.485,
+      "end_sec": 657.746,
+      "words": 9,
+      "weight": 11,
+      "text": "IV. Why Force Fails: The Evidence on Physical Punishment",
+      "start_ratio": 0.5448,
+      "end_ratio": 0.5492
+    },
+    {
+      "id": "b-027",
+      "tag": "p",
+      "chunk_id": 28,
+      "start_sec": 657.746,
+      "end_sec": 678.137,
+      "words": 60,
+      "weight": 60,
+      "text": "Faced with a toddler who reaches for a hot stove or hits a baby brother, generations of parents were given bad advice. They were told that physical pain — a slap on the hand or a spanking — was needed to teach respect for rules. How does that old advice hold up when tested across hundreds of thousands of kids?",
+      "start_ratio": 0.5492,
+      "end_ratio": 0.5663
+    },
+    {
+      "id": "b-028",
+      "tag": "p",
+      "chunk_id": 29,
+      "start_sec": 678.137,
+      "end_sec": 714.448,
+      "words": 70,
+      "weight": 70,
+      "text": "In 2016, Elizabeth Gershoff and Andrew Grogan-Kaylor pooled seventy-five studies covering 160,927 children. They tested the links between spanking (hitting a child with an open hand, leaving out severe abuse) and seventeen child outcomes. Across every study design, the review found zero evidence that spanking improves toddler obeying or long-term behavior. Instead, spanking was consistently linked to more acting-out behavior, more child aggression, more emotional distress, and weaker parent-child trust.",
+      "start_ratio": 0.5663,
+      "end_ratio": 0.5966
+    },
+    {
+      "id": "b-029",
+      "tag": "p",
+      "chunk_id": 30,
+      "start_sec": 714.448,
+      "end_sec": 740.519,
+      "words": 70,
+      "weight": 70,
+      "text": "Good science requires a fair look at how these studies work. In family surveys, parent and child influence each other in both directions. A toddler with fiercer built-in impulses naturally tests a parent’s patience and draws out frustrated reactions more often. Because of that two-way street, scientists still debate the exact size of the direct harm from occasional spanking once a child’s starting behavior and family stress are accounted for.",
+      "start_ratio": 0.5966,
+      "end_ratio": 0.6184
+    },
+    {
+      "id": "b-030",
+      "tag": "p",
+      "chunk_id": 31,
+      "start_sec": 740.519,
+      "end_sec": 766.03,
+      "words": 73,
+      "weight": 73,
+      "text": "Yet even the toughest checks agree on one moderate-to-high-certainty bottom line: spanking is neither needed nor helpful for raising a cooperative child. It works no better than calm physical redirection or a brief break, and it carries a clear backfire risk. Hitting a toddler to teach her not to hit teaches the exact opposite lesson: that when a big person is mad at a small person, hitting is an acceptable tool to use.",
+      "start_ratio": 0.6184,
+      "end_ratio": 0.6397
+    },
+    {
+      "id": "b-031",
+      "tag": "p",
+      "chunk_id": 32,
+      "start_sec": 766.03,
+      "end_sec": 807.621,
+      "words": 112,
+      "weight": 112,
+      "text": "At the same time, honesty protects parents from two other traps. First, knowing that spanking backfires does not mean a parent who lost their temper once on a rough afternoon has ruined their child for life, because relationships heal through repair. Second, skipping spanking does not make harsh words okay. Cold silent treatments, shaming a toddler, or locking a scared two-year-old alone in a dark room hurt trust without leaving a mark on the skin. In the first three years, the best boundary is almost always setting up the room and guiding the body. Cap the outlet, put the glass vase on a high shelf, and calmly lift a hitting toddler away.",
+      "start_ratio": 0.6397,
+      "end_ratio": 0.6744
+    },
+    {
+      "id": "b-032",
+      "tag": "h2",
+      "chunk_id": 33,
+      "start_sec": 807.621,
+      "end_sec": 813.362,
+      "words": 8,
+      "weight": 10,
+      "text": "V. Refusal, Helping, Toilet Learning, and Household Routines",
+      "start_ratio": 0.6744,
+      "end_ratio": 0.6792
+    },
+    {
+      "id": "b-033",
+      "tag": "p",
+      "chunk_id": 34,
+      "start_sec": 813.362,
+      "end_sec": 827.953,
+      "words": 37,
+      "weight": 37,
+      "text": "If we only talk about rules and hitting, we miss the brightest discovery of modern toddler science. The exact same eighteen-month-old who yells “NO!” over putting on her shoes is also wired to be a joyful helper.",
+      "start_ratio": 0.6792,
+      "end_ratio": 0.6914
+    },
+    {
+      "id": "b-034",
+      "tag": "p",
+      "chunk_id": 35,
+      "start_sec": 827.953,
+      "end_sec": 858.744,
+      "words": 70,
+      "weight": 70,
+      "text": "First, even a toddler’s “No” is often growth in disguise. Researchers like Judith Smetana and Larry Nucci have watched families at home across toddlerhood and found that a two-year-old’s fierce “No” or “Me do it” usually expresses a healthy drive for independence. Or it reflects simple end-of-day tiredness rather than mean spite. Learning to have a voice and make small choices inside safe walls is part of becoming a person.",
+      "start_ratio": 0.6914,
+      "end_ratio": 0.7171
+    },
+    {
+      "id": "b-035",
+      "tag": "p",
+      "chunk_id": 36,
+      "start_sec": 858.744,
+      "end_sec": 889.054,
+      "words": 81,
+      "weight": 81,
+      "text": "Even more delightful, in 2006 Felix Warneken and Michael Tomasello brought eighteen-month-olds into a lab. They wanted to see if toddlers would help a stranger solve everyday problems with zero prompting and zero rewards. An adult carrying a stack of magazines bumped into a closed cabinet door, or dropped a clothespin on the floor while hanging towels and reached for it in vain. Right away, eighteen-month-olds toddled over, picked up the pin or opened the doors, and handed the item back!",
+      "start_ratio": 0.7171,
+      "end_ratio": 0.7424
+    },
+    {
+      "id": "b-036",
+      "tag": "p",
+      "chunk_id": 37,
+      "start_sec": 889.054,
+      "end_sec": 922.285,
+      "words": 79,
+      "weight": 79,
+      "text": "Moderate-certainty studies suggest that spontaneous helping blooms naturally in the second year. Toddlers can read what another person is trying to do, and they love joining in shared human work. In fact, when researchers gave toddlers toy prizes as “rewards” for helping, toddlers helped less next time than when adults simply smiled and said thank you! Sharing a favorite snack with another toddler stays hard for years, yet spontaneous helping shows that two-year-olds are natural teammates, not tiny outlaws.",
+      "start_ratio": 0.7424,
+      "end_ratio": 0.7701
+    },
+    {
+      "id": "b-037",
+      "tag": "p",
+      "chunk_id": 38,
+      "start_sec": 922.285,
+      "end_sec": 943.036,
+      "words": 73,
+      "weight": 73,
+      "text": "Respecting the body’s internal clock also clears up one of the most stressful milestones of years two and three: potty training (toilet learning). Online guides often sell intense “three-day bare-bottom bootcamps,” promising that any eighteen-month-old can train in a single weekend. Doctors Nathan Blum, Bruce Taubman, and Nicole Nemeth (2003) and Timothy Schum and his team (2002) tracked hundreds of toddlers month by month in Pediatrics. Their evidence told a very different story.",
+      "start_ratio": 0.7701,
+      "end_ratio": 0.7875
+    },
+    {
+      "id": "b-038",
+      "tag": "p",
+      "chunk_id": 39,
+      "start_sec": 943.036,
+      "end_sec": 970.387,
+      "words": 64,
+      "weight": 64,
+      "text": "Reliable daytime dryness depends on physical growth that willpower cannot rush. The bladder must grow large enough to hold urine for two hours. Meanwhile, the nerve pathways between the spine and the brain that let a child feel a full bladder and relax the pelvic floor on command typically mature between twenty-two and thirty months. Average daytime dryness finishes around 32 to 35 months.",
+      "start_ratio": 0.7875,
+      "end_ratio": 0.8103
+    },
+    {
+      "id": "b-039",
+      "tag": "p",
+      "chunk_id": 40,
+      "start_sec": 970.387,
+      "end_sec": 1000.058,
+      "words": 68,
+      "weight": 68,
+      "text": "In Blum’s study, moderate-certainty evidence suggests that starting intensive potty training early (between 17 and 21 months) did not get toddlers out of diapers much sooner. Instead, starting early stretched active training out to 13 or 14 months of reminders and accidents. Waiting until toddlers showed clear readiness signs around 27 months cut training time in half, down to 5 or 6 months, and avoided painful poop-withholding battles.",
+      "start_ratio": 0.8103,
+      "end_ratio": 0.8351
+    },
+    {
+      "id": "b-040",
+      "tag": "p",
+      "chunk_id": 41,
+      "start_sec": 1000.058,
+      "end_sec": 1026.769,
+      "words": 61,
+      "weight": 61,
+      "text": "Letting a twenty-month-old sit casually on a potty chair before bath time is great. By contrast, turning a weekend into a high-pressure battle before the child can stay dry for two hours or pull elastic pants down mistakes bladder wiring for stubbornness. Nighttime dryness runs on an even slower hormone and deep-sleep clock that normally takes until ages four to six.",
+      "start_ratio": 0.8351,
+      "end_ratio": 0.8574
+    },
+    {
+      "id": "b-041",
+      "tag": "p",
+      "chunk_id": 42,
+      "start_sec": 1026.769,
+      "end_sec": 1067.6,
+      "words": 96,
+      "weight": 96,
+      "text": "Around all of these milestones sits the quiet support of daily routines. Barbara Fiese (2002) and Jodi Mindell (2009) studied family and sleep rhythms across thousands of homes. Predictable daily beats—dinner, bath, pajamas, a potty sit, two stories, and lights out—suggest real help for toddler self-control and calmer bedtimes. When the day follows a familiar beat, a toddler does not have to spend her limited energy guessing what comes next. Still, a routine is a helpful handrail for the family, not a prison schedule where a late pizza night at grandma’s house ruins a child’s character.",
+      "start_ratio": 0.8574,
+      "end_ratio": 0.8915
+    },
+    {
+      "id": "b-042",
+      "tag": "p",
+      "chunk_id": 43,
+      "start_sec": 1067.6,
+      "end_sec": 1107.831,
+      "words": 94,
+      "weight": 94,
+      "text": "Here our three lenses bring the first rules of toddlerhood into clear view. The science shows with moderate-to-high certainty that physical impulse brakes mature slowly across toddlerhood. It also shows that hitting peaks naturally between ages two and three before dropping as language grows, and that spanking is neither needed nor helpful. It suggests with moderate certainty that willing cooperation builds lasting values better than fear, and that toddlers naturally love to help. Likewise, potty training works fastest when aligned with physical readiness around 24 to 30 months, and steady routines ease daily transitions.",
+      "start_ratio": 0.8915,
+      "end_ratio": 0.9251
+    },
+    {
+      "id": "b-043",
+      "tag": "p",
+      "chunk_id": 44,
+      "start_sec": 1107.831,
+      "end_sec": 1146.342,
+      "words": 104,
+      "weight": 104,
+      "text": "The interpretation of that science refuses to turn an uncovered outlet, a playground shove, or a potty accident into a story about a bad child. And the art of holding boundaries in the first three years lives in calm, practical wisdom. Put a plastic cap over the wall outlet so you can save your “no” for what truly matters. Step gently between two toddlers before a tug-of-war turns into a bite. Offer two simple choices (“red boots or blue boots?”) to honor growing pride, and smile when the same child who fought her shoes ten minutes ago drops two blocks into the cleanup bin.",
+      "start_ratio": 0.9251,
+      "end_ratio": 0.9572
+    },
+    {
+      "id": "b-044",
+      "tag": "p",
+      "chunk_id": 45,
+      "start_sec": 1146.342,
+      "end_sec": 1166.413,
+      "words": 57,
+      "weight": 57,
+      "text": "What this chapter does not tell us is how the inner brain machinery that lets a child stop an impulse, hold a rule in memory, and switch gears actually wires up. Nor does it explain why the most famous preschool willpower test in history turned out to be mostly a mirage. That story belongs to Chapter 11.",
+      "start_ratio": 0.9572,
+      "end_ratio": 0.974
+    },
+    {
+      "id": "b-045",
+      "tag": "p",
+      "chunk_id": 46,
+      "start_sec": 1166.413,
+      "end_sec": 1174.364,
+      "words": 22,
+      "weight": 22,
+      "text": "Look back one more time at the twenty-month-old on the living room rug, looking from her parent’s face to the wall outlet.",
+      "start_ratio": 0.974,
+      "end_ratio": 0.9806
+    },
+    {
+      "id": "b-046",
+      "tag": "p",
+      "chunk_id": 47,
+      "start_sec": 1174.364,
+      "end_sec": 1197.555,
+      "words": 87,
+      "weight": 87,
+      "text": "She has not turned into a different child because we have mapped willing cooperation, Tremblay’s hitting curves, potty readiness, or Warneken’s clothespin game. Our map of her hand has changed. That second reach toward the outlet was not a preview of lawlessness, and the afternoon cleanup was not permanent sainthood. She is a young rule-learner whose curiosity moves faster than her brakes. She is counting on us to make the room safe, hold the line without hitting, and leave room for the helper she is already becoming.",
+      "start_ratio": 0.9806,
+      "end_ratio": 1.0
+    }
+  ]
+}

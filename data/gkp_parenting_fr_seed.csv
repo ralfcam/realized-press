@@ -1,0 +1,27 @@
+# Realized Press BWE — Seed Demand Telemetry (L'Atlas de la parentalité, ARC-108 / ARC-109)
+query,monthly_volume,yoy_trend_pct,competition_index,target_chapter,paa_question_hook,cpc_low_usd,cpc_high_usd,volume_range_high,source_tier,fetched_at
+sommeil bebe methode 5 10 15 pleurs,40500,12.0,0.25,04,Comment aider bébé à s'endormir sans nuire à son attachement ?,0.05,0.45,,seed,2026-11-10T16:00:00Z
+cododo securitaire mort inattendue du nourrisson,33100,15.0,0.22,04,Le cododo est-il sécuritaire ou augmente-t-il le risque ?,0.04,0.38,,seed,2026-11-10T16:00:00Z
+diversification alimentaire dme morceaux bebe,27100,28.0,0.30,04,La DME présente-t-elle plus de risques d'étouffement que les purées ?,0.08,0.65,,seed,2026-11-10T16:00:00Z
+introduction arachide bebe allergie alimentation,22200,24.0,0.32,04,Quand introduire l'arachide pour prévenir les allergies alimentaires ?,0.06,0.50,,seed,2026-11-10T16:00:00Z
+regression sommeil 4 mois cause que faire,27100,22.0,0.26,04,Pourquoi bébé se réveille-t-il subitement toutes les heures à 4 mois ?,0.05,0.40,,seed,2026-11-10T16:00:00Z
+crise de colere 2 ans terrible two comment calmer,33100,18.0,0.28,09,Pourquoi dire « calme-toi » aggrave-t-il la colère du tout-petit ?,0.05,0.40,,seed,2026-11-10T16:00:00Z
+angoisse de separation 8 mois bebe pleure,18100,15.0,0.20,08,Comment accompagner l'angoisse de séparation vers 8 mois ?,0.04,0.35,,seed,2026-11-10T16:00:00Z
+creche collective ou assistante maternelle attachement,18100,16.0,0.26,08,La crèche collective nuit-elle à l'attachement sécurisé ?,0.05,0.48,,seed,2026-11-10T16:00:00Z
+rage du post partum colere jeune maman hormones,14800,32.0,0.30,01,La colère brutale du post-partum est-elle un signe de dépression ?,0.08,0.60,,seed,2026-11-10T16:00:00Z
+semaines miracles bonds developpement bebe avis,22200,14.0,0.25,05,Les semaines de régression prévisibles sont-elles prouvées scientifiquement ?,0.04,0.35,,seed,2026-11-10T16:00:00Z
+ecrans avant 3 ans retard langage parole,27100,35.0,0.34,07,Les écrans provoquent-ils un retard de langage chez le jeune enfant ?,0.10,0.75,,seed,2026-11-10T16:00:00Z
+tours de parole developpement langage bebe,14800,20.0,0.22,07,Comment les conversations en miroir stimulent-elles le cerveau linguistique ?,0.05,0.45,,seed,2026-11-10T16:00:00Z
+allaitement maternel vs biberon immunite intelligence,18100,10.0,0.20,03,L'allaitement maternel améliore-t-il réellement le QI à long terme ?,0.04,0.35,,seed,2026-11-10T16:00:00Z
+frein de langue bebe operer frenotomie avis,14800,40.0,0.42,03,Faut-il vraiment faire couper le frein de langue d'un nourrisson ?,0.15,1.20,,seed,2026-11-10T16:00:00Z
+proprete bebe pot signes pret apprentissage,40500,20.0,0.35,10,Quels sont les véritables signes de maturité pour aller sur le pot ?,0.08,0.60,,seed,2026-11-10T16:00:00Z
+enfant qui tape mord limites bienveillance sans fessée,33100,22.0,0.30,10,Pourquoi les tout-petits tapent-ils et mordent-ils même en connaissant la règle ?,0.06,0.55,,seed,2026-11-10T16:00:00Z
+permanence de l objet age bebe apparition,18100,14.0,0.18,05,À quel âge bébé comprend-il qu'un objet caché existe toujours ?,0.03,0.30,,seed,2026-11-10T16:00:00Z
+jeux montessori jeu symbolique faire semblant,22200,26.0,0.38,12,Les jouets en bois Montessori rendent-ils les enfants plus intelligents ?,0.12,0.90,,seed,2026-11-10T16:00:00Z
+conge paternite 28 jours impact developpement bebe,12100,18.0,0.24,13,Quel est l'impact réel du congé de paternité allongé sur la famille ?,0.05,0.42,,seed,2026-11-10T16:00:00Z
+stress pendant grossesse impact cerveau foetus placenta,14800,20.0,0.22,01,Le stress au travail pendant la grossesse altère-t-il le fœtus ?,0.04,0.38,,seed,2026-11-10T16:00:00Z
+acide folique avant grossesse spina bifida quand prendre,18100,15.0,0.25,01,Pourquoi prendre de l'acide folique avant même d'être enceinte ?,0.06,0.50,,seed,2026-11-10T16:00:00Z
+age du pere fertilite autisme risques genetiques,9900,12.0,0.20,01,L'âge paternel influence-t-il la santé génétique du futur bébé ?,0.04,0.35,,seed,2026-11-10T16:00:00Z
+bruit blanc bebe sommeil danger et bienfaits,14800,30.0,0.28,04,Le bruit blanc est-il sans danger pour endormir un nourrisson ?,0.08,0.60,,seed,2026-11-10T16:00:00Z
+test du marshmallow autocontrole reussite future,12100,10.0,0.18,11,Qu'a révélé la réplication moderne du test de la guimauve ?,0.03,0.25,,seed,2026-11-10T16:00:00Z
+tout se joue avant 3 ans neurosciences verite,14800,14.0,0.22,15,Est-il vrai que tout se joue avant l'âge de trois ans ?,0.04,0.35,,seed,2026-11-10T16:00:00Z

@@ -1,0 +1,1045 @@
+{
+  "chapter": "09-the-emotional-revolution",
+  "total_duration_sec": 1151.594,
+  "sample_rate": 24000,
+  "bytes_per_second": 48000,
+  "chunks": [
+    {
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 4.21,
+      "duration_sec": 4.21,
+      "pcm_bytes": 202080,
+      "block_range": [
+        "b-000",
+        "b-000"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "start_sec": 4.21,
+      "end_sec": 11.19,
+      "duration_sec": 6.98,
+      "pcm_bytes": 335040,
+      "block_range": [
+        "b-001",
+        "b-001"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "start_sec": 11.19,
+      "end_sec": 33.89,
+      "duration_sec": 22.7,
+      "pcm_bytes": 1089600,
+      "block_range": [
+        "b-002",
+        "b-002"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "start_sec": 33.89,
+      "end_sec": 55.03,
+      "duration_sec": 21.14,
+      "pcm_bytes": 1014720,
+      "block_range": [
+        "b-003",
+        "b-003"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "start_sec": 55.03,
+      "end_sec": 82.61,
+      "duration_sec": 27.58,
+      "pcm_bytes": 1323840,
+      "block_range": [
+        "b-004",
+        "b-004"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "start_sec": 82.61,
+      "end_sec": 124.87,
+      "duration_sec": 42.26,
+      "pcm_bytes": 2028480,
+      "block_range": [
+        "b-005",
+        "b-005"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "start_sec": 124.87,
+      "end_sec": 131.44,
+      "duration_sec": 6.57,
+      "pcm_bytes": 315360,
+      "block_range": [
+        "b-006",
+        "b-006"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "start_sec": 131.44,
+      "end_sec": 154.791,
+      "duration_sec": 23.351,
+      "pcm_bytes": 1120846,
+      "block_range": [
+        "b-007",
+        "b-007"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "start_sec": 154.791,
+      "end_sec": 189.582,
+      "duration_sec": 34.791,
+      "pcm_bytes": 1669966,
+      "block_range": [
+        "b-008",
+        "b-008"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "start_sec": 189.582,
+      "end_sec": 218.053,
+      "duration_sec": 28.471,
+      "pcm_bytes": 1366606,
+      "block_range": [
+        "b-009",
+        "b-009"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "start_sec": 218.053,
+      "end_sec": 243.124,
+      "duration_sec": 25.071,
+      "pcm_bytes": 1203406,
+      "block_range": [
+        "b-010",
+        "b-010"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "start_sec": 243.124,
+      "end_sec": 281.704,
+      "duration_sec": 38.58,
+      "pcm_bytes": 1851840,
+      "block_range": [
+        "b-011",
+        "b-011"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "start_sec": 281.704,
+      "end_sec": 286.914,
+      "duration_sec": 5.21,
+      "pcm_bytes": 250080,
+      "block_range": [
+        "b-012",
+        "b-012"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "start_sec": 286.914,
+      "end_sec": 330.025,
+      "duration_sec": 43.111,
+      "pcm_bytes": 2069326,
+      "block_range": [
+        "b-013",
+        "b-013"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "start_sec": 330.025,
+      "end_sec": 366.376,
+      "duration_sec": 36.351,
+      "pcm_bytes": 1744846,
+      "block_range": [
+        "b-014",
+        "b-014"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "start_sec": 366.376,
+      "end_sec": 387.967,
+      "duration_sec": 21.591,
+      "pcm_bytes": 1036366,
+      "block_range": [
+        "b-015",
+        "b-015"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "start_sec": 387.967,
+      "end_sec": 418.758,
+      "duration_sec": 30.791,
+      "pcm_bytes": 1477966,
+      "block_range": [
+        "b-016",
+        "b-016"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "start_sec": 418.758,
+      "end_sec": 427.179,
+      "duration_sec": 8.421,
+      "pcm_bytes": 404206,
+      "block_range": [
+        "b-017",
+        "b-017"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "start_sec": 427.179,
+      "end_sec": 441.69,
+      "duration_sec": 14.511,
+      "pcm_bytes": 696526,
+      "block_range": [
+        "b-018",
+        "b-018"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "start_sec": 441.69,
+      "end_sec": 483.321,
+      "duration_sec": 41.631,
+      "pcm_bytes": 1998286,
+      "block_range": [
+        "b-019",
+        "b-019"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "start_sec": 483.321,
+      "end_sec": 506.191,
+      "duration_sec": 22.871,
+      "pcm_bytes": 1097806,
+      "block_range": [
+        "b-020",
+        "b-020"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "start_sec": 506.191,
+      "end_sec": 545.182,
+      "duration_sec": 38.991,
+      "pcm_bytes": 1871566,
+      "block_range": [
+        "b-021",
+        "b-021"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "start_sec": 545.182,
+      "end_sec": 561.013,
+      "duration_sec": 15.831,
+      "pcm_bytes": 759886,
+      "block_range": [
+        "b-022",
+        "b-022"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "start_sec": 561.013,
+      "end_sec": 598.444,
+      "duration_sec": 37.431,
+      "pcm_bytes": 1796686,
+      "block_range": [
+        "b-023",
+        "b-023"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "start_sec": 598.444,
+      "end_sec": 644.115,
+      "duration_sec": 45.671,
+      "pcm_bytes": 2192206,
+      "block_range": [
+        "b-024",
+        "b-024"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "start_sec": 644.115,
+      "end_sec": 664.666,
+      "duration_sec": 20.551,
+      "pcm_bytes": 986446,
+      "block_range": [
+        "b-025",
+        "b-025"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "start_sec": 664.666,
+      "end_sec": 697.577,
+      "duration_sec": 32.911,
+      "pcm_bytes": 1579726,
+      "block_range": [
+        "b-026",
+        "b-026"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "start_sec": 697.577,
+      "end_sec": 723.528,
+      "duration_sec": 25.951,
+      "pcm_bytes": 1245646,
+      "block_range": [
+        "b-027",
+        "b-027"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "start_sec": 723.528,
+      "end_sec": 730.949,
+      "duration_sec": 7.421,
+      "pcm_bytes": 356206,
+      "block_range": [
+        "b-028",
+        "b-028"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "start_sec": 730.949,
+      "end_sec": 744.74,
+      "duration_sec": 13.791,
+      "pcm_bytes": 661966,
+      "block_range": [
+        "b-029",
+        "b-029"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "start_sec": 744.74,
+      "end_sec": 768.611,
+      "duration_sec": 23.871,
+      "pcm_bytes": 1145806,
+      "block_range": [
+        "b-030",
+        "b-030"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "start_sec": 768.611,
+      "end_sec": 792.802,
+      "duration_sec": 24.191,
+      "pcm_bytes": 1161166,
+      "block_range": [
+        "b-031",
+        "b-031"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "start_sec": 792.802,
+      "end_sec": 839.193,
+      "duration_sec": 46.391,
+      "pcm_bytes": 2226766,
+      "block_range": [
+        "b-032",
+        "b-032"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "start_sec": 839.193,
+      "end_sec": 862.744,
+      "duration_sec": 23.551,
+      "pcm_bytes": 1130446,
+      "block_range": [
+        "b-033",
+        "b-033"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "start_sec": 862.744,
+      "end_sec": 882.895,
+      "duration_sec": 20.151,
+      "pcm_bytes": 967246,
+      "block_range": [
+        "b-034",
+        "b-034"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "start_sec": 882.895,
+      "end_sec": 912.286,
+      "duration_sec": 29.391,
+      "pcm_bytes": 1410766,
+      "block_range": [
+        "b-035",
+        "b-035"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "start_sec": 912.286,
+      "end_sec": 917.907,
+      "duration_sec": 5.621,
+      "pcm_bytes": 269806,
+      "block_range": [
+        "b-036",
+        "b-036"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "start_sec": 917.907,
+      "end_sec": 961.458,
+      "duration_sec": 43.551,
+      "pcm_bytes": 2090446,
+      "block_range": [
+        "b-037",
+        "b-037"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "start_sec": 961.458,
+      "end_sec": 983.089,
+      "duration_sec": 21.631,
+      "pcm_bytes": 1038286,
+      "block_range": [
+        "b-038",
+        "b-038"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "start_sec": 983.089,
+      "end_sec": 1014.4,
+      "duration_sec": 31.311,
+      "pcm_bytes": 1502926,
+      "block_range": [
+        "b-039",
+        "b-039"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "start_sec": 1014.4,
+      "end_sec": 1057.951,
+      "duration_sec": 43.551,
+      "pcm_bytes": 2090446,
+      "block_range": [
+        "b-040",
+        "b-040"
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "start_sec": 1057.951,
+      "end_sec": 1087.182,
+      "duration_sec": 29.231,
+      "pcm_bytes": 1403086,
+      "block_range": [
+        "b-041",
+        "b-041"
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "start_sec": 1087.182,
+      "end_sec": 1106.973,
+      "duration_sec": 19.791,
+      "pcm_bytes": 949966,
+      "block_range": [
+        "b-042",
+        "b-042"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "start_sec": 1106.973,
+      "end_sec": 1116.204,
+      "duration_sec": 9.231,
+      "pcm_bytes": 443086,
+      "block_range": [
+        "b-043",
+        "b-043"
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "start_sec": 1116.204,
+      "end_sec": 1151.594,
+      "duration_sec": 35.391,
+      "pcm_bytes": 1698766,
+      "block_range": [
+        "b-044",
+        "b-044"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "b-000",
+      "tag": "h1",
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 4.21,
+      "words": 6,
+      "weight": 9,
+      "text": "Chapter 9 — The Emotional Revolution",
+      "start_ratio": 0.0,
+      "end_ratio": 0.0037
+    },
+    {
+      "id": "b-001",
+      "tag": "p",
+      "chunk_id": 2,
+      "start_sec": 4.21,
+      "end_sec": 11.19,
+      "words": 11,
+      "weight": 11,
+      "text": "Toddler Tantrums, Shyness, Big Feelings, and Why ‘Calm Down’ Doesn’t Work",
+      "start_ratio": 0.0037,
+      "end_ratio": 0.0097
+    },
+    {
+      "id": "b-002",
+      "tag": "p",
+      "chunk_id": 3,
+      "start_sec": 11.19,
+      "end_sec": 33.89,
+      "words": 48,
+      "weight": 48,
+      "text": "An eighteen-month-old throws herself onto the hallway floor because a heavy wooden door will not open. Her parent kneels nearby and slides a metal toy truck out of kicking range. Waiting quietly through the first wave of screaming, the parent says softly, “You really wanted that door open.”",
+      "start_ratio": 0.0097,
+      "end_ratio": 0.0294
+    },
+    {
+      "id": "b-003",
+      "tag": "p",
+      "chunk_id": 4,
+      "start_sec": 33.89,
+      "end_sec": 55.03,
+      "words": 51,
+      "weight": 51,
+      "text": "The toddler does not suddenly sit up and thank the parent for naming her feelings. She bats her parent’s hand away, arches her back, and cries even louder. Then, ninety seconds later, the sharp edge of the scream softens into a wet, shaky whimper. She reaches up for her parent’s hand.",
+      "start_ratio": 0.0294,
+      "end_ratio": 0.0478
+    },
+    {
+      "id": "b-004",
+      "tag": "p",
+      "chunk_id": 5,
+      "start_sec": 55.03,
+      "end_sec": 82.61,
+      "words": 73,
+      "weight": 73,
+      "text": "The scene happens in almost every home, and it is a magnet for adult misreading. If a toddler were already a tiny adult with finished self-control, collapsing on the floor over a closed door would look like a spoiled character. On the other hand, if a parent were an all-powerful programmer, saying the right gentle sentence would switch off the crying like a wall thermostat. Neither story fits what child science actually shows.",
+      "start_ratio": 0.0478,
+      "end_ratio": 0.0717
+    },
+    {
+      "id": "b-005",
+      "tag": "p",
+      "chunk_id": 6,
+      "start_sec": 82.61,
+      "end_sec": 124.87,
+      "words": 98,
+      "weight": 98,
+      "text": "Chapter 4 traced how calming down starts as a two-person partnership in infancy. Chapter 8 followed that partnership outward into a network of fathers, grandparents, playmates, and teachers. Now we turn inward to ask what happens across years two and three as the child’s own big feelings erupt into view. Our question is not “what magic phrase stops a tantrum in ten seconds?” We ask how a toddler’s emotional world is really built. What happens when strong body reactions, growing wishes, built-in temperament, and family rules collide? And what claims can a young child’s emotional storms honestly support?",
+      "start_ratio": 0.0717,
+      "end_ratio": 0.1084
+    },
+    {
+      "id": "b-006",
+      "tag": "h2",
+      "chunk_id": 7,
+      "start_sec": 124.87,
+      "end_sec": 131.44,
+      "words": 8,
+      "weight": 10,
+      "text": "I. Flexibility, Not Silence: How Feeling Becomes Organized",
+      "start_ratio": 0.1084,
+      "end_ratio": 0.1141
+    },
+    {
+      "id": "b-007",
+      "tag": "p",
+      "chunk_id": 8,
+      "start_sec": 131.44,
+      "end_sec": 154.791,
+      "words": 49,
+      "weight": 49,
+      "text": "For generations, popular debates over toddler feelings have swung between two false extremes. Strict-training myths claim that superior parenting builds a quiet, obedient child and that every meltdown exposes a soft parent. Fixed-fate myths claim that a child arrives with a frozen emotional temperament that parents can only endure.",
+      "start_ratio": 0.1141,
+      "end_ratio": 0.1344
+    },
+    {
+      "id": "b-008",
+      "tag": "p",
+      "chunk_id": 9,
+      "start_sec": 154.791,
+      "end_sec": 189.582,
+      "words": 91,
+      "weight": 91,
+      "text": "What biology and psychology show instead is a shared, living loop. Emotional life in the first three years does not start as a neat set of adult feelings, nor is it a war against bad habits. It starts in the body — in fast heartbeats, tight muscles, loud cries, and shifting focus — inside daily relationships. Children bring very different built-in sensitivity levels into the room. At the same time, adults shape which stresses the child runs into, how high the wave builds, and how safely the child comes back down.",
+      "start_ratio": 0.1344,
+      "end_ratio": 0.1646
+    },
+    {
+      "id": "b-009",
+      "tag": "p",
+      "chunk_id": 10,
+      "start_sec": 189.582,
+      "end_sec": 218.053,
+      "words": 76,
+      "weight": 76,
+      "text": "To understand that loop, we have to clear up a widespread myth about what “emotion regulation” actually means. In everyday talk, calling a toddler “well regulated” is usually just a polite way of saying quiet. Yet a silent child sitting in a corner may be frozen in fear rather than calm. Meanwhile, a toddler who screams in fury when her block tower falls and goes happily back to building three minutes later shows healthy emotional recovery.",
+      "start_ratio": 0.1646,
+      "end_ratio": 0.1893
+    },
+    {
+      "id": "b-010",
+      "tag": "p",
+      "chunk_id": 11,
+      "start_sec": 218.053,
+      "end_sec": 243.124,
+      "words": 64,
+      "weight": 64,
+      "text": "Feeling an emotion, showing it, calming down with help, and calming down alone are four separate steps. The real mark of healthy emotional growth is never the absence of tears or anger; it is flexibility and bounce-back. Can the child’s focus eventually shift? Does her racing heart slow back down? Will she reconnect with the adult after a clash and go back to playing?",
+      "start_ratio": 0.1893,
+      "end_ratio": 0.2111
+    },
+    {
+      "id": "b-011",
+      "tag": "p",
+      "chunk_id": 12,
+      "start_sec": 243.124,
+      "end_sec": 281.704,
+      "words": 100,
+      "weight": 100,
+      "text": "As we saw in Chapter 4, moderate-certainty evidence suggests that two-way calming between parent and child supports steady balance across the day. In toddlerhood, however, the limit on that finding matters even more. Helping an upset eighteen-month-old calm down in your arms today does not work like a vending machine. It does not automatically install solo preschool willpower on a fixed date. Like the newborn cry in Chapter 3, a meltdown on the kitchen floor is a wave of high body distress to be weathered together. It is never proof that you failed or that your toddler is manipulating you.",
+      "start_ratio": 0.2111,
+      "end_ratio": 0.2446
+    },
+    {
+      "id": "b-012",
+      "tag": "h2",
+      "chunk_id": 13,
+      "start_sec": 281.704,
+      "end_sec": 286.914,
+      "words": 8,
+      "weight": 10,
+      "text": "II. Broken Expectations and the Meaning of Protest",
+      "start_ratio": 0.2446,
+      "end_ratio": 0.2491
+    },
+    {
+      "id": "b-013",
+      "tag": "p",
+      "chunk_id": 14,
+      "start_sec": 286.914,
+      "end_sec": 330.025,
+      "words": 98,
+      "weight": 98,
+      "text": "To see how deeply a young child’s feelings tie to other people, recall Edward Tronick’s Still-Face Experiment from Chapter 4. When a smiling parent suddenly freezes into a blank stare, a five-month-old baby stops smiling at once. The shift happens in seconds. The infant reaches and coos to win the parent back, slumping into tears when the silence drags on. Judi Mesman, Marinus van IJzendoorn, and Marian Bakermans-Kranenburg (2009) pooled more than eighty studies of this test across thousands of babies. High-certainty evidence showed that this protest-and-withdrawal pattern is one of the most reliable findings in child psychology.",
+      "start_ratio": 0.2491,
+      "end_ratio": 0.2866
+    },
+    {
+      "id": "b-014",
+      "tag": "p",
+      "chunk_id": 15,
+      "start_sec": 330.025,
+      "end_sec": 366.376,
+      "words": 97,
+      "weight": 97,
+      "text": "Why does the still-face test teach us so much about early emotions? By six months of age, a baby is not just reacting to an empty belly or a wet diaper; her feelings organize around expecting people to answer back. Notice how this differs from the visual cliff in Chapter 8. On the visual cliff, a one-year-old checks her parent’s face for clues to decide if a drop-off is safe. In the still-face test, the baby protests because her partner stopped taking turns. Both moments involve looking at a parent’s face, yet they tap completely different feelings.",
+      "start_ratio": 0.2866,
+      "end_ratio": 0.3181
+    },
+    {
+      "id": "b-015",
+      "tag": "p",
+      "chunk_id": 16,
+      "start_sec": 366.376,
+      "end_sec": 387.967,
+      "words": 56,
+      "weight": 56,
+      "text": "Just as important is what the still-face studies refuse to support. On social media, the still-face test is constantly used as a scary guilt story. Influencers warn parents that checking a text message for two minutes traumatizes a baby’s brain, while others claim that how loudly a baby cries during the freeze grades the mother-child bond.",
+      "start_ratio": 0.3181,
+      "end_ratio": 0.3369
+    },
+    {
+      "id": "b-016",
+      "tag": "p",
+      "chunk_id": 17,
+      "start_sec": 387.967,
+      "end_sec": 418.758,
+      "words": 88,
+      "weight": 88,
+      "text": "Mesman and her colleagues’ massive review shows that how hard an individual baby cries during the two-minute freeze has low validity as a personal test. It does not diagnose attachment security, parenting skill, or future mental health. Protesting when a partner goes blank is a healthy sign that the baby expects warm conversation. And the reunion right after the freeze — when parent and baby work through the leftover tears — proves a key lesson. Calming down normally takes time rather than flipping off like a light switch.",
+      "start_ratio": 0.3369,
+      "end_ratio": 0.3636
+    },
+    {
+      "id": "b-017",
+      "tag": "h2",
+      "chunk_id": 18,
+      "start_sec": 418.758,
+      "end_sec": 427.179,
+      "words": 10,
+      "weight": 12,
+      "text": "III. Constitutional Weather: Temperament, Goodness of Fit, and Behavioral Inhibition",
+      "start_ratio": 0.3636,
+      "end_ratio": 0.3709
+    },
+    {
+      "id": "b-018",
+      "tag": "p",
+      "chunk_id": 19,
+      "start_sec": 427.179,
+      "end_sec": 441.69,
+      "words": 32,
+      "weight": 32,
+      "text": "Every baby learns to expect warm back-and-forth care. Why, then, do two toddlers raised in the exact same house react so differently when a vacuum cleaner roars on or a dog barks?",
+      "start_ratio": 0.3709,
+      "end_ratio": 0.3835
+    },
+    {
+      "id": "b-019",
+      "tag": "p",
+      "chunk_id": 20,
+      "start_sec": 441.69,
+      "end_sec": 483.321,
+      "words": 92,
+      "weight": 92,
+      "text": "The answer is temperament — built-in biological differences in how strongly a child reacts and how easily they settle down. In Mary Rothbart’s classic framework, tested across thousands of families by Maria Gartstein and Rothbart (2003), early temperament runs along three main tracks. First comes negative reactivity: how quickly and intensely a child feels frustration, fear, or distress. Second comes bold energy (or extraversion): how eagerly a child rushes toward new toys, loud games, and physical action. Third comes slower-growing effortful control: the ability to shift focus and hold back an impulse.",
+      "start_ratio": 0.3835,
+      "end_ratio": 0.4197
+    },
+    {
+      "id": "b-020",
+      "tag": "p",
+      "chunk_id": 21,
+      "start_sec": 483.321,
+      "end_sec": 506.191,
+      "words": 59,
+      "weight": 59,
+      "text": "Crucially, these three tracks do not mature at the same time. Big reactivity is wide awake in the first months of life. Meanwhile, the front-of-the-brain brakes that support effortful control take years to wire up. A baby born with high sensitivity feels the world at loud volume long before she has the internal dial to turn that volume down.",
+      "start_ratio": 0.4197,
+      "end_ratio": 0.4396
+    },
+    {
+      "id": "b-021",
+      "tag": "p",
+      "chunk_id": 22,
+      "start_sec": 506.191,
+      "end_sec": 545.182,
+      "words": 93,
+      "weight": 93,
+      "text": "How did scientists trace temperament across childhood without falling into fatalism? Look at the landmark forty-year study of behavioral inhibition (deep caution around new things) launched by Jerome Kagan at Harvard in the 1980s. It was pooled in modern reviews by Jacqueline Clauss and Jennifer Urbano Blackford (2012). Kagan wanted to know if any piece of infant temperament lasted over time. His team brought hundreds of healthy four-month-old babies into the lab. They showed them unfamiliar sights, sounds, and smells — swaying mobiles, unfamiliar voices, and a swab dipped in mild rubbing alcohol.",
+      "start_ratio": 0.4396,
+      "end_ratio": 0.4734
+    },
+    {
+      "id": "b-022",
+      "tag": "p",
+      "chunk_id": 23,
+      "start_sec": 545.182,
+      "end_sec": 561.013,
+      "words": 37,
+      "weight": 37,
+      "text": "Roughly 40 percent of four-month-olds stayed relaxed and calm (low-reactive). About 20 percent showed a striking pattern of high reactivity: they arched their backs, pumped their arms and legs, and cried when new sights and sounds appeared.",
+      "start_ratio": 0.4734,
+      "end_ratio": 0.4872
+    },
+    {
+      "id": "b-023",
+      "tag": "p",
+      "chunk_id": 24,
+      "start_sec": 561.013,
+      "end_sec": 598.444,
+      "words": 94,
+      "weight": 94,
+      "text": "Kagan’s team followed those same babies into toddlerhood and the early school years. The high-reactive babies were much more likely at fourteen and twenty-one months to show behavioral inhibition. They clung tightly to a parent when entering an unfamiliar playroom, hesitated to approach a toy robot or a clown, and stayed quiet around unfamiliar kids. When newspapers and magazines wrote about Kagan’s lab in the 1990s, they often called it “born shy” or “brain destiny.” Parents of cautious toddlers feared that a four-month-old who cried at a mobile was doomed to lifelong social anxiety.",
+      "start_ratio": 0.4872,
+      "end_ratio": 0.5197
+    },
+    {
+      "id": "b-024",
+      "tag": "p",
+      "chunk_id": 25,
+      "start_sec": 598.444,
+      "end_sec": 644.115,
+      "words": 98,
+      "weight": 98,
+      "text": "Long-term follow-ups — by Kagan, by Nathan Fox, and in Clauss and Blackford’s (2012) meta-analysis — revealed a much more hopeful truth. First, true behavioral inhibition goes much deeper than the normal eight-to-twelve-month stranger shyness we met in Chapter 8. It is a steady pattern of pulling back from unfamiliar rooms, toys, and people across years. Second, at the population group level, moderate-certainty evidence suggests a real link. Toddlers who stay strongly inhibited across early childhood have higher odds (roughly four to seven times higher group odds) of developing social anxiety in their teens compared with bold peers.",
+      "start_ratio": 0.5197,
+      "end_ratio": 0.5593
+    },
+    {
+      "id": "b-025",
+      "tag": "p",
+      "chunk_id": 26,
+      "start_sec": 644.115,
+      "end_sec": 664.666,
+      "words": 47,
+      "weight": 47,
+      "text": "Third — and most important for parents — a group risk is never a personal sentence. Across every single study, the majority of strongly inhibited toddlers (roughly 55 to 60 percent) never develop a clinical anxiety disorder. And most teens with social anxiety were never high-reactive babies!",
+      "start_ratio": 0.5593,
+      "end_ratio": 0.5772
+    },
+    {
+      "id": "b-026",
+      "tag": "p",
+      "chunk_id": 27,
+      "start_sec": 664.666,
+      "end_sec": 697.577,
+      "words": 84,
+      "weight": 84,
+      "text": "What tips the scales toward confidence instead of lasting anxiety? Psychiatrists Alexander Thomas and Stella Chess called the secret goodness of fit — how well a parent’s style matches the specific child in front of them. Follow-up studies found that cautious toddlers struggled when parents reacted with harsh pushing, like shoving a scared two-year-old into a noisy party to “toughen them up.” They also struggled when parents reacted with anxious hovering, speaking for the child and whisking them away before they ever warmed up.",
+      "start_ratio": 0.5772,
+      "end_ratio": 0.6057
+    },
+    {
+      "id": "b-027",
+      "tag": "p",
+      "chunk_id": 28,
+      "start_sec": 697.577,
+      "end_sec": 723.528,
+      "words": 62,
+      "weight": 62,
+      "text": "By contrast, wise parents offered calm, gentle bridges. By letting a watchful toddler sit on a safe lap before taking one small step toward the sandbox, cautious kids slowly learned how to steady their own alarm bells. Temperament is real inner weather. It asks us to pack the right jacket for the child we actually have, not blame ourselves for the rain.",
+      "start_ratio": 0.6057,
+      "end_ratio": 0.6283
+    },
+    {
+      "id": "b-028",
+      "tag": "h2",
+      "chunk_id": 29,
+      "start_sec": 723.528,
+      "end_sec": 730.949,
+      "words": 10,
+      "weight": 12,
+      "text": "IV. The Anatomy of a Meltdown: Goals, Acoustics, and Words",
+      "start_ratio": 0.6283,
+      "end_ratio": 0.6347
+    },
+    {
+      "id": "b-029",
+      "tag": "p",
+      "chunk_id": 30,
+      "start_sec": 730.949,
+      "end_sec": 744.74,
+      "words": 33,
+      "weight": 33,
+      "text": "Temperament explains why kids differ in their starting sensitivity. Brain timing explains why almost every toddler — bold and cautious alike — hits a peak of explosive meltdowns between ages one and three.",
+      "start_ratio": 0.6347,
+      "end_ratio": 0.6467
+    },
+    {
+      "id": "b-030",
+      "tag": "p",
+      "chunk_id": 31,
+      "start_sec": 744.74,
+      "end_sec": 768.611,
+      "words": 66,
+      "weight": 66,
+      "text": "Think about life from the eyes of a twenty-month-old. Thanks to the motor, thinking, and language leaps of Chapters 5 through 7, a toddler can now picture big, clear goals in her head. She can imagine unlocking the heavy front door all by herself, or she wants to peel a banana without breaking it, wear rain boots to bed, or keep a block tower from falling.",
+      "start_ratio": 0.6467,
+      "end_ratio": 0.6674
+    },
+    {
+      "id": "b-031",
+      "tag": "p",
+      "chunk_id": 32,
+      "start_sec": 768.611,
+      "end_sec": 792.802,
+      "words": 62,
+      "weight": 62,
+      "text": "Yet her fingers are still clumsy, her short-term memory fills up fast, and her grasp of clock time (“after nap”) is blurry. Worse, her spoken vocabulary is far too small to argue her case when she is upset. Tantrums surge in toddlerhood not because a child is slipping backward, but because her big ideas have temporarily outrun her hands and her words.",
+      "start_ratio": 0.6674,
+      "end_ratio": 0.6884
+    },
+    {
+      "id": "b-032",
+      "tag": "p",
+      "chunk_id": 33,
+      "start_sec": 792.802,
+      "end_sec": 839.193,
+      "words": 122,
+      "weight": 122,
+      "text": "When that gap sets off a full meltdown on the hallway floor, it looks to a tired adult like pure chaos. Yet brain researcher Michael Potegal and sound scientist James Green recorded and mapped hundreds of real toddler tantrums second by second, uncovering a hidden, orderly pattern. A tantrum is not one rising wave of rage that slowly fades out; instead, it is an overlapping duet of anger and sadness. High-energy anger moves — screaming, roaring, arching the back, stomping, kicking, and shoving the parent away — peak sharply in the first few minutes and then burn out. Underneath that anger spike runs a quieter, lower-pitched current of sadness and need: whining, sobbing, kneeling on the rug, and reaching out for comfort.",
+      "start_ratio": 0.6884,
+      "end_ratio": 0.7287
+    },
+    {
+      "id": "b-033",
+      "tag": "p",
+      "chunk_id": 34,
+      "start_sec": 839.193,
+      "end_sec": 862.744,
+      "words": 57,
+      "weight": 57,
+      "text": "That two-part map explains why so much trendy parenting advice flops on the kitchen floor. In recent years, viral social media scripts have told parents to lean in at the very top of a toddler’s rage and recite long emotion speeches. When the screaming two-year-old swats the parent’s face or yells “NO TALKING!”, the parent feels defeated.",
+      "start_ratio": 0.7287,
+      "end_ratio": 0.7492
+    },
+    {
+      "id": "b-034",
+      "tag": "p",
+      "chunk_id": 35,
+      "start_sec": 862.744,
+      "end_sec": 882.895,
+      "words": 73,
+      "weight": 73,
+      "text": "Good science separates what talking about feelings builds over years from what it cannot do during a five-alarm body storm. Moderate-certainty studies suggest that across the preschool years, kids who build a rich word bank for feelings during calm chats get better at reading friends and handling upsets. Yet low-to-moderate evidence is associated with zero proof that a long feelings speech during the peak anger wave of a tantrum works like an off-switch.",
+      "start_ratio": 0.7492,
+      "end_ratio": 0.7667
+    },
+    {
+      "id": "b-035",
+      "tag": "p",
+      "chunk_id": 36,
+      "start_sec": 882.895,
+      "end_sec": 912.286,
+      "words": 81,
+      "weight": 81,
+      "text": "While a two-year-old is at the top of the anger peak, her language circuits are flooded and offline. Pouring twenty words onto a screaming toddler just adds more noise to an overloaded brain. Sit quietly nearby to keep her body safe until the anger peak drops into sadness. Then her nervous system can finally take in a warm hug or four simple words (“That was so hard”). Waiting is not lazy parenting; it is working with how the brain is built.",
+      "start_ratio": 0.7667,
+      "end_ratio": 0.7922
+    },
+    {
+      "id": "b-036",
+      "tag": "h2",
+      "chunk_id": 37,
+      "start_sec": 912.286,
+      "end_sec": 917.907,
+      "words": 9,
+      "weight": 11,
+      "text": "V. Functional Fear, Shared Joy, and the Cultural Niche",
+      "start_ratio": 0.7922,
+      "end_ratio": 0.7971
+    },
+    {
+      "id": "b-037",
+      "tag": "p",
+      "chunk_id": 38,
+      "start_sec": 917.907,
+      "end_sec": 961.458,
+      "words": 117,
+      "weight": 117,
+      "text": "Just as anger and frustration have a real job in growing up, so do fear and joy. In a culture obsessed with keeping kids happy every minute, it is easy to forget that hard feelings evolved for good reasons. Healthy fear keeps a newly walking two-year-old from wandering away in a busy parking lot, while frustration fuels the stubborn drive that finally masters a coat zipper. Sadness calls loved ones close after a bump or a loss. Shared joy — belly laughs during a game of chase, quiet smiles over a bedtime book — widens focus and builds deep trust. Even so, wild evening tickle games can sometimes tip an overtired toddler into tears right before bed.",
+      "start_ratio": 0.7971,
+      "end_ratio": 0.8349
+    },
+    {
+      "id": "b-038",
+      "tag": "p",
+      "chunk_id": 39,
+      "start_sec": 961.458,
+      "end_sec": 983.089,
+      "words": 53,
+      "weight": 53,
+      "text": "How a family reads and answers these feelings is also shaped by the cultural developmental niche we met in Chapter 8. Communities differ widely in which feelings they cheer on and how fast they expect a toddler to quiet down on a bus. Some prize big, loud excitement; others prize calm, quiet steadiness.",
+      "start_ratio": 0.8349,
+      "end_ratio": 0.8537
+    },
+    {
+      "id": "b-039",
+      "tag": "p",
+      "chunk_id": 40,
+      "start_sec": 983.089,
+      "end_sec": 1014.4,
+      "words": 74,
+      "weight": 74,
+      "text": "A loud, high-energy toddler who is cheered on around a lively big-family dinner table might be called “too much” in a quiet city flat. A watchful, quiet toddler who gets worried looks in an outgoing town may be praised as wise and polite in another culture. Respecting cultural differences never excuses harshness or neglect. It simply reminds us that healthy human families do not all talk, soothe, or laugh at the exact same volume.",
+      "start_ratio": 0.8537,
+      "end_ratio": 0.8809
+    },
+    {
+      "id": "b-040",
+      "tag": "p",
+      "chunk_id": 41,
+      "start_sec": 1014.4,
+      "end_sec": 1057.951,
+      "words": 96,
+      "weight": 96,
+      "text": "Here our three lenses bring the emotional revolution of toddlerhood into clear focus. The science shows with high certainty that babies spot and protest a sudden blank stare in the still-face test. It suggests with moderate certainty that two-way calming steadies daily life, and that built-in sensitivity and self-control mature on different clocks. It also suggests that steady caution raises group odds of teen social anxiety without fixing any child’s fate, and that toddler tantrums mark the gap between big goals and young skills. Meanwhile, it shows low certainty for treating mid-tantrum speeches as magic off-switches.",
+      "start_ratio": 0.8809,
+      "end_ratio": 0.9187
+    },
+    {
+      "id": "b-041",
+      "tag": "p",
+      "chunk_id": 42,
+      "start_sec": 1057.951,
+      "end_sec": 1087.182,
+      "words": 93,
+      "weight": 93,
+      "text": "The interpretation of that science frees parents from both shame and doom. A meltdown in the cereal aisle is neither proof of bad parenting nor a sign that your child will lack willpower at age twenty. And the art of walking with a toddler through big feelings lives in quiet timing: slide the heavy truck out of kicking range, and skip the lecture while your toddler is roaring. Let a cautious child watch the playground from your lap for ten minutes, and keep your hand ready when the storm softens into a reach.",
+      "start_ratio": 0.9187,
+      "end_ratio": 0.9441
+    },
+    {
+      "id": "b-042",
+      "tag": "p",
+      "chunk_id": 43,
+      "start_sec": 1087.182,
+      "end_sec": 1106.973,
+      "words": 49,
+      "weight": 49,
+      "text": "What this chapter does not tell us is what happens when a toddler’s wishes run headfirst into a firm “no.” It does not cover reaching for a wall outlet, hitting over a truck, or using the potty. How boundaries, hitting, spanking, and willing cooperation work belongs to Chapter 10.",
+      "start_ratio": 0.9441,
+      "end_ratio": 0.9613
+    },
+    {
+      "id": "b-043",
+      "tag": "p",
+      "chunk_id": 44,
+      "start_sec": 1106.973,
+      "end_sec": 1116.204,
+      "words": 27,
+      "weight": 27,
+      "text": "Look back one more time at the eighteen-month-old on the hallway floor, her cheeks still wet with tears as she reaches up to take her parent’s hand.",
+      "start_ratio": 0.9613,
+      "end_ratio": 0.9693
+    },
+    {
+      "id": "b-044",
+      "tag": "p",
+      "chunk_id": 45,
+      "start_sec": 1116.204,
+      "end_sec": 1151.594,
+      "words": 104,
+      "weight": 104,
+      "text": "She has not turned into a different child because we have mapped the still-face review, Kagan’s temperament studies, or the two waves of a tantrum. Our map of the hallway has changed. The storm that just passed was not a flaw in her character, and the parent who knelt quietly beside her did not fail because a sentence didn’t stop the screaming. Together, a young nervous system and a steady adult rode out a wave that was too big for the child to hold alone. And in the reach that followed, the slow work of learning how to live with big feelings carried on.",
+      "start_ratio": 0.9693,
+      "end_ratio": 1.0
+    }
+  ]
+}

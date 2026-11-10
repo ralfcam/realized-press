@@ -1,0 +1,149 @@
+# Realized Press — Spécification de Poétique Phrasale et Style Cinétique (BWE v1.3.1, ARC-104)
+# Régit l'audit "--poetics" dans scripts/audit_manuscript.py et le lissage dans bwe/style_sculptor.py pour le français (FR).
+
+version: "1.3.1"
+language: "fr"
+
+thresholds:
+  max_copula_ratio: 0.38
+  max_nominalizations_per_sentence: 3
+  max_participial_tail_drags_per_chapter: 2
+  max_negation_pivots_per_chapter: 3
+  min_cadence_sigma_words: 2.0
+  target_cadence_sigma_words: 3.5
+  min_poetics_score: 75.0
+
+patterns:
+  participial_tail_drag_regex: ",\\s+(?:soulignant|mettant en évidence|démontrant|illustrant|reflétant|assurant|favorisant|facilitant|mettant l'accent|révélant|prouvant|garantissant|témoignant)\\b[^.?!]*(?:[.?!]|$)"
+  negation_pivot_regex: "\\b(?:non\\s+(?:seulement|simplement|uniquement|pas)\\s+[^,;.?!]{3,45},?\\s+mais\\s+(?:aussi|plutôt|bien|également)?|moins\\s+(?:de|une\\s+question\\s+de)\\s+[^,;.?!]{3,40}\\s+que\\s+(?:de|plutôt))\\b"
+  copula_predicate_regex: "\\b(?:est|sont|était|étaient|fut|furent|soit|soient|été|étant|constitue|constituent|représente|représentent|sert\\s+de|agit\\s+comme|il\\s+y\\s+a)\\b"
+  nominalization_suffix_regex: "\\b[a-zàâéèêëîïôùûüœæç]{6,}(?:tion|tions|sion|sions|ment|ments|ité|ités|ance|ances|ence|ences|isme|ismes)\\b"
+
+nominalization_whitelist:
+  - action
+  - actions
+  - alimentation
+  - attention
+  - condition
+  - conditions
+  - connexion
+  - connexions
+  - conversation
+  - conversations
+  - décision
+  - décisions
+  - direction
+  - directions
+  - distance
+  - durée
+  - éducation
+  - élément
+  - éléments
+  - émotion
+  - émotions
+  - enfant
+  - enfance
+  - environnement
+  - environnements
+  - état
+  - états
+  - évidence
+  - évidente
+  - expérience
+  - expériences
+  - explication
+  - explications
+  - fonction
+  - fonctions
+  - fondation
+  - génération
+  - générations
+  - gestation
+  - habitation
+  - habileté
+  - habiletés
+  - importance
+  - information
+  - informations
+  - instruction
+  - instructions
+  - interaction
+  - interactions
+  - maternité
+  - maturation
+  - mouvement
+  - mouvements
+  - nutrition
+  - observation
+  - observations
+  - organisation
+  - parent
+  - parentalité
+  - participation
+  - population
+  - populations
+  - protection
+  - régulation
+  - relation
+  - relations
+  - respiration
+  - santé
+  - situation
+  - situations
+  - stimulation
+  - transition
+  - transitions
+  - transmission
+  - variation
+  - variations
+
+kinetic_verb_lexicon:
+  barrier_mechanics:
+    - absorbe
+    - amortit
+    - bloque
+    - filtre
+    - freine
+    - intercepte
+    - isole
+    - pare
+    - protège
+    - scelle
+    - verrouille
+  structural_growth:
+    - amarre
+    - ancre
+    - bâtit
+    - cimente
+    - déploie
+    - enclenche
+    - engrène
+    - fixe
+    - forge
+    - lie
+    - noue
+    - structure
+    - tisse
+  hydro_circulatory:
+    - canalise
+    - décante
+    - décharge
+    - dissout
+    - draine
+    - irrigue
+    - pompe
+    - propulse
+    - purge
+    - sécrète
+  relational_motion:
+    - accorde
+    - apaise
+    - ajuste
+    - berce
+    - capte
+    - guide
+    - module
+    - oriente
+    - rassure
+    - relaye
+    - synchronise

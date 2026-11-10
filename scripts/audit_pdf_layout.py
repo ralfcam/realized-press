@@ -152,7 +152,11 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
         log.append(f"- [FAIL] Missing KDP interior PDF: `{kdp_pdf}`")
         return False, log
 
-    kdp_reader = PdfReader(str(kdp_pdf))
+    import gc
+    gc.collect()
+
+    kdp_fh = open(kdp_pdf, "rb")
+    kdp_reader = PdfReader(kdp_fh)
     kdp_pages = len(kdp_reader.pages)
     blank_pages = [i + 1 for i, p in enumerate(kdp_reader.pages) if not (p.extract_text() or "").strip()]
 
@@ -174,8 +178,12 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
         log.append(f"- [PASS] Page count {kdp_pages} within optimal commercial bounds (<= {max_kdp_pages}).")
 
     # 2. Audit Reader Edition A4 PDF
+    r_fh = None
+    r_reader = None
     if reader_pdf.is_file():
-        r_reader = PdfReader(str(reader_pdf))
+        gc.collect()
+        r_fh = open(reader_pdf, "rb")
+        r_reader = PdfReader(r_fh)
         r_pages = len(r_reader.pages)
         r_blank = [i + 1 for i, p in enumerate(r_reader.pages) if not (p.extract_text() or "").strip()]
         log.append("\n## 2. Reader Edition A4 PDF Audit")
@@ -201,10 +209,13 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
     log.append(f'- **Calculated Spine:** {expected_spine_in:.4f}" ({expected_spine_in * IN_TO_MM:.2f} mm)')
     log.append(f'- **Expected Total Wrap:** {expected_width_in:.4f}" x {expected_height_in:.4f}" ({expected_w_mm:.2f} x {expected_h_mm:.2f} mm)')
 
+    c_fh = None
     if not cover_pdf.is_file():
         log.append(f"- [WARN] KDP cover wrap PDF not found at `{cover_pdf}`.")
     else:
-        c_reader = PdfReader(str(cover_pdf))
+        gc.collect()
+        c_fh = open(cover_pdf, "rb")
+        c_reader = PdfReader(c_fh)
         if len(c_reader.pages) < 1:
             log.append("- [FAIL] Cover PDF has 0 pages.")
             success = False
@@ -305,7 +316,7 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
     sup_re = re.compile(f"([{sup_chars}]+)")
 
     # 5a. Check KDP 6x9 PDF & Reader Edition PDF for leaks, standalone Notes headings, and same-page co-location
-    for label, pdf_reader in [("KDP 6x9 PDF", kdp_reader)] + ([("Reader Edition PDF", PdfReader(str(reader_pdf)))] if reader_pdf.is_file() else []):
+    for label, pdf_reader in [("KDP 6x9 PDF", kdp_reader)] + ([("Reader Edition PDF", r_reader)] if r_reader is not None else []):
         leaks_on_pages: list[int] = []
         notes_heading_pages: list[int] = []
         colocation_Verified_count = 0
@@ -381,6 +392,14 @@ def audit_pdf_layout(book_dir: Path, paper_type: str = "white") -> tuple[bool, l
                     f"- [PASS] EPUB `{epub_file.name}`: 0 apparatus leaks; {noteref_count} `epub:type=\"noteref\"` callouts "
                     f"and {aside_fn_count} `<aside epub:type=\"footnote\">` pop-up notes verified."
                 )
+
+    for fh in (kdp_fh, r_fh, c_fh):
+        if fh is not None:
+            try:
+                fh.close()
+            except Exception:
+                pass
+    gc.collect()
 
     return success, log
 

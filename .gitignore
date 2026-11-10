@@ -22,5 +22,7 @@ dist/*
 __pycache__/
 *.py[cod]
 .cache/
+**/.cache/
+**/audiobook/.cache/
 .agents/hooks/.pending_notice.txt
 scratch/

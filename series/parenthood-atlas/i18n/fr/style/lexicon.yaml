@@ -1,0 +1,70 @@
+# series/parenthood-atlas/i18n/fr/style/lexicon.yaml
+# Lexique de référence pour les termes récurrents et les chaînes d'interface en français (ARC-108 / ARC-109).
+# Registre : français international soigné, vouvoiement de respect et de bienveillance ("vous"),
+# terminologie institutionnelle française (HAS, Santé publique France, PMI).
+
+register:
+  address: "vouvoiement (vous / votre / vos)"
+  generic_parent_noun: "parents"        # aussi : père et mère, personnes qui prennent soin de l'enfant
+  generic_child_noun: "enfant"          # aussi : nourrisson, bébé, tout-petit
+  decimal_separator: ","                # 4,5 mois ; espace insécable pour les milliers (10 000)
+  quotes: "« … »"                       # guillemets français avec espaces insécables
+  dash: "—"                             # tiret cadratin pour les incises et dialogues
+
+calibrated_verbs:
+  high:
+    en: "shows"
+    fr: ["**démontre**", "**confirme**", "**établit**", "**montre**"]
+  moderate:
+    en: "suggests"
+    fr: ["**suggère**", "**indique**", "**laisse penser**"]
+  low:
+    en: "is associated with"
+    fr: ["**est associé à**", "**est corrélé à**", "**coïncide avec**"]
+
+chapter_apparatus:
+  chapter_word: "Chapitre"
+  takeaway_title: "Points clés du chapitre {n} : Ce que démontrent les preuves face à ce que vous pouvez lâcher"
+  takeaway_labels:
+    evidence_shows: "Ce que démontrent les preuves"
+    let_go_of: "Ce que vous pouvez lâcher"
+    core_rule: "La règle fondamentale"
+  notes_heading: "Notes"                # STRUCTURAL: conserver littéralement "## Notes"
+  linked_cards_heading: "Linked evidence cards"
+  note_keys_kept_in_english: ["Grade:", "Evidence Card:", "Evidence Cards:"]
+  regional_note_prefix: "Contexte institutionnel (France) :"
+  regional_footnote_key_pattern: "ch\\d\\d-fr-[a-z0-9-]+"
+
+front_matter:
+  h1: "Comment utiliser cet atlas"
+  h2: "*Le Guide d'urgence de 2 h du matin*"
+  quickfinder_heading: "### Le Guide d'urgence de 2 h du matin"
+  question_prefix: "**Q :**"
+  chapter_ref: "*Chapitre {n} (Mouvement {m})*"
+
+terms:
+  graduated_extinction:      { en: "graduated extinction",   fr: "extinction progressive (méthode 5-10-15)" }
+  cry_it_out:                { en: "cry it out",             fr: "laisser pleurer (extinction standard)" }
+  bedtime_fading:            { en: "bedtime fading",         fr: "décalage progressif de l'heure du coucher" }
+  sleep_training:            { en: "sleep training",         fr: "apprentissage du sommeil autonome" }
+  night_waking:              { en: "night waking",           fr: "réveils nocturnes" }
+  co_regulation:             { en: "co-regulation",          fr: "corégulation affective parent-enfant" }
+  responsive_feeding:        { en: "responsive feeding",     fr: "alimentation réactive (à l'écoute des signaux)" }
+  still_face_paradigm:       { en: "Still-Face paradigm",    fr: "paradigme du visage impassible (Tronick)" }
+  attachment:                { en: "attachment",             fr: "attachement" }
+  spoiling:                  { en: "spoiling",               fr: "gâter ou trop couver" }
+  conversational_turns:      { en: "conversational turns",   fr: "tours de parole interactifs" }
+  baby_led_weaning:          { en: "baby-led weaning",       fr: "diversification menée par l'enfant (DME)" }
+  room_sharing:              { en: "room-sharing",           fr: "partage de la chambre parentale (sans partage du lit)" }
+  co_sleeping:               { en: "co-sleeping",            fr: "partage du lit parental (cododo)" }
+  kangaroo_mother_care:      { en: "kangaroo mother care",   fr: "soins kangourou (peau à peau précoce)" }
+  delayed_cord_clamping:     { en: "delayed cord clamping",  fr: "clampage tardif du cordon ombilical" }
+  perceptual_narrowing:      { en: "perceptual narrowing",   fr: "spécialisation ou rétrécissement perceptif" }
+  joint_attention:           { en: "joint attention",        fr: "attention conjointe" }
+  deferred_imitation:        { en: "deferred imitation",     fr: "imitation différée" }
+  social_referencing:        { en: "social referencing",     fr: "référenciation sociale" }
+  executive_function:        { en: "executive function",     fr: "fonctions exécutives" }
+  delay_of_gratification:    { en: "delay of gratification", fr: "capacité à différer la récompense" }
+  guided_play:               { en: "guided play",            fr: "jeu guidé étayé par l'adulte" }
+  free_play:                 { en: "free play",              fr: "jeu libre autonome" }
+  symbolic_play:             { en: "symbolic play",          fr: "jeu de faire semblant ou jeu symbolique" }

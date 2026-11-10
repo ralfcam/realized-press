@@ -949,7 +949,7 @@ def audit_graph_coherence(root: Path, book_path: Path, lang: str | None = None) 
     7e: Orphan Card & Unmapped Footnote Detector
     """
     sys.path.insert(0, str(root))
-    from bwe.db import get_db, init_db
+    from bwe.db import get_db, init_db, ensure_series_graph
 
     try:
         conn = get_db()
@@ -974,6 +974,8 @@ def audit_graph_coherence(root: Path, book_path: Path, lang: str | None = None) 
         series_slug = parts[0]
         book_slug = "root"
         series_base_dir = series_dir / parts[0]
+
+    ensure_series_graph(conn, root, series_slug)
 
     lines: list[str] = []
     violations: list[str] = []
@@ -1346,7 +1348,7 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
             rt = manifest_data.get("readability_targets") or {}
             language = rt.get("language") or manifest_data.get("locale") or ("es" if "es" in book_path.parts else "en")
             szigriszt_min = float(rt.get("szigriszt_min", 45.0))
-            kandel_min = float(rt.get("kandel_min", 60.0))
+            kandel_min = float(rt.get("kandel_min", rt.get("kandel_moles_min", 50.0)))
             max_avg_sentence_words = float(rt.get("max_avg_sentence_words", 22.0 if language in {"es", "fr"} else 19.0))
             max_fk_grade = float(rt.get("max_flesch_kincaid_grade", 10.5))
         except Exception:

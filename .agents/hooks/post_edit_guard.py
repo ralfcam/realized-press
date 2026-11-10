@@ -252,7 +252,7 @@ def _check_chapter_gates(path: Path, text: str) -> list[str]:
                 notices.append(
                     f"Anti-Leakage Gate (`ARC-71`): `{path.name}` leaks `{m.group(0)}` ({leak_label}) in body prose."
                 )
-        lang = "es" if ("i18n" in path.parts and "es" in path.parts) else "en"
+        lang = "es" if ("i18n" in path.parts and "es" in path.parts) else ("fr" if ("i18n" in path.parts and "fr" in path.parts) else "en")
         jargon_dict = load_jargon_dictionary(ROOT, path.parent.parent)
         found_jargon = [t for t in jargon_dict if t.lower() in body_before_notes.lower()]
         if found_jargon:
@@ -266,6 +266,12 @@ def _check_chapter_gates(path: Path, text: str) -> list[str]:
                 notices.append(
                     f"Bestseller Readability Gate (`ARC-76`): `{path.name}` Flesch-Szigriszt is {rm['szigriszt']} "
                     f"(target >= 45.0, avg sentence {rm['avg_sentence_words']}w)."
+                )
+        elif lang == "fr":
+            if float(rm.get("kandel", 0)) < 50.0:
+                notices.append(
+                    f"Bestseller Readability Gate (`ARC-108`): `{path.name}` Kandel-Moles is {rm['kandel']} "
+                    f"(target >= 50.0, avg sentence {rm['avg_sentence_words']}w)."
                 )
         else:
             if float(rm["fk_grade"]) > 10.5:

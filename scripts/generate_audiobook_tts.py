@@ -44,6 +44,30 @@ FALLBACK_TTS_MODELS = [
 ]
 
 
+def detect_book_lang(book_path: Path) -> str:
+    path_str = str(book_path).replace("\\", "/")
+    if "/i18n/es" in path_str or path_str.endswith("/es"):
+        return "es"
+    if "/i18n/fr" in path_str or path_str.endswith("/fr"):
+        return "fr"
+    # Check series.yaml if present
+    series_yaml = book_path / "series.yaml"
+    if not series_yaml.exists() and book_path.parent:
+        candidate = book_path.parent / "series.yaml"
+        if candidate.exists():
+            series_yaml = candidate
+    if series_yaml.exists():
+        try:
+            import yaml
+            data = yaml.safe_load(series_yaml.read_text(encoding="utf-8")) or {}
+            loc = data.get("locale") or data.get("language")
+            if loc:
+                return str(loc).lower()
+        except Exception:
+            pass
+    return "en"
+
+
 def synthesize_chunk_pcm(text: str, voice: str, model: str, api_key: str, max_retries: int = 5) -> bytes:
     models_to_try = [model] + [m for m in FALLBACK_TTS_MODELS if m != model]
     last_err = None
@@ -83,13 +107,22 @@ def synthesize_chunk_pcm(text: str, voice: str, model: str, api_key: str, max_re
                     data = json.loads(resp.read().decode("utf-8"))
                 candidates = data.get("candidates") or []
                 if not candidates:
-                    raise RuntimeError("No candidates returned from Gemini TTS API.")
+                    feedback = data.get("promptFeedback") or {}
+                    last_err = RuntimeError(f"No candidates returned from Gemini TTS API (feedback: {feedback}).")
+                    if attempt < max_retries - 1:
+                        time.sleep(2.0)
+                        continue
+                    break
                 parts = (candidates[0].get("content") or {}).get("parts") or []
                 for p in parts:
                     inline = p.get("inlineData") or {}
                     if inline.get("data"):
                         return base64.b64decode(inline["data"])
-                raise RuntimeError("No inlineData audio returned in Gemini response.")
+                last_err = RuntimeError("No inlineData audio returned in Gemini response.")
+                if attempt < max_retries - 1:
+                    time.sleep(2.0)
+                    continue
+                break
             except urllib.error.HTTPError as e:
                 last_err = e
                 body_msg = ""
@@ -101,15 +134,23 @@ def synthesize_chunk_pcm(text: str, voice: str, model: str, api_key: str, max_re
                 if "spending cap" in body_msg.lower():
                     print(f"\n[ALERT] Monthly spending cap reached on Gemini API: {body_msg}", file=sys.stderr)
                     raise
+                print(f"    [{current_model}] HTTP {e.code}: {body_msg}", file=sys.stderr)
                 if e.code in [429, 500, 503] and attempt < max_retries - 1:
                     wait_s = max(3.0, float(2 ** (attempt + 1)))
                     print(f"    [{current_model}] HTTP {e.code}. Backing off {wait_s:.1f}s before retry ({attempt+1}/{max_retries})...")
                     time.sleep(wait_s)
                     continue
-                elif e.code in [429, 500, 503] and current_model != models_to_try[-1]:
-                    print(f"    [{current_model}] Quota reached. Falling back to alternative model...")
+                elif current_model != models_to_try[-1]:
+                    print(f"    [{current_model}] Failed with HTTP {e.code}. Falling back to next model...")
+                    break
                     break
                 raise
+            except Exception as e:
+                last_err = e
+                if attempt < max_retries - 1:
+                    time.sleep(2.0)
+                    continue
+                break
 
     if last_err:
         raise last_err
@@ -144,17 +185,19 @@ def main() -> None:
     parser.add_argument("book", type=Path, help="Book directory (e.g. series/architectures-of-memory/book-01-vanishing-signal or series/parenthood-atlas)")
     parser.add_argument("--chapter", default=None, help="Filter to a specific chapter prefix (e.g. '01' or '07')")
     parser.add_argument("--voice", default="Kore", help="Gemini prebuilt voice name (default: Kore)")
-    parser.add_argument("--model", default="gemini-2.5-flash-preview-tts", help="Gemini TTS model")
+    parser.add_argument("--model", default="gemini-2.5-pro-preview-tts", help="Gemini TTS model (default: gemini-2.5-pro-preview-tts)")
     parser.add_argument("--max-chars", type=int, default=3500, help="Max characters per chunk (when using --batch-chunks)")
     parser.add_argument("--batch-chunks", action="store_true", help="Group blocks into 3500-char chunks instead of per-paragraph chunks")
     parser.add_argument("--dry-run", action="store_true", help="Estimate duration, blocks & chunk counts without calling API")
     parser.add_argument("--encode-mp3-only", action="store_true", help="Encode existing WAVs in audiobook/ to MP3 without calling Gemini")
     parser.add_argument("--skip-existing", action="store_true", help="Skip chapters that already have complete WAV and timings JSON")
+    parser.add_argument("--lang", default=None, help="Spoken language code (e.g. 'en', 'es', 'fr'); default auto-detected from book path / manifest")
     args = parser.parse_args()
 
     root = repo_root()
     load_dotenv(root)
     book_path = resolve_book_path(root, args.book)
+    book_lang = (args.lang or detect_book_lang(book_path)).lower()
     chapters_dir = book_path / "chapters"
     out_dir = book_path / "audiobook"
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -200,7 +243,7 @@ def main() -> None:
 
     for f in md_files:
         content = f.read_text(encoding="utf-8")
-        blocks = extract_semantic_blocks(content)
+        blocks = extract_semantic_blocks(content, lang=book_lang)
         chunks = pack_semantic_blocks(blocks, max_chars=args.max_chars, per_paragraph=per_paragraph)
         words = sum(b["words"] for b in blocks)
         minutes = words / WPM_SPEAKING_RATE
@@ -210,7 +253,7 @@ def main() -> None:
         rows.append((f.name, words, len(blocks), len(chunks), minutes))
 
     mode_str = "Single-Paragraph Exact Timestamps" if per_paragraph else f"Batched Chunks (≤ {args.max_chars} chars)"
-    print(f"# Audiobook TTS Plan — {book_path.name} (Voice: {args.voice}, Mode: {mode_str})")
+    print(f"# Audiobook TTS Plan — {book_path.name} (Lang: {book_lang}, Voice: {args.voice}, Mode: {mode_str})")
     print(f"{'Chapter':<38} {'Words':>7} {'Blocks':>7} {'Chunks':>7} {'Est. Min':>9}")
     print("-" * 73)
     for name, words, n_blocks, n_chunks, mins in rows:
@@ -227,8 +270,10 @@ def main() -> None:
         print("\nerror: set GEMINI_API_KEY in environment to synthesize audio (or use --dry-run).", file=sys.stderr)
         sys.exit(1)
 
-    cache_dir = root / ".cache" / "tts_pcm"
-    cache_dir.mkdir(parents=True, exist_ok=True)
+    book_cache_dir = out_dir / ".cache"
+    book_cache_dir.mkdir(parents=True, exist_ok=True)
+    global_cache_dir = root / ".cache" / "tts_pcm"
+    global_cache_dir.mkdir(parents=True, exist_ok=True)
 
     ffmpeg_bin = shutil.which("ffmpeg")
     for f in md_files:
@@ -240,7 +285,7 @@ def main() -> None:
                 print(f"Skipping already-synthesized chapter: {f.name}")
                 continue
         content = f.read_text(encoding="utf-8")
-        blocks = extract_semantic_blocks(content)
+        blocks = extract_semantic_blocks(content, lang=book_lang)
         chunks = pack_semantic_blocks(blocks, max_chars=args.max_chars, per_paragraph=per_paragraph)
         pcm_all = bytearray()
         chunk_durations_sec: list[float] = []
@@ -253,15 +298,27 @@ def main() -> None:
             spoken_text = chunk["spoken_text"]
 
             cache_key = hashlib.sha256(f"{args.voice}:{args.model}:{spoken_text}".encode("utf-8")).hexdigest()
-            cache_file = cache_dir / f"{cache_key}.pcm"
+            cache_file = book_cache_dir / f"{cache_key}.pcm"
+            global_cache_file = global_cache_dir / f"{cache_key}.pcm"
 
             if cache_file.exists():
                 print(f"Loaded cached {f.stem} [{idx}/{len(chunks)}] <{tag}> ({chunk['total_words']}w): {repr(preview)}...", flush=True)
                 pcm = cache_file.read_bytes()
+            elif global_cache_file.exists():
+                print(f"Loaded cached {f.stem} [{idx}/{len(chunks)}] <{tag}> ({chunk['total_words']}w) [shared]: {repr(preview)}...", flush=True)
+                pcm = global_cache_file.read_bytes()
+                try:
+                    cache_file.write_bytes(pcm)
+                except Exception:
+                    pass
             else:
                 print(f"Synthesizing {f.stem} [{idx}/{len(chunks)}] <{tag}> ({chunk['total_words']}w): {repr(preview)}...", flush=True)
                 pcm = synthesize_chunk_pcm(spoken_text, voice=args.voice, model=args.model, api_key=api_key)
-                cache_file.write_bytes(pcm)
+                try:
+                    cache_file.write_bytes(pcm)
+                    global_cache_file.write_bytes(pcm)
+                except Exception:
+                    pass
                 time.sleep(1.0)
 
             # Insert calibrated natural breath pause after block
