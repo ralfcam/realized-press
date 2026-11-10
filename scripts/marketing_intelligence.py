@@ -79,6 +79,8 @@ SEED_CSV_BY_SERIES = {
     "parenthood-atlas": "gkp_parenting_0_3_seed.csv",
     "parenthood-atlas/i18n/es": "gkp_parenting_es_seed.csv",
     "parenthood-atlas-es": "gkp_parenting_es_seed.csv",
+    "parenthood-atlas/i18n/fr": "gkp_parenting_fr_seed.csv",
+    "parenthood-atlas-fr": "gkp_parenting_fr_seed.csv",
     "architectures-of-memory": "gkp_architectures_of_memory_seed.csv",
 }
 CSV_FIELDS = [
@@ -1566,6 +1568,8 @@ def _resolve_series(arg: Optional[str], need_seed: bool = True) -> list[str]:
         # Check alias
         if clean_arg == "parenthood-atlas-es" and (ROOT / "series" / "parenthood-atlas" / "i18n" / "es" / "series.yaml").is_file():
             return ["parenthood-atlas/i18n/es"]
+        if clean_arg == "parenthood-atlas-fr" and (ROOT / "series" / "parenthood-atlas" / "i18n" / "fr" / "series.yaml").is_file():
+            return ["parenthood-atlas/i18n/fr"]
         raise SystemExit(f"error: unknown series '{arg}' (no series/{clean_arg}/series.yaml)")
     slugs = []
     for p in (ROOT / "series").glob("**/series.yaml"):
