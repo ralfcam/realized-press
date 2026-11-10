@@ -97,9 +97,16 @@
             File Explorer
           </h2>
         </div>
-        <span class="text-[10px] font-mono text-stone-400 bg-stone-800/80 px-2 py-0.5 rounded border border-stone-700/60">
-          OKF v0.2
-        </span>
+        <!-- Language Switcher in Explorer -->
+        <div class="flex items-center gap-1 bg-stone-950/80 p-0.5 rounded-lg border border-stone-800" role="group" aria-label="Edition Language">
+          {% for l in ['en', 'es', 'fr'] %}
+          <a href="/ide?lang={{ l }}"
+             class="min-h-[44px] min-w-[44px] px-2 py-1 rounded text-xs font-mono font-bold transition flex items-center justify-center {{ 'bg-amber-500 text-stone-950 shadow' if (lang or 'en') == l else 'text-stone-400 hover:text-stone-200' }}"
+             aria-label="Switch IDE to {{ l|upper }}">
+            {{ l|upper }}
+          </a>
+          {% endfor %}
+        </div>
       </div>
 
       <!-- Quick Search / Filter Bar in Explorer -->
@@ -578,7 +585,9 @@
                         name="target_path"
                         class="w-full bg-stone-950 border border-stone-700 text-stone-100 rounded-lg px-3 py-2 text-xs font-mono min-h-[44px] min-w-[44px] touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
                   <option value="series/parenthood-atlas">series/parenthood-atlas (v1.0-rc1)</option>
-                  <option value="series/parenthood-atlas/chapters/01-before-the-child-is-born.md">parenthood-atlas/ch01</option>
+                  <option value="series/parenthood-atlas/chapters/01-before-the-child-is-born.md">parenthood-atlas/ch01 (EN)</option>
+                  <option value="series/parenthood-atlas/i18n/es">series/parenthood-atlas/i18n/es (ES)</option>
+                  <option value="series/parenthood-atlas/i18n/fr">series/parenthood-atlas/i18n/fr (FR)</option>
                   <option value="series/architectures-of-memory/book-01-vanishing-signal">aom/book-01-vanishing-signal</option>
                   <option value="series/architectures-of-memory/book-02-forget-gate">aom/book-02-forget-gate</option>
                   <option value="series/architectures-of-memory/book-03-weight-of-attention">aom/book-03-weight-of-attention</option>
@@ -810,6 +819,8 @@
         } else if (this.currentFilePath.includes('parenthood-atlas')) {
           if (this.currentFilePath.includes('i18n/es')) {
             series = 'parenthood-atlas/i18n/es';
+          } else if (this.currentFilePath.includes('i18n/fr')) {
+            series = 'parenthood-atlas/i18n/fr';
           } else {
             series = 'parenthood-atlas';
           }

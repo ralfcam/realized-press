@@ -1,0 +1,1164 @@
+{
+  "chapter": "15-three-years",
+  "language": "en",
+  "has_neural_audio": true,
+  "total_duration_sec": 1308.617,
+  "sample_rate": 24000,
+  "bytes_per_second": 48000,
+  "chunks": [
+    {
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 4.737,
+      "duration_sec": 4.737,
+      "pcm_bytes": 227398,
+      "block_range": [
+        "b-000",
+        "b-000"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "start_sec": 4.737,
+      "end_sec": 10.165,
+      "duration_sec": 5.427,
+      "pcm_bytes": 260516,
+      "block_range": [
+        "b-001",
+        "b-001"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "start_sec": 10.165,
+      "end_sec": 32.912,
+      "duration_sec": 22.747,
+      "pcm_bytes": 1091876,
+      "block_range": [
+        "b-002",
+        "b-002"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "start_sec": 32.912,
+      "end_sec": 68.54,
+      "duration_sec": 35.627,
+      "pcm_bytes": 1710116,
+      "block_range": [
+        "b-003",
+        "b-003"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "start_sec": 68.54,
+      "end_sec": 74.277,
+      "duration_sec": 5.737,
+      "pcm_bytes": 275398,
+      "block_range": [
+        "b-004",
+        "b-004"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "start_sec": 74.277,
+      "end_sec": 103.225,
+      "duration_sec": 28.947,
+      "pcm_bytes": 1389476,
+      "block_range": [
+        "b-005",
+        "b-005"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "start_sec": 103.225,
+      "end_sec": 118.972,
+      "duration_sec": 15.747,
+      "pcm_bytes": 755878,
+      "block_range": [
+        "b-006",
+        "b-006"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "start_sec": 118.972,
+      "end_sec": 157.12,
+      "duration_sec": 38.147,
+      "pcm_bytes": 1831078,
+      "block_range": [
+        "b-007",
+        "b-007"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "start_sec": 157.12,
+      "end_sec": 191.347,
+      "duration_sec": 34.227,
+      "pcm_bytes": 1642918,
+      "block_range": [
+        "b-008",
+        "b-008"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "start_sec": 191.347,
+      "end_sec": 221.294,
+      "duration_sec": 29.947,
+      "pcm_bytes": 1437478,
+      "block_range": [
+        "b-009",
+        "b-009"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "start_sec": 221.294,
+      "end_sec": 255.922,
+      "duration_sec": 34.627,
+      "pcm_bytes": 1662118,
+      "block_range": [
+        "b-010",
+        "b-010"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "start_sec": 255.922,
+      "end_sec": 261.619,
+      "duration_sec": 5.697,
+      "pcm_bytes": 273476,
+      "block_range": [
+        "b-011",
+        "b-011"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "start_sec": 261.619,
+      "end_sec": 289.607,
+      "duration_sec": 27.987,
+      "pcm_bytes": 1343396,
+      "block_range": [
+        "b-012",
+        "b-012"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "start_sec": 289.607,
+      "end_sec": 319.114,
+      "duration_sec": 29.507,
+      "pcm_bytes": 1416358,
+      "block_range": [
+        "b-013",
+        "b-013"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "start_sec": 319.114,
+      "end_sec": 347.182,
+      "duration_sec": 28.067,
+      "pcm_bytes": 1347238,
+      "block_range": [
+        "b-014",
+        "b-014"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "start_sec": 347.182,
+      "end_sec": 372.009,
+      "duration_sec": 24.827,
+      "pcm_bytes": 1191718,
+      "block_range": [
+        "b-015",
+        "b-015"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "start_sec": 372.009,
+      "end_sec": 403.076,
+      "duration_sec": 31.067,
+      "pcm_bytes": 1491236,
+      "block_range": [
+        "b-016",
+        "b-016"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "start_sec": 403.076,
+      "end_sec": 443.704,
+      "duration_sec": 40.627,
+      "pcm_bytes": 1950118,
+      "block_range": [
+        "b-017",
+        "b-017"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "start_sec": 443.704,
+      "end_sec": 462.651,
+      "duration_sec": 18.947,
+      "pcm_bytes": 909476,
+      "block_range": [
+        "b-018",
+        "b-018"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "start_sec": 462.651,
+      "end_sec": 494.279,
+      "duration_sec": 31.627,
+      "pcm_bytes": 1518118,
+      "block_range": [
+        "b-019",
+        "b-019"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "start_sec": 494.279,
+      "end_sec": 502.296,
+      "duration_sec": 8.017,
+      "pcm_bytes": 384836,
+      "block_range": [
+        "b-020",
+        "b-020"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "start_sec": 502.296,
+      "end_sec": 534.764,
+      "duration_sec": 32.467,
+      "pcm_bytes": 1558438,
+      "block_range": [
+        "b-021",
+        "b-021"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "start_sec": 534.764,
+      "end_sec": 576.951,
+      "duration_sec": 42.187,
+      "pcm_bytes": 2024998,
+      "block_range": [
+        "b-022",
+        "b-022"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "start_sec": 576.951,
+      "end_sec": 587.619,
+      "duration_sec": 10.667,
+      "pcm_bytes": 512038,
+      "block_range": [
+        "b-023",
+        "b-023"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "start_sec": 587.619,
+      "end_sec": 620.286,
+      "duration_sec": 32.667,
+      "pcm_bytes": 1568038,
+      "block_range": [
+        "b-024",
+        "b-024"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "start_sec": 620.286,
+      "end_sec": 656.233,
+      "duration_sec": 35.947,
+      "pcm_bytes": 1725476,
+      "block_range": [
+        "b-025",
+        "b-025"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "start_sec": 656.233,
+      "end_sec": 692.261,
+      "duration_sec": 36.027,
+      "pcm_bytes": 1729318,
+      "block_range": [
+        "b-026",
+        "b-026"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "start_sec": 692.261,
+      "end_sec": 723.168,
+      "duration_sec": 30.907,
+      "pcm_bytes": 1483556,
+      "block_range": [
+        "b-027",
+        "b-027"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "start_sec": 723.168,
+      "end_sec": 771.756,
+      "duration_sec": 48.587,
+      "pcm_bytes": 2332196,
+      "block_range": [
+        "b-028",
+        "b-028"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "start_sec": 771.756,
+      "end_sec": 802.583,
+      "duration_sec": 30.827,
+      "pcm_bytes": 1479716,
+      "block_range": [
+        "b-029",
+        "b-029"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "start_sec": 802.583,
+      "end_sec": 809.881,
+      "duration_sec": 7.297,
+      "pcm_bytes": 350276,
+      "block_range": [
+        "b-030",
+        "b-030"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "start_sec": 809.881,
+      "end_sec": 831.348,
+      "duration_sec": 21.467,
+      "pcm_bytes": 1030438,
+      "block_range": [
+        "b-031",
+        "b-031"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "start_sec": 831.348,
+      "end_sec": 860.415,
+      "duration_sec": 29.067,
+      "pcm_bytes": 1395236,
+      "block_range": [
+        "b-032",
+        "b-032"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "start_sec": 860.415,
+      "end_sec": 910.443,
+      "duration_sec": 50.027,
+      "pcm_bytes": 2401318,
+      "block_range": [
+        "b-033",
+        "b-033"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "start_sec": 910.443,
+      "end_sec": 953.63,
+      "duration_sec": 43.187,
+      "pcm_bytes": 2072998,
+      "block_range": [
+        "b-034",
+        "b-034"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "start_sec": 953.63,
+      "end_sec": 995.178,
+      "duration_sec": 41.547,
+      "pcm_bytes": 1994278,
+      "block_range": [
+        "b-035",
+        "b-035"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "start_sec": 995.178,
+      "end_sec": 1041.645,
+      "duration_sec": 46.467,
+      "pcm_bytes": 2230438,
+      "block_range": [
+        "b-036",
+        "b-036"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "start_sec": 1041.645,
+      "end_sec": 1045.743,
+      "duration_sec": 4.097,
+      "pcm_bytes": 196676,
+      "block_range": [
+        "b-037",
+        "b-037"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "start_sec": 1045.743,
+      "end_sec": 1064.33,
+      "duration_sec": 18.587,
+      "pcm_bytes": 892196,
+      "block_range": [
+        "b-038",
+        "b-038"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "start_sec": 1064.33,
+      "end_sec": 1093.798,
+      "duration_sec": 29.467,
+      "pcm_bytes": 1414436,
+      "block_range": [
+        "b-039",
+        "b-039"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "start_sec": 1093.798,
+      "end_sec": 1116.305,
+      "duration_sec": 22.507,
+      "pcm_bytes": 1080356,
+      "block_range": [
+        "b-040",
+        "b-040"
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "start_sec": 1116.305,
+      "end_sec": 1139.052,
+      "duration_sec": 22.747,
+      "pcm_bytes": 1091876,
+      "block_range": [
+        "b-041",
+        "b-041"
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "start_sec": 1139.052,
+      "end_sec": 1166.0,
+      "duration_sec": 26.947,
+      "pcm_bytes": 1293476,
+      "block_range": [
+        "b-042",
+        "b-042"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "start_sec": 1166.0,
+      "end_sec": 1194.547,
+      "duration_sec": 28.547,
+      "pcm_bytes": 1370276,
+      "block_range": [
+        "b-043",
+        "b-043"
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "start_sec": 1194.547,
+      "end_sec": 1229.655,
+      "duration_sec": 35.107,
+      "pcm_bytes": 1685156,
+      "block_range": [
+        "b-044",
+        "b-044"
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "start_sec": 1229.655,
+      "end_sec": 1246.442,
+      "duration_sec": 16.787,
+      "pcm_bytes": 805796,
+      "block_range": [
+        "b-045",
+        "b-045"
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "start_sec": 1246.442,
+      "end_sec": 1274.989,
+      "duration_sec": 28.547,
+      "pcm_bytes": 1370276,
+      "block_range": [
+        "b-046",
+        "b-046"
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "start_sec": 1274.989,
+      "end_sec": 1308.617,
+      "duration_sec": 33.627,
+      "pcm_bytes": 1614116,
+      "block_range": [
+        "b-047",
+        "b-047"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "b-000",
+      "tag": "h1",
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 4.737,
+      "words": 9,
+      "weight": 12,
+      "text": "Chapter 15 — Three Years: What Has Been Built?",
+      "spoken_text": "Chapter 15 — Three Years: What Has Been Built?",
+      "start_ratio": 0.0,
+      "end_ratio": 0.0036
+    },
+    {
+      "id": "b-001",
+      "tag": "p",
+      "chunk_id": 2,
+      "start_sec": 4.737,
+      "end_sec": 10.165,
+      "words": 15,
+      "weight": 15,
+      "text": "Why Age Three Is a Waypoint, Not a Verdict on Who Your Child Will Become",
+      "spoken_text": "Why Age Three Is a Waypoint, Not a Verdict on Who Your Child Will Become.",
+      "start_ratio": 0.0036,
+      "end_ratio": 0.0078
+    },
+    {
+      "id": "b-002",
+      "tag": "p",
+      "chunk_id": 3,
+      "start_sec": 10.165,
+      "end_sec": 32.912,
+      "words": 63,
+      "weight": 63,
+      "text": "A three-year-old stands in the hallway in front of a heavy wooden door. The brass lever has caught in the frame. She pulls the handle once with both hands, and nothing moves. Instead of dropping straight to the floor in the wordless meltdown of an eighteen-month-old, she pauses. She turns her head toward her mother at the kitchen table and says clearly: “Stuck.”",
+      "spoken_text": "A three-year-old stands in the hallway in front of a heavy wooden door. The brass lever has caught in the frame. She pulls the handle once with both hands, and nothing moves. Instead of dropping straight to the floor in the wordless meltdown of an eighteen-month-old, she pauses. She turns her head toward her mother at the kitchen table and says clearly: “Stuck.”.",
+      "start_ratio": 0.0078,
+      "end_ratio": 0.0252
+    },
+    {
+      "id": "b-003",
+      "tag": "p",
+      "chunk_id": 4,
+      "start_sec": 32.912,
+      "end_sec": 68.54,
+      "words": 91,
+      "weight": 91,
+      "text": "She waits three seconds to see if help is coming. Then she gives the wooden panel an impatient slap with her palm and lets out a short laugh. Next, she presses her cheek against the cold brass handle, babbling into the metal lever like a wall phone. Twelve months ago, she could not have strung together that sequence of spoken words, checking her mother’s eyes, brief waiting, and sudden comedy. Thirty-six months ago, she could not breathe air, focus her eyes past eight inches, or lift her head off a mattress.",
+      "spoken_text": "She waits three seconds to see if help is coming. Then she gives the wooden panel an impatient slap with her palm and lets out a short laugh. Next, she presses her cheek against the cold brass handle, babbling into the metal lever like a wall phone. Twelve months ago, she could not have strung together that sequence of spoken words, checking her mother’s eyes, brief waiting, and sudden comedy. Thirty-six months ago, she could not breathe air, focus her eyes past eight inches, or lift her head off a mattress.",
+      "start_ratio": 0.0252,
+      "end_ratio": 0.0524
+    },
+    {
+      "id": "b-004",
+      "tag": "h2",
+      "chunk_id": 5,
+      "start_sec": 68.54,
+      "end_sec": 74.277,
+      "words": 12,
+      "weight": 14,
+      "text": "I. The Child at the Closed Door: A Waypoint at Thirty-Six Months",
+      "spoken_text": "I. The Child at the Closed Door: A Waypoint at Thirty-Six Months.",
+      "start_ratio": 0.0524,
+      "end_ratio": 0.0568
+    },
+    {
+      "id": "b-005",
+      "tag": "p",
+      "chunk_id": 6,
+      "start_sec": 74.277,
+      "end_sec": 103.225,
+      "words": 79,
+      "weight": 79,
+      "text": "Scenes like this happen in hallways every afternoon. Because they sit at the end of babyhood and toddlerhood, they invite two opposite cultural myths. The first myth treats age three as destiny. Scared by headlines claiming that “the brain is eighty-five percent built by age three,” an anxious parent watches the hallway moment like a final exam. Does that impatient slap on the wood mean a lifetime of bad temper, or does the phone joke guarantee a college scholarship?",
+      "spoken_text": "Scenes like this happen in hallways every afternoon. Because they sit at the end of babyhood and toddlerhood, they invite two opposite cultural myths. The first myth treats age three as destiny. Scared by headlines claiming that “the brain is eighty-five percent built by age three,” an anxious parent watches the hallway moment like a final exam. Does that impatient slap on the wood mean a lifetime of bad temper, or does the phone joke guarantee a college scholarship?",
+      "start_ratio": 0.0568,
+      "end_ratio": 0.0789
+    },
+    {
+      "id": "b-006",
+      "tag": "p",
+      "chunk_id": 7,
+      "start_sec": 103.225,
+      "end_sec": 118.972,
+      "words": 38,
+      "weight": 38,
+      "text": "The second myth treats the first three years as throwaway warm-up time. It assumes that nothing before kindergarten leaves a mark and that grade school will simply wipe the slate clean. Neither story survives contact with developmental science.",
+      "spoken_text": "The second myth treats the first three years as throwaway warm-up time. It assumes that nothing before kindergarten leaves a mark and that grade school will simply wipe the slate clean. Neither story survives contact with developmental science.",
+      "start_ratio": 0.0789,
+      "end_ratio": 0.0909
+    },
+    {
+      "id": "b-007",
+      "tag": "p",
+      "chunk_id": 8,
+      "start_sec": 118.972,
+      "end_sec": 157.12,
+      "words": 89,
+      "weight": 89,
+      "text": "Instead of asking “What kind of adult has this three-year-old permanently become?”, this final chapter asks a calmer, fairer question. What kind of milestone is thirty-six months, what has genuinely been built across the first thousand days, and how much of a human life still stays wide open to change? Across Chapters 1 through 14, we have crossed a huge landscape. We traced a body formed before birth, a womb alive with sound and taste, the first breath at delivery, and a sleep and feeding rhythm built through repair.",
+      "spoken_text": "Instead of asking “What kind of adult has this three-year-old permanently become?”, this final chapter asks a calmer, fairer question. What kind of milestone is thirty-six months, what has genuinely been built across the first thousand days, and how much of a human life still stays wide open to change? Across Chapters 1 through 14, we have crossed a huge landscape. We traced a body formed before birth, a womb alive with sound and taste, the first breath at delivery, and a sleep and feeding rhythm built through repair.",
+      "start_ratio": 0.0909,
+      "end_ratio": 0.1201
+    },
+    {
+      "id": "b-008",
+      "tag": "p",
+      "chunk_id": 9,
+      "start_sec": 157.12,
+      "end_sec": 191.347,
+      "words": 82,
+      "weight": 82,
+      "text": "We followed a mind figuring out how objects work, a body learning to crawl and walk, a voice finding words, and a wider circle of caregivers. We also watched an emotional storm find its brakes, a toddler test rules, a growing ability to wait, and a playful mind turn wood into a phone. Finally, we saw how a family budget sits inside a city economy, and where targeted help works best. Now we stand at the third birthday and look both ways.",
+      "spoken_text": "We followed a mind figuring out how objects work, a body learning to crawl and walk, a voice finding words, and a wider circle of caregivers. We also watched an emotional storm find its brakes, a toddler test rules, a growing ability to wait, and a playful mind turn wood into a phone. Finally, we saw how a family budget sits inside a city economy, and where targeted help works best. Now we stand at the third birthday and look both ways.",
+      "start_ratio": 0.1201,
+      "end_ratio": 0.1462
+    },
+    {
+      "id": "b-009",
+      "tag": "p",
+      "chunk_id": 10,
+      "start_sec": 191.347,
+      "end_sec": 221.294,
+      "words": 69,
+      "weight": 69,
+      "text": "When we hold those fourteen chapters together in front of the stuck hallway door, three competing stories about the three-year-old come into view. A locked-in trait model imagines that early habits harden into permanent personality and IQ scores by age three. A blank-slate model imagines that early growth vanishes as soon as school starts. What the evidence shows with High certainty is a third reality — the meaningful waypoint.",
+      "spoken_text": "When we hold those fourteen chapters together in front of the stuck hallway door, three competing stories about the three-year-old come into view. A locked-in trait model imagines that early habits harden into permanent personality and IQ scores by age three. A blank-slate model imagines that early growth vanishes as soon as school starts. What the evidence shows with High certainty is a third reality — the meaningful waypoint.",
+      "start_ratio": 0.1462,
+      "end_ratio": 0.1691
+    },
+    {
+      "id": "b-010",
+      "tag": "p",
+      "chunk_id": 11,
+      "start_sec": 221.294,
+      "end_sec": 255.922,
+      "words": 78,
+      "weight": 78,
+      "text": "Across the first three years, huge growth transforms brain wiring, movement, language, feelings, and bonds. Still, age three is a base camp rather than a finished statue or a final grade. How children rank compared to peers shifts a great deal between toddlerhood and adulthood. Some early test leads narrow while deeper life habits last. Resilience runs on ordinary human care rather than superhuman grit, and the growing brain stays open to learning well past the third birthday.",
+      "spoken_text": "Across the first three years, huge growth transforms brain wiring, movement, language, feelings, and bonds. Still, age three is a base camp rather than a finished statue or a final grade. How children rank compared to peers shifts a great deal between toddlerhood and adulthood. Some early test leads narrow while deeper life habits last. Resilience runs on ordinary human care rather than superhuman grit, and the growing brain stays open to learning well past the third birthday.",
+      "start_ratio": 0.1691,
+      "end_ratio": 0.1956
+    },
+    {
+      "id": "b-011",
+      "tag": "h2",
+      "chunk_id": 12,
+      "start_sec": 255.922,
+      "end_sec": 261.619,
+      "words": 11,
+      "weight": 13,
+      "text": "II. What Has Been Built: From Brain Wiring to Shared Meaning",
+      "spoken_text": "II. What Has Been Built: From Brain Wiring to Shared Meaning.",
+      "start_ratio": 0.1956,
+      "end_ratio": 0.1999
+    },
+    {
+      "id": "b-012",
+      "tag": "p",
+      "chunk_id": 13,
+      "start_sec": 261.619,
+      "end_sec": 289.607,
+      "words": 62,
+      "weight": 62,
+      "text": "What is a waypoint, if not a final score? A waypoint is a high ridge on a long hike. You can pause there, look back at every valley crossed since sunrise, and look out at the open trail ahead. Behind the three-year-old at the hallway door sit prenatal folate and thyroid hormones, a clamped cord, skin-to-skin warmth, and thousands of repaired frowns.",
+      "spoken_text": "What is a waypoint, if not a final score? A waypoint is a high ridge on a long hike. You can pause there, look back at every valley crossed since sunrise, and look out at the open trail ahead. Behind the three-year-old at the hallway door sit prenatal folate and thyroid hormones, a clamped cord, skin-to-skin warmth, and thousands of repaired frowns.",
+      "start_ratio": 0.1999,
+      "end_ratio": 0.2213
+    },
+    {
+      "id": "b-013",
+      "tag": "p",
+      "chunk_id": 14,
+      "start_sec": 289.607,
+      "end_sec": 319.114,
+      "words": 66,
+      "weight": 66,
+      "text": "Behind her sit a steep crawling slope, ten thousand back-and-forth chats, a daycare room, a meltdown on the kitchen floor, and a paused hand over a crayon. Behind her too sit a wooden block held to the ear and a family juggling rent and work shifts. Ahead lie grade school, best friends, teen years, first jobs, and decades of life that have not been written yet.",
+      "spoken_text": "Behind her sit a steep crawling slope, ten thousand back-and-forth chats, a daycare room, a meltdown on the kitchen floor, and a paused hand over a crayon. Behind her too sit a wooden block held to the ear and a family juggling rent and work shifts. Ahead lie grade school, best friends, teen years, first jobs, and decades of life that have not been written yet.",
+      "start_ratio": 0.2213,
+      "end_ratio": 0.2439
+    },
+    {
+      "id": "b-014",
+      "tag": "p",
+      "chunk_id": 15,
+      "start_sec": 319.114,
+      "end_sec": 347.182,
+      "words": 62,
+      "weight": 62,
+      "text": "The body and mind growth packed into those first thirty-six months is remarkable. At birth, the baby’s brain already held nearly all the nerve cells it would ever own, put in place before delivery. Yet across the first three years, that base went through an explosive wave of new links, active pruning of unused paths, and fast wrapping of busy nerve highways.",
+      "spoken_text": "The body and mind growth packed into those first thirty-six months is remarkable. At birth, the baby’s brain already held nearly all the nerve cells it would ever own, put in place before delivery. Yet across the first three years, that base went through an explosive wave of new links, active pruning of unused paths, and fast wrapping of busy nerve highways.",
+      "start_ratio": 0.2439,
+      "end_ratio": 0.2653
+    },
+    {
+      "id": "b-015",
+      "tag": "p",
+      "chunk_id": 16,
+      "start_sec": 347.182,
+      "end_sec": 372.009,
+      "words": 57,
+      "weight": 57,
+      "text": "Joan Stiles and Terry Jernigan’s brain science review shows that genes and daily life weave together at every step. A three-year-old’s brain never sits frozen in stone or stops growing. Basic sight, sound, and movement paths now wrap tightly and fire fast, while the front brain networks that guide planning and self-control keep reshaping into the twenties.",
+      "spoken_text": "Joan Stiles and Terry Jernigan’s brain science review shows that genes and daily life weave together at every step. A three-year-old’s brain never sits frozen in stone or stops growing. Basic sight, sound, and movement paths now wrap tightly and fire fast, while the front brain networks that guide planning and self-control keep reshaping into the twenties.",
+      "start_ratio": 0.2653,
+      "end_ratio": 0.2843
+    },
+    {
+      "id": "b-016",
+      "tag": "p",
+      "chunk_id": 17,
+      "start_sec": 372.009,
+      "end_sec": 403.076,
+      "words": 80,
+      "weight": 80,
+      "text": "Watch the hallway door scene again in slow motion, and you can see how those growing systems work together without collapsing into a single test score. First, she stands balanced on two feet and pulls a heavy brass handle — the payoff of Chapter 6’s thousands of steps, slips, and adjustments across the floor. Second, she knows that levers open doors and spots right away that the latch is stuck. There she draws on Chapter 5’s everyday cause-and-effect detective work.",
+      "spoken_text": "Watch the hallway door scene again in slow motion, and you can see how those growing systems work together without collapsing into a single test score. First, she stands balanced on two feet and pulls a heavy brass handle — the payoff of Chapter 6’s thousands of steps, slips, and adjustments across the floor. Second, she knows that levers open doors and spots right away that the latch is stuck. There she draws on Chapter 5’s everyday cause-and-effect detective work.",
+      "start_ratio": 0.2843,
+      "end_ratio": 0.308
+    },
+    {
+      "id": "b-017",
+      "tag": "p",
+      "chunk_id": 18,
+      "start_sec": 403.076,
+      "end_sec": 443.704,
+      "words": 98,
+      "weight": 98,
+      "text": "Third, instead of falling apart when the door stays shut, she looks at her mother’s eyes and says “Stuck,” blending Chapter 8’s social checking with Chapter 7’s spoken words. Fourth, she waits three seconds after speaking, holds back a full meltdown, gives the door one slap, and flips into a laugh. That draws on Chapter 4’s soothing history, Chapter 9’s emotion coaching, Chapter 10’s steady rules, and Chapter 11’s young brakes. Fifth, she holds the brass handle to her ear and babbles into it, using Chapter 12’s pretend play to turn a stuck latch into a phone call.",
+      "spoken_text": "Third, instead of falling apart when the door stays shut, she looks at her mother’s eyes and says “Stuck,” blending Chapter 8’s social checking with Chapter 7’s spoken words. Fourth, she waits three seconds after speaking, holds back a full meltdown, gives the door one slap, and flips into a laugh. That draws on Chapter 4’s soothing history, Chapter 9’s emotion coaching, Chapter 10’s steady rules, and Chapter 11’s young brakes. Fifth, she holds the brass handle to her ear and babbles into it, using Chapter 12’s pretend play to turn a stuck latch into a phone call.",
+      "start_ratio": 0.308,
+      "end_ratio": 0.3391
+    },
+    {
+      "id": "b-018",
+      "tag": "p",
+      "chunk_id": 19,
+      "start_sec": 443.704,
+      "end_sec": 462.651,
+      "words": 52,
+      "weight": 52,
+      "text": "Notice what this list tells us. These are neighboring skills growing side by side, not a single box called “smart” or “good.” A three-year-old who speaks in short two-word phrases is not missing a mind. And a three-year-old who still needs a hug when the door sticks is not a spoiled failure.",
+      "spoken_text": "Notice what this list tells us. These are neighboring skills growing side by side, not a single box called “smart” or “good.” A three-year-old who speaks in short two-word phrases is not missing a mind. And a three-year-old who still needs a hug when the door sticks is not a spoiled failure.",
+      "start_ratio": 0.3391,
+      "end_ratio": 0.3535
+    },
+    {
+      "id": "b-019",
+      "tag": "p",
+      "chunk_id": 20,
+      "start_sec": 462.651,
+      "end_sec": 494.279,
+      "words": 80,
+      "weight": 80,
+      "text": "And a three-year-old who would rather bang the door than pretend it is a phone has not failed preschool. Every chapter in this book pushed back against turning a single milestone into a life verdict. At the thirty-six-month mark, our job is to refuse the biggest trap of all. We must never treat the sum of these early skills as a fixed destiny, or treat the parent at the table as an all-powerful engineer who built the child’s personality alone.",
+      "spoken_text": "And a three-year-old who would rather bang the door than pretend it is a phone has not failed preschool. Every chapter in this book pushed back against turning a single milestone into a life verdict. At the thirty-six-month mark, our job is to refuse the biggest trap of all. We must never treat the sum of these early skills as a fixed destiny, or treat the parent at the table as an all-powerful engineer who built the child’s personality alone.",
+      "start_ratio": 0.3535,
+      "end_ratio": 0.3777
+    },
+    {
+      "id": "b-020",
+      "tag": "h2",
+      "chunk_id": 21,
+      "start_sec": 494.279,
+      "end_sec": 502.296,
+      "words": 13,
+      "weight": 15,
+      "text": "III. The Myth of the Finished Three-Year-Old: Rank Order, Dunedin, and Ordinary Magic",
+      "spoken_text": "III. The Myth of the Finished Three-Year-Old: Rank Order, Dunedin, and Ordinary Magic.",
+      "start_ratio": 0.3777,
+      "end_ratio": 0.3838
+    },
+    {
+      "id": "b-021",
+      "tag": "p",
+      "chunk_id": 22,
+      "start_sec": 502.296,
+      "end_sec": 534.764,
+      "words": 84,
+      "weight": 84,
+      "text": "For more than fifty years, researchers have wrestled with a central puzzle. How can the first three years be so foundational while human beings remain so open to change? How strongly does where a child stands at age three predict who she will be at age thirty? What links childhood self-control to adult health and savings? And why do so many kids who grow up in hard times become capable, loving adults? Answering those three questions forms the final landmark story of our book.",
+      "spoken_text": "For more than fifty years, researchers have wrestled with a central puzzle. How can the first three years be so foundational while human beings remain so open to change? How strongly does where a child stands at age three predict who she will be at age thirty? What links childhood self-control to adult health and savings? And why do so many kids who grow up in hard times become capable, loving adults? Answering those three questions forms the final landmark story of our book.",
+      "start_ratio": 0.3838,
+      "end_ratio": 0.4086
+    },
+    {
+      "id": "b-022",
+      "tag": "p",
+      "chunk_id": 23,
+      "start_sec": 534.764,
+      "end_sec": 576.951,
+      "words": 90,
+      "weight": 90,
+      "text": "The original quest started with mid-twentieth-century studies that tracked babies over decades. Out of early psychological theories and misread brain scans, two popular myths took hold. The first was the Three-Year-Old Destiny Myth. It claimed that personality, temperament, and willpower are locked in by thirty-six months, turning toddlerhood into a frantic race before the vault door slams shut. The second myth popped up when researchers noticed that some children survived poverty or family chaos nicely. That Invulnerable Kid Myth assumed that “resilient” kids were born with rare, bulletproof inner armor.",
+      "spoken_text": "The original quest started with mid-twentieth-century studies that tracked babies over decades. Out of early psychological theories and misread brain scans, two popular myths took hold. The first was the Three-Year-Old Destiny Myth. It claimed that personality, temperament, and willpower are locked in by thirty-six months, turning toddlerhood into a frantic race before the vault door slams shut. The second myth popped up when researchers noticed that some children survived poverty or family chaos nicely. That Invulnerable Kid Myth assumed that “resilient” kids were born with rare, bulletproof inner armor.",
+      "start_ratio": 0.4086,
+      "end_ratio": 0.4409
+    },
+    {
+      "id": "b-023",
+      "tag": "p",
+      "chunk_id": 24,
+      "start_sec": 576.951,
+      "end_sec": 587.619,
+      "words": 20,
+      "weight": 20,
+      "text": "In the 2000s and 2010s, three landmark research reviews overturned both myths and replaced them with a much clearer picture.",
+      "spoken_text": "In the 2000s and 2010s, three landmark research reviews overturned both myths and replaced them with a much clearer picture.",
+      "start_ratio": 0.4409,
+      "end_ratio": 0.449
+    },
+    {
+      "id": "b-024",
+      "tag": "p",
+      "chunk_id": 25,
+      "start_sec": 587.619,
+      "end_sec": 620.286,
+      "words": 73,
+      "weight": 73,
+      "text": "First, in 2000, psychologists Brent Roberts and Wendy DelVecchio combined data from 152 long-term studies. They tracked how people’s personality rankings held up from infancy to old age. If personality were locked in by age three, a child’s rank order compared to peers would stay nearly as steady in early childhood as it does in adulthood. Instead, Roberts and DelVecchio showed with Moderate-to-High certainty that consistency starts low and rises slowly with age.",
+      "spoken_text": "First, in 2000, psychologists Brent Roberts and Wendy DelVecchio combined data from 152 long-term studies. They tracked how people’s personality rankings held up from infancy to old age. If personality were locked in by age three, a child’s rank order compared to peers would stay nearly as steady in early childhood as it does in adulthood. Instead, Roberts and DelVecchio showed with Moderate-to-High certainty that consistency starts low and rises slowly with age.",
+      "start_ratio": 0.449,
+      "end_ratio": 0.474
+    },
+    {
+      "id": "b-025",
+      "tag": "p",
+      "chunk_id": 26,
+      "start_sec": 620.286,
+      "end_sec": 656.233,
+      "words": 91,
+      "weight": 91,
+      "text": "In early childhood, test-retest links sit near a modest .31, climbing to .43 in the teen years and reaching .54 to .74 in middle age. A link near .31 means that early temperament traits, like Chapter 9’s shyness, are real. Still, roughly ninety percent of where a three-year-old stands compared to peers stays open to change. The cautious or fiery three-year-old at the hallway door is a bit more likely than average to be cautious or fiery at age eight. Yet she is nowhere near locked into a permanent adult personality.",
+      "spoken_text": "In early childhood, test-retest links sit near a modest .31, climbing to .43 in the teen years and reaching .54 to .74 in middle age. A link near .31 means that early temperament traits, like Chapter 9’s shyness, are real. Still, roughly ninety percent of where a three-year-old stands compared to peers stays open to change. The cautious or fiery three-year-old at the hallway door is a bit more likely than average to be cautious or fiery at age eight. Yet she is nowhere near locked into a permanent adult personality.",
+      "start_ratio": 0.474,
+      "end_ratio": 0.5015
+    },
+    {
+      "id": "b-026",
+      "tag": "p",
+      "chunk_id": 27,
+      "start_sec": 656.233,
+      "end_sec": 692.261,
+      "words": 78,
+      "weight": 78,
+      "text": "Second, in 2011, Terrie Moffitt, Avshalom Caspi, and their team published a famous thirty-two-year follow-up of the Dunedin study. They tracked 1,000 New Zealand kids from age three into their thirties. Pooling parent, teacher, observer, and child scores across ages three, five, seven, nine, and eleven, the team found a clear pattern with Moderate certainty. Childhood self-control predicts adult health, credit scores, savings, and arrests along a smooth curve, even when comparing siblings raised in the same home.",
+      "spoken_text": "Second, in 2011, Terrie Moffitt, Avshalom Caspi, and their team published a famous thirty-two-year follow-up of the Dunedin study. They tracked 1,000 New Zealand kids from age three into their thirties. Pooling parent, teacher, observer, and child scores across ages three, five, seven, nine, and eleven, the team found a clear pattern with Moderate certainty. Childhood self-control predicts adult health, credit scores, savings, and arrests along a smooth curve, even when comparing siblings raised in the same home.",
+      "start_ratio": 0.5015,
+      "end_ratio": 0.529
+    },
+    {
+      "id": "b-027",
+      "tag": "p",
+      "chunk_id": 28,
+      "start_sec": 692.261,
+      "end_sec": 723.168,
+      "words": 71,
+      "weight": 71,
+      "text": "Crucially, though, the Dunedin study overturned the fatalistic myth of Chapter 11’s Marshmallow Test. What predicted adult outcomes was a decade-long average from age three to eleven, never a single five-minute test at age three. Even better, children whose self-control grew during childhood enjoyed much healthier, steadier adult lives than their age-three score would have predicted. Rankings move, and when skills grow in grade school, the adult future moves with them.",
+      "spoken_text": "Crucially, though, the Dunedin study overturned the fatalistic myth of Chapter 11’s Marshmallow Test. What predicted adult outcomes was a decade-long average from age three to eleven, never a single five-minute test at age three. Even better, children whose self-control grew during childhood enjoyed much healthier, steadier adult lives than their age-three score would have predicted. Rankings move, and when skills grow in grade school, the adult future moves with them.",
+      "start_ratio": 0.529,
+      "end_ratio": 0.5526
+    },
+    {
+      "id": "b-028",
+      "tag": "p",
+      "chunk_id": 29,
+      "start_sec": 723.168,
+      "end_sec": 771.756,
+      "words": 106,
+      "weight": 106,
+      "text": "Third, in 2001, psychologist Ann Masten pulled together decades of research on children facing hardship in her landmark paper “Ordinary Magic.” When scientists looked at why so many kids growing up in poverty or family stress still thrived as adults, they did not find a rare gene or superhuman toughness. With High certainty, Masten showed that resilience comes from ordinary, everyday human supports. Those supports are a steady, caring bond with at least one reliable adult, growing thinking and self-calming skills, and basic neighborhood and school backing. When those ordinary supports are protected, children are remarkably sturdy. When hardship wrecks or starves those supports, kids struggle.",
+      "spoken_text": "Third, in 2001, psychologist Ann Masten pulled together decades of research on children facing hardship in her landmark paper “Ordinary Magic.” When scientists looked at why so many kids growing up in poverty or family stress still thrived as adults, they did not find a rare gene or superhuman toughness. With High certainty, Masten showed that resilience comes from ordinary, everyday human supports. Those supports are a steady, caring bond with at least one reliable adult, growing thinking and self-calming skills, and basic neighborhood and school backing. When those ordinary supports are protected, children are remarkably sturdy. When hardship wrecks or starves those supports, kids struggle.",
+      "start_ratio": 0.5526,
+      "end_ratio": 0.5897
+    },
+    {
+      "id": "b-029",
+      "tag": "p",
+      "chunk_id": 30,
+      "start_sec": 771.756,
+      "end_sec": 802.583,
+      "words": 64,
+      "weight": 64,
+      "text": "Taken together, Roberts and DelVecchio’s shifting rankings, Moffitt’s changeable self-control curve, and Masten’s “ordinary magic” solve the riddle of the third birthday. The first three years matter deeply because they build core tools — language, trust, and early self-control. A child carries those tools through the kindergarten door. Yet they stay alive, flexible, and open to what happens at ages five, ten, and fifteen.",
+      "spoken_text": "Taken together, Roberts and DelVecchio’s shifting rankings, Moffitt’s changeable self-control curve, and Masten’s “ordinary magic” solve the riddle of the third birthday. The first three years matter deeply because they build core tools — language, trust, and early self-control. A child carries those tools through the kindergarten door. Yet they stay alive, flexible, and open to what happens at ages five, ten, and fifteen.",
+      "start_ratio": 0.5897,
+      "end_ratio": 0.6133
+    },
+    {
+      "id": "b-030",
+      "tag": "h2",
+      "chunk_id": 31,
+      "start_sec": 802.583,
+      "end_sec": 809.881,
+      "words": 10,
+      "weight": 12,
+      "text": "IV. Lasting Paths, Real Limits, and the Ecology of Catch-Up",
+      "spoken_text": "IV. Lasting Paths, Real Limits, and the Ecology of Catch-Up.",
+      "start_ratio": 0.6133,
+      "end_ratio": 0.6189
+    },
+    {
+      "id": "b-031",
+      "tag": "p",
+      "chunk_id": 32,
+      "start_sec": 809.881,
+      "end_sec": 831.348,
+      "words": 48,
+      "weight": 48,
+      "text": "Why do early experiences still echo decades later even when early test scores narrow? And what are the real biological limits on catching up when the first three years go terribly wrong? Bringing together the long-term studies from Chapters 4, 8, 13, and 14 answers both questions cleanly.",
+      "spoken_text": "Why do early experiences still echo decades later even when early test scores narrow? And what are the real biological limits on catching up when the first three years go terribly wrong? Bringing together the long-term studies from Chapters 4, 8, 13, and 14 answers both questions cleanly.",
+      "start_ratio": 0.6189,
+      "end_ratio": 0.6353
+    },
+    {
+      "id": "b-032",
+      "tag": "p",
+      "chunk_id": 33,
+      "start_sec": 831.348,
+      "end_sec": 860.415,
+      "words": 66,
+      "weight": 66,
+      "text": "Take the puzzle of fading test scores alongside lasting adult gains. As Chapter 14 showed, early IQ and reading leads from preschool programs often shrink within a few years after kids start grade school. Yet the forty- and fifty-year follow-ups of Perry Preschool and Abecedarian show with Moderate certainty that rich early programs still produce higher adult graduation rates, better pay, and healthier hearts decades later.",
+      "spoken_text": "Take the puzzle of fading test scores alongside lasting adult gains. As Chapter 14 showed, early IQ and reading leads from preschool programs often shrink within a few years after kids start grade school. Yet the forty- and fifty-year follow-ups of Perry Preschool and Abecedarian show with Moderate certainty that rich early programs still produce higher adult graduation rates, better pay, and healthier hearts decades later.",
+      "start_ratio": 0.6353,
+      "end_ratio": 0.6575
+    },
+    {
+      "id": "b-033",
+      "tag": "p",
+      "chunk_id": 34,
+      "start_sec": 860.415,
+      "end_sec": 910.443,
+      "words": 114,
+      "weight": 114,
+      "text": "How can an effect vanish on a third-grade worksheet and show up on a thirty-five-year-old’s paycheck and blood-pressure check? Because human growth does not travel down a single narrow wire called “test-taking IQ.” Early classrooms that help a child focus, handle frustration, and connect with teachers open up supportive school paths, keeping kids out of early discipline tracks long after the preschool word-count gap closes. At the same time, Baby’s First Years and Moving to Opportunity taught us in Chapter 13 that different inputs work on different clocks. A one-year-old brain-wave shift, a flat four-year-old test score, and an adult earnings boost from moving neighborhoods before age thirteen are separate real-world facts, not contradictions.",
+      "spoken_text": "How can an effect vanish on a third-grade worksheet and show up on a thirty-five-year-old’s paycheck and blood-pressure check? Because human growth does not travel down a single narrow wire called “test-taking IQ.” Early classrooms that help a child focus, handle frustration, and connect with teachers open up supportive school paths, keeping kids out of early discipline tracks long after the preschool word-count gap closes. At the same time, Baby’s First Years and Moving to Opportunity taught us in Chapter 13 that different inputs work on different clocks. A one-year-old brain-wave shift, a flat four-year-old test score, and an adult earnings boost from moving neighborhoods before age thirteen are separate real-world facts, not contradictions.",
+      "start_ratio": 0.6575,
+      "end_ratio": 0.6957
+    },
+    {
+      "id": "b-034",
+      "tag": "p",
+      "chunk_id": 35,
+      "start_sec": 910.443,
+      "end_sec": 953.63,
+      "words": 100,
+      "weight": 100,
+      "text": "Next, look at the real limits of brain recovery after age three, where the Bucharest Early Intervention Project (BEIP) stands as our clearest guide to both healing power and biological boundaries. Babies and toddlers rescued from severe orphanage neglect and placed into loving foster families made huge leaps in IQ, language, brain activity, and attachment compared to kids kept in orphanages. Still, timing mattered. Children placed into families before roughly twenty-four months of age recovered much more fully in attachment trust, stress balance, and self-control than children placed after age two. Even after rescue, some thinking and emotional scars lingered.",
+      "spoken_text": "Next, look at the real limits of brain recovery after age three, where the Bucharest Early Intervention Project (BEIP) stands as our clearest guide to both healing power and biological boundaries. Babies and toddlers rescued from severe orphanage neglect and placed into loving foster families made huge leaps in IQ, language, brain activity, and attachment compared to kids kept in orphanages. Still, timing mattered. Children placed into families before roughly twenty-four months of age recovered much more fully in attachment trust, stress balance, and self-control than children placed after age two. Even after rescue, some thinking and emotional scars lingered.",
+      "start_ratio": 0.6957,
+      "end_ratio": 0.7287
+    },
+    {
+      "id": "b-035",
+      "tag": "p",
+      "chunk_id": 36,
+      "start_sec": 953.63,
+      "end_sec": 995.178,
+      "words": 99,
+      "weight": 99,
+      "text": "Holding Masten’s “ordinary magic” next to BEIP draws the true biological boundary of the first three years. The brain does not slam shut on a child’s third birthday. Children remain capable of deep healing and learning throughout childhood. Yet brain flexibility is a real biological system with sensitive windows, not a magic eraser that makes severe early neglect harmless. Just as importantly, BEIP reminds us one last time never to confuse ordinary family bumps with an orphanage. A missed cue, a busy evening on a phone, a messy floor tantrum, or full-time neighborhood daycare is normal life, not neglect.",
+      "spoken_text": "Holding Masten’s “ordinary magic” next to BEIP draws the true biological boundary of the first three years. The brain does not slam shut on a child’s third birthday. Children remain capable of deep healing and learning throughout childhood. Yet brain flexibility is a real biological system with sensitive windows, not a magic eraser that makes severe early neglect harmless. Just as importantly, BEIP reminds us one last time never to confuse ordinary family bumps with an orphanage. A missed cue, a busy evening on a phone, a messy floor tantrum, or full-time neighborhood daycare is normal life, not neglect.",
+      "start_ratio": 0.7287,
+      "end_ratio": 0.7605
+    },
+    {
+      "id": "b-036",
+      "tag": "p",
+      "chunk_id": 37,
+      "start_sec": 995.178,
+      "end_sec": 1041.645,
+      "words": 115,
+      "weight": 115,
+      "text": "Finally, looking around the three-year-old in the hallway reminds us that her whole day sits inside a wider community web. She may hand a dropped clip to her mother, climb a park ladder, or benefit from paid family leave. None of these daily moments is a solo test of parent virtue. Anandi Mani and colleagues’ studies on money scarcity and Christopher Tanaka’s studies on national leave laws highlight a clear truth. Steady pay, food on the table, and paid leave either drain or refill a family’s mental energy and health. Resilience is never an excuse to ask mothers and fathers to make up for missing groceries, unsafe apartments, or broken public services with sheer willpower.",
+      "spoken_text": "Finally, looking around the three-year-old in the hallway reminds us that her whole day sits inside a wider community web. She may hand a dropped clip to her mother, climb a park ladder, or benefit from paid family leave. None of these daily moments is a solo test of parent virtue. Anandi Mani and colleagues’ studies on money scarcity and Christopher Tanaka’s studies on national leave laws highlight a clear truth. Steady pay, food on the table, and paid leave either drain or refill a family’s mental energy and health. Resilience is never an excuse to ask mothers and fathers to make up for missing groceries, unsafe apartments, or broken public services with sheer willpower.",
+      "start_ratio": 0.7605,
+      "end_ratio": 0.796
+    },
+    {
+      "id": "b-037",
+      "tag": "h2",
+      "chunk_id": 38,
+      "start_sec": 1041.645,
+      "end_sec": 1045.743,
+      "words": 7,
+      "weight": 9,
+      "text": "V. Looking Both Ways from the Threshold",
+      "spoken_text": "V. Looking Both Ways from the Threshold.",
+      "start_ratio": 0.796,
+      "end_ratio": 0.7991
+    },
+    {
+      "id": "b-038",
+      "tag": "p",
+      "chunk_id": 39,
+      "start_sec": 1045.743,
+      "end_sec": 1064.33,
+      "words": 43,
+      "weight": 43,
+      "text": "At the close of this fifteen-chapter atlas, we can bring the whole journey from before pregnancy to age three into one clear view. We can honor what the science proves, read individual lives fairly, and practice the everyday art of raising a child.",
+      "spoken_text": "At the close of this fifteen-chapter atlas, we can bring the whole journey from before pregnancy to age three into one clear view. We can honor what the science proves, read individual lives fairly, and practice the everyday art of raising a child.",
+      "start_ratio": 0.7991,
+      "end_ratio": 0.8133
+    },
+    {
+      "id": "b-039",
+      "tag": "p",
+      "chunk_id": 40,
+      "start_sec": 1064.33,
+      "end_sec": 1093.798,
+      "words": 63,
+      "weight": 63,
+      "text": "Across large groups, child science shows with High certainty that the first three years build a rich base. That base spans brain wiring, attachment trust, movement, spoken words, pretend play, and early self-control. Still, age three stays an open waypoint rather than a lock. Early personality rankings stay modest, while childhood self-control predicts adult health and savings yet stays open to grade-school growth.",
+      "spoken_text": "Across large groups, child science shows with High certainty that the first three years build a rich base. That base spans brain wiring, attachment trust, movement, spoken words, pretend play, and early self-control. Still, age three stays an open waypoint rather than a lock. Early personality rankings stay modest, while childhood self-control predicts adult health and savings yet stays open to grade-school growth.",
+      "start_ratio": 0.8133,
+      "end_ratio": 0.8358
+    },
+    {
+      "id": "b-040",
+      "tag": "p",
+      "chunk_id": 41,
+      "start_sec": 1093.798,
+      "end_sec": 1116.305,
+      "words": 41,
+      "weight": 41,
+      "text": "Model early preschools leave lasting adult gains even after early IQ scores meet. Resilience runs on ordinary loving relationships and community support. And brain recovery stays strong yet bounded by sensitive windows in extreme neglect and shaped by family living conditions.",
+      "spoken_text": "Model early preschools leave lasting adult gains even after early IQ scores meet. Resilience runs on ordinary loving relationships and community support. And brain recovery stays strong yet bounded by sensitive windows in extreme neglect and shaped by family living conditions.",
+      "start_ratio": 0.8358,
+      "end_ratio": 0.853
+    },
+    {
+      "id": "b-041",
+      "tag": "p",
+      "chunk_id": 42,
+      "start_sec": 1116.305,
+      "end_sec": 1139.052,
+      "words": 59,
+      "weight": 59,
+      "text": "For an individual child, this evidence frees parents, doctors, and teachers from two hundred years of guilt and fatalism. Broad survey links shrink when researchers compare siblings raised in the same home. The same childhood trait also wears different clothes at different ages, and ninety percent of where a three-year-old stands compared to peers is still open to change.",
+      "spoken_text": "For an individual child, this evidence frees parents, doctors, and teachers from two hundred years of guilt and fatalism. Broad survey links shrink when researchers compare siblings raised in the same home. The same childhood trait also wears different clothes at different ages, and ninety percent of where a three-year-old stands compared to peers is still open to change.",
+      "start_ratio": 0.853,
+      "end_ratio": 0.8704
+    },
+    {
+      "id": "b-042",
+      "tag": "p",
+      "chunk_id": 43,
+      "start_sec": 1139.052,
+      "end_sec": 1166.0,
+      "words": 69,
+      "weight": 69,
+      "text": "No single moment in the first thousand days writes a child’s life story. No single factor decides everything: not a C-section, not a formula bottle, not a twenty-minute lab tape, nor a late first word, a toddler tantrum, or a five-minute wait over a marshmallow. At the same time, because early care and health build the launchpad for school and friendships, the first three years are never throwaway time.",
+      "spoken_text": "No single moment in the first thousand days writes a child’s life story. No single factor decides everything: not a C-section, not a formula bottle, not a twenty-minute lab tape, nor a late first word, a toddler tantrum, or a five-minute wait over a marshmallow. At the same time, because early care and health build the launchpad for school and friendships, the first three years are never throwaway time.",
+      "start_ratio": 0.8704,
+      "end_ratio": 0.891
+    },
+    {
+      "id": "b-043",
+      "tag": "p",
+      "chunk_id": 44,
+      "start_sec": 1166.0,
+      "end_sec": 1194.547,
+      "words": 69,
+      "weight": 69,
+      "text": "In the daily art of parenting, stripping away commercial “brain-building” hype, genetic fatalism, and perfectionist guilt leaves behind a calmer, sturdier way to live with a young child. Raising a child across the first three years is not like chiseling stone into a planned statue, nor is it like running a lab test with a stopwatch. It is the art of tending a living bond inside a real home.",
+      "spoken_text": "In the daily art of parenting, stripping away commercial “brain-building” hype, genetic fatalism, and perfectionist guilt leaves behind a calmer, sturdier way to live with a young child. Raising a child across the first three years is not like chiseling stone into a planned statue, nor is it like running a lab test with a stopwatch. It is the art of tending a living bond inside a real home.",
+      "start_ratio": 0.891,
+      "end_ratio": 0.9128
+    },
+    {
+      "id": "b-044",
+      "tag": "p",
+      "chunk_id": 45,
+      "start_sec": 1194.547,
+      "end_sec": 1229.655,
+      "words": 85,
+      "weight": 85,
+      "text": "Lock in the simple health protections that science has proven beyond doubt. Answer cries with steady warmth, and repair the normal seventy percent of missed daily cues without beating yourself up. Talk, listen, and wonder aloud about whatever catches your child’s eye. Hold calm limits when a toddler’s big feelings outrun her brakes, and leave unhurried floor time where a wooden block can become a phone. Finally, back community rules that give every family the time, food, and housing needed to do that ordinary work.",
+      "spoken_text": "Lock in the simple health protections that science has proven beyond doubt. Answer cries with steady warmth, and repair the normal seventy percent of missed daily cues without beating yourself up. Talk, listen, and wonder aloud about whatever catches your child’s eye. Hold calm limits when a toddler’s big feelings outrun her brakes, and leave unhurried floor time where a wooden block can become a phone. Finally, back community rules that give every family the time, food, and housing needed to do that ordinary work.",
+      "start_ratio": 0.9128,
+      "end_ratio": 0.9397
+    },
+    {
+      "id": "b-045",
+      "tag": "p",
+      "chunk_id": 46,
+      "start_sec": 1229.655,
+      "end_sec": 1246.442,
+      "words": 48,
+      "weight": 48,
+      "text": "Look one last time at the three-year-old standing in the hallway in front of the stuck wooden door. She has not turned into a different child because we now carry a fifteen-chapter map of how she grew. Still, the way we see her standing there has changed completely.",
+      "spoken_text": "Look one last time at the three-year-old standing in the hallway in front of the stuck wooden door. She has not turned into a different child because we now carry a fifteen-chapter map of how she grew. Still, the way we see her standing there has changed completely.",
+      "start_ratio": 0.9397,
+      "end_ratio": 0.9525
+    },
+    {
+      "id": "b-046",
+      "tag": "p",
+      "chunk_id": 47,
+      "start_sec": 1246.442,
+      "end_sec": 1274.989,
+      "words": 80,
+      "weight": 80,
+      "text": "Everything we have traced across this book is alive inside her thirty-second meeting with the brass handle. There is the spinal cord that closed before her mother knew she was pregnant, and the lungs that cleared at birth. There is the trust that an adult at the kitchen table will hear the word “stuck.” And there is the flash of temper in her palm against the wood, followed by the playful spark that turns a stubborn latch into a phone.",
+      "spoken_text": "Everything we have traced across this book is alive inside her thirty-second meeting with the brass handle. There is the spinal cord that closed before her mother knew she was pregnant, and the lungs that cleared at birth. There is the trust that an adult at the kitchen table will hear the word “stuck.” And there is the flash of temper in her palm against the wood, followed by the playful spark that turns a stubborn latch into a phone.",
+      "start_ratio": 0.9525,
+      "end_ratio": 0.9743
+    },
+    {
+      "id": "b-047",
+      "tag": "p",
+      "chunk_id": 48,
+      "start_sec": 1274.989,
+      "end_sec": 1308.617,
+      "words": 86,
+      "weight": 86,
+      "text": "The map does not open the hallway door for her. What the map changes is what her word “stuck” — and her laugh a second later — mean to us. She is not a tiny adult locked in stone, and she is not a blank slate waiting for life to start. This three-year-old brings a human mind and body already well underway. She stands on the ridge of thirty-six months with a great deal built behind her, an adult nearby, and a wide, unwritten country ahead.",
+      "spoken_text": "The map does not open the hallway door for her. What the map changes is what her word “stuck” — and her laugh a second later — mean to us. She is not a tiny adult locked in stone, and she is not a blank slate waiting for life to start. This three-year-old brings a human mind and body already well underway. She stands on the ridge of thirty-six months with a great deal built behind her, an adult nearby, and a wide, unwritten country ahead.",
+      "start_ratio": 0.9743,
+      "end_ratio": 1.0
+    }
+  ]
+}
