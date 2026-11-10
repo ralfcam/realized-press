@@ -15,7 +15,7 @@ from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, Redirect
 from fastapi.staticfiles import StaticFiles
 from jinja2_fragments.fastapi import Jinja2Blocks
 
-from bwe.db import get_db, init_db
+from bwe.db import get_db, init_db, resolve_edition_dir
 from bwe.schema import validate_series_yaml
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -28,7 +28,7 @@ STATIC_DIR.mkdir(parents=True, exist_ok=True)
 # Ensure scripts directory is importable for data synthesis
 if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))
-from render_audiobook_player import DEFAULT_GITHUB_REPO, scan_all_imprint_books
+from render_audiobook_player import DEFAULT_GITHUB_REPO, scan_all_imprint_books, UI_STRINGS
 
 app = FastAPI(title="Realized Press — BWE & Serial Portal (P-ARC-18)")
 templates = Jinja2Blocks(directory=str(REPO_ROOT / "bwe" / "templates"))
@@ -51,44 +51,93 @@ DIST_ANALYTICS_DIR = REPO_ROOT / "dist" / "analytics"
 DIST_ANALYTICS_DIR.mkdir(parents=True, exist_ok=True)
 app.mount("/dist/analytics", StaticFiles(directory=str(DIST_ANALYTICS_DIR)), name="analytics_dist")
 
-# In-memory index of canonical media files for O(1) streaming
-AUDIO_CACHE: dict[str, Path] = {}
+def resolve_series_edition_dir(series_slug: str, lang: str = "en") -> Path:
+    """Canonical path resolver delegating to bwe.db.resolve_edition_dir."""
+    return resolve_edition_dir(series_slug, lang=lang, repo_root=REPO_ROOT)
+
+
+def get_available_languages(series_slug: str) -> list[str]:
+    """Detect available languages for a series ('en', 'es', 'fr')."""
+    clean_slug = series_slug.split("/i18n/")[0]
+    base_dir = SERIES_DIR / clean_slug
+    langs = ["en"]
+    i18n_dir = base_dir / "i18n"
+    if i18n_dir.is_dir():
+        for sub in sorted(i18n_dir.iterdir()):
+            if sub.is_dir() and ((sub / "series.yaml").is_file() or (sub / "chapters").is_dir()):
+                if sub.name not in langs:
+                    langs.append(sub.name)
+    return langs
+
+
+# In-memory index of canonical media files partitioned by (lang, key)
+AUDIO_CACHE: dict[tuple[str, str], Path] = {}
 PDF_CACHE: dict[str, Path] = {}
 
 
 def refresh_media_cache() -> None:
-    """Index canonical audio and PDF files from series directories without duplication."""
+    """Index canonical audio and PDF files partitioned by (lang, stem)."""
     AUDIO_CACHE.clear()
     PDF_CACHE.clear()
     for ext in ("*.mp3", "*.wav"):
         for p in SERIES_DIR.glob(f"**/audiobook/{ext}"):
             if p.is_file():
-                AUDIO_CACHE[p.stem] = p
-                AUDIO_CACHE[p.name] = p
+                lang = "en"
+                if "i18n/es" in p.as_posix() or "/es/" in p.as_posix():
+                    lang = "es"
+                elif "i18n/fr" in p.as_posix() or "/fr/" in p.as_posix():
+                    lang = "fr"
+                AUDIO_CACHE[(lang, p.stem)] = p
+                AUDIO_CACHE[(lang, p.name)] = p
         for p in (REPO_ROOT / ".cache" / "tts_pcm").glob(ext):
             if p.is_file():
-                AUDIO_CACHE.setdefault(p.stem, p)
-                AUDIO_CACHE.setdefault(p.name, p)
+                AUDIO_CACHE.setdefault(("en", p.stem), p)
+                AUDIO_CACHE.setdefault(("en", p.name), p)
     for p in SERIES_DIR.glob("**/*.pdf"):
         if p.is_file():
             PDF_CACHE[p.name] = p
 
 
-def find_canonical_audio(filename: str) -> Path | None:
-    """Locates canonical audio in series/**/audiobook/ without duplication."""
+def find_canonical_audio(filename: str, series_slug: Optional[str] = None, lang: str = "en") -> Path | None:
+    """Locates canonical audio in series/**/audiobook/ without cross-language leakage."""
     stem = Path(filename).stem
     ext = Path(filename).suffix.lower() or ".mp3"
     full_name = f"{stem}{ext}"
-    if full_name in AUDIO_CACHE:
-        return AUDIO_CACHE[full_name]
-    if stem in AUDIO_CACHE:
-        return AUDIO_CACHE[stem]
-    # Fallback search if newly generated
+
+    if series_slug:
+        edition_dir = resolve_series_edition_dir(series_slug, lang)
+        for cand in (
+            edition_dir / "audiobook" / full_name,
+            edition_dir / "audiobook" / f"{stem}.mp3",
+            edition_dir / "audiobook" / f"{stem}.wav",
+        ):
+            if cand.is_file():
+                return cand
+        # Never fall back to English if localized audio was requested
+        if lang in ("es", "fr"):
+            return None
+
+    if (lang, full_name) in AUDIO_CACHE:
+        return AUDIO_CACHE[(lang, full_name)]
+    if (lang, stem) in AUDIO_CACHE:
+        return AUDIO_CACHE[(lang, stem)]
+
+    # Search strictly in the language scope
+    if lang in ("es", "fr"):
+        for candidate_ext in (".mp3", ".wav"):
+            for p in SERIES_DIR.glob(f"**/i18n/{lang}/audiobook/{stem}{candidate_ext}"):
+                if p.is_file():
+                    AUDIO_CACHE[(lang, stem)] = p
+                    AUDIO_CACHE[(lang, p.name)] = p
+                    return p
+        return None
+
+    # English fallback search
     for candidate_ext in (".mp3", ".wav"):
         for p in SERIES_DIR.glob(f"**/audiobook/{stem}{candidate_ext}"):
-            if p.is_file():
-                AUDIO_CACHE[stem] = p
-                AUDIO_CACHE[p.name] = p
+            if "i18n" not in p.parts and p.is_file():
+                AUDIO_CACHE[("en", stem)] = p
+                AUDIO_CACHE[("en", p.name)] = p
                 return p
     return None
 
@@ -220,8 +269,8 @@ def extract_chapter_footnotes(raw_md: str) -> dict[str, str]:
     return footnotes
 
 
-def build_file_tree() -> dict:
-    """Collects all series, books, chapters, and OKF evidence cards for the IDE file tree."""
+def build_file_tree(lang: Optional[str] = None) -> dict:
+    """Collects all series, books, chapters, and OKF evidence cards for the IDE file tree, including localized editions."""
     tree: dict[str, Any] = {}
     if not SERIES_DIR.is_dir():
         return tree
@@ -277,6 +326,35 @@ def build_file_tree() -> dict:
             ]
             tree[s_slug]["root_chapters"] = ch_list
             tree[s_slug]["root_cards"] = card_list
+
+        # Discover localized i18n sibling editions
+        i18n_dir = s_dir / "i18n"
+        if i18n_dir.is_dir():
+            for loc in sorted(i18n_dir.iterdir()):
+                if not loc.is_dir():
+                    continue
+                loc_chapters = [
+                    {
+                        "stem": f.stem,
+                        "name": f.name,
+                        "path": f.relative_to(REPO_ROOT).as_posix(),
+                    }
+                    for f in sorted((loc / "chapters").glob("*.md"))
+                    if not f.name.startswith("_")
+                ]
+                loc_cards = [
+                    {
+                        "stem": f.stem,
+                        "name": f.name,
+                        "path": f.relative_to(REPO_ROOT).as_posix(),
+                    }
+                    for f in sorted((loc / "evidence-cards").glob("*.md"))
+                    if not f.name.startswith("_") and f.name.lower() not in {"index.md", "readme.md"}
+                ]
+                tree[s_slug]["books"][f"i18n/{loc.name}"] = {
+                    "chapters": loc_chapters,
+                    "evidence_cards": loc_cards,
+                }
     return tree
 
 
@@ -478,6 +556,66 @@ async def inspect_evidence_brief(request: Request, series_slug: str, card_slug: 
 
 
 # Canonical zero-copy media streaming endpoints (supporting HTTP 206 Range requests)
+@app.get("/audio/{series_slug}/{lang}/{filename}")
+@app.head("/audio/{series_slug}/{lang}/{filename}")
+async def stream_audio_localized(series_slug: str, lang: str, filename: str):
+    audio_path = find_canonical_audio(filename, series_slug=series_slug, lang=lang)
+    if audio_path and audio_path.is_file():
+        media_type = "audio/mpeg" if audio_path.suffix.lower() == ".mp3" else "audio/wav"
+        return FileResponse(
+            audio_path,
+            media_type=media_type,
+            headers={"Cache-Control": "public, max-age=3600", "Vary": "Accept-Language"},
+        )
+    raise HTTPException(
+        status_code=404,
+        detail=f"Audio asset '{filename}' not found for series '{series_slug}' and language '{lang}'",
+    )
+
+
+@app.get("/audio/{series_slug}/{filename}")
+@app.head("/audio/{series_slug}/{filename}")
+async def stream_audio_default_lang(series_slug: str, filename: str, lang: str = "en"):
+    return await stream_audio_localized(series_slug, lang, filename)
+
+
+@app.get("/timings/{series_slug}/{lang}/{chapter_slug}")
+@app.get("/timings/{series_slug}/{chapter_slug}")
+async def get_chapter_timings(series_slug: str, chapter_slug: str, lang: str = "en"):
+    edition_dir = resolve_series_edition_dir(series_slug, lang)
+    timings_path = edition_dir / "audiobook" / f"{chapter_slug}.timings.json"
+    audio_mp3 = edition_dir / "audiobook" / f"{chapter_slug}.mp3"
+    audio_wav = edition_dir / "audiobook" / f"{chapter_slug}.wav"
+    has_neural = (audio_mp3.is_file() or audio_wav.is_file()) and timings_path.is_file()
+
+    if timings_path.is_file():
+        try:
+            data = json.loads(timings_path.read_text(encoding="utf-8"))
+            if isinstance(data, dict):
+                data["language"] = lang
+                data["has_neural_audio"] = has_neural
+                return JSONResponse(data)
+        except Exception:
+            pass
+
+    # Tier 2 dynamic localized scaffold fallback
+    md_path = edition_dir / "chapters" / f"{chapter_slug}.md"
+    if not md_path.is_file():
+        cands = list(edition_dir.glob(f"**/chapters/{chapter_slug}.md"))
+        if cands:
+            md_path = cands[0]
+
+    if md_path.is_file():
+        raw_md = md_path.read_text(encoding="utf-8")
+        from audio_sync_utils import extract_semantic_blocks, pack_semantic_blocks, build_timings_manifest
+        blocks = extract_semantic_blocks(raw_md, lang=lang)
+        chunks = pack_semantic_blocks(blocks, per_paragraph=True)
+        scaffold = build_timings_manifest(chapter_slug, chunks, language=lang, has_neural_audio=False)
+        return JSONResponse(scaffold)
+
+    raise HTTPException(status_code=404, detail="Chapter or timings not found")
+
+
 @app.get("/media/audio/{filename}")
 @app.head("/media/audio/{filename}")
 @app.get("/site/{filename}.mp3")
@@ -520,37 +658,40 @@ def _render_chapter_view(
     chapter_slug: str,
     book_slug: Optional[str] = None,
     lens: Optional[str] = None,
+    lang: str = "en",
 ) -> HTMLResponse:
-    """Internal helper to locate chapter markdown, timings, and render with dual template support."""
-    if book_slug:
-        base_dir = SERIES_DIR / series_slug / book_slug
+    """Internal helper to locate chapter markdown, timings, and render with localized support."""
+    edition_dir = resolve_series_edition_dir(series_slug, lang)
+    if book_slug and (edition_dir / book_slug).is_dir():
+        base_dir = edition_dir / book_slug
     else:
-        base_dir = SERIES_DIR / series_slug
+        base_dir = edition_dir
 
     if not base_dir.exists():
-        raise HTTPException(status_code=404, detail="Series or book not found")
+        raise HTTPException(status_code=404, detail=f"Series edition '{series_slug}' ({lang}) not found")
 
     md_candidates = list(base_dir.glob(f"**/chapters/{chapter_slug}.md"))
     if not md_candidates:
-        raise HTTPException(status_code=404, detail="Chapter not found")
+        md_candidates = list(base_dir.glob(f"**/{chapter_slug}.md"))
+    if not md_candidates:
+        raise HTTPException(status_code=404, detail=f"Chapter '{chapter_slug}' not found for language '{lang}'")
+
     md_path = md_candidates[0]
     raw_md = md_path.read_text(encoding="utf-8")
 
-    timings_path = SERIES_DIR / series_slug / "audiobook" / f"{chapter_slug}.timings.json"
-    if not timings_path.exists():
-        sub_timings = list((SERIES_DIR / series_slug).glob(f"**/audiobook/{chapter_slug}.timings.json"))
-        if sub_timings:
-            timings_path = sub_timings[0]
+    # Locate audio and timings strictly in edition directory
+    timings_path = edition_dir / "audiobook" / f"{chapter_slug}.timings.json"
+    audio_mp3 = edition_dir / "audiobook" / f"{chapter_slug}.mp3"
+    audio_wav = edition_dir / "audiobook" / f"{chapter_slug}.wav"
+    has_audio = (audio_mp3.is_file() or audio_wav.is_file()) and timings_path.is_file()
 
-    audio_url = f"/site/{chapter_slug}.mp3"
-    audio_path = find_canonical_audio(chapter_slug)
-    has_audio = audio_path is not None and audio_path.is_file()
+    audio_url = f"/audio/{series_slug}/{lang}/{chapter_slug}.mp3" if audio_mp3.is_file() else (f"/audio/{series_slug}/{lang}/{chapter_slug}.wav" if audio_wav.is_file() else "")
 
-    from render_audiobook_player import extract_clean_text
-    prose_html = extract_clean_text(md_path, timings_path if timings_path.exists() else None)
+    from render_audiobook_player import extract_clean_text, UI_STRINGS
 
-    blocks_list = []
-    if timings_path.exists():
+    if has_audio:
+        prose_html = extract_clean_text(md_path, timings_path=timings_path, lang=lang)
+        blocks_list = []
         try:
             t_data = json.loads(timings_path.read_text(encoding="utf-8"))
             if isinstance(t_data, dict):
@@ -559,15 +700,50 @@ def _render_chapter_view(
                 blocks_list = t_data
         except Exception:
             blocks_list = []
+    else:
+        # Tier 2 dynamic localized scaffold
+        from audio_sync_utils import extract_semantic_blocks, pack_semantic_blocks, build_timings_manifest
+        blocks = extract_semantic_blocks(raw_md, lang=lang)
+        chunks = pack_semantic_blocks(blocks, per_paragraph=True)
+        scaffold = build_timings_manifest(chapter_slug, chunks, language=lang, has_neural_audio=False)
+        prose_html = extract_clean_text(md_path, scaffold_manifest=scaffold, lang=lang)
+        blocks_list = scaffold.get("blocks", [])
 
     s_meta = get_series_manifest_safe(series_slug)
+    # Check for localized title/subtitle if in i18n
+    loc_yaml = edition_dir / "series.yaml"
+    edition_title = s_meta["title"]
+    edition_subtitle = s_meta.get("subtitle", "")
+    if loc_yaml.is_file():
+        try:
+            loc_cfg = yaml.safe_load(loc_yaml.read_text(encoding="utf-8")) or {}
+            edition_title = loc_cfg.get("title", edition_title)
+            edition_subtitle = loc_cfg.get("subtitle", edition_subtitle)
+        except Exception:
+            pass
+
+    available_languages = get_available_languages(series_slug)
+    ui_strings = UI_STRINGS.get(lang, UI_STRINGS["en"])
+
+    # Collect edition chapters for navigation
+    chapters_dir = base_dir / "chapters"
+    edition_chapters = []
+    if chapters_dir.is_dir():
+        from merge_book_chapters import iter_chapter_files
+        from render_audiobook_player import extract_chapter_title
+        for idx, f in enumerate(iter_chapter_files(chapters_dir), 1):
+            edition_chapters.append({
+                "num": idx,
+                "stem": f.stem,
+                "title": extract_chapter_title(f),
+                "is_active": f.stem == chapter_slug,
+            })
+
     chosen_lens = lens or (s_meta["lenses"][0] if s_meta["lenses"] else "Science")
     takeaways = extract_chapter_takeaways(raw_md)
     footnotes = extract_chapter_footnotes(raw_md)
 
-    # Dual template support: render reader.html if it exists, otherwise fall back to portal.html
     template_file = "reader.html" if (REPO_ROOT / "bwe" / "templates" / "reader.html").exists() else "portal.html"
-
     resolved_book = book_slug or (md_path.parent.parent.name if md_path.parent.parent.name.startswith("book-") else "root")
 
     return templates.TemplateResponse(
@@ -578,8 +754,8 @@ def _render_chapter_view(
             "series_slug": series_slug,
             "book_slug": resolved_book,
             "chapter_slug": chapter_slug,
-            "series_title": s_meta["title"],
-            "series_subtitle": s_meta.get("subtitle", ""),
+            "series_title": edition_title,
+            "series_subtitle": edition_subtitle,
             "lenses": s_meta["lenses"],
             "active_lens": chosen_lens,
             "epistemic_contract": s_meta["epistemic_contract"],
@@ -588,23 +764,48 @@ def _render_chapter_view(
             "prose_html": prose_html,
             "timings": blocks_list,
             "has_audio": has_audio,
+            "has_neural_audio": has_audio,
             "audio_url": audio_url,
             "server_info": get_server_info(request),
             "active_tab": "reader",
+            "lang": lang,
+            "available_languages": available_languages,
+            "ui_strings": ui_strings,
+            "edition_chapters": edition_chapters,
         },
     )
 
 
+@app.get("/reader/{series_slug}", response_class=HTMLResponse)
+async def reader_landing(request: Request, series_slug: str, lang: str = "en", chapter: Optional[str] = None):
+    """Landing route for synchronized reader, defaulting to chapter 1 or requested chapter."""
+    edition_dir = resolve_series_edition_dir(series_slug, lang)
+    if chapter:
+        target_ch = chapter
+    else:
+        chapters_dir = edition_dir / "chapters"
+        from merge_book_chapters import iter_chapter_files
+        files = iter_chapter_files(chapters_dir) if chapters_dir.is_dir() else []
+        target_ch = files[0].stem if files else "01-before-the-child-is-born"
+    return _render_chapter_view(request, series_slug, target_ch, lang=lang)
+
+
 @app.get("/read/{series_slug}/{chapter_slug}", response_class=HTMLResponse)
-async def read_chapter(request: Request, series_slug: str, chapter_slug: str, lens: Optional[str] = None):
+async def read_chapter(request: Request, series_slug: str, chapter_slug: str, lens: Optional[str] = None, lang: str = "en"):
     """Serves the bidirectional audio-synced chapter reader with isolated footnotes and 3-lens support."""
-    return _render_chapter_view(request, series_slug, chapter_slug, lens=lens)
+    return _render_chapter_view(request, series_slug, chapter_slug, lens=lens, lang=lang)
 
 
 @app.get("/read/{series_slug}/{book_slug}/{chapter_slug}", response_class=HTMLResponse)
-async def read_chapter_multibook(request: Request, series_slug: str, book_slug: str, chapter_slug: str, lens: Optional[str] = None):
+async def read_chapter_multibook(request: Request, series_slug: str, book_slug: str, chapter_slug: str, lens: Optional[str] = None, lang: str = "en"):
     """Serves the chapter reader for multi-book series volumes (e.g. Architectures of Memory)."""
-    return _render_chapter_view(request, series_slug, chapter_slug, book_slug=book_slug, lens=lens)
+    return _render_chapter_view(request, series_slug, chapter_slug, book_slug=book_slug, lens=lens, lang=lang)
+
+
+@app.get("/hx/reader/{series_slug}/{chapter_slug}", response_class=HTMLResponse)
+async def hx_read_chapter(request: Request, series_slug: str, chapter_slug: str, lens: Optional[str] = None, lang: str = "en"):
+    """HTMX partial endpoint for swapping chapter manuscript and audio in reader view."""
+    return _render_chapter_view(request, series_slug, chapter_slug, lens=lens, lang=lang)
 
 
 @app.get("/hx/footnote/{series_slug}/{chapter_slug}/{footnote_id}", response_class=HTMLResponse)
@@ -686,7 +887,7 @@ async def submit_reader_feedback(
 
 
 @app.get("/ide", response_class=HTMLResponse)
-async def epistemic_ide_home(request: Request):
+async def epistemic_ide_home(request: Request, lang: str = "en"):
     """ARC-56: Renders the full 3-column Epistemic IDE workbench."""
     with get_db() as conn:
         rows = conn.execute(
@@ -700,7 +901,8 @@ async def epistemic_ide_home(request: Request):
             "request": request,
             "cards": rows,
             "query": "",
-            "file_tree": build_file_tree(),
+            "file_tree": build_file_tree(lang=lang),
+            "lang": lang,
             "server_info": get_server_info(request),
             "active_tab": "ide",
         },
@@ -890,6 +1092,7 @@ async def get_chapter_micro_qa(
     series_slug: str,
     chapter_slug: str,
     book_slug: Optional[str] = None,
+    lang: Optional[str] = None,
 ):
     """
     ARC-101: Returns granular paragraph-by-paragraph diagnostics (Rules 8a–8d)
@@ -905,10 +1108,13 @@ async def get_chapter_micro_qa(
     )
     from bwe.style_sculptor import build_sculptor_prompt
 
-    if book_slug:
-        base_dir = SERIES_DIR / series_slug / book_slug
+    target_lang = lang or ("fr" if ("fr" in series_slug) else ("es" if ("es" in series_slug) else "en"))
+    edition_dir = resolve_series_edition_dir(series_slug, target_lang)
+
+    if book_slug and (edition_dir / book_slug).is_dir():
+        base_dir = edition_dir / book_slug
     else:
-        base_dir = SERIES_DIR / series_slug
+        base_dir = edition_dir
 
     if not base_dir.exists():
         raise HTTPException(status_code=404, detail="Series or book directory not found")
@@ -923,15 +1129,14 @@ async def get_chapter_micro_qa(
     raw_md = md_path.read_text(encoding="utf-8")
     body_before_notes = raw_md.split("## Notes")[0] if "## Notes" in raw_md else raw_md
 
-    lang = "es" if ("es" in series_slug or "es" in md_path.parts) else "en"
     hard_errs, warns, metrics = audit_micro_qa(
         body_before_notes,
-        language=lang,
+        language=target_lang,
         chapter_slug=chapter_slug,
     )
     poetics = compute_phrasal_poetics(
         body_before_notes,
-        language=lang,
+        language=target_lang,
         chapter_slug=chapter_slug,
         root=REPO_ROOT,
         book_path=base_dir,
@@ -956,11 +1161,21 @@ async def get_chapter_micro_qa(
             p_global += 1
             clean_p = INLINE_FN_RE.sub("", pr)
             clean_p = re.sub(r"<[^>]+>", " ", clean_p)
-            sents = tokenize_sentences(pr, language=lang)
-            w_regex = r"[A-Za-z0-9áéíóúüñÁÉÍÓÚÜÑ']+" if lang == "es" else r"[A-Za-z0-9']+"
+            sents = tokenize_sentences(pr, language=target_lang)
+            if target_lang == "es":
+                w_regex = r"[A-Za-z0-9áéíóúüñÁÉÍÓÚÜÑ']+"
+            elif target_lang == "fr":
+                w_regex = r"[A-Za-z0-9àâäéèêëîïôöùûüÿçœæÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇŒÆ']+"
+            else:
+                w_regex = r"[A-Za-z0-9']+"
             words = re.findall(w_regex, clean_p)
-            rm = compute_readability_metrics(clean_p, language=lang) if (len(sents) >= 3 or len(words) >= 40) else {}
-            readability_val = float(rm.get("szigriszt", 55.0) if lang == "es" else rm.get("fk_grade", 8.5))
+            rm = compute_readability_metrics(clean_p, language=target_lang) if (len(sents) >= 3 or len(words) >= 40) else {}
+            if target_lang == "fr":
+                readability_val = float(rm.get("kandel", 55.0))
+            elif target_lang == "es":
+                readability_val = float(rm.get("szigriszt", 55.0))
+            else:
+                readability_val = float(rm.get("fk_grade", 8.5))
 
             prefix = f"[p.{p_global}"
             p_errs = [e for e in hard_errs if prefix in e]
@@ -969,7 +1184,7 @@ async def get_chapter_micro_qa(
             sculpt_prompt = build_sculptor_prompt(
                 pr,
                 section_title=sec_title,
-                language=lang,
+                language=target_lang,
                 reasons=p_poetics.get("reasons", []),
             )
 
@@ -995,7 +1210,7 @@ async def get_chapter_micro_qa(
             "request": request,
             "series_slug": series_slug,
             "chapter_slug": chapter_slug,
-            "language": lang,
+            "language": target_lang,
             "hard_errors": hard_errs,
             "warnings": warns,
             "metrics": metrics,

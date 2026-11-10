@@ -97,6 +97,10 @@
           <span class="px-1.5 py-0.5 rounded bg-stone-950/80 {{ 'text-rose-300' if p.readability < 28.0 else ('text-amber-300' if p.readability < 42.0 else 'text-emerald-300') }}">
             Szig {{ "%.1f"|format(p.readability) }}
           </span>
+          {% elif language == 'fr' %}
+          <span class="px-1.5 py-0.5 rounded bg-stone-950/80 {{ 'text-rose-300' if p.readability < 30.0 else ('text-amber-300' if p.readability < 50.0 else 'text-emerald-300') }}">
+            Kandel {{ "%.1f"|format(p.readability) }}
+          </span>
           {% else %}
           <span class="px-1.5 py-0.5 rounded bg-stone-950/80 {{ 'text-rose-300' if p.readability > 16.0 else ('text-amber-300' if p.readability > 12.0 else 'text-emerald-300') }}">
             FK {{ "%.1f"|format(p.readability) }}

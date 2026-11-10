@@ -169,6 +169,26 @@
         </p>
         {% endif %}
 
+        <!-- Language Switcher Bar (EN | ES | FR) -->
+        {% if available_languages and available_languages | length > 1 %}
+        <div id="reader-lang-bar"
+             role="group"
+             aria-label="Language Selector"
+             class="flex items-center gap-1.5 p-1.5 bg-stone-900/90 border border-stone-800 rounded-xl w-fit">
+          <span class="text-xs font-mono uppercase tracking-wider text-stone-400 px-2 font-semibold">
+            {{ ui_strings.switch_lang | default('Language') }}:
+          </span>
+          {% for l in available_languages %}
+          <button type="button"
+                  onclick="switchReaderLanguage('{{ l }}')"
+                  class="min-h-[44px] min-w-[44px] px-3 py-2 rounded-lg font-mono text-xs font-bold transition touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none flex items-center justify-center gap-1.5 {{ 'bg-amber-500 text-stone-950 shadow-md font-bold' if lang == l else 'bg-stone-950 text-stone-300 hover:text-stone-100 hover:bg-stone-800 border border-stone-800' }}"
+                  aria-label="Switch language to {{ l|upper }}">
+            {{ l|upper }}
+          </button>
+          {% endfor %}
+        </div>
+        {% endif %}
+
         <!-- Three-Lens Method Toggle Bar -->
         <div id="lens-toggle"
              data-lens-toggle="true"
@@ -194,7 +214,7 @@
       </header>
 
       {% if has_audio %}
-      <!-- Persistent Mini Audio Player Sticky Bar -->
+      <!-- Persistent Mini Audio Player Sticky Bar (Tier 1 Neural Audio) -->
       <section aria-label="Chapter Audio Mini-Player"
                class="sticky top-14 z-30 bg-stone-900/95 backdrop-blur-md border border-stone-800 rounded-xl p-3 sm:p-4 shadow-xl flex flex-wrap sm:flex-nowrap items-center gap-3 sm:gap-4">
         <audio id="chapter-audio" src="{{ audio_url }}" preload="metadata"></audio>
@@ -247,6 +267,32 @@
             <option value="2.0">2.0x</option>
           </select>
         </div>
+      </section>
+      {% else %}
+      <!-- Tier 2 Browser Voice Mini Player (Web Speech API) -->
+      <section aria-label="Chapter Browser Audio Player"
+               class="sticky top-14 z-30 bg-stone-900/95 backdrop-blur-md border border-stone-800 rounded-xl p-3 sm:p-4 shadow-xl flex flex-wrap sm:flex-nowrap items-center gap-3 sm:gap-4">
+        <!-- Play / Pause Button for Web Speech API (>= 44px) -->
+        <button id="btn-reader-play"
+                onclick="toggleReaderAudio()"
+                class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-sky-500 hover:bg-sky-400 active:bg-sky-600 text-stone-950 font-bold flex items-center justify-center text-lg transition touch-manipulation focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:outline-none shrink-0"
+                aria-label="Play browser voice narration">
+          ▶
+        </button>
+
+        <div class="flex-1 min-w-[180px]">
+          <div class="flex items-center justify-between text-xs text-stone-400 font-mono mb-1">
+            <span class="text-sky-400 font-semibold truncate">{{ ui_strings.tts_ready | default('Browser Voice Ready') }}</span>
+            <span id="active-block-label" class="text-amber-400 font-semibold truncate px-2">Block --</span>
+          </div>
+          <div class="w-full h-1.5 bg-stone-800 rounded-full overflow-hidden">
+            <div id="reader-bar-fill" class="h-full bg-gradient-to-r from-sky-500 to-sky-300 rounded-full w-0 transition-all duration-100"></div>
+          </div>
+        </div>
+
+        <span class="text-[11px] font-mono text-stone-400 bg-stone-950 px-2.5 py-1.5 rounded-lg border border-stone-800">
+          {{ ui_strings.voice_locale | default(lang) }}
+        </span>
       </section>
       {% endif %}
 
@@ -418,6 +464,82 @@
   const tooltipIdEl = document.getElementById('tooltip-id');
   const tooltipBodyEl = document.getElementById('tooltip-body');
 
+  const hasNeuralAudio = {{ 'true' if has_neural_audio else 'false' }};
+  const currentReaderLang = '{{ lang }}';
+  let browserSpeakingIdx = -1;
+
+  function switchReaderLanguage(targetLang) {
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    if (player) player.pause();
+    const activeSeg = document.querySelector('.sync-segment.active-segment');
+    const activeSegId = activeSeg ? activeSeg.id : '';
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang', targetLang);
+    if (activeSegId) {
+      url.hash = activeSegId;
+    }
+    window.location.href = url.toString();
+  }
+
+  function getReaderVoice(l) {
+    if (!('speechSynthesis' in window)) return null;
+    const voices = window.speechSynthesis.getVoices();
+    const p = (l || 'en').toLowerCase();
+    let m = voices.find(v => v.lang.toLowerCase().replace('_', '-').startsWith(p));
+    if (!m) {
+      if (p === 'es') m = voices.find(v => v.lang.toLowerCase().startsWith('es'));
+      else if (p === 'fr') m = voices.find(v => v.lang.toLowerCase().startsWith('fr'));
+      else m = voices.find(v => v.lang.toLowerCase().startsWith('en'));
+    }
+    return m || null;
+  }
+
+  function playBrowserSpeech(segIdx) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const segments = document.querySelectorAll('.sync-segment');
+    if (!segments.length || segIdx < 0 || segIdx >= segments.length) {
+      browserSpeakingIdx = -1;
+      if (playBtn) playBtn.innerText = '▶';
+      return;
+    }
+    browserSpeakingIdx = segIdx;
+    const seg = segments[segIdx];
+    const text = seg.getAttribute('data-spoken-text') || seg.innerText.trim();
+    if (!text) {
+      if (segIdx + 1 < segments.length) playBrowserSpeech(segIdx + 1);
+      return;
+    }
+    const utter = new SpeechSynthesisUtterance(text);
+    const v = getReaderVoice(currentReaderLang);
+    if (v) utter.voice = v;
+    utter.lang = currentReaderLang === 'es' ? 'es-ES' : (currentReaderLang === 'fr' ? 'fr-FR' : 'en-US');
+    if (playBtn) playBtn.innerText = '⏸';
+    if (blockLabel) blockLabel.innerText = seg.id || `b-${segIdx}`;
+
+    segments.forEach((s, idx) => s.classList.toggle('active-segment', idx === segIdx));
+    seg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    const pct = ((segIdx + 1) / segments.length) * 100;
+    if (barFill) barFill.style.width = `${pct}%`;
+
+    utter.onend = () => {
+      if (browserSpeakingIdx === segIdx) {
+        if (segIdx + 1 < segments.length) {
+          playBrowserSpeech(segIdx + 1);
+        } else {
+          browserSpeakingIdx = -1;
+          if (playBtn) playBtn.innerText = '▶';
+        }
+      }
+    };
+    utter.onerror = () => {
+      if (playBtn) playBtn.innerText = '▶';
+      browserSpeakingIdx = -1;
+    };
+    window.speechSynthesis.speak(utter);
+  }
+
   function formatTime(s) {
     if (isNaN(s)) return "0:00";
     const m = Math.floor(s / 60);
@@ -426,7 +548,20 @@
   }
 
   function toggleReaderAudio() {
-    if (!player) return;
+    if (!hasNeuralAudio || !player) {
+      if (!('speechSynthesis' in window)) return;
+      if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+        window.speechSynthesis.pause();
+        if (playBtn) playBtn.innerText = '▶';
+      } else if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume();
+        if (playBtn) playBtn.innerText = '⏸';
+      } else {
+        const idx = browserSpeakingIdx >= 0 ? browserSpeakingIdx : 0;
+        playBrowserSpeech(idx);
+      }
+      return;
+    }
     if (player.paused) {
       player.play();
     } else {
@@ -461,6 +596,11 @@
     if (segId) {
       if (blockLabel) blockLabel.innerText = segId;
       if (feedbackBlockInput) feedbackBlockInput.value = segId;
+    }
+    if (!hasNeuralAudio || !player) {
+      const segIdx = parseInt(seg.getAttribute('data-seg-idx') || '0', 10);
+      playBrowserSpeech(segIdx);
+      return;
     }
     if (player) {
       if (seg.hasAttribute('data-start-time')) {
@@ -707,6 +847,18 @@
     const bottomFootnotes = document.querySelector('.footnote');
     if (bottomFootnotes) {
       bottomFootnotes.classList.add('mt-12', 'pt-8', 'border-t', 'border-stone-800', 'text-xs', 'text-stone-400');
+    }
+
+    // Scroll to block anchor if provided in hash (e.g. #b-014 or #b-001)
+    if (window.location.hash) {
+      const targetId = window.location.hash.substring(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        setTimeout(() => {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          targetEl.classList.add('active-segment');
+        }, 150);
+      }
     }
   });
 </script>

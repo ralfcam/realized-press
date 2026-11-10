@@ -407,6 +407,31 @@ def resolve_series_and_book_slug(rel_parts: tuple[str, ...]) -> tuple[str, str]:
     return series_slug, book_slug
 
 
+def resolve_edition_dir(series_slug: str, lang: str = "en", repo_root: Path | None = None) -> Path:
+    """Resolve the filesystem directory for a series edition and language.
+
+    - If lang == 'en' (or series_slug already ends with /i18n/{lang}):
+      resolve to series_dir / series_slug (stripping /i18n/* if lang == 'en').
+    - If lang in ('es', 'fr'):
+      resolve to series_dir / clean_slug / 'i18n' / lang when it exists.
+    """
+    root = repo_root or Path(__file__).resolve().parent.parent
+    series_dir = root / "series"
+    clean_series = series_slug.split("/i18n/")[0].strip("/\\")
+
+    if lang in ("es", "fr"):
+        candidate = series_dir / clean_series / "i18n" / lang
+        if candidate.is_dir():
+            return candidate
+
+    if "i18n" in series_slug and lang != "en":
+        target = series_dir / series_slug.strip("/\\")
+        if target.is_dir():
+            return target
+
+    return series_dir / clean_series
+
+
 def reindex_evidence_cards(conn: sqlite3.Connection, repo_root: Path) -> None:
     conn.execute("DELETE FROM evidence_cards_fts;")
     series_dir = repo_root / "series"

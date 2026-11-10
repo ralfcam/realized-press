@@ -24,11 +24,105 @@ from pathlib import Path
 
 import markdown
 import bs4
-from audio_sync_utils import HEADING_PAUSE_WORDS, load_timings_manifest
+from audio_sync_utils import (
+    HEADING_PAUSE_WORDS,
+    load_timings_manifest,
+    extract_semantic_blocks,
+    pack_semantic_blocks,
+    build_timings_manifest,
+    clean_spoken_text,
+)
 from merge_book_chapters import iter_chapter_files, repo_root, resolve_book_path, strip_yaml_frontmatter, transform_audiobook
 
 WPM_SPEAKING_RATE = 150
 DEFAULT_GITHUB_REPO = "ralfcam/realized-press"
+
+UI_STRINGS: dict[str, dict[str, str]] = {
+    "en": {
+        "edition_title": "Parenthood: The Atlas",
+        "edition_subtitle": "What Science Knows, What It Doesn't, and Where Art Begins from Conception to Age Three",
+        "portal_title": "Realized Press — Imprint Audiobook Portal & Marketing Hub",
+        "reader_audio_edition": "Synchronized Reader & Audio Edition",
+        "play": "Play",
+        "pause": "Pause",
+        "prev": "Previous",
+        "next": "Next",
+        "speed": "Speed",
+        "chapters": "Chapters",
+        "words": "words",
+        "min": "min",
+        "neural_audio": "Neural Audio",
+        "browser_tts": "Browser TTS",
+        "narrated_audio": "Narrated (Neural Audio)",
+        "tts_ready": "TTS Synthesizing / Browser Voice Ready (EN)",
+        "switch_lang": "Language",
+        "seek_to": "Seek audio to",
+        "jump_to": "Tap or press Enter to jump audio to",
+        "status_neural": "Neural audio synchronized with PCM timestamps.",
+        "status_browser": "Browser speech synthesis ready (en-US).",
+        "voice_locale": "en-US",
+        "playlist": "Playlist",
+        "reader": "Reader",
+        "auto_scroll_on": "📜 Auto-Scroll: ON",
+        "auto_scroll_off": "📜 Auto-Scroll: OFF",
+    },
+    "es": {
+        "edition_title": "El atlas de la crianza",
+        "edition_subtitle": "Lo que demuestra la ciencia, lo que aún ignora y dónde comienza el arte, desde la concepción hasta los tres años",
+        "portal_title": "Realized Press — Portal de Audiolibros y Centro Editorial",
+        "reader_audio_edition": "Lector sincronizado y edición de audio",
+        "play": "Reproducir",
+        "pause": "Pausar",
+        "prev": "Anterior",
+        "next": "Siguiente",
+        "speed": "Velocidad",
+        "chapters": "Capítulos",
+        "words": "palabras",
+        "min": "min",
+        "neural_audio": "Audio neural",
+        "browser_tts": "Voz del navegador",
+        "narrated_audio": "Narrado (Audio neural)",
+        "tts_ready": "Audio neural en cola — Voz del navegador (ES)",
+        "switch_lang": "Idioma",
+        "seek_to": "Saltar audio a",
+        "jump_to": "Toca o pulsa Enter para saltar audio a",
+        "status_neural": "Audio neural sincronizado con marcas de tiempo PCM.",
+        "status_browser": "Síntesis de voz del navegador lista (es-ES).",
+        "voice_locale": "es-ES",
+        "playlist": "Lista de reproducción",
+        "reader": "Lector",
+        "auto_scroll_on": "📜 Desplazamiento automático: SÍ",
+        "auto_scroll_off": "📜 Desplazamiento automático: NO",
+    },
+    "fr": {
+        "edition_title": "L'Atlas de la parentalité",
+        "edition_subtitle": "Ce que démontre la science, ce qu'elle ignore encore et où commence l'art, de la conception à trois ans",
+        "portal_title": "Realized Press — Portail de livres audio et pôle éditorial",
+        "reader_audio_edition": "Lecteur synchronisé et édition audio",
+        "play": "Lecture",
+        "pause": "Pause",
+        "prev": "Précédent",
+        "next": "Suivant",
+        "speed": "Vitesse",
+        "chapters": "Chapitres",
+        "words": "mots",
+        "min": "min",
+        "neural_audio": "Audio neuronal",
+        "browser_tts": "Voix du navigateur",
+        "narrated_audio": "Narré (Audio neuronal)",
+        "tts_ready": "Audio neuronal en attente — Voix du navigateur (FR)",
+        "switch_lang": "Langue",
+        "seek_to": "Avancer l'audio à",
+        "jump_to": "Appuyez sur Entrée pour avancer l'audio à",
+        "status_neural": "Audio neuronal synchronisé avec horodatages PCM.",
+        "status_browser": "Synthèse vocale du navigateur prête (fr-FR).",
+        "voice_locale": "fr-FR",
+        "playlist": "Liste de lecture",
+        "reader": "Lecteur",
+        "auto_scroll_on": "📜 Défilement auto : OUI",
+        "auto_scroll_off": "📜 Défilement auto : NON",
+    },
+}
 
 
 def extract_chapter_title(md_path: Path) -> str:
@@ -48,7 +142,12 @@ def format_time_sec(sec: float) -> str:
     return f"{m}:{s:02d}"
 
 
-def extract_clean_text(md_path: Path, timings_path: Path | None = None) -> str:
+def extract_clean_text(
+    md_path: Path,
+    timings_path: Path | None = None,
+    scaffold_manifest: dict | None = None,
+    lang: str = "en",
+) -> str:
     content = md_path.read_text(encoding="utf-8")
     body = strip_yaml_frontmatter(content)
     # Filter out non-prose internal domain markers
@@ -96,7 +195,12 @@ def extract_clean_text(md_path: Path, timings_path: Path | None = None) -> str:
             else:
                 elements.append(el)
 
-    manifest = load_timings_manifest(timings_path) if timings_path else None
+    manifest = None
+    if timings_path and timings_path.is_file():
+        manifest = load_timings_manifest(timings_path)
+    if not manifest and scaffold_manifest:
+        manifest = scaffold_manifest
+
     if manifest and manifest.get("blocks"):
         blocks = manifest["blocks"]
         for idx, el in enumerate(elements):
@@ -110,10 +214,12 @@ def extract_clean_text(md_path: Path, timings_path: Path | None = None) -> str:
                 el["aria-label"] = f"Seek audio to {format_time_sec(b['start_sec'])}"
                 el["data-start-time"] = f"{b['start_sec']:.2f}"
                 el["data-end-time"] = f"{b['end_sec']:.2f}"
-                el["data-start-ratio"] = f"{b['start_ratio']:.4f}"
-                el["data-end-ratio"] = f"{b['end_ratio']:.4f}"
+                el["data-start-ratio"] = f"{b.get('start_ratio', 0.0):.4f}"
+                el["data-end-ratio"] = f"{b.get('end_ratio', 0.0):.4f}"
                 el["data-chunk-id"] = str(b.get("chunk_id", 1))
                 el["data-seg-idx"] = str(idx)
+                spoken_val = b.get("spoken_text") or b.get("text") or clean_spoken_text(el.get_text(), lang=lang)
+                el["data-spoken-text"] = spoken_val
                 el["title"] = f"Tap or press Enter to jump audio to {format_time_sec(b['start_sec'])}"
             else:
                 el["data-spoken"] = "false"
@@ -148,12 +254,14 @@ def extract_clean_text(md_path: Path, timings_path: Path | None = None) -> str:
                 end_ratio = round(cum_weight / total_weight, 4)
                 classes = s.get("class", []) or []
                 s["class"] = classes + ["sync-segment"]
+                s["id"] = f"b-{idx:03d}"
                 s["tabindex"] = "0"
                 s["role"] = "button"
                 s["aria-label"] = f"Seek audio to ~{start_ratio*100:.0f}%"
                 s["data-start-ratio"] = str(start_ratio)
                 s["data-end-ratio"] = str(end_ratio)
                 s["data-seg-idx"] = str(idx)
+                s["data-spoken-text"] = clean_spoken_text(s.get_text(), lang=lang)
                 s["title"] = f"Tap or press Enter to jump audio to ~{start_ratio*100:.1f}%"
             else:
                 s["data-spoken"] = "false"
@@ -170,6 +278,16 @@ def collect_book_data(book_path: Path, series_title: str, series_subtitle: str, 
     subtitle = series_subtitle
     book_id = book_path.name
 
+    # Determine language
+    if book_path.parent.name == "i18n":
+        lang = book_path.name
+    elif "es" in book_path.parts:
+        lang = "es"
+    elif "fr" in book_path.parts:
+        lang = "fr"
+    else:
+        lang = "en"
+
     # Check for series.yaml title if single-volume or localized volume
     s_yaml = book_path / "series.yaml"
     if s_yaml.exists():
@@ -179,6 +297,8 @@ def collect_book_data(book_path: Path, series_title: str, series_subtitle: str, 
             book_title = cfg.get("title", book_title)
             subtitle = cfg.get("subtitle", subtitle)
             book_id = cfg.get("slug", book_id)
+            if cfg.get("language"):
+                lang = cfg.get("language")
         except Exception:
             pass
 
@@ -221,11 +341,23 @@ def collect_book_data(book_path: Path, series_title: str, series_subtitle: str, 
         wav_file = audio_dir / f"{stem}.wav"
         has_mp3 = mp3_file.exists()
         has_wav = wav_file.exists()
+        timings_file = audio_dir / f"{stem}.timings.json"
+        has_neural = (has_mp3 or has_wav) and timings_file.exists()
         mtime = int(mp3_file.stat().st_mtime) if has_mp3 else (int(wav_file.stat().st_mtime) if has_wav else 0)
         online_url = f"https://github.com/{repo}/releases/download/{release_tag}/{stem}.mp3"
         local_url = f"{stem}.mp3?v={mtime}" if has_mp3 else (f"{stem}.wav?v={mtime}" if has_wav else f"{stem}.mp3")
-        timings_file = audio_dir / f"{stem}.timings.json"
-        clean_html = extract_clean_text(f, timings_file)
+
+        if has_neural:
+            clean_html = extract_clean_text(f, timings_path=timings_file, lang=lang)
+            manifest = load_timings_manifest(timings_file) or {}
+            blocks_data = manifest.get("blocks", [])
+        else:
+            # Deterministic localized timing scaffold on the fly
+            blocks = extract_semantic_blocks(content, lang=lang)
+            chunks = pack_semantic_blocks(blocks, per_paragraph=True)
+            scaffold = build_timings_manifest(stem, chunks, language=lang, has_neural_audio=False)
+            clean_html = extract_clean_text(f, scaffold_manifest=scaffold, lang=lang)
+            blocks_data = scaffold.get("blocks", [])
 
         chapters.append({
             "num": idx,
@@ -235,14 +367,18 @@ def collect_book_data(book_path: Path, series_title: str, series_subtitle: str, 
             "minutes": f"{words / WPM_SPEAKING_RATE:.1f}",
             "hasLocalMp3": has_mp3,
             "hasLocalWav": has_wav,
-            "hasTimings": timings_file.exists(),
+            "hasNeuralAudio": has_neural,
+            "hasTimings": timings_file.exists() or len(blocks_data) > 0,
             "onlineUrl": online_url,
             "localUrl": local_url,
             "transcriptHtml": clean_html,
+            "blocks": blocks_data,
+            "lang": lang,
         })
 
     return {
         "id": book_id,
+        "lang": lang,
         "title": book_title,
         "subtitle": subtitle,
         "seriesTitle": series_title,
@@ -251,6 +387,7 @@ def collect_book_data(book_path: Path, series_title: str, series_subtitle: str, 
         "coverImage": cover_image_url,
         "coverSource": str(cover_source) if cover_source else None,
         "hasAudio": any(c["hasLocalMp3"] or c["hasLocalWav"] for c in chapters) or (release_tag == "v1.0-rc1" and book_id == "parenthood-atlas"),
+        "hasNeuralAudio": any(c["hasNeuralAudio"] for c in chapters),
     }
 
 
@@ -307,18 +444,21 @@ def scan_all_imprint_books(root: Path, repo: str) -> list[dict]:
     return catalog
 
 
-def render_portal_html(catalog: list[dict], repo: str) -> str:
-    catalog_json = json.dumps(catalog, indent=2)
+def render_portal_html(catalog: list[dict], repo: str, active_lang: str = "en", initial_book_idx: int = 0) -> str:
+    catalog_json = json.dumps(catalog, indent=2, ensure_ascii=False)
+    ui_strings_json = json.dumps(UI_STRINGS, indent=2, ensure_ascii=False)
+    active_strings = UI_STRINGS.get(active_lang, UI_STRINGS["en"])
+    portal_title = active_strings.get("portal_title", "Realized Press — Imprint Audiobook Portal & Marketing Hub")
 
     return f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="{active_lang}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#070a0e">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Realized Press — Imprint Audiobook Portal & Marketing Hub</title>
+  <title>{portal_title}</title>
   <meta name="description" content="Official Audiobook Web Player, Serial Preprints, and Public Evidence Briefs from Realized Press imprint.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -438,6 +578,34 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
     .nav-link-btn:hover {{
       color: #fff;
       background: var(--card-bg);
+    }}
+    .lang-switcher {{
+      display: inline-flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 2px;
+      gap: 2px;
+    }}
+    .lang-btn {{
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      min-height: 28px;
+    }}
+    .lang-btn:hover {{
+      color: #fff;
+    }}
+    .lang-btn.active {{
+      background: var(--gold);
+      color: #000;
     }}
 
     /* Mobile Series Horizontal Selector Bar */
@@ -791,6 +959,11 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       background: rgba(139, 148, 158, 0.12);
       color: var(--text-muted);
       border: 1px solid var(--border);
+    }}
+    .pill-browser {{
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.3);
     }}
     .btn-play-sm {{
       width: 44px;
@@ -1436,6 +1609,11 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       <a href="/read/parenthood-atlas/01-before-the-child-is-born" class="nav-link-btn">Serial Reader</a>
     </div>
     <div class="nav-actions">
+      <div class="lang-switcher" id="lang-switcher">
+        <button type="button" class="lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+        <button type="button" class="lang-btn" data-lang="es" onclick="switchLanguage('es')">ES</button>
+        <button type="button" class="lang-btn" data-lang="fr" onclick="switchLanguage('fr')">FR</button>
+      </div>
       <span class="nav-badge" id="nav-badge-status">v1.0-rc1</span>
       <a href="https://linear.app/realized/team/ARC/projects/all" target="_blank" class="nav-link-btn">Linear ARC ↗</a>
     </div>
@@ -1590,10 +1768,14 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
 
   <script>
     const catalog = {catalog_json};
-    let currentBookIdx = 0;
+    const UI_STRINGS = {ui_strings_json};
+    let currentBookIdx = {initial_book_idx};
     let currentChapterIdx = 0;
     let streamMode = 'online';
     let currentView = 'playlist';
+    let currentLang = '{active_lang}';
+    let currentAudioMode = 'neural';
+    let browserTtsSpeakingIdx = -1;
 
     const audio = document.getElementById('audio');
     const dockTitle = document.getElementById('dock-title');
@@ -1618,15 +1800,154 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
         }}
       }}
 
-      const pIdx = catalog.findIndex(b => b.id === 'parenthood-atlas');
-      if (pIdx >= 0) currentBookIdx = pIdx;
+      // Mark active language button
+      document.querySelectorAll('.lang-btn').forEach(btn => {{
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
+      }});
 
       renderBookNav();
       renderMobileChips();
-      selectBook(currentBookIdx);
+      selectBook(currentBookIdx, true);
       setupMediaSession();
       setupScrubberKeyboard();
       setupReaderKeyboard();
+    }}
+
+    function switchLanguage(targetLang) {{
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      if (audio) audio.pause();
+      currentLang = targetLang;
+      document.documentElement.lang = targetLang;
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {{
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === targetLang);
+      }});
+
+      let activeSegId = null;
+      const activeSeg = document.querySelector('.sync-segment.active-segment');
+      if (activeSeg) {{
+        activeSegId = activeSeg.id;
+      }}
+
+      const currentBook = catalog[currentBookIdx];
+      let candidateIdx = catalog.findIndex(b => b.lang === targetLang && (b.seriesTitle === currentBook.seriesTitle || b.id.includes(currentBook.id) || currentBook.id.includes(b.id)));
+      if (candidateIdx < 0) {{
+        candidateIdx = catalog.findIndex(b => b.lang === targetLang);
+      }}
+      if (candidateIdx >= 0) {{
+        currentBookIdx = candidateIdx;
+      }}
+
+      renderBookNav();
+      renderMobileChips();
+      selectBook(currentBookIdx, false);
+
+      if (activeSegId && currentView === 'reader') {{
+        setTimeout(() => {{
+          const targetEl = document.getElementById(activeSegId);
+          if (targetEl) {{
+            targetEl.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+            targetEl.classList.add('active-segment');
+          }}
+        }}, 120);
+      }}
+    }}
+
+    function getVoiceForLang(lang) {{
+      if (!('speechSynthesis' in window)) return null;
+      const voices = window.speechSynthesis.getVoices();
+      if (!voices.length) return null;
+      const p = (lang || 'en').toLowerCase();
+      let match = voices.find(v => v.lang.toLowerCase().replace('_', '-').startsWith(p));
+      if (!match) {{
+        if (p === 'es') match = voices.find(v => v.lang.toLowerCase().startsWith('es'));
+        else if (p === 'fr') match = voices.find(v => v.lang.toLowerCase().startsWith('fr'));
+        else match = voices.find(v => v.lang.toLowerCase().startsWith('en'));
+      }}
+      return match || null;
+    }}
+
+    function playBrowserTts(segIdx, autoAdvance = true) {{
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      if (audio) audio.pause();
+
+      const book = catalog[currentBookIdx];
+      const ch = book.chapters[currentChapterIdx];
+      if (!ch) return;
+      const segments = document.querySelectorAll('.sync-segment');
+      if (!segments.length || segIdx < 0 || segIdx >= segments.length) {{
+        browserTtsSpeakingIdx = -1;
+        dockPlay.innerText = '▶';
+        return;
+      }}
+
+      browserTtsSpeakingIdx = segIdx;
+      const seg = segments[segIdx];
+      const spokenText = seg.getAttribute('data-spoken-text') || seg.innerText.trim();
+      if (!spokenText) {{
+        if (autoAdvance && segIdx + 1 < segments.length) {{
+          playBrowserTts(segIdx + 1, true);
+        }}
+        return;
+      }}
+
+      const utterance = new SpeechSynthesisUtterance(spokenText);
+      const voice = getVoiceForLang(ch.lang || currentLang);
+      if (voice) utterance.voice = voice;
+      utterance.lang = (ch.lang === 'es' ? 'es-ES' : (ch.lang === 'fr' ? 'fr-FR' : 'en-US'));
+      utterance.rate = audio.playbackRate || 1.0;
+
+      segments.forEach((s, idx) => {{
+        s.classList.toggle('active-segment', idx === segIdx);
+      }});
+      if (autoScrollEnabled && !userScrollTimer) {{
+        seg.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+      }}
+
+      const strings = UI_STRINGS[ch.lang || currentLang] || UI_STRINGS['en'];
+      dockTitle.innerText = `${{String(ch.num).padStart(2, '0')}}. ${{ch.title}}`;
+      dockSub.innerText = `${{book.title}} · ${{strings.browser_tts || 'Browser Voice'}} (${{utterance.lang}})`;
+      dockPlay.innerText = '⏸';
+
+      const pct = ((segIdx + 1) / segments.length) * 100;
+      barFill.style.width = `${{pct}}%`;
+
+      utterance.onend = () => {{
+        if (browserTtsSpeakingIdx === segIdx && autoAdvance) {{
+          if (segIdx + 1 < segments.length) {{
+            playBrowserTts(segIdx + 1, true);
+          }} else {{
+            browserTtsSpeakingIdx = -1;
+            dockPlay.innerText = '▶';
+            if (currentChapterIdx + 1 < book.chapters.length) {{
+              loadTrack(currentChapterIdx + 1, true);
+            }}
+          }}
+        }}
+      }};
+
+      utterance.onerror = (err) => {{
+        console.log('Browser TTS error:', err);
+        dockPlay.innerText = '▶';
+        browserTtsSpeakingIdx = -1;
+      }};
+
+      window.speechSynthesis.speak(utterance);
+    }}
+
+    function toggleBrowserTts() {{
+      if (!('speechSynthesis' in window)) return;
+      if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {{
+        window.speechSynthesis.pause();
+        dockPlay.innerText = '▶';
+      }} else if (window.speechSynthesis.paused) {{
+        window.speechSynthesis.resume();
+        dockPlay.innerText = '⏸';
+      }} else {{
+        const idx = browserTtsSpeakingIdx >= 0 ? browserTtsSpeakingIdx : 0;
+        playBrowserTts(idx, true);
+      }}
     }}
 
     function renderBookNav() {{
@@ -1636,7 +1957,7 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
         const btn = document.createElement('button');
         btn.className = 'book-nav-item' + (idx === currentBookIdx ? ' active' : '');
         if (idx === currentBookIdx) btn.setAttribute('aria-current', 'page');
-        btn.onclick = () => selectBook(idx);
+        btn.onclick = () => selectBook(idx, true);
         const thumbHtml = b.coverImage
           ? `<img src="${{b.coverImage}}" alt="${{b.title}} Cover" class="book-nav-thumb" loading="lazy">`
           : '';
@@ -1664,7 +1985,7 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
         const chip = document.createElement('button');
         chip.className = 'series-chip' + (idx === currentBookIdx ? ' active' : '');
         if (idx === currentBookIdx) chip.setAttribute('aria-current', 'page');
-        chip.onclick = () => selectBook(idx);
+        chip.onclick = () => selectBook(idx, true);
         chip.innerHTML = `
           ${{b.hasAudio ? '<span class="dot"></span>' : ''}}
           <span>${{b.title}}</span>
@@ -1673,20 +1994,27 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       }});
     }}
 
-    function selectBook(idx) {{
+    function selectBook(idx, resetChapter = true) {{
       currentBookIdx = idx;
-      currentChapterIdx = 0;
+      const book = catalog[idx];
+      if (resetChapter) {{
+        currentChapterIdx = 0;
+      }} else if (book && book.chapters.length > 0) {{
+        currentChapterIdx = Math.min(currentChapterIdx, book.chapters.length - 1);
+      }} else {{
+        currentChapterIdx = 0;
+      }}
       renderBookNav();
       renderMobileChips();
-      const book = catalog[idx];
+      const strings = UI_STRINGS[book.lang || currentLang] || UI_STRINGS['en'];
 
       document.getElementById('hero-badge').innerText = book.seriesTitle;
       document.getElementById('hero-title').innerText = book.title;
       document.getElementById('hero-subtitle').innerText = book.subtitle;
-      document.getElementById('hero-stat-chapters').innerText = `${{book.chapters.length}} chapters`;
+      document.getElementById('hero-stat-chapters').innerText = `${{book.chapters.length}} ${{strings.chapters || 'chapters'}}`;
       const totalWords = book.chapters.reduce((sum, c) => sum + c.words, 0);
-      document.getElementById('hero-stat-words').innerText = `${{totalWords.toLocaleString()}} words`;
-      document.getElementById('hero-stat-audio').innerText = book.hasAudio ? 'Audio Narration Active' : 'Narration Queued';
+      document.getElementById('hero-stat-words').innerText = `${{totalWords.toLocaleString()}} ${{strings.words || 'words'}}`;
+      document.getElementById('hero-stat-audio').innerText = book.hasAudio ? (strings.narrated_audio || 'Audio Narration Active') : (strings.tts_ready || 'Narration Queued');
 
       const coverImg = document.getElementById('hero-cover-img');
       const coverWrap = document.getElementById('hero-cover-wrapper');
@@ -1702,7 +2030,7 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
 
       renderPlaylist();
       if (book.chapters.length > 0) {{
-        loadTrack(0, false);
+        loadTrack(currentChapterIdx, false);
       }}
     }}
 
@@ -1710,6 +2038,7 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       const book = catalog[currentBookIdx];
       const container = document.getElementById('playlist-view');
       container.innerHTML = '';
+      const strings = UI_STRINGS[book.lang || currentLang] || UI_STRINGS['en'];
 
       if (book.chapters.length === 0) {{
         container.innerHTML = `<div style="padding: 32px; text-align: center; color: var(--text-muted); background: var(--card-bg); border-radius: 8px;">Chapters currently in research & drafting phase.</div>`;
@@ -1717,24 +2046,33 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       }}
 
       book.chapters.forEach((ch, idx) => {{
-        const isAvailable = streamMode === 'online' ? (ch.stem === '01-before-the-child-is-born' || ch.hasLocalMp3) : (ch.hasLocalMp3 || ch.hasLocalWav);
-        const isPlaying = idx === currentChapterIdx && !audio.paused;
+        const isOnlineEnCh1 = (streamMode === 'online' && ch.stem === '01-before-the-child-is-born' && (book.lang || currentLang) === 'en');
+        const hasNeural = ch.hasNeuralAudio || (streamMode === 'online' ? isOnlineEnCh1 : (ch.hasLocalMp3 || ch.hasLocalWav));
+        const isPlaying = idx === currentChapterIdx && ((currentAudioMode === 'neural' && !audio.paused) || (currentAudioMode === 'browser' && window.speechSynthesis && window.speechSynthesis.speaking && !window.speechSynthesis.paused));
         const card = document.createElement('div');
         card.className = 'chapter-card' + (idx === currentChapterIdx ? ' active-track' : '');
         card.setAttribute('role', 'button');
         card.setAttribute('tabindex', '0');
         card.setAttribute('aria-label', `Play Chapter ${{ch.num}}: ${{ch.title}}`);
         card.onclick = () => {{
-          loadTrack(idx, isAvailable);
+          loadTrack(idx, true);
           if (currentView === 'reader') updateReader();
         }};
         card.onkeydown = (e) => {{
           if (e.key === 'Enter' || e.key === ' ') {{
             e.preventDefault();
-            loadTrack(idx, isAvailable);
+            loadTrack(idx, true);
             if (currentView === 'reader') updateReader();
           }}
         }};
+
+        let badgeHtml = '';
+        if (hasNeural) {{
+          badgeHtml = `<span class="pill pill-live">${{strings.narrated_audio || 'Audio Ready'}}</span>`;
+        }} else {{
+          badgeHtml = `<span class="pill pill-browser">${{strings.tts_ready || 'Browser Voice'}}</span>`;
+        }}
+
         card.innerHTML = `
           <div class="ch-left">
             <div class="ch-num">${{String(ch.num).padStart(2, '0')}}</div>
@@ -1744,18 +2082,16 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
                 ${{isPlaying ? '<span class="eq-bars"><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span></span>' : ''}}
               </div>
               <div class="ch-meta">
-                <span>${{ch.words.toLocaleString()}} words</span>
+                <span>${{ch.words.toLocaleString()}} ${{strings.words || 'words'}}</span>
                 <span>•</span>
-                <span>~${{ch.minutes}} min</span>
+                <span>~${{ch.minutes}} ${{strings.min || 'min'}}</span>
               </div>
             </div>
           </div>
           <div class="ch-right">
-            <a href="/read/${{book.id}}/${{ch.stem}}" class="nav-link-btn" style="border: 1px solid var(--border); padding: 5px 9px; border-radius: 6px; font-size: 0.72rem; text-decoration: none;" onclick="event.stopPropagation();" title="Open in 2-Pane Epistemic Reader">Reader ↗</a>
-            ${{isAvailable
-              ? '<span class="pill pill-live">Audio Ready</span>'
-              : '<span class="pill pill-queue">Queued</span>'}}
-            <button class="btn-play-sm" ${{!isAvailable ? 'disabled' : ''}} aria-label="${{isPlaying ? 'Pause' : 'Play'}} Chapter ${{ch.num}}">
+            <a href="/read/${{book.id}}/${{ch.stem}}" class="nav-link-btn" style="border: 1px solid var(--border); padding: 5px 9px; border-radius: 6px; font-size: 0.72rem; text-decoration: none;" onclick="event.stopPropagation();" title="Open in 2-Pane Epistemic Reader">${{strings.reader || 'Reader'}} ↗</a>
+            ${{badgeHtml}}
+            <button class="btn-play-sm" aria-label="${{isPlaying ? 'Pause' : 'Play'}} Chapter ${{ch.num}}">
               ${{isPlaying ? '⏸' : '▶'}}
             </button>
           </div>
@@ -1769,29 +2105,65 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       const book = catalog[currentBookIdx];
       const ch = book.chapters[idx];
       if (!ch) return;
+      const strings = UI_STRINGS[book.lang || currentLang] || UI_STRINGS['en'];
 
       dockTitle.innerText = `${{String(ch.num).padStart(2, '0')}}. ${{ch.title}}`;
-      let url = streamMode === 'online' ? ch.onlineUrl : ch.localUrl;
-      if (streamMode === 'local' && !url.startsWith('/') && !url.startsWith('http')) {{
-        if (window.location.pathname.startsWith('/site')) {{
-          url = '/site/' + url;
+
+      const isOnlineEnCh1 = (streamMode === 'online' && ch.stem === '01-before-the-child-is-born' && (book.lang || currentLang) === 'en');
+      const hasNeural = ch.hasNeuralAudio || (streamMode === 'online' ? isOnlineEnCh1 : (ch.hasLocalMp3 || ch.hasLocalWav));
+
+      if (hasNeural) {{
+        currentAudioMode = 'neural';
+        if (window.speechSynthesis) window.speechSynthesis.cancel();
+        browserTtsSpeakingIdx = -1;
+
+        let url = streamMode === 'online' ? ch.onlineUrl : ch.localUrl;
+        if (streamMode === 'local' && !url.startsWith('/') && !url.startsWith('http')) {{
+          if (window.location.pathname.startsWith('/site')) {{
+            url = '/site/' + url;
+          }}
+        }}
+        audio.src = url;
+        dockSub.innerText = streamMode === 'online' ? `${{book.title}} · ${{strings.neural_audio || 'Online Stream'}}` : `${{book.title}} · ${{strings.neural_audio || 'Local Audio'}}`;
+
+        updateMediaSessionMetadata(ch, book);
+
+        if (autoPlay) {{
+          audio.play().catch(e => console.log('Autoplay handled:', e));
+        }}
+      }} else {{
+        currentAudioMode = 'browser';
+        if (audio) {{
+          audio.pause();
+          audio.removeAttribute('src');
+        }}
+        dockSub.innerText = `${{book.title}} · ${{strings.browser_tts || 'Browser Voice'}} (${{book.lang || currentLang}})`;
+        timeCur.innerText = "0:00";
+        timeTotal.innerText = `~${{ch.minutes}} min`;
+        barFill.style.width = "0%";
+
+        if (autoPlay) {{
+          playBrowserTts(0, true);
         }}
       }}
-      audio.src = url;
-      dockSub.innerText = streamMode === 'online' ? `${{book.title}} · Online Stream` : `${{book.title}} · Local Audio`;
 
-      updateMediaSessionMetadata(ch, book);
-
-      if (autoPlay) {{
-        audio.play().catch(e => console.log('Autoplay handled:', e));
-      }}
       renderPlaylist();
       updateReader();
     }}
 
     function togglePlay() {{
-      if (!audio.src) {{
+      const book = catalog[currentBookIdx];
+      const ch = book ? book.chapters[currentChapterIdx] : null;
+      if (!ch) {{
         loadTrack(0, true);
+        return;
+      }}
+      if (currentAudioMode === 'browser') {{
+        toggleBrowserTts();
+        return;
+      }}
+      if (!audio.src) {{
+        loadTrack(currentChapterIdx, true);
         return;
       }}
       if (audio.paused) {{
@@ -1802,13 +2174,24 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
     }}
 
     function skip(sec) {{
+      if (currentAudioMode === 'browser') {{
+        const dir = sec > 0 ? 1 : -1;
+        if (browserTtsSpeakingIdx >= 0) {{
+          playBrowserTts(browserTtsSpeakingIdx + dir, true);
+        }}
+        return;
+      }}
       if (audio.duration) {{
         audio.currentTime = Math.max(0, Math.min(audio.duration, audio.currentTime + sec));
       }}
     }}
 
     function setSpeed(spd) {{
-      audio.playbackRate = parseFloat(spd);
+      const rate = parseFloat(spd);
+      audio.playbackRate = rate;
+      if (currentAudioMode === 'browser' && browserTtsSpeakingIdx >= 0) {{
+        playBrowserTts(browserTtsSpeakingIdx, true);
+      }}
     }}
 
     function setSource(mode) {{
@@ -1834,24 +2217,35 @@ def render_portal_html(catalog: list[dict], repo: str) -> str:
       const book = catalog[currentBookIdx];
       const ch = book.chapters[currentChapterIdx];
       if (!ch) return;
+      const strings = UI_STRINGS[book.lang || currentLang] || UI_STRINGS['en'];
+
+      const isOnlineEnCh1 = (streamMode === 'online' && ch.stem === '01-before-the-child-is-born' && (book.lang || currentLang) === 'en');
+      const hasNeural = ch.hasNeuralAudio || (streamMode === 'online' ? isOnlineEnCh1 : (ch.hasLocalMp3 || ch.hasLocalWav));
+
+      let audioStatusBadge = '';
+      if (hasNeural) {{
+        audioStatusBadge = `<span>• 🎧 ${{strings.narrated_audio || 'Narration Live'}} (${{strings.jump_to || 'Tap any text to jump audio'}})</span>`;
+      }} else {{
+        audioStatusBadge = `<span>• 🗣️ ${{strings.tts_ready || 'Browser Voice Ready'}} (Tap any text to read aloud)</span>`;
+      }}
 
       document.getElementById('reader-header').innerHTML = `
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
           <span style="font-size: 0.76rem; color: var(--gold); text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em;">
-            ${{book.title}} · Chapter ${{ch.num}} of ${{book.chapters.length}}
+            ${{book.title}} · ${{strings.chapters || 'Chapter'}} ${{ch.num}} of ${{book.chapters.length}} (${{(book.lang || currentLang).toUpperCase()}})
           </span>
           <div style="display: flex; align-items: center; gap: 8px;">
-            <button id="btn-autoscroll" onclick="toggleAutoScroll()" class="sync-indicator">📜 Auto-Scroll: ON</button>
+            <button id="btn-autoscroll" onclick="toggleAutoScroll()" class="sync-indicator">${{autoScrollEnabled ? (strings.auto_scroll_on || '📜 Auto-Scroll: ON') : (strings.auto_scroll_off || '📜 Auto-Scroll: OFF')}}</button>
             <button onclick="switchView('playlist')" style="background: transparent; border: 1px solid var(--border); color: var(--text-muted); border-radius: 6px; padding: 4px 10px; font-size: 0.76rem; font-weight: 600; cursor: pointer;">
-              ← Playlist
+              ${{strings.back_to_playlist || '← Playlist'}}
             </button>
           </div>
         </div>
         <div style="font-size: 0.82rem; color: var(--text-muted); display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
-          <span>${{ch.words.toLocaleString()}} words</span>
+          <span>${{ch.words.toLocaleString()}} ${{strings.words || 'words'}}</span>
           <span>•</span>
-          <span>~${{ch.minutes}} min narration</span>
-          ${{ch.hasLocalMp3 || ch.stem === '01-before-the-child-is-born' ? '<span>• 🎧 Narration Live (Tap any text to jump audio)</span>' : ''}}
+          <span>~${{ch.minutes}} ${{strings.min || 'min'}} ${{strings.reader_audio_edition || 'narration'}}</span>
+          ${{audioStatusBadge}}
         </div>
       `;
       const readerContent = document.getElementById('reader-content');
@@ -2151,8 +2545,57 @@ def main() -> None:
 
     # Book-specific mode
     book_path = resolve_book_path(root, args.book)
-    catalog = [collect_book_data(book_path, book_path.name.title(), "Field Guide & Reference", args.release_tag, args.repo)]
-    book_html = render_portal_html(catalog, args.repo)
+
+    # Determine base series dir and active lang
+    if book_path.parent.name == "i18n":
+        series_dir = book_path.parent.parent
+        active_lang = book_path.name
+    elif (book_path / "i18n").is_dir():
+        series_dir = book_path
+        active_lang = "en"
+    else:
+        series_dir = book_path
+        active_lang = "en"
+
+    import yaml
+    s_yaml = series_dir / "series.yaml"
+    s_cfg = {}
+    if s_yaml.exists():
+        try:
+            s_cfg = yaml.safe_load(s_yaml.read_text(encoding="utf-8")) or {}
+        except Exception:
+            pass
+    series_title = s_cfg.get("title", series_dir.name.replace("-", " ").title())
+    series_subtitle = s_cfg.get("subtitle", "Autonomous Nonfiction Publishing Imprint")
+
+    catalog = []
+    # Add base English edition
+    catalog.append(collect_book_data(series_dir, series_title, series_subtitle, args.release_tag, args.repo))
+
+    # Add sibling i18n editions if present
+    i18n_dir = series_dir / "i18n"
+    if i18n_dir.is_dir():
+        for loc in sorted(i18n_dir.iterdir()):
+            if not loc.is_dir():
+                continue
+            loc_yaml = loc / "series.yaml"
+            loc_cfg = {}
+            if loc_yaml.is_file():
+                try:
+                    loc_cfg = yaml.safe_load(loc_yaml.read_text(encoding="utf-8")) or {}
+                except Exception:
+                    pass
+            loc_series_title = loc_cfg.get("title", f"{series_title} ({loc.name.upper()})")
+            loc_series_subtitle = loc_cfg.get("subtitle", series_subtitle)
+            catalog.append(collect_book_data(loc, loc_series_title, loc_series_subtitle, args.release_tag, args.repo))
+
+    initial_book_idx = 0
+    for idx, b in enumerate(catalog):
+        if b.get("lang") == active_lang:
+            initial_book_idx = idx
+            break
+
+    book_html = render_portal_html(catalog, args.repo, active_lang=active_lang, initial_book_idx=initial_book_idx)
 
     pub_dir = book_path / "publishing"
     aud_dir = book_path / "audiobook"
@@ -2164,7 +2607,7 @@ def main() -> None:
     out1.write_text(book_html, encoding="utf-8")
     out2.write_text(book_html, encoding="utf-8")
 
-    print(f"[book] Wrote single-book player to:")
+    print(f"[book] Wrote single-book player ({active_lang.upper()}) to:")
     print(f"  - {out1}")
     print(f"  - {out2}")
 

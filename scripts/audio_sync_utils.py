@@ -253,6 +253,8 @@ def build_timings_manifest(
     chunks: list[dict[str, Any]],
     chunk_durations_sec: list[float] | None = None,
     chunk_pcm_bytes: list[int] | None = None,
+    language: str = "en",
+    has_neural_audio: bool = True,
 ) -> dict[str, Any]:
     """Calculate absolute block timings from exact chunk durations and emit timings manifest."""
     manifest_chunks = []
@@ -303,6 +305,7 @@ def build_timings_manifest(
                 "words": b["words"],
                 "weight": b["weight"],
                 "text": b["clean_text"],
+                "spoken_text": b.get("spoken_text", b["clean_text"]),
             })
 
     total_duration = round(current_time, 3)
@@ -313,6 +316,8 @@ def build_timings_manifest(
 
     return {
         "chapter": chapter_stem,
+        "language": language,
+        "has_neural_audio": has_neural_audio,
         "total_duration_sec": total_duration,
         "sample_rate": SAMPLE_RATE,
         "bytes_per_second": BYTES_PER_SECOND,
