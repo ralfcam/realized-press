@@ -36,10 +36,10 @@ from merge_book_chapters import iter_chapter_files, repo_root, resolve_book_path
 
 
 FALLBACK_TTS_MODELS = [
-    "gemini-2.5-pro-preview-tts",
+    "gemini-3.8-flash-lite-tts",
     "gemini-3.8-flash-tts",
     "gemini-3.1-flash-tts-preview",
-    "gemini-3.8-flash-lite-tts",
+    "gemini-2.5-pro-preview-tts",
     "gemini-2.5-flash-preview-tts",
 ]
 
@@ -135,9 +135,18 @@ def synthesize_chunk_pcm(text: str, voice: str, model: str, api_key: str, max_re
                     print(f"\n[ALERT] Monthly spending cap reached on Gemini API: {body_msg}", file=sys.stderr)
                     raise
                 print(f"    [{current_model}] HTTP {e.code}: {body_msg}", file=sys.stderr)
+                is_daily = any(k in body_msg.lower() for k in ["per_day", "per day limit", "requests_per_model_per_day"]) or ("retry in " in body_msg and "h" in body_msg.split("retry in ")[1].split()[0])
+                if is_daily:
+                    print(f"    [{current_model}] Daily quota limit exhausted. Falling back to next model immediately...")
+                    break
                 if e.code in [429, 500, 503] and attempt < max_retries - 1:
-                    wait_s = max(3.0, float(2 ** (attempt + 1)))
-                    print(f"    [{current_model}] HTTP {e.code}. Backing off {wait_s:.1f}s before retry ({attempt+1}/{max_retries})...")
+                    import re
+                    m_wait = re.search(r"retry in (\d+(?:\.\d+)?)\s*s", body_msg)
+                    if m_wait:
+                        wait_s = float(m_wait.group(1)) + 2.0
+                    else:
+                        wait_s = max(6.0, float(2 ** (attempt + 2)))
+                    print(f"    [{current_model}] Rate limited (HTTP {e.code}). Backing off {wait_s:.1f}s before retry ({attempt+1}/{max_retries})...")
                     time.sleep(wait_s)
                     continue
                 elif current_model != models_to_try[-1]:
@@ -185,7 +194,7 @@ def main() -> None:
     parser.add_argument("book", type=Path, help="Book directory (e.g. series/architectures-of-memory/book-01-vanishing-signal or series/parenthood-atlas)")
     parser.add_argument("--chapter", default=None, help="Filter to a specific chapter prefix (e.g. '01' or '07')")
     parser.add_argument("--voice", default="Kore", help="Gemini prebuilt voice name (default: Kore)")
-    parser.add_argument("--model", default="gemini-2.5-pro-preview-tts", help="Gemini TTS model (default: gemini-2.5-pro-preview-tts)")
+    parser.add_argument("--model", default="gemini-3.8-flash-tts", help="Gemini TTS model (default: gemini-3.8-flash-tts)")
     parser.add_argument("--max-chars", type=int, default=3500, help="Max characters per chunk (when using --batch-chunks)")
     parser.add_argument("--batch-chunks", action="store_true", help="Group blocks into 3500-char chunks instead of per-paragraph chunks")
     parser.add_argument("--dry-run", action="store_true", help="Estimate duration, blocks & chunk counts without calling API")
@@ -297,29 +306,42 @@ def main() -> None:
             preview = chunk["spoken_text"][:50].replace("\n", " ")
             spoken_text = chunk["spoken_text"]
 
-            cache_key = hashlib.sha256(f"{args.voice}:{args.model}:{spoken_text}".encode("utf-8")).hexdigest()
-            cache_file = book_cache_dir / f"{cache_key}.pcm"
-            global_cache_file = global_cache_dir / f"{cache_key}.pcm"
+            keys_to_check = [
+                hashlib.sha256(f"{args.voice}:{spoken_text}".encode("utf-8")).hexdigest(),
+                hashlib.sha256(f"{args.voice}:{args.model}:{spoken_text}".encode("utf-8")).hexdigest(),
+            ] + [
+                hashlib.sha256(f"{args.voice}:{m}:{spoken_text}".encode("utf-8")).hexdigest()
+                for m in FALLBACK_TTS_MODELS
+            ]
 
-            if cache_file.exists():
+            cached_pcm = None
+            for ck in keys_to_check:
+                cf = book_cache_dir / f"{ck}.pcm"
+                gcf = global_cache_dir / f"{ck}.pcm"
+                if cf.exists():
+                    cached_pcm = cf.read_bytes()
+                    break
+                elif gcf.exists():
+                    cached_pcm = gcf.read_bytes()
+                    try:
+                        cf.write_bytes(cached_pcm)
+                    except Exception:
+                        pass
+                    break
+
+            if cached_pcm is not None:
                 print(f"Loaded cached {f.stem} [{idx}/{len(chunks)}] <{tag}> ({chunk['total_words']}w): {repr(preview)}...", flush=True)
-                pcm = cache_file.read_bytes()
-            elif global_cache_file.exists():
-                print(f"Loaded cached {f.stem} [{idx}/{len(chunks)}] <{tag}> ({chunk['total_words']}w) [shared]: {repr(preview)}...", flush=True)
-                pcm = global_cache_file.read_bytes()
-                try:
-                    cache_file.write_bytes(pcm)
-                except Exception:
-                    pass
+                pcm = cached_pcm
             else:
                 print(f"Synthesizing {f.stem} [{idx}/{len(chunks)}] <{tag}> ({chunk['total_words']}w): {repr(preview)}...", flush=True)
                 pcm = synthesize_chunk_pcm(spoken_text, voice=args.voice, model=args.model, api_key=api_key)
-                try:
-                    cache_file.write_bytes(pcm)
-                    global_cache_file.write_bytes(pcm)
-                except Exception:
-                    pass
-                time.sleep(1.0)
+                for ck in keys_to_check[:2]:
+                    try:
+                        (book_cache_dir / f"{ck}.pcm").write_bytes(pcm)
+                        (global_cache_dir / f"{ck}.pcm").write_bytes(pcm)
+                    except Exception:
+                        pass
+                time.sleep(6.5)
 
             # Insert calibrated natural breath pause after block
             if tag in ["h1", "h2", "h3"]:

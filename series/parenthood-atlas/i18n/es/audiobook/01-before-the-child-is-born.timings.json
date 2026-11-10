@@ -1,0 +1,1114 @@
+{
+  "chapter": "01-before-the-child-is-born",
+  "total_duration_sec": 1338.46,
+  "sample_rate": 24000,
+  "bytes_per_second": 48000,
+  "chunks": [
+    {
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 4.45,
+      "duration_sec": 4.45,
+      "pcm_bytes": 213600,
+      "block_range": [
+        "b-000",
+        "b-000"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "start_sec": 4.45,
+      "end_sec": 12.11,
+      "duration_sec": 7.66,
+      "pcm_bytes": 367680,
+      "block_range": [
+        "b-001",
+        "b-001"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "start_sec": 12.11,
+      "end_sec": 17.45,
+      "duration_sec": 5.34,
+      "pcm_bytes": 256320,
+      "block_range": [
+        "b-002",
+        "b-002"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "start_sec": 17.45,
+      "end_sec": 52.87,
+      "duration_sec": 35.42,
+      "pcm_bytes": 1700160,
+      "block_range": [
+        "b-003",
+        "b-003"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "start_sec": 52.87,
+      "end_sec": 98.49,
+      "duration_sec": 45.62,
+      "pcm_bytes": 2189760,
+      "block_range": [
+        "b-004",
+        "b-004"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "start_sec": 98.49,
+      "end_sec": 126.95,
+      "duration_sec": 28.46,
+      "pcm_bytes": 1366080,
+      "block_range": [
+        "b-005",
+        "b-005"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "start_sec": 126.95,
+      "end_sec": 164.81,
+      "duration_sec": 37.86,
+      "pcm_bytes": 1817280,
+      "block_range": [
+        "b-006",
+        "b-006"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "start_sec": 164.81,
+      "end_sec": 171.74,
+      "duration_sec": 6.93,
+      "pcm_bytes": 332640,
+      "block_range": [
+        "b-007",
+        "b-007"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "start_sec": 171.74,
+      "end_sec": 188.4,
+      "duration_sec": 16.66,
+      "pcm_bytes": 799680,
+      "block_range": [
+        "b-008",
+        "b-008"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "start_sec": 188.4,
+      "end_sec": 213.42,
+      "duration_sec": 25.02,
+      "pcm_bytes": 1200960,
+      "block_range": [
+        "b-009",
+        "b-009"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "start_sec": 213.42,
+      "end_sec": 264.2,
+      "duration_sec": 50.78,
+      "pcm_bytes": 2437440,
+      "block_range": [
+        "b-010",
+        "b-010"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "start_sec": 264.2,
+      "end_sec": 314.46,
+      "duration_sec": 50.26,
+      "pcm_bytes": 2412480,
+      "block_range": [
+        "b-011",
+        "b-011"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "start_sec": 314.46,
+      "end_sec": 347.84,
+      "duration_sec": 33.38,
+      "pcm_bytes": 1602240,
+      "block_range": [
+        "b-012",
+        "b-012"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "start_sec": 347.84,
+      "end_sec": 372.86,
+      "duration_sec": 25.02,
+      "pcm_bytes": 1200960,
+      "block_range": [
+        "b-013",
+        "b-013"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "start_sec": 372.86,
+      "end_sec": 380.15,
+      "duration_sec": 7.29,
+      "pcm_bytes": 349920,
+      "block_range": [
+        "b-014",
+        "b-014"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "start_sec": 380.15,
+      "end_sec": 396.33,
+      "duration_sec": 16.18,
+      "pcm_bytes": 776640,
+      "block_range": [
+        "b-015",
+        "b-015"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "start_sec": 396.33,
+      "end_sec": 435.71,
+      "duration_sec": 39.38,
+      "pcm_bytes": 1890240,
+      "block_range": [
+        "b-016",
+        "b-016"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "start_sec": 435.71,
+      "end_sec": 489.97,
+      "duration_sec": 54.26,
+      "pcm_bytes": 2604480,
+      "block_range": [
+        "b-017",
+        "b-017"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "start_sec": 489.97,
+      "end_sec": 530.23,
+      "duration_sec": 40.26,
+      "pcm_bytes": 1932480,
+      "block_range": [
+        "b-018",
+        "b-018"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "start_sec": 530.23,
+      "end_sec": 576.73,
+      "duration_sec": 46.5,
+      "pcm_bytes": 2232000,
+      "block_range": [
+        "b-019",
+        "b-019"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "start_sec": 576.73,
+      "end_sec": 583.1,
+      "duration_sec": 6.37,
+      "pcm_bytes": 305760,
+      "block_range": [
+        "b-020",
+        "b-020"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "start_sec": 583.1,
+      "end_sec": 625.4,
+      "duration_sec": 42.3,
+      "pcm_bytes": 2030400,
+      "block_range": [
+        "b-021",
+        "b-021"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "start_sec": 625.4,
+      "end_sec": 669.98,
+      "duration_sec": 44.58,
+      "pcm_bytes": 2139840,
+      "block_range": [
+        "b-022",
+        "b-022"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "start_sec": 669.98,
+      "end_sec": 705.24,
+      "duration_sec": 35.26,
+      "pcm_bytes": 1692480,
+      "block_range": [
+        "b-023",
+        "b-023"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "start_sec": 705.24,
+      "end_sec": 741.62,
+      "duration_sec": 36.38,
+      "pcm_bytes": 1746240,
+      "block_range": [
+        "b-024",
+        "b-024"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "start_sec": 741.62,
+      "end_sec": 767.68,
+      "duration_sec": 26.06,
+      "pcm_bytes": 1250880,
+      "block_range": [
+        "b-025",
+        "b-025"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "start_sec": 767.68,
+      "end_sec": 812.26,
+      "duration_sec": 44.58,
+      "pcm_bytes": 2139840,
+      "block_range": [
+        "b-026",
+        "b-026"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "start_sec": 812.26,
+      "end_sec": 841.88,
+      "duration_sec": 29.62,
+      "pcm_bytes": 1421760,
+      "block_range": [
+        "b-027",
+        "b-027"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "start_sec": 841.88,
+      "end_sec": 880.3,
+      "duration_sec": 38.42,
+      "pcm_bytes": 1844160,
+      "block_range": [
+        "b-028",
+        "b-028"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "start_sec": 880.3,
+      "end_sec": 909.76,
+      "duration_sec": 29.46,
+      "pcm_bytes": 1414080,
+      "block_range": [
+        "b-029",
+        "b-029"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "start_sec": 909.76,
+      "end_sec": 931.62,
+      "duration_sec": 21.86,
+      "pcm_bytes": 1049280,
+      "block_range": [
+        "b-030",
+        "b-030"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "start_sec": 931.62,
+      "end_sec": 939.03,
+      "duration_sec": 7.41,
+      "pcm_bytes": 355680,
+      "block_range": [
+        "b-031",
+        "b-031"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "start_sec": 939.03,
+      "end_sec": 952.01,
+      "duration_sec": 12.98,
+      "pcm_bytes": 623040,
+      "block_range": [
+        "b-032",
+        "b-032"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "start_sec": 952.01,
+      "end_sec": 981.83,
+      "duration_sec": 29.82,
+      "pcm_bytes": 1431360,
+      "block_range": [
+        "b-033",
+        "b-033"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "start_sec": 981.83,
+      "end_sec": 1016.89,
+      "duration_sec": 35.06,
+      "pcm_bytes": 1682880,
+      "block_range": [
+        "b-034",
+        "b-034"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "start_sec": 1016.89,
+      "end_sec": 1065.27,
+      "duration_sec": 48.38,
+      "pcm_bytes": 2322240,
+      "block_range": [
+        "b-035",
+        "b-035"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "start_sec": 1065.27,
+      "end_sec": 1088.69,
+      "duration_sec": 23.42,
+      "pcm_bytes": 1124160,
+      "block_range": [
+        "b-036",
+        "b-036"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "start_sec": 1088.69,
+      "end_sec": 1117.39,
+      "duration_sec": 28.7,
+      "pcm_bytes": 1377600,
+      "block_range": [
+        "b-037",
+        "b-037"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "start_sec": 1117.39,
+      "end_sec": 1121.56,
+      "duration_sec": 4.17,
+      "pcm_bytes": 200160,
+      "block_range": [
+        "b-038",
+        "b-038"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "start_sec": 1121.56,
+      "end_sec": 1138.5,
+      "duration_sec": 16.94,
+      "pcm_bytes": 813120,
+      "block_range": [
+        "b-039",
+        "b-039"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "start_sec": 1138.5,
+      "end_sec": 1172.28,
+      "duration_sec": 33.78,
+      "pcm_bytes": 1621440,
+      "block_range": [
+        "b-040",
+        "b-040"
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "start_sec": 1172.28,
+      "end_sec": 1199.46,
+      "duration_sec": 27.18,
+      "pcm_bytes": 1304640,
+      "block_range": [
+        "b-041",
+        "b-041"
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "start_sec": 1199.46,
+      "end_sec": 1226.52,
+      "duration_sec": 27.06,
+      "pcm_bytes": 1298880,
+      "block_range": [
+        "b-042",
+        "b-042"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "start_sec": 1226.52,
+      "end_sec": 1249.14,
+      "duration_sec": 22.62,
+      "pcm_bytes": 1085760,
+      "block_range": [
+        "b-043",
+        "b-043"
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "start_sec": 1249.14,
+      "end_sec": 1292.32,
+      "duration_sec": 43.18,
+      "pcm_bytes": 2072640,
+      "block_range": [
+        "b-044",
+        "b-044"
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "start_sec": 1292.32,
+      "end_sec": 1299.86,
+      "duration_sec": 7.54,
+      "pcm_bytes": 361920,
+      "block_range": [
+        "b-045",
+        "b-045"
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "start_sec": 1299.86,
+      "end_sec": 1333.76,
+      "duration_sec": 33.9,
+      "pcm_bytes": 1627200,
+      "block_range": [
+        "b-046",
+        "b-046"
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "start_sec": 1333.76,
+      "end_sec": 1338.46,
+      "duration_sec": 4.7,
+      "pcm_bytes": 225600,
+      "block_range": [
+        "b-047",
+        "b-047"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "b-000",
+      "tag": "h1",
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 4.45,
+      "words": 9,
+      "weight": 12,
+      "text": "Capítulo 1 — Antes de que nazca el niño",
+      "start_ratio": 0.0,
+      "end_ratio": 0.0033
+    },
+    {
+      "id": "b-001",
+      "tag": "p",
+      "chunk_id": 2,
+      "start_sec": 4.45,
+      "end_sec": 12.11,
+      "words": 13,
+      "weight": 13,
+      "text": "Fertilidad, edad parental, folato y los efectos reales del estrés en el embarazo",
+      "start_ratio": 0.0033,
+      "end_ratio": 0.009
+    },
+    {
+      "id": "b-002",
+      "tag": "p",
+      "chunk_id": 3,
+      "start_sec": 12.11,
+      "end_sec": 17.45,
+      "words": 14,
+      "weight": 14,
+      "text": "Hay un instante en el que un hijo se vuelve visible por primera vez.",
+      "start_ratio": 0.009,
+      "end_ratio": 0.013
+    },
+    {
+      "id": "b-003",
+      "tag": "p",
+      "chunk_id": 4,
+      "start_sec": 17.45,
+      "end_sec": 52.87,
+      "words": 84,
+      "weight": 84,
+      "text": "A veces ocurre en la primera ecografía. Un leve parpadeo de luz late en una pantalla oscura y, de pronto, el pulso del corazón es real. En otras ocasiones sucede semanas después: una patada bajo la mano que reposa, una fotografía impresa con los bordes curvados o el primer llanto en el paritorio. Nos aferramos a esos momentos porque dan a la vida un punto de partida claro. Una fecha entra en el registro médico y el relato familiar puede comenzar de forma oficial.",
+      "start_ratio": 0.013,
+      "end_ratio": 0.0395
+    },
+    {
+      "id": "b-004",
+      "tag": "p",
+      "chunk_id": 5,
+      "start_sec": 52.87,
+      "end_sec": 98.49,
+      "words": 99,
+      "weight": 99,
+      "text": "La biología, sin embargo, no aguarda a ese instante. Cuando el latido asoma en el monitor, las células ya se han dividido decenas de veces. Finas láminas de tejido se han plegado para formar los primeros órganos, y los cimientos del cerebro y del corazón ya están trazados. Un nuevo órgano, la placenta, intercambia oxígeno y nutrientes entre dos torrentes sanguíneos independientes. Al mismo tiempo, los adultos que recibirán al bebé también cambian: en sus niveles hormonales, en sus conexiones neuronales y en sus ritmos cotidianos. El bebé todavía no ha nacido, pero el desarrollo ya está en marcha.",
+      "start_ratio": 0.0395,
+      "end_ratio": 0.0736
+    },
+    {
+      "id": "b-005",
+      "tag": "p",
+      "chunk_id": 6,
+      "start_sec": 98.49,
+      "end_sec": 126.95,
+      "words": 66,
+      "weight": 66,
+      "text": "Ese es el enigma con el que arranca este atlas. Tras él se oculta una verdad tan sencilla como reveladora: el entorno de un hijo comienza antes de la concepción. Los óvulos y los espermatozoides transportan una historia viva. Las vitaminas, las exposiciones diarias y la edad de los padres no esperan fuera. Ya se encuentran en la habitación antes de que la prueba dé positivo.",
+      "start_ratio": 0.0736,
+      "end_ratio": 0.0948
+    },
+    {
+      "id": "b-006",
+      "tag": "p",
+      "chunk_id": 7,
+      "start_sec": 126.95,
+      "end_sec": 164.81,
+      "words": 93,
+      "weight": 93,
+      "text": "Imagina a dos personas que se preparan para tener un bebé. Una comienza a tomar un comprimido diario de ácido fólico meses antes de buscar el embarazo, tras saber que un suplemento sencillo previene una anomalía espinal grave durante un breve periodo celular. La otra permanece despierta a las dos de la madrugada repasando con agobio los plazos laborales. Teme que la tensión cotidiana esté marcando a un hijo que ni siquiera ha sido concebido. Ambos adultos intuyen que las condiciones tempranas importan. Pero solo uno de ellos actúa sobre certezas científicas reales.",
+      "start_ratio": 0.0948,
+      "end_ratio": 0.1231
+    },
+    {
+      "id": "b-007",
+      "tag": "h2",
+      "chunk_id": 8,
+      "start_sec": 164.81,
+      "end_sec": 171.74,
+      "words": 9,
+      "weight": 11,
+      "text": "I. Un mapa sin alarmismo: Ciencia, Interpretación y Arte",
+      "start_ratio": 0.1231,
+      "end_ratio": 0.1283
+    },
+    {
+      "id": "b-008",
+      "tag": "p",
+      "chunk_id": 9,
+      "start_sec": 171.74,
+      "end_sec": 188.4,
+      "words": 45,
+      "weight": 45,
+      "text": "Casi todas las guías de crianza inician su relato cuando el recién nacido cruza el umbral de casa. La biología humana pone el reloj en marcha mucho antes, en las células y en la vida diaria de los padres previo al inicio de la gestación.",
+      "start_ratio": 0.1283,
+      "end_ratio": 0.1408
+    },
+    {
+      "id": "b-009",
+      "tag": "p",
+      "chunk_id": 10,
+      "start_sec": 188.4,
+      "end_sec": 213.42,
+      "words": 61,
+      "weight": 61,
+      "text": "¿Por qué es necesario tomar ácido fólico antes de saber si existe embarazo? ¿El estrés laboral común o la inquietud durante la gestación pueden perjudicar al feto? ¿Hasta qué punto la edad del padre influye en la salud del bebé? Cuando quienes planean ser padres buscan respuestas a altas horas de la noche, suelen caer en una de dos trampas opuestas.",
+      "start_ratio": 0.1408,
+      "end_ratio": 0.1595
+    },
+    {
+      "id": "b-010",
+      "tag": "p",
+      "chunk_id": 11,
+      "start_sec": 213.42,
+      "end_sec": 264.2,
+      "words": 121,
+      "weight": 121,
+      "text": "Si demoramos el reloj y tratamos al recién nacido como una hoja en blanco, pasamos por alto ventanas tempranas decisivas en las primeras semanas tras la fecundación. Ese es el mito de que nada importa hasta que vemos al feto en una pantalla. Por el contrario, si interpretamos la biología inicial con rigidez, caemos en el extremo contrario: el fatalismo. Llegamos a creer que la edad de los progenitores, su dieta o un mes de angustia sellan para siempre la mente del niño. Entre la fantasía de la hoja en blanco y el pesimismo biológico se halla el principio que la evidencia respalda: continuidad sin determinación. El desarrollo empieza pronto, pero se mantiene flexible, protegido y receptivo a los cuidados posteriores.",
+      "start_ratio": 0.1595,
+      "end_ratio": 0.1974
+    },
+    {
+      "id": "b-011",
+      "tag": "p",
+      "chunk_id": 12,
+      "start_sec": 264.2,
+      "end_sec": 314.46,
+      "words": 101,
+      "weight": 101,
+      "text": "Interpretar este mapa exige un pacto sereno entre quien escribe y quien lee. A lo largo de esta obra mantendremos tres planos distintos sin mezclarlos jamás: la ciencia, la interpretación y el arte. La ciencia nombra lo que es posible observar, medir, contrastar y repetir mediante ensayos rigurosos. Cuando ensayos sólidos o diseños genéticos respaldan una conclusión, decimos que la evidencia lo demuestra. Cuando varios estudios rigurosos coinciden en una dirección, decimos que la evidencia lo sugiere. Y cuando un dato procede de encuestas observacionales simples donde el trasfondo familiar enturbia la medición, decimos que un elemento se asocia con otro.",
+      "start_ratio": 0.1974,
+      "end_ratio": 0.2349
+    },
+    {
+      "id": "b-012",
+      "tag": "p",
+      "chunk_id": 13,
+      "start_sec": 314.46,
+      "end_sec": 347.84,
+      "words": 83,
+      "weight": 83,
+      "text": "La interpretación consiste en preguntarse qué significan esas cifras en la vida real. Un leve cambio en el riesgo promedio entre diez mil nacimientos es un dato de salud pública, pero no un oráculo para tu caso concreto. Una buena interpretación examina primero qué aspectos un estudio no puede aclarar. Por último, el arte representa el juicio humano que ningún experimento puede cuantificar: la paciencia, el afecto, la mirada atenta y el criterio personal que dedicas a tu hijo en tu propio hogar.",
+      "start_ratio": 0.2349,
+      "end_ratio": 0.2599
+    },
+    {
+      "id": "b-013",
+      "tag": "p",
+      "chunk_id": 14,
+      "start_sec": 347.84,
+      "end_sec": 372.86,
+      "words": 49,
+      "weight": 49,
+      "text": "Cuando estos tres planos se confunden, una correlación estadística débil se proclama como un mandato moral. La ciencia del desarrollo degenera entonces en una lista de culpas interminable. Mantener separados la ciencia, la interpretación y el arte nos permite examinar la vida antes del nacimiento con serenidad y rigor.",
+      "start_ratio": 0.2599,
+      "end_ratio": 0.2786
+    },
+    {
+      "id": "b-014",
+      "tag": "h2",
+      "chunk_id": 15,
+      "start_sec": 372.86,
+      "end_sec": 380.15,
+      "words": 9,
+      "weight": 11,
+      "text": "II. Óvulos, espermatozoides, edad parental y el mito epigenético",
+      "start_ratio": 0.2786,
+      "end_ratio": 0.284
+    },
+    {
+      "id": "b-015",
+      "tag": "p",
+      "chunk_id": 16,
+      "start_sec": 380.15,
+      "end_sec": 396.33,
+      "words": 34,
+      "weight": 34,
+      "text": "Esa perspectiva resulta indispensable al analizar los óvulos y los espermatozoides. Las células reproductoras no son archivos informáticos almacenados en un cajón. Son estructuras vivas que acompañan al adulto a lo largo de décadas.",
+      "start_ratio": 0.284,
+      "end_ratio": 0.2961
+    },
+    {
+      "id": "b-016",
+      "tag": "p",
+      "chunk_id": 17,
+      "start_sec": 396.33,
+      "end_sec": 435.71,
+      "words": 89,
+      "weight": 89,
+      "text": "En los hombres, las células madre que originan los espermatozoides se dividen sin pausa durante toda la madurez. Cada vez que una célula replica su material genético, existe una mínima probabilidad de que se produzca una errata de copia. El equipo de Augustine Kong secuenció el genoma completo de padres islandeses y sus hijos. Esos datos demostraron un reloj biológico claro: las mutaciones espontáneas aumentan con la edad paterna al concebir, sumando unas dos variaciones nuevas por cada año adicional de vida. A escala celular, ese reloj es real.",
+      "start_ratio": 0.2961,
+      "end_ratio": 0.3255
+    },
+    {
+      "id": "b-017",
+      "tag": "p",
+      "chunk_id": 18,
+      "start_sec": 435.71,
+      "end_sec": 489.97,
+      "words": 129,
+      "weight": 129,
+      "text": "¿Qué implicaciones tiene esa cadencia celular para una familia concreta? En análisis poblacionales amplios, una mayor edad paterna se asocia con un leve incremento en el riesgo relativo de ciertas condiciones del neurodesarrollo. No obstante, para un niño individual, la probabilidad absoluta de presentar esas afecciones sigue siendo muy reducida. Más revelador aún: al comparar hermanos nacidos del mismo padre a distintas edades, gran parte de ese riesgo se debe al entorno socioeconómico y a los rasgos familiares compartidos. Dos erratas entre tres mil millones de letras son un hecho celular, no un pronóstico sobre la mente de un hijo. En la vida diaria, concebir con mayor madurez suele coincidir con ingresos más estables, más paciencia y vínculos de pareja más firmes, todo lo cual favorece el bienestar infantil.",
+      "start_ratio": 0.3255,
+      "end_ratio": 0.3661
+    },
+    {
+      "id": "b-018",
+      "tag": "p",
+      "chunk_id": 19,
+      "start_sec": 489.97,
+      "end_sec": 530.23,
+      "words": 93,
+      "weight": 93,
+      "text": "Una confusión semejante rodea a un concepto recurrente en la divulgación: la epigenética. En el interior celular existen marcas químicas que actúan como reguladores de intensidad sobre el ADN. Indican a la célula qué instrucciones activar o silenciar sin alterar la secuencia básica. Gracias a ellas, una neurona y una célula hepática realizan tareas distintas pese a compartir los mismos genes. Además, al formarse los gametos y durante los primeros días posteriores a la fecundación, la mayor parte de estas marcas químicas se reinician por completo para que el embrión empiece de cero.",
+      "start_ratio": 0.3661,
+      "end_ratio": 0.3961
+    },
+    {
+      "id": "b-019",
+      "tag": "p",
+      "chunk_id": 20,
+      "start_sec": 530.23,
+      "end_sec": 576.73,
+      "words": 106,
+      "weight": 106,
+      "text": "En lecturas alarmistas, sin embargo, la epigenética suele presentarse como una fuente de reproches. Se afirma que un periodo de duelo, un empleo exigente o el desánimo marcan al embrión para siempre. Los estudios de laboratorio sugieren que estas señales químicas intervienen en la diferenciación de los tejidos embrionarios. Pero en seres humanos ocurre algo distinto. Afirmar que el humor diario de los padres marca el ADN de sus descendientes se asocia con una fuerte confusión familiar y carece de sustento empírico sólido. Estos reguladores celulares existen para que los órganos funcionen, no para levantar un acta de acusación contra las dificultades de la vida adulta.",
+      "start_ratio": 0.3961,
+      "end_ratio": 0.4309
+    },
+    {
+      "id": "b-020",
+      "tag": "h2",
+      "chunk_id": 21,
+      "start_sec": 576.73,
+      "end_sec": 583.1,
+      "words": 12,
+      "weight": 14,
+      "text": "III. El valor de los momentos biológicos: el hallazgo del ácido fólico",
+      "start_ratio": 0.4309,
+      "end_ratio": 0.4356
+    },
+    {
+      "id": "b-021",
+      "tag": "p",
+      "chunk_id": 22,
+      "start_sec": 583.1,
+      "end_sec": 625.4,
+      "words": 95,
+      "weight": 95,
+      "text": "Tras la fecundación, el embrión no crece simplemente aumentando de tamaño como un globo. Se estructura paso a paso siguiendo un calendario biológico muy preciso. Primero, la célula inicial se divide hasta formar un racimo microscópico. A continuación, ese racimo se pliega en capas celulares diferenciadas que darán origen a órganos específicos. Solo en la fase final de la gestación el feto se concentra sobre todo en ganar peso corporal. Como cada semana cumple un cometido biológico propio, un factor presente mientras un órgano se pliega produce consecuencias muy distintas al que aparece meses después.",
+      "start_ratio": 0.4356,
+      "end_ratio": 0.4673
+    },
+    {
+      "id": "b-022",
+      "tag": "p",
+      "chunk_id": 23,
+      "start_sec": 625.4,
+      "end_sec": 669.98,
+      "words": 106,
+      "weight": 106,
+      "text": "Esa construcción secuencial resulta evidente en el cerebro fetal. Semana a semana, las células nerviosas jóvenes nacen en las zonas profundas, migran hacia el exterior guiadas por finas fibras de soporte y se ordenan en las seis capas de la corteza cerebral. Esta secuencia demuestra una regularidad admirable en distintas especies. Con todo, el nacimiento no marca la conclusión de la arquitectura cerebral. El parto traslada un cerebro en plena formación desde el útero hacia un entorno de sonidos, luz y caricias. Suponer que la corteza fetal anticipa el talento cognitivo confunde levantar los cimientos de una casa con la vida que transcurrirá en sus habitaciones.",
+      "start_ratio": 0.4673,
+      "end_ratio": 0.5006
+    },
+    {
+      "id": "b-023",
+      "tag": "p",
+      "chunk_id": 24,
+      "start_sec": 669.98,
+      "end_sec": 705.24,
+      "words": 80,
+      "weight": 80,
+      "text": "Para entender por qué los momentos celulares importan, miremos el hito que cambió la atención prenatal. En 1991, Nicholas Wald coordinó un ensayo clínico clave para el Medical Research Council (MRC). Durante décadas, la medicina intentó prevenir los defectos del cierre del tubo neural, como la espina bífida, en los que la columna o el cráneo no terminan de cerrarse. Los registros sanitarios mostraban que estas anomalías eran más habituales en zonas con dificultades económicas y en los meses fríos.",
+      "start_ratio": 0.5006,
+      "end_ratio": 0.5269
+    },
+    {
+      "id": "b-024",
+      "tag": "p",
+      "chunk_id": 25,
+      "start_sec": 705.24,
+      "end_sec": 741.62,
+      "words": 78,
+      "weight": 78,
+      "text": "Sin embargo, los expertos discrepaban sobre el origen. ¿Se trataba de la precariedad general, de factores hereditarios o de la carencia de un nutriente específico en las primeras semanas de gestación? Durante mucho tiempo se dudó de que una vitamina sencilla pudiera prevenir una malformación espinal grave. Las primeras encuestas mostraron que las mujeres que tomaban vitaminas tenían menos hijos afectados. Pero los especialistas vieron un sesgo claro: quienes compraban suplementos solían tener mejores dietas y mayores ingresos.",
+      "start_ratio": 0.5269,
+      "end_ratio": 0.5541
+    },
+    {
+      "id": "b-025",
+      "tag": "p",
+      "chunk_id": 26,
+      "start_sec": 741.62,
+      "end_sec": 767.68,
+      "words": 66,
+      "weight": 66,
+      "text": "Para resolver la cuestión con rigor, el equipo de Wald realizó un ensayo aleatorizado a doble ciego en treinta y tres centros hospitalarios de siete países. Seleccionaron a mujeres que ya habían tenido un hijo con esta anomalía. Antes de un nuevo embarazo, se les asignó al azar la toma diaria de cuatro miligramos de ácido fólico, una mezcla de otras vitaminas, ambas opciones o ninguna.",
+      "start_ratio": 0.5541,
+      "end_ratio": 0.5736
+    },
+    {
+      "id": "b-026",
+      "tag": "p",
+      "chunk_id": 27,
+      "start_sec": 767.68,
+      "end_sec": 812.26,
+      "words": 95,
+      "weight": 95,
+      "text": "En 1991, los resultados fueron tan claros que el comité de control detuvo el ensayo antes de tiempo: el ácido fólico redujo la reaparición de estos defectos en un 72 por ciento. Ensayos posteriores, junto con una revisión Cochrane de cinco estudios con 6.708 nacimientos, confirmaron el hallazgo con alta certeza: el folato previene más de dos tercios de estos casos. En el contexto español, las guías oficiales recomiendan suplementar con 0,4 mg diarios desde uno o dos meses antes de concebir, mientras que la suplementación sistemática con yodo sigue siendo objeto de debate clínico.",
+      "start_ratio": 0.5736,
+      "end_ratio": 0.6069
+    },
+    {
+      "id": "b-027",
+      "tag": "p",
+      "chunk_id": 28,
+      "start_sec": 812.26,
+      "end_sec": 841.88,
+      "words": 70,
+      "weight": 70,
+      "text": "No obstante, cuando varios países empezaron a enriquecer la harina con ácido fólico, el mercado comercial estiró el hallazgo más allá de los hechos. Se pusieron a la venta botes caros que prometían lograr bebés más listos y tranquilos. Hace poco, ciertos anuncios sembraron miedo sobre variantes genéticas comunes. Dicen a las madres que su cuerpo no procesa el ácido fólico normal y les piden comprar cápsulas caras de «metilfolato».",
+      "start_ratio": 0.6069,
+      "end_ratio": 0.629
+    },
+    {
+      "id": "b-028",
+      "tag": "p",
+      "chunk_id": 29,
+      "start_sec": 841.88,
+      "end_sec": 880.3,
+      "words": 82,
+      "weight": 82,
+      "text": "Los ensayos clínicos prueban lo contrario. Todos los grandes estudios que redujeron los fallos de la columna en más de dos tercios usaron ácido fólico común y barato. Las personas con estas variantes genéticas frecuentes procesan el ácido fólico normal sin problema alguno. Tanto el Colegio Americano de Obstetras como la Sociedad Española de Ginecología y Obstetricia rechazan hacer test genéticos de rutina para esta enzima. Ambas confirman que tomar 0,4 mg diarios de ácido fólico común protege bien a cualquier madre.",
+      "start_ratio": 0.629,
+      "end_ratio": 0.6577
+    },
+    {
+      "id": "b-029",
+      "tag": "p",
+      "chunk_id": 30,
+      "start_sec": 880.3,
+      "end_sec": 909.76,
+      "words": 75,
+      "weight": 75,
+      "text": "Investigaciones posteriores trazaron con claridad las fronteras del hallazgo de Wald. El tubo neural humano se cierra entre los días veintiuno y veintiocho posteriores a la fecundación, a menudo antes de que la mujer advierta el retraso menstrual. El ácido fólico actúa porque suministra el componente justo que las células precisan durante esos siete días de cierre. Dosis masivas de otras vitaminas no comparten esa eficacia comprobada ni aumentan las capacidades mentales posteriores del niño.",
+      "start_ratio": 0.6577,
+      "end_ratio": 0.6797
+    },
+    {
+      "id": "b-030",
+      "tag": "p",
+      "chunk_id": 31,
+      "start_sec": 909.76,
+      "end_sec": 931.62,
+      "words": 46,
+      "weight": 46,
+      "text": "La lección del ácido fólico tiene dos caras complementarias. Una ventana biológica estrecha puede ser real, rápida y subsanable con un suplemento accesible. Al mismo tiempo, corregir la falta de una vitamina previene una anomalía anatómica concreta; no sirve para programar las aptitudes de un niño.",
+      "start_ratio": 0.6797,
+      "end_ratio": 0.696
+    },
+    {
+      "id": "b-031",
+      "tag": "h2",
+      "chunk_id": 32,
+      "start_sec": 931.62,
+      "end_sec": 939.03,
+      "words": 14,
+      "weight": 16,
+      "text": "IV. Tensión en el embarazo, el escudo de la placenta y los genes familiares",
+      "start_ratio": 0.696,
+      "end_ratio": 0.7016
+    },
+    {
+      "id": "b-032",
+      "tag": "p",
+      "chunk_id": 33,
+      "start_sec": 939.03,
+      "end_sec": 952.01,
+      "words": 27,
+      "weight": 27,
+      "text": "Si el ácido fólico ejemplifica dónde una medida preventiva funciona, la literatura sobre el estrés durante la gestación revela cómo la inquietud parental suele desbordar la evidencia.",
+      "start_ratio": 0.7016,
+      "end_ratio": 0.7113
+    },
+    {
+      "id": "b-033",
+      "tag": "p",
+      "chunk_id": 34,
+      "start_sec": 952.01,
+      "end_sec": 981.83,
+      "words": 78,
+      "weight": 78,
+      "text": "En la charla diaria, el vínculo entre la ansiedad de la madre y el futuro de su hijo suele pintarse como una tubería directa. Las prisas del trabajo o un susto subirían el cortisol materno. Ese cortisol cruzaría el útero, dañaría el cerebro del bebé y lo dejaría nervioso de por vida. Sin embargo, al mirar los datos paso a paso, aparecen dos frenos claros: el escudo químico de la placenta y el peso de los genes familiares.",
+      "start_ratio": 0.7113,
+      "end_ratio": 0.7336
+    },
+    {
+      "id": "b-034",
+      "tag": "p",
+      "chunk_id": 35,
+      "start_sec": 981.83,
+      "end_sec": 1016.89,
+      "words": 86,
+      "weight": 86,
+      "text": "En primer lugar, la sangre de la madre y la del feto no se mezclan sin filtro. Entre ambas monta guardia un agente de aduanas molecular: la placenta. La evidencia de alta certeza demuestra que la placenta recubre su frontera con una enzima especial, la cual intercepta el cortisol materno activo y le arranca la mecha química antes de que alcance la sangre fetal. Un mal martes en la oficina jamás cruza la garita. Solo una privación extrema o una enfermedad grave logran forzar esa compuerta.",
+      "start_ratio": 0.7336,
+      "end_ratio": 0.7597
+    },
+    {
+      "id": "b-035",
+      "tag": "p",
+      "chunk_id": 36,
+      "start_sec": 1016.89,
+      "end_sec": 1065.27,
+      "words": 111,
+      "weight": 111,
+      "text": "En segundo lugar, conviene preguntarse por qué ciertas encuestas observacionales señalan que las madres con mayor ansiedad gestacional tienen hijos con tendencias ligeramente más inquietas años después. Esos sondeos simples no pueden discernir si el vínculo obedece a las hormonas dentro del útero, a los genes compartidos entre madre e hijo o al ambiente tenso en el hogar tras el parto. Para despejar esa duda, la investigación emplea diseños familiares rigurosos. Comparan hermanos nacidos de la misma madre cuando una gestación coincidió con periodos difíciles y la siguiente transcurrió en calma. También estudian niños concebidos por donación de ovocitos, donde la madre gestante no comparte carga genética con el recién nacido.",
+      "start_ratio": 0.7597,
+      "end_ratio": 0.7959
+    },
+    {
+      "id": "b-036",
+      "tag": "p",
+      "chunk_id": 37,
+      "start_sec": 1065.27,
+      "end_sec": 1088.69,
+      "words": 53,
+      "weight": 53,
+      "text": "En estos diseños rigurosos, el supuesto efecto del estrés común se reduce a más de la mitad. De hecho, roza el cero al controlar la herencia compartida y la crianza posterior. Lo que en análisis sencillos parecía una lesión fetal correspondió al temperamento familiar compartido y al desgaste de criar en contextos difíciles.",
+      "start_ratio": 0.7959,
+      "end_ratio": 0.8134
+    },
+    {
+      "id": "b-037",
+      "tag": "p",
+      "chunk_id": 38,
+      "start_sec": 1088.69,
+      "end_sec": 1117.39,
+      "words": 66,
+      "weight": 66,
+      "text": "Saber lo que la evidencia no afirma aporta un gran alivio. Un mes difícil, pocas horas de sueño o plazos laborales apretados no dictan una condena química para el feto. El arte del cuidado ofrece un motivo más hondo para apoyar a quien espera un hijo. Acompañamos a una persona desbordada no por verla como una vasija frágil, sino porque su bienestar importa en este instante.",
+      "start_ratio": 0.8134,
+      "end_ratio": 0.8348
+    },
+    {
+      "id": "b-038",
+      "tag": "h2",
+      "chunk_id": 39,
+      "start_sec": 1117.39,
+      "end_sec": 1121.56,
+      "words": 6,
+      "weight": 8,
+      "text": "V. La transformación de los progenitores",
+      "start_ratio": 0.8348,
+      "end_ratio": 0.8379
+    },
+    {
+      "id": "b-039",
+      "tag": "p",
+      "chunk_id": 40,
+      "start_sec": 1121.56,
+      "end_sec": 1138.5,
+      "words": 35,
+      "weight": 35,
+      "text": "Mientras el embrión deviene en feto, una transformación silenciosa tiene lugar en el plano adulto. El desarrollo previo al parto nunca es una actuación en solitario del bebé. Constituye el preludio de una relación recíproca.",
+      "start_ratio": 0.8379,
+      "end_ratio": 0.8506
+    },
+    {
+      "id": "b-040",
+      "tag": "p",
+      "chunk_id": 41,
+      "start_sec": 1138.5,
+      "end_sec": 1172.28,
+      "words": 85,
+      "weight": 85,
+      "text": "A lo largo del embarazo y en los primeros meses de crianza, el cerebro de la madre vive un cambio real. Los escáneres cerebrales de mujeres antes y después del parto sugieren un reajuste claro de la sustancia gris en zonas que leen rostros, gestos y señales sociales. Ciertos titulares llaman a esto despiste o niebla mental. En verdad, se parece al cambio que vive el cerebro adolescente: afina sus redes para responder rápido a los llantos, las miradas y el hambre del recién nacido.",
+      "start_ratio": 0.8506,
+      "end_ratio": 0.8758
+    },
+    {
+      "id": "b-041",
+      "tag": "p",
+      "chunk_id": 42,
+      "start_sec": 1172.28,
+      "end_sec": 1199.46,
+      "words": 69,
+      "weight": 69,
+      "text": "Esta adaptación tampoco se limita a las madres gestantes. Los registros cerebrales de varones que estrenan paternidad se asocian con cambios graduales en las redes de empatía y apego. El alcance de ese ajuste sigue las horas dedicadas al cuidado directo del bebé. Cuidar a un hijo jamás brota de un botón que se pulsa en el parto. El cerebro aprende y afila este oficio con el trato diario.",
+      "start_ratio": 0.8758,
+      "end_ratio": 0.8961
+    },
+    {
+      "id": "b-042",
+      "tag": "p",
+      "chunk_id": 43,
+      "start_sec": 1199.46,
+      "end_sec": 1226.52,
+      "words": 68,
+      "weight": 68,
+      "text": "Desde luego, este cambio cerebral no ocurre en una isla. Al medir a las parejas tras nacer el primer hijo, la dicha media suele bajar un poco. Sin embargo, los datos sugieren que bajo esa media hay historias muy distintas. Muchas parejas siguen unidas o salen más fuertes, mientras que el choque crece donde faltan horas de sueño, dinero o un reparto justo de las tareas de casa.",
+      "start_ratio": 0.8961,
+      "end_ratio": 0.9164
+    },
+    {
+      "id": "b-043",
+      "tag": "p",
+      "chunk_id": 44,
+      "start_sec": 1226.52,
+      "end_sec": 1249.14,
+      "words": 51,
+      "weight": 51,
+      "text": "Ampliando la mirada, los informes de la Organización Mundial de la Salud sugieren que un buen comienzo vital pide ante todo una red social firme. El aire limpio, la comida sana, centros de salud cercanos, bajas pagadas y un techo seguro pesan mucho más que exigir una madre perfecta en solitario.",
+      "start_ratio": 0.9164,
+      "end_ratio": 0.9333
+    },
+    {
+      "id": "b-044",
+      "tag": "p",
+      "chunk_id": 45,
+      "start_sec": 1249.14,
+      "end_sec": 1292.32,
+      "words": 98,
+      "weight": 98,
+      "text": "¿Qué balance podemos extraer antes de que el niño nazca? La salud y el momento biológico de los progenitores perfilan el punto de partida, pero las condiciones iniciales nunca dictan una sentencia definitiva. Tomar un suplemento diario de ácido fólico es un gesto individual sencillo; transformar la calidad del aire, los horarios de trabajo o las bajas de maternidad y paternidad supera el empeño de una sola familia. En el Capítulo 2 nos adentraremos en el útero para observar cómo el feto empieza a oír, saborear y crecer, distinguiendo las amenazas ambientales reales de las falsas alarmas cotidianas.",
+      "start_ratio": 0.9333,
+      "end_ratio": 0.9655
+    },
+    {
+      "id": "b-045",
+      "tag": "p",
+      "chunk_id": 46,
+      "start_sec": 1292.32,
+      "end_sec": 1299.86,
+      "words": 18,
+      "weight": 18,
+      "text": "Por ahora, podemos regresar a la penumbra de la sala de ecografía y contemplar de nuevo la pantalla.",
+      "start_ratio": 0.9655,
+      "end_ratio": 0.9712
+    },
+    {
+      "id": "b-046",
+      "tag": "p",
+      "chunk_id": 47,
+      "start_sec": 1299.86,
+      "end_sec": 1333.76,
+      "words": 83,
+      "weight": 83,
+      "text": "El pequeño parpadeo de luz continúa allí. Late al mismo compás rápido y regular. Lo que ha cambiado es el modo en que lo miramos. Ese latido no representa la creación súbita de una vida surgida de la nada cuando el ecógrafo la descubre, ni la marcha de un reloj cerrado cuyo futuro está sellado. Es un hito temprano en un camino abierto, resguardado por la biología y a la espera de adultos imperfectos y solícitos que ya se están transformando para acogerlo.",
+      "start_ratio": 0.9712,
+      "end_ratio": 0.9965
+    },
+    {
+      "id": "b-047",
+      "tag": "p",
+      "chunk_id": 48,
+      "start_sec": 1333.76,
+      "end_sec": 1338.46,
+      "words": 11,
+      "weight": 11,
+      "text": "El hijo aún no ha nacido. Su historia ya ha comenzado.",
+      "start_ratio": 0.9965,
+      "end_ratio": 1.0
+    }
+  ]
+}

@@ -1,0 +1,1206 @@
+{
+  "chapter": "14-what-actually-works",
+  "total_duration_sec": 1397.183,
+  "sample_rate": 24000,
+  "bytes_per_second": 48000,
+  "chunks": [
+    {
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 3.697,
+      "duration_sec": 3.697,
+      "pcm_bytes": 177478,
+      "block_range": [
+        "b-000",
+        "b-000"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "start_sec": 3.697,
+      "end_sec": 10.517,
+      "duration_sec": 6.82,
+      "pcm_bytes": 327360,
+      "block_range": [
+        "b-001",
+        "b-001"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "start_sec": 10.517,
+      "end_sec": 47.577,
+      "duration_sec": 37.06,
+      "pcm_bytes": 1778880,
+      "block_range": [
+        "b-002",
+        "b-002"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "start_sec": 47.577,
+      "end_sec": 82.117,
+      "duration_sec": 34.54,
+      "pcm_bytes": 1657920,
+      "block_range": [
+        "b-003",
+        "b-003"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "start_sec": 82.117,
+      "end_sec": 88.495,
+      "duration_sec": 6.377,
+      "pcm_bytes": 306118,
+      "block_range": [
+        "b-004",
+        "b-004"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "start_sec": 88.495,
+      "end_sec": 133.475,
+      "duration_sec": 44.98,
+      "pcm_bytes": 2159040,
+      "block_range": [
+        "b-005",
+        "b-005"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "start_sec": 133.475,
+      "end_sec": 164.815,
+      "duration_sec": 31.34,
+      "pcm_bytes": 1504320,
+      "block_range": [
+        "b-006",
+        "b-006"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "start_sec": 164.815,
+      "end_sec": 185.562,
+      "duration_sec": 20.747,
+      "pcm_bytes": 995878,
+      "block_range": [
+        "b-007",
+        "b-007"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "start_sec": 185.562,
+      "end_sec": 218.822,
+      "duration_sec": 33.26,
+      "pcm_bytes": 1596480,
+      "block_range": [
+        "b-008",
+        "b-008"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "start_sec": 218.822,
+      "end_sec": 237.61,
+      "duration_sec": 18.787,
+      "pcm_bytes": 901798,
+      "block_range": [
+        "b-009",
+        "b-009"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "start_sec": 237.61,
+      "end_sec": 267.47,
+      "duration_sec": 29.86,
+      "pcm_bytes": 1433280,
+      "block_range": [
+        "b-010",
+        "b-010"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "start_sec": 267.47,
+      "end_sec": 303.21,
+      "duration_sec": 35.74,
+      "pcm_bytes": 1715520,
+      "block_range": [
+        "b-011",
+        "b-011"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "start_sec": 303.21,
+      "end_sec": 334.71,
+      "duration_sec": 31.5,
+      "pcm_bytes": 1512000,
+      "block_range": [
+        "b-012",
+        "b-012"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "start_sec": 334.71,
+      "end_sec": 341.24,
+      "duration_sec": 6.53,
+      "pcm_bytes": 313440,
+      "block_range": [
+        "b-013",
+        "b-013"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "start_sec": 341.24,
+      "end_sec": 380.9,
+      "duration_sec": 39.66,
+      "pcm_bytes": 1903680,
+      "block_range": [
+        "b-014",
+        "b-014"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "start_sec": 380.9,
+      "end_sec": 410.327,
+      "duration_sec": 29.427,
+      "pcm_bytes": 1412518,
+      "block_range": [
+        "b-015",
+        "b-015"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "start_sec": 410.327,
+      "end_sec": 435.947,
+      "duration_sec": 25.62,
+      "pcm_bytes": 1229760,
+      "block_range": [
+        "b-016",
+        "b-016"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "start_sec": 435.947,
+      "end_sec": 465.775,
+      "duration_sec": 29.827,
+      "pcm_bytes": 1431718,
+      "block_range": [
+        "b-017",
+        "b-017"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "start_sec": 465.775,
+      "end_sec": 488.882,
+      "duration_sec": 23.107,
+      "pcm_bytes": 1109158,
+      "block_range": [
+        "b-018",
+        "b-018"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "start_sec": 488.882,
+      "end_sec": 519.35,
+      "duration_sec": 30.467,
+      "pcm_bytes": 1462438,
+      "block_range": [
+        "b-019",
+        "b-019"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "start_sec": 519.35,
+      "end_sec": 558.97,
+      "duration_sec": 39.62,
+      "pcm_bytes": 1901760,
+      "block_range": [
+        "b-020",
+        "b-020"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "start_sec": 558.97,
+      "end_sec": 597.717,
+      "duration_sec": 38.747,
+      "pcm_bytes": 1859878,
+      "block_range": [
+        "b-021",
+        "b-021"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "start_sec": 597.717,
+      "end_sec": 625.865,
+      "duration_sec": 28.147,
+      "pcm_bytes": 1351078,
+      "block_range": [
+        "b-022",
+        "b-022"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "start_sec": 625.865,
+      "end_sec": 652.852,
+      "duration_sec": 26.987,
+      "pcm_bytes": 1295398,
+      "block_range": [
+        "b-023",
+        "b-023"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "start_sec": 652.852,
+      "end_sec": 661.109,
+      "duration_sec": 8.257,
+      "pcm_bytes": 396356,
+      "block_range": [
+        "b-024",
+        "b-024"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "start_sec": 661.109,
+      "end_sec": 682.897,
+      "duration_sec": 21.787,
+      "pcm_bytes": 1045796,
+      "block_range": [
+        "b-025",
+        "b-025"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "start_sec": 682.897,
+      "end_sec": 711.757,
+      "duration_sec": 28.86,
+      "pcm_bytes": 1385280,
+      "block_range": [
+        "b-026",
+        "b-026"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "start_sec": 711.757,
+      "end_sec": 743.304,
+      "duration_sec": 31.547,
+      "pcm_bytes": 1514278,
+      "block_range": [
+        "b-027",
+        "b-027"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "start_sec": 743.304,
+      "end_sec": 760.372,
+      "duration_sec": 17.067,
+      "pcm_bytes": 819238,
+      "block_range": [
+        "b-028",
+        "b-028"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "start_sec": 760.372,
+      "end_sec": 803.999,
+      "duration_sec": 43.627,
+      "pcm_bytes": 2094118,
+      "block_range": [
+        "b-029",
+        "b-029"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "start_sec": 803.999,
+      "end_sec": 818.187,
+      "duration_sec": 14.187,
+      "pcm_bytes": 680998,
+      "block_range": [
+        "b-030",
+        "b-030"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "start_sec": 818.187,
+      "end_sec": 849.034,
+      "duration_sec": 30.847,
+      "pcm_bytes": 1480676,
+      "block_range": [
+        "b-031",
+        "b-031"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "start_sec": 849.034,
+      "end_sec": 895.482,
+      "duration_sec": 46.447,
+      "pcm_bytes": 2229476,
+      "block_range": [
+        "b-032",
+        "b-032"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "start_sec": 895.482,
+      "end_sec": 933.049,
+      "duration_sec": 37.567,
+      "pcm_bytes": 1803236,
+      "block_range": [
+        "b-033",
+        "b-033"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "start_sec": 933.049,
+      "end_sec": 974.056,
+      "duration_sec": 41.007,
+      "pcm_bytes": 1968358,
+      "block_range": [
+        "b-034",
+        "b-034"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "start_sec": 974.056,
+      "end_sec": 979.794,
+      "duration_sec": 5.737,
+      "pcm_bytes": 275396,
+      "block_range": [
+        "b-035",
+        "b-035"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "start_sec": 979.794,
+      "end_sec": 1002.141,
+      "duration_sec": 22.347,
+      "pcm_bytes": 1072676,
+      "block_range": [
+        "b-036",
+        "b-036"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "start_sec": 1002.141,
+      "end_sec": 1036.809,
+      "duration_sec": 34.667,
+      "pcm_bytes": 1664038,
+      "block_range": [
+        "b-037",
+        "b-037"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "start_sec": 1036.809,
+      "end_sec": 1064.436,
+      "duration_sec": 27.627,
+      "pcm_bytes": 1326118,
+      "block_range": [
+        "b-038",
+        "b-038"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "start_sec": 1064.436,
+      "end_sec": 1089.544,
+      "duration_sec": 25.107,
+      "pcm_bytes": 1205156,
+      "block_range": [
+        "b-039",
+        "b-039"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "start_sec": 1089.544,
+      "end_sec": 1116.491,
+      "duration_sec": 26.947,
+      "pcm_bytes": 1293476,
+      "block_range": [
+        "b-040",
+        "b-040"
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "start_sec": 1116.491,
+      "end_sec": 1123.028,
+      "duration_sec": 6.537,
+      "pcm_bytes": 313798,
+      "block_range": [
+        "b-041",
+        "b-041"
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "start_sec": 1123.028,
+      "end_sec": 1133.896,
+      "duration_sec": 10.867,
+      "pcm_bytes": 521638,
+      "block_range": [
+        "b-042",
+        "b-042"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "start_sec": 1133.896,
+      "end_sec": 1173.243,
+      "duration_sec": 39.347,
+      "pcm_bytes": 1888678,
+      "block_range": [
+        "b-043",
+        "b-043"
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "start_sec": 1173.243,
+      "end_sec": 1217.951,
+      "duration_sec": 44.707,
+      "pcm_bytes": 2145956,
+      "block_range": [
+        "b-044",
+        "b-044"
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "start_sec": 1217.951,
+      "end_sec": 1237.938,
+      "duration_sec": 19.987,
+      "pcm_bytes": 959396,
+      "block_range": [
+        "b-045",
+        "b-045"
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "start_sec": 1237.938,
+      "end_sec": 1262.246,
+      "duration_sec": 24.307,
+      "pcm_bytes": 1166756,
+      "block_range": [
+        "b-046",
+        "b-046"
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "start_sec": 1262.246,
+      "end_sec": 1280.113,
+      "duration_sec": 17.867,
+      "pcm_bytes": 857636,
+      "block_range": [
+        "b-047",
+        "b-047"
+      ]
+    },
+    {
+      "chunk_id": 49,
+      "start_sec": 1280.113,
+      "end_sec": 1309.62,
+      "duration_sec": 29.507,
+      "pcm_bytes": 1416358,
+      "block_range": [
+        "b-048",
+        "b-048"
+      ]
+    },
+    {
+      "chunk_id": 50,
+      "start_sec": 1309.62,
+      "end_sec": 1344.128,
+      "duration_sec": 34.507,
+      "pcm_bytes": 1656358,
+      "block_range": [
+        "b-049",
+        "b-049"
+      ]
+    },
+    {
+      "chunk_id": 51,
+      "start_sec": 1344.128,
+      "end_sec": 1371.275,
+      "duration_sec": 27.147,
+      "pcm_bytes": 1303078,
+      "block_range": [
+        "b-050",
+        "b-050"
+      ]
+    },
+    {
+      "chunk_id": 52,
+      "start_sec": 1371.275,
+      "end_sec": 1397.183,
+      "duration_sec": 25.907,
+      "pcm_bytes": 1243556,
+      "block_range": [
+        "b-051",
+        "b-051"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "b-000",
+      "tag": "h1",
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 3.697,
+      "words": 6,
+      "weight": 9,
+      "text": "Chapter 14 — What Actually Works?",
+      "start_ratio": 0.0,
+      "end_ratio": 0.0026
+    },
+    {
+      "id": "b-001",
+      "tag": "p",
+      "chunk_id": 2,
+      "start_sec": 3.697,
+      "end_sec": 10.517,
+      "words": 14,
+      "weight": 14,
+      "text": "Which Early Interventions Last, Which Fade Out, and Where Parents Should Spend Their Energy",
+      "start_ratio": 0.0026,
+      "end_ratio": 0.0075
+    },
+    {
+      "id": "b-002",
+      "tag": "p",
+      "chunk_id": 3,
+      "start_sec": 10.517,
+      "end_sec": 47.577,
+      "words": 100,
+      "weight": 100,
+      "text": "Forty-eight hours after a birth in a city hospital, a nurse warms a newborn’s heel with a soft pack. She makes a tiny prick and presses five drops of blood onto a paper card. Within days, a state lab will test those dried spots for thyroid failure and a rare disorder called PKU. If the baby’s thyroid gland is not making enough hormone, or if her liver cannot break down a common food protein, a daily pill or special formula will start before a single symptom shows up. That simple test prevents severe, lifelong brain injury before it can begin.",
+      "start_ratio": 0.0075,
+      "end_ratio": 0.0341
+    },
+    {
+      "id": "b-003",
+      "tag": "p",
+      "chunk_id": 4,
+      "start_sec": 47.577,
+      "end_sec": 82.117,
+      "words": 90,
+      "weight": 90,
+      "text": "Eighteen months later, in an apartment three miles away, a home visitor sits beside a father on a worn couch holding a tablet. Together they watch a two-minute video filmed five minutes earlier of the father playing on the rug with his daughter. The visitor pauses the screen at the exact moment the toddler looked up from a rolling ball into her father’s eyes. “Look right there,” the visitor says quietly. “When she checked your face and you waited for her to roll it back, watch how her shoulders relaxed.”",
+      "start_ratio": 0.0341,
+      "end_ratio": 0.0588
+    },
+    {
+      "id": "b-004",
+      "tag": "h2",
+      "chunk_id": 5,
+      "start_sec": 82.117,
+      "end_sec": 88.495,
+      "words": 12,
+      "weight": 14,
+      "text": "I. The Heel-Stick Card, the Coaching Tape, and the Question of Leverage",
+      "start_ratio": 0.0588,
+      "end_ratio": 0.0633
+    },
+    {
+      "id": "b-005",
+      "tag": "p",
+      "chunk_id": 6,
+      "start_sec": 88.495,
+      "end_sec": 133.475,
+      "words": 91,
+      "weight": 91,
+      "text": "Both the hospital blood card and the living-room video pause are deliberate childhood programs. Both are backed by randomized trials. Yet they work on completely different targets, carry different effect sizes, and follow different rules. Across the first thirteen chapters, we have traced how a child grows from before birth through sleep, attachment, thinking, movement, language, daycare, tantrums, boundaries, self-control, play, and family budgets. Now we reach the most practical question in child science. When we step in to change a child’s body, relationships, or surroundings, what actually alters the path?",
+      "start_ratio": 0.0633,
+      "end_ratio": 0.0955
+    },
+    {
+      "id": "b-006",
+      "tag": "p",
+      "chunk_id": 7,
+      "start_sec": 133.475,
+      "end_sec": 164.815,
+      "words": 77,
+      "weight": 77,
+      "text": "To answer honestly, we first have to separate a natural correlation from a working program. In everyday life, thousands of good things travel together. Kids who hear more back-and-forth talk build bigger vocabularies, and babies with secure attachment get along better with peers. Toddlers in wealthy zip codes score higher on kindergarten readiness tests. Yet seeing that trait $A$ tracks with outcome $B$ in nature never guarantees that running a program to boost $A$ will cause $B$.",
+      "start_ratio": 0.0955,
+      "end_ratio": 0.118
+    },
+    {
+      "id": "b-007",
+      "tag": "p",
+      "chunk_id": 8,
+      "start_sec": 164.815,
+      "end_sec": 185.562,
+      "words": 56,
+      "weight": 56,
+      "text": "Natural family patterns are tangled up with shared genes, family income, neighborhood safety, and the child’s own temperament. A program that hands out word-count booklets to tired parents may not change how anyone talks at home. And a class that bumps up a test score at age four may watch that lead vanish by third grade.",
+      "start_ratio": 0.118,
+      "end_ratio": 0.1328
+    },
+    {
+      "id": "b-008",
+      "tag": "p",
+      "chunk_id": 9,
+      "start_sec": 185.562,
+      "end_sec": 218.822,
+      "words": 73,
+      "weight": 73,
+      "text": "Instead of asking the blunt question “Does this program work?”, careful science asks six questions at once. What works, for whom, through which step, compared to what baseline, at what scale, and for how long? Inside that frame, four different hurdles must stay clear. Lab success asks if a program works when run by university experts under ideal conditions, while real-world success asks if it still works in busy clinics and public schools.",
+      "start_ratio": 0.1328,
+      "end_ratio": 0.1566
+    },
+    {
+      "id": "b-009",
+      "tag": "p",
+      "chunk_id": 10,
+      "start_sec": 218.822,
+      "end_sec": 237.61,
+      "words": 43,
+      "weight": 43,
+      "text": "Scale asks if it can expand statewide without losing its active spark, and staying power asks what remains years after the program ends. A program never acts in a vacuum. Its measured impact always depends on what families were already getting without it.",
+      "start_ratio": 0.1566,
+      "end_ratio": 0.1701
+    },
+    {
+      "id": "b-010",
+      "tag": "p",
+      "chunk_id": 11,
+      "start_sec": 237.61,
+      "end_sec": 267.47,
+      "words": 70,
+      "weight": 70,
+      "text": "Nowhere is causal leverage clearer than when a program protects basic biology rather than trying to build a “super-brain.” Universal newborn screening for thyroid failure and PKU turned major causes of severe brain damage into preventable conditions. Notice how it works: thyroid pills do not make a healthy brain smarter than normal; they keep a growing brain from starving for a needed hormone while nerve wiring is being laid down.",
+      "start_ratio": 0.1701,
+      "end_ratio": 0.1914
+    },
+    {
+      "id": "b-011",
+      "tag": "p",
+      "chunk_id": 12,
+      "start_sec": 267.47,
+      "end_sec": 303.21,
+      "words": 83,
+      "weight": 83,
+      "text": "The exact same rule explains early food, stopping food allergies, and clearing out toxins. Taking folic acid before and during early pregnancy stops roughly seventy percent of neural tube defects. It works by giving the body a needed vitamin during the four-week window when the spine closes. Likewise, as Chapter 4 showed, the LEAP trial proved that feeding smooth peanut foods between four and eleven months stops roughly eighty percent of peanut allergies in high-risk babies. Early tastes train the gut’s immune system.",
+      "start_ratio": 0.1914,
+      "end_ratio": 0.217
+    },
+    {
+      "id": "b-012",
+      "tag": "p",
+      "chunk_id": 13,
+      "start_sec": 303.21,
+      "end_sec": 334.71,
+      "words": 70,
+      "weight": 70,
+      "text": "Correcting severe iodine or iron shortages protects brain and motor growth in places where those nutrients are missing. The link stays direct. Helping pregnant smokers quit improves birthweight because the chain is short and clear. Removing a chemical that squeezes blood vessels and starves the placenta of oxygen lets fetal growth rebound. Across early childhood, whenever a pathway depends on one missing building block, fixing it delivers huge, reliable returns.",
+      "start_ratio": 0.217,
+      "end_ratio": 0.2396
+    },
+    {
+      "id": "b-013",
+      "tag": "h2",
+      "chunk_id": 14,
+      "start_sec": 334.71,
+      "end_sec": 341.24,
+      "words": 9,
+      "weight": 11,
+      "text": "II. Coaching the Daily Relationship and the Mental-Health Paradox",
+      "start_ratio": 0.2396,
+      "end_ratio": 0.2442
+    },
+    {
+      "id": "b-014",
+      "tag": "p",
+      "chunk_id": 15,
+      "start_sec": 341.24,
+      "end_sec": 380.9,
+      "words": 99,
+      "weight": 99,
+      "text": "Once we move past basic biology into the daily emotional life of babies and toddlers, the target is no longer a single vitamin or hormone. It is a live, two-way human relationship. Here, decades of failed trials have taught a humbling lesson. Simply handing parents information — through booklets, lectures, or parenting apps — almost never changes child outcomes on its own. A mother or father can ace a written quiz on child growth and still freeze up during a two-in-the-morning crying spell. To change a relationship, help has to reach the live back-and-forth moments between adult and child.",
+      "start_ratio": 0.2442,
+      "end_ratio": 0.2726
+    },
+    {
+      "id": "b-015",
+      "tag": "p",
+      "chunk_id": 16,
+      "start_sec": 380.9,
+      "end_sec": 410.327,
+      "words": 69,
+      "weight": 69,
+      "text": "The best relationship programs in early childhood share a clear design. They are short, concrete, and built around watching the parent and child together in real time. Take Mary Dozier’s Attachment and Biobehavioral Catch-up (ABC), a ten-session home program for babies and toddlers who have lived through foster care, neglect, or early chaos. Instead of lecturing parents on attachment theory, trained coaches sit on the floor during live play.",
+      "start_ratio": 0.2726,
+      "end_ratio": 0.2937
+    },
+    {
+      "id": "b-016",
+      "tag": "p",
+      "chunk_id": 17,
+      "start_sec": 410.327,
+      "end_sec": 435.947,
+      "words": 57,
+      "weight": 57,
+      "text": "They offer warm, right-now comments on three concrete habits: comfort the child when she is upset, follow her lead with delight when she is calm, and drop scary or harsh reactions. Randomized trials show that this focused ten-week coaching builds secure attachment. It also steadies babies’ daily stress-hormone rhythms and helps kids manage their focus years later.",
+      "start_ratio": 0.2937,
+      "end_ratio": 0.312
+    },
+    {
+      "id": "b-017",
+      "tag": "p",
+      "chunk_id": 18,
+      "start_sec": 435.947,
+      "end_sec": 465.775,
+      "words": 69,
+      "weight": 69,
+      "text": "A similar win shows up in video coaching (VIPP-SD), created by Femmie Juffer, Marian Bakermans-Kranenburg, and Marinus van IJzendoorn. Recall from Chapter 4’s “Less Is More” review that brief programs focused on daily cues beat long therapy courses. In VIPP-SD, a coach films short clips of home life — playing on the rug, reading, or cleaning up toys. Then the coach watches them with the parent on a tablet.",
+      "start_ratio": 0.312,
+      "end_ratio": 0.3334
+    },
+    {
+      "id": "b-018",
+      "tag": "p",
+      "chunk_id": 19,
+      "start_sec": 465.775,
+      "end_sec": 488.882,
+      "words": 52,
+      "weight": 52,
+      "text": "By pausing the tape to point out tiny baby signals and warm moments of repair, the coach lets the parent see herself succeeding. Randomized trials suggest with Moderate certainty that brief video coaching helps parents respond warmly and strengthens baby attachment. Broader drops in toddler behavior problems are smaller and less steady.",
+      "start_ratio": 0.3334,
+      "end_ratio": 0.3499
+    },
+    {
+      "id": "b-019",
+      "tag": "p",
+      "chunk_id": 20,
+      "start_sec": 488.882,
+      "end_sec": 519.35,
+      "words": 71,
+      "weight": 71,
+      "text": "When toddlers hit the hitting, biting, and tantrum storms of Chapters 9 and 10, structured parent-training programs — like Incredible Years, Triple P, and Parent–Child Interaction Therapy (PCIT) — teach a specific set of tools. They help parents replace yelling or giving in with steady routines, calm one-step directions, praise for gentle behavior, and brief, quiet time-outs. Yet reading the science on these behavior programs takes care around two big catches.",
+      "start_ratio": 0.3499,
+      "end_ratio": 0.3717
+    },
+    {
+      "id": "b-020",
+      "tag": "p",
+      "chunk_id": 21,
+      "start_sec": 519.35,
+      "end_sec": 558.97,
+      "words": 99,
+      "weight": 99,
+      "text": "First, results depend heavily on starting need. Parent training produces clear, lasting drops in aggression among toddlers who start out with severe behavior struggles, while offering the exact same classes to all families produces tiny or zero changes. Second, who fills out the form matters. In parenting trials, parent surveys almost always show much bigger gains than outside observers filming the classroom or home. A parent who just spent ten weeks in a course sees her child with fresher eyes, and a toddler who acts calmer in the kitchen does not automatically act calmer in a noisy preschool room.",
+      "start_ratio": 0.3717,
+      "end_ratio": 0.4001
+    },
+    {
+      "id": "b-021",
+      "tag": "p",
+      "chunk_id": 22,
+      "start_sec": 558.97,
+      "end_sec": 597.717,
+      "words": 87,
+      "weight": 87,
+      "text": "Even more striking is what researchers call the parent mental-health paradox. As earlier chapters noted, severe depression or anxiety in a parent tracks with higher emotional and learning risks for young children. It sounds like common sense that treating a mother’s depression with therapy or medicine should automatically boost her baby’s language, thinking, and attachment scores. Yet randomized trials tell a sobering story. Proven treatments like talk therapy (CBT) often lift a mother’s depression without producing matching gains in her baby’s test scores or filmed floor play.",
+      "start_ratio": 0.4001,
+      "end_ratio": 0.4278
+    },
+    {
+      "id": "b-022",
+      "tag": "p",
+      "chunk_id": 23,
+      "start_sec": 597.717,
+      "end_sec": 625.865,
+      "words": 67,
+      "weight": 67,
+      "text": "Why doesn’t easing a parent’s sadness automatically change the child’s path? Because lifting sadness is not the same thing as rebuilding daily turn-taking talk, and therapy does not pay late rent or fix a closing shift. On the flip side, hands-on play programs like Reach Up (built from the landmark Jamaica home-visiting trials led by Sally Grantham-McGregor and Susan Walker) have improved children’s thinking and language scores.",
+      "start_ratio": 0.4278,
+      "end_ratio": 0.4479
+    },
+    {
+      "id": "b-023",
+      "tag": "p",
+      "chunk_id": 24,
+      "start_sec": 625.865,
+      "end_sec": 652.852,
+      "words": 73,
+      "weight": 73,
+      "text": "They did so by coaching mothers in playful talk with homemade toys — even when mothers’ sadness scores barely budged. Treating a parent’s depression matters deeply on its own because parents are people, not just tools for raising child test scores. At the same time, if we want to help both the parent’s mood and the baby’s growth, we have to support both the adult’s mind and the daily dance on the rug.",
+      "start_ratio": 0.4479,
+      "end_ratio": 0.4673
+    },
+    {
+      "id": "b-024",
+      "tag": "h2",
+      "chunk_id": 25,
+      "start_sec": 652.852,
+      "end_sec": 661.109,
+      "words": 13,
+      "weight": 15,
+      "text": "III. From Model Preschools to Public Systems: Perry, Abecedarian, and the Voltage Drop",
+      "start_ratio": 0.4673,
+      "end_ratio": 0.4732
+    },
+    {
+      "id": "b-025",
+      "tag": "p",
+      "chunk_id": 26,
+      "start_sec": 661.109,
+      "end_sec": 682.897,
+      "words": 46,
+      "weight": 46,
+      "text": "When we zoom out from living-room coaching to full preschool classrooms and statewide home visits, we hit a fierce debate in public policy. Why do small model preschools produce life-changing forty-year gains, while huge state pre-K programs so often see their early test-score leads fade away?",
+      "start_ratio": 0.4732,
+      "end_ratio": 0.4888
+    },
+    {
+      "id": "b-026",
+      "tag": "p",
+      "chunk_id": 27,
+      "start_sec": 682.897,
+      "end_sec": 711.757,
+      "words": 61,
+      "weight": 61,
+      "text": "The original quest began in the 1960s and 1970s with two famous randomized trials for children growing up in deep poverty. In Michigan, the HighScope Perry Preschool Project offered half-day classes for three- and four-year-olds plus weekly home visits. In North Carolina, the Carolina Abecedarian Project provided full-day, year-round care, rich back-and-forth talk, meals, and checkups from birth to age five.",
+      "start_ratio": 0.4888,
+      "end_ratio": 0.5094
+    },
+    {
+      "id": "b-027",
+      "tag": "p",
+      "chunk_id": 28,
+      "start_sec": 711.757,
+      "end_sec": 743.304,
+      "words": 70,
+      "weight": 70,
+      "text": "Tracked across forty to fifty years by Frances Campbell, James Heckman, Jorge Luis García, and colleagues, both programs delivered huge adult payoffs. Perry’s early IQ test lead faded in grade school. Yet Perry kids still grew into adults with higher high-school graduation rates, steadier jobs, higher pay, and fewer arrests. Abecedarian kids showed lasting gains in test scores, college degrees, and even healthier blood pressure and heart health in midlife.",
+      "start_ratio": 0.5094,
+      "end_ratio": 0.532
+    },
+    {
+      "id": "b-028",
+      "tag": "p",
+      "chunk_id": 29,
+      "start_sec": 743.304,
+      "end_sec": 760.372,
+      "words": 40,
+      "weight": 40,
+      "text": "By the 1990s and 2000s, those results hardened into a sweeping political promise. If model preschools return seven to ten dollars for every dollar spent, backers argued, then rolling out any public pre-K plan will bring the same lifelong gains.",
+      "start_ratio": 0.532,
+      "end_ratio": 0.5442
+    },
+    {
+      "id": "b-029",
+      "tag": "p",
+      "chunk_id": 30,
+      "start_sec": 760.372,
+      "end_sec": 803.999,
+      "words": 97,
+      "weight": 97,
+      "text": "Then came modern randomized trials of large public programs. Look at the national Head Start Impact Study and Mark Lipsey, Dale Farran, and Kelley Durkin’s (2018) randomized trial of Tennessee Voluntary Pre-K (TN-VPK). Kids in state pre-K showed a clear boost in letter and number skills on the first day of kindergarten. Yet by third grade, those test-score leads had mostly vanished, and in Tennessee state pre-K kids actually scored slightly lower on grade-school tests. Meanwhile, as Chapter 12 showed, careful reviews disproved commercial claims that unguided pretend play alone acts as a magic engine for IQ.",
+      "start_ratio": 0.5442,
+      "end_ratio": 0.5754
+    },
+    {
+      "id": "b-030",
+      "tag": "p",
+      "chunk_id": 31,
+      "start_sec": 803.999,
+      "end_sec": 818.187,
+      "words": 24,
+      "weight": 24,
+      "text": "Rather than proving that early education is useless, the gap between Perry/Abecedarian and huge state programs revealed four core rules of modern program science:",
+      "start_ratio": 0.5754,
+      "end_ratio": 0.5856
+    },
+    {
+      "id": "b-031",
+      "tag": "li",
+      "chunk_id": 32,
+      "start_sec": 818.187,
+      "end_sec": 849.034,
+      "words": 64,
+      "weight": 65,
+      "text": "Daily Relationships Over Paper Credentials: Changing the outer shell of a classroom — teacher degrees, room size, or legal headcounts — does not change what a child feels day to day. As the NICHD childcare study showed, once basic safety is met, daily interaction quality drives real growth. That means warm support, turn-taking talk, and guided discovery rather than worksheet drills or crowd control.",
+      "start_ratio": 0.5856,
+      "end_ratio": 0.6077
+    },
+    {
+      "id": "b-032",
+      "tag": "li",
+      "chunk_id": 33,
+      "start_sec": 849.034,
+      "end_sec": 895.482,
+      "words": 105,
+      "weight": 106,
+      "text": "What the Control Group Gets: Every trial measures the gap between the program and whatever control-group families already get in town. Take David Olds’s Nurse-Family Partnership (NFP). It showed strong gains for low-income first-time mothers in U.S. trials where control families had very little care. When Mike Robling and colleagues tested the exact same nurse program in England, it showed almost zero extra gain. That happened not because nurses are unhelpful, but because control mothers in Britain already received free National Health Service home visits. The same baseline rule explained why Chapter 3’s PROBIT breastfeeding trial boosted stomach and skin health without changing child IQ.",
+      "start_ratio": 0.6077,
+      "end_ratio": 0.6409
+    },
+    {
+      "id": "b-033",
+      "tag": "li",
+      "chunk_id": 34,
+      "start_sec": 895.482,
+      "end_sec": 933.049,
+      "words": 89,
+      "weight": 90,
+      "text": "The Voltage Drop at Scale: Small university models are run by their inventors with master’s-level teachers, tiny classes, weekly coaching, and generous funding. Turning them into a statewide program triggers a sharp voltage drop. Class sizes grow, coaching thins out, staff turnover rises, and budgets get squeezed. The same drop hits smartphone parenting apps and Chapter 7’s word-pedometer trackers. While apps are cheap to share, most busy parents stop opening them within two weeks. Having an app on a phone is not the same thing as receiving human support.",
+      "start_ratio": 0.6409,
+      "end_ratio": 0.6678
+    },
+    {
+      "id": "b-034",
+      "tag": "li",
+      "chunk_id": 35,
+      "start_sec": 933.049,
+      "end_sec": 974.056,
+      "words": 99,
+      "weight": 100,
+      "text": "Test Fadeout Versus Life-Course Habits: Watching an early reading or IQ lead narrow in third grade (fadeout) does not mean nothing lasted. Often the gap narrows simply because control-group kids catch up once they start school. As Perry Preschool proved, a classroom that builds patience, emotional steadiness, and family connection with school can improve adult jobs and health decades after early test scores converge. On the flip side, a program that drills five-year-olds on flashcards just to pass a kindergarten check will watch its lead vanish. The advantage disappears as soon as classmates learn the alphabet in first grade.",
+      "start_ratio": 0.6678,
+      "end_ratio": 0.6972
+    },
+    {
+      "id": "b-035",
+      "tag": "h2",
+      "chunk_id": 36,
+      "start_sec": 974.056,
+      "end_sec": 979.794,
+      "words": 8,
+      "weight": 10,
+      "text": "IV. Who Benefits Most, and the Access Paradox",
+      "start_ratio": 0.6972,
+      "end_ratio": 0.7013
+    },
+    {
+      "id": "b-036",
+      "tag": "p",
+      "chunk_id": 37,
+      "start_sec": 979.794,
+      "end_sec": 1002.141,
+      "words": 55,
+      "weight": 55,
+      "text": "Across every area we have covered — food, parent coaching, behavior support, and preschool — one big rule governs how much a program helps. Returns depend on what was missing at the start. Average numbers in a journal summary often hide the real story, because the same program rarely affects all kids the same way.",
+      "start_ratio": 0.7013,
+      "end_ratio": 0.7173
+    },
+    {
+      "id": "b-037",
+      "tag": "p",
+      "chunk_id": 38,
+      "start_sec": 1002.141,
+      "end_sec": 1036.809,
+      "words": 82,
+      "weight": 82,
+      "text": "Susan Walker, Sally Grantham-McGregor, and colleagues tracked the Jamaican Reach Up trials into adulthood. The biggest gains in schooling and adult pay went to children who started infancy stunted and underfed. Likewise, as the Bucharest foster-care trial (BEIP) proved, massive jumps in IQ and brain activity happen when a baby is rescued from an institution into a loving home. Those numbers never describe what happens when a middle-class parent buys an expensive subscription toy box or switches between two good neighborhood preschools.",
+      "start_ratio": 0.7173,
+      "end_ratio": 0.7421
+    },
+    {
+      "id": "b-038",
+      "tag": "p",
+      "chunk_id": 39,
+      "start_sec": 1036.809,
+      "end_sec": 1064.436,
+      "words": 58,
+      "weight": 58,
+      "text": "Whenever a basic building block — folate, thyroid hormone, iron, turn-taking talk, or a steady adult — is missing, supplying it produces steep, life-changing gains. Where the basics are already in place, piling on extra classes or “brain-training” gadgets brings rapidly shrinking returns. Child growth works like a plant needing water and sunlight, not an endless corporate ladder.",
+      "start_ratio": 0.7421,
+      "end_ratio": 0.7618
+    },
+    {
+      "id": "b-039",
+      "tag": "p",
+      "chunk_id": 40,
+      "start_sec": 1064.436,
+      "end_sec": 1089.544,
+      "words": 55,
+      "weight": 55,
+      "text": "Yet this rule of need runs straight into the access paradox. In real towns, voluntary programs — breastfeeding help, good preschools, parent workshops, or speech checks — are often offered without active outreach. When that happens, the families most likely to sign up and show up are stable, well-off parents with cars and flexible jobs.",
+      "start_ratio": 0.7618,
+      "end_ratio": 0.7798
+    },
+    {
+      "id": "b-040",
+      "tag": "p",
+      "chunk_id": 41,
+      "start_sec": 1089.544,
+      "end_sec": 1116.491,
+      "words": 75,
+      "weight": 75,
+      "text": "Meanwhile, the families whose kids would gain the most — those juggling Chapter 13’s closing shifts, late rent, and two-bus commutes — face the highest walls of paperwork and travel. A program that works wonders in a university lab but cannot cross the four-lane highway to reach families in need is not a working public fix. Making help easy to reach is part of the causal math that decides whether a program works at all.",
+      "start_ratio": 0.7798,
+      "end_ratio": 0.7991
+    },
+    {
+      "id": "b-041",
+      "tag": "h2",
+      "chunk_id": 42,
+      "start_sec": 1116.491,
+      "end_sec": 1123.028,
+      "words": 9,
+      "weight": 11,
+      "text": "V. From Engineering a Child to Strengthening the Ground",
+      "start_ratio": 0.7991,
+      "end_ratio": 0.8038
+    },
+    {
+      "id": "b-042",
+      "tag": "p",
+      "chunk_id": 43,
+      "start_sec": 1123.028,
+      "end_sec": 1133.896,
+      "words": 29,
+      "weight": 29,
+      "text": "Pulling the whole map of early help together shows us what the science proves, how to spot empty sales hype, and where parents and towns should spend their energy.",
+      "start_ratio": 0.8038,
+      "end_ratio": 0.8116
+    },
+    {
+      "id": "b-043",
+      "tag": "p",
+      "chunk_id": 44,
+      "start_sec": 1133.896,
+      "end_sec": 1173.243,
+      "words": 81,
+      "weight": 81,
+      "text": "Across large groups, program science shows a clear ladder of what actually moves the needle. First, in basic body care, simple health and food steps show High-certainty, large effects. Newborn heel-stick checks, folic acid before pregnancy, early peanut foods, and quitting smoking during pregnancy all stop harm or supply a needed block during a tight window. Second, in parent–child coaching, short programs that use live play or video clips (ABC, VIPP-SD) suggest Moderate-to-High evidence for boosting parent warmth and baby trust.",
+      "start_ratio": 0.8116,
+      "end_ratio": 0.8397
+    },
+    {
+      "id": "b-044",
+      "tag": "p",
+      "chunk_id": 45,
+      "start_sec": 1173.243,
+      "end_sec": 1217.951,
+      "words": 92,
+      "weight": 92,
+      "text": "Third, in toddler behavior help, step-by-step parent courses (Incredible Years, Triple P, PCIT) suggest Moderate evidence for cutting severe hitting and tantrums when kids start with major struggles. Gains are much smaller when offered to all homes or scored by outside observers. Fourth, in early schooling, high-dose model programs (Perry Preschool, Abecedarian) suggest Moderate, multi-decade gains in adult schooling, jobs, and health even after early IQ scores meet. By contrast, large public pre-K plans and local daycares show that early test leads fade unless warm daily talk and strong grade schools follow.",
+      "start_ratio": 0.8397,
+      "end_ratio": 0.8717
+    },
+    {
+      "id": "b-045",
+      "tag": "p",
+      "chunk_id": 46,
+      "start_sec": 1217.951,
+      "end_sec": 1237.938,
+      "words": 43,
+      "weight": 43,
+      "text": "Fifth, in parent mood and family budgets, treating parent sadness eases adult pain without raising baby test scores right away unless paired with play coaching. Meanwhile, cash aid and housing vouchers work on long clocks that depend on starting need and local services.",
+      "start_ratio": 0.8717,
+      "end_ratio": 0.886
+    },
+    {
+      "id": "b-046",
+      "tag": "p",
+      "chunk_id": 47,
+      "start_sec": 1237.938,
+      "end_sec": 1262.246,
+      "words": 57,
+      "weight": 57,
+      "text": "For individual parents, this evidence clears away six heavy myths. A working trial never proves its target is the only way kids grow. A huge gain in an orphanage or famine cohort never means an ordinary home needs a clinic program, and a zero-effect trial in a country with free healthcare never proves nursing care is useless.",
+      "start_ratio": 0.886,
+      "end_ratio": 0.9034
+    },
+    {
+      "id": "b-047",
+      "tag": "p",
+      "chunk_id": 48,
+      "start_sec": 1262.246,
+      "end_sec": 1280.113,
+      "words": 45,
+      "weight": 45,
+      "text": "A fading third-grade test lead never proves nothing deeper lasted. A parent survey score is not the same as an outside lab test. And a toy box claiming to be “based on brain or play science” never inherits the proof of a fifty-year randomized trial.",
+      "start_ratio": 0.9034,
+      "end_ratio": 0.9162
+    },
+    {
+      "id": "b-048",
+      "tag": "p",
+      "chunk_id": 49,
+      "start_sec": 1280.113,
+      "end_sec": 1309.62,
+      "words": 71,
+      "weight": 71,
+      "text": "In the daily art of parenting, the deepest gift of this science is relief. Ordinary family life is not an illness waiting for a store-bought cure, and your child is not a home-improvement project whose every skill must be tracked on a chart. No program erases human variety. Children keep their own temperaments, families keep their own rhythms, and growing up stays a living human story rather than a factory line.",
+      "start_ratio": 0.9162,
+      "end_ratio": 0.9373
+    },
+    {
+      "id": "b-049",
+      "tag": "p",
+      "chunk_id": 50,
+      "start_sec": 1309.62,
+      "end_sec": 1344.128,
+      "words": 76,
+      "weight": 76,
+      "text": "The everyday art of parenting is wonderfully down-to-earth. Lock in the proven health basics: folate, vaccines, newborn screening, back-sleeping, early peanut foods, clean water, and real food. Protect simple daily moments of warmth, repair, and talk. Ask for focused, practical help without shame when a real hurdle — postpartum sadness, a speech delay, or severe tantrums — shows up. Let go of the exhausting myth that your living room has to run like a university lab.",
+      "start_ratio": 0.9373,
+      "end_ratio": 0.962
+    },
+    {
+      "id": "b-050",
+      "tag": "p",
+      "chunk_id": 51,
+      "start_sec": 1344.128,
+      "end_sec": 1371.275,
+      "words": 71,
+      "weight": 71,
+      "text": "Look back one more time at the nurse pressing five drops of blood onto a paper card, and the father pausing a tablet video on the couch to catch his daughter’s quiet glance. Neither one is trying to engineer a genius or script a child’s fate. One stops a hidden physical hurdle from hurting a growing brain; the other clears space for a parent to hear and answer a child’s voice.",
+      "start_ratio": 0.962,
+      "end_ratio": 0.9815
+    },
+    {
+      "id": "b-051",
+      "tag": "p",
+      "chunk_id": 52,
+      "start_sec": 1371.275,
+      "end_sec": 1397.183,
+      "words": 57,
+      "weight": 57,
+      "text": "The real job of intervention science is never to control who a child becomes, but to steady the ground beneath her feet. That brings us to a three-year-old standing before a stuck wooden door at the close of our book. She prompts us to ask what thirty-six months have built, and how wide the future still remains.",
+      "start_ratio": 0.9815,
+      "end_ratio": 1.0
+    }
+  ]
+}
