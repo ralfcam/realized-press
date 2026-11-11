@@ -1,6 +1,6 @@
 # series/parenthood-atlas — Audiobook transcript
 
-Compiled from `series/parenthood-atlas/chapters/*.md` (2026-11-10). YAML frontmatter, *Sources* lines, `## Notes` / `## Sources` sections, and inline `[^footnote]` markers are omitted for text-to-speech.
+Compiled from `series/parenthood-atlas/chapters/*.md` (2026-11-11). YAML frontmatter, *Sources* lines, `## Notes` / `## Sources` sections, and inline `[^footnote]` markers are omitted for text-to-speech.
 
 ---
 

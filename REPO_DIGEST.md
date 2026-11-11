@@ -6,7 +6,7 @@ Cold-start orientation map for human collaborators and AI agents working in the 
 
 ## 1. Monorepo & BWE Architecture
 
-This repository unites nonfiction book series under a single **Book Writing Environment (BWE v1.3.1)** governed by **Open Knowledge Format (OKF v0.3)**, **5-Step MCP Tool Routing**, **Sentence/Paragraph Micro-QA (`--micro-strict`) & SotA Phrasal Poetics (`--poetics`)**, and **Multi-Channel Publishing (Amazon KDP 6"×9" Print PDF + Hybrid Gemini 2K/4K Full-Wrap Cover PDF + Kindle EPUB 3, Patreon Reader Edition PDF+HTML, and Gemini TTS Audiobook)**:
+This repository unites nonfiction book series under a single **Book Writing Environment (BWE v1.4.1)** governed by **Open Knowledge Format (OKF v0.3)**, **5-Step MCP Tool Routing**, **Sentence/Paragraph Micro-QA (`--micro-strict`) & SotA Phrasal Poetics (`--poetics`)**, **Zero-Drift SHA-256 Audio-Text Staleness Guards**, and **Multi-Channel Publishing (Amazon KDP 6"×9" Print PDF + Hybrid Gemini 2K/4K Full-Wrap Cover PDF + Kindle EPUB 3, Patreon Reader Edition PDF+HTML, and Gemini TTS Audiobook)**:
 
 | Series | Root Path & Manifest | Linear Project (Team `ARC`) | Epistemic Three-Lens Method | Current Status |
 | :--- | :--- | :--- | :--- | :--- |
@@ -18,6 +18,7 @@ This repository unites nonfiction book series under a single **Book Writing Envi
 ## 2. Canonical Root Harness Map
 
 - [`VISION.md`](VISION.md) — Three-pillar project strategy: (1) Amazon KDP + Patreon monetization, (2) Book Writing Environment (BWE) software architecture, and (3) multi-series extensibility.
+- [`KDP_RELEASE_MANIFEST.md`](KDP_RELEASE_MANIFEST.md) — Consolidated 8-volume storefront matrix, pre-press specifications, spine formulas, and knapsack-optimized keyword boxes.
 - [`AGENTS.md`](AGENTS.md) — Master agent instructions, Linear IDs, and Definitive 5-Step Tool Routing Protocol.
 - [`SPEC.md`](SPEC.md) — Universal Open Knowledge Format (OKF v0.3) specification for `evidence-cards/` and `SOURCES.md` / `sources.bib`.
 - [`COMPOSITION.md`](COMPOSITION.md) — Three-Lens crosswalk, Anomaly-driven chapter grammar, and Grade-to-Verb prose calibration.

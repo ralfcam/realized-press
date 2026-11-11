@@ -3,8 +3,8 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: parenthood-atlas-kdp-6x9.pdf
-SHA-256: bd5ba07b589dc987fa0b364940bf9d2fd3cc9539bec8309d5db1ef091b5eecbc
-Bytes: 470,199
+SHA-256: f9aa21dd8d4c64d5b11deb8475e2bf287362df129a2484b07ed1f878f1fbbc0e
+Bytes: 470,253
 Pages: 154 (154/154 nonblank)
 
 Chapters:
