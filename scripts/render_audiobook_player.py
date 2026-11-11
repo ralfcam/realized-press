@@ -31,6 +31,8 @@ from audio_sync_utils import (
     pack_semantic_blocks,
     build_timings_manifest,
     clean_spoken_text,
+    compute_block_hash,
+    verify_timings_match_markdown,
 )
 from merge_book_chapters import iter_chapter_files, repo_root, resolve_book_path, strip_yaml_frontmatter, transform_audiobook
 
@@ -55,6 +57,7 @@ UI_STRINGS: dict[str, dict[str, str]] = {
         "browser_tts": "Browser TTS",
         "narrated_audio": "Narrated (Neural Audio)",
         "tts_ready": "TTS Synthesizing / Browser Voice Ready (EN)",
+        "stale_audio_resync": "Audio Re-sync Queued — Browser Voice (EN)",
         "switch_lang": "Language",
         "seek_to": "Seek audio to",
         "jump_to": "Tap or press Enter to jump audio to",
@@ -83,6 +86,7 @@ UI_STRINGS: dict[str, dict[str, str]] = {
         "browser_tts": "Voz del navegador",
         "narrated_audio": "Narrado (Audio neural)",
         "tts_ready": "Audio neural en cola — Voz del navegador (ES)",
+        "stale_audio_resync": "Audio en cola de resincronización — Voz del navegador (ES)",
         "switch_lang": "Idioma",
         "seek_to": "Saltar audio a",
         "jump_to": "Toca o pulsa Enter para saltar audio a",
@@ -111,6 +115,7 @@ UI_STRINGS: dict[str, dict[str, str]] = {
         "browser_tts": "Voix du navigateur",
         "narrated_audio": "Narré (Audio neuronal)",
         "tts_ready": "Audio neuronal en attente — Voix du navigateur (FR)",
+        "stale_audio_resync": "Audio en attente de resynchronisation — Voix du navigateur (FR)",
         "switch_lang": "Langue",
         "seek_to": "Avancer l'audio à",
         "jump_to": "Appuyez sur Entrée pour avancer l'audio à",
@@ -197,9 +202,21 @@ def extract_clean_text(
 
     manifest = None
     if timings_path and timings_path.is_file():
-        manifest = load_timings_manifest(timings_path)
+        candidate_manifest = load_timings_manifest(timings_path)
+        current_blocks = extract_semantic_blocks(content, lang=lang)
+        is_valid, reason = verify_timings_match_markdown(candidate_manifest, current_blocks)
+        if is_valid:
+            manifest = candidate_manifest
+        else:
+            manifest = None
+
     if not manifest and scaffold_manifest:
         manifest = scaffold_manifest
+
+    if not manifest:
+        current_blocks = extract_semantic_blocks(content, lang=lang)
+        chunks = pack_semantic_blocks(current_blocks, per_paragraph=True)
+        manifest = build_timings_manifest(md_path.stem, chunks, language=lang, has_neural_audio=False)
 
     if manifest and manifest.get("blocks"):
         blocks = manifest["blocks"]
@@ -342,19 +359,41 @@ def collect_book_data(book_path: Path, series_title: str, series_subtitle: str, 
         has_mp3 = mp3_file.exists()
         has_wav = wav_file.exists()
         timings_file = audio_dir / f"{stem}.timings.json"
-        has_neural = (has_mp3 or has_wav) and timings_file.exists()
+
+        current_blocks = extract_semantic_blocks(content, lang=lang)
+        is_timings_valid = False
+        is_stale_audio = False
+        manifest = None
+        if (has_mp3 or has_wav) and timings_file.exists():
+            candidate = load_timings_manifest(timings_file)
+            is_timings_valid, reason = verify_timings_match_markdown(candidate, current_blocks)
+            if is_timings_valid:
+                manifest = candidate
+            else:
+                is_stale_audio = True
+
+        stale_archive = audio_dir / "stale_pre_arc103" / f"{stem}.timings.json"
+        if stale_archive.exists() and not is_timings_valid:
+            is_stale_audio = True
+
+        has_neural = (has_mp3 or has_wav) and is_timings_valid
         mtime = int(mp3_file.stat().st_mtime) if has_mp3 else (int(wav_file.stat().st_mtime) if has_wav else 0)
-        online_url = f"https://github.com/{repo}/releases/download/{release_tag}/{stem}.mp3"
-        local_url = f"{stem}.mp3?v={mtime}" if has_mp3 else (f"{stem}.wav?v={mtime}" if has_wav else f"{stem}.mp3")
+
+        # Cloud stream release asset (namespaced by lang, target tag v1.4.0)
+        cloud_release_tag = "v1.4.0"
+        cloud_filename = f"{lang}-{stem}.mp3" if lang != "en" else f"{stem}.mp3"
+        online_url = f"https://github.com/{repo}/releases/download/{cloud_release_tag}/{cloud_filename}" if has_neural else ""
+
+        # Language-namespaced local URL
+        clean_series = book_id.replace("-es", "").replace("-fr", "")
+        ext = "mp3" if has_mp3 else ("wav" if has_wav else "mp3")
+        local_url = f"audio/{clean_series}/{lang}/{stem}.{ext}?v={mtime}"
 
         if has_neural:
             clean_html = extract_clean_text(f, timings_path=timings_file, lang=lang)
-            manifest = load_timings_manifest(timings_file) or {}
-            blocks_data = manifest.get("blocks", [])
+            blocks_data = manifest.get("blocks", []) if manifest else []
         else:
-            # Deterministic localized timing scaffold on the fly
-            blocks = extract_semantic_blocks(content, lang=lang)
-            chunks = pack_semantic_blocks(blocks, per_paragraph=True)
+            chunks = pack_semantic_blocks(current_blocks, per_paragraph=True)
             scaffold = build_timings_manifest(stem, chunks, language=lang, has_neural_audio=False)
             clean_html = extract_clean_text(f, scaffold_manifest=scaffold, lang=lang)
             blocks_data = scaffold.get("blocks", [])
@@ -365,10 +404,11 @@ def collect_book_data(book_path: Path, series_title: str, series_subtitle: str, 
             "title": title,
             "words": words,
             "minutes": f"{words / WPM_SPEAKING_RATE:.1f}",
-            "hasLocalMp3": has_mp3,
-            "hasLocalWav": has_wav,
+            "hasLocalMp3": has_mp3 and not is_stale_audio,
+            "hasLocalWav": has_wav and not is_stale_audio,
             "hasNeuralAudio": has_neural,
-            "hasTimings": timings_file.exists() or len(blocks_data) > 0,
+            "isStaleAudio": is_stale_audio,
+            "hasTimings": len(blocks_data) > 0,
             "onlineUrl": online_url,
             "localUrl": local_url,
             "transcriptHtml": clean_html,
@@ -2046,8 +2086,7 @@ def render_portal_html(catalog: list[dict], repo: str, active_lang: str = "en", 
       }}
 
       book.chapters.forEach((ch, idx) => {{
-        const isOnlineEnCh1 = (streamMode === 'online' && ch.stem === '01-before-the-child-is-born' && (book.lang || currentLang) === 'en');
-        const hasNeural = ch.hasNeuralAudio || (streamMode === 'online' ? isOnlineEnCh1 : (ch.hasLocalMp3 || ch.hasLocalWav));
+        const hasNeural = ch.hasNeuralAudio && !ch.isStaleAudio;
         const isPlaying = idx === currentChapterIdx && ((currentAudioMode === 'neural' && !audio.paused) || (currentAudioMode === 'browser' && window.speechSynthesis && window.speechSynthesis.speaking && !window.speechSynthesis.paused));
         const card = document.createElement('div');
         card.className = 'chapter-card' + (idx === currentChapterIdx ? ' active-track' : '');
@@ -2067,11 +2106,16 @@ def render_portal_html(catalog: list[dict], repo: str, active_lang: str = "en", 
         }};
 
         let badgeHtml = '';
-        if (hasNeural) {{
+        if (ch.isStaleAudio) {{
+          badgeHtml = `<span class="pill pill-browser">${{strings.stale_audio_resync || 'Audio Re-sync Queued — Browser Voice'}}</span>`;
+        }} else if (hasNeural) {{
           badgeHtml = `<span class="pill pill-live">${{strings.narrated_audio || 'Audio Ready'}}</span>`;
         }} else {{
           badgeHtml = `<span class="pill pill-browser">${{strings.tts_ready || 'Browser Voice'}}</span>`;
         }}
+
+        const sSlug = (book.id || '').replace(/-(es|fr)$/, '');
+        const bLang = book.lang || currentLang || 'en';
 
         card.innerHTML = `
           <div class="ch-left">
@@ -2089,7 +2133,7 @@ def render_portal_html(catalog: list[dict], repo: str, active_lang: str = "en", 
             </div>
           </div>
           <div class="ch-right">
-            <a href="/read/${{book.id}}/${{ch.stem}}" class="nav-link-btn" style="border: 1px solid var(--border); padding: 5px 9px; border-radius: 6px; font-size: 0.72rem; text-decoration: none;" onclick="event.stopPropagation();" title="Open in 2-Pane Epistemic Reader">${{strings.reader || 'Reader'}} ↗</a>
+            <a href="/read/${{sSlug}}/${{ch.stem}}?lang=${{bLang}}" class="nav-link-btn" style="border: 1px solid var(--border); padding: 5px 9px; border-radius: 6px; font-size: 0.72rem; text-decoration: none;" onclick="event.stopPropagation();" title="Open in 2-Pane Epistemic Reader">${{strings.reader || 'Reader'}} ↗</a>
             ${{badgeHtml}}
             <button class="btn-play-sm" aria-label="${{isPlaying ? 'Pause' : 'Play'}} Chapter ${{ch.num}}">
               ${{isPlaying ? '⏸' : '▶'}}
@@ -2109,21 +2153,20 @@ def render_portal_html(catalog: list[dict], repo: str, active_lang: str = "en", 
 
       dockTitle.innerText = `${{String(ch.num).padStart(2, '0')}}. ${{ch.title}}`;
 
-      const isOnlineEnCh1 = (streamMode === 'online' && ch.stem === '01-before-the-child-is-born' && (book.lang || currentLang) === 'en');
-      const hasNeural = ch.hasNeuralAudio || (streamMode === 'online' ? isOnlineEnCh1 : (ch.hasLocalMp3 || ch.hasLocalWav));
+      const hasNeural = ch.hasNeuralAudio && !ch.isStaleAudio;
 
       if (hasNeural) {{
         currentAudioMode = 'neural';
         if (window.speechSynthesis) window.speechSynthesis.cancel();
         browserTtsSpeakingIdx = -1;
 
-        let url = streamMode === 'online' ? ch.onlineUrl : ch.localUrl;
-        if (streamMode === 'local' && !url.startsWith('/') && !url.startsWith('http')) {{
+        let url = (streamMode === 'online' && ch.onlineUrl) ? ch.onlineUrl : ch.localUrl;
+        if (streamMode === 'local' && url && !url.startsWith('/') && !url.startsWith('http')) {{
           if (window.location.pathname.startsWith('/site')) {{
             url = '/site/' + url;
           }}
         }}
-        audio.src = url;
+        audio.src = url || '';
         dockSub.innerText = streamMode === 'online' ? `${{book.title}} · ${{strings.neural_audio || 'Online Stream'}}` : `${{book.title}} · ${{strings.neural_audio || 'Local Audio'}}`;
 
         updateMediaSessionMetadata(ch, book);
@@ -2219,11 +2262,12 @@ def render_portal_html(catalog: list[dict], repo: str, active_lang: str = "en", 
       if (!ch) return;
       const strings = UI_STRINGS[book.lang || currentLang] || UI_STRINGS['en'];
 
-      const isOnlineEnCh1 = (streamMode === 'online' && ch.stem === '01-before-the-child-is-born' && (book.lang || currentLang) === 'en');
-      const hasNeural = ch.hasNeuralAudio || (streamMode === 'online' ? isOnlineEnCh1 : (ch.hasLocalMp3 || ch.hasLocalWav));
+      const hasNeural = ch.hasNeuralAudio && !ch.isStaleAudio;
 
       let audioStatusBadge = '';
-      if (hasNeural) {{
+      if (ch.isStaleAudio) {{
+        audioStatusBadge = `<span>• 🗣️ ${{strings.stale_audio_resync || 'Audio Re-sync Queued — Browser Voice'}} (Tap any text to read aloud)</span>`;
+      }} else if (hasNeural) {{
         audioStatusBadge = `<span>• 🎧 ${{strings.narrated_audio || 'Narration Live'}} (${{strings.jump_to || 'Tap any text to jump audio'}})</span>`;
       }} else {{
         audioStatusBadge = `<span>• 🗣️ ${{strings.tts_ready || 'Browser Voice Ready'}} (Tap any text to read aloud)</span>`;
@@ -2528,12 +2572,36 @@ def main() -> None:
                 shutil.copy2(src_path, cover_dest_static)
                 print(f"[imprint] Synced cover thumbnail: {b['id']} -> assets/covers/")
 
-        # Copy any generated audio files into site directory for direct local streaming
+        # Clean up any stale bare MP3s in out_dir root to prevent cross-language collision
+        for bare_mp3 in out_dir.glob("*.mp3"):
+            try:
+                bare_mp3.unlink()
+                print(f"[imprint] Cleaned up legacy flat audio: {bare_mp3.name}")
+            except Exception:
+                pass
+
+        # Copy any generated audio files into site directory namespaced by language
         for audio_mp3 in root.glob("series/**/audiobook/*.mp3"):
-            dest = out_dir / audio_mp3.name
+            rel_parts = audio_mp3.relative_to(root / "series").parts
+            series_slug = rel_parts[0]
+            if "i18n" in rel_parts:
+                lang = rel_parts[rel_parts.index("i18n") + 1]
+            else:
+                lang = "en"
+
+            dest_dir = out_dir / "audio" / series_slug / lang
+            dest_dir.mkdir(parents=True, exist_ok=True)
+            dest = dest_dir / audio_mp3.name
             if not dest.exists() or audio_mp3.stat().st_mtime > dest.stat().st_mtime:
                 shutil.copy2(audio_mp3, dest)
-                print(f"[imprint] Synced audio: {audio_mp3.name} -> {out_dir.name}/")
+                print(f"[imprint] Synced audio: {series_slug}/{lang}/{audio_mp3.name} -> {out_dir.name}/audio/{series_slug}/{lang}/")
+
+            # Also sync to out_dir / lang / audio_mp3.name for single-series fallback
+            lang_dest_dir = out_dir / lang
+            lang_dest_dir.mkdir(parents=True, exist_ok=True)
+            lang_dest = lang_dest_dir / audio_mp3.name
+            if not lang_dest.exists() or audio_mp3.stat().st_mtime > lang_dest.stat().st_mtime:
+                shutil.copy2(audio_mp3, lang_dest)
 
         print(f"[imprint] Rendered Mobile-First Centralized Imprint Portal across {len(catalog)} volumes:")
         for b in catalog:

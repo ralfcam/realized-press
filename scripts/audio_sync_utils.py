@@ -10,6 +10,7 @@ Implements Approach 2:
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -82,6 +83,48 @@ def clean_spoken_text(text: str, lang: str = "en") -> str:
 
     t = re.sub(r"\s+", " ", t).strip()
     return t
+
+
+def compute_block_hash(spoken_text: str) -> str:
+    """Return first 16 hex characters of SHA-256 for normalized spoken text."""
+    norm = re.sub(r"\s+", " ", (spoken_text or "").strip().lower())
+    return hashlib.sha256(norm.encode("utf-8")).hexdigest()[:16]
+
+
+def verify_timings_match_markdown(
+    timings_data: list[dict[str, Any]] | dict[str, Any] | None,
+    md_blocks: list[dict[str, Any]],
+) -> tuple[bool, str]:
+    """Verify that a timings manifest matches markdown blocks in count and content.
+
+    Returns (True, "ok") if block counts match and all block text/hashes match.
+    Returns (False, reason) otherwise.
+    """
+    if not timings_data:
+        return False, "missing_timings"
+
+    t_blocks = timings_data.get("blocks", []) if isinstance(timings_data, dict) else timings_data
+    if not isinstance(t_blocks, list):
+        return False, "invalid_timings_format"
+
+    if len(t_blocks) != len(md_blocks):
+        return False, f"block_count_mismatch: timings={len(t_blocks)} vs markdown={len(md_blocks)}"
+
+    for idx, (tb, mb) in enumerate(zip(t_blocks, md_blocks)):
+        m_spoken = mb.get("spoken_text") or mb.get("clean_text") or ""
+        m_hash = compute_block_hash(m_spoken)
+        t_hash = tb.get("text_hash")
+        if t_hash:
+            if t_hash != m_hash:
+                return False, f"content_mismatch_at_block_{idx}: hash {t_hash} != {m_hash}"
+        else:
+            # Legacy timings manifest without text_hash: compare normalized text
+            t_norm = re.sub(r"\W+", " ", (tb.get("spoken_text") or tb.get("text") or "")).strip().lower()
+            m_norm = re.sub(r"\W+", " ", m_spoken).strip().lower()
+            if t_norm != m_norm:
+                return False, f"content_mismatch_at_block_{idx}: text divergence"
+
+    return True, "ok"
 
 
 def extract_semantic_blocks(md_content: str, lang: str = "en") -> list[dict[str, Any]]:
@@ -295,6 +338,7 @@ def build_timings_manifest(
             b_start = block_cursor
             b_end = block_cursor + b_dur
             block_cursor = b_end
+            spoken_val = b.get("spoken_text", b["clean_text"])
 
             manifest_blocks.append({
                 "id": b["id"],
@@ -305,7 +349,8 @@ def build_timings_manifest(
                 "words": b["words"],
                 "weight": b["weight"],
                 "text": b["clean_text"],
-                "spoken_text": b.get("spoken_text", b["clean_text"]),
+                "spoken_text": spoken_val,
+                "text_hash": compute_block_hash(spoken_val),
             })
 
     total_duration = round(current_time, 3)
@@ -314,10 +359,17 @@ def build_timings_manifest(
         mb["start_ratio"] = round(mb["start_sec"] / total_duration, 4) if total_duration > 0 else 0.0
         mb["end_ratio"] = round(mb["end_sec"] / total_duration, 4) if total_duration > 0 else 0.0
 
+    chapter_hash = (
+        hashlib.sha256("".join(mb["text_hash"] for mb in manifest_blocks).encode("utf-8")).hexdigest()[:16]
+        if manifest_blocks else ""
+    )
+
     return {
         "chapter": chapter_stem,
         "language": language,
         "has_neural_audio": has_neural_audio,
+        "block_count": len(manifest_blocks),
+        "chapter_hash": chapter_hash,
         "total_duration_sec": total_duration,
         "sample_rate": SAMPLE_RATE,
         "bytes_per_second": BYTES_PER_SECOND,

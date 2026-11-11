@@ -28,9 +28,12 @@ from audio_sync_utils import (
     SAMPLE_RATE,
     WPM_SPEAKING_RATE,
     build_timings_manifest,
+    compute_block_hash,
     extract_semantic_blocks,
+    load_timings_manifest,
     pack_semantic_blocks,
     save_timings_manifest,
+    verify_timings_match_markdown,
 )
 from merge_book_chapters import iter_chapter_files, repo_root, resolve_book_path
 
@@ -289,12 +292,16 @@ def main() -> None:
         wav_path = out_dir / f"{f.stem}.wav"
         timings_path = out_dir / f"{f.stem}.timings.json"
         mp3_path = out_dir / f"{f.stem}.mp3"
-        if args.skip_existing and wav_path.exists() and timings_path.exists():
-            if not ffmpeg_bin or mp3_path.exists():
-                print(f"Skipping already-synthesized chapter: {f.name}")
-                continue
         content = f.read_text(encoding="utf-8")
         blocks = extract_semantic_blocks(content, lang=book_lang)
+        if args.skip_existing and (wav_path.exists() or mp3_path.exists()) and timings_path.exists():
+            manifest = load_timings_manifest(timings_path)
+            is_valid, reason = verify_timings_match_markdown(manifest, blocks)
+            if is_valid and (not ffmpeg_bin or mp3_path.exists()):
+                print(f"Skipping verified up-to-date chapter: {f.name} ({len(blocks)} blocks match)")
+                continue
+            else:
+                print(f"Invalidating stale chapter {f.name}: {reason}. Re-synthesizing...")
         chunks = pack_semantic_blocks(blocks, max_chars=args.max_chars, per_paragraph=per_paragraph)
         pcm_all = bytearray()
         chunk_durations_sec: list[float] = []

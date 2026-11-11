@@ -1,6 +1,10 @@
 {
   "chapter": "04-regulatory-relationship",
-  "total_duration_sec": 1667.992,
+  "language": "en",
+  "has_neural_audio": true,
+  "block_count": 57,
+  "chapter_hash": "c00f763cefb845e0",
+  "total_duration_sec": 1467.442,
   "sample_rate": 24000,
   "bytes_per_second": 48000,
   "chunks": [
@@ -117,9 +121,9 @@
     {
       "chunk_id": 11,
       "start_sec": 217.05,
-      "end_sec": 271.641,
-      "duration_sec": 54.591,
-      "pcm_bytes": 2620366,
+      "end_sec": 240.437,
+      "duration_sec": 23.387,
+      "pcm_bytes": 1122596,
       "block_range": [
         "b-010",
         "b-010"
@@ -127,10 +131,10 @@
     },
     {
       "chunk_id": 12,
-      "start_sec": 271.641,
-      "end_sec": 328.631,
-      "duration_sec": 56.991,
-      "pcm_bytes": 2735566,
+      "start_sec": 240.437,
+      "end_sec": 261.744,
+      "duration_sec": 21.307,
+      "pcm_bytes": 1022756,
       "block_range": [
         "b-011",
         "b-011"
@@ -138,10 +142,10 @@
     },
     {
       "chunk_id": 13,
-      "start_sec": 328.631,
-      "end_sec": 393.622,
-      "duration_sec": 64.991,
-      "pcm_bytes": 3119566,
+      "start_sec": 261.744,
+      "end_sec": 307.252,
+      "duration_sec": 45.507,
+      "pcm_bytes": 2184356,
       "block_range": [
         "b-012",
         "b-012"
@@ -149,10 +153,10 @@
     },
     {
       "chunk_id": 14,
-      "start_sec": 393.622,
-      "end_sec": 400.123,
-      "duration_sec": 6.501,
-      "pcm_bytes": 312046,
+      "start_sec": 307.252,
+      "end_sec": 334.239,
+      "duration_sec": 26.987,
+      "pcm_bytes": 1295396,
       "block_range": [
         "b-013",
         "b-013"
@@ -160,10 +164,10 @@
     },
     {
       "chunk_id": 15,
-      "start_sec": 400.123,
-      "end_sec": 409.954,
-      "duration_sec": 9.831,
-      "pcm_bytes": 471886,
+      "start_sec": 334.239,
+      "end_sec": 359.867,
+      "duration_sec": 25.627,
+      "pcm_bytes": 1230116,
       "block_range": [
         "b-014",
         "b-014"
@@ -171,10 +175,10 @@
     },
     {
       "chunk_id": 16,
-      "start_sec": 409.954,
-      "end_sec": 478.265,
-      "duration_sec": 68.311,
-      "pcm_bytes": 3278926,
+      "start_sec": 359.867,
+      "end_sec": 366.368,
+      "duration_sec": 6.501,
+      "pcm_bytes": 312046,
       "block_range": [
         "b-015",
         "b-015"
@@ -182,10 +186,10 @@
     },
     {
       "chunk_id": 17,
-      "start_sec": 478.265,
-      "end_sec": 575.176,
-      "duration_sec": 96.911,
-      "pcm_bytes": 4651726,
+      "start_sec": 366.368,
+      "end_sec": 376.199,
+      "duration_sec": 9.831,
+      "pcm_bytes": 471886,
       "block_range": [
         "b-016",
         "b-016"
@@ -193,10 +197,10 @@
     },
     {
       "chunk_id": 18,
-      "start_sec": 575.176,
-      "end_sec": 640.047,
-      "duration_sec": 64.871,
-      "pcm_bytes": 3113806,
+      "start_sec": 376.199,
+      "end_sec": 401.786,
+      "duration_sec": 25.587,
+      "pcm_bytes": 1228196,
       "block_range": [
         "b-017",
         "b-017"
@@ -204,10 +208,10 @@
     },
     {
       "chunk_id": 19,
-      "start_sec": 640.047,
-      "end_sec": 688.118,
-      "duration_sec": 48.071,
-      "pcm_bytes": 2307406,
+      "start_sec": 401.786,
+      "end_sec": 437.613,
+      "duration_sec": 35.827,
+      "pcm_bytes": 1719716,
       "block_range": [
         "b-018",
         "b-018"
@@ -215,10 +219,10 @@
     },
     {
       "chunk_id": 20,
-      "start_sec": 688.118,
-      "end_sec": 759.829,
-      "duration_sec": 71.711,
-      "pcm_bytes": 3442126,
+      "start_sec": 437.613,
+      "end_sec": 475.754,
+      "duration_sec": 38.141,
+      "pcm_bytes": 1830748,
       "block_range": [
         "b-019",
         "b-019"
@@ -226,10 +230,10 @@
     },
     {
       "chunk_id": 21,
-      "start_sec": 759.829,
-      "end_sec": 825.94,
-      "duration_sec": 66.111,
-      "pcm_bytes": 3173326,
+      "start_sec": 475.754,
+      "end_sec": 518.821,
+      "duration_sec": 43.067,
+      "pcm_bytes": 2067236,
       "block_range": [
         "b-020",
         "b-020"
@@ -237,10 +241,10 @@
     },
     {
       "chunk_id": 22,
-      "start_sec": 825.94,
-      "end_sec": 897.371,
-      "duration_sec": 71.431,
-      "pcm_bytes": 3428686,
+      "start_sec": 518.821,
+      "end_sec": 543.569,
+      "duration_sec": 24.747,
+      "pcm_bytes": 1187876,
       "block_range": [
         "b-021",
         "b-021"
@@ -248,10 +252,10 @@
     },
     {
       "chunk_id": 23,
-      "start_sec": 897.371,
-      "end_sec": 983.962,
-      "duration_sec": 86.591,
-      "pcm_bytes": 4156366,
+      "start_sec": 543.569,
+      "end_sec": 572.876,
+      "duration_sec": 29.307,
+      "pcm_bytes": 1406756,
       "block_range": [
         "b-022",
         "b-022"
@@ -259,10 +263,10 @@
     },
     {
       "chunk_id": 24,
-      "start_sec": 983.962,
-      "end_sec": 991.263,
-      "duration_sec": 7.301,
-      "pcm_bytes": 350446,
+      "start_sec": 572.876,
+      "end_sec": 608.304,
+      "duration_sec": 35.427,
+      "pcm_bytes": 1700516,
       "block_range": [
         "b-023",
         "b-023"
@@ -270,10 +274,10 @@
     },
     {
       "chunk_id": 25,
-      "start_sec": 991.263,
-      "end_sec": 1001.574,
-      "duration_sec": 10.311,
-      "pcm_bytes": 494926,
+      "start_sec": 608.304,
+      "end_sec": 645.731,
+      "duration_sec": 37.427,
+      "pcm_bytes": 1796516,
       "block_range": [
         "b-024",
         "b-024"
@@ -281,10 +285,10 @@
     },
     {
       "chunk_id": 26,
-      "start_sec": 1001.574,
-      "end_sec": 1081.325,
-      "duration_sec": 79.751,
-      "pcm_bytes": 3828046,
+      "start_sec": 645.731,
+      "end_sec": 664.678,
+      "duration_sec": 18.947,
+      "pcm_bytes": 909476,
       "block_range": [
         "b-025",
         "b-025"
@@ -292,10 +296,10 @@
     },
     {
       "chunk_id": 27,
-      "start_sec": 1081.325,
-      "end_sec": 1118.116,
-      "duration_sec": 36.791,
-      "pcm_bytes": 1765966,
+      "start_sec": 664.678,
+      "end_sec": 698.426,
+      "duration_sec": 33.747,
+      "pcm_bytes": 1619876,
       "block_range": [
         "b-026",
         "b-026"
@@ -303,10 +307,10 @@
     },
     {
       "chunk_id": 28,
-      "start_sec": 1118.116,
-      "end_sec": 1168.067,
-      "duration_sec": 49.951,
-      "pcm_bytes": 2397646,
+      "start_sec": 698.426,
+      "end_sec": 722.327,
+      "duration_sec": 23.901,
+      "pcm_bytes": 1147228,
       "block_range": [
         "b-027",
         "b-027"
@@ -314,10 +318,10 @@
     },
     {
       "chunk_id": 29,
-      "start_sec": 1168.067,
-      "end_sec": 1228.818,
-      "duration_sec": 60.751,
-      "pcm_bytes": 2916046,
+      "start_sec": 722.327,
+      "end_sec": 752.554,
+      "duration_sec": 30.227,
+      "pcm_bytes": 1450916,
       "block_range": [
         "b-028",
         "b-028"
@@ -325,10 +329,10 @@
     },
     {
       "chunk_id": 30,
-      "start_sec": 1228.818,
-      "end_sec": 1251.249,
-      "duration_sec": 22.431,
-      "pcm_bytes": 1076686,
+      "start_sec": 752.554,
+      "end_sec": 773.621,
+      "duration_sec": 21.067,
+      "pcm_bytes": 1011236,
       "block_range": [
         "b-029",
         "b-029"
@@ -336,10 +340,10 @@
     },
     {
       "chunk_id": 31,
-      "start_sec": 1251.249,
-      "end_sec": 1257.75,
-      "duration_sec": 6.501,
-      "pcm_bytes": 312046,
+      "start_sec": 773.621,
+      "end_sec": 810.609,
+      "duration_sec": 36.987,
+      "pcm_bytes": 1775396,
       "block_range": [
         "b-030",
         "b-030"
@@ -347,10 +351,10 @@
     },
     {
       "chunk_id": 32,
-      "start_sec": 1257.75,
-      "end_sec": 1271.661,
-      "duration_sec": 13.911,
-      "pcm_bytes": 667726,
+      "start_sec": 810.609,
+      "end_sec": 842.076,
+      "duration_sec": 31.467,
+      "pcm_bytes": 1510436,
       "block_range": [
         "b-031",
         "b-031"
@@ -358,10 +362,10 @@
     },
     {
       "chunk_id": 33,
-      "start_sec": 1271.661,
-      "end_sec": 1338.008,
-      "duration_sec": 66.347,
-      "pcm_bytes": 3184676,
+      "start_sec": 842.076,
+      "end_sec": 849.377,
+      "duration_sec": 7.301,
+      "pcm_bytes": 350446,
       "block_range": [
         "b-032",
         "b-032"
@@ -369,10 +373,10 @@
     },
     {
       "chunk_id": 34,
-      "start_sec": 1338.008,
-      "end_sec": 1376.596,
-      "duration_sec": 38.587,
-      "pcm_bytes": 1852196,
+      "start_sec": 849.377,
+      "end_sec": 858.038,
+      "duration_sec": 8.661,
+      "pcm_bytes": 415708,
       "block_range": [
         "b-033",
         "b-033"
@@ -380,10 +384,10 @@
     },
     {
       "chunk_id": 35,
-      "start_sec": 1376.596,
-      "end_sec": 1416.543,
-      "duration_sec": 39.947,
-      "pcm_bytes": 1917476,
+      "start_sec": 858.038,
+      "end_sec": 891.545,
+      "duration_sec": 33.507,
+      "pcm_bytes": 1608356,
       "block_range": [
         "b-034",
         "b-034"
@@ -391,10 +395,10 @@
     },
     {
       "chunk_id": 36,
-      "start_sec": 1416.543,
-      "end_sec": 1423.04,
-      "duration_sec": 6.497,
-      "pcm_bytes": 311876,
+      "start_sec": 891.545,
+      "end_sec": 929.093,
+      "duration_sec": 37.547,
+      "pcm_bytes": 1802276,
       "block_range": [
         "b-035",
         "b-035"
@@ -402,10 +406,10 @@
     },
     {
       "chunk_id": 37,
-      "start_sec": 1423.04,
-      "end_sec": 1434.388,
-      "duration_sec": 11.347,
-      "pcm_bytes": 544676,
+      "start_sec": 929.093,
+      "end_sec": 962.44,
+      "duration_sec": 33.347,
+      "pcm_bytes": 1600676,
       "block_range": [
         "b-036",
         "b-036"
@@ -413,10 +417,10 @@
     },
     {
       "chunk_id": 38,
-      "start_sec": 1434.388,
-      "end_sec": 1487.295,
-      "duration_sec": 52.907,
-      "pcm_bytes": 2539556,
+      "start_sec": 962.44,
+      "end_sec": 1000.867,
+      "duration_sec": 38.427,
+      "pcm_bytes": 1844516,
       "block_range": [
         "b-037",
         "b-037"
@@ -424,10 +428,10 @@
     },
     {
       "chunk_id": 39,
-      "start_sec": 1487.295,
-      "end_sec": 1537.203,
-      "duration_sec": 49.907,
-      "pcm_bytes": 2395556,
+      "start_sec": 1000.867,
+      "end_sec": 1042.615,
+      "duration_sec": 41.747,
+      "pcm_bytes": 2003876,
       "block_range": [
         "b-038",
         "b-038"
@@ -435,10 +439,10 @@
     },
     {
       "chunk_id": 40,
-      "start_sec": 1537.203,
-      "end_sec": 1599.19,
-      "duration_sec": 61.987,
-      "pcm_bytes": 2975396,
+      "start_sec": 1042.615,
+      "end_sec": 1062.802,
+      "duration_sec": 20.187,
+      "pcm_bytes": 968996,
       "block_range": [
         "b-039",
         "b-039"
@@ -446,10 +450,10 @@
     },
     {
       "chunk_id": 41,
-      "start_sec": 1599.19,
-      "end_sec": 1621.017,
-      "duration_sec": 21.827,
-      "pcm_bytes": 1047716,
+      "start_sec": 1062.802,
+      "end_sec": 1069.303,
+      "duration_sec": 6.501,
+      "pcm_bytes": 312046,
       "block_range": [
         "b-040",
         "b-040"
@@ -457,10 +461,10 @@
     },
     {
       "chunk_id": 42,
-      "start_sec": 1621.017,
-      "end_sec": 1631.605,
-      "duration_sec": 10.587,
-      "pcm_bytes": 508196,
+      "start_sec": 1069.303,
+      "end_sec": 1083.214,
+      "duration_sec": 13.911,
+      "pcm_bytes": 667726,
       "block_range": [
         "b-041",
         "b-041"
@@ -468,13 +472,167 @@
     },
     {
       "chunk_id": 43,
-      "start_sec": 1631.605,
-      "end_sec": 1667.992,
-      "duration_sec": 36.387,
-      "pcm_bytes": 1746596,
+      "start_sec": 1083.214,
+      "end_sec": 1121.875,
+      "duration_sec": 38.661,
+      "pcm_bytes": 1855708,
       "block_range": [
         "b-042",
         "b-042"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "start_sec": 1121.875,
+      "end_sec": 1146.422,
+      "duration_sec": 24.547,
+      "pcm_bytes": 1178276,
+      "block_range": [
+        "b-043",
+        "b-043"
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "start_sec": 1146.422,
+      "end_sec": 1181.17,
+      "duration_sec": 34.747,
+      "pcm_bytes": 1667876,
+      "block_range": [
+        "b-044",
+        "b-044"
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "start_sec": 1181.17,
+      "end_sec": 1221.117,
+      "duration_sec": 39.947,
+      "pcm_bytes": 1917476,
+      "block_range": [
+        "b-045",
+        "b-045"
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "start_sec": 1221.117,
+      "end_sec": 1227.614,
+      "duration_sec": 6.497,
+      "pcm_bytes": 311876,
+      "block_range": [
+        "b-046",
+        "b-046"
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "start_sec": 1227.614,
+      "end_sec": 1238.962,
+      "duration_sec": 11.347,
+      "pcm_bytes": 544676,
+      "block_range": [
+        "b-047",
+        "b-047"
+      ]
+    },
+    {
+      "chunk_id": 49,
+      "start_sec": 1238.962,
+      "end_sec": 1267.629,
+      "duration_sec": 28.667,
+      "pcm_bytes": 1376036,
+      "block_range": [
+        "b-048",
+        "b-048"
+      ]
+    },
+    {
+      "chunk_id": 50,
+      "start_sec": 1267.629,
+      "end_sec": 1286.857,
+      "duration_sec": 19.227,
+      "pcm_bytes": 922916,
+      "block_range": [
+        "b-049",
+        "b-049"
+      ]
+    },
+    {
+      "chunk_id": 51,
+      "start_sec": 1286.857,
+      "end_sec": 1312.004,
+      "duration_sec": 25.147,
+      "pcm_bytes": 1207076,
+      "block_range": [
+        "b-050",
+        "b-050"
+      ]
+    },
+    {
+      "chunk_id": 52,
+      "start_sec": 1312.004,
+      "end_sec": 1337.151,
+      "duration_sec": 25.147,
+      "pcm_bytes": 1207076,
+      "block_range": [
+        "b-051",
+        "b-051"
+      ]
+    },
+    {
+      "chunk_id": 53,
+      "start_sec": 1337.151,
+      "end_sec": 1370.539,
+      "duration_sec": 33.387,
+      "pcm_bytes": 1602596,
+      "block_range": [
+        "b-052",
+        "b-052"
+      ]
+    },
+    {
+      "chunk_id": 54,
+      "start_sec": 1370.539,
+      "end_sec": 1397.806,
+      "duration_sec": 27.267,
+      "pcm_bytes": 1308836,
+      "block_range": [
+        "b-053",
+        "b-053"
+      ]
+    },
+    {
+      "chunk_id": 55,
+      "start_sec": 1397.806,
+      "end_sec": 1418.947,
+      "duration_sec": 21.141,
+      "pcm_bytes": 1014748,
+      "block_range": [
+        "b-054",
+        "b-054"
+      ]
+    },
+    {
+      "chunk_id": 56,
+      "start_sec": 1418.947,
+      "end_sec": 1429.534,
+      "duration_sec": 10.587,
+      "pcm_bytes": 508196,
+      "block_range": [
+        "b-055",
+        "b-055"
+      ]
+    },
+    {
+      "chunk_id": 57,
+      "start_sec": 1429.534,
+      "end_sec": 1467.442,
+      "duration_sec": 37.907,
+      "pcm_bytes": 1819556,
+      "block_range": [
+        "b-056",
+        "b-056"
       ]
     }
   ],
@@ -488,8 +646,10 @@
       "words": 6,
       "weight": 9,
       "text": "Chapter 4 — The Regulatory Relationship",
+      "spoken_text": "Chapter 4 — The Regulatory Relationship.",
+      "text_hash": "9ffbffba8cf25141",
       "start_ratio": 0.0,
-      "end_ratio": 0.0026
+      "end_ratio": 0.003
     },
     {
       "id": "b-001",
@@ -500,8 +660,10 @@
       "words": 13,
       "weight": 13,
       "text": "Sleep Training, The Ferber Method, Night Waking, Responsive Feeding, and How Attachment Works",
-      "start_ratio": 0.0026,
-      "end_ratio": 0.008
+      "spoken_text": "Sleep Training, The Ferber Method, Night Waking, Responsive Feeding, and How Attachment Works.",
+      "text_hash": "0e4a6386806d7f23",
+      "start_ratio": 0.003,
+      "end_ratio": 0.0091
     },
     {
       "id": "b-002",
@@ -512,8 +674,10 @@
       "words": 22,
       "weight": 22,
       "text": "A baby cries in a dark bedroom. An adult lifts the baby against a warm shoulder. Within ten seconds, the crying stops.",
-      "start_ratio": 0.008,
-      "end_ratio": 0.0142
+      "spoken_text": "A baby cries in a dark bedroom. An adult lifts the baby against a warm shoulder. Within ten seconds, the crying stops.",
+      "text_hash": "90f22eddf63d8a97",
+      "start_ratio": 0.0091,
+      "end_ratio": 0.0161
     },
     {
       "id": "b-003",
@@ -524,8 +688,10 @@
       "words": 72,
       "weight": 72,
       "text": "On another night, the crying does not stop. The adult tries everything in order: milk, a burp, a dry diaper, and a slow walk down the hall. Next comes a dimmer room and a handoff to an equally tired partner. Still the wailing goes on. At three in the morning, exhaustion turns that persistent cry into an accusation. It feels like a verdict on your love or your skill. It is neither.",
-      "start_ratio": 0.0142,
-      "end_ratio": 0.0331
+      "spoken_text": "On another night, the crying does not stop. The adult tries everything in order: milk, a burp, a dry diaper, and a slow walk down the hall. Next comes a dimmer room and a handoff to an equally tired partner. Still the wailing goes on. At three in the morning, exhaustion turns that persistent cry into an accusation. It feels like a verdict on your love or your skill. It is neither.",
+      "text_hash": "ebc113bc8b79e68f",
+      "start_ratio": 0.0161,
+      "end_ratio": 0.0377
     },
     {
       "id": "b-004",
@@ -536,8 +702,10 @@
       "words": 51,
       "weight": 51,
       "text": "Picking up a baby who quiets in ten seconds is not a mistake that trains future spoiling. Picking up a baby who keeps crying is not proof of a broken bond. A human baby is not a vending machine where dropping in the right parenting coin buys an instant quiet room.",
-      "start_ratio": 0.0331,
-      "end_ratio": 0.0459
+      "spoken_text": "Picking up a baby who quiets in ten seconds is not a mistake that trains future spoiling. Picking up a baby who keeps crying is not proof of a broken bond. A human baby is not a vending machine where dropping in the right parenting coin buys an instant quiet room.",
+      "text_hash": "878bf4de18173d61",
+      "start_ratio": 0.0377,
+      "end_ratio": 0.0522
     },
     {
       "id": "b-005",
@@ -548,8 +716,10 @@
       "words": 73,
       "weight": 73,
       "text": "Yet because these nighttime hours are so raw and so exhausting, they are easy to misread. If a baby were just a bundle of habits being trained, comforting a cry would be an error that rewards noise. On the other hand, if a baby were fragile glass being rescued from trauma at every whimper, taking two minutes to use the bathroom would be a moral failure. Neither story matches what child science shows.",
-      "start_ratio": 0.0459,
-      "end_ratio": 0.0653
+      "spoken_text": "Yet because these nighttime hours are so raw and so exhausting, they are easy to misread. If a baby were just a bundle of habits being trained, comforting a cry would be an error that rewards noise. On the other hand, if a baby were fragile glass being rescued from trauma at every whimper, taking two minutes to use the bathroom would be a moral failure. Neither story matches what child science shows.",
+      "text_hash": "e482a447e6547c8c",
+      "start_ratio": 0.0522,
+      "end_ratio": 0.0742
     },
     {
       "id": "b-006",
@@ -560,8 +730,10 @@
       "words": 59,
       "weight": 59,
       "text": "Careful observation suggests that how an infant and a parent calm down together is a two-way street, not a one-way download of calm. Lab monitors can track how a parent and baby briefly match each other’s heartbeats, breathing rhythms, stress hormones, and brain waves. Yet no single body sensor works as a parenting report card or a lifelong guarantee.",
-      "start_ratio": 0.0653,
-      "end_ratio": 0.0811
+      "spoken_text": "Careful observation suggests that how an infant and a parent calm down together is a two-way street, not a one-way download of calm. Lab monitors can track how a parent and baby briefly match each other’s heartbeats, breathing rhythms, stress hormones, and brain waves. Yet no single body sensor works as a parenting report card or a lifelong guarantee.",
+      "text_hash": "e24b4c77eadd9420",
+      "start_ratio": 0.0742,
+      "end_ratio": 0.0922
     },
     {
       "id": "b-007",
@@ -572,8 +744,10 @@
       "words": 89,
       "weight": 89,
       "text": "Chapter 3 showed that birth is a sudden change of life support. The placenta disappears, but the baby’s physical need for other people stays just as real. Now we ask what happens across the first year, when the job of keeping a baby warm, fed, safe, and calm is taken up by imperfect people. Our question is not “what trick creates a self-soothing baby?” It is deeper: how does a baby’s ability to settle live inside human relationships, and what promises can those daily and nightly routines honestly support?",
-      "start_ratio": 0.0811,
-      "end_ratio": 0.1053
+      "spoken_text": "Chapter 3 showed that birth is a sudden change of life support. The placenta disappears, but the baby’s physical need for other people stays just as real. Now we ask what happens across the first year, when the job of keeping a baby warm, fed, safe, and calm is taken up by imperfect people. Our question is not “what trick creates a self-soothing baby?” It is deeper: how does a baby’s ability to settle live inside human relationships, and what promises can those daily and nightly routines honestly support?",
+      "text_hash": "ec13e803ff11e580",
+      "start_ratio": 0.0922,
+      "end_ratio": 0.1197
     },
     {
       "id": "b-008",
@@ -584,8 +758,10 @@
       "words": 8,
       "weight": 10,
       "text": "I. The Dyadic Transaction: Beyond Spoiling and Programming",
-      "start_ratio": 0.1053,
-      "end_ratio": 0.1093
+      "spoken_text": "I. The Dyadic Transaction: Beyond Spoiling and Programming.",
+      "text_hash": "3850e62a66603555",
+      "start_ratio": 0.1197,
+      "end_ratio": 0.1242
     },
     {
       "id": "b-009",
@@ -596,403 +772,667 @@
       "words": 81,
       "weight": 81,
       "text": "To see what happens when an adult lifts a crying baby, we need to drop two old theories that have fought over nurseries for a hundred years. The first is the fear of spoiling. It warns that answering cries quickly rewards fussiness and stops a child from learning independence. The second is the myth of perfect programming. It promises that if a parent answers every sound with instant warmth, lifelong calm will be installed into the baby’s brain like computer software.",
-      "start_ratio": 0.1093,
-      "end_ratio": 0.1301
+      "spoken_text": "To see what happens when an adult lifts a crying baby, we need to drop two old theories that have fought over nurseries for a hundred years. The first is the fear of spoiling. It warns that answering cries quickly rewards fussiness and stops a child from learning independence. The second is the myth of perfect programming. It promises that if a parent answers every sound with instant warmth, lifelong calm will be installed into the baby’s brain like computer software.",
+      "text_hash": "22fae2576ca667b3",
+      "start_ratio": 0.1242,
+      "end_ratio": 0.1479
     },
     {
       "id": "b-010",
       "tag": "p",
       "chunk_id": 11,
       "start_sec": 217.05,
-      "end_sec": 271.641,
-      "words": 135,
-      "weight": 135,
-      "text": "What we actually see in the first year is neither spoiling nor programming. It is a two-way partnership. Birth has not made the baby independent, yet needing help is not the same as being passive. A newborn comes into every room with active tools. A cry pulls adults close. A bright gaze holds their eyes. A rooting reflex searches for milk, and shifts in muscle tension shape how an adult holds them. At the same time, the young brain circuits that brake strong feelings are still years from finishing. In fact, the very states that make a baby need help most — being overtired, starving, or overstimulated — make it harder for the baby to settle. A starving baby can get too frantic to latch. An overtired baby can get too wired to fall asleep.",
-      "start_ratio": 0.1301,
-      "end_ratio": 0.1629
+      "end_sec": 240.437,
+      "words": 63,
+      "weight": 63,
+      "text": "What we actually see in the first year is neither spoiling nor programming; it is a two-way partnership. Birth has not made the baby independent, yet needing help is not the same as being passive. Every newborn comes into the room with active tools: a sharp cry pulls adults close, a bright gaze holds their eyes, and a rooting reflex searches for milk.",
+      "spoken_text": "What we actually see in the first year is neither spoiling nor programming; it is a two-way partnership. Birth has not made the baby independent, yet needing help is not the same as being passive. Every newborn comes into the room with active tools: a sharp cry pulls adults close, a bright gaze holds their eyes, and a rooting reflex searches for milk.",
+      "text_hash": "1a2334e5ac20371d",
+      "start_ratio": 0.1479,
+      "end_ratio": 0.1638
     },
     {
       "id": "b-011",
       "tag": "p",
       "chunk_id": 12,
-      "start_sec": 271.641,
-      "end_sec": 328.631,
-      "words": 125,
-      "weight": 125,
-      "text": "When an adult dims the hall light, rocks the baby, softens their voice, or offers milk, that adult is acting as an outside calming system. Even breathing slowly while holding a crying infant helps. Because the baby’s state also changes the adult’s heart rate, hormones, and patience, the smallest unit in infancy is never the lone baby or the lone parent. It is the pair. And around that pair sits the home and neighborhood that either support or drain the adults in the room. That is why the World Health Organization, UNICEF, and the World Bank place responsive care inside a wider Nurturing Care Framework alongside healthcare, food, safety, and play. Responsive care is a community ecosystem, not a private test of a mother’s purity.",
-      "start_ratio": 0.1629,
-      "end_ratio": 0.197
+      "start_sec": 240.437,
+      "end_sec": 261.744,
+      "words": 54,
+      "weight": 54,
+      "text": "At the same time, the young brain circuits that brake strong feelings are still years from finishing. The very states that make a baby need help most—being overtired, starving, or overstimulated—make it harder to settle. A starving baby can get too frantic to latch, and an overtired baby can get too wired to sleep.",
+      "spoken_text": "At the same time, the young brain circuits that brake strong feelings are still years from finishing. The very states that make a baby need help most—being overtired, starving, or overstimulated—make it harder to settle. A starving baby can get too frantic to latch, and an overtired baby can get too wired to sleep.",
+      "text_hash": "246d9983f0ea3434",
+      "start_ratio": 0.1638,
+      "end_ratio": 0.1784
     },
     {
       "id": "b-012",
       "tag": "p",
       "chunk_id": 13,
-      "start_sec": 328.631,
-      "end_sec": 393.622,
-      "words": 149,
-      "weight": 149,
-      "text": "In lab studies of this two-way dance, Ruth Feldman and her colleagues have tracked body-and-behavior sync. That means the second-by-second matching of eye contact, gentle voices, warm touch, heart rhythms, and bonding hormones between parent and baby. Still, reading those lab numbers takes caution. Asking “are parent and baby in sync?” means nothing until we ask what kind of sync we are measuring. Two bodies can rise and fall together because a calm parent is soothing an upset baby. Or they can match because both jumped at a loud slam, or because a stressed parent and a fussy baby are winding each other up. Heartbeat and hormone trackers give scientists useful snapshots of how two bodies connect during a fifteen-minute lab game. They do not prove that one rough evening permanently rewires a child’s stress system. And they never justify turning a smartwatch into a judge of parental love.",
-      "start_ratio": 0.197,
-      "end_ratio": 0.236
+      "start_sec": 261.744,
+      "end_sec": 307.252,
+      "words": 114,
+      "weight": 114,
+      "text": "When an adult dims the hall light, rocks the baby, softens their voice, or offers milk, that adult acts as an outside calming system. Because the baby’s state also changes the adult’s heart rate, hormones, and patience, the smallest unit in infancy is never the lone baby or the lone parent; it is the pair. Around that pair sits the home and neighborhood that either support or drain the adults in the room. That is why the World Health Organization, UNICEF, and the World Bank place responsive care inside a wider Nurturing Care Framework alongside healthcare, food, safety, and play. Responsive care is a community ecosystem, not a private test of a mother’s purity.",
+      "spoken_text": "When an adult dims the hall light, rocks the baby, softens their voice, or offers milk, that adult acts as an outside calming system. Because the baby’s state also changes the adult’s heart rate, hormones, and patience, the smallest unit in infancy is never the lone baby or the lone parent; it is the pair. Around that pair sits the home and neighborhood that either support or drain the adults in the room. That is why the World Health Organization, UNICEF, and the World Bank place responsive care inside a wider Nurturing Care Framework alongside healthcare, food, safety, and play. Responsive care is a community ecosystem, not a private test of a mother’s purity.",
+      "text_hash": "0a7af5c6819d5a1e",
+      "start_ratio": 0.1784,
+      "end_ratio": 0.2094
     },
     {
       "id": "b-013",
-      "tag": "h2",
+      "tag": "p",
       "chunk_id": 14,
-      "start_sec": 393.622,
-      "end_sec": 400.123,
-      "words": 11,
-      "weight": 13,
-      "text": "II. Feeding, Safe Sleep, Night Waking, and What Trials Can Carry",
-      "start_ratio": 0.236,
-      "end_ratio": 0.2399
+      "start_sec": 307.252,
+      "end_sec": 334.239,
+      "words": 64,
+      "weight": 64,
+      "text": "In lab studies of this two-way dance, Ruth Feldman and her colleagues have tracked body-and-behavior sync. That means the second-by-second matching of eye contact, gentle voices, warm touch, heart rhythms, and bonding hormones between parent and baby. Still, reading those lab numbers takes caution, because asking “are parent and baby in sync?” means nothing until we ask what kind of sync we are measuring.",
+      "spoken_text": "In lab studies of this two-way dance, Ruth Feldman and her colleagues have tracked body-and-behavior sync. That means the second-by-second matching of eye contact, gentle voices, warm touch, heart rhythms, and bonding hormones between parent and baby. Still, reading those lab numbers takes caution, because asking “are parent and baby in sync?” means nothing until we ask what kind of sync we are measuring.",
+      "text_hash": "cd0f2e8909ab8041",
+      "start_ratio": 0.2094,
+      "end_ratio": 0.2278
     },
     {
       "id": "b-014",
       "tag": "p",
       "chunk_id": 15,
-      "start_sec": 400.123,
-      "end_sec": 409.954,
-      "words": 21,
-      "weight": 21,
-      "text": "Nowhere does this daily partnership feel more real than in the two rhythms that rule the first year: feeding and sleep.",
-      "start_ratio": 0.2399,
-      "end_ratio": 0.2458
+      "start_sec": 334.239,
+      "end_sec": 359.867,
+      "words": 59,
+      "weight": 59,
+      "text": "Two bodies can rise and fall together because a calm parent soothes an upset baby, or because a stressed parent and a fussy baby wind each other up. Heartbeat and hormone trackers give scientists useful snapshots during a fifteen-minute lab game. They do not prove that one rough night rewires a child’s stress system. No watch can grade love.",
+      "spoken_text": "Two bodies can rise and fall together because a calm parent soothes an upset baby, or because a stressed parent and a fussy baby wind each other up. Heartbeat and hormone trackers give scientists useful snapshots during a fifteen-minute lab game. They do not prove that one rough night rewires a child’s stress system. No watch can grade love.",
+      "text_hash": "c7956088850e0f9d",
+      "start_ratio": 0.2278,
+      "end_ratio": 0.2452
     },
     {
       "id": "b-015",
-      "tag": "p",
+      "tag": "h2",
       "chunk_id": 16,
-      "start_sec": 409.954,
-      "end_sec": 478.265,
-      "words": 155,
-      "weight": 155,
-      "text": "Across the first six months, hunger and fullness are the earliest shared puzzles that baby and parent solve together. A baby turns toward the nipple, sucks in bursts, and pauses to breathe. When full, the baby turns away or slows down. A caring adult watches those signals, shifts the angle of the bottle or breast, and waits during a pause instead of forcing more milk in. Over weeks, the parent learns the difference between hungry sucking and comfort sucking. As Maureen Black and Frances Aboud showed, feeding works best as a two-way conversation built on cues rather than a race to empty a bottle. Respecting when a baby is hungry and when they turn away makes meals calmer for everyone. Still, formal classes that train parents in responsive feeding are associated with small, mixed effects on childhood weight or later IQ. Noticing when your baby has had enough is ordinary kindness, not a brain-building course.",
-      "start_ratio": 0.2458,
-      "end_ratio": 0.2867
+      "start_sec": 359.867,
+      "end_sec": 366.368,
+      "words": 11,
+      "weight": 13,
+      "text": "II. Feeding, Safe Sleep, Night Waking, and What Trials Can Carry",
+      "spoken_text": "II. Feeding, Safe Sleep, Night Waking, and What Trials Can Carry.",
+      "text_hash": "e3cc6d7be5eb07c1",
+      "start_ratio": 0.2452,
+      "end_ratio": 0.2497
     },
     {
       "id": "b-016",
       "tag": "p",
       "chunk_id": 17,
-      "start_sec": 478.265,
-      "end_sec": 575.176,
-      "words": 198,
-      "weight": 198,
-      "text": "Around six months, feeding shifts from milk alone to solid foods. That shift triggers two of the most searched questions in modern parenting: how to prevent food allergies and whether to spoon-feed purees or try baby-led weaning. For decades, doctors told parents to delay peanut butter, eggs, and fish until age one or three to prevent allergies. During those exact years, childhood peanut allergies doubled. Questioning that advice, Gideon Du Toit and his team ran the landmark LEAP randomized trial in 2015. They tracked 640 high-risk babies with eczema or egg allergy between four and eleven months old. Half were assigned to avoid peanut protein until age five. The other half ate smooth, thinned peanut protein at least three times a week. The results overturned medical history. High-certainty trial evidence shows that introducing age-safe peanut protein between four and eleven months cuts peanut allergy at age five by 81 percent (17.2% down to 3.2%). Instead of hiding allergens from the young gut, early tasting teaches the immune system to welcome food proteins safely. (Whole peanuts and thick globs of peanut butter remain dangerous choking hazards. Always thin smooth peanut butter into warm water, milk, yogurt, or fruit puree.)",
-      "start_ratio": 0.2867,
-      "end_ratio": 0.3448
+      "start_sec": 366.368,
+      "end_sec": 376.199,
+      "words": 21,
+      "weight": 21,
+      "text": "Nowhere does this daily partnership feel more real than in the two rhythms that rule the first year: feeding and sleep.",
+      "spoken_text": "Nowhere does this daily partnership feel more real than in the two rhythms that rule the first year: feeding and sleep.",
+      "text_hash": "4a5c87a3ade114eb",
+      "start_ratio": 0.2497,
+      "end_ratio": 0.2564
     },
     {
       "id": "b-017",
       "tag": "p",
       "chunk_id": 18,
-      "start_sec": 575.176,
-      "end_sec": 640.047,
-      "words": 143,
-      "weight": 143,
-      "text": "A second randomized trial answered the debate between spoon-feeding purees and baby-led weaning (BLW), where six-month-olds pick up soft finger foods themselves. In the BLISS trial, Lisa Fangupo and Rachael Taylor randomized families to either traditional spoon-feeding or a modified baby-led approach. Parents in the baby-led group were coached to offer soft, iron-rich foods and avoid hard choking hazards like raw apple, whole grapes, or nuts. High-certainty trial evidence shows that modified baby-led weaning and spoon-feeding produce the same growth and identical choking rates. Babies in both groups gagged often at six months. Gagging is a noisy, normal safety reflex at the front of the tongue as babies map their mouths, and it faded fast by nine months. Parents do not need to pick a rigid camp. Mixing a spoon of iron-rich oatmeal or peanut-swirled puree with soft steamed broccoli spears works wonderfully.",
-      "start_ratio": 0.3448,
-      "end_ratio": 0.3837
+      "start_sec": 376.199,
+      "end_sec": 401.786,
+      "words": 61,
+      "weight": 61,
+      "text": "Across the first six months, hunger and fullness are the earliest shared puzzles that baby and parent solve together. A baby turns toward the nipple, sucks in bursts, pauses to breathe, and turns away when full. A caring adult watches those signals, shifts the angle of the bottle or breast, and waits during a pause instead of forcing more milk in.",
+      "spoken_text": "Across the first six months, hunger and fullness are the earliest shared puzzles that baby and parent solve together. A baby turns toward the nipple, sucks in bursts, pauses to breathe, and turns away when full. A caring adult watches those signals, shifts the angle of the bottle or breast, and waits during a pause instead of forcing more milk in.",
+      "text_hash": "59bd3fd220e9970c",
+      "start_ratio": 0.2564,
+      "end_ratio": 0.2738
     },
     {
       "id": "b-018",
       "tag": "p",
       "chunk_id": 19,
-      "start_sec": 640.047,
-      "end_sec": 688.118,
-      "words": 89,
-      "weight": 89,
-      "text": "This developmental timing highlights why the six-month mark is special for starting solids. Full-term infants are born with internal iron stores built up during late pregnancy, but those stores deplete naturally by around six months. Breastmilk is wonderfully bioavailable but low in total iron. That is why pediatricians emphasize iron-rich first foods—pureed meats, poultry, fortified single-grain cereals, lentils, and beans paired with vitamin C. Ensuring daily iron intake at six months fuels the rapid wiring of young brain circuits, protecting motor and cognitive growth before developmental lags can emerge.",
-      "start_ratio": 0.3837,
-      "end_ratio": 0.4125
+      "start_sec": 401.786,
+      "end_sec": 437.613,
+      "words": 84,
+      "weight": 84,
+      "text": "Over weeks, the parent learns the difference between hungry sucking and comfort sucking. As Maureen Black and Frances Aboud showed, feeding works best as a two-way conversation built on cues rather than a race to empty a bottle. Respecting when a baby is hungry and when they turn away makes meals calmer. Still, formal classes in responsive feeding are associated with small, mixed effects on childhood weight or later IQ. Noticing when your baby has had enough is ordinary kindness, not a brain-building course.",
+      "spoken_text": "Over weeks, the parent learns the difference between hungry sucking and comfort sucking. As Maureen Black and Frances Aboud showed, feeding works best as a two-way conversation built on cues rather than a race to empty a bottle. Respecting when a baby is hungry and when they turn away makes meals calmer. Still, formal classes in responsive feeding are associated with small, mixed effects on childhood weight or later IQ. Noticing when your baby has had enough is ordinary kindness, not a brain-building course.",
+      "text_hash": "b4283e35c7e60f17",
+      "start_ratio": 0.2738,
+      "end_ratio": 0.2982
     },
     {
       "id": "b-019",
       "tag": "p",
       "chunk_id": 20,
-      "start_sec": 688.118,
-      "end_sec": 759.829,
-      "words": 152,
-      "weight": 152,
-      "text": "Nighttime brings an even sharper mix of safety rules and exhaustion. Separating high-certainty life-saving rules from lower-certainty lifestyle debates saves parents tremendous worry. As Rachel Moon and the American Academy of Pediatrics showed across decades of global data, high-certainty evidence shows that placing a baby flat on their back on a firm, bare crib or bassinet mattress cuts Sudden Infant Death Syndrome (SIDS) and suffocation by more than half. Keep pillows, loose blankets, crib bumpers, and inclined sleepers out of the crib. Never share a sofa or bed when smoking, drinking, or deeply exhausted. Back-sleeping protection matters most between months one and four. Once a baby can roll smoothly from back to stomach and back again on their own (often around four to six months), you do not need to stay awake flipping them back over all night. Just stop arms-in swaddling as soon as rolling starts, and keep the crib bare.",
-      "start_ratio": 0.4125,
-      "end_ratio": 0.4555
+      "start_sec": 437.613,
+      "end_sec": 475.754,
+      "words": 95,
+      "weight": 95,
+      "text": "Around six months, feeding shifts from milk alone to solid foods. That shift triggers two of the most searched questions in modern parenting: how to prevent food allergies and whether to spoon-feed purees or try baby-led weaning. For decades, doctors told parents to delay peanut butter, eggs, and fish until age one or three, yet childhood peanut allergies doubled during those exact years. Questioning that advice, Gideon Du Toit and his team ran the landmark LEAP randomized trial in 2015, tracking 640 high-risk babies with eczema or egg allergy between four and eleven months old.",
+      "spoken_text": "Around six months, feeding shifts from milk alone to solid foods. That shift triggers two of the most searched questions in modern parenting: how to prevent food allergies and whether to spoon-feed purees or try baby-led weaning. For decades, doctors told parents to delay peanut butter, eggs, and fish until age one or three, yet childhood peanut allergies doubled during those exact years. Questioning that advice, Gideon Du Toit and his team ran the landmark LEAP randomized trial in 2015, tracking 640 high-risk babies with eczema or egg allergy between four and eleven months old.",
+      "text_hash": "2dc7bc06b7e2f9e2",
+      "start_ratio": 0.2982,
+      "end_ratio": 0.3242
     },
     {
       "id": "b-020",
       "tag": "p",
       "chunk_id": 21,
-      "start_sec": 759.829,
-      "end_sec": 825.94,
-      "words": 163,
-      "weight": 163,
-      "text": "What about room-sharing after four to six months and using white-noise machines? Sharing a bedroom (with the baby in a separate crib or bassinet) protects newborns in the earliest months. However, the INSIGHT study led by Ian Paul (2017) suggests a trade-off after month four. Babies who stayed in their parents’ bedroom past four to nine months slept in shorter stretches (about 45 minutes shorter at nine months). They were also four times more likely to be pulled into the adult bed overnight out of sheer exhaustion. Moving a healthy five- or six-month-old to a firm, bare crib in their own room with a monitor is a reasonable family choice, not a reckless gamble. Likewise, a white-noise machine can mask street and sibling noise if you follow basic ear safety. Place the machine at least seven feet (two meters) from the crib. Keep the volume soft (at or below 50 dBA, like a gentle shower, never a loud hairdryer next to the crib).",
-      "start_ratio": 0.4555,
-      "end_ratio": 0.4952
+      "start_sec": 475.754,
+      "end_sec": 518.821,
+      "words": 99,
+      "weight": 99,
+      "text": "Half of the babies were assigned to avoid peanut protein until age five, while the other half ate smooth, thinned peanut protein at least three times a week. The results overturned medical history. High-certainty trial evidence shows that introducing age-safe peanut protein between four and eleven months cuts peanut allergy at age five by 81 percent (17.2 percent down to 3.2 percent ). Early tasting teaches the immune system to welcome food proteins safely. Whole peanuts and thick globs of peanut butter remain choking hazards, so always thin smooth peanut butter into warm water, milk, yogurt, or fruit puree.",
+      "spoken_text": "Half of the babies were assigned to avoid peanut protein until age five, while the other half ate smooth, thinned peanut protein at least three times a week. The results overturned medical history. High-certainty trial evidence shows that introducing age-safe peanut protein between four and eleven months cuts peanut allergy at age five by 81 percent (17.2 percent down to 3.2 percent ). Early tasting teaches the immune system to welcome food proteins safely. Whole peanuts and thick globs of peanut butter remain choking hazards, so always thin smooth peanut butter into warm water, milk, yogurt, or fruit puree.",
+      "text_hash": "fcd9a5458770f607",
+      "start_ratio": 0.3242,
+      "end_ratio": 0.3536
     },
     {
       "id": "b-021",
       "tag": "p",
       "chunk_id": 22,
-      "start_sec": 825.94,
-      "end_sec": 897.371,
-      "words": 153,
-      "weight": 153,
-      "text": "This shift in sleeping stretches points to the biological rhythm behind the dreaded “four-month sleep regression.” Around three to four months, infant sleep architecture fundamentally reorganizes. Newborns sleep in simple two-stage cycles of active and quiet sleep. At four months, the brain matures into adult-style four-stage ultradian sleep cycles, complete with lighter stage-one sleep. As a baby surfaces between ninety-minute cycles, they naturally wake up and scan the room. If they fell asleep in an adult’s arms and wake up alone in a dark crib, they sound the alarm. This waking is not a behavioral setback; it is proof of healthy neurological maturation. It also clarifies sleep readiness across the first year. Between zero and three months, frequent night waking is an essential biological rhythm for feeding and survival. Between four and ten months, biological clocks and evening melatonin consolidate, making gentle settling strategies developmentally appropriate if chronic nighttime exhaustion threatens parental well-being.",
-      "start_ratio": 0.4952,
-      "end_ratio": 0.538
+      "start_sec": 518.821,
+      "end_sec": 543.569,
+      "words": 51,
+      "weight": 51,
+      "text": "A second trial tested spoon-feeding purees against baby-led weaning (BLW), where six-month-olds pick up soft foods themselves. In the BLISS trial, Lisa Fangupo and Rachael Taylor assigned families to spoon-feeding or a safe baby-led plan. Parents offered soft, iron-rich foods and skipped hard choking risks like raw apple or whole nuts.",
+      "spoken_text": "A second trial tested spoon-feeding purees against baby-led weaning (BLW), where six-month-olds pick up soft foods themselves. In the BLISS trial, Lisa Fangupo and Rachael Taylor assigned families to spoon-feeding or a safe baby-led plan. Parents offered soft, iron-rich foods and skipped hard choking risks like raw apple or whole nuts.",
+      "text_hash": "613ea4dbaa527a9b",
+      "start_ratio": 0.3536,
+      "end_ratio": 0.3704
     },
     {
       "id": "b-022",
       "tag": "p",
       "chunk_id": 23,
-      "start_sec": 897.371,
-      "end_sec": 983.962,
-      "words": 197,
-      "weight": 197,
-      "text": "And what happens when a healthy six- to twelve-month-old keeps waking every ninety minutes and crying to be rocked back to sleep? On social media, sleep training is treated as a moral war. One camp warns that letting a baby cry for ten minutes causes brain damage and breaks attachment. The other camp warns that nursing or rocking a baby to sleep ruins independence. When Anna Price, Harriet Hiscock, and Melissa Wake (2012) followed randomized sleep-training families to age six — alongside trials by Michael Gradisar (2016) and cohort studies by Ayten Bilgin and Dieter Wolke (2020) — the data told a calmer story. The evidence suggests with low-to-moderate certainty that gentle sleep training (such as checking at gradually longer intervals or shifting bedtime) cuts night waking and lowers mothers’ depression in the short term. Follow-ups through age six found zero measured harm to attachment, cortisol stress levels, or child emotional health. That does not mean any family must sleep-train. If nursing or rocking to sleep works for your home, enjoy it. And if broken sleep is crushing a parent’s mental health, teaching a healthy six-month-old to settle in a safe crib will not harm your bond.",
-      "start_ratio": 0.538,
-      "end_ratio": 0.5899
+      "start_sec": 543.569,
+      "end_sec": 572.876,
+      "words": 69,
+      "weight": 69,
+      "text": "High-certainty trial evidence shows that modified baby-led weaning and spoon-feeding produce the same growth and identical choking rates. Babies in both groups gagged often at six months, a noisy, normal safety reflex at the front of the tongue that faded fast by nine months. Parents do not need to pick a rigid camp; mixing a spoon of iron-rich oatmeal or peanut-swirled puree with soft steamed broccoli spears works wonderfully.",
+      "spoken_text": "High-certainty trial evidence shows that modified baby-led weaning and spoon-feeding produce the same growth and identical choking rates. Babies in both groups gagged often at six months, a noisy, normal safety reflex at the front of the tongue that faded fast by nine months. Parents do not need to pick a rigid camp; mixing a spoon of iron-rich oatmeal or peanut-swirled puree with soft steamed broccoli spears works wonderfully.",
+      "text_hash": "cf9c4ead4cdf5e71",
+      "start_ratio": 0.3704,
+      "end_ratio": 0.3904
     },
     {
       "id": "b-023",
-      "tag": "h2",
+      "tag": "p",
       "chunk_id": 24,
-      "start_sec": 983.962,
-      "end_sec": 991.263,
-      "words": 9,
-      "weight": 11,
-      "text": "III. Attachment, Sensitivity, and the Myth of Unbroken Attunement",
-      "start_ratio": 0.5899,
-      "end_ratio": 0.5943
+      "start_sec": 572.876,
+      "end_sec": 608.304,
+      "words": 81,
+      "weight": 81,
+      "text": "This developmental timing shows why the six-month mark matters for starting solids. Full-term infants are born with iron stores built up during late pregnancy, but those reserves run low around month six. Breastmilk is easy to absorb yet low in total iron. That is why pediatricians recommend iron-rich first foods—pureed meats, poultry, fortified cereals, lentils, and beans paired with vitamin C. Daily iron at six months fuels fast-growing brain circuits. It protects motor and mental growth before any lag can start.",
+      "spoken_text": "This developmental timing shows why the six-month mark matters for starting solids. Full-term infants are born with iron stores built up during late pregnancy, but those reserves run low around month six. Breastmilk is easy to absorb yet low in total iron. That is why pediatricians recommend iron-rich first foods—pureed meats, poultry, fortified cereals, lentils, and beans paired with vitamin C. Daily iron at six months fuels fast-growing brain circuits. It protects motor and mental growth before any lag can start.",
+      "text_hash": "7822f652dda67d84",
+      "start_ratio": 0.3904,
+      "end_ratio": 0.4145
     },
     {
       "id": "b-024",
       "tag": "p",
       "chunk_id": 25,
-      "start_sec": 991.263,
-      "end_sec": 1001.574,
-      "words": 16,
-      "weight": 16,
-      "text": "Beneath every argument over crying, feeding, and sleep sits the biggest word in child psychology: attachment.",
-      "start_ratio": 0.5943,
-      "end_ratio": 0.6005
+      "start_sec": 608.304,
+      "end_sec": 645.731,
+      "words": 87,
+      "weight": 87,
+      "text": "As daytime meals take shape, nighttime brings an even sharper mix of safety rules and exhaustion. Across decades of global data synthesized by Rachel Moon and the American Academy of Pediatrics, high-certainty evidence shows one life-saving rule. Placing a baby flat on their back on a firm, bare crib mattress cuts Sudden Infant Death Syndrome (SIDS) and suffocation by more than half. Keep pillows, loose blankets, bumpers, and inclined sleepers out of the crib, and never share a sofa or bed when smoking, drinking, or deeply exhausted.",
+      "spoken_text": "As daytime meals take shape, nighttime brings an even sharper mix of safety rules and exhaustion. Across decades of global data synthesized by Rachel Moon and the American Academy of Pediatrics, high-certainty evidence shows one life-saving rule. Placing a baby flat on their back on a firm, bare crib mattress cuts Sudden Infant Death Syndrome (SIDS) and suffocation by more than half. Keep pillows, loose blankets, bumpers, and inclined sleepers out of the crib, and never share a sofa or bed when smoking, drinking, or deeply exhausted.",
+      "text_hash": "22a9e18446db8a8f",
+      "start_ratio": 0.4145,
+      "end_ratio": 0.44
     },
     {
       "id": "b-025",
       "tag": "p",
       "chunk_id": 26,
-      "start_sec": 1001.574,
-      "end_sec": 1081.325,
-      "words": 175,
-      "weight": 175,
-      "text": "To appreciate both what attachment science discovered and how popular culture twisted it into a demand for perfection, trace the story from the 1970s to today. Building on John Bowlby’s insight that human babies are wired to seek a familiar protector when scared, tired, or sick, psychologist Mary Ainsworth observed babies at home in Uganda and Baltimore. She then created the Strange Situation (1978), a twenty-minute lab visit where a twelve-month-old experiences two brief separations and reunions with a parent. Ainsworth found that babies whose parents answered their signals reliably at home used the parent as a safe base to explore. They protested when the parent stepped out, and calmed down quickly when hugged at reunion (secure attachment). In that same decade, pediatrician Edward Tronick created the Still-Face Experiment (1978). A mother plays happily with her four-month-old for two minutes, freezes into a blank stare for two minutes, and then smiles again. Faced with a blank stare, babies coo, smile, and reach out to win the parent back before looking away until normal play returns.",
-      "start_ratio": 0.6005,
-      "end_ratio": 0.6483
+      "start_sec": 645.731,
+      "end_sec": 664.678,
+      "words": 50,
+      "weight": 50,
+      "text": "Back-sleeping protection matters most during months one through four. Once a baby rolls smoothly from back to stomach and back again on their own, you do not need to stay awake flipping them over all night. Simply stop arms-in swaddling as soon as rolling starts, and keep the crib bare.",
+      "spoken_text": "Back-sleeping protection matters most during months one through four. Once a baby rolls smoothly from back to stomach and back again on their own, you do not need to stay awake flipping them over all night. Simply stop arms-in swaddling as soon as rolling starts, and keep the crib bare.",
+      "text_hash": "71e1c96bdd2fdb7d",
+      "start_ratio": 0.44,
+      "end_ratio": 0.453
     },
     {
       "id": "b-026",
       "tag": "p",
       "chunk_id": 27,
-      "start_sec": 1081.325,
-      "end_sec": 1118.116,
-      "words": 77,
-      "weight": 77,
-      "text": "When those two lab studies entered magazines and blogs, popular culture merged them into a crushing rule of non-stop perfection. The Strange Situation was misread as a crystal ball that graded a child’s future mental health for life. And the Still-Face Experiment was waved around as proof that any brief break in a parent’s attention — glancing at a phone, feeling sad, taking three minutes to finish a shower, or using daycare — damaged the baby’s brain.",
-      "start_ratio": 0.6483,
-      "end_ratio": 0.6703
+      "start_sec": 664.678,
+      "end_sec": 698.426,
+      "words": 87,
+      "weight": 87,
+      "text": "What about room-sharing after four to six months and using white-noise machines? Sharing a bedroom—with the baby in a separate crib or bassinet—protects newborns in the earliest months, yet the INSIGHT study led by Ian Paul (2017) suggests a practical trade-off after month four. Babies who stayed in their parents’ room past four to nine months slept in shorter stretches, losing about 45 minutes of night sleep at nine months. Exhausted parents were also four times more likely to pull the baby into the adult bed overnight.",
+      "spoken_text": "What about room-sharing after four to six months and using white-noise machines? Sharing a bedroom—with the baby in a separate crib or bassinet—protects newborns in the earliest months, yet the INSIGHT study led by Ian Paul (2017) suggests a practical trade-off after month four. Babies who stayed in their parents’ room past four to nine months slept in shorter stretches, losing about 45 minutes of night sleep at nine months. Exhausted parents were also four times more likely to pull the baby into the adult bed overnight.",
+      "text_hash": "fd90c4c8a83e3207",
+      "start_ratio": 0.453,
+      "end_ratio": 0.4759
     },
     {
       "id": "b-027",
       "tag": "p",
       "chunk_id": 28,
-      "start_sec": 1118.116,
-      "end_sec": 1168.067,
-      "words": 111,
-      "weight": 111,
-      "text": "Later replications and massive statistical reviews took that perfectionist myth apart from two angles. First, when Tronick and his team filmed ordinary, happy mothers and babies playing together frame by frame, they found a liberating surprise. Even in the healthiest pairs, parent and baby are out of sync roughly 70 percent of the time. A baby looks away just as the parent smiles. A parent misreads a fuss and offers a rattle instead of a burp. What builds emotional trust is not robotic, unbroken harmony. It is the everyday rhythm of mismatch and repair — the repeated discovery that when two people miss each other’s beat, they can find it again.",
-      "start_ratio": 0.6703,
-      "end_ratio": 0.7003
+      "start_sec": 698.426,
+      "end_sec": 722.327,
+      "words": 62,
+      "weight": 62,
+      "text": "Moving a healthy five- or six-month-old to a bare crib in their own room with a monitor is a sound family choice, not a gamble. Likewise, a white-noise machine can mask street and sibling sounds when used safely. Place the machine at least seven feet from the crib, and keep the volume soft (at or below 50 dBA, like a gentle shower).",
+      "spoken_text": "Moving a healthy five- or six-month-old to a bare crib in their own room with a monitor is a sound family choice, not a gamble. Likewise, a white-noise machine can mask street and sibling sounds when used safely. Place the machine at least seven feet from the crib, and keep the volume soft (at or below 50 dBA, like a gentle shower).",
+      "text_hash": "801de950d85251a8",
+      "start_ratio": 0.4759,
+      "end_ratio": 0.4922
     },
     {
       "id": "b-028",
       "tag": "p",
       "chunk_id": 29,
-      "start_sec": 1168.067,
-      "end_sec": 1228.818,
-      "words": 117,
-      "weight": 117,
-      "text": "Second, Marian Bakermans-Kranenburg, Marinus van IJzendoorn, and Femmie Juffer (2003) pooled eighty-eight intervention studies covering 7,636 families. They uncovered a striking “less is more” rule. Short, practical coaching programs (fewer than sixteen visits, often using brief home videos to help parents spot their baby’s cues) showed moderate-to-high success in boosting parental warmth (d = 0.44). They also suggested meaningful gains in secure attachment (d = 0.39), beating long, multi-year therapy programs. Long-term studies also proved that attachment in the Strange Situation belongs to a specific relationship, not a fixed trait inside the child. A baby can be secure with a dad or grandma and unsure with a mom, and early attachment scores predict later behavior only modestly.",
-      "start_ratio": 0.7003,
-      "end_ratio": 0.7367
+      "start_sec": 722.327,
+      "end_sec": 752.554,
+      "words": 69,
+      "weight": 69,
+      "text": "That shift in sleeping stretches traces directly to the biological clock behind the “four-month sleep regression.” Around three to four months, infant sleep architecture reorganizes from simple two-stage newborn sleep into adult-style four-stage sleep cycles with lighter stage-one sleep. As a baby surfaces between ninety-minute cycles, they naturally wake up, scan the room, and sound the alarm if they fell asleep in an adult’s arms and woke up alone.",
+      "spoken_text": "That shift in sleeping stretches traces directly to the biological clock behind the “four-month sleep regression.” Around three to four months, infant sleep architecture reorganizes from simple two-stage newborn sleep into adult-style four-stage sleep cycles with lighter stage-one sleep. As a baby surfaces between ninety-minute cycles, they naturally wake up, scan the room, and sound the alarm if they fell asleep in an adult’s arms and woke up alone.",
+      "text_hash": "ebb582650ceded06",
+      "start_ratio": 0.4922,
+      "end_ratio": 0.5128
     },
     {
       "id": "b-029",
       "tag": "p",
       "chunk_id": 30,
-      "start_sec": 1228.818,
-      "end_sec": 1251.249,
-      "words": 49,
-      "weight": 49,
-      "text": "Modern science replaces perfectionism with relief. Noticing your baby’s signals and answering with warmth most of the time — and repairing the moment when you are tired or grumpy — builds real trust. No baby needs a flawless parent, and no twenty-minute lab test writes a child’s life story.",
-      "start_ratio": 0.7367,
-      "end_ratio": 0.7502
+      "start_sec": 752.554,
+      "end_sec": 773.621,
+      "words": 48,
+      "weight": 48,
+      "text": "This waking is not a setback; it is proof of healthy brain growth. Between zero and three months, frequent night waking is essential for feeding and survival. After month four, circadian clocks and evening melatonin steady out, making gentle settling routines appropriate when broken sleep threatens parental health.",
+      "spoken_text": "This waking is not a setback; it is proof of healthy brain growth. Between zero and three months, frequent night waking is essential for feeding and survival. After month four, circadian clocks and evening melatonin steady out, making gentle settling routines appropriate when broken sleep threatens parental health.",
+      "text_hash": "4f229d0cfaee5c44",
+      "start_ratio": 0.5128,
+      "end_ratio": 0.5272
     },
     {
       "id": "b-030",
-      "tag": "h2",
+      "tag": "p",
       "chunk_id": 31,
-      "start_sec": 1251.249,
-      "end_sec": 1257.75,
-      "words": 9,
-      "weight": 11,
-      "text": "IV. When the Environment Truly Deprives: The Bucharest Lesson",
-      "start_ratio": 0.7502,
-      "end_ratio": 0.7541
+      "start_sec": 773.621,
+      "end_sec": 810.609,
+      "words": 79,
+      "weight": 79,
+      "text": "What happens when a healthy six- to twelve-month-old keeps waking every ninety minutes and crying to be rocked back to sleep? Online, sleep training is often treated as a moral war between camps warning of brain damage and camps warning of ruined independence. Long-term trials tell a much calmer story. Anna Price, Harriet Hiscock, and Melissa Wake (2012) followed sleep-training families to age six, alongside trials by Michael Gradisar (2016) and cohorts by Ayten Bilgin and Dieter Wolke (2020).",
+      "spoken_text": "What happens when a healthy six- to twelve-month-old keeps waking every ninety minutes and crying to be rocked back to sleep? Online, sleep training is often treated as a moral war between camps warning of brain damage and camps warning of ruined independence. Long-term trials tell a much calmer story. Anna Price, Harriet Hiscock, and Melissa Wake (2012) followed sleep-training families to age six, alongside trials by Michael Gradisar (2016) and cohorts by Ayten Bilgin and Dieter Wolke (2020).",
+      "text_hash": "0be7d3fc6e50838c",
+      "start_ratio": 0.5272,
+      "end_ratio": 0.5524
     },
     {
       "id": "b-031",
       "tag": "p",
       "chunk_id": 32,
-      "start_sec": 1257.75,
-      "end_sec": 1271.661,
-      "words": 29,
-      "weight": 29,
-      "text": "If normal family differences in feeding style, sleep routines, and imperfect patience leave only small marks on long-term growth, where do scientists see massive harm from the early environment?",
-      "start_ratio": 0.7541,
-      "end_ratio": 0.7624
+      "start_sec": 810.609,
+      "end_sec": 842.076,
+      "words": 74,
+      "weight": 74,
+      "text": "Their evidence suggests with low-to-moderate certainty that gentle sleep training cuts night waking and eases a mother’s low mood in the short term. Parents can check in at longer gaps or shift bedtime later. Follow-ups through age six found zero measured harm to attachment, stress hormones, or child feelings. No family must sleep-train. Yet if broken sleep crushes your health, teaching a six-month-old to settle in a safe crib will not harm your bond.",
+      "spoken_text": "Their evidence suggests with low-to-moderate certainty that gentle sleep training cuts night waking and eases a mother’s low mood in the short term. Parents can check in at longer gaps or shift bedtime later. Follow-ups through age six found zero measured harm to attachment, stress hormones, or child feelings. No family must sleep-train. Yet if broken sleep crushes your health, teaching a six-month-old to settle in a safe crib will not harm your bond.",
+      "text_hash": "11137b3d142c214a",
+      "start_ratio": 0.5524,
+      "end_ratio": 0.5738
     },
     {
       "id": "b-032",
-      "tag": "p",
+      "tag": "h2",
       "chunk_id": 33,
-      "start_sec": 1271.661,
-      "end_sec": 1338.008,
-      "words": 159,
-      "weight": 159,
-      "text": "We see it when the caregiving world collapses completely — when a baby is deprived not of a perfect parent, but of any steady, caring adult at all. The clearest proof in modern science is the Bucharest Early Intervention Project (BEIP), started in 2001 by Charles Nelson, Nathan Fox, and Charles Zeanah. After the fall of Romania’s dictatorship, tens of thousands of babies and toddlers lived in large state orphanages marked by severe neglect. Staff worked rotating shifts with twelve to fifteen infants per worker. Babies were fed and changed on assembly-line schedules with almost zero holding, talking, or eye contact. Because Romania had no foster-care system at the time, the researchers built a family foster network from scratch. They randomly assigned 136 orphanage babies (aged six to thirty-one months) either to move into loving foster homes or to stay in the state system as usual. They then tracked both groups alongside local family-raised children for over twenty years.",
-      "start_ratio": 0.7624,
-      "end_ratio": 0.8022
+      "start_sec": 842.076,
+      "end_sec": 849.377,
+      "words": 9,
+      "weight": 11,
+      "text": "III. Attachment, Sensitivity, and the Myth of Unbroken Attunement",
+      "spoken_text": "III. Attachment, Sensitivity, and the Myth of Unbroken Attunement.",
+      "text_hash": "fdeb113c2a8808af",
+      "start_ratio": 0.5738,
+      "end_ratio": 0.5788
     },
     {
       "id": "b-033",
       "tag": "p",
       "chunk_id": 34,
-      "start_sec": 1338.008,
-      "end_sec": 1376.596,
-      "words": 83,
-      "weight": 83,
-      "text": "The findings of the Bucharest study show with high certainty that severe institutional neglect causes deep harm to brain electrical activity, brain volume, body growth, attachment, and IQ. Just as important, the randomized trial suggests with moderate-to-high certainty that moving young children out of institutions and into steady, loving foster families sparks dramatic recovery in IQ, language, emotional security, and brain function. Recovery was strongest when children entered families before age two, though some struggles with attention and self-control can linger into adulthood.",
-      "start_ratio": 0.8022,
-      "end_ratio": 0.8253
+      "start_sec": 849.377,
+      "end_sec": 858.038,
+      "words": 16,
+      "weight": 16,
+      "text": "Beneath every debate over crying, feeding, and sleep sits the biggest word in child psychology: attachment.",
+      "spoken_text": "Beneath every debate over crying, feeding, and sleep sits the biggest word in child psychology: attachment.",
+      "text_hash": "f7d7922062479db5",
+      "start_ratio": 0.5788,
+      "end_ratio": 0.5847
     },
     {
       "id": "b-034",
       "tag": "p",
       "chunk_id": 35,
-      "start_sec": 1376.596,
-      "end_sec": 1416.543,
-      "words": 99,
-      "weight": 99,
-      "text": "The lesson of Bucharest has two halves, and parents deserve to hear both clearly. On one hand, a growing human brain truly expects a caring human network. Babies cannot thrive on calories and clean sheets alone without someone who knows their name and answers their cries. On the other hand, using orphanage brain scans to guilt-trip ordinary parents over community daycare, ten minutes of sleep-training tears, a distracted afternoon, or bottle feeding is a massive scientific foul. State orphanages strip away every primary caregiver for years on end. They look nothing like the normal bumps of a loving home.",
-      "start_ratio": 0.8253,
-      "end_ratio": 0.8493
+      "start_sec": 858.038,
+      "end_sec": 891.545,
+      "words": 75,
+      "weight": 75,
+      "text": "To see both what attachment science discovered and how popular culture twisted it into a demand for perfection, trace the story from the 1970s to today. John Bowlby first noted that human babies are wired to seek a familiar protector when scared, tired, or sick. Building on his work, Mary Ainsworth observed babies at home in Uganda and Baltimore and created the Strange Situation (1978), a twenty-minute lab visit with two brief separations and reunions.",
+      "spoken_text": "To see both what attachment science discovered and how popular culture twisted it into a demand for perfection, trace the story from the 1970s to today. John Bowlby first noted that human babies are wired to seek a familiar protector when scared, tired, or sick. Building on his work, Mary Ainsworth observed babies at home in Uganda and Baltimore and created the Strange Situation (1978), a twenty-minute lab visit with two brief separations and reunions.",
+      "text_hash": "b0010ccbbf585927",
+      "start_ratio": 0.5847,
+      "end_ratio": 0.6076
     },
     {
       "id": "b-035",
-      "tag": "h2",
+      "tag": "p",
       "chunk_id": 36,
-      "start_sec": 1416.543,
-      "end_sec": 1423.04,
-      "words": 10,
-      "weight": 12,
-      "text": "V. A Network of Caregivers and the Horizon of Interdependence",
-      "start_ratio": 0.8493,
-      "end_ratio": 0.8531
+      "start_sec": 891.545,
+      "end_sec": 929.093,
+      "words": 90,
+      "weight": 90,
+      "text": "Ainsworth found that babies whose parents answered their signals reliably at home used the parent as a safe base to explore. They protested when the parent stepped out and calmed quickly at reunion (secure attachment). In that same decade, Edward Tronick created the Still-Face Experiment (1978). A mother plays happily with her four-month-old for two minutes, freezes into a blank stare for two minutes, and then smiles again. Faced with a blank stare, babies coo, smile, and reach out to win the parent back before looking away until play resumes.",
+      "spoken_text": "Ainsworth found that babies whose parents answered their signals reliably at home used the parent as a safe base to explore. They protested when the parent stepped out and calmed quickly at reunion (secure attachment). In that same decade, Edward Tronick created the Still-Face Experiment (1978). A mother plays happily with her four-month-old for two minutes, freezes into a blank stare for two minutes, and then smiles again. Faced with a blank stare, babies coo, smile, and reach out to win the parent back before looking away until play resumes.",
+      "text_hash": "4cf2baa72e51401b",
+      "start_ratio": 0.6076,
+      "end_ratio": 0.6331
     },
     {
       "id": "b-036",
       "tag": "p",
       "chunk_id": 37,
-      "start_sec": 1423.04,
-      "end_sec": 1434.388,
-      "words": 29,
-      "weight": 29,
-      "text": "Stepping back from lab cameras and hospital charts, we can see why focusing only on a lone mother and baby is far too narrow a frame for human infancy.",
-      "start_ratio": 0.8531,
-      "end_ratio": 0.8599
+      "start_sec": 929.093,
+      "end_sec": 962.44,
+      "words": 74,
+      "weight": 74,
+      "text": "When those two lab studies entered magazines and blogs, popular culture merged them into a crushing rule of non-stop perfection. Writers misread the Strange Situation as a crystal ball that graded mental health for life, while waving the Still-Face Experiment around as proof that any brief break in attention harms a baby’s brain. Parents were made to fear glancing at a phone, taking a three-minute shower, or using daycare. That myth misreads both tests.",
+      "spoken_text": "When those two lab studies entered magazines and blogs, popular culture merged them into a crushing rule of non-stop perfection. Writers misread the Strange Situation as a crystal ball that graded mental health for life, while waving the Still-Face Experiment around as proof that any brief break in attention harms a baby’s brain. Parents were made to fear glancing at a phone, taking a three-minute shower, or using daycare. That myth misreads both tests.",
+      "text_hash": "cb112d42c309efe9",
+      "start_ratio": 0.6331,
+      "end_ratio": 0.6559
     },
     {
       "id": "b-037",
       "tag": "p",
       "chunk_id": 38,
-      "start_sec": 1434.388,
-      "end_sec": 1487.295,
-      "words": 137,
-      "weight": 137,
-      "text": "Across human history and around the world today, babies have almost never been raised by one adult working alone in an apartment. Studies across cultures show that infants gladly form several attachment bonds at the same time — with mothers, fathers, grandparents, aunts, uncles, older siblings, and steady childcare teachers. Having a second or third loving adult in a baby’s life does not water down the bond with a mother. It spreads the heavy work of holding, feeding, playing, and comforting across a sturdy safety net. Different cultures also calm babies through different channels. Some carry babies against the body all day, while others lean on face-to-face talking and floor play. What healthy communities share is not one Western middle-class rulebook, but reliable adults who notice when a baby is upset and help them settle back down.",
-      "start_ratio": 0.8599,
-      "end_ratio": 0.8917
+      "start_sec": 962.44,
+      "end_sec": 1000.867,
+      "words": 101,
+      "weight": 101,
+      "text": "Later replications and massive reviews took that perfectionist myth apart from two angles. First, Tronick and his team filmed ordinary, happy mothers and babies playing together frame by frame. Even in the healthiest pairs, parent and baby are out of sync roughly 70 percent of the time. A baby looks away just as the parent smiles, or a parent offers a rattle when the baby needs a burp. What builds emotional trust is not robotic, unbroken harmony. It is the everyday rhythm of mismatch and repair—the repeated discovery that when two people miss each other’s beat, they can find it again.",
+      "spoken_text": "Later replications and massive reviews took that perfectionist myth apart from two angles. First, Tronick and his team filmed ordinary, happy mothers and babies playing together frame by frame. Even in the healthiest pairs, parent and baby are out of sync roughly 70 percent of the time. A baby looks away just as the parent smiles, or a parent offers a rattle when the baby needs a burp. What builds emotional trust is not robotic, unbroken harmony. It is the everyday rhythm of mismatch and repair—the repeated discovery that when two people miss each other’s beat, they can find it again.",
+      "text_hash": "2ad2d47b87da2f7b",
+      "start_ratio": 0.6559,
+      "end_ratio": 0.682
     },
     {
       "id": "b-038",
       "tag": "p",
       "chunk_id": 39,
-      "start_sec": 1487.295,
-      "end_sec": 1537.203,
-      "words": 127,
-      "weight": 127,
-      "text": "Even inside the same family, babies bring very different built-in temperaments to the room. One baby calms at the first pat and sleeps six-hour stretches by month three. Another baby startles at a creaking floorboard, cries with full-body force, and needs forty minutes of bouncing in a dark hallway to unwind. Those differences are real biological wiring, not grades on the parents’ character. And around both the baby’s wiring and the parents’ patience sits the practical support of society: paid parental leave, fair work hours, affordable housing, medical care for postpartum depression, and a partner who shares the night shift. A parent running on three hours of sleep without paid leave is not short on love. That parent is short on the basic support every family needs.",
-      "start_ratio": 0.8917,
-      "end_ratio": 0.9216
+      "start_sec": 1000.867,
+      "end_sec": 1042.615,
+      "words": 86,
+      "weight": 86,
+      "text": "Second, Marian Bakermans-Kranenburg, Marinus van IJzendoorn, and Femmie Juffer (2003) pooled eighty-eight studies of 7,636 families. They found a clear “less is more” rule. Short, focused coaching (under sixteen visits) showed moderate-to-high success in boosting parent warmth (d = 0.44). It also suggested real gains in secure bonds (d = 0.39), beating long therapy. Long-term studies also proved that a Strange Situation score belongs to one relationship, not a fixed trait. A baby can feel secure with a dad or grandma and unsure with a mom.",
+      "spoken_text": "Second, Marian Bakermans-Kranenburg, Marinus van IJzendoorn, and Femmie Juffer (2003) pooled eighty-eight studies of 7,636 families. They found a clear “less is more” rule. Short, focused coaching (under sixteen visits) showed moderate-to-high success in boosting parent warmth (d = 0.44). It also suggested real gains in secure bonds (d = 0.39), beating long therapy. Long-term studies also proved that a Strange Situation score belongs to one relationship, not a fixed trait. A baby can feel secure with a dad or grandma and unsure with a mom.",
+      "text_hash": "9ddc72dccada1888",
+      "start_ratio": 0.682,
+      "end_ratio": 0.7105
     },
     {
       "id": "b-039",
       "tag": "p",
       "chunk_id": 40,
-      "start_sec": 1537.203,
-      "end_sec": 1599.19,
-      "words": 151,
-      "weight": 151,
-      "text": "Here our three lenses come together. The science of the regulatory relationship shows that back sleeping in a bare crib protects infant life, that early thinned peanut protein prevents most peanut allergies, and that severe orphanage neglect harms growth while family care restores it. It also suggests that responsive feeding, modified baby-led weaning, short sensitivity coaching, and gentle sleep routines after six months work safely without harming attachment. The interpretation of that science drops the perfectionist myth that every cry or missed cue leaves a scar, recognizing that normal relationships run on mismatch and repair. And the art of caring for an infant lives in the quiet judgment calls of your own home: deciding at midnight when to pick up right away, when to pause for two minutes and listen, when to move the crib to the nursery, and when to hand the baby to someone else so you can sleep.",
-      "start_ratio": 0.9216,
-      "end_ratio": 0.9588
+      "start_sec": 1042.615,
+      "end_sec": 1062.802,
+      "words": 44,
+      "weight": 44,
+      "text": "Modern science replaces perfectionism with relief. Noticing your baby’s signals, answering with warmth most of the time, and repairing the moment when you are tired builds real trust. No baby needs a flawless parent, and no twenty-minute lab test writes a child’s life story.",
+      "spoken_text": "Modern science replaces perfectionism with relief. Noticing your baby’s signals, answering with warmth most of the time, and repairing the moment when you are tired builds real trust. No baby needs a flawless parent, and no twenty-minute lab test writes a child’s life story.",
+      "text_hash": "6a445a5a87a83458",
+      "start_ratio": 0.7105,
+      "end_ratio": 0.7243
     },
     {
       "id": "b-040",
-      "tag": "p",
+      "tag": "h2",
       "chunk_id": 41,
-      "start_sec": 1599.19,
-      "end_sec": 1621.017,
-      "words": 56,
-      "weight": 56,
-      "text": "What this chapter does not tell us is what is happening inside the baby’s waking mind during those calm hours when hunger and sleep are handled and the baby looks curiously around the room. How an infant focuses attention, spots patterns in speech, remembers kicking a crib mobile, and tracks hidden toys belongs to Chapter 5.",
-      "start_ratio": 0.9588,
-      "end_ratio": 0.9718
+      "start_sec": 1062.802,
+      "end_sec": 1069.303,
+      "words": 9,
+      "weight": 11,
+      "text": "IV. When the Environment Truly Deprives: The Bucharest Lesson",
+      "spoken_text": "IV. When the Environment Truly Deprives: The Bucharest Lesson.",
+      "text_hash": "68e9488fa20e029b",
+      "start_ratio": 0.7243,
+      "end_ratio": 0.7287
     },
     {
       "id": "b-041",
       "tag": "p",
       "chunk_id": 42,
-      "start_sec": 1621.017,
-      "end_sec": 1631.605,
-      "words": 26,
-      "weight": 26,
-      "text": "Look back one more time at the adult standing in the dim bedroom, holding the baby whose crying has finally softened into a long, deep sigh.",
-      "start_ratio": 0.9718,
-      "end_ratio": 0.9782
+      "start_sec": 1069.303,
+      "end_sec": 1083.214,
+      "words": 29,
+      "weight": 29,
+      "text": "If normal family differences in feeding style, sleep routines, and imperfect patience leave only small marks on long-term growth, where do scientists see massive harm from the early environment?",
+      "spoken_text": "If normal family differences in feeding style, sleep routines, and imperfect patience leave only small marks on long-term growth, where do scientists see massive harm from the early environment?",
+      "text_hash": "ca5fda422b94f83a",
+      "start_ratio": 0.7287,
+      "end_ratio": 0.7382
     },
     {
       "id": "b-042",
       "tag": "p",
       "chunk_id": 43,
-      "start_sec": 1631.605,
-      "end_sec": 1667.992,
+      "start_sec": 1083.214,
+      "end_sec": 1121.875,
+      "words": 87,
+      "weight": 87,
+      "text": "We see it when the caregiving world collapses completely—when a baby is deprived not of a perfect parent, but of any steady, caring adult at all. The clearest proof in modern science is the Bucharest Early Intervention Project (BEIP), started in 2001 by Charles Nelson, Nathan Fox, and Charles Zeanah. After the fall of Romania’s dictatorship, tens of thousands of babies lived in large state orphanages marked by severe neglect. Rotating staff cared for twelve to fifteen infants per worker with almost zero holding or eye contact.",
+      "spoken_text": "We see it when the caregiving world collapses completely—when a baby is deprived not of a perfect parent, but of any steady, caring adult at all. The clearest proof in modern science is the Bucharest Early Intervention Project (BEIP), started in 2001 by Charles Nelson, Nathan Fox, and Charles Zeanah. After the fall of Romania’s dictatorship, tens of thousands of babies lived in large state orphanages marked by severe neglect. Rotating staff cared for twelve to fifteen infants per worker with almost zero holding or eye contact.",
+      "text_hash": "29b6c08c65dff982",
+      "start_ratio": 0.7382,
+      "end_ratio": 0.7645
+    },
+    {
+      "id": "b-043",
+      "tag": "p",
+      "chunk_id": 44,
+      "start_sec": 1121.875,
+      "end_sec": 1146.422,
+      "words": 56,
+      "weight": 56,
+      "text": "Because Romania had no foster system at the time, the researchers built a family foster network from scratch. They randomly assigned 136 orphanage babies (aged six to thirty-one months) either to move into foster homes or to stay in state care as usual. They then tracked both groups alongside local family-raised children for over twenty years.",
+      "spoken_text": "Because Romania had no foster system at the time, the researchers built a family foster network from scratch. They randomly assigned 136 orphanage babies (aged six to thirty-one months) either to move into foster homes or to stay in state care as usual. They then tracked both groups alongside local family-raised children for over twenty years.",
+      "text_hash": "954ab513e79d0076",
+      "start_ratio": 0.7645,
+      "end_ratio": 0.7812
+    },
+    {
+      "id": "b-044",
+      "tag": "p",
+      "chunk_id": 45,
+      "start_sec": 1146.422,
+      "end_sec": 1181.17,
+      "words": 70,
+      "weight": 70,
+      "text": "The Bucharest results show with high certainty that severe orphanage neglect deeply harms brain waves, brain size, body growth, attachment, and IQ. Just as important, the trial suggests with moderate-to-high certainty that moving young children into loving foster homes sparks dramatic recovery. Children gained ground in IQ, language, emotional security, and brain health. Gains were strongest when children entered families before age two, though some struggles with focus can linger.",
+      "spoken_text": "The Bucharest results show with high certainty that severe orphanage neglect deeply harms brain waves, brain size, body growth, attachment, and IQ. Just as important, the trial suggests with moderate-to-high certainty that moving young children into loving foster homes sparks dramatic recovery. Children gained ground in IQ, language, emotional security, and brain health. Gains were strongest when children entered families before age two, though some struggles with focus can linger.",
+      "text_hash": "088b90d875d715c7",
+      "start_ratio": 0.7812,
+      "end_ratio": 0.8049
+    },
+    {
+      "id": "b-045",
+      "tag": "p",
+      "chunk_id": 46,
+      "start_sec": 1181.17,
+      "end_sec": 1221.117,
+      "words": 99,
+      "weight": 99,
+      "text": "The lesson of Bucharest has two halves, and parents deserve to hear both clearly. On one hand, a growing human brain truly expects a caring human network. Babies cannot thrive on calories and clean sheets alone without someone who knows their name and answers their cries. On the other hand, using orphanage brain scans to guilt-trip ordinary parents over community daycare, ten minutes of sleep-training tears, a distracted afternoon, or bottle feeding is a massive scientific foul. State orphanages strip away every primary caregiver for years on end. They look nothing like the normal bumps of a loving home.",
+      "spoken_text": "The lesson of Bucharest has two halves, and parents deserve to hear both clearly. On one hand, a growing human brain truly expects a caring human network. Babies cannot thrive on calories and clean sheets alone without someone who knows their name and answers their cries. On the other hand, using orphanage brain scans to guilt-trip ordinary parents over community daycare, ten minutes of sleep-training tears, a distracted afternoon, or bottle feeding is a massive scientific foul. State orphanages strip away every primary caregiver for years on end. They look nothing like the normal bumps of a loving home.",
+      "text_hash": "ae9d1216bd525fbb",
+      "start_ratio": 0.8049,
+      "end_ratio": 0.8321
+    },
+    {
+      "id": "b-046",
+      "tag": "h2",
+      "chunk_id": 47,
+      "start_sec": 1221.117,
+      "end_sec": 1227.614,
+      "words": 10,
+      "weight": 12,
+      "text": "V. A Network of Caregivers and the Horizon of Interdependence",
+      "spoken_text": "V. A Network of Caregivers and the Horizon of Interdependence.",
+      "text_hash": "62d27af46a66ff1e",
+      "start_ratio": 0.8321,
+      "end_ratio": 0.8366
+    },
+    {
+      "id": "b-047",
+      "tag": "p",
+      "chunk_id": 48,
+      "start_sec": 1227.614,
+      "end_sec": 1238.962,
+      "words": 29,
+      "weight": 29,
+      "text": "Stepping back from lab cameras and hospital charts, we can see why focusing only on a lone mother and baby is far too narrow a frame for human infancy.",
+      "spoken_text": "Stepping back from lab cameras and hospital charts, we can see why focusing only on a lone mother and baby is far too narrow a frame for human infancy.",
+      "text_hash": "ffd7a32c2b3f9872",
+      "start_ratio": 0.8366,
+      "end_ratio": 0.8443
+    },
+    {
+      "id": "b-048",
+      "tag": "p",
+      "chunk_id": 49,
+      "start_sec": 1238.962,
+      "end_sec": 1267.629,
+      "words": 74,
+      "weight": 74,
+      "text": "Across history and around the world today, babies have almost never been raised by one adult alone in a flat. Studies across cultures show that infants gladly form several bonds at once. They bond with moms, dads, grandparents, aunts, uncles, older kids, and steady daycare teachers. A second or third loving adult never waters down the bond with a mother. Instead, it spreads the work of holding, feeding, and soothing across a strong net.",
+      "spoken_text": "Across history and around the world today, babies have almost never been raised by one adult alone in a flat. Studies across cultures show that infants gladly form several bonds at once. They bond with moms, dads, grandparents, aunts, uncles, older kids, and steady daycare teachers. A second or third loving adult never waters down the bond with a mother. Instead, it spreads the work of holding, feeding, and soothing across a strong net.",
+      "text_hash": "01679d9c3501cb15",
+      "start_ratio": 0.8443,
+      "end_ratio": 0.8638
+    },
+    {
+      "id": "b-049",
+      "tag": "p",
+      "chunk_id": 50,
+      "start_sec": 1267.629,
+      "end_sec": 1286.857,
+      "words": 49,
+      "weight": 49,
+      "text": "Different cultures also calm babies in different ways. Some carry babies against the chest all day, while others lean on face-to-face talk and floor play. Healthy communities do not share one Western rulebook. They share steady adults who notice when a baby is upset and help them calm down.",
+      "spoken_text": "Different cultures also calm babies in different ways. Some carry babies against the chest all day, while others lean on face-to-face talk and floor play. Healthy communities do not share one Western rulebook. They share steady adults who notice when a baby is upset and help them calm down.",
+      "text_hash": "1e72713893c21c93",
+      "start_ratio": 0.8638,
+      "end_ratio": 0.8769
+    },
+    {
+      "id": "b-050",
+      "tag": "p",
+      "chunk_id": 51,
+      "start_sec": 1286.857,
+      "end_sec": 1312.004,
+      "words": 59,
+      "weight": 59,
+      "text": "Even inside the same family, babies bring very different built-in temperaments to the room. One baby calms at the first pat and sleeps six-hour stretches by month three, while another startles at a creaking floorboard and needs forty minutes of bouncing in a dark hallway to unwind. Those differences are real biological wiring, not grades on the parents’ character.",
+      "spoken_text": "Even inside the same family, babies bring very different built-in temperaments to the room. One baby calms at the first pat and sleeps six-hour stretches by month three, while another startles at a creaking floorboard and needs forty minutes of bouncing in a dark hallway to unwind. Those differences are real biological wiring, not grades on the parents’ character.",
+      "text_hash": "ceba87dc6d56965e",
+      "start_ratio": 0.8769,
+      "end_ratio": 0.8941
+    },
+    {
+      "id": "b-051",
+      "tag": "p",
+      "chunk_id": 52,
+      "start_sec": 1312.004,
+      "end_sec": 1337.151,
+      "words": 61,
+      "weight": 61,
+      "text": "Around both the baby’s wiring and the parents’ patience sits the practical support of society: paid parental leave, fair work hours, stable housing, postpartum depression care, and a partner who shares the night shift. A parent running on three hours of sleep without paid leave is not short on love. That parent is short on the basic support every family needs.",
+      "spoken_text": "Around both the baby’s wiring and the parents’ patience sits the practical support of society: paid parental leave, fair work hours, stable housing, postpartum depression care, and a partner who shares the night shift. A parent running on three hours of sleep without paid leave is not short on love. That parent is short on the basic support every family needs.",
+      "text_hash": "bbb6c238e4a4ae94",
+      "start_ratio": 0.8941,
+      "end_ratio": 0.9112
+    },
+    {
+      "id": "b-052",
+      "tag": "p",
+      "chunk_id": 53,
+      "start_sec": 1337.151,
+      "end_sec": 1370.539,
+      "words": 70,
+      "weight": 70,
+      "text": "Here our three lenses come together. The science of the regulatory relationship shows that back sleeping in a bare crib protects infant life. It also proves that early thinned peanut protein prevents most peanut allergies, and that severe orphanage neglect harms growth while family care restores it. It suggests that responsive feeding, modified baby-led weaning, short sensitivity coaching, and gentle sleep routines after six months work safely without harming attachment.",
+      "spoken_text": "Here our three lenses come together. The science of the regulatory relationship shows that back sleeping in a bare crib protects infant life. It also proves that early thinned peanut protein prevents most peanut allergies, and that severe orphanage neglect harms growth while family care restores it. It suggests that responsive feeding, modified baby-led weaning, short sensitivity coaching, and gentle sleep routines after six months work safely without harming attachment.",
+      "text_hash": "5c7c0e2f8f1f024a",
+      "start_ratio": 0.9112,
+      "end_ratio": 0.934
+    },
+    {
+      "id": "b-053",
+      "tag": "p",
+      "chunk_id": 54,
+      "start_sec": 1370.539,
+      "end_sec": 1397.806,
+      "words": 79,
+      "weight": 79,
+      "text": "The interpretation of that science drops the myth that every cry or missed cue leaves a scar. Normal relationships run on mismatch and repair. And the art of caring for an infant lives in the quiet judgment calls of your own home. At midnight, you decide when to pick up right away and when to pause for two minutes. You choose when to move the crib, and when to hand the baby to someone else so you can sleep.",
+      "spoken_text": "The interpretation of that science drops the myth that every cry or missed cue leaves a scar. Normal relationships run on mismatch and repair. And the art of caring for an infant lives in the quiet judgment calls of your own home. At midnight, you decide when to pick up right away and when to pause for two minutes. You choose when to move the crib, and when to hand the baby to someone else so you can sleep.",
+      "text_hash": "d75e10ef76253577",
+      "start_ratio": 0.934,
+      "end_ratio": 0.9525
+    },
+    {
+      "id": "b-054",
+      "tag": "p",
+      "chunk_id": 55,
+      "start_sec": 1397.806,
+      "end_sec": 1418.947,
+      "words": 50,
+      "weight": 50,
+      "text": "What this chapter does not tell us is what happens inside the baby’s waking mind during calm daytime hours. Once hunger and sleep are handled, how does an infant focus attention, spot patterns in speech, remember kicking a crib mobile, and track hidden toys? Those questions belong to Chapter 5.",
+      "spoken_text": "What this chapter does not tell us is what happens inside the baby’s waking mind during calm daytime hours. Once hunger and sleep are handled, how does an infant focus attention, spot patterns in speech, remember kicking a crib mobile, and track hidden toys? Those questions belong to Chapter 5.",
+      "text_hash": "14777e736dbf9868",
+      "start_ratio": 0.9525,
+      "end_ratio": 0.967
+    },
+    {
+      "id": "b-055",
+      "tag": "p",
+      "chunk_id": 56,
+      "start_sec": 1418.947,
+      "end_sec": 1429.534,
+      "words": 26,
+      "weight": 26,
+      "text": "Look back one more time at the adult standing in the dim bedroom, holding the baby whose crying has finally softened into a long, deep sigh.",
+      "spoken_text": "Look back one more time at the adult standing in the dim bedroom, holding the baby whose crying has finally softened into a long, deep sigh.",
+      "text_hash": "c359d7e1c897ec35",
+      "start_ratio": 0.967,
+      "end_ratio": 0.9742
+    },
+    {
+      "id": "b-056",
+      "tag": "p",
+      "chunk_id": 57,
+      "start_sec": 1429.534,
+      "end_sec": 1467.442,
       "words": 94,
       "weight": 94,
-      "text": "The baby resting against that shoulder has not changed because we have traced heart-rate sync, the Strange Situation, the LEAP allergy trial, or the Bucharest foster study. Our map of the night has changed. That quiet breath is not a permanent shield against future hard days, and the twenty minutes of crying that came before it were not a lifelong wound. It is one small, finished turn in a long partnership. Step by step, a baby’s total dependence is met by human care, and slowly grown not into lonely self-reliance, but into lifelong connection.",
-      "start_ratio": 0.9782,
+      "text": "The baby resting against that shoulder has not changed because we have traced heart-rate sync, the Strange Situation, the LEAP allergy trial, or the Bucharest foster study; our map of the night has changed. That quiet breath is not a permanent shield against future hard days, and the twenty minutes of crying that came before it were not a lifelong wound. It is one small, finished turn in a long partnership. Step by step, a baby’s total dependence is met by human care, and slowly grown not into lonely self-reliance, but into lifelong connection.",
+      "spoken_text": "The baby resting against that shoulder has not changed because we have traced heart-rate sync, the Strange Situation, the LEAP allergy trial, or the Bucharest foster study; our map of the night has changed. That quiet breath is not a permanent shield against future hard days, and the twenty minutes of crying that came before it were not a lifelong wound. It is one small, finished turn in a long partnership. Step by step, a baby’s total dependence is met by human care, and slowly grown not into lonely self-reliance, but into lifelong connection.",
+      "text_hash": "e189ca8826be79e0",
+      "start_ratio": 0.9742,
       "end_ratio": 1.0
     }
   ]

@@ -1,6 +1,10 @@
 {
   "chapter": "06-the-mind-in-motion",
-  "total_duration_sec": 1222.901,
+  "language": "en",
+  "has_neural_audio": true,
+  "block_count": 55,
+  "chapter_hash": "5e6e3d72ac9f49fc",
+  "total_duration_sec": 1267.807,
   "sample_rate": 24000,
   "bytes_per_second": 48000,
   "chunks": [
@@ -73,9 +77,9 @@
     {
       "chunk_id": 7,
       "start_sec": 90.034,
-      "end_sec": 134.542,
-      "duration_sec": 44.507,
-      "pcm_bytes": 2136356,
+      "end_sec": 132.582,
+      "duration_sec": 42.547,
+      "pcm_bytes": 2042276,
       "block_range": [
         "b-006",
         "b-006"
@@ -83,8 +87,8 @@
     },
     {
       "chunk_id": 8,
-      "start_sec": 134.542,
-      "end_sec": 139.399,
+      "start_sec": 132.582,
+      "end_sec": 137.439,
       "duration_sec": 4.857,
       "pcm_bytes": 233156,
       "block_range": [
@@ -94,8 +98,8 @@
     },
     {
       "chunk_id": 9,
-      "start_sec": 139.399,
-      "end_sec": 153.947,
+      "start_sec": 137.439,
+      "end_sec": 151.987,
       "duration_sec": 14.547,
       "pcm_bytes": 698276,
       "block_range": [
@@ -105,10 +109,10 @@
     },
     {
       "chunk_id": 10,
-      "start_sec": 153.947,
-      "end_sec": 182.174,
-      "duration_sec": 28.227,
-      "pcm_bytes": 1354916,
+      "start_sec": 151.987,
+      "end_sec": 182.454,
+      "duration_sec": 30.467,
+      "pcm_bytes": 1462436,
       "block_range": [
         "b-009",
         "b-009"
@@ -116,8 +120,8 @@
     },
     {
       "chunk_id": 11,
-      "start_sec": 182.174,
-      "end_sec": 195.402,
+      "start_sec": 182.454,
+      "end_sec": 195.682,
       "duration_sec": 13.227,
       "pcm_bytes": 634916,
       "block_range": [
@@ -127,10 +131,10 @@
     },
     {
       "chunk_id": 12,
-      "start_sec": 195.402,
-      "end_sec": 211.589,
-      "duration_sec": 16.187,
-      "pcm_bytes": 776996,
+      "start_sec": 195.682,
+      "end_sec": 216.789,
+      "duration_sec": 21.107,
+      "pcm_bytes": 1013156,
       "block_range": [
         "b-011",
         "b-011"
@@ -138,10 +142,10 @@
     },
     {
       "chunk_id": 13,
-      "start_sec": 211.589,
-      "end_sec": 261.416,
-      "duration_sec": 49.827,
-      "pcm_bytes": 2391716,
+      "start_sec": 216.789,
+      "end_sec": 245.736,
+      "duration_sec": 28.947,
+      "pcm_bytes": 1389476,
       "block_range": [
         "b-012",
         "b-012"
@@ -149,10 +153,10 @@
     },
     {
       "chunk_id": 14,
-      "start_sec": 261.416,
-      "end_sec": 315.964,
-      "duration_sec": 54.547,
-      "pcm_bytes": 2618276,
+      "start_sec": 245.736,
+      "end_sec": 267.564,
+      "duration_sec": 21.827,
+      "pcm_bytes": 1047716,
       "block_range": [
         "b-013",
         "b-013"
@@ -160,10 +164,10 @@
     },
     {
       "chunk_id": 15,
-      "start_sec": 315.964,
-      "end_sec": 346.791,
-      "duration_sec": 30.827,
-      "pcm_bytes": 1479716,
+      "start_sec": 267.564,
+      "end_sec": 304.104,
+      "duration_sec": 36.541,
+      "pcm_bytes": 1753948,
       "block_range": [
         "b-014",
         "b-014"
@@ -171,10 +175,10 @@
     },
     {
       "chunk_id": 16,
-      "start_sec": 346.791,
-      "end_sec": 353.969,
-      "duration_sec": 7.177,
-      "pcm_bytes": 344516,
+      "start_sec": 304.104,
+      "end_sec": 334.932,
+      "duration_sec": 30.827,
+      "pcm_bytes": 1479716,
       "block_range": [
         "b-015",
         "b-015"
@@ -182,10 +186,10 @@
     },
     {
       "chunk_id": 17,
-      "start_sec": 353.969,
-      "end_sec": 377.076,
-      "duration_sec": 23.107,
-      "pcm_bytes": 1109156,
+      "start_sec": 334.932,
+      "end_sec": 342.109,
+      "duration_sec": 7.177,
+      "pcm_bytes": 344516,
       "block_range": [
         "b-016",
         "b-016"
@@ -193,10 +197,10 @@
     },
     {
       "chunk_id": 18,
-      "start_sec": 377.076,
-      "end_sec": 428.864,
-      "duration_sec": 51.787,
-      "pcm_bytes": 2485796,
+      "start_sec": 342.109,
+      "end_sec": 365.217,
+      "duration_sec": 23.107,
+      "pcm_bytes": 1109156,
       "block_range": [
         "b-017",
         "b-017"
@@ -204,10 +208,10 @@
     },
     {
       "chunk_id": 19,
-      "start_sec": 428.864,
-      "end_sec": 450.651,
-      "duration_sec": 21.787,
-      "pcm_bytes": 1045796,
+      "start_sec": 365.217,
+      "end_sec": 393.844,
+      "duration_sec": 28.627,
+      "pcm_bytes": 1374116,
       "block_range": [
         "b-018",
         "b-018"
@@ -215,10 +219,10 @@
     },
     {
       "chunk_id": 20,
-      "start_sec": 450.651,
-      "end_sec": 522.158,
-      "duration_sec": 71.507,
-      "pcm_bytes": 3432356,
+      "start_sec": 393.844,
+      "end_sec": 420.351,
+      "duration_sec": 26.507,
+      "pcm_bytes": 1272356,
       "block_range": [
         "b-019",
         "b-019"
@@ -226,10 +230,10 @@
     },
     {
       "chunk_id": 21,
-      "start_sec": 522.158,
-      "end_sec": 564.986,
-      "duration_sec": 42.827,
-      "pcm_bytes": 2055716,
+      "start_sec": 420.351,
+      "end_sec": 442.139,
+      "duration_sec": 21.787,
+      "pcm_bytes": 1045796,
       "block_range": [
         "b-020",
         "b-020"
@@ -237,10 +241,10 @@
     },
     {
       "chunk_id": 22,
-      "start_sec": 564.986,
-      "end_sec": 622.653,
-      "duration_sec": 57.667,
-      "pcm_bytes": 2768036,
+      "start_sec": 442.139,
+      "end_sec": 477.406,
+      "duration_sec": 35.267,
+      "pcm_bytes": 1692836,
       "block_range": [
         "b-021",
         "b-021"
@@ -248,10 +252,10 @@
     },
     {
       "chunk_id": 23,
-      "start_sec": 622.653,
-      "end_sec": 682.481,
-      "duration_sec": 59.827,
-      "pcm_bytes": 2871716,
+      "start_sec": 477.406,
+      "end_sec": 523.547,
+      "duration_sec": 46.141,
+      "pcm_bytes": 2214748,
       "block_range": [
         "b-022",
         "b-022"
@@ -259,10 +263,10 @@
     },
     {
       "chunk_id": 24,
-      "start_sec": 682.481,
-      "end_sec": 688.978,
-      "duration_sec": 6.497,
-      "pcm_bytes": 311876,
+      "start_sec": 523.547,
+      "end_sec": 567.934,
+      "duration_sec": 44.387,
+      "pcm_bytes": 2130596,
       "block_range": [
         "b-023",
         "b-023"
@@ -270,10 +274,10 @@
     },
     {
       "chunk_id": 25,
-      "start_sec": 688.978,
-      "end_sec": 698.485,
-      "duration_sec": 9.507,
-      "pcm_bytes": 456356,
+      "start_sec": 567.934,
+      "end_sec": 599.122,
+      "duration_sec": 31.187,
+      "pcm_bytes": 1496996,
       "block_range": [
         "b-024",
         "b-024"
@@ -281,10 +285,10 @@
     },
     {
       "chunk_id": 26,
-      "start_sec": 698.485,
-      "end_sec": 761.713,
-      "duration_sec": 63.227,
-      "pcm_bytes": 3034916,
+      "start_sec": 599.122,
+      "end_sec": 626.749,
+      "duration_sec": 27.627,
+      "pcm_bytes": 1326116,
       "block_range": [
         "b-025",
         "b-025"
@@ -292,10 +296,10 @@
     },
     {
       "chunk_id": 27,
-      "start_sec": 761.713,
-      "end_sec": 789.78,
-      "duration_sec": 28.067,
-      "pcm_bytes": 1347236,
+      "start_sec": 626.749,
+      "end_sec": 654.457,
+      "duration_sec": 27.707,
+      "pcm_bytes": 1329956,
       "block_range": [
         "b-026",
         "b-026"
@@ -303,10 +307,10 @@
     },
     {
       "chunk_id": 28,
-      "start_sec": 789.78,
-      "end_sec": 798.728,
-      "duration_sec": 8.947,
-      "pcm_bytes": 429476,
+      "start_sec": 654.457,
+      "end_sec": 692.484,
+      "duration_sec": 38.027,
+      "pcm_bytes": 1825316,
       "block_range": [
         "b-027",
         "b-027"
@@ -314,10 +318,10 @@
     },
     {
       "chunk_id": 29,
-      "start_sec": 798.728,
-      "end_sec": 807.775,
-      "duration_sec": 9.047,
-      "pcm_bytes": 434276,
+      "start_sec": 692.484,
+      "end_sec": 698.981,
+      "duration_sec": 6.497,
+      "pcm_bytes": 311876,
       "block_range": [
         "b-028",
         "b-028"
@@ -325,10 +329,10 @@
     },
     {
       "chunk_id": 30,
-      "start_sec": 807.775,
-      "end_sec": 813.183,
-      "duration_sec": 5.407,
-      "pcm_bytes": 259556,
+      "start_sec": 698.981,
+      "end_sec": 708.489,
+      "duration_sec": 9.507,
+      "pcm_bytes": 456356,
       "block_range": [
         "b-029",
         "b-029"
@@ -336,10 +340,10 @@
     },
     {
       "chunk_id": 31,
-      "start_sec": 813.183,
-      "end_sec": 821.83,
-      "duration_sec": 8.647,
-      "pcm_bytes": 415076,
+      "start_sec": 708.489,
+      "end_sec": 740.996,
+      "duration_sec": 32.507,
+      "pcm_bytes": 1560356,
       "block_range": [
         "b-030",
         "b-030"
@@ -347,10 +351,10 @@
     },
     {
       "chunk_id": 32,
-      "start_sec": 821.83,
-      "end_sec": 831.957,
-      "duration_sec": 10.127,
-      "pcm_bytes": 486116,
+      "start_sec": 740.996,
+      "end_sec": 781.304,
+      "duration_sec": 40.307,
+      "pcm_bytes": 1934756,
       "block_range": [
         "b-031",
         "b-031"
@@ -358,10 +362,10 @@
     },
     {
       "chunk_id": 33,
-      "start_sec": 831.957,
-      "end_sec": 845.285,
-      "duration_sec": 13.327,
-      "pcm_bytes": 639716,
+      "start_sec": 781.304,
+      "end_sec": 809.371,
+      "duration_sec": 28.067,
+      "pcm_bytes": 1347236,
       "block_range": [
         "b-032",
         "b-032"
@@ -369,10 +373,10 @@
     },
     {
       "chunk_id": 34,
-      "start_sec": 845.285,
-      "end_sec": 863.032,
-      "duration_sec": 17.747,
-      "pcm_bytes": 851876,
+      "start_sec": 809.371,
+      "end_sec": 818.319,
+      "duration_sec": 8.947,
+      "pcm_bytes": 429476,
       "block_range": [
         "b-033",
         "b-033"
@@ -380,10 +384,10 @@
     },
     {
       "chunk_id": 35,
-      "start_sec": 863.032,
-      "end_sec": 869.69,
-      "duration_sec": 6.657,
-      "pcm_bytes": 319556,
+      "start_sec": 818.319,
+      "end_sec": 827.366,
+      "duration_sec": 9.047,
+      "pcm_bytes": 434276,
       "block_range": [
         "b-034",
         "b-034"
@@ -391,10 +395,10 @@
     },
     {
       "chunk_id": 36,
-      "start_sec": 869.69,
-      "end_sec": 891.477,
-      "duration_sec": 21.787,
-      "pcm_bytes": 1045796,
+      "start_sec": 827.366,
+      "end_sec": 832.773,
+      "duration_sec": 5.407,
+      "pcm_bytes": 259556,
       "block_range": [
         "b-035",
         "b-035"
@@ -402,10 +406,10 @@
     },
     {
       "chunk_id": 37,
-      "start_sec": 891.477,
-      "end_sec": 943.464,
-      "duration_sec": 51.987,
-      "pcm_bytes": 2495396,
+      "start_sec": 832.773,
+      "end_sec": 841.421,
+      "duration_sec": 8.647,
+      "pcm_bytes": 415076,
       "block_range": [
         "b-036",
         "b-036"
@@ -413,10 +417,10 @@
     },
     {
       "chunk_id": 38,
-      "start_sec": 943.464,
-      "end_sec": 1009.492,
-      "duration_sec": 66.027,
-      "pcm_bytes": 3169316,
+      "start_sec": 841.421,
+      "end_sec": 851.548,
+      "duration_sec": 10.127,
+      "pcm_bytes": 486116,
       "block_range": [
         "b-037",
         "b-037"
@@ -424,10 +428,10 @@
     },
     {
       "chunk_id": 39,
-      "start_sec": 1009.492,
-      "end_sec": 1023.919,
-      "duration_sec": 14.427,
-      "pcm_bytes": 692516,
+      "start_sec": 851.548,
+      "end_sec": 864.876,
+      "duration_sec": 13.327,
+      "pcm_bytes": 639716,
       "block_range": [
         "b-038",
         "b-038"
@@ -435,10 +439,10 @@
     },
     {
       "chunk_id": 40,
-      "start_sec": 1023.919,
-      "end_sec": 1029.177,
-      "duration_sec": 5.257,
-      "pcm_bytes": 252356,
+      "start_sec": 864.876,
+      "end_sec": 882.623,
+      "duration_sec": 17.747,
+      "pcm_bytes": 851876,
       "block_range": [
         "b-039",
         "b-039"
@@ -446,10 +450,10 @@
     },
     {
       "chunk_id": 41,
-      "start_sec": 1029.177,
-      "end_sec": 1055.484,
-      "duration_sec": 26.307,
-      "pcm_bytes": 1262756,
+      "start_sec": 882.623,
+      "end_sec": 889.28,
+      "duration_sec": 6.657,
+      "pcm_bytes": 319556,
       "block_range": [
         "b-040",
         "b-040"
@@ -457,10 +461,10 @@
     },
     {
       "chunk_id": 42,
-      "start_sec": 1055.484,
-      "end_sec": 1097.472,
-      "duration_sec": 41.987,
-      "pcm_bytes": 2015396,
+      "start_sec": 889.28,
+      "end_sec": 911.068,
+      "duration_sec": 21.787,
+      "pcm_bytes": 1045796,
       "block_range": [
         "b-041",
         "b-041"
@@ -468,10 +472,10 @@
     },
     {
       "chunk_id": 43,
-      "start_sec": 1097.472,
-      "end_sec": 1162.859,
-      "duration_sec": 65.387,
-      "pcm_bytes": 3138596,
+      "start_sec": 911.068,
+      "end_sec": 940.455,
+      "duration_sec": 29.387,
+      "pcm_bytes": 1410596,
       "block_range": [
         "b-042",
         "b-042"
@@ -479,10 +483,10 @@
     },
     {
       "chunk_id": 44,
-      "start_sec": 1162.859,
-      "end_sec": 1180.766,
-      "duration_sec": 17.907,
-      "pcm_bytes": 859556,
+      "start_sec": 940.455,
+      "end_sec": 967.563,
+      "duration_sec": 27.107,
+      "pcm_bytes": 1301156,
       "block_range": [
         "b-043",
         "b-043"
@@ -490,10 +494,10 @@
     },
     {
       "chunk_id": 45,
-      "start_sec": 1180.766,
-      "end_sec": 1191.714,
-      "duration_sec": 10.947,
-      "pcm_bytes": 525476,
+      "start_sec": 967.563,
+      "end_sec": 1006.91,
+      "duration_sec": 39.347,
+      "pcm_bytes": 1888676,
       "block_range": [
         "b-044",
         "b-044"
@@ -501,13 +505,112 @@
     },
     {
       "chunk_id": 46,
-      "start_sec": 1191.714,
-      "end_sec": 1222.901,
-      "duration_sec": 31.187,
-      "pcm_bytes": 1496996,
+      "start_sec": 1006.91,
+      "end_sec": 1042.778,
+      "duration_sec": 35.867,
+      "pcm_bytes": 1721636,
       "block_range": [
         "b-045",
         "b-045"
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "start_sec": 1042.778,
+      "end_sec": 1057.205,
+      "duration_sec": 14.427,
+      "pcm_bytes": 692516,
+      "block_range": [
+        "b-046",
+        "b-046"
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "start_sec": 1057.205,
+      "end_sec": 1062.462,
+      "duration_sec": 5.257,
+      "pcm_bytes": 252356,
+      "block_range": [
+        "b-047",
+        "b-047"
+      ]
+    },
+    {
+      "chunk_id": 49,
+      "start_sec": 1062.462,
+      "end_sec": 1088.77,
+      "duration_sec": 26.307,
+      "pcm_bytes": 1262756,
+      "block_range": [
+        "b-048",
+        "b-048"
+      ]
+    },
+    {
+      "chunk_id": 50,
+      "start_sec": 1088.77,
+      "end_sec": 1135.717,
+      "duration_sec": 46.947,
+      "pcm_bytes": 2253476,
+      "block_range": [
+        "b-049",
+        "b-049"
+      ]
+    },
+    {
+      "chunk_id": 51,
+      "start_sec": 1135.717,
+      "end_sec": 1176.065,
+      "duration_sec": 40.347,
+      "pcm_bytes": 1936676,
+      "block_range": [
+        "b-050",
+        "b-050"
+      ]
+    },
+    {
+      "chunk_id": 52,
+      "start_sec": 1176.065,
+      "end_sec": 1207.765,
+      "duration_sec": 31.701,
+      "pcm_bytes": 1521628,
+      "block_range": [
+        "b-051",
+        "b-051"
+      ]
+    },
+    {
+      "chunk_id": 53,
+      "start_sec": 1207.765,
+      "end_sec": 1225.673,
+      "duration_sec": 17.907,
+      "pcm_bytes": 859556,
+      "block_range": [
+        "b-052",
+        "b-052"
+      ]
+    },
+    {
+      "chunk_id": 54,
+      "start_sec": 1225.673,
+      "end_sec": 1236.62,
+      "duration_sec": 10.947,
+      "pcm_bytes": 525476,
+      "block_range": [
+        "b-053",
+        "b-053"
+      ]
+    },
+    {
+      "chunk_id": 55,
+      "start_sec": 1236.62,
+      "end_sec": 1267.807,
+      "duration_sec": 31.187,
+      "pcm_bytes": 1496996,
+      "block_range": [
+        "b-054",
+        "b-054"
       ]
     }
   ],
@@ -521,8 +624,10 @@
       "words": 7,
       "weight": 10,
       "text": "Chapter 6 — The Mind in Motion",
+      "spoken_text": "Chapter 6 — The Mind in Motion.",
+      "text_hash": "d0bcc4ed1b49792a",
       "start_ratio": 0.0,
-      "end_ratio": 0.0034
+      "end_ratio": 0.0032
     },
     {
       "id": "b-001",
@@ -533,8 +638,10 @@
       "words": 10,
       "weight": 10,
       "text": "Rolling, Crawling, Walking, and Why Babies Drop Things on Purpose",
-      "start_ratio": 0.0034,
-      "end_ratio": 0.0089
+      "spoken_text": "Rolling, Crawling, Walking, and Why Babies Drop Things on Purpose.",
+      "text_hash": "6505e4575346ad12",
+      "start_ratio": 0.0032,
+      "end_ratio": 0.0086
     },
     {
       "id": "b-002",
@@ -545,8 +652,10 @@
       "words": 57,
       "weight": 57,
       "text": "A ten-month-old sits in a highchair, grabs a metal spoon, holds it out over the edge of the plastic tray, and lets go. The spoon clatters onto the kitchen tile. The baby leans over the rim and watches an adult bend down to pick it up. She takes the spoon back, and drops it again. And again.",
-      "start_ratio": 0.0089,
-      "end_ratio": 0.0239
+      "spoken_text": "A ten-month-old sits in a highchair, grabs a metal spoon, holds it out over the edge of the plastic tray, and lets go. The spoon clatters onto the kitchen tile. The baby leans over the rim and watches an adult bend down to pick it up. She takes the spoon back, and drops it again. And again.",
+      "text_hash": "75a2eb61ef5b59d7",
+      "start_ratio": 0.0086,
+      "end_ratio": 0.0231
     },
     {
       "id": "b-003",
@@ -557,8 +666,10 @@
       "words": 43,
       "weight": 43,
       "text": "In another room, a three-month-old lies on his back with a soft ribbon tied from his ankle to an overhead mobile. He kicks once, and the painted wooden birds sway and chime. Within minutes, his kicking speeds up into a steady, eager rhythm.",
-      "start_ratio": 0.0239,
-      "end_ratio": 0.0368
+      "spoken_text": "In another room, a three-month-old lies on his back with a soft ribbon tied from his ankle to an overhead mobile. He kicks once, and the painted wooden birds sway and chime. Within minutes, his kicking speeds up into a steady, eager rhythm.",
+      "text_hash": "1f4ca9cbf01fd109",
+      "start_ratio": 0.0231,
+      "end_ratio": 0.0355
     },
     {
       "id": "b-004",
@@ -569,8 +680,10 @@
       "words": 63,
       "weight": 63,
       "text": "Both scenes happen in millions of homes, and both are easy to misread. To a tired parent at the end of dinner, dropping the spoon for the sixth time can look like stubborn defiance. To an eager observer watching the crib, the rhythmic kicking can look like a tiny scientist running a formal lab test. Neither story fits what child science actually shows.",
-      "start_ratio": 0.0368,
-      "end_ratio": 0.0571
+      "spoken_text": "Both scenes happen in millions of homes, and both are easy to misread. To a tired parent at the end of dinner, dropping the spoon for the sixth time can look like stubborn defiance. To an eager observer watching the crib, the rhythmic kicking can look like a tiny scientist running a formal lab test. Neither story fits what child science actually shows.",
+      "text_hash": "382b20186c93ade7",
+      "start_ratio": 0.0355,
+      "end_ratio": 0.0551
     },
     {
       "id": "b-005",
@@ -581,487 +694,695 @@
       "words": 47,
       "weight": 47,
       "text": "Under controlled lab conditions, high-certainty experimental evidence shows that young babies quickly learn when their own body movement causes an immediate sight or sound. Still, learning that a kick shakes a mobile is neither proof of adult reasoning nor evidence that battery-powered crib gadgets make babies smarter.",
-      "start_ratio": 0.0571,
-      "end_ratio": 0.0736
+      "spoken_text": "Under controlled lab conditions, high-certainty experimental evidence shows that young babies quickly learn when their own body movement causes an immediate sight or sound. Still, learning that a kick shakes a mobile is neither proof of adult reasoning nor evidence that battery-powered crib gadgets make babies smarter.",
+      "text_hash": "ffa56206e1687877",
+      "start_ratio": 0.0551,
+      "end_ratio": 0.071
     },
     {
       "id": "b-006",
       "tag": "p",
       "chunk_id": 7,
       "start_sec": 90.034,
-      "end_sec": 134.542,
-      "words": 108,
-      "weight": 108,
-      "text": "Chapter 5 traced how a baby’s mind starts organizing through visual focus, speech tuning, pattern-spotting, and tracking hidden objects. Now we ask a livelier question. A baby does not spend the first two years strapped into a theater seat watching life roll by on a movie screen. The baby reaches, kicks, grabs, drops, mouths, crawls, stands, and copies other people. Our question is not simply “do babies learn?” We want to know what happens when a growing mind moves its own body: how does self-driven movement change what a baby sees, remembers, and understands about cause and effect — and what claims can those motor milestones honestly support?",
-      "start_ratio": 0.0736,
-      "end_ratio": 0.11
+      "end_sec": 132.582,
+      "words": 104,
+      "weight": 104,
+      "text": "Chapter 5 traced how a baby’s mind starts organizing through visual focus, speech tuning, pattern-spotting, and tracking hidden objects. Now we ask a livelier question. A baby does not spend the first two years strapped into a theater seat watching life roll by on a movie screen. The baby reaches, kicks, grabs, drops, mouths, crawls, stands, and copies other people. Our question is not simply “do babies learn?” We want to know what happens when a growing mind moves its own body. How does self-driven movement change what a baby sees, remembers, and understands — and what claims can those motor milestones honestly support?",
+      "spoken_text": "Chapter 5 traced how a baby’s mind starts organizing through visual focus, speech tuning, pattern-spotting, and tracking hidden objects. Now we ask a livelier question. A baby does not spend the first two years strapped into a theater seat watching life roll by on a movie screen. The baby reaches, kicks, grabs, drops, mouths, crawls, stands, and copies other people. Our question is not simply “do babies learn?” We want to know what happens when a growing mind moves its own body. How does self-driven movement change what a baby sees, remembers, and understands — and what claims can those motor milestones honestly support?",
+      "text_hash": "25620a60fc520899",
+      "start_ratio": 0.071,
+      "end_ratio": 0.1046
     },
     {
       "id": "b-007",
       "tag": "h2",
       "chunk_id": 8,
-      "start_sec": 134.542,
-      "end_sec": 139.399,
+      "start_sec": 132.582,
+      "end_sec": 137.439,
       "words": 7,
       "weight": 9,
       "text": "I. The Recursive Loop: Action as Evidence",
-      "start_ratio": 0.11,
-      "end_ratio": 0.114
+      "spoken_text": "I. The Recursive Loop: Action as Evidence.",
+      "text_hash": "c2f312cf7dd7d093",
+      "start_ratio": 0.1046,
+      "end_ratio": 0.1084
     },
     {
       "id": "b-008",
       "tag": "p",
       "chunk_id": 9,
-      "start_sec": 139.399,
-      "end_sec": 153.947,
+      "start_sec": 137.439,
+      "end_sec": 151.987,
       "words": 39,
       "weight": 39,
       "text": "People often talk about early learning as if the world simply poured facts into a waiting bucket. That passive picture misses the main engine of infancy: every time a baby moves, the baby changes the evidence in the room.",
-      "start_ratio": 0.114,
-      "end_ratio": 0.1259
+      "spoken_text": "People often talk about early learning as if the world simply poured facts into a waiting bucket. That passive picture misses the main engine of infancy: every time a baby moves, the baby changes the evidence in the room.",
+      "text_hash": "7d9fbb191f0fd83c",
+      "start_ratio": 0.1084,
+      "end_ratio": 0.1199
     },
     {
       "id": "b-009",
       "tag": "p",
       "chunk_id": 10,
-      "start_sec": 153.947,
-      "end_sec": 182.174,
-      "words": 79,
-      "weight": 79,
-      "text": "Whenever an infant acts, the physical and social world answers back. Reaching out brings a bumpy rattle to the lips. Rolling onto the belly changes everything the eyes can see. Dropping a metal spoon makes a sharp clang on the floor and brings a parent’s face into view. Sometimes the world reacts just the way the baby expected. Sometimes it delivers a surprise. Instead of a one-way pipe from room to brain, early learning runs as a continuous loop:",
-      "start_ratio": 0.1259,
-      "end_ratio": 0.149
+      "start_sec": 151.987,
+      "end_sec": 182.454,
+      "words": 81,
+      "weight": 81,
+      "text": "Whenever an infant acts, the physical and social world answers back. Reaching out brings a bumpy rattle to the lips, and rolling onto the belly changes everything the eyes can see. Dropping a metal spoon makes a sharp clang on the floor and brings a parent’s face into view. Sometimes the world reacts just the way the baby expected, and sometimes it delivers a surprise. Instead of a one-way pipe from room to brain, early learning runs as a continuous loop:",
+      "spoken_text": "Whenever an infant acts, the physical and social world answers back. Reaching out brings a bumpy rattle to the lips, and rolling onto the belly changes everything the eyes can see. Dropping a metal spoon makes a sharp clang on the floor and brings a parent’s face into view. Sometimes the world reacts just the way the baby expected, and sometimes it delivers a surprise. Instead of a one-way pipe from room to brain, early learning runs as a continuous loop:",
+      "text_hash": "fe44274a293e4a2b",
+      "start_ratio": 0.1199,
+      "end_ratio": 0.1439
     },
     {
       "id": "b-010",
       "tag": "p",
       "chunk_id": 11,
-      "start_sec": 182.174,
-      "end_sec": 195.402,
+      "start_sec": 182.454,
+      "end_sec": 195.682,
       "words": 21,
       "weight": 21,
       "text": "$$\\text{Room} leads to \\text{Focus} leads to \\text{Action} leads to \\text{Result} leads to \\text{Surprise} leads to \\text{Memory Update} leads to \\text{Next Action}$$",
-      "start_ratio": 0.149,
-      "end_ratio": 0.1598
+      "spoken_text": "$$\\text{Room} leads to \\text{Focus} leads to \\text{Action} leads to \\text{Result} leads to \\text{Surprise} leads to \\text{Memory Update} leads to \\text{Next Action}$$.",
+      "text_hash": "c3b6fd6c40a1da45",
+      "start_ratio": 0.1439,
+      "end_ratio": 0.1543
     },
     {
       "id": "b-011",
       "tag": "p",
       "chunk_id": 12,
-      "start_sec": 195.402,
-      "end_sec": 211.589,
-      "words": 38,
-      "weight": 38,
-      "text": "Every arrow in that loop works both ways. Shifting from lying down to sitting up changes what the eyes notice. Yesterday’s memory guides where the hands reach today. And an unexpected result changes what the hands try next.",
-      "start_ratio": 0.1598,
-      "end_ratio": 0.173
+      "start_sec": 195.682,
+      "end_sec": 216.789,
+      "words": 42,
+      "weight": 42,
+      "text": "Every arrow in that loop works both ways. Shifting from lying flat on a rug to sitting upright transforms everything the eyes notice, while yesterday’s memory guides today’s reach. When the room answers with a surprise, the hands try a new move.",
+      "spoken_text": "Every arrow in that loop works both ways. Shifting from lying flat on a rug to sitting upright transforms everything the eyes notice, while yesterday’s memory guides today’s reach. When the room answers with a surprise, the hands try a new move.",
+      "text_hash": "4b7e98dfd515e09c",
+      "start_ratio": 0.1543,
+      "end_ratio": 0.171
     },
     {
       "id": "b-012",
       "tag": "p",
       "chunk_id": 13,
-      "start_sec": 211.589,
-      "end_sec": 261.416,
-      "words": 136,
-      "weight": 136,
-      "text": "To see why moving one’s own body is completely different from passive watching, look back at Carolyn Rovee-Collier’s ribbon-and-mobile game from Chapter 5. Imagine we compare two three-month-old babies. For the first baby, the satin ribbon is tied to his ankle so his own kicks make the mobile dance. For the second baby, the ribbon is untied while an adult moves the overhead mobile at the exact same speed. Both babies see the exact same swaying wooden figures and feel the same excitement. Yet only the first baby builds a steady, targeted burst of kicking. And only the first baby smiles and coos at mastering the link. The baby is not just excited by moving shapes. His nervous system has spotted a direct link between what my foot just did and how the world just answered.",
-      "start_ratio": 0.173,
-      "end_ratio": 0.2138
+      "start_sec": 216.789,
+      "end_sec": 245.736,
+      "words": 67,
+      "weight": 67,
+      "text": "To see why moving one’s own body is completely different from passive watching, recall Carolyn Rovee-Collier’s ribbon-and-mobile experiments from Chapter 5. Imagine we compare two three-month-old babies. For the first baby, the satin ribbon is tied to his ankle so his own kicks make the mobile dance. For the second baby, the ribbon hangs untied while an adult moves the overhead mobile at the exact same speed.",
+      "spoken_text": "To see why moving one’s own body is completely different from passive watching, recall Carolyn Rovee-Collier’s ribbon-and-mobile experiments from Chapter 5. Imagine we compare two three-month-old babies. For the first baby, the satin ribbon is tied to his ankle so his own kicks make the mobile dance. For the second baby, the ribbon hangs untied while an adult moves the overhead mobile at the exact same speed.",
+      "text_hash": "f6936e9e07b59255",
+      "start_ratio": 0.171,
+      "end_ratio": 0.1938
     },
     {
       "id": "b-013",
       "tag": "p",
       "chunk_id": 14,
-      "start_sec": 261.416,
-      "end_sec": 315.964,
-      "words": 135,
-      "weight": 135,
-      "text": "Does that discovery mean a three-month-old has an adult philosophy of free will or mechanical physics? No. Even top researchers treat conscious self-awareness in early infancy as an open question. What the evidence shows with high certainty is simpler and just as wonderful. Long before a child can talk about cause and effect, body movements organize themselves around real action-and-result links. Better yet, Rovee-Collier’s follow-up studies proved that as babies grow across the first year, they remember a learned kick for longer and longer stretches. And when a baby seems to have forgotten the kick weeks later, the memory is often still hiding in storage. Showing the baby the swaying mobile for two brief minutes without the ribbon wakes the memory right back up, so long as the crib bumper pattern matches the original room.",
-      "start_ratio": 0.2138,
-      "end_ratio": 0.2584
+      "start_sec": 245.736,
+      "end_sec": 267.564,
+      "words": 58,
+      "weight": 58,
+      "text": "Both babies see the exact same swaying wooden figures and feel the same excitement. Yet only the first baby builds a steady, targeted burst of kicking, and only the first baby smiles and coos at mastering the link. His nervous system has spotted a direct link between what my foot just did and how the world just answered.",
+      "spoken_text": "Both babies see the exact same swaying wooden figures and feel the same excitement. Yet only the first baby builds a steady, targeted burst of kicking, and only the first baby smiles and coos at mastering the link. His nervous system has spotted a direct link between what my foot just did and how the world just answered.",
+      "text_hash": "d39862c4e70288e5",
+      "start_ratio": 0.1938,
+      "end_ratio": 0.211
     },
     {
       "id": "b-014",
       "tag": "p",
       "chunk_id": 15,
-      "start_sec": 315.964,
-      "end_sec": 346.791,
-      "words": 90,
-      "weight": 90,
-      "text": "That loop explains both why babies repeat actions so endlessly and where our worries can stop. When the ten-month-old in the highchair drops her spoon for the seventh time, she is neither a tiny rebel trying to ruin your evening nor a college physicist. Repetition is how a growing brain and hand test how gravity works. She is practicing how to open her fingers on purpose and enjoying the reliable game of an adult who keeps handing the spoon back. Moving the body is how a baby interviews the world.",
-      "start_ratio": 0.2584,
-      "end_ratio": 0.2836
+      "start_sec": 267.564,
+      "end_sec": 304.104,
+      "words": 86,
+      "weight": 86,
+      "text": "Does that discovery mean a three-month-old has an adult philosophy of free will or mechanical physics? No. Even top researchers treat conscious self-awareness in early infancy as an open question. What the evidence shows with high certainty is simpler and just as wonderful. Long before a child can talk about cause and effect, body movements organize themselves around real action-and-result links. These memories grow more durable across the first year and wake right back up when the baby sees a brief reminder in the same room.",
+      "spoken_text": "Does that discovery mean a three-month-old has an adult philosophy of free will or mechanical physics? No. Even top researchers treat conscious self-awareness in early infancy as an open question. What the evidence shows with high certainty is simpler and just as wonderful. Long before a child can talk about cause and effect, body movements organize themselves around real action-and-result links. These memories grow more durable across the first year and wake right back up when the baby sees a brief reminder in the same room.",
+      "text_hash": "736e305015517203",
+      "start_ratio": 0.211,
+      "end_ratio": 0.2399
     },
     {
       "id": "b-015",
-      "tag": "h2",
+      "tag": "p",
       "chunk_id": 16,
-      "start_sec": 346.791,
-      "end_sec": 353.969,
-      "words": 10,
-      "weight": 12,
-      "text": "II. The Embodied Revolution: Posture, Locomotion, and the Sloping Walkway",
-      "start_ratio": 0.2836,
-      "end_ratio": 0.2895
+      "start_sec": 304.104,
+      "end_sec": 334.932,
+      "words": 90,
+      "weight": 90,
+      "text": "That loop explains both why babies repeat actions so endlessly and where our worries can stop. When the ten-month-old in the highchair drops her spoon for the seventh time, she is neither a tiny rebel trying to ruin your evening nor a college physicist. Repetition is how a growing brain and hand test how gravity works. She is practicing how to open her fingers on purpose and enjoying the reliable game of an adult who keeps handing the spoon back. Moving the body is how a baby interviews the world.",
+      "spoken_text": "That loop explains both why babies repeat actions so endlessly and where our worries can stop. When the ten-month-old in the highchair drops her spoon for the seventh time, she is neither a tiny rebel trying to ruin your evening nor a college physicist. Repetition is how a growing brain and hand test how gravity works. She is practicing how to open her fingers on purpose and enjoying the reliable game of an adult who keeps handing the spoon back. Moving the body is how a baby interviews the world.",
+      "text_hash": "7c5fbe9090249563",
+      "start_ratio": 0.2399,
+      "end_ratio": 0.2642
     },
     {
       "id": "b-016",
-      "tag": "p",
+      "tag": "h2",
       "chunk_id": 17,
-      "start_sec": 353.969,
-      "end_sec": 377.076,
-      "words": 56,
-      "weight": 56,
-      "text": "If a single kick or reach changes what a baby notices, learning a whole new body posture rebuilds the baby’s world from top to bottom. The body is not a wheeled cart that merely carries a finished brain from room to room. Learning to sit, crawl, and walk is a whole-body revolution in seeing and relating.",
-      "start_ratio": 0.2895,
-      "end_ratio": 0.3083
+      "start_sec": 334.932,
+      "end_sec": 342.109,
+      "words": 10,
+      "weight": 12,
+      "text": "II. The Embodied Revolution: Posture, Locomotion, and the Sloping Walkway",
+      "spoken_text": "II. The Embodied Revolution: Posture, Locomotion, and the Sloping Walkway.",
+      "text_hash": "7be58a9021c3b4bb",
+      "start_ratio": 0.2642,
+      "end_ratio": 0.2698
     },
     {
       "id": "b-017",
       "tag": "p",
       "chunk_id": 18,
-      "start_sec": 377.076,
-      "end_sec": 428.864,
-      "words": 146,
-      "weight": 146,
-      "text": "To see how deeply science has changed its view of motor milestones over the past fifty years, trace the story from the 1960s to the 2000s. It starts with Eleanor Gibson and Richard Walk’s Visual Cliff in 1960 and leads to Karen Adolph’s Sloping Walkway experiments. In 1960, Gibson and Walk built a famous test table at Cornell University. They laid a thick sheet of clear plexiglass over a checkerboard cloth. On the “shallow” half, the cloth pressed right up against the underside of the glass. On the “deep” half, the cloth dropped four feet to the floor. That drop created the sharp visual illusion of a cliff even though the glass was completely solid. When mothers stood on the far side of the deep cliff and coaxed their six-to-fourteen-month-old crawlers to cross, almost every baby peered over the apparent drop-off and refused to crawl across.",
-      "start_ratio": 0.3083,
-      "end_ratio": 0.3507
+      "start_sec": 342.109,
+      "end_sec": 365.217,
+      "words": 56,
+      "weight": 56,
+      "text": "If a single kick or reach changes what a baby notices, learning a whole new body posture rebuilds the baby’s world from top to bottom. The body is not a wheeled cart that merely carries a finished brain from room to room. Learning to sit, crawl, and walk is a whole-body revolution in seeing and relating.",
+      "spoken_text": "If a single kick or reach changes what a baby notices, learning a whole new body posture rebuilds the baby’s world from top to bottom. The body is not a wheeled cart that merely carries a finished brain from room to room. Learning to sit, crawl, and walk is a whole-body revolution in seeing and relating.",
+      "text_hash": "fa3558cd3ff68397",
+      "start_ratio": 0.2698,
+      "end_ratio": 0.2881
     },
     {
       "id": "b-018",
       "tag": "p",
       "chunk_id": 19,
-      "start_sec": 428.864,
-      "end_sec": 450.651,
-      "words": 58,
-      "weight": 58,
-      "text": "For decades, textbooks turned the visual cliff into a simple maturation rule. Motor milestones — rolling, sitting, crawling, standing, walking — were treated like a pre-set train schedule inside the brain. And refusing to cross the glass cliff was cited as proof that around month seven or eight, a built-in “fear of heights” switch flips on for good.",
-      "start_ratio": 0.3507,
-      "end_ratio": 0.3685
+      "start_sec": 365.217,
+      "end_sec": 393.844,
+      "words": 71,
+      "weight": 71,
+      "text": "To see how deeply science has changed its view of motor milestones over the past fifty years, trace the story from the 1960s to the 2000s. It starts with Eleanor Gibson and Richard Walk’s Visual Cliff in 1960 and leads to Karen Adolph’s Sloping Walkway experiments. In 1960, Gibson and Walk built a famous test table at Cornell University by laying a thick sheet of clear plexiglass over a checkerboard cloth.",
+      "spoken_text": "To see how deeply science has changed its view of motor milestones over the past fifty years, trace the story from the 1960s to the 2000s. It starts with Eleanor Gibson and Richard Walk’s Visual Cliff in 1960 and leads to Karen Adolph’s Sloping Walkway experiments. In 1960, Gibson and Walk built a famous test table at Cornell University by laying a thick sheet of clear plexiglass over a checkerboard cloth.",
+      "text_hash": "651e2e8f92108d48",
+      "start_ratio": 0.2881,
+      "end_ratio": 0.3106
     },
     {
       "id": "b-019",
       "tag": "p",
       "chunk_id": 20,
-      "start_sec": 450.651,
-      "end_sec": 522.158,
-      "words": 191,
-      "weight": 191,
-      "text": "Starting in the 1990s, psychologist Karen Adolph put that textbook story to a brilliant test. Instead of testing babies just once on an all-or-nothing cliff, Adolph built an adjustable sloping ramp that could tilt anywhere from flat (0 degrees) to super steep (36 to 50 degrees). Her team tracked babies week by week from their very first days of crawling right through their first weeks of walking upright. What Adolph found overturned the “built-in fear of heights” story completely. In their first weeks of crawling, brand-new crawlers plunged headfirst down steep slopes where they were guaranteed to tumble (while spotters caught them safely). Over weeks of daily crawling and hundreds of small slips, crawlers slowly learned the exact limit of their four-legged balance. Soon they refused ramps steeper than about 20 degrees. Then came the twist. The very week those careful, experienced crawlers stood up on two feet to take their first walking steps, Adolph placed them back at the top of the exact same steep ramp. Without blinking, the brand-new walkers stepped straight over the edge of the steep 36-degree drop, just like they had as rookie crawlers months earlier!",
-      "start_ratio": 0.3685,
-      "end_ratio": 0.427
+      "start_sec": 393.844,
+      "end_sec": 420.351,
+      "words": 71,
+      "weight": 71,
+      "text": "On the “shallow” half, the cloth pressed right up against the underside of the glass. On the “deep” half, the cloth dropped four feet to the floor, creating the sharp visual illusion of a cliff even though the glass was completely solid. When mothers stood on the far side of the deep cliff and coaxed their crawlers to cross, almost every baby peered over the apparent drop-off and refused to proceed.",
+      "spoken_text": "On the “shallow” half, the cloth pressed right up against the underside of the glass. On the “deep” half, the cloth dropped four feet to the floor, creating the sharp visual illusion of a cliff even though the glass was completely solid. When mothers stood on the far side of the deep cliff and coaxed their crawlers to cross, almost every baby peered over the apparent drop-off and refused to proceed.",
+      "text_hash": "ed5fcb196ba76ebe",
+      "start_ratio": 0.3106,
+      "end_ratio": 0.3316
     },
     {
       "id": "b-020",
       "tag": "p",
       "chunk_id": 21,
-      "start_sec": 522.158,
-      "end_sec": 564.986,
-      "words": 116,
-      "weight": 116,
-      "text": "Even more striking, researchers tested babies in both postures within the exact same hour. A baby who stepped recklessly over the edge while standing up would immediately stop and refuse the slope if placed back down on hands and knees. Babies were not learning a single mental rule (“steep hills are dangerous”). They were learning posture-by-posture balance math. They were matching what their eyes saw to how strong their legs were, where their belly weight sat, and how their hands or feet gripped the floor. Sitting, crawling, cruising along a sofa, and walking each use completely different balance rules. So a baby has to re-learn how to read the floor in every new posture from scratch.",
-      "start_ratio": 0.427,
-      "end_ratio": 0.462
+      "start_sec": 420.351,
+      "end_sec": 442.139,
+      "words": 58,
+      "weight": 58,
+      "text": "For decades, textbooks turned the visual cliff into a simple maturation rule. Motor milestones — rolling, sitting, crawling, standing, walking — were treated like a pre-set train schedule inside the brain. And refusing to cross the glass cliff was cited as proof that around month seven or eight, a built-in “fear of heights” switch flips on for good.",
+      "spoken_text": "For decades, textbooks turned the visual cliff into a simple maturation rule. Motor milestones — rolling, sitting, crawling, standing, walking — were treated like a pre-set train schedule inside the brain. And refusing to cross the glass cliff was cited as proof that around month seven or eight, a built-in “fear of heights” switch flips on for good.",
+      "text_hash": "e8995fde72216a91",
+      "start_ratio": 0.3316,
+      "end_ratio": 0.3487
     },
     {
       "id": "b-021",
       "tag": "p",
       "chunk_id": 22,
-      "start_sec": 564.986,
-      "end_sec": 622.653,
-      "words": 158,
-      "weight": 158,
-      "text": "As Karen Adolph and Justine Hoch showed, each new posture sends ripples across every part of a child’s life. When a six-month-old masters sitting up without propping on her hands, both hands are suddenly free. Now she can turn toys around, feel shapes while looking at them, and bang two blocks together. When a baby shifts from crawling on hands and knees to walking upright, her view lifts from the carpet to the whole room. Her hands are free to carry toys across the rug to share with a parent, sparking richer conversations. Still, careful causal thinking draws a firm line around the calendar. In healthy babies, the exact month a child first sits, crawls, or walks varies widely across normal kids and has near-zero link to adult intelligence or school grades. Putting a baby in a wheeled walker (which actually delays walking and causes stair injuries) or bragging about an early walker treats exploration like a race.",
-      "start_ratio": 0.462,
-      "end_ratio": 0.5092
+      "start_sec": 442.139,
+      "end_sec": 477.406,
+      "words": 79,
+      "weight": 79,
+      "text": "Starting in the 1990s, psychologist Karen Adolph put that textbook story to a brilliant test. Instead of testing babies just once on an all-or-nothing cliff, Adolph built an adjustable sloping ramp that could tilt anywhere from flat (0 degrees) to super steep (36 to 50 degrees). Her team tracked babies week by week from their very first days of crawling right through their first weeks of walking upright. What Adolph found overturned the “built-in fear of heights” story completely.",
+      "spoken_text": "Starting in the 1990s, psychologist Karen Adolph put that textbook story to a brilliant test. Instead of testing babies just once on an all-or-nothing cliff, Adolph built an adjustable sloping ramp that could tilt anywhere from flat (0 degrees) to super steep (36 to 50 degrees). Her team tracked babies week by week from their very first days of crawling right through their first weeks of walking upright. What Adolph found overturned the “built-in fear of heights” story completely.",
+      "text_hash": "a6333d15e38f91ac",
+      "start_ratio": 0.3487,
+      "end_ratio": 0.3766
     },
     {
       "id": "b-022",
       "tag": "p",
       "chunk_id": 23,
-      "start_sec": 622.653,
-      "end_sec": 682.481,
-      "words": 151,
-      "weight": 151,
-      "text": "That same developmental freedom explains why panic over infant flat spots—and the expensive custom helmets sold to fix them—relies on a misunderstanding of how babies grow. Because safe sleep guidelines keep babies on their backs, many infants develop a flat spot on the head by four months. Commercial clinics often urge parents to buy a three-thousand-dollar rigid shaping helmet, warning that the skull will harden permanently without it. Yet a landmark randomized trial testing helmet therapy against simple watchful waiting showed zero added benefit by age two. Wearing a plastic shell twenty-three hours a day produced almost identical skull rounding to letting babies sit, roll, and crawl freely. Every infant in the helmet group suffered skin sores, sweat rash, or odor. Once upright milestones lift pressure off the skull, natural growth reshapes the head without costly gear. A pediatrician need only confirm that rare fused skull bones are not the cause.",
-      "start_ratio": 0.5092,
-      "end_ratio": 0.5581
+      "start_sec": 477.406,
+      "end_sec": 523.547,
+      "words": 112,
+      "weight": 112,
+      "text": "In their first weeks of crawling, brand-new crawlers plunged headfirst down steep slopes where they were guaranteed to tumble (while spotters caught them safely). Over weeks of daily crawling and hundreds of small slips, crawlers slowly learned the exact limit of their four-legged balance and soon refused ramps steeper than about 20 degrees. Then came the twist. The very week those careful, experienced crawlers stood up on two feet to take their first walking steps, Adolph placed them back at the top of the exact same steep ramp. Without blinking, the brand-new walkers stepped straight over the edge of the steep 36-degree drop, just like they had as rookie crawlers months earlier!",
+      "spoken_text": "In their first weeks of crawling, brand-new crawlers plunged headfirst down steep slopes where they were guaranteed to tumble (while spotters caught them safely). Over weeks of daily crawling and hundreds of small slips, crawlers slowly learned the exact limit of their four-legged balance and soon refused ramps steeper than about 20 degrees. Then came the twist. The very week those careful, experienced crawlers stood up on two feet to take their first walking steps, Adolph placed them back at the top of the exact same steep ramp. Without blinking, the brand-new walkers stepped straight over the edge of the steep 36-degree drop, just like they had as rookie crawlers months earlier!",
+      "text_hash": "e60b8ec49a82bf34",
+      "start_ratio": 0.3766,
+      "end_ratio": 0.413
     },
     {
       "id": "b-023",
-      "tag": "h2",
+      "tag": "p",
       "chunk_id": 24,
-      "start_sec": 682.481,
-      "end_sec": 688.978,
-      "words": 9,
-      "weight": 11,
-      "text": "III. Where Prediction Fails: Surprise, Sampling, and Causal Steps",
-      "start_ratio": 0.5581,
-      "end_ratio": 0.5634
+      "start_sec": 523.547,
+      "end_sec": 567.934,
+      "words": 115,
+      "weight": 115,
+      "text": "Even more striking, researchers tested babies in both postures within the exact same hour. A baby who stepped recklessly over the edge while standing up would immediately stop and refuse the slope if placed back down on hands and knees. Babies were not learning a single mental rule (“steep hills are dangerous”); they were learning posture-by-posture balance math. They matched what their eyes saw to how strong their legs were, where their belly weight sat, and how their hands or feet gripped the floor. Sitting, crawling, cruising along a sofa, and walking each use completely different balance rules, so a baby has to re-learn how to read the floor in every new posture from scratch.",
+      "spoken_text": "Even more striking, researchers tested babies in both postures within the exact same hour. A baby who stepped recklessly over the edge while standing up would immediately stop and refuse the slope if placed back down on hands and knees. Babies were not learning a single mental rule (“steep hills are dangerous”); they were learning posture-by-posture balance math. They matched what their eyes saw to how strong their legs were, where their belly weight sat, and how their hands or feet gripped the floor. Sitting, crawling, cruising along a sofa, and walking each use completely different balance rules, so a baby has to re-learn how to read the floor in every new posture from scratch.",
+      "text_hash": "530649300c0ba46d",
+      "start_ratio": 0.413,
+      "end_ratio": 0.448
     },
     {
       "id": "b-024",
       "tag": "p",
       "chunk_id": 25,
-      "start_sec": 688.978,
-      "end_sec": 698.485,
-      "words": 23,
-      "weight": 23,
-      "text": "As a moving baby explores toys across the living room rug, how do expectations in the mind guide what the hands do next?",
-      "start_ratio": 0.5634,
-      "end_ratio": 0.5712
+      "start_sec": 567.934,
+      "end_sec": 599.122,
+      "words": 84,
+      "weight": 84,
+      "text": "As Karen Adolph and Justine Hoch showed, each new posture sends ripples across every part of a child’s life. When a six-month-old masters sitting up without propping on her hands, both hands are suddenly free to turn toys around, feel shapes, and bang blocks together. When a baby shifts from crawling on hands and knees to walking upright, her view lifts from the carpet to the whole room. Now her hands are free to carry toys across the rug to share with a parent.",
+      "spoken_text": "As Karen Adolph and Justine Hoch showed, each new posture sends ripples across every part of a child’s life. When a six-month-old masters sitting up without propping on her hands, both hands are suddenly free to turn toys around, feel shapes, and bang blocks together. When a baby shifts from crawling on hands and knees to walking upright, her view lifts from the carpet to the whole room. Now her hands are free to carry toys across the rug to share with a parent.",
+      "text_hash": "cb5afe813a8ee940",
+      "start_ratio": 0.448,
+      "end_ratio": 0.4726
     },
     {
       "id": "b-025",
       "tag": "p",
       "chunk_id": 26,
-      "start_sec": 698.485,
-      "end_sec": 761.713,
-      "words": 183,
-      "weight": 183,
-      "text": "In Chapter 5, we saw that babies stare longer when a magic trick seems to break a rule of nature, like a screen swinging flat through a hidden box. For years, skeptics wondered if staring longer was just a blank freeze rather than real curiosity. In 2015, Aimee Stahl and Lisa Feigenson tested whether seeing something surprising actually changes what eleven-month-olds do once you hand them the toy. Babies watched an adult roll a toy car down a ramp. In the trick versions, the car seemed to roll straight through a solid wall (solidity trick) or float in midair past the edge of a table (gravity trick). Next, the baby was handed that car alongside a brand-new toy. Babies who had just seen a physics trick didn’t just reach for the trick car first. They ran their own targeted hand tests on it! Babies who saw the car pass through a solid wall banged the car against the table to test how solid it was. Babies who saw the car float in midair dropped it over and over to test how it fell!",
-      "start_ratio": 0.5712,
-      "end_ratio": 0.6229
+      "start_sec": 599.122,
+      "end_sec": 626.749,
+      "words": 66,
+      "weight": 66,
+      "text": "Still, careful causal thinking draws a firm line around the calendar. In healthy babies, the exact month a child first sits, crawls, or walks varies widely across normal kids and has near-zero link to adult intelligence or school grades. Putting a baby in a wheeled walker (which actually delays walking and leads to stair injuries) or bragging about an early walker treats exploration like a race.",
+      "spoken_text": "Still, careful causal thinking draws a firm line around the calendar. In healthy babies, the exact month a child first sits, crawls, or walks varies widely across normal kids and has near-zero link to adult intelligence or school grades. Putting a baby in a wheeled walker (which actually delays walking and leads to stair injuries) or bragging about an early walker treats exploration like a race.",
+      "text_hash": "194ac1b3c56a7fa9",
+      "start_ratio": 0.4726,
+      "end_ratio": 0.4944
     },
     {
       "id": "b-026",
       "tag": "p",
       "chunk_id": 27,
-      "start_sec": 761.713,
-      "end_sec": 789.78,
-      "words": 71,
-      "weight": 71,
-      "text": "Moderate-certainty lab evidence thus suggests that prediction error — the gap between what the brain expected and what the world just did — drives both visual focus and hands-on testing. Curiosity starts where expectation breaks down. At the same time, low-certainty claims that a single surprise permanently rewires a child’s mind go too far. Surprise opens a brief door for testing, which still takes days of ordinary play to settle in.",
-      "start_ratio": 0.6229,
-      "end_ratio": 0.6458
+      "start_sec": 626.749,
+      "end_sec": 654.457,
+      "words": 68,
+      "weight": 68,
+      "text": "That same freedom explains why panic over baby flat spots—and the pricey custom helmets sold to fix them—rests on a mix-up about how skulls grow. Because safe sleep rules keep babies on their backs, many babies get a flat spot on the head by four months. Private clinics often urge parents to buy a three-thousand-dollar hard helmet, warning that the skull will stay flat for good without it.",
+      "spoken_text": "That same freedom explains why panic over baby flat spots—and the pricey custom helmets sold to fix them—rests on a mix-up about how skulls grow. Because safe sleep rules keep babies on their backs, many babies get a flat spot on the head by four months. Private clinics often urge parents to buy a three-thousand-dollar hard helmet, warning that the skull will stay flat for good without it.",
+      "text_hash": "ca1e1d42bba4899c",
+      "start_ratio": 0.4944,
+      "end_ratio": 0.5162
     },
     {
       "id": "b-027",
       "tag": "p",
       "chunk_id": 28,
-      "start_sec": 789.78,
-      "end_sec": 798.728,
-      "words": 20,
-      "weight": 20,
-      "text": "Across the first two years, these loops of watching and acting build a five-step ladder toward understanding cause and effect:",
-      "start_ratio": 0.6458,
-      "end_ratio": 0.6531
+      "start_sec": 654.457,
+      "end_sec": 692.484,
+      "words": 84,
+      "weight": 84,
+      "text": "Yet a landmark randomized trial testing helmet therapy against simple watchful waiting showed zero added benefit by age two. Wearing a plastic shell twenty-three hours a day produced almost identical skull rounding to letting babies sit, roll, and crawl freely. Meanwhile, every infant in the helmet group suffered skin sores, sweat rash, or odor. Once upright milestones lift pressure off the skull, natural growth reshapes the head without costly gear. A pediatrician need only confirm that rare fused skull bones are not the cause.",
+      "spoken_text": "Yet a landmark randomized trial testing helmet therapy against simple watchful waiting showed zero added benefit by age two. Wearing a plastic shell twenty-three hours a day produced almost identical skull rounding to letting babies sit, roll, and crawl freely. Meanwhile, every infant in the helmet group suffered skin sores, sweat rash, or odor. Once upright milestones lift pressure off the skull, natural growth reshapes the head without costly gear. A pediatrician need only confirm that rare fused skull bones are not the cause.",
+      "text_hash": "60e0ce982e6f1f87",
+      "start_ratio": 0.5162,
+      "end_ratio": 0.5462
     },
     {
       "id": "b-028",
-      "tag": "li",
+      "tag": "h2",
       "chunk_id": 29,
-      "start_sec": 798.728,
-      "end_sec": 807.775,
-      "words": 17,
-      "weight": 18,
-      "text": "Spotting patterns: noticing that event $B$ usually follows event $A$ (like hearing water run before bath time).",
-      "start_ratio": 0.6531,
-      "end_ratio": 0.6605
+      "start_sec": 692.484,
+      "end_sec": 698.981,
+      "words": 9,
+      "weight": 11,
+      "text": "III. Where Prediction Fails: Surprise, Sampling, and Causal Steps",
+      "spoken_text": "III. Where Prediction Fails: Surprise, Sampling, and Causal Steps.",
+      "text_hash": "fe8c7e22d3611d50",
+      "start_ratio": 0.5462,
+      "end_ratio": 0.5513
     },
     {
       "id": "b-029",
-      "tag": "li",
+      "tag": "p",
       "chunk_id": 30,
-      "start_sec": 807.775,
-      "end_sec": 813.183,
-      "words": 13,
-      "weight": 14,
-      "text": "Looking ahead: turning the eyes toward spot $B$ as soon as $A$ starts.",
-      "start_ratio": 0.6605,
-      "end_ratio": 0.665
+      "start_sec": 698.981,
+      "end_sec": 708.489,
+      "words": 23,
+      "weight": 23,
+      "text": "As a moving baby explores toys across the living room rug, how do expectations in the mind guide what the hands do next?",
+      "spoken_text": "As a moving baby explores toys across the living room rug, how do expectations in the mind guide what the hands do next?",
+      "text_hash": "6c679c334309416b",
+      "start_ratio": 0.5513,
+      "end_ratio": 0.5588
     },
     {
       "id": "b-030",
-      "tag": "li",
+      "tag": "p",
       "chunk_id": 31,
-      "start_sec": 813.183,
-      "end_sec": 821.83,
-      "words": 17,
-      "weight": 18,
-      "text": "Body links: discovering that my own kick or reach makes $B$ happen (like kicking the crib mobile).",
-      "start_ratio": 0.665,
-      "end_ratio": 0.672
+      "start_sec": 708.489,
+      "end_sec": 740.996,
+      "words": 79,
+      "weight": 79,
+      "text": "In Chapter 5, we saw that babies stare longer when a magic trick seems to break a rule of nature, like a screen swinging flat through a hidden box. For years, skeptics wondered if staring longer was just a blank freeze rather than real curiosity. In 2015, Aimee Stahl and Lisa Feigenson tested whether seeing something surprising actually changes what eleven-month-olds do once you hand them the toy. Babies watched an adult roll a toy car down a ramp.",
+      "spoken_text": "In Chapter 5, we saw that babies stare longer when a magic trick seems to break a rule of nature, like a screen swinging flat through a hidden box. For years, skeptics wondered if staring longer was just a blank freeze rather than real curiosity. In 2015, Aimee Stahl and Lisa Feigenson tested whether seeing something surprising actually changes what eleven-month-olds do once you hand them the toy. Babies watched an adult roll a toy car down a ramp.",
+      "text_hash": "c0a914d8a2272edb",
+      "start_ratio": 0.5588,
+      "end_ratio": 0.5845
     },
     {
       "id": "b-031",
-      "tag": "li",
+      "tag": "p",
       "chunk_id": 32,
-      "start_sec": 821.83,
-      "end_sec": 831.957,
-      "words": 28,
-      "weight": 29,
-      "text": "Testing on purpose: changing how you act — banging, dropping, pushing a button, or handing a wind-up toy to a parent — to see if the result changes.",
-      "start_ratio": 0.672,
-      "end_ratio": 0.6803
+      "start_sec": 740.996,
+      "end_sec": 781.304,
+      "words": 104,
+      "weight": 104,
+      "text": "In the trick versions, the car seemed to roll straight through a solid wall (solidity trick) or float in midair past the edge of a table (gravity trick). Next, the baby was handed that car alongside a brand-new toy. Infants who had just seen a physics trick didn’t just reach for the trick car first; they ran their own targeted hand tests on it! Those who saw the car pass through a solid wall banged it against the table to test how solid it was. Meanwhile, babies who saw the car float in midair dropped it over and over to test how it fell!",
+      "spoken_text": "In the trick versions, the car seemed to roll straight through a solid wall (solidity trick) or float in midair past the edge of a table (gravity trick). Next, the baby was handed that car alongside a brand-new toy. Infants who had just seen a physics trick didn’t just reach for the trick car first; they ran their own targeted hand tests on it! Those who saw the car pass through a solid wall banged it against the table to test how solid it was. Meanwhile, babies who saw the car float in midair dropped it over and over to test how it fell!",
+      "text_hash": "854d35a33f32af29",
+      "start_ratio": 0.5845,
+      "end_ratio": 0.6163
     },
     {
       "id": "b-032",
-      "tag": "li",
+      "tag": "p",
       "chunk_id": 33,
-      "start_sec": 831.957,
-      "end_sec": 845.285,
-      "words": 35,
-      "weight": 36,
-      "text": "Hidden causes: figuring out that an unseen switch or inside part makes a toy work. Toddlers begin showing this skill in the second year when they hunt for the button that starts a music box.",
-      "start_ratio": 0.6803,
-      "end_ratio": 0.6912
+      "start_sec": 781.304,
+      "end_sec": 809.371,
+      "words": 71,
+      "weight": 71,
+      "text": "Moderate-certainty lab evidence thus suggests that prediction error — the gap between what the brain expected and what the world just did — drives both visual focus and hands-on testing. Curiosity starts where expectation breaks down. At the same time, low-certainty claims that a single surprise permanently rewires a child’s mind go too far. Surprise opens a brief door for testing, which still takes days of ordinary play to settle in.",
+      "spoken_text": "Moderate-certainty lab evidence thus suggests that prediction error — the gap between what the brain expected and what the world just did — drives both visual focus and hands-on testing. Curiosity starts where expectation breaks down. At the same time, low-certainty claims that a single surprise permanently rewires a child’s mind go too far. Surprise opens a brief door for testing, which still takes days of ordinary play to settle in.",
+      "text_hash": "6a3a12ea987c27fa",
+      "start_ratio": 0.6163,
+      "end_ratio": 0.6384
     },
     {
       "id": "b-033",
       "tag": "p",
       "chunk_id": 34,
-      "start_sec": 845.285,
-      "end_sec": 863.032,
-      "words": 42,
-      "weight": 42,
-      "text": "Keeping these five steps distinct protects us from two opposite mistakes. We don’t brush off a three-month-old’s kick as random twitching, and we don’t pretend a fourteen-month-old pushing a toy button understands electrical wiring. Each step builds the next through hands-on play.",
-      "start_ratio": 0.6912,
-      "end_ratio": 0.7057
+      "start_sec": 809.371,
+      "end_sec": 818.319,
+      "words": 20,
+      "weight": 20,
+      "text": "Across the first two years, these loops of watching and acting build a five-step ladder toward understanding cause and effect:",
+      "spoken_text": "Across the first two years, these loops of watching and acting build a five-step ladder toward understanding cause and effect:",
+      "text_hash": "590d5707e825a583",
+      "start_ratio": 0.6384,
+      "end_ratio": 0.6455
     },
     {
       "id": "b-034",
-      "tag": "h2",
+      "tag": "li",
       "chunk_id": 35,
-      "start_sec": 863.032,
-      "end_sec": 869.69,
-      "words": 10,
-      "weight": 12,
-      "text": "IV. Learning Through Other Hands: Deferred Imitation and Goal Reading",
-      "start_ratio": 0.7057,
-      "end_ratio": 0.7112
+      "start_sec": 818.319,
+      "end_sec": 827.366,
+      "words": 17,
+      "weight": 18,
+      "text": "Spotting patterns: noticing that event $B$ usually follows event $A$ (like hearing water run before bath time).",
+      "spoken_text": "Spotting patterns: noticing that event $B$ usually follows event $A$ (like hearing water run before bath time).",
+      "text_hash": "209326fb79173e70",
+      "start_ratio": 0.6455,
+      "end_ratio": 0.6526
     },
     {
       "id": "b-035",
-      "tag": "p",
+      "tag": "li",
       "chunk_id": 36,
-      "start_sec": 869.69,
-      "end_sec": 891.477,
-      "words": 58,
-      "weight": 58,
-      "text": "If babies had to figure out how every spoon, cup, hairbrush, and light switch in human culture worked purely by dropping and banging things alone, childhood would take fifty years. Fortunately, human babies learn in a social world long before they sit at school desks. They watch what other people do with their hands, and they copy it.",
-      "start_ratio": 0.7112,
-      "end_ratio": 0.729
+      "start_sec": 827.366,
+      "end_sec": 832.773,
+      "words": 13,
+      "weight": 14,
+      "text": "Looking ahead: turning the eyes toward spot $B$ as soon as $A$ starts.",
+      "spoken_text": "Looking ahead: turning the eyes toward spot $B$ as soon as $A$ starts.",
+      "text_hash": "6a1f89c1c8bb076f",
+      "start_ratio": 0.6526,
+      "end_ratio": 0.6569
     },
     {
       "id": "b-036",
-      "tag": "p",
+      "tag": "li",
       "chunk_id": 37,
-      "start_sec": 891.477,
-      "end_sec": 943.464,
-      "words": 135,
-      "weight": 135,
-      "text": "In 1988, psychologist Andrew Meltzoff ran a famous test of delayed imitation that changed how scientists view toddler memory. Fourteen-month-old toddlers visited a lab playroom and watched an adult play with several unfamiliar homemade gadgets. Most famously, the adult leaned forward from the waist and pressed a flat plastic light box on the table using his forehead instead of his hands. The box lit up. The toddlers were not allowed to touch the gadgets that day. A full week later, the toddlers came back to the lab and were handed the light box for the first time. Among control toddlers who had never seen the forehead demo, zero children used their heads. Among the fourteen-month-olds who had watched the adult a week earlier, two-thirds leaned right forward and pressed the light box with their foreheads!",
-      "start_ratio": 0.729,
-      "end_ratio": 0.7715
+      "start_sec": 832.773,
+      "end_sec": 841.421,
+      "words": 17,
+      "weight": 18,
+      "text": "Body links: discovering that my own kick or reach makes $B$ happen (like kicking the crib mobile).",
+      "spoken_text": "Body links: discovering that my own kick or reach makes $B$ happen (like kicking the crib mobile).",
+      "text_hash": "9d05433056808ad6",
+      "start_ratio": 0.6569,
+      "end_ratio": 0.6637
     },
     {
       "id": "b-037",
-      "tag": "p",
+      "tag": "li",
       "chunk_id": 38,
-      "start_sec": 943.464,
-      "end_sec": 1009.492,
-      "words": 196,
-      "weight": 196,
-      "text": "High-certainty replications show that by the start of the second year, toddlers can watch an adult do something brand-new once and store that picture in memory for a week. Then they can use that memory to guide their own bodies later without any practice in between. (By contrast, older claims that newborns copy stuck-out tongues in the first days after birth remain disputed after large modern studies found mostly general excitement rather than true matching.) Even smarter, follow-up studies by Meltzoff and György Gergely showed that toddlers do not copy like mindless parrots. Instead, they read the adult’s goal. Suppose an adult wraps a blanket tightly around her shoulders and holds it closed with both hands so her hands are visibly trapped. Then she leans down to turn on the light box with her forehead. When fourteen-month-olds are handed the light box, they use their hands instead of their foreheads! They realize the adult only used her head because her hands were full. When the adult’s hands rest free on the table and she still uses her forehead, toddlers copy the forehead move. Toddlers watch our hands to figure out why we do what we do.",
-      "start_ratio": 0.7715,
-      "end_ratio": 0.8255
+      "start_sec": 841.421,
+      "end_sec": 851.548,
+      "words": 28,
+      "weight": 29,
+      "text": "Testing on purpose: changing how you act — banging, dropping, pushing a button, or handing a wind-up toy to a parent — to see if the result changes.",
+      "spoken_text": "Testing on purpose: changing how you act — banging, dropping, pushing a button, or handing a wind-up toy to a parent — to see if the result changes.",
+      "text_hash": "7a4f5115d51d9fde",
+      "start_ratio": 0.6637,
+      "end_ratio": 0.6717
     },
     {
       "id": "b-038",
-      "tag": "p",
+      "tag": "li",
       "chunk_id": 39,
-      "start_sec": 1009.492,
-      "end_sec": 1023.919,
+      "start_sec": 851.548,
+      "end_sec": 864.876,
       "words": 35,
-      "weight": 35,
-      "text": "For parents, that means everyday life is already a powerful teacher. Watching you stir soup, wipe up spilled milk with a sponge, or put shoes by the door teaches culture naturally, with zero flashcards required.",
-      "start_ratio": 0.8255,
-      "end_ratio": 0.8373
+      "weight": 36,
+      "text": "Hidden causes: figuring out that an unseen switch or inside part makes a toy work. Toddlers begin showing this skill in the second year when they hunt for the button that starts a music box.",
+      "spoken_text": "Hidden causes: figuring out that an unseen switch or inside part makes a toy work. Toddlers begin showing this skill in the second year when they hunt for the button that starts a music box.",
+      "text_hash": "e589967ab1753d46",
+      "start_ratio": 0.6717,
+      "end_ratio": 0.6822
     },
     {
       "id": "b-039",
-      "tag": "h2",
+      "tag": "p",
       "chunk_id": 40,
-      "start_sec": 1023.919,
-      "end_sec": 1029.177,
-      "words": 8,
-      "weight": 10,
-      "text": "V. Fragile Control and the Floor as Laboratory",
-      "start_ratio": 0.8373,
-      "end_ratio": 0.8416
+      "start_sec": 864.876,
+      "end_sec": 882.623,
+      "words": 42,
+      "weight": 42,
+      "text": "Keeping these five steps distinct protects us from two opposite mistakes. We don’t brush off a three-month-old’s kick as random twitching, and we don’t pretend a fourteen-month-old pushing a toy button understands electrical wiring. Each step builds the next through hands-on play.",
+      "spoken_text": "Keeping these five steps distinct protects us from two opposite mistakes. We don’t brush off a three-month-old’s kick as random twitching, and we don’t pretend a fourteen-month-old pushing a toy button understands electrical wiring. Each step builds the next through hands-on play.",
+      "text_hash": "c6740fc50557bf3d",
+      "start_ratio": 0.6822,
+      "end_ratio": 0.6962
     },
     {
       "id": "b-040",
-      "tag": "p",
+      "tag": "h2",
       "chunk_id": 41,
-      "start_sec": 1029.177,
-      "end_sec": 1055.484,
-      "words": 72,
-      "weight": 72,
-      "text": "As action loops, cause-and-effect play, and copying adults stack up across the first two years, a toddler’s actions grow much more purposeful. A fifteen-month-old keeps a goal in mind for ten seconds. She pulls a towel toward herself to grab a toy sitting on the far corner. She stops an old reach to try a new angle, and uses one hand to steady a bucket while the other hand drops blocks inside.",
-      "start_ratio": 0.8416,
-      "end_ratio": 0.8631
+      "start_sec": 882.623,
+      "end_sec": 889.28,
+      "words": 10,
+      "weight": 12,
+      "text": "IV. Learning Through Other Hands: Deferred Imitation and Goal Reading",
+      "spoken_text": "IV. Learning Through Other Hands: Deferred Imitation and Goal Reading.",
+      "text_hash": "af5a21dd31977117",
+      "start_ratio": 0.6962,
+      "end_ratio": 0.7014
     },
     {
       "id": "b-041",
       "tag": "p",
       "chunk_id": 42,
-      "start_sec": 1055.484,
-      "end_sec": 1097.472,
-      "words": 116,
-      "weight": 116,
-      "text": "Moderate-certainty models suggest that these daily hands-on puzzles lay the early bricks of self-control and working memory. Still, throughout infancy and toddlerhood, self-control is fragile and depends heavily on how rested and fed the child is. Low-certainty attempts to use how long a baby works on a lab puzzle at ten months to predict school grades or adult willpower fail when tested. (As we will see in Chapter 11 when we look at the famous marshmallow test, even at age four, simple waiting games are heavily tangled up with family income and home stability.) Nor do hospital studies that use ribbon-kicking games to help premature babies build leg strength mean healthy babies need home workout schedules.",
-      "start_ratio": 0.8631,
-      "end_ratio": 0.8974
+      "start_sec": 889.28,
+      "end_sec": 911.068,
+      "words": 58,
+      "weight": 58,
+      "text": "If babies had to figure out how every spoon, cup, hairbrush, and light switch in human culture worked purely by dropping and banging things alone, childhood would take fifty years. Fortunately, human babies learn in a social world long before they sit at school desks. They watch what other people do with their hands, and they copy it.",
+      "spoken_text": "If babies had to figure out how every spoon, cup, hairbrush, and light switch in human culture worked purely by dropping and banging things alone, childhood would take fifty years. Fortunately, human babies learn in a social world long before they sit at school desks. They watch what other people do with their hands, and they copy it.",
+      "text_hash": "35dc18b393a471b9",
+      "start_ratio": 0.7014,
+      "end_ratio": 0.7186
     },
     {
       "id": "b-042",
       "tag": "p",
       "chunk_id": 43,
-      "start_sec": 1097.472,
-      "end_sec": 1162.859,
-      "words": 185,
-      "weight": 185,
-      "text": "Here our three lenses bring the moving child into sharp focus. The science shows with high certainty that young babies learn and remember links between their own kicks and the world, and that fourteen-month-olds remember and selectively copy new actions a week later. It suggests with moderate certainty that balance is re-learned in every new posture from crawling to walking, that surprising events spark targeted hand testing, and that cause-and-effect skills build in five gradual steps. Meanwhile, normal differences in the month a baby crawls or walks tell us almost nothing about future IQ. The interpretation of that science refuses to confuse a three-month-old’s kick with a science degree, a careful crawler with a shy personality, or a dropped spoon with bad character. And the art of caring for a moving mind is simple. Clear a safe patch of floor where a baby can roll and reach. Pick up the dropped spoon a few times before calmly ending the game when mealtime is over. And let a toddler struggle with a stacking cup for ten seconds before your big hands rush in to fix it.",
-      "start_ratio": 0.8974,
-      "end_ratio": 0.9509
+      "start_sec": 911.068,
+      "end_sec": 940.455,
+      "words": 66,
+      "weight": 66,
+      "text": "In 1988, psychologist Andrew Meltzoff ran a famous test of delayed imitation that changed how scientists view toddler memory. Fourteen-month-old toddlers visited a lab playroom and watched an adult play with several unfamiliar homemade gadgets. Most famously, the adult leaned forward from the waist and pressed a flat plastic light box on the table using his forehead instead of his hands, making the box light up.",
+      "spoken_text": "In 1988, psychologist Andrew Meltzoff ran a famous test of delayed imitation that changed how scientists view toddler memory. Fourteen-month-old toddlers visited a lab playroom and watched an adult play with several unfamiliar homemade gadgets. Most famously, the adult leaned forward from the waist and pressed a flat plastic light box on the table using his forehead instead of his hands, making the box light up.",
+      "text_hash": "e2e98c7c2ed9f691",
+      "start_ratio": 0.7186,
+      "end_ratio": 0.7418
     },
     {
       "id": "b-043",
       "tag": "p",
       "chunk_id": 44,
-      "start_sec": 1162.859,
-      "end_sec": 1180.766,
-      "words": 43,
-      "weight": 43,
-      "text": "What this chapter does not tell us is how the child leaps from acting on toys with hands and feet to acting on other people’s minds with spoken words. How cries, points, babbles, and back-and-forth dinner-table turns become language belongs to Chapter 7.",
-      "start_ratio": 0.9509,
-      "end_ratio": 0.9655
+      "start_sec": 940.455,
+      "end_sec": 967.563,
+      "words": 70,
+      "weight": 70,
+      "text": "The toddlers were not allowed to touch the gadgets that day. A full week later, the toddlers came back to the lab and were handed the light box for the first time. Among control toddlers who had never seen the forehead demo, zero children used their heads. Among the fourteen-month-olds who had watched the adult a week earlier, two-thirds leaned right forward and pressed the light box with their foreheads!",
+      "spoken_text": "The toddlers were not allowed to touch the gadgets that day. A full week later, the toddlers came back to the lab and were handed the light box for the first time. Among control toddlers who had never seen the forehead demo, zero children used their heads. Among the fourteen-month-olds who had watched the adult a week earlier, two-thirds leaned right forward and pressed the light box with their foreheads!",
+      "text_hash": "6cae564f2ae3851d",
+      "start_ratio": 0.7418,
+      "end_ratio": 0.7632
     },
     {
       "id": "b-044",
       "tag": "p",
       "chunk_id": 45,
-      "start_sec": 1180.766,
-      "end_sec": 1191.714,
-      "words": 27,
-      "weight": 27,
-      "text": "Look back one more time at the three-month-old kicking beneath the swaying birds, and the ten-month-old peeking over the highchair tray after the clang of the spoon.",
-      "start_ratio": 0.9655,
-      "end_ratio": 0.9745
+      "start_sec": 967.563,
+      "end_sec": 1006.91,
+      "words": 97,
+      "weight": 97,
+      "text": "High-certainty replications show that by the start of the second year, toddlers can watch an adult do something brand-new once and store that picture in memory for a week. Then they can use that memory to guide their own bodies later without any practice in between. Older claims that newborns copy stuck-out tongues in the first days after birth remain disputed, as large modern studies found mostly general excitement rather than true matching. Even smarter, follow-up studies by Meltzoff and György Gergely showed that toddlers do not copy like mindless parrots; instead, they read the adult’s goal.",
+      "spoken_text": "High-certainty replications show that by the start of the second year, toddlers can watch an adult do something brand-new once and store that picture in memory for a week. Then they can use that memory to guide their own bodies later without any practice in between. Older claims that newborns copy stuck-out tongues in the first days after birth remain disputed, as large modern studies found mostly general excitement rather than true matching. Even smarter, follow-up studies by Meltzoff and György Gergely showed that toddlers do not copy like mindless parrots; instead, they read the adult’s goal.",
+      "text_hash": "4a1882fa53ea8f2b",
+      "start_ratio": 0.7632,
+      "end_ratio": 0.7942
     },
     {
       "id": "b-045",
       "tag": "p",
       "chunk_id": 46,
-      "start_sec": 1191.714,
-      "end_sec": 1222.901,
+      "start_sec": 1006.91,
+      "end_sec": 1042.778,
+      "words": 96,
+      "weight": 96,
+      "text": "Suppose an adult wraps a blanket tightly around her shoulders and holds it closed with both hands so her hands are visibly trapped, then leans down to turn on the light box with her forehead. When fourteen-month-olds are handed the light box, they use their hands instead of their foreheads! They realize the adult only used her head because her hands were full. When the adult’s hands rest free on the table and she still uses her forehead, toddlers copy the forehead move. Toddlers watch our hands to figure out why we do what we do.",
+      "spoken_text": "Suppose an adult wraps a blanket tightly around her shoulders and holds it closed with both hands so her hands are visibly trapped, then leans down to turn on the light box with her forehead. When fourteen-month-olds are handed the light box, they use their hands instead of their foreheads! They realize the adult only used her head because her hands were full. When the adult’s hands rest free on the table and she still uses her forehead, toddlers copy the forehead move. Toddlers watch our hands to figure out why we do what we do.",
+      "text_hash": "40b80cd35e4c7193",
+      "start_ratio": 0.7942,
+      "end_ratio": 0.8225
+    },
+    {
+      "id": "b-046",
+      "tag": "p",
+      "chunk_id": 47,
+      "start_sec": 1042.778,
+      "end_sec": 1057.205,
+      "words": 35,
+      "weight": 35,
+      "text": "For parents, that means everyday life is already a powerful teacher. Watching you stir soup, wipe up spilled milk with a sponge, or put shoes by the door teaches culture naturally, with zero flashcards required.",
+      "spoken_text": "For parents, that means everyday life is already a powerful teacher. Watching you stir soup, wipe up spilled milk with a sponge, or put shoes by the door teaches culture naturally, with zero flashcards required.",
+      "text_hash": "247da48134afbd9d",
+      "start_ratio": 0.8225,
+      "end_ratio": 0.8339
+    },
+    {
+      "id": "b-047",
+      "tag": "h2",
+      "chunk_id": 48,
+      "start_sec": 1057.205,
+      "end_sec": 1062.462,
+      "words": 8,
+      "weight": 10,
+      "text": "V. Fragile Control and the Floor as Laboratory",
+      "spoken_text": "V. Fragile Control and the Floor as Laboratory.",
+      "text_hash": "caf176a41f66e0bf",
+      "start_ratio": 0.8339,
+      "end_ratio": 0.838
+    },
+    {
+      "id": "b-048",
+      "tag": "p",
+      "chunk_id": 49,
+      "start_sec": 1062.462,
+      "end_sec": 1088.77,
+      "words": 72,
+      "weight": 72,
+      "text": "As action loops, cause-and-effect play, and copying adults stack up across the first two years, a toddler’s actions grow much more purposeful. A fifteen-month-old keeps a goal in mind for ten seconds. She pulls a towel toward herself to grab a toy sitting on the far corner. She stops an old reach to try a new angle, and uses one hand to steady a bucket while the other hand drops blocks inside.",
+      "spoken_text": "As action loops, cause-and-effect play, and copying adults stack up across the first two years, a toddler’s actions grow much more purposeful. A fifteen-month-old keeps a goal in mind for ten seconds. She pulls a towel toward herself to grab a toy sitting on the far corner. She stops an old reach to try a new angle, and uses one hand to steady a bucket while the other hand drops blocks inside.",
+      "text_hash": "01cb6f9d4522fe3b",
+      "start_ratio": 0.838,
+      "end_ratio": 0.8588
+    },
+    {
+      "id": "b-049",
+      "tag": "p",
+      "chunk_id": 50,
+      "start_sec": 1088.77,
+      "end_sec": 1135.717,
+      "words": 116,
+      "weight": 116,
+      "text": "Moderate-certainty models suggest that these daily hands-on puzzles lay the early bricks of self-control and working memory. Still, throughout infancy and toddlerhood, self-control is fragile and depends heavily on how rested and fed the child is. Low-certainty attempts to use how long a baby works on a lab puzzle at ten months to predict school grades or adult willpower fail when tested. As we will see in Chapter 11 when we look at the famous marshmallow test, even at age four, simple waiting games are heavily tangled up with family income and home stability. Nor do hospital studies that use ribbon-kicking games to help premature babies build leg strength mean healthy babies need home workout schedules.",
+      "spoken_text": "Moderate-certainty models suggest that these daily hands-on puzzles lay the early bricks of self-control and working memory. Still, throughout infancy and toddlerhood, self-control is fragile and depends heavily on how rested and fed the child is. Low-certainty attempts to use how long a baby works on a lab puzzle at ten months to predict school grades or adult willpower fail when tested. As we will see in Chapter 11 when we look at the famous marshmallow test, even at age four, simple waiting games are heavily tangled up with family income and home stability. Nor do hospital studies that use ribbon-kicking games to help premature babies build leg strength mean healthy babies need home workout schedules.",
+      "text_hash": "001328c5ae793422",
+      "start_ratio": 0.8588,
+      "end_ratio": 0.8958
+    },
+    {
+      "id": "b-050",
+      "tag": "p",
+      "chunk_id": 51,
+      "start_sec": 1135.717,
+      "end_sec": 1176.065,
+      "words": 92,
+      "weight": 92,
+      "text": "Here our three lenses bring the moving child into sharp focus. The science shows with high certainty that young babies learn and remember links between their own kicks and the world. It also shows that fourteen-month-olds remember and selectively copy new actions a week later. Meanwhile, it suggests with moderate certainty that balance is re-learned in every new posture, that surprising events spark targeted hand testing, and that cause-and-effect skills build in five gradual steps. Normal differences in the month a baby crawls or walks tell us almost nothing about future IQ.",
+      "spoken_text": "Here our three lenses bring the moving child into sharp focus. The science shows with high certainty that young babies learn and remember links between their own kicks and the world. It also shows that fourteen-month-olds remember and selectively copy new actions a week later. Meanwhile, it suggests with moderate certainty that balance is re-learned in every new posture, that surprising events spark targeted hand testing, and that cause-and-effect skills build in five gradual steps. Normal differences in the month a baby crawls or walks tell us almost nothing about future IQ.",
+      "text_hash": "d57bbb58dbd46184",
+      "start_ratio": 0.8958,
+      "end_ratio": 0.9276
+    },
+    {
+      "id": "b-051",
+      "tag": "p",
+      "chunk_id": 52,
+      "start_sec": 1176.065,
+      "end_sec": 1207.765,
+      "words": 90,
+      "weight": 90,
+      "text": "The interpretation of that science refuses to confuse a three-month-old’s kick with a science degree, a careful crawler with a shy personality, or a dropped spoon with bad character. And the art of caring for a moving mind is simple: clear a safe patch of floor where a baby can roll and reach. Pick up the dropped spoon a few times before calmly ending the game when mealtime is over. Let a toddler struggle with a stacking cup for ten seconds before your big hands rush in to fix it.",
+      "spoken_text": "The interpretation of that science refuses to confuse a three-month-old’s kick with a science degree, a careful crawler with a shy personality, or a dropped spoon with bad character. And the art of caring for a moving mind is simple: clear a safe patch of floor where a baby can roll and reach. Pick up the dropped spoon a few times before calmly ending the game when mealtime is over. Let a toddler struggle with a stacking cup for ten seconds before your big hands rush in to fix it.",
+      "text_hash": "c69585334790e44d",
+      "start_ratio": 0.9276,
+      "end_ratio": 0.9526
+    },
+    {
+      "id": "b-052",
+      "tag": "p",
+      "chunk_id": 53,
+      "start_sec": 1207.765,
+      "end_sec": 1225.673,
+      "words": 43,
+      "weight": 43,
+      "text": "What this chapter does not tell us is how the child leaps from acting on toys with hands and feet to acting on other people’s minds with spoken words. How cries, points, babbles, and back-and-forth dinner-table turns become language belongs to Chapter 7.",
+      "spoken_text": "What this chapter does not tell us is how the child leaps from acting on toys with hands and feet to acting on other people’s minds with spoken words. How cries, points, babbles, and back-and-forth dinner-table turns become language belongs to Chapter 7.",
+      "text_hash": "225974c4e4b0bfb4",
+      "start_ratio": 0.9526,
+      "end_ratio": 0.9668
+    },
+    {
+      "id": "b-053",
+      "tag": "p",
+      "chunk_id": 54,
+      "start_sec": 1225.673,
+      "end_sec": 1236.62,
+      "words": 27,
+      "weight": 27,
+      "text": "Look back one more time at the three-month-old kicking beneath the swaying birds, and the ten-month-old peeking over the highchair tray after the clang of the spoon.",
+      "spoken_text": "Look back one more time at the three-month-old kicking beneath the swaying birds, and the ten-month-old peeking over the highchair tray after the clang of the spoon.",
+      "text_hash": "a55e74c41fae849f",
+      "start_ratio": 0.9668,
+      "end_ratio": 0.9754
+    },
+    {
+      "id": "b-054",
+      "tag": "p",
+      "chunk_id": 55,
+      "start_sec": 1236.62,
+      "end_sec": 1267.807,
       "words": 76,
       "weight": 76,
       "text": "Neither child has changed because we have mapped sloping ramps, physics tricks, or forehead light boxes. Our reading of their busy bodies has changed. A moving baby is neither a bundle of random twitches nor a tiny villain testing your patience. She is an active explorer in a responsive room. By kicking, reaching, dropping, tumbling on slopes, and watching what our hands do next, she is building a mind through the feel of her own movement.",
-      "start_ratio": 0.9745,
+      "spoken_text": "Neither child has changed because we have mapped sloping ramps, physics tricks, or forehead light boxes. Our reading of their busy bodies has changed. A moving baby is neither a bundle of random twitches nor a tiny villain testing your patience. She is an active explorer in a responsive room. By kicking, reaching, dropping, tumbling on slopes, and watching what our hands do next, she is building a mind through the feel of her own movement.",
+      "text_hash": "bb5213270698afeb",
+      "start_ratio": 0.9754,
       "end_ratio": 1.0
     }
   ]

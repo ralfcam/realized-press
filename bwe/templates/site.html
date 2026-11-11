@@ -547,11 +547,18 @@
     }
 
     book.chapters.forEach((ch, idx) => {
-      const isAvailable = bookLang(book) !== 'en'
-        ? (ch.hasLocalMp3 || ch.hasLocalWav)
-        : (streamMode === 'online' ? (ch.stem === '01-before-the-child-is-born' || ch.hasLocalMp3) : (ch.hasLocalMp3 || ch.hasLocalWav));
+      const isAvailable = Boolean(ch.hasNeuralAudio && !ch.isStaleAudio);
       const isPlaying = idx === currentChapterIdx && !audio.paused;
       const isSelected = idx === currentChapterIdx;
+
+      let badgeHtml = '';
+      if (ch.isStaleAudio) {
+        badgeHtml = `<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono bg-sky-950/60 text-sky-400 border border-sky-500/30" title="Audio re-synthesis queued — Playing browser speech synthesis">Re-sync Queued</span>`;
+      } else if (isAvailable) {
+        badgeHtml = `<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono bg-emerald-950/60 text-emerald-400 border border-emerald-500/30">Audio Ready</span>`;
+      } else {
+        badgeHtml = `<span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono bg-stone-950 text-stone-400 border border-stone-800">Queued</span>`;
+      }
 
       const card = document.createElement('div');
       card.className = `chapter-card min-h-[44px] min-w-[44px] p-4 rounded-xl border transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 cursor-pointer ${
@@ -599,13 +606,7 @@
              class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-3 py-2 rounded-lg bg-stone-800 hover:bg-stone-700 border border-stone-700/80 text-xs font-mono text-stone-300 hover:text-amber-400 transition">
             Reader ↗
           </a>
-          <span class="inline-flex items-center px-2.5 py-1 rounded text-xs font-mono ${
-            isAvailable
-              ? 'bg-emerald-950/60 text-emerald-400 border border-emerald-500/30'
-              : 'bg-stone-950 text-stone-400 border border-stone-800'
-          }">
-            ${isAvailable ? 'Audio Ready' : 'Queued'}
-          </span>
+          ${badgeHtml}
           <button type="button"
                   ${!isAvailable ? 'disabled' : ''}
                   aria-label="${isPlaying ? 'Pause' : 'Play'} Chapter ${ch.num}"
@@ -630,8 +631,11 @@
     if (!ch) return;
 
     if (dockTitle) dockTitle.innerText = `${String(ch.num).padStart(2, '0')}. ${ch.title}`;
-    let url;
-    if (bookLang(book) !== 'en') {
+    let url = '';
+    const hasNeural = Boolean(ch.hasNeuralAudio && !ch.isStaleAudio);
+    if (!hasNeural) {
+      url = '';
+    } else if (bookLang(book) !== 'en') {
       // ES/FR: only localized audio; never the English online release or root file.
       url = (ch.hasLocalMp3 || ch.hasLocalWav) ? localAudioUrl(book, ch) : '';
     } else if (streamMode === 'online') {
@@ -752,7 +756,9 @@
           <span>${ch.words ? ch.words.toLocaleString() : 0} words</span>
           <span>•</span>
           <span>~${ch.minutes || 0} min narration</span>
-          ${ch.hasLocalMp3 || (bookLang(book) === 'en' && ch.stem === '01-before-the-child-is-born') ? '<span>• 🎧 Narration Live (Tap text to jump audio)</span>' : ''}
+          ${ch.isStaleAudio
+            ? '<span>• 🗣️ Audio Re-sync Queued — Browser Voice (Tap text to read aloud)</span>'
+            : (hasNeural ? '<span>• 🎧 Narration Live (Tap text to jump audio)</span>' : '<span>• 🗣️ Browser Voice Ready</span>')}
         </div>
       `;
     }

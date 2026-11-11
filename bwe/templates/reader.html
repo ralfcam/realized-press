@@ -282,7 +282,7 @@
 
         <div class="flex-1 min-w-[180px]">
           <div class="flex items-center justify-between text-xs text-stone-400 font-mono mb-1">
-            <span class="text-sky-400 font-semibold truncate">{{ ui_strings.tts_ready | default('Browser Voice Ready') }}</span>
+            <span class="text-sky-400 font-semibold truncate">{{ (ui_strings.stale_audio_resync if is_stale_audio else ui_strings.tts_ready) | default('Browser Voice Ready') }}</span>
             <span id="active-block-label" class="text-amber-400 font-semibold truncate px-2">Block --</span>
           </div>
           <div class="w-full h-1.5 bg-stone-800 rounded-full overflow-hidden">

@@ -559,6 +559,8 @@ async def inspect_evidence_brief(request: Request, series_slug: str, card_slug: 
 
 
 # Canonical zero-copy media streaming endpoints (supporting HTTP 206 Range requests)
+@app.get("/site/audio/{series_slug}/{lang}/{filename}")
+@app.head("/site/audio/{series_slug}/{lang}/{filename}")
 @app.get("/audio/{series_slug}/{lang}/{filename}")
 @app.head("/audio/{series_slug}/{lang}/{filename}")
 async def stream_audio_localized(series_slug: str, lang: str, filename: str):
@@ -576,6 +578,8 @@ async def stream_audio_localized(series_slug: str, lang: str, filename: str):
     )
 
 
+@app.get("/site/audio/{series_slug}/{filename}")
+@app.head("/site/audio/{series_slug}/{filename}")
 @app.get("/audio/{series_slug}/{filename}")
 @app.head("/audio/{series_slug}/{filename}")
 async def stream_audio_default_lang(series_slug: str, filename: str, lang: str = "en"):
@@ -589,30 +593,39 @@ async def get_chapter_timings(series_slug: str, chapter_slug: str, lang: str = "
     timings_path = edition_dir / "audiobook" / f"{chapter_slug}.timings.json"
     audio_mp3 = edition_dir / "audiobook" / f"{chapter_slug}.mp3"
     audio_wav = edition_dir / "audiobook" / f"{chapter_slug}.wav"
-    has_neural = (audio_mp3.is_file() or audio_wav.is_file()) and timings_path.is_file()
 
-    if timings_path.is_file():
-        try:
-            data = json.loads(timings_path.read_text(encoding="utf-8"))
-            if isinstance(data, dict):
-                data["language"] = lang
-                data["has_neural_audio"] = has_neural
-                return JSONResponse(data)
-        except Exception:
-            pass
-
-    # Tier 2 dynamic localized scaffold fallback
     md_path = edition_dir / "chapters" / f"{chapter_slug}.md"
     if not md_path.is_file():
         cands = list(edition_dir.glob(f"**/chapters/{chapter_slug}.md"))
         if cands:
             md_path = cands[0]
 
+    from audio_sync_utils import (
+        extract_semantic_blocks,
+        pack_semantic_blocks,
+        build_timings_manifest,
+        verify_timings_match_markdown,
+    )
+
+    current_blocks = []
     if md_path.is_file():
         raw_md = md_path.read_text(encoding="utf-8")
-        from audio_sync_utils import extract_semantic_blocks, pack_semantic_blocks, build_timings_manifest
-        blocks = extract_semantic_blocks(raw_md, lang=lang)
-        chunks = pack_semantic_blocks(blocks, per_paragraph=True)
+        current_blocks = extract_semantic_blocks(raw_md, lang=lang)
+
+    if (audio_mp3.is_file() or audio_wav.is_file()) and timings_path.is_file() and current_blocks:
+        try:
+            data = json.loads(timings_path.read_text(encoding="utf-8"))
+            is_valid, _ = verify_timings_match_markdown(data, current_blocks)
+            if is_valid and isinstance(data, dict):
+                data["language"] = lang
+                data["has_neural_audio"] = True
+                return JSONResponse(data)
+        except Exception:
+            pass
+
+    # Tier 2 dynamic localized scaffold fallback
+    if md_path.is_file():
+        chunks = pack_semantic_blocks(current_blocks, per_paragraph=True)
         scaffold = build_timings_manifest(chapter_slug, chunks, language=lang, has_neural_audio=False)
         return JSONResponse(scaffold)
 
@@ -686,11 +699,38 @@ def _render_chapter_view(
     timings_path = edition_dir / "audiobook" / f"{chapter_slug}.timings.json"
     audio_mp3 = edition_dir / "audiobook" / f"{chapter_slug}.mp3"
     audio_wav = edition_dir / "audiobook" / f"{chapter_slug}.wav"
-    has_audio = (audio_mp3.is_file() or audio_wav.is_file()) and timings_path.is_file()
 
-    audio_url = f"/audio/{series_slug}/{lang}/{chapter_slug}.mp3" if audio_mp3.is_file() else (f"/audio/{series_slug}/{lang}/{chapter_slug}.wav" if audio_wav.is_file() else "")
-
+    from audio_sync_utils import (
+        extract_semantic_blocks,
+        pack_semantic_blocks,
+        build_timings_manifest,
+        verify_timings_match_markdown,
+    )
     from render_audiobook_player import extract_clean_text, UI_STRINGS
+
+    current_blocks = extract_semantic_blocks(raw_md, lang=lang)
+    has_audio = False
+    is_stale_audio = False
+
+    if (audio_mp3.is_file() or audio_wav.is_file()) and timings_path.is_file():
+        try:
+            t_data = json.loads(timings_path.read_text(encoding="utf-8"))
+            is_valid, _ = verify_timings_match_markdown(t_data, current_blocks)
+            if is_valid:
+                has_audio = True
+            else:
+                is_stale_audio = True
+        except Exception:
+            is_stale_audio = True
+
+    stale_archive = edition_dir / "audiobook" / "stale_pre_arc103" / f"{chapter_slug}.timings.json"
+    if stale_archive.is_file() and not has_audio:
+        is_stale_audio = True
+
+    audio_url = (
+        f"/audio/{series_slug}/{lang}/{chapter_slug}.mp3" if audio_mp3.is_file() and has_audio
+        else (f"/audio/{series_slug}/{lang}/{chapter_slug}.wav" if audio_wav.is_file() and has_audio else "")
+    )
 
     if has_audio:
         prose_html = extract_clean_text(md_path, timings_path=timings_path, lang=lang)
@@ -705,9 +745,7 @@ def _render_chapter_view(
             blocks_list = []
     else:
         # Tier 2 dynamic localized scaffold
-        from audio_sync_utils import extract_semantic_blocks, pack_semantic_blocks, build_timings_manifest
-        blocks = extract_semantic_blocks(raw_md, lang=lang)
-        chunks = pack_semantic_blocks(blocks, per_paragraph=True)
+        chunks = pack_semantic_blocks(current_blocks, per_paragraph=True)
         scaffold = build_timings_manifest(chapter_slug, chunks, language=lang, has_neural_audio=False)
         prose_html = extract_clean_text(md_path, scaffold_manifest=scaffold, lang=lang)
         blocks_list = scaffold.get("blocks", [])
@@ -768,6 +806,7 @@ def _render_chapter_view(
             "timings": blocks_list,
             "has_audio": has_audio,
             "has_neural_audio": has_audio,
+            "is_stale_audio": is_stale_audio,
             "audio_url": audio_url,
             "server_info": get_server_info(request),
             "active_tab": "reader",

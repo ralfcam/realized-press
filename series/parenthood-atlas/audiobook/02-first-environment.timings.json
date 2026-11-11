@@ -1,6 +1,10 @@
 {
   "chapter": "02-first-environment",
-  "total_duration_sec": 1312.618,
+  "language": "en",
+  "has_neural_audio": true,
+  "block_count": 46,
+  "chapter_hash": "89bb6ecf2f90e8a4",
+  "total_duration_sec": 1210.102,
   "sample_rate": 24000,
   "bytes_per_second": 48000,
   "chunks": [
@@ -29,9 +33,9 @@
     {
       "chunk_id": 3,
       "start_sec": 11.372,
-      "end_sec": 46.323,
-      "duration_sec": 34.951,
-      "pcm_bytes": 1677646,
+      "end_sec": 45.399,
+      "duration_sec": 34.027,
+      "pcm_bytes": 1633316,
       "block_range": [
         "b-002",
         "b-002"
@@ -39,8 +43,8 @@
     },
     {
       "chunk_id": 4,
-      "start_sec": 46.323,
-      "end_sec": 52.074,
+      "start_sec": 45.399,
+      "end_sec": 51.15,
       "duration_sec": 5.751,
       "pcm_bytes": 276046,
       "block_range": [
@@ -50,8 +54,8 @@
     },
     {
       "chunk_id": 5,
-      "start_sec": 52.074,
-      "end_sec": 87.705,
+      "start_sec": 51.15,
+      "end_sec": 86.781,
       "duration_sec": 35.631,
       "pcm_bytes": 1710286,
       "block_range": [
@@ -61,8 +65,8 @@
     },
     {
       "chunk_id": 6,
-      "start_sec": 87.705,
-      "end_sec": 116.496,
+      "start_sec": 86.781,
+      "end_sec": 115.572,
       "duration_sec": 28.791,
       "pcm_bytes": 1381966,
       "block_range": [
@@ -72,8 +76,8 @@
     },
     {
       "chunk_id": 7,
-      "start_sec": 116.496,
-      "end_sec": 120.957,
+      "start_sec": 115.572,
+      "end_sec": 120.033,
       "duration_sec": 4.461,
       "pcm_bytes": 214126,
       "block_range": [
@@ -83,8 +87,8 @@
     },
     {
       "chunk_id": 8,
-      "start_sec": 120.957,
-      "end_sec": 147.228,
+      "start_sec": 120.033,
+      "end_sec": 146.304,
       "duration_sec": 26.271,
       "pcm_bytes": 1261006,
       "block_range": [
@@ -94,10 +98,10 @@
     },
     {
       "chunk_id": 9,
-      "start_sec": 147.228,
-      "end_sec": 177.539,
-      "duration_sec": 30.311,
-      "pcm_bytes": 1454926,
+      "start_sec": 146.304,
+      "end_sec": 172.732,
+      "duration_sec": 26.427,
+      "pcm_bytes": 1268516,
       "block_range": [
         "b-008",
         "b-008"
@@ -105,8 +109,8 @@
     },
     {
       "chunk_id": 10,
-      "start_sec": 177.539,
-      "end_sec": 190.93,
+      "start_sec": 172.732,
+      "end_sec": 186.123,
       "duration_sec": 13.391,
       "pcm_bytes": 642766,
       "block_range": [
@@ -116,10 +120,10 @@
     },
     {
       "chunk_id": 11,
-      "start_sec": 190.93,
-      "end_sec": 219.161,
-      "duration_sec": 28.231,
-      "pcm_bytes": 1355086,
+      "start_sec": 186.123,
+      "end_sec": 214.55,
+      "duration_sec": 28.427,
+      "pcm_bytes": 1364516,
       "block_range": [
         "b-010",
         "b-010"
@@ -127,10 +131,10 @@
     },
     {
       "chunk_id": 12,
-      "start_sec": 219.161,
-      "end_sec": 273.032,
-      "duration_sec": 53.871,
-      "pcm_bytes": 2585806,
+      "start_sec": 214.55,
+      "end_sec": 261.497,
+      "duration_sec": 46.947,
+      "pcm_bytes": 2253476,
       "block_range": [
         "b-011",
         "b-011"
@@ -138,10 +142,10 @@
     },
     {
       "chunk_id": 13,
-      "start_sec": 273.032,
-      "end_sec": 359.302,
-      "duration_sec": 86.271,
-      "pcm_bytes": 4141006,
+      "start_sec": 261.497,
+      "end_sec": 292.045,
+      "duration_sec": 30.547,
+      "pcm_bytes": 1466276,
       "block_range": [
         "b-012",
         "b-012"
@@ -149,10 +153,10 @@
     },
     {
       "chunk_id": 14,
-      "start_sec": 359.302,
-      "end_sec": 374.413,
-      "duration_sec": 15.111,
-      "pcm_bytes": 725326,
+      "start_sec": 292.045,
+      "end_sec": 326.472,
+      "duration_sec": 34.427,
+      "pcm_bytes": 1652516,
       "block_range": [
         "b-013",
         "b-013"
@@ -160,10 +164,10 @@
     },
     {
       "chunk_id": 15,
-      "start_sec": 374.413,
-      "end_sec": 380.794,
-      "duration_sec": 6.381,
-      "pcm_bytes": 306286,
+      "start_sec": 326.472,
+      "end_sec": 341.583,
+      "duration_sec": 15.111,
+      "pcm_bytes": 725326,
       "block_range": [
         "b-014",
         "b-014"
@@ -171,10 +175,10 @@
     },
     {
       "chunk_id": 16,
-      "start_sec": 380.794,
-      "end_sec": 390.025,
-      "duration_sec": 9.231,
-      "pcm_bytes": 443086,
+      "start_sec": 341.583,
+      "end_sec": 347.964,
+      "duration_sec": 6.381,
+      "pcm_bytes": 306286,
       "block_range": [
         "b-015",
         "b-015"
@@ -182,10 +186,10 @@
     },
     {
       "chunk_id": 17,
-      "start_sec": 390.025,
-      "end_sec": 449.336,
-      "duration_sec": 59.311,
-      "pcm_bytes": 2846926,
+      "start_sec": 347.964,
+      "end_sec": 357.195,
+      "duration_sec": 9.231,
+      "pcm_bytes": 443086,
       "block_range": [
         "b-016",
         "b-016"
@@ -193,10 +197,10 @@
     },
     {
       "chunk_id": 18,
-      "start_sec": 449.336,
-      "end_sec": 511.647,
-      "duration_sec": 62.311,
-      "pcm_bytes": 2990926,
+      "start_sec": 357.195,
+      "end_sec": 389.176,
+      "duration_sec": 31.981,
+      "pcm_bytes": 1535068,
       "block_range": [
         "b-017",
         "b-017"
@@ -204,10 +208,10 @@
     },
     {
       "chunk_id": 19,
-      "start_sec": 511.647,
-      "end_sec": 564.518,
-      "duration_sec": 52.871,
-      "pcm_bytes": 2537806,
+      "start_sec": 389.176,
+      "end_sec": 410.723,
+      "duration_sec": 21.547,
+      "pcm_bytes": 1034276,
       "block_range": [
         "b-018",
         "b-018"
@@ -215,10 +219,10 @@
     },
     {
       "chunk_id": 20,
-      "start_sec": 564.518,
-      "end_sec": 605.309,
-      "duration_sec": 40.791,
-      "pcm_bytes": 1957966,
+      "start_sec": 410.723,
+      "end_sec": 448.31,
+      "duration_sec": 37.587,
+      "pcm_bytes": 1804196,
       "block_range": [
         "b-019",
         "b-019"
@@ -226,10 +230,10 @@
     },
     {
       "chunk_id": 21,
-      "start_sec": 605.309,
-      "end_sec": 610.73,
-      "duration_sec": 5.421,
-      "pcm_bytes": 260206,
+      "start_sec": 448.31,
+      "end_sec": 470.978,
+      "duration_sec": 22.667,
+      "pcm_bytes": 1088036,
       "block_range": [
         "b-020",
         "b-020"
@@ -237,10 +241,10 @@
     },
     {
       "chunk_id": 22,
-      "start_sec": 610.73,
-      "end_sec": 650.921,
-      "duration_sec": 40.191,
-      "pcm_bytes": 1929166,
+      "start_sec": 470.978,
+      "end_sec": 513.085,
+      "duration_sec": 42.107,
+      "pcm_bytes": 2021156,
       "block_range": [
         "b-021",
         "b-021"
@@ -248,10 +252,10 @@
     },
     {
       "chunk_id": 23,
-      "start_sec": 650.921,
-      "end_sec": 696.032,
-      "duration_sec": 45.111,
-      "pcm_bytes": 2165326,
+      "start_sec": 513.085,
+      "end_sec": 550.433,
+      "duration_sec": 37.347,
+      "pcm_bytes": 1792676,
       "block_range": [
         "b-022",
         "b-022"
@@ -259,10 +263,10 @@
     },
     {
       "chunk_id": 24,
-      "start_sec": 696.032,
-      "end_sec": 761.063,
-      "duration_sec": 65.031,
-      "pcm_bytes": 3121486,
+      "start_sec": 550.433,
+      "end_sec": 555.854,
+      "duration_sec": 5.421,
+      "pcm_bytes": 260206,
       "block_range": [
         "b-023",
         "b-023"
@@ -270,10 +274,10 @@
     },
     {
       "chunk_id": 25,
-      "start_sec": 761.063,
-      "end_sec": 845.974,
-      "duration_sec": 84.911,
-      "pcm_bytes": 4075726,
+      "start_sec": 555.854,
+      "end_sec": 591.641,
+      "duration_sec": 35.787,
+      "pcm_bytes": 1717796,
       "block_range": [
         "b-024",
         "b-024"
@@ -281,10 +285,10 @@
     },
     {
       "chunk_id": 26,
-      "start_sec": 845.974,
-      "end_sec": 851.915,
-      "duration_sec": 5.941,
-      "pcm_bytes": 285166,
+      "start_sec": 591.641,
+      "end_sec": 640.389,
+      "duration_sec": 48.747,
+      "pcm_bytes": 2339876,
       "block_range": [
         "b-025",
         "b-025"
@@ -292,10 +296,10 @@
     },
     {
       "chunk_id": 27,
-      "start_sec": 851.915,
-      "end_sec": 860.586,
-      "duration_sec": 8.671,
-      "pcm_bytes": 416206,
+      "start_sec": 640.389,
+      "end_sec": 668.576,
+      "duration_sec": 28.187,
+      "pcm_bytes": 1352996,
       "block_range": [
         "b-026",
         "b-026"
@@ -303,10 +307,10 @@
     },
     {
       "chunk_id": 28,
-      "start_sec": 860.586,
-      "end_sec": 914.497,
-      "duration_sec": 53.911,
-      "pcm_bytes": 2587726,
+      "start_sec": 668.576,
+      "end_sec": 703.243,
+      "duration_sec": 34.667,
+      "pcm_bytes": 1664036,
       "block_range": [
         "b-027",
         "b-027"
@@ -314,10 +318,10 @@
     },
     {
       "chunk_id": 29,
-      "start_sec": 914.497,
-      "end_sec": 978.008,
-      "duration_sec": 63.511,
-      "pcm_bytes": 3048526,
+      "start_sec": 703.243,
+      "end_sec": 744.264,
+      "duration_sec": 41.021,
+      "pcm_bytes": 1968988,
       "block_range": [
         "b-028",
         "b-028"
@@ -325,10 +329,10 @@
     },
     {
       "chunk_id": 30,
-      "start_sec": 978.008,
-      "end_sec": 1025.479,
-      "duration_sec": 47.471,
-      "pcm_bytes": 2278606,
+      "start_sec": 744.264,
+      "end_sec": 787.171,
+      "duration_sec": 42.907,
+      "pcm_bytes": 2059556,
       "block_range": [
         "b-029",
         "b-029"
@@ -336,10 +340,10 @@
     },
     {
       "chunk_id": 31,
-      "start_sec": 1025.479,
-      "end_sec": 1078.39,
-      "duration_sec": 52.911,
-      "pcm_bytes": 2539726,
+      "start_sec": 787.171,
+      "end_sec": 793.112,
+      "duration_sec": 5.941,
+      "pcm_bytes": 285166,
       "block_range": [
         "b-030",
         "b-030"
@@ -347,10 +351,10 @@
     },
     {
       "chunk_id": 32,
-      "start_sec": 1078.39,
-      "end_sec": 1083.371,
-      "duration_sec": 4.981,
-      "pcm_bytes": 239086,
+      "start_sec": 793.112,
+      "end_sec": 802.34,
+      "duration_sec": 9.227,
+      "pcm_bytes": 442916,
       "block_range": [
         "b-031",
         "b-031"
@@ -358,10 +362,10 @@
     },
     {
       "chunk_id": 33,
-      "start_sec": 1083.371,
-      "end_sec": 1096.482,
-      "duration_sec": 13.111,
-      "pcm_bytes": 629326,
+      "start_sec": 802.34,
+      "end_sec": 840.967,
+      "duration_sec": 38.627,
+      "pcm_bytes": 1854116,
       "block_range": [
         "b-032",
         "b-032"
@@ -369,10 +373,10 @@
     },
     {
       "chunk_id": 34,
-      "start_sec": 1096.482,
-      "end_sec": 1142.633,
-      "duration_sec": 46.151,
-      "pcm_bytes": 2215246,
+      "start_sec": 840.967,
+      "end_sec": 869.555,
+      "duration_sec": 28.587,
+      "pcm_bytes": 1372196,
       "block_range": [
         "b-033",
         "b-033"
@@ -380,10 +384,10 @@
     },
     {
       "chunk_id": 35,
-      "start_sec": 1142.633,
-      "end_sec": 1177.944,
-      "duration_sec": 35.311,
-      "pcm_bytes": 1694926,
+      "start_sec": 869.555,
+      "end_sec": 900.582,
+      "duration_sec": 31.027,
+      "pcm_bytes": 1489316,
       "block_range": [
         "b-034",
         "b-034"
@@ -391,10 +395,10 @@
     },
     {
       "chunk_id": 36,
-      "start_sec": 1177.944,
-      "end_sec": 1226.615,
-      "duration_sec": 48.671,
-      "pcm_bytes": 2336206,
+      "start_sec": 900.582,
+      "end_sec": 941.289,
+      "duration_sec": 40.707,
+      "pcm_bytes": 1953956,
       "block_range": [
         "b-035",
         "b-035"
@@ -402,10 +406,10 @@
     },
     {
       "chunk_id": 37,
-      "start_sec": 1226.615,
-      "end_sec": 1253.045,
-      "duration_sec": 26.431,
-      "pcm_bytes": 1268686,
+      "start_sec": 941.289,
+      "end_sec": 983.237,
+      "duration_sec": 41.947,
+      "pcm_bytes": 2013476,
       "block_range": [
         "b-036",
         "b-036"
@@ -413,10 +417,10 @@
     },
     {
       "chunk_id": 38,
-      "start_sec": 1253.045,
-      "end_sec": 1263.356,
-      "duration_sec": 10.311,
-      "pcm_bytes": 494926,
+      "start_sec": 983.237,
+      "end_sec": 988.218,
+      "duration_sec": 4.981,
+      "pcm_bytes": 239086,
       "block_range": [
         "b-037",
         "b-037"
@@ -424,10 +428,10 @@
     },
     {
       "chunk_id": 39,
-      "start_sec": 1263.356,
-      "end_sec": 1292.987,
-      "duration_sec": 29.631,
-      "pcm_bytes": 1422286,
+      "start_sec": 988.218,
+      "end_sec": 1001.329,
+      "duration_sec": 13.111,
+      "pcm_bytes": 629326,
       "block_range": [
         "b-038",
         "b-038"
@@ -435,13 +439,79 @@
     },
     {
       "chunk_id": 40,
-      "start_sec": 1292.987,
-      "end_sec": 1312.618,
-      "duration_sec": 19.631,
-      "pcm_bytes": 942286,
+      "start_sec": 1001.329,
+      "end_sec": 1040.116,
+      "duration_sec": 38.787,
+      "pcm_bytes": 1861796,
       "block_range": [
         "b-039",
         "b-039"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "start_sec": 1040.116,
+      "end_sec": 1075.427,
+      "duration_sec": 35.311,
+      "pcm_bytes": 1694926,
+      "block_range": [
+        "b-040",
+        "b-040"
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "start_sec": 1075.427,
+      "end_sec": 1124.098,
+      "duration_sec": 48.671,
+      "pcm_bytes": 2336206,
+      "block_range": [
+        "b-041",
+        "b-041"
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "start_sec": 1124.098,
+      "end_sec": 1150.529,
+      "duration_sec": 26.431,
+      "pcm_bytes": 1268686,
+      "block_range": [
+        "b-042",
+        "b-042"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "start_sec": 1150.529,
+      "end_sec": 1160.84,
+      "duration_sec": 10.311,
+      "pcm_bytes": 494926,
+      "block_range": [
+        "b-043",
+        "b-043"
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "start_sec": 1160.84,
+      "end_sec": 1190.471,
+      "duration_sec": 29.631,
+      "pcm_bytes": 1422286,
+      "block_range": [
+        "b-044",
+        "b-044"
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "start_sec": 1190.471,
+      "end_sec": 1210.102,
+      "duration_sec": 19.631,
+      "pcm_bytes": 942286,
+      "block_range": [
+        "b-045",
+        "b-045"
       ]
     }
   ],
@@ -455,8 +525,10 @@
       "words": 6,
       "weight": 9,
       "text": "Chapter 2 — The First Environment",
+      "spoken_text": "Chapter 2 — The First Environment.",
+      "text_hash": "dd142333b57187a8",
       "start_ratio": 0.0,
-      "end_ratio": 0.003
+      "end_ratio": 0.0032
     },
     {
       "id": "b-001",
@@ -467,463 +539,625 @@
       "words": 11,
       "weight": 11,
       "text": "Inside the Womb: Fetal Brain Growth, Nutrition, Alcohol, and Everyday Exposures",
-      "start_ratio": 0.003,
-      "end_ratio": 0.0087
+      "spoken_text": "Inside the Womb: Fetal Brain Growth, Nutrition, Alcohol, and Everyday Exposures.",
+      "text_hash": "b7626b09b4e83792",
+      "start_ratio": 0.0032,
+      "end_ratio": 0.0094
     },
     {
       "id": "b-002",
       "tag": "p",
       "chunk_id": 3,
       "start_sec": 11.372,
-      "end_sec": 46.323,
-      "words": 93,
-      "weight": 93,
-      "text": "During the final weeks of pregnancy, a mother sits in a quiet chair every evening. She reads the same children’s story out loud, day after day. Less than three days after giving birth, her newborn lies in a hospital bassinet. Tiny foam headphones rest over the baby’s ears. The pacifier was wired to a sensor. By sucking faster or slower, the two-day-old baby could choose which recording played through the headphones. Within minutes, the newborn settles into the exact sucking rhythm needed to bring back that familiar story instead of a new one.",
-      "start_ratio": 0.0087,
-      "end_ratio": 0.0353
+      "end_sec": 45.399,
+      "words": 88,
+      "weight": 88,
+      "text": "During the final weeks of pregnancy, a mother sits in a quiet chair every evening and reads the same children’s story out loud. Less than three days after birth, her newborn lies in a hospital bassinet. Tiny foam headphones rest over the baby’s ears, and a sensor is wired to the pacifier. By sucking faster or slower, the two-day-old baby can choose which voice recording plays. Within minutes, the newborn settles into the exact sucking rhythm needed to bring back that familiar story instead of a new one.",
+      "spoken_text": "During the final weeks of pregnancy, a mother sits in a quiet chair every evening and reads the same children’s story out loud. Less than three days after birth, her newborn lies in a hospital bassinet. Tiny foam headphones rest over the baby’s ears, and a sensor is wired to the pacifier. By sucking faster or slower, the two-day-old baby can choose which voice recording plays. Within minutes, the newborn settles into the exact sucking rhythm needed to bring back that familiar story instead of a new one.",
+      "text_hash": "d9f886911e8bcaed",
+      "start_ratio": 0.0094,
+      "end_ratio": 0.0375
     },
     {
       "id": "b-003",
       "tag": "p",
       "chunk_id": 4,
-      "start_sec": 46.323,
-      "end_sec": 52.074,
+      "start_sec": 45.399,
+      "end_sec": 51.15,
       "words": 11,
       "weight": 11,
       "text": "At home, the scene looks completely ordinary. Biologically, it is remarkable.",
-      "start_ratio": 0.0353,
-      "end_ratio": 0.0397
+      "spoken_text": "At home, the scene looks completely ordinary. Biologically, it is remarkable.",
+      "text_hash": "b6021760a4d63ca2",
+      "start_ratio": 0.0375,
+      "end_ratio": 0.0423
     },
     {
       "id": "b-004",
       "tag": "p",
       "chunk_id": 5,
-      "start_sec": 52.074,
-      "end_sec": 87.705,
+      "start_sec": 51.15,
+      "end_sec": 86.781,
       "words": 95,
       "weight": 95,
       "text": "If the womb were a soundproof vault that sealed the baby off until birth, a newborn would have no way to favor one story over another. On the other hand, if the fetus were a tiny scholar memorizing words in the dark, that preference would prove that classroom learning starts before birth. Neither story holds up when tested. Experimental evidence suggests that hearing speech late in pregnancy shapes which vocal rhythms a newborn prefers. At the same time, low-certainty claims that womb tapes boost intelligence are associated with zero lasting cognitive gains or word comprehension.",
-      "start_ratio": 0.0397,
-      "end_ratio": 0.0668
+      "spoken_text": "If the womb were a soundproof vault that sealed the baby off until birth, a newborn would have no way to favor one story over another. On the other hand, if the fetus were a tiny scholar memorizing words in the dark, that preference would prove that classroom learning starts before birth. Neither story holds up when tested. Experimental evidence suggests that hearing speech late in pregnancy shapes which vocal rhythms a newborn prefers. At the same time, low-certainty claims that womb tapes boost intelligence are associated with zero lasting cognitive gains or word comprehension.",
+      "text_hash": "cd40cda99146151a",
+      "start_ratio": 0.0423,
+      "end_ratio": 0.0717
     },
     {
       "id": "b-005",
       "tag": "p",
       "chunk_id": 6,
-      "start_sec": 87.705,
-      "end_sec": 116.496,
+      "start_sec": 86.781,
+      "end_sec": 115.572,
       "words": 73,
       "weight": 73,
       "text": "That boundary sets the central question of this chapter. In Chapter 1, we saw that development starts before pregnancy and never follows a rigid script. Now we step inside the womb itself. Our question is much sharper than “does a fetus learn?” We want to know how pregnancy works as a physical system. How do sounds, nutrients, and chemicals cross its borders? And what kinds of promises can that first environment honestly support?",
-      "start_ratio": 0.0668,
-      "end_ratio": 0.0888
+      "spoken_text": "That boundary sets the central question of this chapter. In Chapter 1, we saw that development starts before pregnancy and never follows a rigid script. Now we step inside the womb itself. Our question is much sharper than “does a fetus learn?” We want to know how pregnancy works as a physical system. How do sounds, nutrients, and chemicals cross its borders? And what kinds of promises can that first environment honestly support?",
+      "text_hash": "69d9201938fe9803",
+      "start_ratio": 0.0717,
+      "end_ratio": 0.0955
     },
     {
       "id": "b-006",
       "tag": "h2",
       "chunk_id": 7,
-      "start_sec": 116.496,
-      "end_sec": 120.957,
+      "start_sec": 115.572,
+      "end_sec": 120.033,
       "words": 8,
       "weight": 10,
       "text": "I. The Familiar Cadence and the Mediated Passage",
-      "start_ratio": 0.0888,
-      "end_ratio": 0.0921
+      "spoken_text": "I. The Familiar Cadence and the Mediated Passage.",
+      "text_hash": "4b3636d7e442900d",
+      "start_ratio": 0.0955,
+      "end_ratio": 0.0992
     },
     {
       "id": "b-007",
       "tag": "p",
       "chunk_id": 8,
-      "start_sec": 120.957,
-      "end_sec": 147.228,
+      "start_sec": 120.033,
+      "end_sec": 146.304,
       "words": 67,
       "weight": 67,
       "text": "To understand why a newborn turns toward a familiar story, we have to drop two popular myths about pregnancy. The first myth is the open pipeline. It claims that everything a pregnant mother eats, breathes, hears, or feels pours straight into the baby unchanged. The second myth is the sealed vault. It claims that nothing important happens to behavior or the senses until the cord is cut.",
-      "start_ratio": 0.0921,
-      "end_ratio": 0.1122
+      "spoken_text": "To understand why a newborn turns toward a familiar story, we have to drop two popular myths about pregnancy. The first myth is the open pipeline. It claims that everything a pregnant mother eats, breathes, hears, or feels pours straight into the baby unchanged. The second myth is the sealed vault. It claims that nothing important happens to behavior or the senses until the cord is cut.",
+      "text_hash": "ef44de18a5d4fef2",
+      "start_ratio": 0.0992,
+      "end_ratio": 0.1209
     },
     {
       "id": "b-008",
       "tag": "p",
       "chunk_id": 9,
-      "start_sec": 147.228,
-      "end_sec": 177.539,
-      "words": 80,
-      "weight": 80,
-      "text": "What fetal biology shows instead is a step-by-step filter. Outside events act first on the mother’s body. Her body then interacts with the selective filter of the placenta and the thick wall of the uterus. The fetus receives a changed, softened signal. Finally, the growing body responds based on which tissues are actually being built that week. Written as a chain of cause and effect, the path is never simply world $ leads to $ baby. It looks like this:",
-      "start_ratio": 0.1122,
-      "end_ratio": 0.1353
+      "start_sec": 146.304,
+      "end_sec": 172.732,
+      "words": 73,
+      "weight": 73,
+      "text": "What fetal biology shows instead is a step-by-step filter. Outside events act first on the mother’s body, which then meets the selective filter of the placenta and the thick wall of the uterus. The fetus receives a changed, softened signal. Finally, the growing body responds based on which tissues are being built that week. Written as a chain of cause and effect, the path is never simply world $ leads to $ baby:",
+      "spoken_text": "What fetal biology shows instead is a step-by-step filter. Outside events act first on the mother’s body, which then meets the selective filter of the placenta and the thick wall of the uterus. The fetus receives a changed, softened signal. Finally, the growing body responds based on which tissues are being built that week. Written as a chain of cause and effect, the path is never simply world $ leads to $ baby:",
+      "text_hash": "2afc2d30145c59ce",
+      "start_ratio": 0.1209,
+      "end_ratio": 0.1427
     },
     {
       "id": "b-009",
       "tag": "p",
       "chunk_id": 10,
-      "start_sec": 177.539,
-      "end_sec": 190.93,
+      "start_sec": 172.732,
+      "end_sec": 186.123,
       "words": 21,
       "weight": 21,
       "text": "$$\\text{Outside World} leads to \\text{Mother’s Body} leads to \\text{Placental Filter} leads to \\text{Fetal Dose} leads to \\text{Timed Stage} leads to \\text{Outcome}$$",
-      "start_ratio": 0.1353,
-      "end_ratio": 0.1455
+      "spoken_text": "$$\\text{Outside World} leads to \\text{Mother’s Body} leads to \\text{Placental Filter} leads to \\text{Fetal Dose} leads to \\text{Timed Stage} leads to \\text{Outcome}$$.",
+      "text_hash": "11adcf8a6d230d07",
+      "start_ratio": 0.1427,
+      "end_ratio": 0.1538
     },
     {
       "id": "b-010",
       "tag": "p",
       "chunk_id": 11,
-      "start_sec": 190.93,
-      "end_sec": 219.161,
-      "words": 73,
-      "weight": 73,
-      "text": "At every arrow in that chain, signals are buffered, broken down, or blocked. Something a mother encounters in her day is not automatically a dose to the fetus. A brief jump in fetal heart rate is not automatically a brain injury. An early difference on an ultrasound is not a fixed childhood personality. And a statistical trend across ten thousand pregnancies is not a private fortune cookie for the baby in your arms.",
-      "start_ratio": 0.1455,
-      "end_ratio": 0.167
+      "start_sec": 186.123,
+      "end_sec": 214.55,
+      "words": 78,
+      "weight": 78,
+      "text": "At every arrow in that chain, tissues buffer, break down, or block the incoming signal. What a mother meets in her day never pours straight into the fetus as a raw dose. A brief jump in fetal heart rate never marks a brain injury, and an early spot on an ultrasound never locks in a childhood personality. Nor does a statistical trend across ten thousand pregnancies hand you a private fortune cookie for the baby in your arms.",
+      "spoken_text": "At every arrow in that chain, tissues buffer, break down, or block the incoming signal. What a mother meets in her day never pours straight into the fetus as a raw dose. A brief jump in fetal heart rate never marks a brain injury, and an early spot on an ultrasound never locks in a childhood personality. Nor does a statistical trend across ten thousand pregnancies hand you a private fortune cookie for the baby in your arms.",
+      "text_hash": "1c27ff4a3a58a356",
+      "start_ratio": 0.1538,
+      "end_ratio": 0.1773
     },
     {
       "id": "b-011",
       "tag": "p",
       "chunk_id": 12,
-      "start_sec": 219.161,
-      "end_sec": 273.032,
-      "words": 153,
-      "weight": 153,
-      "text": "The landmark experiment that first mapped the sensory side of this passage was led by Anthony DeCasper and Melanie Spence at the University of North Carolina at Greensboro in 1986. For generations, doctors assumed that newborns entered the world with blank senses. Fluid filled the middle ear before birth, and many believed the fetal brain could not organize sound patterns. DeCasper and Spence noticed that stomach tissues and amniotic fluid carry low-pitched vibrations well. They suspected that the rising and falling melody of a mother’s voice reached the inner ear during the final months of pregnancy. To test this without postnatal coaching, they recruited sixteen pregnant women during their final six weeks. Each woman read a rhythmic children’s story — such as Dr. Seuss’s The Cat in the Hat — out loud twice a day. By the time labor started, the babies had heard roughly three and a half hours of the story.",
-      "start_ratio": 0.167,
-      "end_ratio": 0.208
+      "start_sec": 214.55,
+      "end_sec": 261.497,
+      "words": 124,
+      "weight": 124,
+      "text": "In 1986, Anthony DeCasper and Melanie Spence led the landmark experiment that mapped the sensory side of this passage at the University of North Carolina at Greensboro. For generations, doctors assumed that newborns entered the world with blank senses because fluid filled the middle ear before birth. DeCasper and Spence noticed that stomach tissues and fluid carry low-pitched vibrations well, so they suspected the melody of a mother’s voice reached the inner ear late in pregnancy. To test this without coaching after birth, they recruited sixteen pregnant women during their final six weeks. Each woman read a rhythmic story—such as Dr. Seuss’s The Cat in the Hat—out loud twice a day until the babies had heard three and a half hours of the tale.",
+      "spoken_text": "In 1986, Anthony DeCasper and Melanie Spence led the landmark experiment that mapped the sensory side of this passage at the University of North Carolina at Greensboro. For generations, doctors assumed that newborns entered the world with blank senses because fluid filled the middle ear before birth. DeCasper and Spence noticed that stomach tissues and fluid carry low-pitched vibrations well, so they suspected the melody of a mother’s voice reached the inner ear late in pregnancy. To test this without coaching after birth, they recruited sixteen pregnant women during their final six weeks. Each woman read a rhythmic story—such as Dr. Seuss’s The Cat in the Hat—out loud twice a day until the babies had heard three and a half hours of the tale.",
+      "text_hash": "37df3df999273db8",
+      "start_ratio": 0.1773,
+      "end_ratio": 0.2161
     },
     {
       "id": "b-012",
       "tag": "p",
       "chunk_id": 13,
-      "start_sec": 273.032,
-      "end_sec": 359.302,
-      "words": 231,
-      "weight": 231,
-      "text": "Fifty-six hours after delivery, each newborn was brought into a quiet lab room. The pacifier was wired to a sensor. By sucking faster or slower, the two-day-old baby could choose which recording played through the headphones. Sucking in one burst pattern turned on a recording of the familiar story. Shifting to a different rhythm turned on a new story with a different beat. Across the group, newborns changed their sucking pace to hear the story from the womb. They even preferred that story when another woman read it, showing they recognized its rhythm. Within a few years, however, toy companies turned this careful experiment into a booming market of “womb universities.” Stores sold belly speaker belts, foreign-language tapes, and prenatal flashcards. They promised worried parents that playing music to a bump would create a higher IQ and early readers. Later brain-wave studies — including work by Eino Partanen and colleagues in 2013 — pinned down both the real biology and its strict limit. In the third trimester, hearing pathways really do tune themselves to the pitches and vowel lengths that pass through the belly wall. Yet this tuning is sound familiarity, not word learning. High-pitched consonant sounds are muffled by flesh and fluid. Only the slow musical beat of speech gets through. Even more important, the same parent keeps talking in that voice after birth, reinforcing the bond in open air.",
-      "start_ratio": 0.208,
-      "end_ratio": 0.2737
+      "start_sec": 261.497,
+      "end_sec": 292.045,
+      "words": 78,
+      "weight": 78,
+      "text": "Fifty-six hours after birth, each newborn entered a quiet lab room with a wired pacifier. Sucking in one burst pattern turned on the familiar story, while a different rhythm played a new story. Across the group, newborns shifted their sucking pace to hear the story from the womb, even when a stranger read it. Within a few years, however, toy companies twisted this careful experiment into a booming market of “womb universities” selling belly speakers and prenatal flashcards.",
+      "spoken_text": "Fifty-six hours after birth, each newborn entered a quiet lab room with a wired pacifier. Sucking in one burst pattern turned on the familiar story, while a different rhythm played a new story. Across the group, newborns shifted their sucking pace to hear the story from the womb, even when a stranger read it. Within a few years, however, toy companies twisted this careful experiment into a booming market of “womb universities” selling belly speakers and prenatal flashcards.",
+      "text_hash": "e53eca30cb106169",
+      "start_ratio": 0.2161,
+      "end_ratio": 0.2413
     },
     {
       "id": "b-013",
       "tag": "p",
       "chunk_id": 14,
-      "start_sec": 359.302,
-      "end_sec": 374.413,
-      "words": 47,
-      "weight": 47,
-      "text": "Modern science therefore strips away the sales pitch while keeping the wonder. Prenatal hearing did not evolve to give babies a head start on college entrance exams. It evolved to help a newborn recognize and turn toward the adults who will feed and protect them after birth.",
-      "start_ratio": 0.2737,
-      "end_ratio": 0.2852
+      "start_sec": 292.045,
+      "end_sec": 326.472,
+      "words": 83,
+      "weight": 83,
+      "text": "Later brain-wave studies—including work by Eino Partanen and colleagues in 2013—pinned down both the real biology and its strict limit. In the third trimester, hearing pathways tune themselves to the pitches and vowel lengths that pass through the belly wall, yet this tuning builds sound familiarity, not word learning. Flesh and fluid muffle crisp consonant sounds, so only the slow musical beat of speech gets through. After birth, the same parent keeps talking in that voice and anchors the bond in open air.",
+      "spoken_text": "Later brain-wave studies—including work by Eino Partanen and colleagues in 2013—pinned down both the real biology and its strict limit. In the third trimester, hearing pathways tune themselves to the pitches and vowel lengths that pass through the belly wall, yet this tuning builds sound familiarity, not word learning. Flesh and fluid muffle crisp consonant sounds, so only the slow musical beat of speech gets through. After birth, the same parent keeps talking in that voice and anchors the bond in open air.",
+      "text_hash": "5f69fa16efe80e46",
+      "start_ratio": 0.2413,
+      "end_ratio": 0.2698
     },
     {
       "id": "b-014",
-      "tag": "h2",
+      "tag": "p",
       "chunk_id": 15,
-      "start_sec": 374.413,
-      "end_sec": 380.794,
-      "words": 9,
-      "weight": 11,
-      "text": "II. The Selective Interface: Timing, Transport, and the Placenta",
-      "start_ratio": 0.2852,
-      "end_ratio": 0.2901
+      "start_sec": 326.472,
+      "end_sec": 341.583,
+      "words": 47,
+      "weight": 47,
+      "text": "Modern science therefore strips away the sales pitch while keeping the wonder. Prenatal hearing did not evolve to give babies a head start on college entrance exams. It evolved to help a newborn recognize and turn toward the adults who will feed and protect them after birth.",
+      "spoken_text": "Modern science therefore strips away the sales pitch while keeping the wonder. Prenatal hearing did not evolve to give babies a head start on college entrance exams. It evolved to help a newborn recognize and turn toward the adults who will feed and protect them after birth.",
+      "text_hash": "464f10befedd6aab",
+      "start_ratio": 0.2698,
+      "end_ratio": 0.2823
     },
     {
       "id": "b-015",
-      "tag": "p",
+      "tag": "h2",
       "chunk_id": 16,
-      "start_sec": 380.794,
-      "end_sec": 390.025,
-      "words": 22,
-      "weight": 22,
-      "text": "While muscle and fluid act as a sound filter for the ears, the placenta acts as the master chemical gatekeeper of pregnancy.",
-      "start_ratio": 0.2901,
-      "end_ratio": 0.2971
+      "start_sec": 341.583,
+      "end_sec": 347.964,
+      "words": 9,
+      "weight": 11,
+      "text": "II. The Selective Interface: Timing, Transport, and the Placenta",
+      "spoken_text": "II. The Selective Interface: Timing, Transport, and the Placenta.",
+      "text_hash": "19632b22d666d31a",
+      "start_ratio": 0.2823,
+      "end_ratio": 0.2875
     },
     {
       "id": "b-016",
       "tag": "p",
       "chunk_id": 17,
-      "start_sec": 390.025,
-      "end_sec": 449.336,
-      "words": 144,
-      "weight": 144,
-      "text": "Because the placenta is temporary and discarded after birth, popular parenting books barely mention it. During pregnancy, however, this single organ does the work of five adult systems at once. It trades oxygen for carbon dioxide like lungs and pulls in fuel like a gut. It makes hormones like a gland, negotiates with the immune system, and clears waste like a liver and kidneys. Calling it a “placental barrier” misses half the story. A brick wall only blocks things. The placenta actively chooses, pumps, changes, and buffers what crosses. Oxygen and carbon dioxide slip across along blood pressure gradients. Blood sugar rides specialized carrier proteins. Amino acids and minerals like iron and calcium are pumped across even when the mother’s own reserves run low. Late in pregnancy, the placenta also pulls across maternal antibodies so the newborn starts life with borrowed protection against infection.",
-      "start_ratio": 0.2971,
-      "end_ratio": 0.3423
+      "start_sec": 347.964,
+      "end_sec": 357.195,
+      "words": 22,
+      "weight": 22,
+      "text": "While muscle and fluid act as a sound filter for the ears, the placenta acts as the master chemical gatekeeper of pregnancy.",
+      "spoken_text": "While muscle and fluid act as a sound filter for the ears, the placenta acts as the master chemical gatekeeper of pregnancy.",
+      "text_hash": "2e60f748add9ce21",
+      "start_ratio": 0.2875,
+      "end_ratio": 0.2952
     },
     {
       "id": "b-017",
       "tag": "p",
       "chunk_id": 18,
-      "start_sec": 449.336,
-      "end_sec": 511.647,
-      "words": 155,
-      "weight": 155,
-      "text": "Because every transfer depends on molecular pumps, blood flow, and enzymes, saying “the mother was exposed” never tells the full story. As James Wilson showed in the founding rules of birth-defect science — and Eduard Ujházy and colleagues confirmed in modern reviews — outcomes depend on four things coming together. Those four factors are exact timing, chemical pathway, placental crossing, and actual dose. The tragedy of the drug thalidomide in the late 1950s proved this rule with heartbreaking clarity. A sleeping pill that caused almost no side effects in adults caused severe limb defects when taken between days twenty and thirty-six after conception. That narrow sixteen-day window was the exact moment when embryonic arm and leg buds were forming blood vessels and lengthening. Most everyday exposures look nothing like thalidomide. Still, the core rule holds across all of prenatal science: biological clocks belong to specific cell-building stages, not to pregnancy as one flat nine-month block.",
-      "start_ratio": 0.3423,
-      "end_ratio": 0.3898
+      "start_sec": 357.195,
+      "end_sec": 389.176,
+      "words": 77,
+      "weight": 77,
+      "text": "Because the placenta is discarded after birth, popular parenting books barely mention it. During pregnancy, however, this single organ does the work of five adult systems at once. It trades oxygen for carbon dioxide like lungs, pulls in fuel like a gut, makes hormones like a gland, and clears waste like kidneys. Calling it a “placental barrier” misses half the story, because a brick wall only blocks things while the placenta actively chooses and pumps what crosses.",
+      "spoken_text": "Because the placenta is discarded after birth, popular parenting books barely mention it. During pregnancy, however, this single organ does the work of five adult systems at once. It trades oxygen for carbon dioxide like lungs, pulls in fuel like a gut, makes hormones like a gland, and clears waste like kidneys. Calling it a “placental barrier” misses half the story, because a brick wall only blocks things while the placenta actively chooses and pumps what crosses.",
+      "text_hash": "d9cc7fe63a1da8ad",
+      "start_ratio": 0.2952,
+      "end_ratio": 0.3216
     },
     {
       "id": "b-018",
       "tag": "p",
       "chunk_id": 19,
-      "start_sec": 511.647,
-      "end_sec": 564.518,
-      "words": 147,
-      "weight": 147,
-      "text": "Consider how the placenta handles the mother’s own stress hormones. Building on the chemical shield we met in Chapter 1, studies by Jonathan Seckl and Megan Holmes show that a specialized placental enzyme disarms the vast majority of a mother’s active cortisol. It turns the active stress hormone into an inactive form before it can enter the baby’s blood. In lab mice bred without the gene for this enzyme — or in rare human genetic conditions where the enzyme fails — unbuffered stress hormones slow fetal growth and lower birthweight. Those rare medical cases prove that the chemical gate does real work every hour. At the same time, that exact gate explains why normal daily stress does not flood the baby. A healthy placenta absorbs ordinary ups and downs in a mother’s mood, refusing to let a bad Tuesday at work become a dose to the fetus.",
-      "start_ratio": 0.3898,
-      "end_ratio": 0.4301
+      "start_sec": 389.176,
+      "end_sec": 410.723,
+      "words": 49,
+      "weight": 49,
+      "text": "Oxygen slips across along blood pressure gradients, while blood sugar rides carrier proteins. Minerals like iron and calcium are pumped across even when the mother’s own reserves run low. Late in pregnancy, the placenta also pulls across maternal antibodies so the newborn starts life with borrowed protection against infection.",
+      "spoken_text": "Oxygen slips across along blood pressure gradients, while blood sugar rides carrier proteins. Minerals like iron and calcium are pumped across even when the mother’s own reserves run low. Late in pregnancy, the placenta also pulls across maternal antibodies so the newborn starts life with borrowed protection against infection.",
+      "text_hash": "cf6820a789301ebe",
+      "start_ratio": 0.3216,
+      "end_ratio": 0.3394
     },
     {
       "id": "b-019",
       "tag": "p",
       "chunk_id": 20,
-      "start_sec": 564.518,
-      "end_sec": 605.309,
-      "words": 101,
-      "weight": 101,
-      "text": "Fetal heart and blood vessel plumbing follows this same rule of temporary, stage-specific design. Because oxygen arrives through the umbilical cord rather than the lungs, fetal blood flow uses three temporary shortcuts. One shortcut bypasses the liver, and two bypass the fluid-filled lungs. Together, they steer the richest oxygen straight to the growing heart and brain. Those three shortcuts are marvels of plumbing that will close up in the hours and days after birth, a transition we will watch in Chapter 3. Nothing in that temporary blood routing writes a child’s future personality. It simply keeps a human body alive underwater.",
-      "start_ratio": 0.4301,
-      "end_ratio": 0.4611
+      "start_sec": 410.723,
+      "end_sec": 448.31,
+      "words": 87,
+      "weight": 87,
+      "text": "Because every transfer uses pumps, blood flow, and gate enzymes, saying “the mother was exposed” never tells the whole story. As James Wilson showed in the founding rules of birth-defect science—and Eduard Ujházy and colleagues confirmed in modern reviews—outcomes depend on exact timing, chemical pathway, placental crossing, and actual dose. The drug thalidomide in the late 1950s proved this rule with heartbreaking clarity. A sleeping pill that caused almost no side effects in adults caused severe limb defects when taken between days twenty and thirty-six after conception.",
+      "spoken_text": "Because every transfer uses pumps, blood flow, and gate enzymes, saying “the mother was exposed” never tells the whole story. As James Wilson showed in the founding rules of birth-defect science—and Eduard Ujházy and colleagues confirmed in modern reviews—outcomes depend on exact timing, chemical pathway, placental crossing, and actual dose. The drug thalidomide in the late 1950s proved this rule with heartbreaking clarity. A sleeping pill that caused almost no side effects in adults caused severe limb defects when taken between days twenty and thirty-six after conception.",
+      "text_hash": "13348c19ea381bd7",
+      "start_ratio": 0.3394,
+      "end_ratio": 0.3705
     },
     {
       "id": "b-020",
-      "tag": "h2",
+      "tag": "p",
       "chunk_id": 21,
-      "start_sec": 605.309,
-      "end_sec": 610.73,
-      "words": 8,
-      "weight": 10,
-      "text": "III. Unfinished Wiring, Present Physiology, and Construction Substrates",
-      "start_ratio": 0.4611,
-      "end_ratio": 0.4653
+      "start_sec": 448.31,
+      "end_sec": 470.978,
+      "words": 50,
+      "weight": 50,
+      "text": "That narrow sixteen-day window was the exact moment when embryonic arm and leg buds were forming blood vessels. Most everyday exposures look nothing like thalidomide. Still, the core rule holds across all of prenatal science: biological clocks belong to specific cell-building stages, not to pregnancy as one flat nine-month block.",
+      "spoken_text": "That narrow sixteen-day window was the exact moment when embryonic arm and leg buds were forming blood vessels. Most everyday exposures look nothing like thalidomide. Still, the core rule holds across all of prenatal science: biological clocks belong to specific cell-building stages, not to pregnancy as one flat nine-month block.",
+      "text_hash": "3c445dd22d1ae643",
+      "start_ratio": 0.3705,
+      "end_ratio": 0.3892
     },
     {
       "id": "b-021",
       "tag": "p",
       "chunk_id": 22,
-      "start_sec": 610.73,
-      "end_sec": 650.921,
-      "words": 96,
-      "weight": 96,
-      "text": "Behind the placental shield, the fetal brain builds itself in overlapping layers. As Irina Bystron, Colin Blakemore, and Pasko Rakic showed in their landmark brain-tissue studies, prenatal brain growth is far richer than a simple expanding tube. Beneath the permanent outer bark of the brain, the human fetus builds a thick temporary waiting zone. Incoming nerve fibers from deeper brain centers pause in this zone, form temporary test circuits, and organize body maps. Later in the third trimester and early infancy, those nerve fibers move into their permanent six-layered home as the temporary waiting zone dissolves.",
-      "start_ratio": 0.4653,
-      "end_ratio": 0.4959
+      "start_sec": 470.978,
+      "end_sec": 513.085,
+      "words": 109,
+      "weight": 109,
+      "text": "Consider how the placenta handles daily stress versus severe illness. Building on the shield we met in Chapter 1, studies by Jonathan Seckl and Megan Holmes show why that barrier enzyme disarms routine stress spikes while staying sensitive to major illness. In lab mice bred without the gene for this enzyme — or in rare human cases where it fails — unbuffered stress hormones slow growth and lower birthweight. Those rare cases prove that the chemical gate does active work every hour. A healthy placenta absorbs normal ups and downs in a mother’s work day. It refuses to let a stressful Tuesday become a chemical dose to the baby.",
+      "spoken_text": "Consider how the placenta handles daily stress versus severe illness. Building on the shield we met in Chapter 1, studies by Jonathan Seckl and Megan Holmes show why that barrier enzyme disarms routine stress spikes while staying sensitive to major illness. In lab mice bred without the gene for this enzyme — or in rare human cases where it fails — unbuffered stress hormones slow growth and lower birthweight. Those rare cases prove that the chemical gate does active work every hour. A healthy placenta absorbs normal ups and downs in a mother’s work day. It refuses to let a stressful Tuesday become a chemical dose to the baby.",
+      "text_hash": "27bec883233d22c6",
+      "start_ratio": 0.3892,
+      "end_ratio": 0.424
     },
     {
       "id": "b-022",
       "tag": "p",
       "chunk_id": 23,
-      "start_sec": 650.921,
-      "end_sec": 696.032,
-      "words": 119,
-      "weight": 119,
-      "text": "This building sequence shows with high certainty that a newborn’s brain is neither a blank slate nor a finished statue. When severe medical crises strike — such as placenta failure or a major viral infection in the womb — they can disrupt how cells travel and wire up. Those serious illnesses require real medical care. Yet in an ordinary pregnancy, the fact that nerve cells are actively branching and connecting gives zero license to treat an ultrasound picture as a forecast of adult IQ. Mixing up cell layering, brain wiring, school skills, and emotional health into one vague “brain development” claim confuses the steel beams of a building with the conversations people will have inside it thirty years later.",
-      "start_ratio": 0.4959,
-      "end_ratio": 0.5303
+      "start_sec": 513.085,
+      "end_sec": 550.433,
+      "words": 95,
+      "weight": 95,
+      "text": "Fetal heart and blood vessel plumbing follows this same rule of temporary, stage-specific design. Because oxygen arrives through the cord rather than the lungs, fetal blood flow uses three temporary shortcuts. One skips the liver and two skip the fluid-filled lungs, steering the richest oxygen straight to the growing heart and brain. Those three shortcuts are marvels of plumbing that close up in the hours and days after birth, as we will see in Chapter 3. Nothing in that temporary blood routing writes a child’s future character; it simply keeps a human body alive underwater.",
+      "spoken_text": "Fetal heart and blood vessel plumbing follows this same rule of temporary, stage-specific design. Because oxygen arrives through the cord rather than the lungs, fetal blood flow uses three temporary shortcuts. One skips the liver and two skip the fluid-filled lungs, steering the richest oxygen straight to the growing heart and brain. Those three shortcuts are marvels of plumbing that close up in the hours and days after birth, as we will see in Chapter 3. Nothing in that temporary blood routing writes a child’s future character; it simply keeps a human body alive underwater.",
+      "text_hash": "4737d82a4c322795",
+      "start_ratio": 0.424,
+      "end_ratio": 0.4549
     },
     {
       "id": "b-023",
-      "tag": "p",
+      "tag": "h2",
       "chunk_id": 24,
-      "start_sec": 696.032,
-      "end_sec": 761.063,
-      "words": 182,
-      "weight": 182,
-      "text": "As these nerve pathways connect during the second half of pregnancy, the fetus begins regulating its own body in the present tense. Janet DiPietro and her colleagues tracked hundreds of mothers and fetuses across pregnancy using heart and motion monitors. They found that as weeks pass, the baby’s resting heart rate slowly drops while natural heart-rate variability rises. Whenever the fetus kicks or rolls, the heart speeds up in tight sync, with a clear jump in coordination around week thirty. These patterns suggest a reliable measure of how the fetal nervous system is maturing right now. Doctors use them to watch over babies whose growth has slowed inside the womb. What they do not offer is a crystal ball for childhood personality. Low-certainty attempts to predict whether a child will be shy or bold from how hard they kick at seven months fail because the nervous system reorganizes completely after birth. A quiet fetus on a Tuesday afternoon is not destined to be a timid seven-year-old. Fetal heartbeats tell us how the baby is doing today, not who the adult will be.",
-      "start_ratio": 0.5303,
-      "end_ratio": 0.5798
+      "start_sec": 550.433,
+      "end_sec": 555.854,
+      "words": 8,
+      "weight": 10,
+      "text": "III. Unfinished Wiring, Present Physiology, and Construction Substrates",
+      "spoken_text": "III. Unfinished Wiring, Present Physiology, and Construction Substrates.",
+      "text_hash": "f710d8497beb5d26",
+      "start_ratio": 0.4549,
+      "end_ratio": 0.4593
     },
     {
       "id": "b-024",
       "tag": "p",
       "chunk_id": 25,
-      "start_sec": 761.063,
-      "end_sec": 845.974,
-      "words": 214,
-      "weight": 214,
-      "text": "Building this brain and body requires specific raw materials delivered on time. In Chapter 1, we saw how taking folic acid before and early in pregnancy supplies the building blocks needed to close the neural tube in week four. That simple pill cuts spinal defects by more than two-thirds in randomized trials (RR 0.31), though taking extra does not raise IQ. A second nutritional clock runs during the late first and second trimesters: iodine and maternal thyroid hormone. As Gabriella Morreale de Escobar and Michael Zimmermann showed across clinical studies, the fetus cannot make enough of its own thyroid hormone until roughly halfway through pregnancy. During the first twenty weeks, moving brain cells into their proper layers depends completely on thyroid hormone crossing from the mother. Because the mother needs dietary iodine to make that hormone, severe iodine deficiency early in pregnancy shows a high-certainty causal link to permanent brain injury that late supplements cannot undo. Yet just as with folate, the boundary is clear. In regions where iodized salt and normal diets already supply enough iodine, small day-to-day diet differences are associated with almost zero effect. Taking high-dose thyroid or iodine pills above normal needs will not build a smarter baby. Nutrients prevent specific shortages. They are lumber and nails, not personality blueprints.",
-      "start_ratio": 0.5798,
-      "end_ratio": 0.6445
+      "start_sec": 555.854,
+      "end_sec": 591.641,
+      "words": 93,
+      "weight": 93,
+      "text": "Behind the placental shield, the fetal brain builds itself in overlapping layers. As Irina Bystron, Colin Blakemore, and Pasko Rakic showed in their landmark brain-tissue studies, prenatal brain growth is far richer than a simple expanding tube. Beneath the outer bark of the brain, the human fetus builds a thick temporary waiting zone. Incoming nerve fibers from deeper brain centers pause in this zone, form test circuits, and set up body maps. Later in the third trimester and early infancy, those nerve fibers move into their six-layered home as the waiting zone dissolves.",
+      "spoken_text": "Behind the placental shield, the fetal brain builds itself in overlapping layers. As Irina Bystron, Colin Blakemore, and Pasko Rakic showed in their landmark brain-tissue studies, prenatal brain growth is far richer than a simple expanding tube. Beneath the outer bark of the brain, the human fetus builds a thick temporary waiting zone. Incoming nerve fibers from deeper brain centers pause in this zone, form test circuits, and set up body maps. Later in the third trimester and early infancy, those nerve fibers move into their six-layered home as the waiting zone dissolves.",
+      "text_hash": "c09f1c59bdb495d4",
+      "start_ratio": 0.4593,
+      "end_ratio": 0.4889
     },
     {
       "id": "b-025",
-      "tag": "h2",
+      "tag": "p",
       "chunk_id": 26,
-      "start_sec": 845.974,
-      "end_sec": 851.915,
-      "words": 9,
-      "weight": 11,
-      "text": "IV. Teratogens, Confounded Stress, and the Discipline of Dose",
-      "start_ratio": 0.6445,
-      "end_ratio": 0.649
+      "start_sec": 591.641,
+      "end_sec": 640.389,
+      "words": 118,
+      "weight": 118,
+      "text": "This building sequence shows with high certainty that a newborn’s brain is neither a blank slate nor a finished statue. When severe medical crises strike — such as placenta failure or a major viral infection in the womb — they can disrupt how cells travel and wire up. Those serious illnesses need real medical care. Yet in an ordinary pregnancy, the fact that nerve cells are branching and linking gives zero license to treat an ultrasound scan as a forecast of adult IQ. Mixing up cell layering, brain wiring, school skills, and emotional health into one vague “brain growth” claim confuses the steel beams of a building with the talks people will have inside it thirty years later.",
+      "spoken_text": "This building sequence shows with high certainty that a newborn’s brain is neither a blank slate nor a finished statue. When severe medical crises strike — such as placenta failure or a major viral infection in the womb — they can disrupt how cells travel and wire up. Those serious illnesses need real medical care. Yet in an ordinary pregnancy, the fact that nerve cells are branching and linking gives zero license to treat an ultrasound scan as a forecast of adult IQ. Mixing up cell layering, brain wiring, school skills, and emotional health into one vague “brain growth” claim confuses the steel beams of a building with the talks people will have inside it thirty years later.",
+      "text_hash": "99d4d3de8bc038f9",
+      "start_ratio": 0.4889,
+      "end_ratio": 0.5292
     },
     {
       "id": "b-026",
       "tag": "p",
       "chunk_id": 27,
-      "start_sec": 851.915,
-      "end_sec": 860.586,
-      "words": 20,
-      "weight": 20,
-      "text": "When we turn from helpful nutrients to harmful exposures, our job is to separate real chemical hazards from statistical mirages.",
-      "start_ratio": 0.649,
-      "end_ratio": 0.6556
+      "start_sec": 640.389,
+      "end_sec": 668.576,
+      "words": 71,
+      "weight": 71,
+      "text": "As these nerve pathways connect during the second half of pregnancy, the fetus begins guiding its own body in the present tense. Janet DiPietro and her team tracked hundreds of mothers and babies across pregnancy using heart and motion monitors. As weeks pass, the baby’s resting heart rate slowly drops while natural heart-rate swings rise. Whenever the fetus kicks or rolls, the heart speeds up in tight sync around week thirty.",
+      "spoken_text": "As these nerve pathways connect during the second half of pregnancy, the fetus begins guiding its own body in the present tense. Janet DiPietro and her team tracked hundreds of mothers and babies across pregnancy using heart and motion monitors. As weeks pass, the baby’s resting heart rate slowly drops while natural heart-rate swings rise. Whenever the fetus kicks or rolls, the heart speeds up in tight sync around week thirty.",
+      "text_hash": "4950c0f887518da7",
+      "start_ratio": 0.5292,
+      "end_ratio": 0.5525
     },
     {
       "id": "b-027",
       "tag": "p",
       "chunk_id": 28,
-      "start_sec": 860.586,
-      "end_sec": 914.497,
-      "words": 151,
-      "weight": 151,
-      "text": "Look again at the contrast between popular panics over maternal worry and the results of sibling and twin studies. Simple surveys often report that pregnant women who feel more stressed or anxious have babies who weigh slightly less or show more behavior struggles years later. Yet as we saw in Chapter 1, those simple correlations shrink by more than half when researchers compare siblings or families created through donor eggs. Much of what looked like “stress in the womb” turns out to reflect shared family genes and the ongoing stress of life after the baby arrives. Severe trauma, war, and deep poverty deserve urgent medical and financial support. Ordinary daily worry, however, is buffered by the placenta and heavily tangled up with background factors in observational studies. Caring for an anxious pregnant mother matters because she is a person who deserves support, not because a stressful week ruins her baby’s brain.",
-      "start_ratio": 0.6556,
-      "end_ratio": 0.6967
+      "start_sec": 668.576,
+      "end_sec": 703.243,
+      "words": 87,
+      "weight": 87,
+      "text": "These patterns suggest a steady measure of how the baby’s nervous system matures right now, helping doctors watch over babies whose growth has slowed inside the womb. They never hand us a crystal ball for childhood nature. Low-certainty attempts to predict whether a child will grow shy or bold from seven-month kicks fail because the nervous system rewires after birth. A quiet baby on a Tuesday afternoon need never become a shy seven-year-old. Fetal heartbeats track how the baby fares today, not who the adult will become.",
+      "spoken_text": "These patterns suggest a steady measure of how the baby’s nervous system matures right now, helping doctors watch over babies whose growth has slowed inside the womb. They never hand us a crystal ball for childhood nature. Low-certainty attempts to predict whether a child will grow shy or bold from seven-month kicks fail because the nervous system rewires after birth. A quiet baby on a Tuesday afternoon need never become a shy seven-year-old. Fetal heartbeats track how the baby fares today, not who the adult will become.",
+      "text_hash": "5a980bbb6c4e798e",
+      "start_ratio": 0.5525,
+      "end_ratio": 0.5811
     },
     {
       "id": "b-028",
       "tag": "p",
       "chunk_id": 29,
-      "start_sec": 914.497,
-      "end_sec": 978.008,
-      "words": 162,
-      "weight": 162,
-      "text": "True chemical hazards behave very differently when scientists test them. They follow clear molecular paths, do more harm at higher doses, and leave recognizable medical patterns even after accounting for family background. Heavy or binge drinking during pregnancy shows a high-certainty causal role in producing Fetal Alcohol Spectrum Disorders (FASD). Formalized by H. Eugene Hoyme and colleagues, this diagnosis covers slowed body growth, distinct facial features, and lasting damage to brain structure and self-control. Alcohol and its breakdown products cross the placenta freely. Unlike stress hormones, they meet no protective enzyme wall at the border. In large doses, alcohol disrupts how cells stick together, travel, and burn energy while organs and brain pathways are forming. Even here, however, honesty requires precision. FASD is a clinical diagnosis based on heavy exposure and clear physical or neurological signs. It is not a casual label to pin on any restless eight-year-old whose mother had half a glass of wine before her pregnancy test turned positive.",
-      "start_ratio": 0.6967,
-      "end_ratio": 0.7451
+      "start_sec": 703.243,
+      "end_sec": 744.264,
+      "words": 103,
+      "weight": 103,
+      "text": "Building this brain and body takes specific raw materials delivered on time. In Chapter 1, we saw how folic acid before and early in pregnancy supplies the blocks needed to close the neural tube in week four. That simple pill cuts spinal defects by more than two-thirds in randomized trials (RR 0.31), though taking extra does not raise IQ. A second food clock runs during the late first and second trimesters: iodine and maternal thyroid hormone. As Gabriella Morreale de Escobar and Michael Zimmermann showed across clinical studies, the fetus cannot make enough of its own thyroid hormone until roughly halfway through pregnancy.",
+      "spoken_text": "Building this brain and body takes specific raw materials delivered on time. In Chapter 1, we saw how folic acid before and early in pregnancy supplies the blocks needed to close the neural tube in week four. That simple pill cuts spinal defects by more than two-thirds in randomized trials (RR 0.31), though taking extra does not raise IQ. A second food clock runs during the late first and second trimesters: iodine and maternal thyroid hormone. As Gabriella Morreale de Escobar and Michael Zimmermann showed across clinical studies, the fetus cannot make enough of its own thyroid hormone until roughly halfway through pregnancy.",
+      "text_hash": "453543e1e0ba9630",
+      "start_ratio": 0.5811,
+      "end_ratio": 0.615
     },
     {
       "id": "b-029",
       "tag": "p",
       "chunk_id": 30,
-      "start_sec": 978.008,
-      "end_sec": 1025.479,
-      "words": 110,
-      "weight": 110,
-      "text": "Cigarette smoking during pregnancy shows a second clear dose-response pattern. In Michael Kramer’s landmark synthesis of birthweight studies and later sibling comparisons, active maternal smoking suggests a direct, dose-dependent drop in birthweight alongside a higher risk of early delivery. Carbon monoxide in smoke binds to fetal blood and starves tissues of oxygen, while nicotine squeezes placental blood vessels narrower. Helping a pregnant parent quit smoking is therefore one of the most effective steps in prenatal care. Quitting mid-pregnancy restores normal fetal weight gain within weeks. By contrast, claims that prenatal smoke exposure permanently fixes a child’s school grades or IQ fail once researchers compare siblings raised in the same home.",
-      "start_ratio": 0.7451,
-      "end_ratio": 0.7812
+      "start_sec": 744.264,
+      "end_sec": 787.171,
+      "words": 100,
+      "weight": 100,
+      "text": "During the first twenty weeks, moving brain cells into their proper layers depends completely on thyroid hormone crossing from the mother. Because the mother needs iodine in her food to make that hormone, severe iodine shortage early in pregnancy shows a high-certainty causal link to lasting brain harm that late pills cannot undo. Where iodized salt and normal diets already supply enough iodine, small day-to-day diet differences are associated with almost zero effect. Taking high-dose thyroid or iodine pills above normal needs will not build a smarter baby. Nutrients stop specific shortages; they are lumber and nails, not personality blueprints.",
+      "spoken_text": "During the first twenty weeks, moving brain cells into their proper layers depends completely on thyroid hormone crossing from the mother. Because the mother needs iodine in her food to make that hormone, severe iodine shortage early in pregnancy shows a high-certainty causal link to lasting brain harm that late pills cannot undo. Where iodized salt and normal diets already supply enough iodine, small day-to-day diet differences are associated with almost zero effect. Taking high-dose thyroid or iodine pills above normal needs will not build a smarter baby. Nutrients stop specific shortages; they are lumber and nails, not personality blueprints.",
+      "text_hash": "b1aeaae1a9622fae",
+      "start_ratio": 0.615,
+      "end_ratio": 0.6505
     },
     {
       "id": "b-030",
-      "tag": "p",
+      "tag": "h2",
       "chunk_id": 31,
-      "start_sec": 1025.479,
-      "end_sec": 1078.39,
-      "words": 135,
-      "weight": 135,
-      "text": "What about the trace plastics, fragrance chemicals, and air pollutants found in modern homes? Detailed tracking studies — such as the French SEPAGES cohort led by Claire Philippat — have measured breakdown products of plastics like phthalates and bisphenols in urine across pregnancy. They find that certain chemical mixtures are associated with small shifts in placental weight or hormone levels. At the population level, these findings give governments strong reasons to tighten factory safety laws. At the kitchen table, however, low-certainty links from tiny everyday exposures do not prove permanent harm to an individual baby. Nor do they justify turning pregnancy into a frantic full-time job of throwing out every plastic container in the house. When everyday consumer chemicals pose a shared risk, the right fix is stricter public safety law, not private maternal guilt.",
-      "start_ratio": 0.7812,
-      "end_ratio": 0.8216
+      "start_sec": 787.171,
+      "end_sec": 793.112,
+      "words": 9,
+      "weight": 11,
+      "text": "IV. Teratogens, Confounded Stress, and the Discipline of Dose",
+      "spoken_text": "IV. Teratogens, Confounded Stress, and the Discipline of Dose.",
+      "text_hash": "150b336b188e47ad",
+      "start_ratio": 0.6505,
+      "end_ratio": 0.6554
     },
     {
       "id": "b-031",
-      "tag": "h2",
+      "tag": "p",
       "chunk_id": 32,
-      "start_sec": 1078.39,
-      "end_sec": 1083.371,
-      "words": 10,
-      "weight": 12,
-      "text": "V. The Measure of Growth and the Horizon of Birth",
-      "start_ratio": 0.8216,
-      "end_ratio": 0.8254
+      "start_sec": 793.112,
+      "end_sec": 802.34,
+      "words": 20,
+      "weight": 20,
+      "text": "When we turn from helpful foods to harmful exposures, our job is to separate real chemical hazards from statistical mirages.",
+      "spoken_text": "When we turn from helpful foods to harmful exposures, our job is to separate real chemical hazards from statistical mirages.",
+      "text_hash": "e86e71a9776e8af6",
+      "start_ratio": 0.6554,
+      "end_ratio": 0.663
     },
     {
       "id": "b-032",
       "tag": "p",
       "chunk_id": 33,
-      "start_sec": 1083.371,
-      "end_sec": 1096.482,
-      "words": 33,
-      "weight": 33,
-      "text": "As the due date approaches, all of these biological streams — placental pumping, nutrition, blood flow, and genetics — come together in the number parents hear most often at checkups: estimated weight percentile.",
-      "start_ratio": 0.8254,
-      "end_ratio": 0.8353
+      "start_sec": 802.34,
+      "end_sec": 840.967,
+      "words": 98,
+      "weight": 98,
+      "text": "Look again at the contrast between popular panics over maternal worry and the results of sibling and twin studies. Simple surveys often report that stressed pregnant women have babies who weigh slightly less or show more behavior struggles years later. Yet those simple links shrink by more than half when researchers compare siblings or donor-egg families. Much of what looked like “stress in the womb” reflects shared family genes and life after the baby arrives. Severe trauma and deep poverty deserve urgent support, while the placenta buffers daily worry. A worried mother deserves care for her own sake.",
+      "spoken_text": "Look again at the contrast between popular panics over maternal worry and the results of sibling and twin studies. Simple surveys often report that stressed pregnant women have babies who weigh slightly less or show more behavior struggles years later. Yet those simple links shrink by more than half when researchers compare siblings or donor-egg families. Much of what looked like “stress in the womb” reflects shared family genes and life after the baby arrives. Severe trauma and deep poverty deserve urgent support, while the placenta buffers daily worry. A worried mother deserves care for her own sake.",
+      "text_hash": "293610ab34294e3c",
+      "start_ratio": 0.663,
+      "end_ratio": 0.695
     },
     {
       "id": "b-033",
       "tag": "p",
       "chunk_id": 34,
-      "start_sec": 1096.482,
-      "end_sec": 1142.633,
-      "words": 106,
-      "weight": 106,
-      "text": "For decades, doctors judged fetal size against local hospital charts. Those local charts quietly baked regional poverty, poor nutrition, and smoking rates into the definition of “normal.” To find out how human babies grow when mothers have good food, clean water, and solid medical care, Aris Papageorghiou and the international INTERGROWTH-21st team tracked healthy pregnancies across eight countries on five continents. They discovered that when health barriers are removed, fetal bone length and head growth follow nearly identical curves around the globe. These international standards suggest a reliable tool for spotting real growth slowdowns caused by a failing placenta, helping doctors step in safely before delivery.",
-      "start_ratio": 0.8353,
-      "end_ratio": 0.8705
+      "start_sec": 840.967,
+      "end_sec": 869.555,
+      "words": 64,
+      "weight": 64,
+      "text": "True chemical hazards act very differently when scientists test them, doing more harm at higher doses even after accounting for family background. Heavy or binge drinking during pregnancy shows a high-certainty causal role in Fetal Alcohol Spectrum Disorders (FASD). Set out by H. Eugene Hoyme and colleagues, this diagnosis covers slowed body growth, distinct facial features, and lasting harm to brain structure and self-control.",
+      "spoken_text": "True chemical hazards act very differently when scientists test them, doing more harm at higher doses even after accounting for family background. Heavy or binge drinking during pregnancy shows a high-certainty causal role in Fetal Alcohol Spectrum Disorders (FASD). Set out by H. Eugene Hoyme and colleagues, this diagnosis covers slowed body growth, distinct facial features, and lasting harm to brain structure and self-control.",
+      "text_hash": "45e752c2fd60a8dc",
+      "start_ratio": 0.695,
+      "end_ratio": 0.7186
     },
     {
       "id": "b-034",
       "tag": "p",
       "chunk_id": 35,
-      "start_sec": 1142.633,
-      "end_sec": 1177.944,
-      "words": 87,
-      "weight": 87,
-      "text": "Still, a growth chart is a safety gauge for the delivery team, not a report card on the child’s future. Outside of severe medical growth restriction, being at the twentieth percentile or the eightieth percentile mostly reflects family height, normal genetic variety, and small errors in due-date math. High-certainty long-term studies show that birthweight within the healthy range does not dictate a child’s intelligence, kindness, or success in school. Small newborns routinely catch up over the first year, and big newborns settle onto their own family curves.",
-      "start_ratio": 0.8705,
-      "end_ratio": 0.8974
+      "start_sec": 869.555,
+      "end_sec": 900.582,
+      "words": 71,
+      "weight": 71,
+      "text": "Alcohol crosses the placenta freely and meets no protective enzyme wall at the border, disrupting how cells stick together, travel, and burn fuel while organs form. Even here, honesty requires care. FASD is a clinical diagnosis based on heavy drinking and clear physical or brain signs. It is never a casual label to pin on a restless eight-year-old whose mother had half a glass of wine before her test turned positive.",
+      "spoken_text": "Alcohol crosses the placenta freely and meets no protective enzyme wall at the border, disrupting how cells stick together, travel, and burn fuel while organs form. Even here, honesty requires care. FASD is a clinical diagnosis based on heavy drinking and clear physical or brain signs. It is never a casual label to pin on a restless eight-year-old whose mother had half a glass of wine before her test turned positive.",
+      "text_hash": "044b994c2aab570a",
+      "start_ratio": 0.7186,
+      "end_ratio": 0.7442
     },
     {
       "id": "b-035",
       "tag": "p",
       "chunk_id": 36,
-      "start_sec": 1177.944,
-      "end_sec": 1226.615,
-      "words": 128,
-      "weight": 128,
-      "text": "Here, at the edge of birth, our three lenses lock together. The science of the first environment maps timed cell-building stages, active placental filtering, temporary brain scaffolding, present-day heartbeat control, and real dose limits for nutrition, alcohol, and smoke. The interpretation of that science refuses to turn an ultrasound measurement or a stressful month into a lifelong sentence, matching our claims strictly to what hard tests can prove. And the art of living through pregnancy lies in rescuing everyday life from the pressure to optimize every breath. Reading a poem out loud at night, eating a good meal, resting swollen feet, and leaning on family or friends are good ways to live with a baby who is almost here. They are part of a relationship, not an exam.",
-      "start_ratio": 0.8974,
-      "end_ratio": 0.9345
+      "start_sec": 900.582,
+      "end_sec": 941.289,
+      "words": 103,
+      "weight": 103,
+      "text": "Smoking during pregnancy shows a second clear dose pattern. In Michael Kramer’s landmark review of birthweight studies and later sibling tests, active smoking suggests a direct drop in birthweight alongside a higher risk of early birth. Carbon monoxide in smoke binds to fetal blood and starves tissues of oxygen, while nicotine squeezes placental blood vessels narrower. Helping a parent quit smoking is one of the best steps in prenatal care, and quitting mid-pregnancy restores normal weight gain within weeks. By contrast, claims that prenatal smoke locks in a child’s school grades or IQ fail once researchers compare siblings raised in the same home.",
+      "spoken_text": "Smoking during pregnancy shows a second clear dose pattern. In Michael Kramer’s landmark review of birthweight studies and later sibling tests, active smoking suggests a direct drop in birthweight alongside a higher risk of early birth. Carbon monoxide in smoke binds to fetal blood and starves tissues of oxygen, while nicotine squeezes placental blood vessels narrower. Helping a parent quit smoking is one of the best steps in prenatal care, and quitting mid-pregnancy restores normal weight gain within weeks. By contrast, claims that prenatal smoke locks in a child’s school grades or IQ fail once researchers compare siblings raised in the same home.",
+      "text_hash": "db978ce8c93e18fa",
+      "start_ratio": 0.7442,
+      "end_ratio": 0.7779
     },
     {
       "id": "b-036",
       "tag": "p",
       "chunk_id": 37,
-      "start_sec": 1226.615,
-      "end_sec": 1253.045,
-      "words": 80,
-      "weight": 80,
-      "text": "What this chapter does not explain is how the baby’s body rewires its heart and lungs in the seconds after the cord is cut. That dramatic physical crossing belongs to Chapter 3. Nor does it explain how human arms, milk, and bedtime routines take over the job of keeping a baby calm and warm across the first year, which we will explore in Chapter 4. Life in the womb builds the stage for birth, but it never writes the play.",
-      "start_ratio": 0.9345,
-      "end_ratio": 0.9546
+      "start_sec": 941.289,
+      "end_sec": 983.237,
+      "words": 95,
+      "weight": 95,
+      "text": "What about the trace plastics, scents, and air smoke found in modern homes? Tracking studies—such as the French SEPAGES cohort led by Claire Philippat—measured breakdown bits of plastics like phthalates and bisphenols in urine across pregnancy. Certain mixtures are associated with small shifts in placental weight or hormone levels. Across whole cities, these findings give lawmakers strong reasons to tighten factory rules. At home, however, low-certainty links from tiny exposures do not prove lasting harm to your baby or require tossing out every plastic bowl. Shared risks call for public safety laws, not private guilt.",
+      "spoken_text": "What about the trace plastics, scents, and air smoke found in modern homes? Tracking studies—such as the French SEPAGES cohort led by Claire Philippat—measured breakdown bits of plastics like phthalates and bisphenols in urine across pregnancy. Certain mixtures are associated with small shifts in placental weight or hormone levels. Across whole cities, these findings give lawmakers strong reasons to tighten factory rules. At home, however, low-certainty links from tiny exposures do not prove lasting harm to your baby or require tossing out every plastic bowl. Shared risks call for public safety laws, not private guilt.",
+      "text_hash": "e002d876ae2ad8e7",
+      "start_ratio": 0.7779,
+      "end_ratio": 0.8125
     },
     {
       "id": "b-037",
-      "tag": "p",
+      "tag": "h2",
       "chunk_id": 38,
-      "start_sec": 1253.045,
-      "end_sec": 1263.356,
-      "words": 29,
-      "weight": 29,
-      "text": "Look back one more time at the two-day-old newborn in the hospital bassinet, sucking on a wired pacifier to hear the story her mother read before she was born.",
-      "start_ratio": 0.9546,
-      "end_ratio": 0.9625
+      "start_sec": 983.237,
+      "end_sec": 988.218,
+      "words": 10,
+      "weight": 12,
+      "text": "V. The Measure of Growth and the Horizon of Birth",
+      "spoken_text": "V. The Measure of Growth and the Horizon of Birth.",
+      "text_hash": "70d332a448fd1e91",
+      "start_ratio": 0.8125,
+      "end_ratio": 0.8166
     },
     {
       "id": "b-038",
       "tag": "p",
       "chunk_id": 39,
-      "start_sec": 1263.356,
-      "end_sec": 1292.987,
-      "words": 84,
-      "weight": 84,
-      "text": "The baby has not changed because we have traced how the placenta and the fetal brain work. Our way of seeing her has changed. She has come into the room neither from a soundproof vault nor from a prenatal university, but from a sheltered, step-by-step biological passage. Her brain is still moving nerve fibers from its temporary waiting zone into permanent layers. Her heart is adjusting to air. And her ears are already tuned to the voices of the people who waited for her.",
-      "start_ratio": 0.9625,
-      "end_ratio": 0.985
+      "start_sec": 988.218,
+      "end_sec": 1001.329,
+      "words": 33,
+      "weight": 33,
+      "text": "As the due date approaches, all of these biological streams — placental pumping, nutrition, blood flow, and genetics — come together in the number parents hear most often at checkups: estimated weight percentile.",
+      "spoken_text": "As the due date approaches, all of these biological streams — placental pumping, nutrition, blood flow, and genetics — come together in the number parents hear most often at checkups: estimated weight percentile.",
+      "text_hash": "9d729397697ce338",
+      "start_ratio": 0.8166,
+      "end_ratio": 0.8275
     },
     {
       "id": "b-039",
       "tag": "p",
       "chunk_id": 40,
-      "start_sec": 1292.987,
-      "end_sec": 1312.618,
+      "start_sec": 1001.329,
+      "end_sec": 1040.116,
+      "words": 95,
+      "weight": 95,
+      "text": "For decades, doctors judged fetal size against local hospital charts. Those charts quietly baked local poverty, poor food, and smoking rates into the meaning of “normal.” To see how babies grow when mothers have good food, clean water, and solid care, Aris Papageorghiou and the INTERGROWTH-21st team tracked healthy pregnancies across eight countries. When health barriers are removed, fetal bone length and head growth follow nearly identical curves around the world. These global charts suggest a reliable tool for spotting real growth slowdowns from a failing placenta so doctors can step in safely before birth.",
+      "spoken_text": "For decades, doctors judged fetal size against local hospital charts. Those charts quietly baked local poverty, poor food, and smoking rates into the meaning of “normal.” To see how babies grow when mothers have good food, clean water, and solid care, Aris Papageorghiou and the INTERGROWTH-21st team tracked healthy pregnancies across eight countries. When health barriers are removed, fetal bone length and head growth follow nearly identical curves around the world. These global charts suggest a reliable tool for spotting real growth slowdowns from a failing placenta so doctors can step in safely before birth.",
+      "text_hash": "09007235d226c168",
+      "start_ratio": 0.8275,
+      "end_ratio": 0.8595
+    },
+    {
+      "id": "b-040",
+      "tag": "p",
+      "chunk_id": 41,
+      "start_sec": 1040.116,
+      "end_sec": 1075.427,
+      "words": 87,
+      "weight": 87,
+      "text": "Still, a growth chart is a safety gauge for the delivery team, not a report card on the child’s future. Outside of severe medical growth restriction, being at the twentieth percentile or the eightieth percentile mostly reflects family height, normal genetic variety, and small errors in due-date math. High-certainty long-term studies show that birthweight within the healthy range does not dictate a child’s intelligence, kindness, or success in school. Small newborns routinely catch up over the first year, and big newborns settle onto their own family curves.",
+      "spoken_text": "Still, a growth chart is a safety gauge for the delivery team, not a report card on the child’s future. Outside of severe medical growth restriction, being at the twentieth percentile or the eightieth percentile mostly reflects family height, normal genetic variety, and small errors in due-date math. High-certainty long-term studies show that birthweight within the healthy range does not dictate a child’s intelligence, kindness, or success in school. Small newborns routinely catch up over the first year, and big newborns settle onto their own family curves.",
+      "text_hash": "bf84949a2c9e9ac6",
+      "start_ratio": 0.8595,
+      "end_ratio": 0.8887
+    },
+    {
+      "id": "b-041",
+      "tag": "p",
+      "chunk_id": 42,
+      "start_sec": 1075.427,
+      "end_sec": 1124.098,
+      "words": 128,
+      "weight": 128,
+      "text": "Here, at the edge of birth, our three lenses lock together. The science of the first environment maps timed cell-building stages, active placental filtering, temporary brain scaffolding, present-day heartbeat control, and real dose limits for nutrition, alcohol, and smoke. The interpretation of that science refuses to turn an ultrasound measurement or a stressful month into a lifelong sentence, matching our claims strictly to what hard tests can prove. And the art of living through pregnancy lies in rescuing everyday life from the pressure to optimize every breath. Reading a poem out loud at night, eating a good meal, resting swollen feet, and leaning on family or friends are good ways to live with a baby who is almost here. They are part of a relationship, not an exam.",
+      "spoken_text": "Here, at the edge of birth, our three lenses lock together. The science of the first environment maps timed cell-building stages, active placental filtering, temporary brain scaffolding, present-day heartbeat control, and real dose limits for nutrition, alcohol, and smoke. The interpretation of that science refuses to turn an ultrasound measurement or a stressful month into a lifelong sentence, matching our claims strictly to what hard tests can prove. And the art of living through pregnancy lies in rescuing everyday life from the pressure to optimize every breath. Reading a poem out loud at night, eating a good meal, resting swollen feet, and leaning on family or friends are good ways to live with a baby who is almost here. They are part of a relationship, not an exam.",
+      "text_hash": "047a5ccfd22487c4",
+      "start_ratio": 0.8887,
+      "end_ratio": 0.9289
+    },
+    {
+      "id": "b-042",
+      "tag": "p",
+      "chunk_id": 43,
+      "start_sec": 1124.098,
+      "end_sec": 1150.529,
+      "words": 80,
+      "weight": 80,
+      "text": "What this chapter does not explain is how the baby’s body rewires its heart and lungs in the seconds after the cord is cut. That dramatic physical crossing belongs to Chapter 3. Nor does it explain how human arms, milk, and bedtime routines take over the job of keeping a baby calm and warm across the first year, which we will explore in Chapter 4. Life in the womb builds the stage for birth, but it never writes the play.",
+      "spoken_text": "What this chapter does not explain is how the baby’s body rewires its heart and lungs in the seconds after the cord is cut. That dramatic physical crossing belongs to Chapter 3. Nor does it explain how human arms, milk, and bedtime routines take over the job of keeping a baby calm and warm across the first year, which we will explore in Chapter 4. Life in the womb builds the stage for birth, but it never writes the play.",
+      "text_hash": "2d449ec7202ada62",
+      "start_ratio": 0.9289,
+      "end_ratio": 0.9508
+    },
+    {
+      "id": "b-043",
+      "tag": "p",
+      "chunk_id": 44,
+      "start_sec": 1150.529,
+      "end_sec": 1160.84,
+      "words": 29,
+      "weight": 29,
+      "text": "Look back one more time at the two-day-old newborn in the hospital bassinet, sucking on a wired pacifier to hear the story her mother read before she was born.",
+      "spoken_text": "Look back one more time at the two-day-old newborn in the hospital bassinet, sucking on a wired pacifier to hear the story her mother read before she was born.",
+      "text_hash": "bb8e553fd11b78d6",
+      "start_ratio": 0.9508,
+      "end_ratio": 0.9593
+    },
+    {
+      "id": "b-044",
+      "tag": "p",
+      "chunk_id": 45,
+      "start_sec": 1160.84,
+      "end_sec": 1190.471,
+      "words": 84,
+      "weight": 84,
+      "text": "The baby has not changed because we have traced how the placenta and the fetal brain work. Our way of seeing her has changed. She has come into the room neither from a soundproof vault nor from a prenatal university, but from a sheltered, step-by-step biological passage. Her brain is still moving nerve fibers from its temporary waiting zone into permanent layers. Her heart is adjusting to air. And her ears are already tuned to the voices of the people who waited for her.",
+      "spoken_text": "The baby has not changed because we have traced how the placenta and the fetal brain work. Our way of seeing her has changed. She has come into the room neither from a soundproof vault nor from a prenatal university, but from a sheltered, step-by-step biological passage. Her brain is still moving nerve fibers from its temporary waiting zone into permanent layers. Her heart is adjusting to air. And her ears are already tuned to the voices of the people who waited for her.",
+      "text_hash": "0b062984a8754118",
+      "start_ratio": 0.9593,
+      "end_ratio": 0.9838
+    },
+    {
+      "id": "b-045",
+      "tag": "p",
+      "chunk_id": 46,
+      "start_sec": 1190.471,
+      "end_sec": 1210.102,
       "words": 58,
       "weight": 58,
       "text": "Birth has changed her surroundings completely. It has not started her from zero. Now someone in the room has to lift her up, keep her warm, feed her, and answer her cries. That next environment is not a grade on the pregnancy that came before. It is the start of a life lived together in the open air.",
-      "start_ratio": 0.985,
+      "spoken_text": "Birth has changed her surroundings completely. It has not started her from zero. Now someone in the room has to lift her up, keep her warm, feed her, and answer her cries. That next environment is not a grade on the pregnancy that came before. It is the start of a life lived together in the open air.",
+      "text_hash": "f66137ca62832261",
+      "start_ratio": 0.9838,
       "end_ratio": 1.0
     }
   ]

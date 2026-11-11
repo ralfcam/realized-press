@@ -92,8 +92,8 @@ def test_reader_localized_prose_differentiation(client: TestClient) -> None:
 
 def test_audio_endpoints_language_isolation(client: TestClient) -> None:
     """Verifies that /audio/{series}/{lang}/{file} streams audio without cross-language fallback."""
-    # English Ch 1 MP3 exists
-    res_en = client.get("/audio/parenthood-atlas/en/01-before-the-child-is-born.mp3")
+    # English Ch 9 MP3 exists
+    res_en = client.get("/audio/parenthood-atlas/en/09-the-emotional-revolution.mp3")
     assert res_en.status_code == 200
     assert "audio/" in res_en.headers.get("content-type", "")
 
@@ -113,8 +113,8 @@ def test_audio_endpoints_language_isolation(client: TestClient) -> None:
 
 def test_timings_endpoints_and_tier2_scaffold(client: TestClient) -> None:
     """Verifies /timings returns language metadata and falls back to dynamic scaffold for Tier 2."""
-    # 1. English Ch 1 (has neural timings on disk)
-    res_en = client.get("/timings/parenthood-atlas/en/01-before-the-child-is-born")
+    # 1. English Ch 9 (has neural timings on disk matching post-ARC-103 markdown)
+    res_en = client.get("/timings/parenthood-atlas/en/09-the-emotional-revolution")
     assert res_en.status_code == 200
     data_en = res_en.json()
     assert data_en["language"] == "en"
@@ -212,3 +212,95 @@ def test_site_hub_localized_links_and_audio(client: TestClient) -> None:
     assert normalize_series_and_lang('parenthood-atlas-es') == ('parenthood-atlas', 'es')
     assert normalize_series_and_lang('parenthood-atlas/i18n/fr') == ('parenthood-atlas', 'fr')
     assert normalize_series_and_lang('parenthood-atlas', 'en') == ('parenthood-atlas', 'en')
+
+
+def test_stale_timings_fallback_guard(client: TestClient) -> None:
+    """ARC-112: Verifies that verify_timings_match_markdown accurately detects count or hash mismatches,
+    falling back to Tier 2 dynamic scaffold with has_neural_audio: False, never crashing or binding
+    mismatched audio by positional index."""
+    import sys
+    scripts_dir = Path(__file__).resolve().parent.parent / "scripts"
+    if str(scripts_dir) not in sys.path:
+        sys.path.insert(0, str(scripts_dir))
+    from audio_sync_utils import verify_timings_match_markdown, extract_semantic_blocks
+
+    repo_root = Path(__file__).resolve().parent.parent
+    md_file = repo_root / "series" / "parenthood-atlas" / "chapters" / "01-before-the-child-is-born.md"
+    current_blocks = extract_semantic_blocks(md_file.read_text(encoding="utf-8"), lang="en")
+
+    # 1. Simulated stale manifest (block count mismatch)
+    stale_manifest_count = {"blocks": current_blocks[:20]}
+    is_valid, reason = verify_timings_match_markdown(stale_manifest_count, current_blocks)
+    assert is_valid is False
+    assert "block_count_mismatch" in reason
+
+    # 2. Simulated corrupted hash mismatch
+    corrupted_blocks = [dict(b) for b in current_blocks]
+    corrupted_blocks[0]["text_hash"] = "deadbeef12345678"
+    is_valid_hash, reason_hash = verify_timings_match_markdown({"blocks": corrupted_blocks}, current_blocks)
+    assert is_valid_hash is False
+    assert "content_mismatch" in reason_hash
+
+    # 3. Live Spanish Ch 2 (no neural audio synthesized yet) -> Tier 2 scaffold with has_neural_audio: False
+    res_es2 = client.get("/timings/parenthood-atlas/es/02-first-environment")
+    assert res_es2.status_code == 200
+    data_es2 = res_es2.json()
+    assert data_es2["language"] == "es"
+    assert data_es2["has_neural_audio"] is False
+    assert len(data_es2.get("blocks", [])) > 0
+
+    # 4. English Ch 01 is now freshly re-synthesized -> exact match with has_neural_audio: True
+    res_en1 = client.get("/timings/parenthood-atlas/en/01-before-the-child-is-born")
+    assert res_en1.status_code == 200
+    data_en1 = res_en1.json()
+    assert data_en1["language"] == "en"
+    assert data_en1["has_neural_audio"] is True
+    assert len(data_en1.get("blocks", [])) == 46
+
+
+def test_static_portal_audio_language_namespacing() -> None:
+    """ARC-112: Verifies that static portal audio assets in dist/site and docs are namespaced by language
+    so Spanish and English MP3s never collide or overwrite each other."""
+    repo_root = Path(__file__).resolve().parent.parent
+    site_audio = repo_root / "dist" / "site" / "audio" / "parenthood-atlas"
+
+    # Spanish Ch 1 exists in its language namespace
+    es_mp3 = site_audio / "es" / "01-before-the-child-is-born.mp3"
+    assert es_mp3.is_file()
+    assert es_mp3.stat().st_size > 20_000_000  # Spanish audio is ~21.4 MB
+
+    # English Ch 9 exists in its language namespace
+    en_mp3 = site_audio / "en" / "09-the-emotional-revolution.mp3"
+    assert en_mp3.is_file()
+    assert en_mp3.stat().st_size > 15_000_000
+
+    # Ensure no bare colliding MP3 exists in dist/site root
+    bare_ch1 = repo_root / "dist" / "site" / "01-before-the-child-is-born.mp3"
+    assert not bare_ch1.exists()
+
+
+def test_en_chapters_09_to_15_exact_parity() -> None:
+    """ARC-112: Verifies that English chapters 09 through 15 have 100% exact timing manifest match
+    against post-ARC-103 markdown prose."""
+    import sys
+    scripts_dir = Path(__file__).resolve().parent.parent / "scripts"
+    if str(scripts_dir) not in sys.path:
+        sys.path.insert(0, str(scripts_dir))
+    from audio_sync_utils import load_timings_manifest, extract_semantic_blocks, verify_timings_match_markdown
+
+    repo_root = Path(__file__).resolve().parent.parent
+    en_ch_dir = repo_root / "series" / "parenthood-atlas" / "chapters"
+    en_audio_dir = repo_root / "series" / "parenthood-atlas" / "audiobook"
+
+    for num in range(9, 16):
+        ch_files = list(en_ch_dir.glob(f"{num:02d}-*.md"))
+        assert len(ch_files) == 1, f"Missing markdown chapter {num}"
+        md_file = ch_files[0]
+        timings_file = en_audio_dir / f"{md_file.stem}.timings.json"
+        assert timings_file.is_file(), f"Missing timing sidecar for {md_file.stem}"
+
+        manifest = load_timings_manifest(timings_file)
+        blocks = extract_semantic_blocks(md_file.read_text(encoding="utf-8"), lang="en")
+        is_valid, reason = verify_timings_match_markdown(manifest, blocks)
+        assert is_valid is True, f"Parity mismatch on {md_file.stem}: {reason}"
+
