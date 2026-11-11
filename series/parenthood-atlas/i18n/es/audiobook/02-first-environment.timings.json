@@ -1,0 +1,1364 @@
+{
+  "chapter": "02-first-environment",
+  "language": "en",
+  "has_neural_audio": true,
+  "block_count": 54,
+  "chapter_hash": "8e4e650a86ed059e",
+  "total_duration_sec": 1396.943,
+  "sample_rate": 24000,
+  "bytes_per_second": 48000,
+  "chunks": [
+    {
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 3.97,
+      "duration_sec": 3.97,
+      "pcm_bytes": 190560,
+      "block_range": [
+        "b-000",
+        "b-000"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "start_sec": 3.97,
+      "end_sec": 12.79,
+      "duration_sec": 8.82,
+      "pcm_bytes": 423360,
+      "block_range": [
+        "b-001",
+        "b-001"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "start_sec": 12.79,
+      "end_sec": 53.61,
+      "duration_sec": 40.82,
+      "pcm_bytes": 1959360,
+      "block_range": [
+        "b-002",
+        "b-002"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "start_sec": 53.61,
+      "end_sec": 60.27,
+      "duration_sec": 6.66,
+      "pcm_bytes": 319680,
+      "block_range": [
+        "b-003",
+        "b-003"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "start_sec": 60.27,
+      "end_sec": 103.93,
+      "duration_sec": 43.66,
+      "pcm_bytes": 2095680,
+      "block_range": [
+        "b-004",
+        "b-004"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "start_sec": 103.93,
+      "end_sec": 122.19,
+      "duration_sec": 18.26,
+      "pcm_bytes": 876480,
+      "block_range": [
+        "b-005",
+        "b-005"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "start_sec": 122.19,
+      "end_sec": 138.45,
+      "duration_sec": 16.26,
+      "pcm_bytes": 780480,
+      "block_range": [
+        "b-006",
+        "b-006"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "start_sec": 138.45,
+      "end_sec": 143.34,
+      "duration_sec": 4.89,
+      "pcm_bytes": 234720,
+      "block_range": [
+        "b-007",
+        "b-007"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "start_sec": 143.34,
+      "end_sec": 170.68,
+      "duration_sec": 27.34,
+      "pcm_bytes": 1312320,
+      "block_range": [
+        "b-008",
+        "b-008"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "start_sec": 170.68,
+      "end_sec": 202.02,
+      "duration_sec": 31.34,
+      "pcm_bytes": 1504320,
+      "block_range": [
+        "b-009",
+        "b-009"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "start_sec": 202.02,
+      "end_sec": 218.36,
+      "duration_sec": 16.34,
+      "pcm_bytes": 784320,
+      "block_range": [
+        "b-010",
+        "b-010"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "start_sec": 218.36,
+      "end_sec": 249.1,
+      "duration_sec": 30.74,
+      "pcm_bytes": 1475520,
+      "block_range": [
+        "b-011",
+        "b-011"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "start_sec": 249.1,
+      "end_sec": 281.52,
+      "duration_sec": 32.42,
+      "pcm_bytes": 1556160,
+      "block_range": [
+        "b-012",
+        "b-012"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "start_sec": 281.52,
+      "end_sec": 304.98,
+      "duration_sec": 23.46,
+      "pcm_bytes": 1126080,
+      "block_range": [
+        "b-013",
+        "b-013"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "start_sec": 304.98,
+      "end_sec": 344.48,
+      "duration_sec": 39.5,
+      "pcm_bytes": 1896000,
+      "block_range": [
+        "b-014",
+        "b-014"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "start_sec": 344.48,
+      "end_sec": 366.74,
+      "duration_sec": 22.26,
+      "pcm_bytes": 1068480,
+      "block_range": [
+        "b-015",
+        "b-015"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "start_sec": 366.74,
+      "end_sec": 388.24,
+      "duration_sec": 21.5,
+      "pcm_bytes": 1032000,
+      "block_range": [
+        "b-016",
+        "b-016"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "start_sec": 388.24,
+      "end_sec": 405.82,
+      "duration_sec": 17.58,
+      "pcm_bytes": 843840,
+      "block_range": [
+        "b-017",
+        "b-017"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "start_sec": 405.82,
+      "end_sec": 412.99,
+      "duration_sec": 7.17,
+      "pcm_bytes": 344160,
+      "block_range": [
+        "b-018",
+        "b-018"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "start_sec": 412.99,
+      "end_sec": 422.09,
+      "duration_sec": 9.1,
+      "pcm_bytes": 436800,
+      "block_range": [
+        "b-019",
+        "b-019"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "start_sec": 422.09,
+      "end_sec": 453.23,
+      "duration_sec": 31.14,
+      "pcm_bytes": 1494720,
+      "block_range": [
+        "b-020",
+        "b-020"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "start_sec": 453.23,
+      "end_sec": 490.25,
+      "duration_sec": 37.02,
+      "pcm_bytes": 1776960,
+      "block_range": [
+        "b-021",
+        "b-021"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "start_sec": 490.25,
+      "end_sec": 531.91,
+      "duration_sec": 41.66,
+      "pcm_bytes": 1999680,
+      "block_range": [
+        "b-022",
+        "b-022"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "start_sec": 531.91,
+      "end_sec": 557.257,
+      "duration_sec": 25.347,
+      "pcm_bytes": 1216678,
+      "block_range": [
+        "b-023",
+        "b-023"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "start_sec": 557.257,
+      "end_sec": 603.557,
+      "duration_sec": 46.3,
+      "pcm_bytes": 2222400,
+      "block_range": [
+        "b-024",
+        "b-024"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "start_sec": 603.557,
+      "end_sec": 621.465,
+      "duration_sec": 17.907,
+      "pcm_bytes": 859558,
+      "block_range": [
+        "b-025",
+        "b-025"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "start_sec": 621.465,
+      "end_sec": 646.605,
+      "duration_sec": 25.14,
+      "pcm_bytes": 1206720,
+      "block_range": [
+        "b-026",
+        "b-026"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "start_sec": 646.605,
+      "end_sec": 653.062,
+      "duration_sec": 6.457,
+      "pcm_bytes": 309958,
+      "block_range": [
+        "b-027",
+        "b-027"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "start_sec": 653.062,
+      "end_sec": 693.33,
+      "duration_sec": 40.267,
+      "pcm_bytes": 1932838,
+      "block_range": [
+        "b-028",
+        "b-028"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "start_sec": 693.33,
+      "end_sec": 727.481,
+      "duration_sec": 34.151,
+      "pcm_bytes": 1639246,
+      "block_range": [
+        "b-029",
+        "b-029"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "start_sec": 727.481,
+      "end_sec": 767.868,
+      "duration_sec": 40.387,
+      "pcm_bytes": 1938596,
+      "block_range": [
+        "b-030",
+        "b-030"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "start_sec": 767.868,
+      "end_sec": 799.336,
+      "duration_sec": 31.467,
+      "pcm_bytes": 1510438,
+      "block_range": [
+        "b-031",
+        "b-031"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "start_sec": 799.336,
+      "end_sec": 843.643,
+      "duration_sec": 44.307,
+      "pcm_bytes": 2126756,
+      "block_range": [
+        "b-032",
+        "b-032"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "start_sec": 843.643,
+      "end_sec": 893.543,
+      "duration_sec": 49.9,
+      "pcm_bytes": 2395200,
+      "block_range": [
+        "b-033",
+        "b-033"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "start_sec": 893.543,
+      "end_sec": 901.4,
+      "duration_sec": 7.857,
+      "pcm_bytes": 377156,
+      "block_range": [
+        "b-034",
+        "b-034"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "start_sec": 901.4,
+      "end_sec": 912.221,
+      "duration_sec": 10.82,
+      "pcm_bytes": 519360,
+      "block_range": [
+        "b-035",
+        "b-035"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "start_sec": 912.221,
+      "end_sec": 939.288,
+      "duration_sec": 27.067,
+      "pcm_bytes": 1299238,
+      "block_range": [
+        "b-036",
+        "b-036"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "start_sec": 939.288,
+      "end_sec": 975.315,
+      "duration_sec": 36.027,
+      "pcm_bytes": 1729318,
+      "block_range": [
+        "b-037",
+        "b-037"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "start_sec": 975.315,
+      "end_sec": 1014.263,
+      "duration_sec": 38.947,
+      "pcm_bytes": 1869476,
+      "block_range": [
+        "b-038",
+        "b-038"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "start_sec": 1014.263,
+      "end_sec": 1048.29,
+      "duration_sec": 34.027,
+      "pcm_bytes": 1633318,
+      "block_range": [
+        "b-039",
+        "b-039"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "start_sec": 1048.29,
+      "end_sec": 1089.798,
+      "duration_sec": 41.507,
+      "pcm_bytes": 1992356,
+      "block_range": [
+        "b-040",
+        "b-040"
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "start_sec": 1089.798,
+      "end_sec": 1111.145,
+      "duration_sec": 21.347,
+      "pcm_bytes": 1024676,
+      "block_range": [
+        "b-041",
+        "b-041"
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "start_sec": 1111.145,
+      "end_sec": 1136.933,
+      "duration_sec": 25.787,
+      "pcm_bytes": 1237796,
+      "block_range": [
+        "b-042",
+        "b-042"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "start_sec": 1136.933,
+      "end_sec": 1142.423,
+      "duration_sec": 5.49,
+      "pcm_bytes": 263520,
+      "block_range": [
+        "b-043",
+        "b-043"
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "start_sec": 1142.423,
+      "end_sec": 1154.003,
+      "duration_sec": 11.58,
+      "pcm_bytes": 555840,
+      "block_range": [
+        "b-044",
+        "b-044"
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "start_sec": 1154.003,
+      "end_sec": 1181.703,
+      "duration_sec": 27.7,
+      "pcm_bytes": 1329600,
+      "block_range": [
+        "b-045",
+        "b-045"
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "start_sec": 1181.703,
+      "end_sec": 1198.923,
+      "duration_sec": 17.22,
+      "pcm_bytes": 826560,
+      "block_range": [
+        "b-046",
+        "b-046"
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "start_sec": 1198.923,
+      "end_sec": 1240.423,
+      "duration_sec": 41.5,
+      "pcm_bytes": 1992000,
+      "block_range": [
+        "b-047",
+        "b-047"
+      ]
+    },
+    {
+      "chunk_id": 49,
+      "start_sec": 1240.423,
+      "end_sec": 1275.323,
+      "duration_sec": 34.9,
+      "pcm_bytes": 1675200,
+      "block_range": [
+        "b-048",
+        "b-048"
+      ]
+    },
+    {
+      "chunk_id": 50,
+      "start_sec": 1275.323,
+      "end_sec": 1301.743,
+      "duration_sec": 26.42,
+      "pcm_bytes": 1268160,
+      "block_range": [
+        "b-049",
+        "b-049"
+      ]
+    },
+    {
+      "chunk_id": 51,
+      "start_sec": 1301.743,
+      "end_sec": 1333.523,
+      "duration_sec": 31.78,
+      "pcm_bytes": 1525440,
+      "block_range": [
+        "b-050",
+        "b-050"
+      ]
+    },
+    {
+      "chunk_id": 52,
+      "start_sec": 1333.523,
+      "end_sec": 1343.103,
+      "duration_sec": 9.58,
+      "pcm_bytes": 459840,
+      "block_range": [
+        "b-051",
+        "b-051"
+      ]
+    },
+    {
+      "chunk_id": 53,
+      "start_sec": 1343.103,
+      "end_sec": 1374.843,
+      "duration_sec": 31.74,
+      "pcm_bytes": 1523520,
+      "block_range": [
+        "b-052",
+        "b-052"
+      ]
+    },
+    {
+      "chunk_id": 54,
+      "start_sec": 1374.843,
+      "end_sec": 1396.943,
+      "duration_sec": 22.1,
+      "pcm_bytes": 1060800,
+      "block_range": [
+        "b-053",
+        "b-053"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "b-000",
+      "tag": "h1",
+      "chunk_id": 1,
+      "start_sec": 0.0,
+      "end_sec": 3.97,
+      "words": 6,
+      "weight": 9,
+      "text": "Capítulo 2 — El primer entorno",
+      "spoken_text": "Capítulo 2 — El primer entorno.",
+      "text_hash": "abdaced53c69783f",
+      "start_ratio": 0.0,
+      "end_ratio": 0.0028
+    },
+    {
+      "id": "b-001",
+      "tag": "p",
+      "chunk_id": 2,
+      "start_sec": 3.97,
+      "end_sec": 12.79,
+      "words": 11,
+      "weight": 11,
+      "text": "Dentro del útero: desarrollo cerebral fetal, nutrición, alcohol y exposiciones cotidianas",
+      "spoken_text": "Dentro del útero: desarrollo cerebral fetal, nutrición, alcohol y exposiciones cotidianas.",
+      "text_hash": "893347cecbebf5e3",
+      "start_ratio": 0.0028,
+      "end_ratio": 0.0092
+    },
+    {
+      "id": "b-002",
+      "tag": "p",
+      "chunk_id": 3,
+      "start_sec": 12.79,
+      "end_sec": 53.61,
+      "words": 95,
+      "weight": 95,
+      "text": "Durante las últimas semanas de gestación, una mujer se sienta en un sillón tranquilo cada tarde. Lee el mismo cuento infantil en voz alta, un día tras otro. Menos de tres días después del parto, su recién nacida descansa en una cuna hospitalaria. Lleva unos pequeños auriculares de espuma sobre los oídos y succiona un chupete conectado a un sensor. Al variar el ritmo de succión, la bebé de dos días puede elegir qué grabación escuchar. En pocos minutos, la recién nacida adopta la cadencia exacta para reproducir el relato que escuchó antes de nacer.",
+      "spoken_text": "Durante las últimas semanas de gestación, una mujer se sienta en un sillón tranquilo cada tarde. Lee el mismo cuento infantil en voz alta, un día tras otro. Menos de tres días después del parto, su recién nacida descansa en una cuna hospitalaria. Lleva unos pequeños auriculares de espuma sobre los oídos y succiona un chupete conectado a un sensor. Al variar el ritmo de succión, la bebé de dos días puede elegir qué grabación escuchar. En pocos minutos, la recién nacida adopta la cadencia exacta para reproducir el relato que escuchó antes de nacer.",
+      "text_hash": "4174196f3b108c13",
+      "start_ratio": 0.0092,
+      "end_ratio": 0.0384
+    },
+    {
+      "id": "b-003",
+      "tag": "p",
+      "chunk_id": 4,
+      "start_sec": 53.61,
+      "end_sec": 60.27,
+      "words": 10,
+      "weight": 10,
+      "text": "En casa, la escena parece algo cotidiano. Biológicamente, es admirable.",
+      "spoken_text": "En casa, la escena parece algo cotidiano. Biológicamente, es admirable.",
+      "text_hash": "143018e5cf2a2306",
+      "start_ratio": 0.0384,
+      "end_ratio": 0.0431
+    },
+    {
+      "id": "b-004",
+      "tag": "p",
+      "chunk_id": 5,
+      "start_sec": 60.27,
+      "end_sec": 103.93,
+      "words": 111,
+      "weight": 111,
+      "text": "Si el útero fuese una cámara insonorizada que aísla al feto hasta el parto, el recién nacido no tendría modo de preferir un relato frente a otro. Por el contrario, si el feto fuera un estudiante memorizando palabras a oscuras, esa preferencia probaría que el aprendizaje formal arranca antes de nacer. Ninguna de las dos afirmaciones resiste el examen empírico. La evidencia experimental sugiere que escuchar el habla en la última fase de la gestación modula las preferencias acústicas del recién nacido. Al mismo tiempo, la idea de que colocar grabaciones en el vientre estimula la inteligencia se asocia con una total ausencia de ganancias cognitivas duraderas o de comprensión léxica.",
+      "spoken_text": "Si el útero fuese una cámara insonorizada que aísla al feto hasta el parto, el recién nacido no tendría modo de preferir un relato frente a otro. Por el contrario, si el feto fuera un estudiante memorizando palabras a oscuras, esa preferencia probaría que el aprendizaje formal arranca antes de nacer. Ninguna de las dos afirmaciones resiste el examen empírico. La evidencia experimental sugiere que escuchar el habla en la última fase de la gestación modula las preferencias acústicas del recién nacido. Al mismo tiempo, la idea de que colocar grabaciones en el vientre estimula la inteligencia se asocia con una total ausencia de ganancias cognitivas duraderas o de comprensión léxica.",
+      "text_hash": "f21fe2b41ddf1161",
+      "start_ratio": 0.0431,
+      "end_ratio": 0.0744
+    },
+    {
+      "id": "b-005",
+      "tag": "p",
+      "chunk_id": 6,
+      "start_sec": 103.93,
+      "end_sec": 122.19,
+      "words": 43,
+      "weight": 43,
+      "text": "Ese límite define el objetivo de este capítulo. En el Capítulo 1 comprobamos que el desarrollo comienza antes de la gestación y no responde a un destino cerrado. Ahora nos adentramos en el útero. Nuestra pregunta no es simplemente si el feto aprende.",
+      "spoken_text": "Ese límite define el objetivo de este capítulo. En el Capítulo 1 comprobamos que el desarrollo comienza antes de la gestación y no responde a un destino cerrado. Ahora nos adentramos en el útero. Nuestra pregunta no es simplemente si el feto aprende.",
+      "text_hash": "873cc579f5b636d2",
+      "start_ratio": 0.0744,
+      "end_ratio": 0.0875
+    },
+    {
+      "id": "b-006",
+      "tag": "p",
+      "chunk_id": 7,
+      "start_sec": 122.19,
+      "end_sec": 138.45,
+      "words": 31,
+      "weight": 31,
+      "text": "Queremos entender cómo funciona el embarazo como sistema físico. ¿Cómo cruzan los sonidos, los nutrientes y las sustancias químicas sus límites? ¿Y qué certezas puede ofrecer con honestidad ese primer entorno?",
+      "spoken_text": "Queremos entender cómo funciona el embarazo como sistema físico. ¿Cómo cruzan los sonidos, los nutrientes y las sustancias químicas sus límites? ¿Y qué certezas puede ofrecer con honestidad ese primer entorno?",
+      "text_hash": "0e6e6b28d8be6b82",
+      "start_ratio": 0.0875,
+      "end_ratio": 0.0991
+    },
+    {
+      "id": "b-007",
+      "tag": "h2",
+      "chunk_id": 8,
+      "start_sec": 138.45,
+      "end_sec": 143.34,
+      "words": 8,
+      "weight": 10,
+      "text": "I. La cadencia familiar y el paso mediado",
+      "spoken_text": "I. La cadencia familiar y el paso mediado.",
+      "text_hash": "73ff02c927903a93",
+      "start_ratio": 0.0991,
+      "end_ratio": 0.1026
+    },
+    {
+      "id": "b-008",
+      "tag": "p",
+      "chunk_id": 9,
+      "start_sec": 143.34,
+      "end_sec": 170.68,
+      "words": 68,
+      "weight": 68,
+      "text": "Para comprender por qué un recién nacido busca un relato conocido, conviene descartar dos mitos comunes sobre el embarazo. El primero es el conducto directo, que sostiene que todo lo que la madre respira, come, oye o siente pasa de forma inmediata al feto. El segundo es la cámara sellada, que asume que nada de lo vivido por los sentidos cuenta hasta que se corta el cordón umbilical.",
+      "spoken_text": "Para comprender por qué un recién nacido busca un relato conocido, conviene descartar dos mitos comunes sobre el embarazo. El primero es el conducto directo, que sostiene que todo lo que la madre respira, come, oye o siente pasa de forma inmediata al feto. El segundo es la cámara sellada, que asume que nada de lo vivido por los sentidos cuenta hasta que se corta el cordón umbilical.",
+      "text_hash": "4b2e05b5db9c8aea",
+      "start_ratio": 0.1026,
+      "end_ratio": 0.1222
+    },
+    {
+      "id": "b-009",
+      "tag": "p",
+      "chunk_id": 10,
+      "start_sec": 170.68,
+      "end_sec": 202.02,
+      "words": 69,
+      "weight": 69,
+      "text": "La biología fetal revela un filtro escalonado. Los estímulos del exterior actúan primero sobre el organismo materno. Ese organismo interactúa con el filtro selectivo de la placenta y la pared del útero. El feto recibe así una señal transformada y atenuada. Finalmente, el cuerpo en formación responde según los tejidos que se estén construyendo en esa semana concreta. La trayectoria nunca es un paso directo del mundo al bebé:",
+      "spoken_text": "La biología fetal revela un filtro escalonado. Los estímulos del exterior actúan primero sobre el organismo materno. Ese organismo interactúa con el filtro selectivo de la placenta y la pared del útero. El feto recibe así una señal transformada y atenuada. Finalmente, el cuerpo en formación responde según los tejidos que se estén construyendo en esa semana concreta. La trayectoria nunca es un paso directo del mundo al bebé:",
+      "text_hash": "5c4f1709e2d48a73",
+      "start_ratio": 0.1222,
+      "end_ratio": 0.1446
+    },
+    {
+      "id": "b-010",
+      "tag": "p",
+      "chunk_id": 11,
+      "start_sec": 202.02,
+      "end_sec": 218.36,
+      "words": 22,
+      "weight": 22,
+      "text": "$$\\text{Mundo exterior} conduce a \\text{Cuerpo materno} conduce a \\text{Filtro placentario} conduce a \\text{Dosis fetal} conduce a \\text{Momento del desarrollo} conduce a \\text{Desenlace}$$",
+      "spoken_text": "$$\\text{Mundo exterior} conduce a \\text{Cuerpo materno} conduce a \\text{Filtro placentario} conduce a \\text{Dosis fetal} conduce a \\text{Momento del desarrollo} conduce a \\text{Desenlace}$$.",
+      "text_hash": "26bae08bdf809690",
+      "start_ratio": 0.1446,
+      "end_ratio": 0.1563
+    },
+    {
+      "id": "b-011",
+      "tag": "p",
+      "chunk_id": 12,
+      "start_sec": 218.36,
+      "end_sec": 249.1,
+      "words": 74,
+      "weight": 74,
+      "text": "En cada flecha de esta secuencia, las señales se amortiguan, se transforman o se detienen. Un suceso en la jornada de la madre no equivale a una dosis química para el feto. Una aceleración momentánea del pulso fetal no es una lesión cerebral. Un dato aislado en una ecografía no predetermina el carácter infantil. Y una tendencia poblacional en diez mil embarazos no es un pronóstico cerrado para el bebé que sostienes en brazos.",
+      "spoken_text": "En cada flecha de esta secuencia, las señales se amortiguan, se transforman o se detienen. Un suceso en la jornada de la madre no equivale a una dosis química para el feto. Una aceleración momentánea del pulso fetal no es una lesión cerebral. Un dato aislado en una ecografía no predetermina el carácter infantil. Y una tendencia poblacional en diez mil embarazos no es un pronóstico cerrado para el bebé que sostienes en brazos.",
+      "text_hash": "07b474de5d8dcf19",
+      "start_ratio": 0.1563,
+      "end_ratio": 0.1783
+    },
+    {
+      "id": "b-012",
+      "tag": "p",
+      "chunk_id": 13,
+      "start_sec": 249.1,
+      "end_sec": 281.52,
+      "words": 74,
+      "weight": 74,
+      "text": "El experimento que describió la dimensión sensorial de este paso fue dirigido por Anthony DeCasper y Melanie Spence en la Universidad de Carolina del Norte en 1986. Durante generaciones se asumió que los recién nacidos llegaban al mundo con los sentidos dormidos. El oído medio contenía líquido y se creía que el cerebro fetal no coordinaba patrones acústicos. DeCasper y Spence advirtieron que los tejidos y el líquido amniótico transmiten bien las frecuencias graves.",
+      "spoken_text": "El experimento que describió la dimensión sensorial de este paso fue dirigido por Anthony DeCasper y Melanie Spence en la Universidad de Carolina del Norte en 1986. Durante generaciones se asumió que los recién nacidos llegaban al mundo con los sentidos dormidos. El oído medio contenía líquido y se creía que el cerebro fetal no coordinaba patrones acústicos. DeCasper y Spence advirtieron que los tejidos y el líquido amniótico transmiten bien las frecuencias graves.",
+      "text_hash": "87780a1df4aa16f5",
+      "start_ratio": 0.1783,
+      "end_ratio": 0.2015
+    },
+    {
+      "id": "b-013",
+      "tag": "p",
+      "chunk_id": 14,
+      "start_sec": 281.52,
+      "end_sec": 304.98,
+      "words": 59,
+      "weight": 59,
+      "text": "Sospecharon que la melodía de la voz materna alcanzaba el oído interno en el tramo final del embarazo. Para comprobarlo, reunieron a dieciséis mujeres en sus últimas seis semanas de gestación. Cada una leyó un cuento rítmico en voz alta dos veces al día. Al iniciarse el parto, los fetos habían escuchado unas tres horas y media de lectura.",
+      "spoken_text": "Sospecharon que la melodía de la voz materna alcanzaba el oído interno en el tramo final del embarazo. Para comprobarlo, reunieron a dieciséis mujeres en sus últimas seis semanas de gestación. Cada una leyó un cuento rítmico en voz alta dos veces al día. Al iniciarse el parto, los fetos habían escuchado unas tres horas y media de lectura.",
+      "text_hash": "99fc8be31c91d3c6",
+      "start_ratio": 0.2015,
+      "end_ratio": 0.2183
+    },
+    {
+      "id": "b-014",
+      "tag": "p",
+      "chunk_id": 15,
+      "start_sec": 304.98,
+      "end_sec": 344.48,
+      "words": 90,
+      "weight": 90,
+      "text": "Cincuenta y seis horas tras el nacimiento, llevaron a los recién nacidos a una sala tranquila. El chupete medía la presión de succión. Succionar con una pauta breve activaba la grabación del relato familiar; cambiar de ritmo ponía en marcha una historia distinta con otra métrica. Los bebés modificaron su succión para escuchar el cuento del útero. Mostraron esa misma preferencia incluso cuando otra mujer leía el texto, lo que demostró que reconocían el compás rítmico. Poco después, el mercado comercial transformó este ensayo en un negocio de estimulación prenatal.",
+      "spoken_text": "Cincuenta y seis horas tras el nacimiento, llevaron a los recién nacidos a una sala tranquila. El chupete medía la presión de succión. Succionar con una pauta breve activaba la grabación del relato familiar; cambiar de ritmo ponía en marcha una historia distinta con otra métrica. Los bebés modificaron su succión para escuchar el cuento del útero. Mostraron esa misma preferencia incluso cuando otra mujer leía el texto, lo que demostró que reconocían el compás rítmico. Poco después, el mercado comercial transformó este ensayo en un negocio de estimulación prenatal.",
+      "text_hash": "efd6849aec88584e",
+      "start_ratio": 0.2183,
+      "end_ratio": 0.2466
+    },
+    {
+      "id": "b-015",
+      "tag": "p",
+      "chunk_id": 16,
+      "start_sec": 344.48,
+      "end_sec": 366.74,
+      "words": 48,
+      "weight": 48,
+      "text": "Se vendían cintas de idiomas y altavoces para el abdomen, prometiendo adelantar el talento lector. Investigaciones posteriores con potenciales evocados delimitaron la biología real de su exageración comercial. En el tercer trimestre, las vías auditivas se afinan con los tonos y las vocales que traspasan la pared abdominal.",
+      "spoken_text": "Se vendían cintas de idiomas y altavoces para el abdomen, prometiendo adelantar el talento lector. Investigaciones posteriores con potenciales evocados delimitaron la biología real de su exageración comercial. En el tercer trimestre, las vías auditivas se afinan con los tonos y las vocales que traspasan la pared abdominal.",
+      "text_hash": "00a8629751b16d38",
+      "start_ratio": 0.2466,
+      "end_ratio": 0.2625
+    },
+    {
+      "id": "b-016",
+      "tag": "p",
+      "chunk_id": 17,
+      "start_sec": 366.74,
+      "end_sec": 388.24,
+      "words": 47,
+      "weight": 47,
+      "text": "Pero esa sintonía es familiaridad con el sonido, no aprendizaje de palabras. Los sonidos agudos quedan amortiguados por los tejidos. Solo pasa la cadencia musical del habla. Más importante aún: los mismos progenitores continúan hablando con esa voz tras el parto, reforzando el vínculo en el exterior.",
+      "spoken_text": "Pero esa sintonía es familiaridad con el sonido, no aprendizaje de palabras. Los sonidos agudos quedan amortiguados por los tejidos. Solo pasa la cadencia musical del habla. Más importante aún: los mismos progenitores continúan hablando con esa voz tras el parto, reforzando el vínculo en el exterior.",
+      "text_hash": "a8358369c8e8538f",
+      "start_ratio": 0.2625,
+      "end_ratio": 0.2779
+    },
+    {
+      "id": "b-017",
+      "tag": "p",
+      "chunk_id": 18,
+      "start_sec": 388.24,
+      "end_sec": 405.82,
+      "words": 40,
+      "weight": 40,
+      "text": "La ciencia moderna descarta las promesas comerciales y conserva el asombro biológico. El oído prenatal no surgió para adelantar exámenes académicos. Evolucionó para que el recién nacido reconozca y busque a los adultos que lo alimentarán y cuidarán al nacer.",
+      "spoken_text": "La ciencia moderna descarta las promesas comerciales y conserva el asombro biológico. El oído prenatal no surgió para adelantar exámenes académicos. Evolucionó para que el recién nacido reconozca y busque a los adultos que lo alimentarán y cuidarán al nacer.",
+      "text_hash": "0c8497cbfcb7dac6",
+      "start_ratio": 0.2779,
+      "end_ratio": 0.2905
+    },
+    {
+      "id": "b-018",
+      "tag": "h2",
+      "chunk_id": 19,
+      "start_sec": 405.82,
+      "end_sec": 412.99,
+      "words": 8,
+      "weight": 10,
+      "text": "II. La interfaz selectiva: momentos, transporte y placenta",
+      "spoken_text": "II. La interfaz selectiva: momentos, transporte y placenta.",
+      "text_hash": "085c820a7a3f27bc",
+      "start_ratio": 0.2905,
+      "end_ratio": 0.2956
+    },
+    {
+      "id": "b-019",
+      "tag": "p",
+      "chunk_id": 20,
+      "start_sec": 412.99,
+      "end_sec": 422.09,
+      "words": 21,
+      "weight": 21,
+      "text": "Mientras el abdomen y el líquido amortiguan el sonido exterior, la placenta ejerce como la gran aduana química de la gestación.",
+      "spoken_text": "Mientras el abdomen y el líquido amortiguan el sonido exterior, la placenta ejerce como la gran aduana química de la gestación.",
+      "text_hash": "15d4747bd24953bb",
+      "start_ratio": 0.2956,
+      "end_ratio": 0.3022
+    },
+    {
+      "id": "b-020",
+      "tag": "p",
+      "chunk_id": 21,
+      "start_sec": 422.09,
+      "end_sec": 453.23,
+      "words": 72,
+      "weight": 72,
+      "text": "Como la placenta se desecha tras el parto, muchas guías apenas se detienen en ella. Durante el embarazo, este órgano cumple el trabajo de cinco sistemas adultos a la vez. Intercambia oxígeno y dióxido de carbono como los pulmones y absorbe nutrientes como el aparato digestivo. Fabrica hormonas como una glándula, negocia con las defensas inmunitarias y depura desechos como el hígado y los riñones. Llamarla «barrera placentaria» omite su verdadera función.",
+      "spoken_text": "Como la placenta se desecha tras el parto, muchas guías apenas se detienen en ella. Durante el embarazo, este órgano cumple el trabajo de cinco sistemas adultos a la vez. Intercambia oxígeno y dióxido de carbono como los pulmones y absorbe nutrientes como el aparato digestivo. Fabrica hormonas como una glándula, negocia con las defensas inmunitarias y depura desechos como el hígado y los riñones. Llamarla «barrera placentaria» omite su verdadera función.",
+      "text_hash": "cde4ce0e452b23b6",
+      "start_ratio": 0.3022,
+      "end_ratio": 0.3244
+    },
+    {
+      "id": "b-021",
+      "tag": "p",
+      "chunk_id": 22,
+      "start_sec": 453.23,
+      "end_sec": 490.25,
+      "words": 74,
+      "weight": 74,
+      "text": "Un muro solo bloquea el paso; la placenta selecciona, bombea, metaboliza y amortigua de forma activa. El oxígeno se transfiere por gradientes de presión. La glucosa cruza mediante proteínas transportadoras específicas. Los aminoácidos y minerales como el hierro o el calcio son bombeados hacia el feto incluso si las reservas maternas disminuyen. Al final de la gestación, transporta también anticuerpos maternos para que el recién nacido cuente con una protección inicial frente a infecciones.",
+      "spoken_text": "Un muro solo bloquea el paso; la placenta selecciona, bombea, metaboliza y amortigua de forma activa. El oxígeno se transfiere por gradientes de presión. La glucosa cruza mediante proteínas transportadoras específicas. Los aminoácidos y minerales como el hierro o el calcio son bombeados hacia el feto incluso si las reservas maternas disminuyen. Al final de la gestación, transporta también anticuerpos maternos para que el recién nacido cuente con una protección inicial frente a infecciones.",
+      "text_hash": "13ddddb14304a37d",
+      "start_ratio": 0.3244,
+      "end_ratio": 0.3509
+    },
+    {
+      "id": "b-022",
+      "tag": "p",
+      "chunk_id": 23,
+      "start_sec": 490.25,
+      "end_sec": 531.91,
+      "words": 93,
+      "weight": 93,
+      "text": "Dado que cada traspaso depende de bombas celulares, flujo vascular y enzimas, decir que la madre estuvo expuesta no describe todo el proceso. Como formuló James Wilson y confirmaron revisiones contemporáneas, los efectos dependen de cuatro factores interconectados: el momento exacto, la vía química, el cruce placentario y la dosis real recibida. El desastre de la talidomida a finales de los años cincuenta evidenció este principio con crudeza. Un sedante casi inocuo en adultos causó malformaciones graves en las extremidades al tomarse entre los días veinte y treinta y seis tras la fecundación.",
+      "spoken_text": "Dado que cada traspaso depende de bombas celulares, flujo vascular y enzimas, decir que la madre estuvo expuesta no describe todo el proceso. Como formuló James Wilson y confirmaron revisiones contemporáneas, los efectos dependen de cuatro factores interconectados: el momento exacto, la vía química, el cruce placentario y la dosis real recibida. El desastre de la talidomida a finales de los años cincuenta evidenció este principio con crudeza. Un sedante casi inocuo en adultos causó malformaciones graves en las extremidades al tomarse entre los días veinte y treinta y seis tras la fecundación.",
+      "text_hash": "2dc66b67d2b136e6",
+      "start_ratio": 0.3509,
+      "end_ratio": 0.3808
+    },
+    {
+      "id": "b-023",
+      "tag": "p",
+      "chunk_id": 24,
+      "start_sec": 531.91,
+      "end_sec": 557.257,
+      "words": 65,
+      "weight": 65,
+      "text": "Ese intervalo de dieciséis días coincidía con el momento en que los brotes de brazos y piernas formaban sus vasos sanguíneos y crecían. La mayoría de los contactos cotidianos distan de parecerse a la talidomida. Aun así, la norma se mantiene en toda la medicina prenatal: los calendarios biológicos pertenecen a fases celulares muy delimitadas, no al embarazo como un bloque uniforme de nueve meses.",
+      "spoken_text": "Ese intervalo de dieciséis días coincidía con el momento en que los brotes de brazos y piernas formaban sus vasos sanguíneos y crecían. La mayoría de los contactos cotidianos distan de parecerse a la talidomida. Aun así, la norma se mantiene en toda la medicina prenatal: los calendarios biológicos pertenecen a fases celulares muy delimitadas, no al embarazo como un bloque uniforme de nueve meses.",
+      "text_hash": "694a2ba25a039bc3",
+      "start_ratio": 0.3808,
+      "end_ratio": 0.3989
+    },
+    {
+      "id": "b-024",
+      "tag": "p",
+      "chunk_id": 25,
+      "start_sec": 557.257,
+      "end_sec": 603.557,
+      "words": 120,
+      "weight": 120,
+      "text": "Basta observar cómo la placenta gestiona el estrés diario frente a una enfermedad grave. A partir del escudo que conocimos en el Capítulo 1, los trabajos de Jonathan Seckl y Megan Holmes demuestran por qué esa enzima de barrera neutraliza los picos cotidianos de tensión mientras sigue atenta ante patologías severas. En ratones de laboratorio sin el gen de esta enzima —o en casos clínicos infrecuentes donde falla—, el exceso de hormonas de estrés frena el crecimiento y reduce el peso al nacer. Esos casos confirman que la compuerta química trabaja cada hora. Una placenta sana absorbe los altibajos normales del día a día laboral e impide que un martes difícil se convierta en una dosis química para el bebé.",
+      "spoken_text": "Basta observar cómo la placenta gestiona el estrés diario frente a una enfermedad grave. A partir del escudo que conocimos en el Capítulo 1, los trabajos de Jonathan Seckl y Megan Holmes demuestran por qué esa enzima de barrera neutraliza los picos cotidianos de tensión mientras sigue atenta ante patologías severas. En ratones de laboratorio sin el gen de esta enzima —o en casos clínicos infrecuentes donde falla—, el exceso de hormonas de estrés frena el crecimiento y reduce el peso al nacer. Esos casos confirman que la compuerta química trabaja cada hora. Una placenta sana absorbe los altibajos normales del día a día laboral e impide que un martes difícil se convierta en una dosis química para el bebé.",
+      "text_hash": "03ea9f887a8f6c1d",
+      "start_ratio": 0.3989,
+      "end_ratio": 0.4321
+    },
+    {
+      "id": "b-025",
+      "tag": "p",
+      "chunk_id": 26,
+      "start_sec": 603.557,
+      "end_sec": 621.465,
+      "words": 43,
+      "weight": 43,
+      "text": "La circulación cardiovascular fetal sigue este mismo criterio de diseño transitorio. Como el oxígeno llega por el cordón y no por los pulmones, la sangre fetal utiliza tres desvíos vasculares provisionales. Uno sortea el hígado y dos evitan los pulmones llenos de líquido.",
+      "spoken_text": "La circulación cardiovascular fetal sigue este mismo criterio de diseño transitorio. Como el oxígeno llega por el cordón y no por los pulmones, la sangre fetal utiliza tres desvíos vasculares provisionales. Uno sortea el hígado y dos evitan los pulmones llenos de líquido.",
+      "text_hash": "318335ce45b2e067",
+      "start_ratio": 0.4321,
+      "end_ratio": 0.4449
+    },
+    {
+      "id": "b-026",
+      "tag": "p",
+      "chunk_id": 27,
+      "start_sec": 621.465,
+      "end_sec": 646.605,
+      "words": 59,
+      "weight": 59,
+      "text": "Juntos dirigen la sangre más oxigenada hacia el corazón y el cerebro en desarrollo. Esos tres atajos son soluciones de fontanería biológica que se cerrarán en los primeros días tras nacer, una transición que analizaremos en el Capítulo 3. Ninguno de estos desvíos circulatorios programa la mente infantil. Su cometido es mantener a un ser vivo bajo el agua.",
+      "spoken_text": "Juntos dirigen la sangre más oxigenada hacia el corazón y el cerebro en desarrollo. Esos tres atajos son soluciones de fontanería biológica que se cerrarán en los primeros días tras nacer, una transición que analizaremos en el Capítulo 3. Ninguno de estos desvíos circulatorios programa la mente infantil. Su cometido es mantener a un ser vivo bajo el agua.",
+      "text_hash": "8fbf592e77acc6de",
+      "start_ratio": 0.4449,
+      "end_ratio": 0.4629
+    },
+    {
+      "id": "b-027",
+      "tag": "h2",
+      "chunk_id": 28,
+      "start_sec": 646.605,
+      "end_sec": 653.062,
+      "words": 10,
+      "weight": 12,
+      "text": "III. Cableado en curso, fisiología presente y sustratos de construcción",
+      "spoken_text": "III. Cableado en curso, fisiología presente y sustratos de construcción.",
+      "text_hash": "947d9e2bf7b45e23",
+      "start_ratio": 0.4629,
+      "end_ratio": 0.4675
+    },
+    {
+      "id": "b-028",
+      "tag": "p",
+      "chunk_id": 29,
+      "start_sec": 653.062,
+      "end_sec": 693.33,
+      "words": 96,
+      "weight": 96,
+      "text": "Tras el filtro de la placenta, el cerebro fetal se construye en capas superpuestas. Como mostraron Irina Bystron, Colin Blakemore y Pasko Rakic en sus investigaciones de tejido cerebral, el crecimiento neuronal es un proceso minucioso. Bajo la corteza cerebral externa, el feto construye una densa zona de espera transitoria. Las fibras nerviosas que llegan de zonas profundas se detienen allí, forman circuitos de prueba y organizan los mapas corporales. En el tercer trimestre y durante los primeros meses de vida, esas fibras se reubican en sus seis capas permanentes mientras la zona transitoria se disuelve.",
+      "spoken_text": "Tras el filtro de la placenta, el cerebro fetal se construye en capas superpuestas. Como mostraron Irina Bystron, Colin Blakemore y Pasko Rakic en sus investigaciones de tejido cerebral, el crecimiento neuronal es un proceso minucioso. Bajo la corteza cerebral externa, el feto construye una densa zona de espera transitoria. Las fibras nerviosas que llegan de zonas profundas se detienen allí, forman circuitos de prueba y organizan los mapas corporales. En el tercer trimestre y durante los primeros meses de vida, esas fibras se reubican en sus seis capas permanentes mientras la zona transitoria se disuelve.",
+      "text_hash": "bf64fc1707440f02",
+      "start_ratio": 0.4675,
+      "end_ratio": 0.4963
+    },
+    {
+      "id": "b-029",
+      "tag": "p",
+      "chunk_id": 30,
+      "start_sec": 693.33,
+      "end_sec": 727.481,
+      "words": 99,
+      "weight": 99,
+      "text": "Esta secuencia demuestra con alta certeza que el cerebro del recién nacido no es una hoja en blanco ni una obra cerrada. Un fallo grave de la placenta o una infección fuerte en el útero sí pueden dañar el paso de las neuronas. Esos casos piden cuidado médico urgente. Pero en un embarazo normal, ver que las neuronas tejen redes no convierte una ecografía en una bola de cristal sobre la mente adulta. Confundir el paso celular con las notas del colegio es como confundir las vigas de una casa con las charlas que habrá dentro treinta años después.",
+      "spoken_text": "Esta secuencia demuestra con alta certeza que el cerebro del recién nacido no es una hoja en blanco ni una obra cerrada. Un fallo grave de la placenta o una infección fuerte en el útero sí pueden dañar el paso de las neuronas. Esos casos piden cuidado médico urgente. Pero en un embarazo normal, ver que las neuronas tejen redes no convierte una ecografía en una bola de cristal sobre la mente adulta. Confundir el paso celular con las notas del colegio es como confundir las vigas de una casa con las charlas que habrá dentro treinta años después.",
+      "text_hash": "3752eb43acfb0487",
+      "start_ratio": 0.4963,
+      "end_ratio": 0.5208
+    },
+    {
+      "id": "b-030",
+      "tag": "p",
+      "chunk_id": 31,
+      "start_sec": 727.481,
+      "end_sec": 767.868,
+      "words": 98,
+      "weight": 98,
+      "text": "A medida que estas conexiones avanzan en la segunda mitad de la gestación, el feto empieza a regular su organismo en presente. Janet DiPietro y su equipo monitorizaron a cientos de embarazos con registros de movimiento y frecuencia cardíaca. Comprobaron que, con las semanas, el pulso fetal basal desciende mientras aumenta la variabilidad del ritmo cardíaco. Cada vez que el feto se mueve, el corazón acelera su compás de forma coordinada, con un salto de madurez claro hacia la semana treinta. Estos registros sugieren una medida fiable de la maduración del sistema nervioso fetal en ese momento exacto.",
+      "spoken_text": "A medida que estas conexiones avanzan en la segunda mitad de la gestación, el feto empieza a regular su organismo en presente. Janet DiPietro y su equipo monitorizaron a cientos de embarazos con registros de movimiento y frecuencia cardíaca. Comprobaron que, con las semanas, el pulso fetal basal desciende mientras aumenta la variabilidad del ritmo cardíaco. Cada vez que el feto se mueve, el corazón acelera su compás de forma coordinada, con un salto de madurez claro hacia la semana treinta. Estos registros sugieren una medida fiable de la maduración del sistema nervioso fetal en ese momento exacto.",
+      "text_hash": "d1ba2adb130d8fb2",
+      "start_ratio": 0.5208,
+      "end_ratio": 0.5497
+    },
+    {
+      "id": "b-031",
+      "tag": "p",
+      "chunk_id": 32,
+      "start_sec": 767.868,
+      "end_sec": 799.336,
+      "words": 81,
+      "weight": 81,
+      "text": "La obstetricia los emplea para vigilar a fetos con crecimiento enlentecido. Lo que no ofrecen es una predicción del carácter futuro. Intentar anticipar si un niño será tímido o audaz según la intensidad de sus patadas a los siete meses fracasa porque el sistema nervioso se reorganiza profundamente tras el nacimiento. Un feto tranquilo en una ecografía no está predestinado a ser un niño retraído. El pulso fetal informa de cómo está el bebé hoy, no de quién será de adulto.",
+      "spoken_text": "La obstetricia los emplea para vigilar a fetos con crecimiento enlentecido. Lo que no ofrecen es una predicción del carácter futuro. Intentar anticipar si un niño será tímido o audaz según la intensidad de sus patadas a los siete meses fracasa porque el sistema nervioso se reorganiza profundamente tras el nacimiento. Un feto tranquilo en una ecografía no está predestinado a ser un niño retraído. El pulso fetal informa de cómo está el bebé hoy, no de quién será de adulto.",
+      "text_hash": "67c37048e907d44c",
+      "start_ratio": 0.5497,
+      "end_ratio": 0.5722
+    },
+    {
+      "id": "b-032",
+      "tag": "p",
+      "chunk_id": 33,
+      "start_sec": 799.336,
+      "end_sec": 843.643,
+      "words": 109,
+      "weight": 109,
+      "text": "Construir este cerebro y este cuerpo requiere materias primas entregadas en el plazo oportuno. En el Capítulo 1 comprobamos cómo el ácido fólico tomado antes y al inicio de la gestación aporta el sustrato necesario para cerrar el tubo neural en la cuarta semana. Esa medida reduce las anomalías espinales en más de dos tercios en ensayos aleatorizados, aunque tomar dosis mayores no incrementa el intelecto. Un segundo calendario nutricional actúa entre el final del primer trimestre y el segundo: el yodo y la hormona tiroidea materna. Como documentaron Gabriella Morreale de Escobar y Michael Zimmermann, el feto no produce suficiente hormona tiroidea propia hasta la mitad del embarazo.",
+      "spoken_text": "Construir este cerebro y este cuerpo requiere materias primas entregadas en el plazo oportuno. En el Capítulo 1 comprobamos cómo el ácido fólico tomado antes y al inicio de la gestación aporta el sustrato necesario para cerrar el tubo neural en la cuarta semana. Esa medida reduce las anomalías espinales en más de dos tercios en ensayos aleatorizados, aunque tomar dosis mayores no incrementa el intelecto. Un segundo calendario nutricional actúa entre el final del primer trimestre y el segundo: el yodo y la hormona tiroidea materna. Como documentaron Gabriella Morreale de Escobar y Michael Zimmermann, el feto no produce suficiente hormona tiroidea propia hasta la mitad del embarazo.",
+      "text_hash": "1823db771888a6e4",
+      "start_ratio": 0.5722,
+      "end_ratio": 0.6039
+    },
+    {
+      "id": "b-033",
+      "tag": "p",
+      "chunk_id": 34,
+      "start_sec": 843.643,
+      "end_sec": 893.543,
+      "words": 118,
+      "weight": 118,
+      "text": "Durante las primeras veinte semanas, la correcta migración de las neuronas a sus capas depende del aporte de hormona tiroidea que cruza desde la madre. Dado que la madre precisa yodo en su dieta para fabricarla, una deficiencia grave de yodo en la gestación temprana demuestra una relación causal de alta certeza con daños neurológicos irreversibles que los suplementos tardíos no logran reparar. Sin embargo, en poblaciones donde la sal yodada y la dieta ya cubren las necesidades básicas, pequeñas diferencias alimentarias se asocian con un impacto prácticamente nulo. Tomar dosis elevadas de yodo por encima de lo necesario no genera niños más brillantes. Los nutrientes previenen carencias específicas. Son vigas y ladrillos, no planos de la personalidad.",
+      "spoken_text": "Durante las primeras veinte semanas, la correcta migración de las neuronas a sus capas depende del aporte de hormona tiroidea que cruza desde la madre. Dado que la madre precisa yodo en su dieta para fabricarla, una deficiencia grave de yodo en la gestación temprana demuestra una relación causal de alta certeza con daños neurológicos irreversibles que los suplementos tardíos no logran reparar. Sin embargo, en poblaciones donde la sal yodada y la dieta ya cubren las necesidades básicas, pequeñas diferencias alimentarias se asocian con un impacto prácticamente nulo. Tomar dosis elevadas de yodo por encima de lo necesario no genera niños más brillantes. Los nutrientes previenen carencias específicas. Son vigas y ladrillos, no planos de la personalidad.",
+      "text_hash": "01b8a00991f44bdc",
+      "start_ratio": 0.6039,
+      "end_ratio": 0.6396
+    },
+    {
+      "id": "b-034",
+      "tag": "h2",
+      "chunk_id": 35,
+      "start_sec": 893.543,
+      "end_sec": 901.4,
+      "words": 11,
+      "weight": 13,
+      "text": "IV. Sustancias tóxicas, estrés confundido y la disciplina de la dosis",
+      "spoken_text": "IV. Sustancias tóxicas, estrés confundido y la disciplina de la dosis.",
+      "text_hash": "cfdcb99a3c59915d",
+      "start_ratio": 0.6396,
+      "end_ratio": 0.6453
+    },
+    {
+      "id": "b-035",
+      "tag": "p",
+      "chunk_id": 36,
+      "start_sec": 901.4,
+      "end_sec": 912.221,
+      "words": 23,
+      "weight": 23,
+      "text": "Al pasar de los nutrientes a los factores de riesgo ambiental, nuestra labor es separar las sustancias químicas nocivas de los espejismos estadísticos.",
+      "spoken_text": "Al pasar de los nutrientes a los factores de riesgo ambiental, nuestra labor es separar las sustancias químicas nocivas de los espejismos estadísticos.",
+      "text_hash": "687e96899bcfabb8",
+      "start_ratio": 0.6453,
+      "end_ratio": 0.653
+    },
+    {
+      "id": "b-036",
+      "tag": "p",
+      "chunk_id": 37,
+      "start_sec": 912.221,
+      "end_sec": 939.288,
+      "words": 70,
+      "weight": 70,
+      "text": "Conviene recordar de nuevo el contraste entre la alarma social ante las preocupaciones cotidianas y las conclusiones de los estudios en gemelos y hermanos. Encuestas sencillas suelen indicar que las mujeres con mayor ansiedad gestacional tienen hijos con menor peso o con más retos de conducta años más tarde. Sin embargo, esas correlaciones se reducen a más de la mitad al comparar hermanos o familias formadas por donación de óvulos.",
+      "spoken_text": "Conviene recordar de nuevo el contraste entre la alarma social ante las preocupaciones cotidianas y las conclusiones de los estudios en gemelos y hermanos. Encuestas sencillas suelen indicar que las mujeres con mayor ansiedad gestacional tienen hijos con menor peso o con más retos de conducta años más tarde. Sin embargo, esas correlaciones se reducen a más de la mitad al comparar hermanos o familias formadas por donación de óvulos.",
+      "text_hash": "ce809f37617fcc96",
+      "start_ratio": 0.653,
+      "end_ratio": 0.6724
+    },
+    {
+      "id": "b-037",
+      "tag": "p",
+      "chunk_id": 38,
+      "start_sec": 939.288,
+      "end_sec": 975.315,
+      "words": 83,
+      "weight": 83,
+      "text": "Gran parte de lo atribuido al estrés prenatal refleja la herencia genética compartida y el desgaste diario en el hogar tras el parto. Las situaciones de desastre, maltrato o pobreza extrema reclaman apoyo médico y social urgente. Pero la inquietud laboral común está amortiguada por la placenta y muy mezclada con factores sociales en las encuestas observacionales. Apoyar a una madre gestante desbordada es un deber humano hacia ella, no una maniobra para salvar el cerebro de su hijo de una semana difícil.",
+      "spoken_text": "Gran parte de lo atribuido al estrés prenatal refleja la herencia genética compartida y el desgaste diario en el hogar tras el parto. Las situaciones de desastre, maltrato o pobreza extrema reclaman apoyo médico y social urgente. Pero la inquietud laboral común está amortiguada por la placenta y muy mezclada con factores sociales en las encuestas observacionales. Apoyar a una madre gestante desbordada es un deber humano hacia ella, no una maniobra para salvar el cerebro de su hijo de una semana difícil.",
+      "text_hash": "132beefeff157ff3",
+      "start_ratio": 0.6724,
+      "end_ratio": 0.6982
+    },
+    {
+      "id": "b-038",
+      "tag": "p",
+      "chunk_id": 39,
+      "start_sec": 975.315,
+      "end_sec": 1014.263,
+      "words": 89,
+      "weight": 89,
+      "text": "Las sustancias tóxicas comprobadas se comportan de un modo muy distinto en las pruebas clínicas. Siguen mecanismos moleculares precisos, aumentan el daño conforme sube la dosis y dejan secuelas identificables tras controlar el entorno familiar. El consumo elevado de alcohol durante el embarazo demuestra un papel causal de alta certeza en el origen de los trastornos del espectro alcohólico fetal (TEAF). Descrito por H. Eugene Hoyme y sus colaboradores, este cuadro clínico abarca retraso en el crecimiento, rasgos faciales característicos y alteraciones en la estructura cerebral y la autorregulación.",
+      "spoken_text": "Las sustancias tóxicas comprobadas se comportan de un modo muy distinto en las pruebas clínicas. Siguen mecanismos moleculares precisos, aumentan el daño conforme sube la dosis y dejan secuelas identificables tras controlar el entorno familiar. El consumo elevado de alcohol durante el embarazo demuestra un papel causal de alta certeza en el origen de los trastornos del espectro alcohólico fetal (TEAF). Descrito por H. Eugene Hoyme y sus colaboradores, este cuadro clínico abarca retraso en el crecimiento, rasgos faciales característicos y alteraciones en la estructura cerebral y la autorregulación.",
+      "text_hash": "43334d1303f225c0",
+      "start_ratio": 0.6982,
+      "end_ratio": 0.7261
+    },
+    {
+      "id": "b-039",
+      "tag": "p",
+      "chunk_id": 40,
+      "start_sec": 1014.263,
+      "end_sec": 1048.29,
+      "words": 88,
+      "weight": 88,
+      "text": "El alcohol cruza la placenta con libertad. A diferencia de las hormonas de estrés, no encuentra ninguna barrera enzimática a su paso. En dosis altas, altera la migración y supervivencia de las células mientras se forman los órganos y las conexiones del cerebro. Aun así, el rigor exige exactitud diagnóstica. El TEAF es un diagnóstico clínico derivado de una exposición considerable con signos neurológicos evidentes; no es una etiqueta para aplicar a cualquier niño inquieto cuya madre bebiera media copa de vino antes de saber que estaba embarazada.",
+      "spoken_text": "El alcohol cruza la placenta con libertad. A diferencia de las hormonas de estrés, no encuentra ninguna barrera enzimática a su paso. En dosis altas, altera la migración y supervivencia de las células mientras se forman los órganos y las conexiones del cerebro. Aun así, el rigor exige exactitud diagnóstica. El TEAF es un diagnóstico clínico derivado de una exposición considerable con signos neurológicos evidentes; no es una etiqueta para aplicar a cualquier niño inquieto cuya madre bebiera media copa de vino antes de saber que estaba embarazada.",
+      "text_hash": "b72c5d9a931accf8",
+      "start_ratio": 0.7261,
+      "end_ratio": 0.7504
+    },
+    {
+      "id": "b-040",
+      "tag": "p",
+      "chunk_id": 41,
+      "start_sec": 1048.29,
+      "end_sec": 1089.798,
+      "words": 128,
+      "weight": 128,
+      "text": "El consumo de tabaco en el embarazo muestra otro patrón claro de dosis y respuesta. En la síntesis clásica de Michael Kramer y en estudios posteriores entre hermanos, fumar de forma activa sugiere un descenso directo en el peso al nacer y un aumento en el riesgo de parto prematuro. El monóxido de carbono compite con el oxígeno en la sangre fetal y la nicotina estrecha los vasos de la placenta. Apoyar el abandono del tabaco es una de las medidas más eficaces del seguimiento prenatal. Dejar de fumar a mitad del embarazo normaliza la curva de peso fetal en pocas semanas. Por contra, la afirmación de que el humo prenatal determina de por vida el rendimiento escolar se desvanece al comparar hermanos criados en el mismo hogar.",
+      "spoken_text": "El consumo de tabaco en el embarazo muestra otro patrón claro de dosis y respuesta. En la síntesis clásica de Michael Kramer y en estudios posteriores entre hermanos, fumar de forma activa sugiere un descenso directo en el peso al nacer y un aumento en el riesgo de parto prematuro. El monóxido de carbono compite con el oxígeno en la sangre fetal y la nicotina estrecha los vasos de la placenta. Apoyar el abandono del tabaco es una de las medidas más eficaces del seguimiento prenatal. Dejar de fumar a mitad del embarazo normaliza la curva de peso fetal en pocas semanas. Por contra, la afirmación de que el humo prenatal determina de por vida el rendimiento escolar se desvanece al comparar hermanos criados en el mismo hogar.",
+      "text_hash": "18de484d3a2f18a1",
+      "start_ratio": 0.7504,
+      "end_ratio": 0.7801
+    },
+    {
+      "id": "b-041",
+      "tag": "p",
+      "chunk_id": 42,
+      "start_sec": 1089.798,
+      "end_sec": 1111.145,
+      "words": 57,
+      "weight": 57,
+      "text": "¿Qué pasa con los restos de plásticos o humo en las casas de hoy? Estudios amplios como el proyecto francés SEPAGES, guiado por Claire Philippat, midieron restos de ftalatos y bisfenoles en la orina durante el embarazo. Vieron que ciertas mezclas químicas se asocian con cambios leves en el peso de la placenta o en las hormonas.",
+      "spoken_text": "¿Qué pasa con los restos de plásticos o humo en las casas de hoy? Estudios amplios como el proyecto francés SEPAGES, guiado por Claire Philippat, midieron restos de ftalatos y bisfenoles en la orina durante el embarazo. Vieron que ciertas mezclas químicas se asocian con cambios leves en el peso de la placenta o en las hormonas.",
+      "text_hash": "b4b3a98f4028e8c9",
+      "start_ratio": 0.7801,
+      "end_ratio": 0.7954
+    },
+    {
+      "id": "b-042",
+      "tag": "p",
+      "chunk_id": 43,
+      "start_sec": 1111.145,
+      "end_sec": 1136.933,
+      "words": 65,
+      "weight": 65,
+      "text": "A escala de país, estos datos piden leyes más firmes contra los tóxicos. Pero en casa, esos vínculos de baja certeza no prueban un daño fijo en un bebé concreto. Tampoco obligan a vivir el embarazo con miedo a cada envase de la cocina. Frente a los tóxicos del aire o del plástico, la salida es tener mejores leyes públicas, no culpar a las madres.",
+      "spoken_text": "A escala de país, estos datos piden leyes más firmes contra los tóxicos. Pero en casa, esos vínculos de baja certeza no prueban un daño fijo en un bebé concreto. Tampoco obligan a vivir el embarazo con miedo a cada envase de la cocina. Frente a los tóxicos del aire o del plástico, la salida es tener mejores leyes públicas, no culpar a las madres.",
+      "text_hash": "30234474f2adbf81",
+      "start_ratio": 0.7954,
+      "end_ratio": 0.8139
+    },
+    {
+      "id": "b-043",
+      "tag": "h2",
+      "chunk_id": 44,
+      "start_sec": 1136.933,
+      "end_sec": 1142.423,
+      "words": 10,
+      "weight": 12,
+      "text": "V. La medida del crecimiento y el horizonte del nacimiento",
+      "spoken_text": "V. La medida del crecimiento y el horizonte del nacimiento.",
+      "text_hash": "5dcc879b47cacdc3",
+      "start_ratio": 0.8139,
+      "end_ratio": 0.8178
+    },
+    {
+      "id": "b-044",
+      "tag": "p",
+      "chunk_id": 45,
+      "start_sec": 1142.423,
+      "end_sec": 1154.003,
+      "words": 26,
+      "weight": 26,
+      "text": "Al acercarse la fecha prevista del parto, todas estas corrientes biológicas convergen en el dato más repetido en las consultas médicas: el percentil de peso estimado.",
+      "spoken_text": "Al acercarse la fecha prevista del parto, todas estas corrientes biológicas convergen en el dato más repetido en las consultas médicas: el percentil de peso estimado.",
+      "text_hash": "c59f02e7e86e6317",
+      "start_ratio": 0.8178,
+      "end_ratio": 0.8261
+    },
+    {
+      "id": "b-045",
+      "tag": "p",
+      "chunk_id": 46,
+      "start_sec": 1154.003,
+      "end_sec": 1181.703,
+      "words": 65,
+      "weight": 65,
+      "text": "Durante décadas, los médicos midieron el peso fetal con tablas locales de cada hospital. Esas listas metían la pobreza, la mala dieta y el tabaco del barrio dentro de lo que llamaban «normal». Para ver cómo crecen los bebés cuando las madres comen bien y tienen buen cuidado médico, el equipo INTERGROWTH-21st, guiado por Aris Papageorghiou, siguió embarazos sanos en ocho países de cinco continentes.",
+      "spoken_text": "Durante décadas, los médicos midieron el peso fetal con tablas locales de cada hospital. Esas listas metían la pobreza, la mala dieta y el tabaco del barrio dentro de lo que llamaban «normal». Para ver cómo crecen los bebés cuando las madres comen bien y tienen buen cuidado médico, el equipo INTERGROWTH-21st, guiado por Aris Papageorghiou, siguió embarazos sanos en ocho países de cinco continentes.",
+      "text_hash": "90f34aefc47ce673",
+      "start_ratio": 0.8261,
+      "end_ratio": 0.8459
+    },
+    {
+      "id": "b-046",
+      "tag": "p",
+      "chunk_id": 47,
+      "start_sec": 1181.703,
+      "end_sec": 1198.923,
+      "words": 45,
+      "weight": 45,
+      "text": "Vieron que, cuando hay buena salud, los huesos y la cabeza del feto crecen casi igual en todo el mundo. Estas tablas globales sugieren una guía útil para detectar frenos reales del crecimiento por fallos de la placenta y actuar a tiempo antes del parto.",
+      "spoken_text": "Vieron que, cuando hay buena salud, los huesos y la cabeza del feto crecen casi igual en todo el mundo. Estas tablas globales sugieren una guía útil para detectar frenos reales del crecimiento por fallos de la placenta y actuar a tiempo antes del parto.",
+      "text_hash": "c911f24e1d0d8cac",
+      "start_ratio": 0.8459,
+      "end_ratio": 0.8582
+    },
+    {
+      "id": "b-047",
+      "tag": "p",
+      "chunk_id": 48,
+      "start_sec": 1198.923,
+      "end_sec": 1240.423,
+      "words": 105,
+      "weight": 105,
+      "text": "Con todo, una gráfica de crecimiento es un instrumento de seguridad para el equipo de paritorio, no un boletín sobre el futuro del niño. Fuera de restricciones de crecimiento graves, estar en el percentil veinte o en el ochenta refleja la talla familiar, la variación genética ordinaria y pequeños márgenes de error en la estimación de fechas. Estudios longitudinales de alta certeza demuestran que el peso al nacer dentro de los márgenes saludables no decide la inteligencia, la bondad ni los logros escolares posteriores. Los recién nacidos pequeños recuperan terreno durante el primer año, y los grandes se acomodan a la complexión de su familia.",
+      "spoken_text": "Con todo, una gráfica de crecimiento es un instrumento de seguridad para el equipo de paritorio, no un boletín sobre el futuro del niño. Fuera de restricciones de crecimiento graves, estar en el percentil veinte o en el ochenta refleja la talla familiar, la variación genética ordinaria y pequeños márgenes de error en la estimación de fechas. Estudios longitudinales de alta certeza demuestran que el peso al nacer dentro de los márgenes saludables no decide la inteligencia, la bondad ni los logros escolares posteriores. Los recién nacidos pequeños recuperan terreno durante el primer año, y los grandes se acomodan a la complexión de su familia.",
+      "text_hash": "0de292ae6e72be01",
+      "start_ratio": 0.8582,
+      "end_ratio": 0.888
+    },
+    {
+      "id": "b-048",
+      "tag": "p",
+      "chunk_id": 49,
+      "start_sec": 1240.423,
+      "end_sec": 1275.323,
+      "words": 73,
+      "weight": 73,
+      "text": "En el umbral del parto, nuestros tres planos encajan con claridad. La ciencia del primer entorno cartografía los momentos celulares precisos, el filtrado activo de la placenta, el andamiaje transitorio del cerebro, la regulación del pulso fetal y los límites de dosis en nutrición, alcohol y tabaco. La interpretación evita transformar una ecografía o un mes de angustia en una condena de por vida, ajustando cada afirmación a lo que las pruebas demuestran.",
+      "spoken_text": "En el umbral del parto, nuestros tres planos encajan con claridad. La ciencia del primer entorno cartografía los momentos celulares precisos, el filtrado activo de la placenta, el andamiaje transitorio del cerebro, la regulación del pulso fetal y los límites de dosis en nutrición, alcohol y tabaco. La interpretación evita transformar una ecografía o un mes de angustia en una condena de por vida, ajustando cada afirmación a lo que las pruebas demuestran.",
+      "text_hash": "24b2738497c97cb0",
+      "start_ratio": 0.888,
+      "end_ratio": 0.9129
+    },
+    {
+      "id": "b-049",
+      "tag": "p",
+      "chunk_id": 50,
+      "start_sec": 1275.323,
+      "end_sec": 1301.743,
+      "words": 64,
+      "weight": 64,
+      "text": "Y el arte de vivir el embarazo consiste en rescatar los días de la presión de optimizar cada respiración. Leer un texto en voz alta por la tarde, compartir una cena nutritiva, descansar las piernas hinchadas y apoyarse en la familia son formas sanas de convivir con un bebé que está a punto de llegar. Forman parte de un vínculo, no de un examen.",
+      "spoken_text": "Y el arte de vivir el embarazo consiste en rescatar los días de la presión de optimizar cada respiración. Leer un texto en voz alta por la tarde, compartir una cena nutritiva, descansar las piernas hinchadas y apoyarse en la familia son formas sanas de convivir con un bebé que está a punto de llegar. Forman parte de un vínculo, no de un examen.",
+      "text_hash": "0ad8a2911e956fb6",
+      "start_ratio": 0.9129,
+      "end_ratio": 0.9319
+    },
+    {
+      "id": "b-050",
+      "tag": "p",
+      "chunk_id": 51,
+      "start_sec": 1301.743,
+      "end_sec": 1333.523,
+      "words": 79,
+      "weight": 79,
+      "text": "Lo que este capítulo no aborda es cómo el cuerpo del recién nacido reorganiza su circulación y sus pulmones en los segundos posteriores al corte del cordón. Esa transición física pertenece al Capítulo 3. Tampoco explica cómo los brazos, el alimento y las rutinas de sueño asumen la tarea de mantener al bebé sereno durante el primer año, algo que exploraremos en el Capítulo 4. La vida intrauterina prepara el escenario para nacer, pero nunca escribe la obra completa.",
+      "spoken_text": "Lo que este capítulo no aborda es cómo el cuerpo del recién nacido reorganiza su circulación y sus pulmones en los segundos posteriores al corte del cordón. Esa transición física pertenece al Capítulo 3. Tampoco explica cómo los brazos, el alimento y las rutinas de sueño asumen la tarea de mantener al bebé sereno durante el primer año, algo que exploraremos en el Capítulo 4. La vida intrauterina prepara el escenario para nacer, pero nunca escribe la obra completa.",
+      "text_hash": "f844d77c1f08bdbb",
+      "start_ratio": 0.9319,
+      "end_ratio": 0.9546
+    },
+    {
+      "id": "b-051",
+      "tag": "p",
+      "chunk_id": 52,
+      "start_sec": 1333.523,
+      "end_sec": 1343.103,
+      "words": 27,
+      "weight": 27,
+      "text": "Pensemos una vez más en la recién nacida de dos días en su cuna, succionando el chupete para escuchar la voz que le leía antes de nacer.",
+      "spoken_text": "Pensemos una vez más en la recién nacida de dos días en su cuna, succionando el chupete para escuchar la voz que le leía antes de nacer.",
+      "text_hash": "85081d5905f88499",
+      "start_ratio": 0.9546,
+      "end_ratio": 0.9615
+    },
+    {
+      "id": "b-052",
+      "tag": "p",
+      "chunk_id": 53,
+      "start_sec": 1343.103,
+      "end_sec": 1374.843,
+      "words": 77,
+      "weight": 77,
+      "text": "La bebé no ha cambiado por haber examinado la placenta o las capas del cerebro fetal. Ha cambiado nuestra manera de mirarla. Ha llegado a la habitación no desde una cámara insonorizada ni desde un aula de estimulación temprana, sino desde un paso biológico protegido y gradual. Su cerebro aún traslada fibras desde la zona transitoria hacia las capas definitivas. Su corazón se adapta al aire. Y su oído ya reconoce las voces de quienes la esperaban.",
+      "spoken_text": "La bebé no ha cambiado por haber examinado la placenta o las capas del cerebro fetal. Ha cambiado nuestra manera de mirarla. Ha llegado a la habitación no desde una cámara insonorizada ni desde un aula de estimulación temprana, sino desde un paso biológico protegido y gradual. Su cerebro aún traslada fibras desde la zona transitoria hacia las capas definitivas. Su corazón se adapta al aire. Y su oído ya reconoce las voces de quienes la esperaban.",
+      "text_hash": "dac2459754af4403",
+      "start_ratio": 0.9615,
+      "end_ratio": 0.9842
+    },
+    {
+      "id": "b-053",
+      "tag": "p",
+      "chunk_id": 54,
+      "start_sec": 1374.843,
+      "end_sec": 1396.943,
+      "words": 51,
+      "weight": 51,
+      "text": "El nacimiento ha cambiado su entorno por completo. Pero no la ha hecho partir de cero. Ahora alguien en la habitación debe alzarla, abrigarla, alimentarla y atender su llanto. Ese nuevo entorno no es una nota que califica el embarazo anterior. Es el inicio de una vida compartida al aire libre.",
+      "spoken_text": "El nacimiento ha cambiado su entorno por completo. Pero no la ha hecho partir de cero. Ahora alguien en la habitación debe alzarla, abrigarla, alimentarla y atender su llanto. Ese nuevo entorno no es una nota que califica el embarazo anterior. Es el inicio de una vida compartida al aire libre.",
+      "text_hash": "6b4e7b42a943dadf",
+      "start_ratio": 0.9842,
+      "end_ratio": 1.0
+    }
+  ]
+}

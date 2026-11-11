@@ -241,21 +241,29 @@ def test_stale_timings_fallback_guard(client: TestClient) -> None:
     assert is_valid_hash is False
     assert "content_mismatch" in reason_hash
 
-    # 3. Live Spanish Ch 2 (no neural audio synthesized yet) -> Tier 2 scaffold with has_neural_audio: False
-    res_es2 = client.get("/timings/parenthood-atlas/es/02-first-environment")
-    assert res_es2.status_code == 200
-    data_es2 = res_es2.json()
-    assert data_es2["language"] == "es"
-    assert data_es2["has_neural_audio"] is False
-    assert len(data_es2.get("blocks", [])) > 0
+    # 3. Live Spanish Ch 3 (no neural audio synthesized yet) -> Tier 2 scaffold with has_neural_audio: False
+    res_es3 = client.get("/timings/parenthood-atlas/es/03-the-great-transition")
+    assert res_es3.status_code == 200
+    data_es3 = res_es3.json()
+    assert data_es3["language"] == "es"
+    assert data_es3["has_neural_audio"] is False
+    assert len(data_es3.get("blocks", [])) > 0
 
-    # 4. English Ch 01 is now freshly re-synthesized -> exact match with has_neural_audio: True
+    # 4. English Ch 01 is freshly re-synthesized -> exact match with has_neural_audio: True
     res_en1 = client.get("/timings/parenthood-atlas/en/01-before-the-child-is-born")
     assert res_en1.status_code == 200
     data_en1 = res_en1.json()
     assert data_en1["language"] == "en"
     assert data_en1["has_neural_audio"] is True
     assert len(data_en1.get("blocks", [])) == 46
+
+    # 5. Spanish Ch 02 is freshly synthesized -> exact match with has_neural_audio: True
+    res_es2 = client.get("/timings/parenthood-atlas/es/02-first-environment")
+    assert res_es2.status_code == 200
+    data_es2 = res_es2.json()
+    assert data_es2["language"] == "es"
+    assert data_es2["has_neural_audio"] is True
+    assert len(data_es2.get("blocks", [])) == 54
 
 
 def test_static_portal_audio_language_namespacing() -> None:
