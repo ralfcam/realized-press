@@ -32,6 +32,10 @@ def main() -> None:
         [sys.executable, "scripts/render_audiobook_player.py", "series/parenthood-atlas/i18n/es"],
         "Spanish Audiobook Player Compilation (series/parenthood-atlas/i18n/es/audiobook/index.html)",
     )
+    run_command(
+        [sys.executable, "scripts/render_audiobook_player.py", "--imprint"],
+        "Imprint Portal Sync (dist/site/ and docs/)",
+    )
     print("\n[SPANISH DAEMON:COMPLETE] Spanish audiobook and synchronized player generated successfully!", flush=True)
 
 
