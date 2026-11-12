@@ -21,6 +21,25 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 @cli.command()
 def serve(host: str = "0.0.0.0", port: int = 8080, reload: bool = True):
     """Launch the BWE Epistemic IDE & Serial Reader Portal (with LAN auto-detection)."""
+    import socket
+
+    lan_ip = "127.0.0.1"
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))
+        lan_ip = s.getsockname()[0]
+        s.close()
+    except Exception:
+        pass
+
+    typer.echo("\n=======================================================")
+    typer.echo("🚀 Realized Press — BWE & Serial Reader Portal")
+    typer.echo(f"   • Local URL:   http://localhost:{port}/")
+    typer.echo(f"   • Network URL: http://{lan_ip}:{port}/")
+    typer.echo(f"   • Imprint Hub: http://{lan_ip}:{port}/site/")
+    typer.echo(f"   • Epistemic IDE: http://{lan_ip}:{port}/ide")
+    typer.echo(f"   • Analytics:   http://{lan_ip}:{port}/analytics")
+    typer.echo("=======================================================\n")
     uvicorn.run("bwe.main:app", host=host, port=port, reload=reload)
 
 

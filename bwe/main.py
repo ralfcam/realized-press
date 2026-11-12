@@ -5,6 +5,7 @@ import re
 import sqlite3
 import subprocess
 import sys
+import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -269,6 +270,51 @@ def extract_chapter_footnotes(raw_md: str) -> dict[str, str]:
     return footnotes
 
 
+_CACHED_CATALOG = None
+_CACHED_CATALOG_TIME = 0.0
+
+
+def get_cached_catalog(force_refresh: bool = False) -> list[dict]:
+    global _CACHED_CATALOG, _CACHED_CATALOG_TIME
+    now = time.time()
+    if force_refresh or _CACHED_CATALOG is None or (now - _CACHED_CATALOG_TIME > 60):
+        _CACHED_CATALOG = scan_all_imprint_books(REPO_ROOT, DEFAULT_GITHUB_REPO)
+        _CACHED_CATALOG_TIME = now
+    return _CACHED_CATALOG
+
+
+def get_cached_evidence_briefs() -> list[dict]:
+    evidence_briefs = []
+    with get_db() as conn:
+        brief_rows = conn.execute(
+            "SELECT series_slug, book_slug, card_slug, title, body "
+            "FROM evidence_cards_fts WHERE body LIKE '%status: stable%' LIMIT 16"
+        ).fetchall()
+        for r in brief_rows:
+            text = r["body"]
+            fm_str, body_str = split_frontmatter_safe(text)
+            meta = yaml.safe_load(fm_str) if fm_str and yaml else {}
+            desc = meta.get("description", "")
+            snippet = desc if desc else body_str.strip()[:240]
+            evidence_briefs.append({
+                "series_slug": r["series_slug"],
+                "book_slug": r["book_slug"],
+                "card_slug": r["card_slug"],
+                "title": meta.get("title", r["title"].split(" — ")[0] if " — " in r["title"] else r["title"]),
+                "confidence": meta.get("confidence", "moderate"),
+                "grade": meta.get("confidence", "moderate"),
+                "snippet": snippet,
+                "sources": meta.get("sources", []),
+            })
+        if not evidence_briefs:
+            fallback_rows = conn.execute(
+                "SELECT series_slug, book_slug, card_slug, title, substr(body, 1, 280) AS snippet "
+                "FROM evidence_cards_fts LIMIT 16"
+            ).fetchall()
+            evidence_briefs = [dict(r) for r in fallback_rows]
+    return evidence_briefs
+
+
 def build_file_tree(lang: Optional[str] = None) -> dict:
     """Collects all series, books, chapters, and OKF evidence cards for the IDE file tree, including localized editions."""
     tree: dict[str, Any] = {}
@@ -413,45 +459,27 @@ async def imprint_site_redirect():
 @app.get("/site/", response_class=HTMLResponse)
 async def imprint_site_home(request: Request, lang: str = "en"):
     """
-    ARC-55: Serves the Imprint Audiobook Portal & Marketing Hub under the
+    ARC-55 & ARC-56: Serves the Imprint Audiobook Portal & Master Reading Studio under the
     unified FastAPI + HTMX stack with aligned navigation and live catalog data.
     """
-    catalog = scan_all_imprint_books(REPO_ROOT, DEFAULT_GITHUB_REPO)
+    catalog = get_cached_catalog()
     catalog_json = json.dumps(catalog, ensure_ascii=False)
     ui_strings_json = json.dumps(UI_STRINGS, ensure_ascii=False)
+    evidence_briefs = get_cached_evidence_briefs()
 
-    # Query stable OKF cards for public briefs showcase
-    evidence_briefs = []
-    with get_db() as conn:
-        brief_rows = conn.execute(
-            "SELECT series_slug, book_slug, card_slug, title, body "
-            "FROM evidence_cards_fts WHERE body LIKE '%status: stable%' LIMIT 16"
-        ).fetchall()
-        for r in brief_rows:
-            text = r["body"]
-            fm_str, body_str = split_frontmatter_safe(text)
-            meta = yaml.safe_load(fm_str) if fm_str and yaml else {}
-            desc = meta.get("description", "")
-            if not desc:
-                snippet = body_str.strip()[:240]
-            else:
-                snippet = desc
-            evidence_briefs.append({
-                "series_slug": r["series_slug"],
-                "book_slug": r["book_slug"],
-                "card_slug": r["card_slug"],
-                "title": meta.get("title", r["title"].split(" — ")[0] if " — " in r["title"] else r["title"]),
-                "confidence": meta.get("confidence", "moderate"),
-                "grade": meta.get("confidence", "moderate"),
-                "snippet": snippet,
-                "sources": meta.get("sources", []),
-            })
-        if not evidence_briefs:
-            fallback_rows = conn.execute(
-                "SELECT series_slug, book_slug, card_slug, title, substr(body, 1, 280) AS snippet "
-                "FROM evidence_cards_fts LIMIT 16"
-            ).fetchall()
-            evidence_briefs = [dict(r) for r in fallback_rows]
+    # Pre-populate chapter 1 data as fallback for seamless server-rendering
+    s_meta = get_series_manifest_safe("parenthood-atlas")
+    edition_dir = resolve_series_edition_dir("parenthood-atlas", lang)
+    edition_title = s_meta["title"]
+    edition_subtitle = s_meta.get("subtitle", "")
+    loc_yaml = edition_dir / "series.yaml"
+    if loc_yaml.is_file():
+        try:
+            loc_cfg = yaml.safe_load(loc_yaml.read_text(encoding="utf-8")) or {}
+            edition_title = loc_cfg.get("title", edition_title)
+            edition_subtitle = loc_cfg.get("subtitle", edition_subtitle)
+        except Exception:
+            pass
 
     return templates.TemplateResponse(
         request,
@@ -465,6 +493,29 @@ async def imprint_site_home(request: Request, lang: str = "en"):
             "evidence_briefs": evidence_briefs,
             "server_info": get_server_info(request),
             "active_tab": "site",
+            "initial_view": "playlist",
+            "initial_series": "parenthood-atlas",
+            "initial_book": "parenthood-atlas",
+            "initial_chapter": "01-before-the-child-is-born",
+            "series_slug": "parenthood-atlas",
+            "book_slug": "parenthood-atlas",
+            "chapter_slug": "01-before-the-child-is-born",
+            "series_title": edition_title,
+            "series_subtitle": edition_subtitle,
+            "lenses": s_meta.get("lenses", ["Science", "Interpretation", "Art"]),
+            "active_lens": s_meta.get("lenses", ["Science"])[0],
+            "epistemic_contract": s_meta.get("epistemic_contract", "Science → Interpretation → Art"),
+            "takeaways": [],
+            "footnotes": {},
+            "prose_html": "",
+            "timings": [],
+            "has_audio": True,
+            "has_neural_audio": True,
+            "is_stale_audio": False,
+            "audio_url": "",
+            "available_languages": get_available_languages("parenthood-atlas"),
+            "ui_strings": UI_STRINGS.get(lang, UI_STRINGS["en"]),
+            "edition_chapters": [],
         },
     )
 
@@ -784,8 +835,13 @@ def _render_chapter_view(
     takeaways = extract_chapter_takeaways(raw_md)
     footnotes = extract_chapter_footnotes(raw_md)
 
-    template_file = "reader.html" if (REPO_ROOT / "bwe" / "templates" / "reader.html").exists() else "portal.html"
+    template_file = "site.html" if (REPO_ROOT / "bwe" / "templates" / "site.html").exists() else "reader.html"
     resolved_book = book_slug or (md_path.parent.parent.name if md_path.parent.parent.name.startswith("book-") else "root")
+
+    catalog = get_cached_catalog()
+    catalog_json = json.dumps(catalog, ensure_ascii=False)
+    ui_strings_json = json.dumps(UI_STRINGS, ensure_ascii=False)
+    evidence_briefs = get_cached_evidence_briefs()
 
     return templates.TemplateResponse(
         request,
@@ -814,6 +870,14 @@ def _render_chapter_view(
             "available_languages": available_languages,
             "ui_strings": ui_strings,
             "edition_chapters": edition_chapters,
+            "catalog": catalog,
+            "catalog_json": catalog_json,
+            "ui_strings_json": ui_strings_json,
+            "evidence_briefs": evidence_briefs,
+            "initial_view": "reader",
+            "initial_series": series_slug,
+            "initial_book": resolved_book,
+            "initial_chapter": chapter_slug,
         },
     )
 

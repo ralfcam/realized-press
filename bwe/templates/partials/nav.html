@@ -41,15 +41,15 @@
     <nav role="tablist"
          aria-label="Imprint Application Navigation"
          class="order-3 md:order-2 w-full md:w-auto flex items-center justify-center gap-1 sm:gap-1.5 bg-stone-900/90 p-1 rounded-xl border border-stone-800 text-xs font-mono overflow-x-auto scrollbar-none">
-      <!-- Tab 1: Audio / Catalog -->
+      <!-- Tab 1: Library & Reader -->
       <a href="/site/"
          role="tab"
-         aria-selected="{% if current_tab in ('site', 'audio') %}true{% else %}false{% endif %}"
-         class="min-h-[44px] min-w-[44px] px-3.5 py-2 inline-flex items-center justify-center gap-1.5 rounded-lg text-xs font-mono font-medium transition touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none {% if current_tab in ('site', 'audio') %}bg-stone-800 text-amber-400 border border-amber-500/30 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-100 hover:bg-stone-900 border border-transparent{% endif %}">
+         aria-selected="{% if current_tab in ('site', 'reader', 'audio') %}true{% else %}false{% endif %}"
+         class="min-h-[44px] min-w-[44px] px-3.5 py-2 inline-flex items-center justify-center gap-1.5 rounded-lg text-xs font-mono font-medium transition touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none {% if current_tab in ('site', 'reader', 'audio') %}bg-stone-800 text-amber-400 border border-amber-500/30 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-100 hover:bg-stone-900 border border-transparent{% endif %}">
         <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
         </svg>
-        <span>Audio</span><span class="hidden xl:inline text-stone-400 font-normal"> / Catalog</span>
+        <span>Library &amp; Reader</span>
       </a>
 
       <!-- Tab 2: IDE -->
@@ -63,18 +63,7 @@
         <span>IDE</span>
       </a>
 
-      <!-- Tab 3: Reader -->
-      <a href="/read/parenthood-atlas/01-before-the-child-is-born"
-         role="tab"
-         aria-selected="{% if current_tab == 'reader' %}true{% else %}false{% endif %}"
-         class="min-h-[44px] min-w-[44px] px-3.5 py-2 inline-flex items-center justify-center gap-1.5 rounded-lg text-xs font-mono font-medium transition touch-manipulation focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none {% if current_tab == 'reader' %}bg-stone-800 text-amber-400 border border-amber-500/30 font-semibold shadow-inner{% else %}text-stone-400 hover:text-stone-100 hover:bg-stone-900 border border-transparent{% endif %}">
-        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-        </svg>
-        <span>Reader</span>
-      </a>
-
-      <!-- Tab 4: Analytics -->
+      <!-- Tab 3: Analytics -->
       <a href="/analytics"
          role="tab"
          aria-selected="{% if current_tab == 'analytics' %}true{% else %}false{% endif %}"

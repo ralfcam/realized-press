@@ -302,7 +302,7 @@ def test_mobile_navigation_responsive_classes_and_aria(client: TestClient):
     assert tablist.get("aria-label"), "Tablist missing aria-label"
 
     tabs = tablist.find_all("a", attrs={"role": "tab"})
-    assert len(tabs) >= 4, f"Expected 4 navigation tabs (Audio, IDE, Reader, Analytics), found {len(tabs)}"
+    assert len(tabs) >= 3, f"Expected at least 3 navigation tabs (Library & Reader, IDE, Analytics), found {len(tabs)}"
     for tab in tabs:
         assert tab.get("aria-selected") in ("true", "false"), f"Tab missing aria-selected attribute: {tab}"
         combined = " ".join(tab.get("class", []))

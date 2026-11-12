@@ -41,8 +41,8 @@ def test_site_view(client: TestClient) -> None:
     assert len(nav_tabs) >= 3, f"Expected at least 3 navigation tabs in nav, found {len(nav_tabs)}"
     active_tab = soup.find("a", attrs={"role": "tab", "aria-selected": "true"})
     assert active_tab is not None, "Expected active selected navigation tab in nav"
-    assert "audio" in active_tab.text.lower() or "site" in active_tab.text.lower(), (
-        f"Active tab should be Audio/Site on /site/, got '{active_tab.text.strip()}'"
+    assert any(term in active_tab.text.lower() for term in ["audio", "site", "library", "reader"]), (
+        f"Active tab should be Library/Reader/Audio/Site on /site/, got '{active_tab.text.strip()}'"
     )
 
     # 3. Multi-Series Catalog Container

@@ -307,6 +307,12 @@ def collect_book_data(book_path: Path, series_title: str, series_subtitle: str, 
 
     # Check for series.yaml title if single-volume or localized volume
     s_yaml = book_path / "series.yaml"
+    if not s_yaml.exists() and (book_path.parent / "series.yaml").exists():
+        s_yaml = book_path.parent / "series.yaml"
+
+    lenses = ["Science", "Interpretation", "Art"]
+    epistemic_contract = "Science → Interpretation → Art"
+
     if s_yaml.exists():
         import yaml
         try:
@@ -316,6 +322,10 @@ def collect_book_data(book_path: Path, series_title: str, series_subtitle: str, 
             book_id = cfg.get("slug", book_id)
             if cfg.get("language"):
                 lang = cfg.get("language")
+            if cfg.get("lenses"):
+                lenses = cfg.get("lenses")
+            if cfg.get("epistemic_contract"):
+                epistemic_contract = cfg.get("epistemic_contract")
         except Exception:
             pass
 
@@ -398,6 +408,29 @@ def collect_book_data(book_path: Path, series_title: str, series_subtitle: str, 
             clean_html = extract_clean_text(f, scaffold_manifest=scaffold, lang=lang)
             blocks_data = scaffold.get("blocks", [])
 
+        # Extract structured takeaways
+        takeaways = []
+        aside_m = re.search(r"<aside[^>]*class=['\"][^'\"]*takeaway[^'\"]*['\"][^>]*>(.*?)</aside>", content, re.DOTALL | re.IGNORECASE)
+        if aside_m:
+            for line in aside_m.group(1).strip().splitlines():
+                line = line.strip()
+                if line.startswith("- ") or line.startswith("* "):
+                    clean_line = line[2:].strip()
+                    m = re.match(r"^\*\*([^*]+)\*\*:\s*(.+)$", clean_line)
+                    if m:
+                        takeaways.append({"label": m.group(1).strip(), "text": m.group(2).strip()})
+                    else:
+                        takeaways.append({"label": "Takeaway", "text": clean_line})
+        if not takeaways:
+            movements = re.findall(r"^##\s+([IVXLCDM]+\.\s+[^#\n]+)", content, re.MULTILINE)
+            for mov in movements:
+                takeaways.append({"label": "Movement", "text": mov.strip()})
+
+        # Extract footnotes map
+        footnotes = {}
+        for m in re.finditer(r"\[\^([a-zA-Z0-9_\-]+)\]:\s*(.+?)(?=\n\[\^|\n## |\Z)", content, re.DOTALL):
+            footnotes[m.group(1).strip()] = m.group(2).strip()
+
         chapters.append({
             "num": idx,
             "stem": stem,
@@ -413,6 +446,8 @@ def collect_book_data(book_path: Path, series_title: str, series_subtitle: str, 
             "localUrl": local_url,
             "transcriptHtml": clean_html,
             "blocks": blocks_data,
+            "takeaways": takeaways,
+            "footnotes": footnotes,
             "lang": lang,
         })
 
@@ -428,6 +463,8 @@ def collect_book_data(book_path: Path, series_title: str, series_subtitle: str, 
         "coverSource": str(cover_source) if cover_source else None,
         "hasAudio": any(c["hasLocalMp3"] or c["hasLocalWav"] for c in chapters) or (release_tag == "v1.0-rc1" and book_id == "parenthood-atlas"),
         "hasNeuralAudio": any(c["hasNeuralAudio"] for c in chapters),
+        "lenses": lenses,
+        "epistemic_contract": epistemic_contract,
     }
 
 
