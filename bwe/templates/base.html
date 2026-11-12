@@ -75,6 +75,44 @@
   <!-- Alpine.js 3.14.8 -->
   <script defer src="https://unpkg.com/alpinejs@3.14.8/dist/cdn.min.js"></script>
 
+  <!-- Global Resilient Clipboard Helper (HTTPS & Non-Secure LAN Fallback) -->
+  <script>
+    window.copyToClipboard = function(text, el, successText, originalText, delay) {
+      function showSuccess() {
+        if (el) {
+          var prev = el.innerText;
+          el.innerText = successText || 'Copied!';
+          setTimeout(function() { el.innerText = originalText || prev || 'Copy'; }, delay || 1200);
+        }
+      }
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(showSuccess).catch(function() {
+          fallbackCopy(text, showSuccess);
+        });
+      } else {
+        fallbackCopy(text, showSuccess);
+      }
+    };
+    function fallbackCopy(text, cb) {
+      try {
+        var textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        textArea.style.top = "-999999px";
+        textArea.setAttribute("readonly", "");
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        if (cb) cb();
+      } catch (e) {
+        console.warn("Fallback clipboard copy failed:", e);
+      }
+    }
+  </script>
+
   {% block head %}{% endblock %}
 </head>
 <body class="bg-stone-950 text-stone-100 min-h-screen flex flex-col font-sans">

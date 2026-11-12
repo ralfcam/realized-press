@@ -12,6 +12,7 @@ from typing import Any, Dict, List, Optional
 import markdown
 import yaml
 from fastapi import FastAPI, Form, HTTPException, Request
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from jinja2_fragments.fastapi import Jinja2Blocks
@@ -160,6 +161,22 @@ def get_server_info(request: Request) -> dict:
         "host": request.url.hostname or "0.0.0.0",
         "port": request.url.port or 8080,
     }
+
+
+@app.exception_handler(StarletteHTTPException)
+async def custom_http_exception_handler(request: Request, exc: StarletteHTTPException):
+    if exc.status_code == 404 and "text/html" in request.headers.get("accept", ""):
+        return templates.TemplateResponse(
+            "404.html",
+            {
+                "request": request,
+                "current_tab": "site",
+                "detail": exc.detail,
+                "server_info": get_server_info(request),
+            },
+            status_code=404,
+        )
+    return JSONResponse(status_code=exc.status_code, content={"detail": exc.detail})
 
 
 def split_frontmatter_safe(text: str) -> tuple[str, str]:

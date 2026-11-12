@@ -490,6 +490,23 @@
             </div>
             
             <div class="flex items-center gap-2">
+              <div class="inline-flex items-center rounded-lg bg-stone-800 border border-stone-700 p-0.5" role="group" aria-label="Font size controls">
+                <button type="button"
+                        id="btn-font-decrease"
+                        onclick="adjustFontSize(-1)"
+                        aria-label="Decrease text size"
+                        class="min-h-[44px] min-w-[44px] px-2.5 py-1 text-xs font-mono font-bold text-stone-300 hover:text-stone-100 transition inline-flex items-center justify-center rounded focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
+                  A-
+                </button>
+                <button type="button"
+                        id="btn-font-increase"
+                        onclick="adjustFontSize(1)"
+                        aria-label="Increase text size"
+                        class="min-h-[44px] min-w-[44px] px-2.5 py-1 text-xs font-mono font-bold text-stone-300 hover:text-stone-100 transition inline-flex items-center justify-center rounded focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none">
+                  A+
+                </button>
+              </div>
+
               <button type="button"
                       id="btn-autoscroll"
                       onclick="toggleAutoScroll()"
@@ -1615,6 +1632,16 @@
       browserSpeakingIdx = -1;
     };
     window.speechSynthesis.speak(utter);
+  }
+
+  // --- Reader Font Size Scaling ---
+  let currentFontSizePercent = 100;
+  function adjustFontSize(delta) {
+    currentFontSizePercent = Math.max(80, Math.min(150, currentFontSizePercent + (delta * 10)));
+    const article = document.getElementById('reader-content');
+    if (article) {
+      article.style.fontSize = (currentFontSizePercent / 100) + 'rem';
+    }
   }
 
   // --- Auto-Scroll & Paragraph Sync ---
