@@ -15,7 +15,7 @@ sources:
     title: "Moore, Bergman, Anderson & Medley (2016), Cochrane, early skin-to-skin contact for healthy newborns"
 attenuation_tier: "robust_<20%"
 quantitative_anchors:
-  - "Moore et al. (2016) Cochrane systematic review of 46 randomized trials (N = 3,677 mother-infant dyads)"
+  - "Moore et al. (2016) Cochrane systematic review of 46 included randomized trials (38 trials with outcome data, N = 3,472 mother-infant dyads; 14 trials on 1-4 month breastfeeding, N = 887)"
   - "skin-to-skin contact in the first hour post-birth increases exclusive breastfeeding at 1 to 4 months (RR = 1.24, 95% CI [1.07, 1.43])"
   - "infant cardiorespiratory stabilization and thermal regulation significantly improved with reduction in crying duration"
 relates_to_cards:

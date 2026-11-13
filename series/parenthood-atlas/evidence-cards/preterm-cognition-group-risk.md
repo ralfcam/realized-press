@@ -15,9 +15,9 @@ sources:
     title: "Burstein, Aryeh & Geva (2024), Developmental Psychology, neonatal care and outcomes after preterm birth"
 attenuation_tier: "robust_<20%"
 quantitative_anchors:
-  - "Aarnoudse-Moens et al. (2009) meta-analysis of very preterm (<32 weeks) and extremely low birth weight cohorts"
-  - "standardized mean difference of -0.57 SD on cognitive test scores and -0.48 SD on academic achievement at school age"
-  - "70-80% of children born very preterm score within the typical cognitive range despite group-level risk shift"
+  - "Burstein, Aryeh & Geva (2024) meta-analysis of 161 studies (N = 39,799 children) on preterm vs term neurodevelopment"
+  - "global cognitive standardized mean difference of -0.57 SD (95% CI -0.63 to -0.52), roughly 7-9 developmental points"
+  - "relative risk gradient concentrates below 32 weeks' gestation despite wide individual distribution overlap with full-term peers"
 relates_to_cards:
   - "EXTENDS:fetal-growth-not-destiny"
   - "BOUNDS:neonatal-cardiopulmonary-transition"

@@ -128,7 +128,7 @@ El bebé que descansa sobre ese hombro sigue siendo el mismo tras recorrer la si
 <aside class="chapter-takeaway">
 ### Conclusiones del Capítulo 4: Lo que demuestra la evidencia frente a lo que puedes soltar
 
-- **Lo que demuestra la evidencia:** Dormir boca arriba sobre una superficie firme y despejada reduce a la mitad el riesgo de SMSL. Introducir alimentos con cacahuete en textura suave entre los 4 y 11 meses previene alrededor del 80 por ciento de las alergias al cacahuete en bebés con riesgo elevado. Los métodos conductuales de sueño ayudan a descansar sin perjudicar el apego seguro.
+- **Lo que demuestra la evidencia:** Dormir boca arriba sobre una superficie firme y despejada reduce a la mitad el riesgo de SMSL. Introducir alimentos con cacahuete en textura suave entre los 4 y 11 meses previene un 81 por ciento de las alergias al cacahuete en bebés con riesgo elevado. Los métodos conductuales de sueño ayudan a descansar sin perjudicar el apego seguro.
 - **Lo que puedes soltar:** No necesitas mantener al bebé en tu habitación más allá de los seis meses para prevenir el SMSL, ni adquirir máquinas de ruido blanco a volumen elevado. La alimentación autorregulada por el bebé (BLW) adaptada conlleva un riesgo de atragantamiento idéntico al de las papillas si se evitan alimentos duros o redondeados.
 - **La regla fundamental:** El sueño seguro y la introducción oportuna de alérgenos protegen la salud física, mientras que las rutinas de consuelo y descanso nocturno pueden adaptarse a la realidad de cada familia.
 </aside>

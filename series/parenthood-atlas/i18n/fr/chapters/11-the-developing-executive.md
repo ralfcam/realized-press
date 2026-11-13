@@ -75,7 +75,7 @@ Pourtant, lorsqu'Angeline Lillard et ses collègues ont passé au crible des dé
 
 La mise en garde s'avère encore plus nette pour les **applications numériques d'entraînement cérébral** destinées aux tout-petits. Dans les revues systématiques et les essais cliniques impartiaux, les observations **suggèrent** uniquement de **courts progrès limités à l'exercice répété** (*transfert proche*).[^ch11-ef-training] Des enfants qui passent des heures sur une application de mémoire progressent sur ce jeu précis et sur des exercices de laboratoire presque identiques.
 
-En revanche, dès que les chercheurs mesurent le **transfert dans la vie réelle** (*transfert lointain*) — écouter en classe, partager un jouet au square ou apprendre à lire —, les bénéfices tombent près de zéro.[^ch11-ef-training] L'attention d'un enfant ne grandit pas comme un muscle sur un appareil de musculation isolé. Elle prend racine dans le jeu physique, les discussions complices et la vie de famille.
+En revanche, dès que les chercheurs mesurent le **transfert dans la vie réelle** (*transfert lointain*) — écouter en classe, partager un jouet au square ou apprendre à lire —, les bénéfices tombent près de zéro.[^ch11-ef-training] L'attention d'un enfant ne grandit pas comme un muscle sur un appareil de musculation isolé. Elle prend racine dans le jeu physique comme « 1, 2, 3, soleil », les discussions complices et la vie de famille.
 
 ## V. L'exécutif d'emprunt et l'écologie de l'attente
 

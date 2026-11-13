@@ -114,7 +114,7 @@ The baby resting against that shoulder has not changed because we have traced he
 <aside class="chapter-takeaway">
 ### Chapter 4 Takeaways: What the Evidence Shows vs. What to Let Go Of
 
-- **What the Evidence Shows:** Supine safe sleep on a firm, flat surface cut SIDS rates by 50 percent. Introducing smooth peanut foods between 4 and 11 months prevents roughly 80 percent of peanut allergies in high-risk infants. Behavioral sleep methods help infants sleep without damaging attachment.
+- **What the Evidence Shows:** Supine safe sleep on a firm, flat surface cut SIDS rates by 50 percent. Introducing smooth peanut foods between 4 and 11 months prevents 81 percent of peanut allergies in high-risk infants. Behavioral sleep methods help infants sleep without damaging attachment.
 - **What You Can Let Go Of:** You do not need to keep a baby in your room past six months to prevent SIDS, nor do you need to buy loud white noise machines. Modified baby-led weaning carries similar choking risks to spoon-feeding when high-risk round foods are avoided.
 - **The Core Rule:** Safe sleep and timely allergen introduction protect physical health, while daily soothing and sleep routines can be tailored to your family's needs.
 </aside>

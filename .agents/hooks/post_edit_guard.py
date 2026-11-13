@@ -244,6 +244,7 @@ def _check_chapter_gates(path: Path, text: str) -> list[str]:
             compute_readability_metrics,
             load_jargon_dictionary,
             audit_micro_qa,
+            audit_takeaway_numeric_anchors,
         )
 
         for leak_label, leak_pat in ANTI_LEAKAGE_PATTERNS.items():
@@ -284,6 +285,10 @@ def _check_chapter_gates(path: Path, text: str) -> list[str]:
         micro_errs, micro_warns, _ = audit_micro_qa(body_before_notes, language=lang, chapter_slug=path.name)
         for err in micro_errs:
             notices.append(f"Micro-QA Hard Gate (`ARC-101`): {err.lstrip('- ')}")
+
+        # ARC-114: Takeaway Box Numeric Anchor Gate
+        for err in audit_takeaway_numeric_anchors(text, chapter_slug=path.name, language=lang):
+            notices.append(f"Takeaway Numeric Anchor Gate (`ARC-114`): {err.lstrip('- ')}")
     except Exception:
         pass
 

@@ -3,24 +3,24 @@ Status: PASS
 Edition: Reader Edition — Working Slice
 Renderer: fpdf2 2.8.9 / pypdf 6.0.0
 PDF: parenthood-atlas-reader-edition.pdf
-SHA-256: 0f03032770291968ab0cbceeefdff4d5ec91ac34aefb199d7d11cafb647ad9e6
-Bytes: 447,492
-Pages: 109 (109/109 nonblank)
+SHA-256: 6919a5c74e91b20f51c3d8d87343245cc671d43a6c7e0522081eaaf4cd23b349
+Bytes: 455,328
+Pages: 110 (110/110 nonblank)
 
 Chapters:
 - PASS · PDF page 2 · How to Use This Atlas: 2:00 AM Quick-Finder
 - PASS · PDF page 7 · Capítulo 1 — Antes de que nazca el niño
-- PASS · PDF page 14 · Capítulo 2 — El primer entorno
-- PASS · PDF page 21 · Capítulo 3 — La gran transición
-- PASS · PDF page 29 · Capítulo 4 — La relación reguladora
-- PASS · PDF page 37 · Capítulo 5 — El nacimiento de una mente
-- PASS · PDF page 44 · Capítulo 6 — La mente en movimiento
-- PASS · PDF page 51 · Capítulo 7 — El nacimiento del lenguaje
-- PASS · PDF page 58 · Capítulo 8 — El mundo que se expande
-- PASS · PDF page 64 · Capítulo 9 — La revolución emocional
-- PASS · PDF page 70 · Capítulo 10 — Límites, conducta y las primeras normas
-- PASS · PDF page 77 · Capítulo 11 — El ejecutivo en desarrollo
-- PASS · PDF page 84 · Capítulo 12 — Juego, imaginación y significado
-- PASS · PDF page 90 · Capítulo 13 — La ecología del desarrollo
-- PASS · PDF page 96 · Capítulo 14 — ¿Qué funciona de verdad?
-- PASS · PDF page 103 · Capítulo 15 — Tres años: ¿qué se ha construido?
+- PASS · PDF page 15 · Capítulo 2 — El primer entorno
+- PASS · PDF page 22 · Capítulo 3 — La gran transición
+- PASS · PDF page 30 · Capítulo 4 — La relación reguladora
+- PASS · PDF page 38 · Capítulo 5 — El nacimiento de una mente
+- PASS · PDF page 45 · Capítulo 6 — La mente en movimiento
+- PASS · PDF page 52 · Capítulo 7 — El nacimiento del lenguaje
+- PASS · PDF page 59 · Capítulo 8 — El mundo que se expande
+- PASS · PDF page 65 · Capítulo 9 — La revolución emocional
+- PASS · PDF page 71 · Capítulo 10 — Límites, conducta y las primeras normas
+- PASS · PDF page 78 · Capítulo 11 — El ejecutivo en desarrollo
+- PASS · PDF page 85 · Capítulo 12 — Juego, imaginación y significado
+- PASS · PDF page 91 · Capítulo 13 — La ecología del desarrollo
+- PASS · PDF page 97 · Capítulo 14 — ¿Qué funciona de verdad?
+- PASS · PDF page 104 · Capítulo 15 — Tres años: ¿qué se ha construido?

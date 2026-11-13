@@ -574,6 +574,65 @@ def audit_micro_qa(
     return hard_errors, warnings, metrics
 
 
+_ASIDE_BLOCK_RE = re.compile(r"<aside\b[^>]*>([\s\S]*?)</aside>", re.IGNORECASE)
+_NUM_TOKEN_RE = re.compile(
+    r"(?<![A-Za-zÀ-ÿ0-9_.βαγ])(\d+(?:[.,]\d+)?)(?![A-Za-zÀ-ÿ0-9_βαγºª])"
+)
+_TAKEAWAY_CROSSREF_NUM_RE = re.compile(
+    r"\b(?:chapter|chapters|cap[íi]tulo|cap[íi]tulos|chapitre|chapitres)\s+\d+"
+    r"(?:\s*(?:,|and|y|et|&|-|–|—)\s*\d+)*",
+    re.IGNORECASE,
+)
+
+
+def _extract_numeric_tokens(raw: str, language: str = "en") -> list[tuple[str, str]]:
+    """Extract (display_token, canonical_value) numeric anchors, normalized by locale."""
+    cleaned = re.sub(r"(?m)^\s{0,3}#{1,6}\s+.*$", " ", raw)
+    cleaned = re.sub(r"\[\^[^\]]+\]:?", " ", cleaned)
+    cleaned = _TAKEAWAY_CROSSREF_NUM_RE.sub(" ", cleaned)
+    cleaned = re.sub(r"(?<=[A-Za-zÀ-ÿ])-\d+(?:[.,]\d+)?\b", " ", cleaned)
+    cleaned = re.sub(r"[`*_]", "", cleaned)
+    cleaned = re.sub(r"(?<=\d)\s*[–—\-]\s*(?=\d)", " ", cleaned)
+    cleaned = re.sub(r"(?<=\d)[\u00a0\u202f ](?=\d{3}(?!\d))", "", cleaned)
+
+    tokens: list[tuple[str, str]] = []
+    for m in _NUM_TOKEN_RE.finditer(cleaned):
+        disp = m.group(1)
+        if language in {"es", "fr"}:
+            if re.fullmatch(r"[1-9]\d{0,2}(?:\.\d{3})+", disp):
+                canon = disp.replace(".", "")
+            else:
+                canon = disp.replace(",", ".")
+        else:
+            if re.fullmatch(r"[1-9]\d{0,2}(?:,\d{3})+", disp):
+                canon = disp.replace(",", "")
+            else:
+                canon = disp.replace(",", ".")
+        tokens.append((disp, canon))
+    return tokens
+
+
+def audit_takeaway_numeric_anchors(text: str, chapter_slug: str, language: str = "en") -> list[str]:
+    """Flag numeric thresholds inside <aside> blocks missing from non-aside body prose or ## Notes."""
+    asides = _ASIDE_BLOCK_RE.findall(text)
+    if not asides:
+        return []
+
+    non_aside_text = _ASIDE_BLOCK_RE.sub(" ", text)
+    anchored_canons = {canon for _, canon in _extract_numeric_tokens(non_aside_text, language=language)}
+
+    errors: list[str] = []
+    seen_missing: set[str] = set()
+    for aside_body in asides:
+        for disp, canon in _extract_numeric_tokens(aside_body, language=language):
+            if canon not in anchored_canons and disp not in seen_missing:
+                seen_missing.add(disp)
+                errors.append(
+                    f"- `{chapter_slug}` Takeaway box (`<aside>`) introduces unanchored numeric threshold `{disp}` missing from body prose or `## Notes`."
+                )
+    return errors
+
+
 def load_phrasal_poetics_spec(root: Path, book_path: Path | None = None, language: str = "en") -> dict:
     """Load style/phrasal-poetics.yml (or i18n/<lang>/style/phrasal-poetics.yml) with safe fallbacks."""
     import yaml
@@ -1392,6 +1451,7 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
     scaffolding_hits: list[str] = []
     leak_hits: list[str] = []
     jargon_hits: list[str] = []
+    takeaway_anchor_hits: list[str] = []
     readability_flags: list[str] = []
     citation_needed_total = 0
 
@@ -1497,6 +1557,9 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
         )
         micro_qa_hard_errors.extend(ch_hard_errs)
         micro_qa_warnings.extend(ch_warns)
+        takeaway_anchor_hits.extend(
+            audit_takeaway_numeric_anchors(text, chapter_slug=ch.name, language=language)
+        )
         sents_over = ch_metrics["over_breath_sents"]
         dense_p = ch_metrics["wall_of_text_paras"] + ch_metrics["density_paras"]
         emp_errs = ch_metrics["empirical_errors"]
@@ -1657,6 +1720,14 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
     else:
         lines.append("- **Pass:** Zero clinical jargon violations in body prose (100% isolated in `## Notes`).")
 
+    lines.extend(["", "### 6c. Takeaway Box Numeric Anchor Gate (`<aside>` -> Body/`## Notes`)"])
+    if takeaway_anchor_hits:
+        lines.extend(takeaway_anchor_hits)
+    else:
+        lines.append(
+            "- **Pass:** All quantitative thresholds inside Takeaway boxes (`<aside>`) are anchored in chapter prose or `## Notes`."
+        )
+
     if char_mentions:
         lines.extend(
             [
@@ -1768,6 +1839,7 @@ def audit_book(book_path: Path, use_gemini: bool = False, bestseller_strict: boo
         and not forbidden_hits
         and not scaffolding_hits
         and not leak_hits
+        and not takeaway_anchor_hits
         and not ec_failures
         and citation_needed_total == 0
     )

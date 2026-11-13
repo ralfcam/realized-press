@@ -12,13 +12,13 @@ sources:
     title: "BMC Medicine (2025), MoBa triangulation study"
   - id: ije-millennium-2017
     resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC5837524/
-    title: "Int J Epidemiol (2017), UK Millennium Cohort sibling design"
+    title: "Bekkhus et al. (2018), Int J Epidemiol, prenatal maternal anxiety and child emotional difficulties in a MoBa sibling design (PMC5837524)"
   - id: jaacap-meta-2021
     resource: https://doi.org/10.1016/j.jaac.2020.12.037
     title: "J Am Acad Child Adolesc Psychiatry, genetically informed meta-analysis (2021)"
   - id: lancet-psych-2018
     resource: https://doi.org/10.1016/S2215-0366(18)30225-6
-    title: "The Lancet Psychiatry (2018), children-of-twins design"
+    title: "Hannigan et al. (2018), The Lancet Psychiatry, maternal prenatal depressive symptoms and early-life psychopathology (MoBa children-of-twins/sibling design)"
   - id: probit-16yr-2018
     resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC5909901/
     title: "16-year follow-up of the PROBIT cluster-randomized trial, PLOS Medicine (2018)"
@@ -430,6 +430,66 @@ sources:
   - id: fenson-2007-cdi
     resource: https://doi.org/10.1037/t11538-000
     title: "Fenson et al. (2007), MacArthur-Bates Communicative Development Inventories: User's Guide and Technical Manual (2nd ed.)"
+  - id: berry-1999-nejm
+    resource: https://doi.org/10.1056/NEJM199911113412001
+    title: "Berry et al. (1999), NEJM, prevention of neural-tube defects with 400 mcg daily folic acid in China"
+  - id: donofrio-2014-paternal-age
+    resource: https://doi.org/10.1001/jamapsychiatry.2013.4525
+    title: "D'Onofrio et al. (2014), JAMA Psychiatry, paternal age at childbearing and offspring psychiatric and academic morbidity"
+  - id: gratten-2016-ng
+    resource: https://doi.org/10.1038/ng.3577
+    title: "Gratten et al. (2016), Nature Genetics, risk of psychiatric illness from advanced paternal age is not predominantly from de novo mutations"
+  - id: janecka-2017-tp
+    resource: https://doi.org/10.1038/tp.2016.294
+    title: "Janecka et al. (2017), Translational Psychiatry, advanced paternal age effects in neurodevelopmental disorders"
+  - id: petersen-2011-ajp
+    resource: https://doi.org/10.1176/appi.ajp.2010.10020252
+    title: "Petersen, Mortensen & Pedersen (2011), Am J Psychiatry, paternal age at birth of first child and risk of schizophrenia"
+  - id: hassold-hunt-2001
+    resource: https://doi.org/10.1038/35066065
+    title: "Hassold & Hunt (2001), Nature Reviews Genetics, the genesis of human aneuploidy"
+  - id: morris-2002-down
+    resource: https://doi.org/10.1136/jms.9.1.2
+    title: "Morris, Mutton & Alberman (2002), J Med Screen, maternal age-specific live birth prevalence of Down syndrome"
+  - id: rice-2009-pnas
+    resource: https://doi.org/10.1073/pnas.0808798106
+    title: "Rice et al. (2009), PNAS, disentangling prenatal and inherited influences in humans with an IVF cross-fostering design"
+  - id: rice-2010-psychol-med
+    resource: https://doi.org/10.1017/S0033291709005911
+    title: "Rice et al. (2010), Psychological Medicine, prenatal stress and offspring development in IVF cross-fostering"
+  - id: odonnell-2012-placenta
+    resource: https://doi.org/10.1016/j.psyneuen.2011.09.014
+    title: "O'Donnell et al. (2012), Psychoneuroendocrinology, maternal prenatal anxiety and downregulation of placental 11beta-HSD2"
+  - id: chapman-2013-physrev
+    resource: https://doi.org/10.1152/physrev.00020.2012
+    title: "Chapman, Holmes & Seckl (2013), Physiological Reviews, 11beta-hydroxysteroid dehydrogenases as tissue glucocorticoid gatekeepers"
+  - id: benediktsson-1997-cortisol
+    resource: https://doi.org/10.1046/j.1365-2265.1997.1230939.x
+    title: "Benediktsson et al. (1997), Clinical Endocrinology, placental 11beta-hydroxysteroid dehydrogenase regulation of fetal cortisol"
+  - id: hoekzema-2017-nn
+    resource: https://doi.org/10.1038/nn.4458
+    title: "Hoekzema et al. (2017), Nature Neuroscience, pregnancy leads to long-lasting changes in human brain structure"
+  - id: abraham-2014-pnas
+    resource: https://doi.org/10.1073/pnas.1402569111
+    title: "Abraham et al. (2014), PNAS, father's brain is sensitive to childcare experiences"
+  - id: goisis-2017-ije
+    resource: https://doi.org/10.1093/ije/dyw354
+    title: "Goisis, Schneider & Myrskyla (2017), Int J Epidemiol, reversing association between advanced maternal age and child cognitive ability"
+  - id: barclay-myrskyla-2016
+    resource: https://doi.org/10.1111/j.1728-4457.2016.00105.x
+    title: "Barclay & Myrskyla (2016), Population and Development Review, advanced maternal age and counterbalancing period trends"
+  - id: myrskyla-2017-gynaekologe
+    resource: https://doi.org/10.1007/s00129-017-4124-1
+    title: "Myrskyla, Barclay & Goisis (2017), Der Gynakologe, advantages of later motherhood"
+  - id: twenge-2003-jmf
+    resource: https://doi.org/10.1111/j.1741-3737.2003.00574.x
+    title: "Twenge, Campbell & Foster (2003), J Marriage Fam, parenthood and marital satisfaction meta-analytic review"
+  - id: doss-2009-jpsp
+    resource: https://doi.org/10.1037/a0013969
+    title: "Doss et al. (2009), J Pers Soc Psychol, effect of the transition to parenthood on relationship quality"
+  - id: britto-2017-lancet
+    resource: https://doi.org/10.1016/S0140-6736(16)31390-3
+    title: "Britto et al. (2017), The Lancet, nurturing care promoting early childhood development"
 ---
 
 # Master Source Catalog
@@ -458,9 +518,9 @@ These four live IDs will not acquire a Crossref journal DOI. They already have a
 | ID | Title | Resource | Cited By |
 |---|---|---|---|
 | `bmc-moba-2025` | BMC Medicine (2025), MoBa triangulation study | [https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-024-03834-w](https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-024-03834-w) | [prenatal-maternal-stress-anxiety](evidence-cards/prenatal-maternal-stress-anxiety.md) |
-| `ije-millennium-2017` | Int J Epidemiol (2017), UK Millennium Cohort sibling design | [https://pmc.ncbi.nlm.nih.gov/articles/PMC5837524/](https://pmc.ncbi.nlm.nih.gov/articles/PMC5837524/) | [prenatal-maternal-stress-anxiety](evidence-cards/prenatal-maternal-stress-anxiety.md) |
+| `ije-millennium-2017` | Bekkhus et al. (2018), Int J Epidemiol, prenatal maternal anxiety and child emotional difficulties in a MoBa sibling design (PMC5837524) | [https://pmc.ncbi.nlm.nih.gov/articles/PMC5837524/](https://pmc.ncbi.nlm.nih.gov/articles/PMC5837524/) | [prenatal-maternal-stress-anxiety](evidence-cards/prenatal-maternal-stress-anxiety.md) |
 | `jaacap-meta-2021` | Ahmadzadeh et al. (2021), JAACAP genetically informed meta-analysis | [https://doi.org/10.1016/j.jaac.2020.12.037](https://doi.org/10.1016/j.jaac.2020.12.037) | [prenatal-maternal-stress-anxiety](evidence-cards/prenatal-maternal-stress-anxiety.md) |
-| `lancet-psych-2018` | The Lancet Psychiatry (2018), children-of-twins design | [https://doi.org/10.1016/S2215-0366(18)30225-6](https://doi.org/10.1016/S2215-0366(18)30225-6) | [prenatal-maternal-stress-anxiety](evidence-cards/prenatal-maternal-stress-anxiety.md) |
+| `lancet-psych-2018` | Hannigan et al. (2018), The Lancet Psychiatry, maternal prenatal depressive symptoms and early-life psychopathology (MoBa children-of-twins/sibling design) | [https://doi.org/10.1016/S2215-0366(18)30225-6](https://doi.org/10.1016/S2215-0366(18)30225-6) | [prenatal-maternal-stress-anxiety](evidence-cards/prenatal-maternal-stress-anxiety.md) |
 | `probit-16yr-2018` | 16-year follow-up of the PROBIT cluster-randomized trial, PLOS Medicine (2018) | [https://pmc.ncbi.nlm.nih.gov/articles/PMC5909901/](https://pmc.ncbi.nlm.nih.gov/articles/PMC5909901/) | [breastfeeding-cognitive-development](evidence-cards/breastfeeding-cognitive-development.md) |
 | `sibling-comparison-2006` | Evenhouse & Reilly (2005), sibling comparisons of breastfeeding benefits | [https://pmc.ncbi.nlm.nih.gov/articles/PMC1361236/](https://pmc.ncbi.nlm.nih.gov/articles/PMC1361236/) | [breastfeeding-cognitive-development](evidence-cards/breastfeeding-cognitive-development.md) |
 | `nichd-seccyd-2006` | NICHD SECCYD findings booklet, NIH Publication No. 05-4318 (January 2006); no Crossref DOI | [https://www.nichd.nih.gov/sites/default/files/publications/pubs/documents/seccyd_06.pdf](https://www.nichd.nih.gov/sites/default/files/publications/pubs/documents/seccyd_06.pdf) | [early-childcare-quality](evidence-cards/early-childcare-quality.md) |
@@ -598,6 +658,26 @@ These four live IDs will not acquire a Crossref journal DOI. They already have a
 | `ou-hall-2018-postpartum-anger` | Ou & Hall (2018), Birth, Anger in the context of postnatal depression: An integrative review | [https://doi.org/10.1111/birt.12356](https://doi.org/10.1111/birt.12356) | [Chapter 13](chapters/13-the-ecology-of-development.md) |
 | `vermeer-2006-daycare-cortisol` | Vermeer & van IJzendoorn (2006), Early Childhood Research Quarterly, children's elevated cortisol levels at daycare meta-analysis | [https://doi.org/10.1016/j.ecresq.2006.07.004](https://doi.org/10.1016/j.ecresq.2006.07.004) | [early-childcare-quality](evidence-cards/early-childcare-quality.md) |
 | `fenson-2007-cdi` | Fenson et al. (2007), MacArthur-Bates Communicative Development Inventories: User's Guide and Technical Manual (2nd ed.) | [https://doi.org/10.1037/t11538-000](https://doi.org/10.1037/t11538-000) | [conversational-turns-language](evidence-cards/conversational-turns-language.md) |
+| `berry-1999-nejm` | Berry et al. (1999), NEJM, prevention of neural-tube defects with 400 mcg daily folic acid in China | [https://doi.org/10.1056/NEJM199911113412001](https://doi.org/10.1056/NEJM199911113412001) | [prenatal-folate-ntd](evidence-cards/prenatal-folate-ntd.md) |
+| `donofrio-2014-paternal-age` | D'Onofrio et al. (2014), JAMA Psychiatry, paternal age at childbearing and offspring psychiatric and academic morbidity | [https://doi.org/10.1001/jamapsychiatry.2013.4525](https://doi.org/10.1001/jamapsychiatry.2013.4525) | [paternal-age-de-novo-mutations](evidence-cards/paternal-age-de-novo-mutations.md) |
+| `gratten-2016-ng` | Gratten et al. (2016), Nature Genetics, risk of psychiatric illness from advanced paternal age is not predominantly from de novo mutations | [https://doi.org/10.1038/ng.3577](https://doi.org/10.1038/ng.3577) | [paternal-age-de-novo-mutations](evidence-cards/paternal-age-de-novo-mutations.md) |
+| `janecka-2017-tp` | Janecka et al. (2017), Translational Psychiatry, advanced paternal age effects in neurodevelopmental disorders | [https://doi.org/10.1038/tp.2016.294](https://doi.org/10.1038/tp.2016.294) | [paternal-age-de-novo-mutations](evidence-cards/paternal-age-de-novo-mutations.md) |
+| `petersen-2011-ajp` | Petersen, Mortensen & Pedersen (2011), Am J Psychiatry, paternal age at birth of first child and risk of schizophrenia | [https://doi.org/10.1176/appi.ajp.2010.10020252](https://doi.org/10.1176/appi.ajp.2010.10020252) | [paternal-age-de-novo-mutations](evidence-cards/paternal-age-de-novo-mutations.md) |
+| `hassold-hunt-2001` | Hassold & Hunt (2001), Nature Reviews Genetics, the genesis of human aneuploidy | [https://doi.org/10.1038/35066065](https://doi.org/10.1038/35066065) | [paternal-age-de-novo-mutations](evidence-cards/paternal-age-de-novo-mutations.md), [Chapter 1](chapters/01-before-the-child-is-born.md) |
+| `morris-2002-down` | Morris, Mutton & Alberman (2002), J Med Screen, maternal age-specific live birth prevalence of Down syndrome | [https://doi.org/10.1136/jms.9.1.2](https://doi.org/10.1136/jms.9.1.2) | [Chapter 1](chapters/01-before-the-child-is-born.md) |
+| `rice-2009-pnas` | Rice et al. (2009), PNAS, disentangling prenatal and inherited influences in humans with an IVF cross-fostering design | [https://doi.org/10.1073/pnas.0808798106](https://doi.org/10.1073/pnas.0808798106) | [prenatal-maternal-stress-anxiety](evidence-cards/prenatal-maternal-stress-anxiety.md) |
+| `rice-2010-psychol-med` | Rice et al. (2010), Psychological Medicine, prenatal stress and offspring development in IVF cross-fostering | [https://doi.org/10.1017/S0033291709005911](https://doi.org/10.1017/S0033291709005911) | [prenatal-maternal-stress-anxiety](evidence-cards/prenatal-maternal-stress-anxiety.md) |
+| `odonnell-2012-placenta` | O'Donnell et al. (2012), Psychoneuroendocrinology, maternal prenatal anxiety and downregulation of placental 11beta-HSD2 | [https://doi.org/10.1016/j.psyneuen.2011.09.014](https://doi.org/10.1016/j.psyneuen.2011.09.014) | [placenta-as-mediator](evidence-cards/placenta-as-mediator.md) |
+| `chapman-2013-physrev` | Chapman, Holmes & Seckl (2013), Physiological Reviews, 11beta-hydroxysteroid dehydrogenases as tissue glucocorticoid gatekeepers | [https://doi.org/10.1152/physrev.00020.2012](https://doi.org/10.1152/physrev.00020.2012) | [placenta-as-mediator](evidence-cards/placenta-as-mediator.md) |
+| `benediktsson-1997-cortisol` | Benediktsson et al. (1997), Clinical Endocrinology, placental 11beta-hydroxysteroid dehydrogenase regulation of fetal cortisol | [https://doi.org/10.1046/j.1365-2265.1997.1230939.x](https://doi.org/10.1046/j.1365-2265.1997.1230939.x) | [placenta-as-mediator](evidence-cards/placenta-as-mediator.md) |
+| `hoekzema-2017-nn` | Hoekzema et al. (2017), Nature Neuroscience, pregnancy leads to long-lasting changes in human brain structure | [https://doi.org/10.1038/nn.4458](https://doi.org/10.1038/nn.4458) | [Chapter 1](chapters/01-before-the-child-is-born.md) |
+| `abraham-2014-pnas` | Abraham et al. (2014), PNAS, father's brain is sensitive to childcare experiences | [https://doi.org/10.1073/pnas.1402569111](https://doi.org/10.1073/pnas.1402569111) | [Chapter 1](chapters/01-before-the-child-is-born.md) |
+| `goisis-2017-ije` | Goisis, Schneider & Myrskyla (2017), Int J Epidemiol, reversing association between advanced maternal age and child cognitive ability | [https://doi.org/10.1093/ije/dyw354](https://doi.org/10.1093/ije/dyw354) | [paternal-age-de-novo-mutations](evidence-cards/paternal-age-de-novo-mutations.md), [Chapter 1](chapters/01-before-the-child-is-born.md) |
+| `barclay-myrskyla-2016` | Barclay & Myrskyla (2016), Population and Development Review, advanced maternal age and counterbalancing period trends | [https://doi.org/10.1111/j.1728-4457.2016.00105.x](https://doi.org/10.1111/j.1728-4457.2016.00105.x) | [Chapter 1](chapters/01-before-the-child-is-born.md) |
+| `myrskyla-2017-gynaekologe` | Myrskyla, Barclay & Goisis (2017), Der Gynakologe, advantages of later motherhood | [https://doi.org/10.1007/s00129-017-4124-1](https://doi.org/10.1007/s00129-017-4124-1) | [Chapter 1](chapters/01-before-the-child-is-born.md) |
+| `twenge-2003-jmf` | Twenge, Campbell & Foster (2003), J Marriage Fam, parenthood and marital satisfaction meta-analytic review | [https://doi.org/10.1111/j.1741-3737.2003.00574.x](https://doi.org/10.1111/j.1741-3737.2003.00574.x) | [Chapter 1](chapters/01-before-the-child-is-born.md) |
+| `doss-2009-jpsp` | Doss et al. (2009), J Pers Soc Psychol, effect of the transition to parenthood on relationship quality | [https://doi.org/10.1037/a0013969](https://doi.org/10.1037/a0013969) | [Chapter 1](chapters/01-before-the-child-is-born.md) |
+| `britto-2017-lancet` | Britto et al. (2017), The Lancet, nurturing care promoting early childhood development | [https://doi.org/10.1016/S0140-6736(16)31390-3](https://doi.org/10.1016/S0140-6736(16)31390-3) | [Chapter 1](chapters/01-before-the-child-is-born.md), [Chapter 13](chapters/13-the-ecology-of-development.md) |
 
 ## Unresolved Citations
 

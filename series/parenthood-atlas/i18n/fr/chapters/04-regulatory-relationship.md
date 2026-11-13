@@ -118,7 +118,7 @@ Le petit être appuyé contre cette épaule n'a pas changé parce que nous venon
 <aside class="chapter-takeaway">
 ### Retenir l'essentiel : ce que montre la science face aux fausses inquiétudes
 
-- **Ce que la science démontre :** Le couchage sur le dos sur une surface ferme réduit de moitié le risque de mort inattendue du nourrisson. L'introduction précoce de l'arachide sous forme lisse entre 4 et 11 mois prévient environ 80 % des allergies chez les nourrissons à risque. Les méthodes comportementales d'accompagnement du sommeil aident l'enfant à s'endormir sans nuire à la qualité de l'attachement.
+- **Ce que la science démontre :** Le couchage sur le dos sur une surface ferme réduit de moitié le risque de mort inattendue du nourrisson. L'introduction précoce de l'arachide sous forme lisse entre 4 et 11 mois prévient 81 % des allergies chez les nourrissons à risque. Les méthodes comportementales d'accompagnement du sommeil aident l'enfant à s'endormir sans nuire à la qualité de l'attachement.
 - **Ce que vous pouvez lâcher :** Vous n'avez pas besoin de garder le berceau dans votre chambre au-delà de six mois, ni d'acheter des générateurs de bruit blanc assourdissants. La diversification menée par l'enfant (DME) présente des risques d'étouffement similaires à l'alimentation à la cuillère dès lors que les aliments ronds et durs sont écartés.
 - **La règle d'or :** Un sommeil sécurisé et une introduction précoce des allergènes protègent la santé physique de l'enfant ; les rituels d'endormissement et d'apaisement peuvent s'adapter librement aux besoins réels de votre famille.
 </aside>
